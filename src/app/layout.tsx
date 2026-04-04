@@ -3,6 +3,9 @@ import { DM_Sans, IBM_Plex_Mono, Syne } from "next/font/google";
 import "@/styles/precisar-design-tokens.css";
 import "./globals.css";
 import rootShell from "./root-layout.module.css";
+import { PageTransition } from "@/components/PageTransition";
+import { RevealInit } from "@/components/RevealInit";
+import { SmoothScrollProvider } from "@/components/SmoothScrollProvider";
 import { SITE } from "@/lib/site";
 
 const sans = DM_Sans({
@@ -55,7 +58,12 @@ export default function RootLayout({
       lang="es"
       className={`${sans.variable} ${display.variable} ${mono.variable} ${rootShell.htmlRoot}`}
     >
-      <body className={rootShell.bodyRoot}>{children}</body>
+      <body className={rootShell.bodyRoot}>
+        <SmoothScrollProvider>
+          <RevealInit />
+          <PageTransition overlayColor="var(--color-bg, #0e0e0e)">{children}</PageTransition>
+        </SmoothScrollProvider>
+      </body>
     </html>
   );
 }

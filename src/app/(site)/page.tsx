@@ -1,10 +1,5 @@
-import { PrecisarStudioHome } from "@/components/home/PrecisarStudioHome";
-import { PrecisarHeroLegacy } from "@/components/legacy/PrecisarHeroLegacy";
+import { MotionDemoPage } from "@/components/motion/MotionDemoPage";
 
 export default function HomePage() {
-  return (
-    <PrecisarStudioHome>
-      <PrecisarHeroLegacy />
-    </PrecisarStudioHome>
-  );
+  return <MotionDemoPage />;
 }

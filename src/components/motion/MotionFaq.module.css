@@ -1,0 +1,35 @@
+.list {
+  max-width: 48rem;
+  margin: 0 auto;
+  border-top: 1px solid color-mix(in oklab, var(--color-text-light, #f0f0ec) 18%, transparent);
+}
+
+.item {
+  border-bottom: 1px solid color-mix(in oklab, var(--color-text-light, #f0f0ec) 18%, transparent);
+}
+
+.summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 1.15rem 0;
+  font-family: var(--font-display, system-ui, sans-serif);
+  font-size: clamp(1rem, 2.2vw, 1.2rem);
+  font-weight: 600;
+  color: var(--color-text-light, #f0f0ec);
+}
+
+.summary::-webkit-details-marker {
+  display: none;
+}
+
+.panel {
+  overflow: hidden;
+  height: 0;
+}
+
+.answer {
+  padding-bottom: 1.15rem;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: color-mix(in oklab, var(--color-text-light, #f0f0ec) 72%, transparent);
+}

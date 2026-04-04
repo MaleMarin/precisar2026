@@ -1,0 +1,149 @@
+.page {
+  background: var(--color-bg, #0e0e0e);
+  color: var(--color-text-light, #f0f0ec);
+  min-height: 100vh;
+}
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: clamp(1.25rem, 4vw, 3rem);
+  padding-bottom: clamp(3rem, 10vw, 5rem);
+  overflow: hidden;
+}
+
+.heroVideo {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.heroVideoEl {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.heroScrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    to top,
+    var(--color-bg, #0e0e0e) 0%,
+    color-mix(in oklab, var(--color-bg, #0e0e0e) 40%, transparent) 50%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+.heroInner {
+  position: relative;
+  z-index: 2;
+  max-width: 72rem;
+}
+
+.heroTitle {
+  margin: 0;
+  font-family: var(--font-display, system-ui, sans-serif);
+  font-weight: 700;
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+  color: var(--color-text-light, #f0f0ec);
+}
+
+.heroSub {
+  margin: 1.5rem 0 0;
+  max-width: 36rem;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  line-height: 1.55;
+  color: color-mix(in oklab, var(--color-text-light, #f0f0ec) 75%, transparent);
+}
+
+.heroNote {
+  margin: 1rem 0 0;
+  font-size: 0.8rem;
+  color: color-mix(in oklab, var(--color-text-light, #f0f0ec) 45%, transparent);
+}
+
+.section {
+  padding: clamp(4rem, 12vw, 8rem) clamp(1.25rem, 4vw, 3rem);
+}
+
+.sectionInner {
+  max-width: 72rem;
+  margin: 0 auto;
+}
+
+.borderLine {
+  height: 2px;
+  width: min(100%, 28rem);
+  margin-bottom: 2rem;
+  background: var(--color-accent, #e63c2f);
+  transform-origin: left center;
+}
+
+.perspective {
+  perspective: 1000px;
+}
+
+.title3d {
+  margin: 0 0 1.5rem;
+  font-family: var(--font-display, system-ui, sans-serif);
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  color: var(--color-text-light, #f0f0ec);
+  transform-style: preserve-3d;
+}
+
+.bodyLines {
+  margin: 0;
+  max-width: 40rem;
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: color-mix(in oklab, var(--color-text-light, #f0f0ec) 78%, transparent);
+}
+
+.workGrid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 900px) {
+  .workGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.faqSection {
+  background: var(--color-bg, #0e0e0e);
+}
+
+.faqTitle {
+  margin: 0 0 2rem;
+  font-family: var(--font-display, system-ui, sans-serif);
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 700;
+  color: var(--color-text-light, #f0f0ec);
+}
+
+.lightBand {
+  background: var(--color-bg-light, #f0f0ec);
+  color: var(--color-text-dark, #1a1a1a);
+}
+
+.lightBand .title3d,
+.lightBand .bodyLines {
+  color: var(--color-text-dark, #1a1a1a);
+}
+
+.lightBand .bodyLines {
+  color: color-mix(in oklab, var(--color-text-dark, #1a1a1a) 75%, transparent);
+}
