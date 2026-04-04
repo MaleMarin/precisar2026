@@ -1,0 +1,61 @@
+/**
+ * Precisar — design tokens (capa home / PDS).
+ * Fondo claro por defecto. Un solo acento.
+ * Fuentes: Next/font inyecta --font-*-family en <html>.
+ */
+
+:root {
+  /* ─── Color (fondo claro + un acento) ─── */
+  --pds-color-bg: #f5f4f0;
+  --pds-color-bg-raised: #ebe9e2;
+  --pds-color-bg-field: #fffcf7;
+  --pds-color-fg: #0c0c0c;
+  --pds-color-fg-muted: rgba(12, 12, 12, 0.52);
+  --pds-color-fg-dim: rgba(12, 12, 12, 0.28);
+  --pds-color-accent: #c94a1e;
+  --pds-color-accent-soft: color-mix(in oklab, var(--pds-color-accent) 28%, transparent);
+  --pds-on-accent: #faf9f7;
+  --pds-color-border: rgba(12, 12, 12, 0.08);
+  --pds-color-border-strong: rgba(12, 12, 12, 0.16);
+
+  /* Menú fullscreen: capa oscura independiente del sitio claro */
+  --pds-overlay-scrim: rgba(6, 6, 6, 0.82);
+  --pds-overlay-fg: #f2f1ed;
+  --pds-overlay-fg-muted: rgba(242, 241, 237, 0.55);
+  --pds-overlay-border: rgba(255, 255, 255, 0.14);
+  --pds-overlay-accent: #e8a080;
+
+  /* ─── Tipografía ─── */
+  --pds-font-display: var(--font-display-family), system-ui, sans-serif;
+  --pds-font-sans: var(--font-sans-family), system-ui, sans-serif;
+  --pds-font-mono: var(--font-mono-family), ui-monospace, monospace;
+
+  --pds-text-hero: clamp(10vw, 12vw, 14vw);
+  --pds-text-hero-line: 0.9;
+  --pds-text-display: clamp(2.75rem, 11vw, 8rem);
+  --pds-text-display-line: 0.92;
+  --pds-text-title: clamp(1.5rem, 5vw, 3.5rem);
+  --pds-text-lead: clamp(1rem, 2.2vw, 1.35rem);
+  --pds-text-body: 1rem;
+  --pds-text-body-line: 1.65;
+  --pds-text-label: 0.625rem;
+  --pds-text-label-track: 0.24em;
+
+  /* ─── Espaciado ─── */
+  --pds-space-gutter: clamp(1rem, 4vw, 3.25rem);
+  --pds-space-section-y: clamp(4.5rem, 14vw, 11rem);
+  --pds-space-stack: clamp(1.25rem, 3vw, 2.5rem);
+
+  /* ─── Layout ─── */
+  --pds-max-width: 90rem;
+  --pds-max-prose: 40rem;
+
+  /* ─── Movimiento ─── */
+  --pds-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --pds-duration: 0.55s;
+
+  /* ─── z-index ─── */
+  --pds-z-menu: 9000;
+  --pds-z-logo: 8900;
+  --pds-z-overlay: 9500;
+}

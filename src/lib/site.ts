@@ -14,6 +14,29 @@ export const NEWSLETTER = {
   formActionUrl: process.env.NEXT_PUBLIC_NEWSLETTER_FORM_ACTION ?? null,
 } as const;
 
+function publicEnv(key: string): string | null {
+  const v = process.env[key]?.trim();
+  return v && v.length > 0 ? v : null;
+}
+
+/**
+ * Video del hero (home). Sin variables → no se renderiza `<video>` (solo fondo token).
+ *
+ * En `.env.local`:
+ * - `NEXT_PUBLIC_PRECISAR_HERO_MP4` — URL o ruta bajo `/public` (ej. `/media/hero.mp4`)
+ * - `NEXT_PUBLIC_PRECISAR_HERO_WEBM` — opcional
+ * - `NEXT_PUBLIC_PRECISAR_HERO_POSTER` — poster / fallback (ej. `/media/hero.webp`)
+ */
+export const HOME_HERO_MEDIA = {
+  videoMp4: publicEnv("NEXT_PUBLIC_PRECISAR_HERO_MP4"),
+  videoWebm: publicEnv("NEXT_PUBLIC_PRECISAR_HERO_WEBM"),
+  poster: publicEnv("NEXT_PUBLIC_PRECISAR_HERO_POSTER"),
+} as const;
+
+export function homeHeroHasVideo(): boolean {
+  return Boolean(HOME_HERO_MEDIA.videoMp4 || HOME_HERO_MEDIA.videoWebm);
+}
+
 export const EXTERNAL = {
   botOnda: "https://onda2026.vercel.app/chat",
   consultaCiudadana: "https://encuesta-informacion.web.app/consulta-2026/",

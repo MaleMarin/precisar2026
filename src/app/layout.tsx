@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { DM_Sans, IBM_Plex_Mono, Syne } from "next/font/google";
+import "@/styles/precisar-design-tokens.css";
 import "./globals.css";
+import rootShell from "./root-layout.module.css";
 import { SITE } from "@/lib/site";
 
 const sans = DM_Sans({
@@ -51,11 +53,9 @@ export default function RootLayout({
   return (
     <html
       lang="es"
-      className={`${sans.variable} ${display.variable} ${mono.variable} h-full antialiased`}
+      className={`${sans.variable} ${display.variable} ${mono.variable} ${rootShell.htmlRoot}`}
     >
-      <body className="min-h-full flex flex-col bg-[var(--bg)] text-[var(--fg)]">
-        {children}
-      </body>
+      <body className={rootShell.bodyRoot}>{children}</body>
     </html>
   );
 }

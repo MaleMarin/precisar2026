@@ -1,0 +1,15 @@
+/* Shell del documento sin Tailwind (resto del sitio sigue usando tokens legacy en globals.css). */
+.htmlRoot {
+  height: 100%;
+}
+
+.bodyRoot {
+  min-height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}

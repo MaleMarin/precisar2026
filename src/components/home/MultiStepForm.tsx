@@ -105,7 +105,7 @@ export function MultiStepForm({ categories, onSubmit }: MultiStepFormProps) {
   return (
     <div className={styles.root}>
       <p className={styles.stepLabel}>Paso 1 de 3 · Elige una o más</p>
-      <div className={styles.chipGrid}>
+      <div className={styles.chipRow}>
         {categories.map((c) => (
           <button
             key={c}

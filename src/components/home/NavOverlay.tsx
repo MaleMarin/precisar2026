@@ -4,6 +4,7 @@ import gsap from "gsap";
 import Link from "next/link";
 import {
   useCallback,
+  useEffect,
   useLayoutEffect,
   useRef,
   useState,
@@ -12,6 +13,12 @@ import styles from "./NavOverlay.module.css";
 
 export type NavOverlayLink = { href: string; label: string };
 
+export type NavOverlayContactLink = {
+  label: string;
+  href: string;
+  external?: boolean;
+};
+
 export type NavOverlayProps = {
   links: NavOverlayLink[];
   /** Video de fondo (desktop); en móvil se usa `mobileSrc`. */
@@ -19,6 +26,8 @@ export type NavOverlayProps = {
   videoMp4?: string;
   /** Imagen WebP (u otro) como fallback móvil y poster del video. */
   mobileSrc: string;
+  /** Enlaces secundarios bajo la navegación (redes, email, etc.). */
+  contactLinks?: NavOverlayContactLink[];
 };
 
 function prefersReducedMotion(): boolean {
@@ -31,6 +40,7 @@ export function NavOverlay({
   videoWebm,
   videoMp4,
   mobileSrc,
+  contactLinks,
 }: NavOverlayProps) {
   const [isOpen, setIsOpen] = useState(false);
   const overlayRef = useRef<HTMLDivElement>(null);
@@ -94,6 +104,13 @@ export function NavOverlay({
       tlRef.current?.kill();
     };
   }, [isOpen, animateOpen]);
+
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isOpen]);
 
   const open = () => setIsOpen(true);
   const close = () => {
@@ -172,6 +189,28 @@ export function NavOverlay({
               </li>
             ))}
           </ul>
+          {contactLinks?.length ? (
+            <ul className={styles.contactList}>
+              {contactLinks.map((c) => (
+                <li key={c.href + c.label}>
+                  {c.external ? (
+                    <a
+                      href={c.href}
+                      className={styles.contactLink}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      {c.label}
+                    </a>
+                  ) : (
+                    <Link href={c.href} className={styles.contactLink} onClick={() => close()}>
+                      {c.label}
+                    </Link>
+                  )}
+                </li>
+              ))}
+            </ul>
+          ) : null}
         </nav>
       </div>
     </>

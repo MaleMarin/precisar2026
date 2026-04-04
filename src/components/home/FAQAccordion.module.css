@@ -2,11 +2,11 @@
   list-style: none;
   margin: 0;
   padding: 0;
-  border-top: 1px solid var(--border, #d4d1c8);
+  border-top: 1px solid var(--pds-color-border);
 }
 
 .item {
-  border-bottom: 1px solid var(--border, #d4d1c8);
+  border-bottom: 1px solid var(--pds-color-border);
 }
 
 .trigger {
@@ -15,26 +15,33 @@
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding: 1.1rem 0;
+  padding: 1.25rem 0;
   text-align: left;
   background: none;
   border: none;
   cursor: pointer;
-  font-family: var(--font-display, system-ui, sans-serif);
-  font-size: 1rem;
+  font-family: var(--pds-font-display);
+  font-size: clamp(1rem, 2.5vw, 1.35rem);
   font-weight: 500;
-  color: var(--fg, #0c0c0b);
+  letter-spacing: -0.02em;
+  color: var(--pds-color-fg);
+  transition: color var(--pds-duration) var(--pds-ease);
+}
+
+.trigger:hover {
+  color: var(--pds-color-accent);
 }
 
 .chevron {
   flex-shrink: 0;
-  font-size: 0.75rem;
-  color: var(--muted, #5c5b54);
-  transition: transform 0.3s var(--ease-editorial, cubic-bezier(0.16, 1, 0.3, 1));
+  font-size: 0.7rem;
+  color: var(--pds-color-fg-dim);
+  transition: transform 0.35s var(--pds-ease);
 }
 
 .chevronOpen {
   transform: rotate(180deg);
+  color: var(--pds-color-accent);
 }
 
 .answerInner {
@@ -43,9 +50,9 @@
 }
 
 .answerText {
-  font-size: 0.9375rem;
-  line-height: 1.6;
-  color: var(--muted, #5c5b54);
-  padding-bottom: 1.1rem;
-  max-width: 40rem;
+  font-size: var(--pds-text-body);
+  line-height: var(--pds-text-body-line);
+  color: var(--pds-color-fg-muted);
+  padding-bottom: 1.25rem;
+  max-width: var(--pds-max-prose);
 }
