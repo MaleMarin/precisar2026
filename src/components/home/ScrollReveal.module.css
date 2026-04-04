@@ -1,0 +1,7 @@
+.root {
+  /* GSAP maneja opacity/transform; sin estilos de color aquí */
+}
+
+.child {
+  will-change: transform, opacity;
+}

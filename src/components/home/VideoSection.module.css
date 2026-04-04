@@ -1,0 +1,63 @@
+.root {
+  position: relative;
+  width: 100%;
+  min-height: min(70vh, 40rem);
+  overflow: hidden;
+}
+
+.mediaLayer {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.poster {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .video {
+    display: none;
+  }
+
+  .poster {
+    display: block;
+  }
+}
+
+.overlayChildren {
+  position: relative;
+  z-index: 1;
+  min-height: inherit;
+}
+
+.scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(
+    to top,
+    color-mix(in oklab, var(--band-ink, #121211) 75%, transparent) 0%,
+    transparent 55%
+  );
+  pointer-events: none;
+}
+
+.childrenSlot {
+  position: relative;
+  z-index: 1;
+  min-height: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: var(--gutter, 1.5rem);
+}

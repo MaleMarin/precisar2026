@@ -1,0 +1,140 @@
+.menuButton {
+  position: fixed;
+  top: var(--gutter, 1.25rem);
+  right: var(--gutter, 1.25rem);
+  z-index: 9000;
+  padding: 0.65rem 1.1rem;
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: 1px solid var(--border-strong, #0c0c0b);
+  background: var(--elevated, #fffcf7);
+  color: var(--fg, #0c0c0b);
+}
+
+.menuButton:hover {
+  background: var(--surface, #ebe8e0);
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9500;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  clip-path: inset(0 0 100% 0);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.overlayOpen {
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.videoBg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.videoBgFallback {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .videoBg {
+    display: none;
+  }
+
+  .videoBgFallback {
+    display: block;
+  }
+}
+
+.posterFull {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: color-mix(in oklab, var(--band-ink, #121211) 82%, transparent);
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: clamp(4rem, 12vw, 6rem) var(--gutter, 1.5rem);
+}
+
+.closeButton {
+  position: absolute;
+  top: var(--gutter, 1.25rem);
+  right: var(--gutter, 1.25rem);
+  z-index: 3;
+  width: 2.75rem;
+  height: 2.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid color-mix(in oklab, var(--band-ink-fg, #f2efe8) 35%, transparent);
+  background: transparent;
+  color: var(--band-ink-fg, #f2efe8);
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.closeButton:hover {
+  background: color-mix(in oklab, var(--band-ink-fg, #f2efe8) 10%, transparent);
+}
+
+.navList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  max-width: 28rem;
+}
+
+.navLink {
+  display: block;
+  padding: 0.85rem 0;
+  font-family: var(--font-display, system-ui, sans-serif);
+  font-size: clamp(1.5rem, 4vw, 2.25rem);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  color: var(--band-ink-fg, #f2efe8);
+  text-decoration: none;
+  border-bottom: 1px solid color-mix(in oklab, var(--band-ink-fg, #f2efe8) 18%, transparent);
+}
+
+.navLink:hover {
+  color: var(--accent-muted, #d4a08a);
+}

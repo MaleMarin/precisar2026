@@ -1,0 +1,95 @@
+.root {
+  max-width: 28rem;
+  border: 1px solid var(--border-strong, #0c0c0b);
+  background: var(--elevated, #fffcf7);
+  padding: 1.5rem;
+}
+
+.stepLabel {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.5625rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted, #5c5b54);
+  margin-bottom: 1rem;
+}
+
+.chipGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.chip {
+  padding: 0.5rem 0.85rem;
+  font-size: 0.8125rem;
+  border: 1px solid var(--border, #d4d1c8);
+  background: var(--bg, #f5f3ed);
+  color: var(--fg, #0c0c0b);
+  cursor: pointer;
+}
+
+.chipSelected {
+  border-color: var(--border-strong, #0c0c0b);
+  background: var(--surface-2, #e3dfd4);
+}
+
+.row {
+  margin-bottom: 1rem;
+}
+
+.label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--fg, #0c0c0b);
+  margin-bottom: 0.35rem;
+}
+
+.input,
+.textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.65rem 0.75rem;
+  border: 1px solid var(--border, #d4d1c8);
+  background: var(--bg, #f5f3ed);
+  color: var(--fg, #0c0c0b);
+  font-size: 0.9375rem;
+}
+
+.textarea {
+  min-height: 7rem;
+  resize: vertical;
+}
+
+.actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+}
+
+.btn {
+  padding: 0.65rem 1.1rem;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.5625rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: 1px solid var(--border-strong, #0c0c0b);
+  background: var(--fg, #0c0c0b);
+  color: var(--bg, #f5f3ed);
+}
+
+.btnSecondary {
+  background: transparent;
+  color: var(--fg, #0c0c0b);
+}
+
+.confirmTitle {
+  font-family: var(--font-display, system-ui, sans-serif);
+  font-size: 1.35rem;
+  font-weight: 500;
+  color: var(--fg, #0c0c0b);
+  margin: 0;
+}
