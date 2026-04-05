@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import PrecisarInteractivePanelsSitePreview from "./cinematic/_components/InteractivePanelsPreview";
 
 export const metadata: Metadata = {
-  title: { absolute: "Precisar · Instalación por capítulos" },
+  title: { absolute: "Precisar · Potencia el uso de la tecnología" },
   description:
-    "Sitio inmersivo por capítulos: scroll, máscaras y capas reactivas al cursor.",
+    "Potencia el uso de la tecnología. Sitio inmersivo por capítulos: scroll, máscaras y capas reactivas al cursor.",
 };
 
 export default function HomePage() {

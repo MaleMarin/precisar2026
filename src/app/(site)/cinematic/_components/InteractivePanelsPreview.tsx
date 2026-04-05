@@ -134,17 +134,19 @@ function ScrambleText({
     const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
     let frame = 0;
     const total = text.length + 12;
-    const interval = setInterval(() => {
-      frame += 1;
-      const next = text
+    const frameToString = (f: number) =>
+      text
         .split("")
         .map((ch, i) => {
           if (ch === " ") return " ";
-          if (frame > i + 4) return text[i];
-          return chars[(frame + i * 7) % chars.length];
+          if (f > i + 4) return text[i]!;
+          return chars[(f + i * 7) % chars.length]!;
         })
         .join("");
-      setDisplay(next);
+    setDisplay(frameToString(0));
+    const interval = setInterval(() => {
+      frame += 1;
+      setDisplay(frameToString(frame));
       if (frame > total) {
         setDisplay(text);
         clearInterval(interval);
@@ -249,8 +251,15 @@ function Header() {
     <header className="fixed left-0 right-0 top-0 z-50 mix-blend-difference pointer-events-none">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-6 lg:px-10">
         <div className="pointer-events-auto flex items-center gap-3">
-          <Link href="/" className="text-[12px] uppercase tracking-[0.38em] text-white">
-            Precisar
+          <Link href="/" className="isolate flex items-center mix-blend-normal">
+            <img
+              src="/logo-precisar/logo-precisar.png"
+              alt="Precisar"
+              width={200}
+              height={48}
+              className="h-5 w-auto max-h-7 object-contain object-left sm:h-6 sm:max-h-8 md:h-7"
+              decoding="async"
+            />
           </Link>
           <LanguageSwitcher />
         </div>
@@ -354,7 +363,7 @@ function Hero({ reduceMotion }: { reduceMotion: boolean }) {
   const pointer = useViewportPointer();
   const glow = `radial-gradient(circle at ${pointer.x * 100}% ${pointer.y * 100}%, rgba(0,0,0,0.12), transparent 18%)`;
   return (
-    <section className="relative overflow-hidden border-b border-black/8 bg-white">
+    <section className="relative overflow-x-clip border-b border-black/8 bg-white">
       <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.03)_1px,transparent_1px)] bg-[size:88px_88px] opacity-[0.12]" />
       <HeroConstellation reduceMotion={reduceMotion} />
       <div className="absolute inset-0" style={{ background: glow }} />
@@ -372,14 +381,19 @@ function Hero({ reduceMotion }: { reduceMotion: boolean }) {
 
         <div className="max-w-[1450px]">
           <motion.div
+            className="pt-2 pb-6 sm:pt-3 sm:pb-8"
             initial={reduceMotion ? false : { opacity: 0, y: 50, clipPath: "inset(100% 0 0 0)" }}
-            animate={{ opacity: 1, y: 0, clipPath: "inset(0% 0 0 0)" }}
+            animate={
+              reduceMotion
+                ? { opacity: 1, y: 0 }
+                : { opacity: 1, y: 0, clipPath: "inset(-6% -3% -12% -3%)" }
+            }
             transition={{ duration: reduceMotion ? 0 : 1.25, ease: EASE }}
           >
             <ScrambleText
               reduceMotion={reduceMotion}
               text={copy.heroTitle}
-              className="text-[15vw] font-semibold leading-[0.72] tracking-[-0.1em] text-black sm:text-[12vw] lg:text-[154px]"
+              className="text-[15vw] font-semibold leading-[1.08] tracking-[-0.1em] text-black sm:text-[12vw] lg:text-[154px]"
             />
           </motion.div>
           <motion.div

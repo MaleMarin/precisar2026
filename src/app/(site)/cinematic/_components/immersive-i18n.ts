@@ -137,7 +137,7 @@ export const immersiveCopy: Record<ImmersiveLocale, ImmersiveCopy> = {
       somos: "About us",
     },
     heroEyebrow: "radical · immersive · chapters",
-    heroTitle: "A site that behaves like an immersive, reactive, living installation.",
+    heroTitle: "Empower the use of technology",
     heroLead:
       "Going radical means you do not just look at the site: you move through it. It responds to the cursor, reveals chapters through masks, builds focus, tension, and a sense of active space.",
     heroBottom:
@@ -197,7 +197,7 @@ export const immersiveCopy: Record<ImmersiveLocale, ImmersiveCopy> = {
       somos: "Somos",
     },
     heroEyebrow: "radical · imersivo · capítulos",
-    heroTitle: "Um site que age como uma instalação imersiva, reativa e viva.",
+    heroTitle: "Potencia el uso de la tecnología",
     heroLead:
       "Ser radical significa que o site não se apenas olha: se atravessa. Reage ao cursor, revela capítulos com máscaras, cria foco, tensão e sensação de espaço ativo.",
     heroBottom:
