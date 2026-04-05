@@ -14,9 +14,13 @@ export const NEWSLETTER = {
   formActionUrl: process.env.NEXT_PUBLIC_NEWSLETTER_FORM_ACTION ?? null,
 } as const;
 
-/** Logos del footer (copiados desde `precisar2026/public` → `web/public`). */
+/**
+ * Wordmark cabecera / inmersivo: `public/logo-precisar/logo-precisar.png`.
+ * Pie: logo 2026 en `public/precisar logo 2026.png` (ruta con espacios, URL-encoded).
+ */
 export const FOOTER_MEDIA = {
-  logoWordmark: "/logo-precisar.png",
+  logoWordmark: "/logo-precisar/logo-precisar.png",
+  logoWordmarkFooter: "/precisar%20logo%202026.png",
   symbol: "/3.png",
 } as const;
 
@@ -50,61 +54,88 @@ export const EXTERNAL = {
 
 export type NavItem = { label: string; href: string };
 
+/** Barra superior: acceso a todas las grandes secciones del sitio (mapa precisar.net). */
 export const NAV_PRIMARY: NavItem[] = [
+  { label: "Inicio", href: "/" },
+  { label: "Participa", href: "/participa" },
+  { label: "Precisando", href: "/precisando" },
   { label: "Somos", href: "/somos" },
   { label: "Programas", href: "/programas" },
+  { label: "Educación mediática", href: "/educaciónmediática" },
   { label: "Saberes", href: "/saberes" },
-  { label: "Precisando", href: "/precisando" },
-  { label: "Participa", href: "/participa" },
   { label: "Agenda", href: "/agenda" },
 ];
 
+/** Subprogramas y recursos (referencia; el mapa completo está en FOOTER_COLUMNS). */
 export const NAV_SECONDARY: NavItem[] = [
   { label: "Hub Digital Consciente", href: "/programas/hub-digital-consciente" },
   { label: "Ciudades", href: "/programas/ciudades" },
   { label: "Aprender Digital", href: "/programas/aprender-digital" },
   { label: "Docentes", href: "/programas/docentes" },
+  { label: "Formación pensamiento crítico digital", href: "/aqui-no-pasa" },
+  { label: "Funcionarios públicos", href: "/programas/funcionarios-publicos" },
+  { label: "Leer noticias (era digital)", href: "/programas/leer-noticias-era-digital" },
   { label: "Aquí No Pasa", href: "/aqui-no-pasa" },
 ];
 
+/** Enlaces del bloque Saberes en landing Motion (4 entradas a colección y satélites). */
+export const SABERES_NAV_LINKS: NavItem[] = [
+  { label: "Saberes", href: "/saberes" },
+  { label: "Una pregunta al día", href: "/unapreguntaaldia" },
+  { label: "Sentidos digitales", href: "/experiencias/sentidos-digitales" },
+  { label: "Cultura digital", href: "/culturadigital" },
+];
+
+/**
+ * Mapa del sitio (precisar.net) — pie, documentación y bloques tipo estudio.
+ * Mantener alineado con rutas reales en `src/app/(site)/`.
+ */
 export const FOOTER_COLUMNS: { title: string; links: NavItem[] }[] = [
   {
-    title: "Organización",
+    title: "Navegación principal",
     links: [
-      { label: "Somos Precisar", href: "/somos" },
-      { label: "Participa / consulta", href: "/participa" },
-      { label: "Bot ONDA", href: EXTERNAL.botOnda },
-    ],
-  },
-  {
-    title: "Programas e iniciativas",
-    links: [
-      { label: "Hub Digital Consciente", href: "/programas/hub-digital-consciente" },
-      { label: "Ciudades conectadas", href: "/programas/ciudades" },
-      { label: "Aprender Digital: Nunca es Tarde", href: "/programas/aprender-digital" },
-      { label: "Educación mediática para docentes", href: "/programas/docentes" },
-      {
-        label: "Curso Leer Noticias (era digital)",
-        href: "/programas/leer-noticias-era-digital",
-      },
-      { label: "Funcionarios públicos", href: "/programas/funcionarios-publicos" },
-      { label: "Aquí No Pasa (curso)", href: "/aqui-no-pasa" },
-    ],
-  },
-  {
-    title: "Contenido",
-    links: [
-      { label: "Saberes / recursos", href: "/saberes" },
+      { label: "Inicio", href: "/" },
+      { label: "Participa", href: "/participa" },
       { label: "Precisando", href: "/precisando" },
+      { label: "Somos Precisar", href: "/somos" },
+    ],
+  },
+  {
+    title: "Qué hacemos",
+    links: [
+      { label: "Ver todos los programas", href: "/programas" },
+      { label: "Ciudades", href: "/programas/ciudades" },
+      { label: "Hub Digital Consciente", href: "/programas/hub-digital-consciente" },
+      { label: "Aprender Digital: Nunca es Tarde", href: "/programas/aprender-digital" },
+      { label: "Docentes", href: "/programas/docentes" },
+      { label: "Formación en pensamiento crítico digital", href: "/aqui-no-pasa" },
+      { label: "Funcionarios públicos", href: "/programas/funcionarios-publicos" },
+    ],
+  },
+  {
+    title: "Educación mediática",
+    links: [
+      { label: "Educación mediática", href: "/educaciónmediática" },
+      { label: "Agenda de Educación Mediática", href: "/agenda" },
+      { label: "AMI vs. alfabetización digital", href: "/ami-vs-alfabetización-digital" },
+      {
+        label: "Curso desinformación (Hub — PDF)",
+        href: "/programas/hub-digital-consciente",
+      },
+      { label: "Leer noticias en la era digital", href: "/programas/leer-noticias-era-digital" },
+    ],
+  },
+  {
+    title: "Saberes",
+    links: [
+      { label: "Saberes", href: "/saberes" },
       { label: "Una pregunta al día", href: "/unapreguntaaldia" },
       { label: "Sentidos digitales", href: "/experiencias/sentidos-digitales" },
       { label: "Cultura digital", href: "/culturadigital" },
-      { label: "Educación mediática (1 min)", href: "/educaciónmediática" },
-      { label: "AMI vs. alfabetización digital", href: "/ami-vs-alfabetización-digital" },
     ],
   },
   {
-    title: "Educación mediática ampliada",
+    title: "Ejes temáticos",
     links: [
       { label: "Comunicación", href: "/marco/comunicacion" },
       { label: "Educación", href: "/marco/educacion" },
@@ -113,10 +144,43 @@ export const FOOTER_COLUMNS: { title: string; links: NavItem[] }[] = [
     ],
   },
   {
-    title: "Legal",
+    title: "Blog — Precisando",
     links: [
-      { label: "Privacidad consulta 2026", href: "/legal/privacidad-consulta-2026" },
+      {
+        label: "Escuchar primero, implementar después",
+        href: "/precisando/escuchar-primero-implementar-después-la-metodología-de-precisar-para-construir-ciudades-ami",
+      },
+      {
+        label: "Democracia en la era digital y la IA",
+        href: "/precisando/democracia-en-la-era-dedigital-y-la-ia-desafíos-y-soluciones",
+      },
+      {
+        label: "Tres desafíos clave para la AMI en América Latina",
+        href: "/precisando/tres-desafíos-clave-para-la-alfabetización-mediática-en-américa-latina-lo-más-destacado-del-día-0-d",
+      },
+      {
+        label: "La misión crítica de la AMI — UNESCO",
+        href: "/precisando/la-misión-crítica-de-la-ami-la-unesco-redefine-su-estrategia-ante-la-era-de-la-ia-generativa",
+      },
+      {
+        label: "¿Cómo te informas hoy? (consulta ciudadana)",
+        href: "/precisando/cómo-te-informas-hoy-precisar-lanza-consulta-ciudadana-para-mejorar-el-acceso-a-la-información",
+      },
+      {
+        label: "Migración y desinformación en América Latina",
+        href: "/precisando/migración-y-conflictos-internacionales-dominan-las-tendencias-de-desinformación-en-américa-latina",
+      },
+      { label: "Todos los artículos", href: "/precisando" },
+    ],
+  },
+  {
+    title: "Legal y otros",
+    links: [
+      { label: "Política de privacidad", href: "/legal/privacidad-consulta-2026" },
+      { label: "Privacidad 2026 (consulta)", href: "/legal/privacidad-consulta-2026" },
       { label: "Privacidad Bot ONDA", href: "/legal/privacidad-bot-onda" },
+      { label: "Bot ONDA (conversar)", href: EXTERNAL.botOnda },
+      { label: "Consulta ciudadana (formulario)", href: EXTERNAL.consultaCiudadana },
     ],
   },
 ];

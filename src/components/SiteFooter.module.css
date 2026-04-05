@@ -13,16 +13,20 @@
   padding: 40px 0 20px;
 }
 
-.wordmark {
-  margin: 0;
+.wordmarkLink {
+  display: block;
+  line-height: 0;
+}
+
+/* PNG oficial del wordmark (gris sobre negro), ancho completo del contenedor */
+.logoWordmarkImg {
+  display: block;
+  width: 100%;
+  height: auto;
   max-width: 100%;
-  color: #b0ada8;
-  font-family: var(--font-display), system-ui, sans-serif;
-  font-size: clamp(80px, 15vw, 180px);
-  font-weight: 800;
-  letter-spacing: -2px;
-  line-height: 0.92;
-  text-transform: uppercase;
+  max-height: min(42vw, 380px);
+  object-fit: contain;
+  object-position: left bottom;
 }
 
 /* BLOQUE 2 */
@@ -38,10 +42,58 @@
 
 @media (min-width: 1024px) {
   .threeCol {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.45fr) minmax(0, 1fr);
     gap: 40px;
     align-items: start;
   }
+}
+
+/* Mapa del sitio (columna central) */
+.sitemapGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.75rem 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .sitemapGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.sitemapBlock {
+  min-width: 0;
+}
+
+.sitemapHeading {
+  margin: 0 0 12px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.sitemapList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sitemapLink {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.35;
+  color: rgba(255, 255, 255, 0.88);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.sitemapLink:hover {
+  color: #fff;
 }
 
 .newsTitle {
@@ -133,27 +185,6 @@
   margin-top: 12px;
   font-size: 12px;
   color: rgba(255, 255, 255, 0.45);
-}
-
-.navList {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.navLink {
-  font-size: 16px;
-  font-weight: 400;
-  color: #fff;
-  text-decoration: none;
-  transition: opacity 0.2s ease;
-}
-
-.navLink:hover {
-  opacity: 0.85;
 }
 
 .contactTitle {
@@ -262,7 +293,6 @@
 
 .privacyLink {
   display: inline-block;
-  margin-top: 16px;
   font-size: 12px;
   color: rgba(255, 255, 255, 0.45);
   text-decoration: underline;

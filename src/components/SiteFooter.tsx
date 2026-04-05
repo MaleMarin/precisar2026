@@ -1,17 +1,7 @@
 import Link from "next/link";
 import { footerContactRedirect } from "@/app/(site)/participa/actions";
-import { EXTERNAL, NEWSLETTER } from "@/lib/site";
+import { EXTERNAL, FOOTER_COLUMNS, FOOTER_MEDIA, NEWSLETTER } from "@/lib/site";
 import styles from "./SiteFooter.module.css";
-
-const FOOTER_NAV = [
-  { label: "Inicio", href: "/" },
-  { label: "Participa", href: "/participa" },
-  { label: "Qué Hacemos", href: "/programas" },
-  { label: "Educación Mediática", href: "/educaciónmediática" },
-  { label: "Saberes", href: "/saberes" },
-  { label: "Precisando", href: "/precisando" },
-  { label: "Somos Precisar", href: "/somos" },
-] as const;
 
 function WhatsAppIcon({ className }: { className?: string }) {
   return (
@@ -31,7 +21,17 @@ export function SiteFooter() {
     <footer className={styles.footer}>
       <div className={styles.block1}>
         <div className="prec-container">
-          <p className={styles.wordmark}>Precisar</p>
+          <Link href="/" className={styles.wordmarkLink}>
+            <img
+              src={FOOTER_MEDIA.logoWordmarkFooter}
+              alt="Precisar"
+              className={styles.logoWordmarkImg}
+              width={720}
+              height={160}
+              loading="lazy"
+              decoding="async"
+            />
+          </Link>
         </div>
       </div>
 
@@ -83,16 +83,37 @@ export function SiteFooter() {
             </div>
           </div>
 
-          <nav aria-label="Pie de página">
-            <ul className={styles.navList}>
-              {FOOTER_NAV.map((item) => (
-                <li key={item.href}>
-                  <Link href={item.href} className={styles.navLink}>
-                    {item.label}
-                  </Link>
-                </li>
+          <nav aria-label="Mapa del sitio">
+            <div className={styles.sitemapGrid}>
+              {FOOTER_COLUMNS.map((col) => (
+                <div key={col.title} className={styles.sitemapBlock}>
+                  <p className={styles.sitemapHeading}>{col.title}</p>
+                  <ul className={styles.sitemapList}>
+                    {col.links.map((item) => {
+                      const ext = item.href.startsWith("http");
+                      return (
+                        <li key={`${col.title}-${item.label}`}>
+                          {ext ? (
+                            <a
+                              href={item.href}
+                              className={styles.sitemapLink}
+                              target="_blank"
+                              rel="noreferrer"
+                            >
+                              {item.label}
+                            </a>
+                          ) : (
+                            <Link href={item.href} className={styles.sitemapLink}>
+                              {item.label}
+                            </Link>
+                          )}
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
               ))}
-            </ul>
+            </div>
           </nav>
 
           <div>
@@ -171,9 +192,14 @@ export function SiteFooter() {
               © {year} Precisar. Todos los derechos reservados. Onda de Precisar es una marca registrada y un servicio
               oficial de comunicación de la Fundación Precisar.
             </p>
-            <Link href="/legal/privacidad-consulta-2026" className={styles.privacyLink}>
-              Política de Privacidad
-            </Link>
+            <div className="mt-4 flex flex-wrap gap-x-6 gap-y-2">
+              <Link href="/legal/privacidad-consulta-2026" className={styles.privacyLink}>
+                Política de privacidad
+              </Link>
+              <Link href="/legal/privacidad-bot-onda" className={styles.privacyLink}>
+                Privacidad Bot ONDA
+              </Link>
+            </div>
           </div>
         </div>
         </div>

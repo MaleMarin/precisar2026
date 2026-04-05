@@ -5,6 +5,11 @@ export type SaberesResource = {
   body: string;
   href: string;
   label: string;
+  /** Imagen en `public/` (ej. `/saberes/covers/nombre.png`). */
+  coverImage?: string;
+  /** Página con experiencia ampliada (p. ej. tarjetas «Una pregunta al día»). */
+  experienceHref?: string;
+  experienceLabel?: string;
 };
 
 /** Títulos y PDFs actuales (misma fuente que el sitio previo). */
@@ -29,6 +34,8 @@ export const SABERES_RESOURCES: SaberesResource[] = [
       "Este recurso reúne 30 preguntas que invitan a observar con más atención nuestros hábitos digitales, emociones, decisiones y relaciones en línea. No están hechas para evaluar, sino para provocar curiosidad, conversación y pensamiento crítico.",
     href: PDFS.saberes30Preguntas,
     label: "DESCARGA",
+    experienceHref: "/unapreguntaaldia",
+    experienceLabel: "Ver 30 tarjetas",
   },
   {
     title: "Guía práctica de Inteligencia Artificial",

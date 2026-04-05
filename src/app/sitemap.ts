@@ -20,6 +20,7 @@ const STATIC_PATHS = [
   "/programas/leer-noticias-era-digital",
   "/programas/funcionarios-publicos",
   "/saberes",
+  "/saberes/recorrido",
   "/precisando",
   "/participa",
   "/participa/gracias",

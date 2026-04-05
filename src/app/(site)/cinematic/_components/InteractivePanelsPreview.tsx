@@ -10,6 +10,7 @@ import {
   useSpring,
   useTransform,
 } from "framer-motion";
+import { FOOTER_MEDIA } from "@/lib/site";
 import {
   CHAPTER_IDS,
   detectInitialLocale,
@@ -250,14 +251,14 @@ function Header() {
   return (
     <header className="fixed left-0 right-0 top-0 z-50 mix-blend-difference pointer-events-none">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-6 lg:px-10">
-        <div className="pointer-events-auto flex items-center gap-3">
+        <div className="pointer-events-auto flex items-center gap-4 md:gap-5">
           <Link href="/" className="isolate flex items-center mix-blend-normal">
             <img
-              src="/logo-precisar/logo-precisar.png"
+              src={FOOTER_MEDIA.logoWordmark}
               alt="Precisar"
-              width={200}
-              height={48}
-              className="h-5 w-auto max-h-7 object-contain object-left sm:h-6 sm:max-h-8 md:h-7"
+              width={360}
+              height={86}
+              className="h-12 w-auto max-w-[min(72vw,360px)] object-contain object-left brightness-0 sm:h-14 md:h-16 lg:h-[4.5rem]"
               decoding="async"
             />
           </Link>
@@ -606,44 +607,6 @@ function Chapters({ reduceMotion }: { reduceMotion: boolean }) {
   );
 }
 
-function Footer() {
-  const { copy } = useImmersiveLocale();
-  return (
-    <footer className="border-t border-black/8 bg-white">
-      <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10">
-        <div className="grid grid-cols-1 gap-16 lg:grid-cols-12 lg:items-end">
-          <div className="lg:col-span-8">
-            <div className="mb-5 text-[11px] uppercase tracking-[0.36em] text-black/36">{copy.footerKicker}</div>
-            <h2 className="text-[12vw] font-semibold leading-[0.74] tracking-[-0.1em] text-black sm:text-[9vw] lg:text-[112px]">
-              {copy.footerTitle}
-            </h2>
-          </div>
-          <div className="lg:col-span-4 flex flex-col gap-6 lg:items-end lg:text-right">
-            <div className="text-base leading-7 text-black/46 lg:text-lg lg:leading-8">{copy.footerBody}</div>
-            <div className="flex flex-wrap gap-4 text-[11px] uppercase tracking-[0.28em] text-black/40">
-              <Link href="/programas" className="border-b border-black/20 pb-0.5 hover:border-black">
-                {copy.footerLinks.programas}
-              </Link>
-              <Link href="/saberes" className="border-b border-black/20 pb-0.5 hover:border-black">
-                {copy.footerLinks.saberes}
-              </Link>
-              <Link href="/precisando" className="border-b border-black/20 pb-0.5 hover:border-black">
-                {copy.footerLinks.precisando}
-              </Link>
-              <Link href="/participa" className="border-b border-black/20 pb-0.5 hover:border-black">
-                {copy.footerLinks.participa}
-              </Link>
-              <Link href="/somos" className="border-b border-black/20 pb-0.5 hover:border-black">
-                {copy.footerLinks.somos}
-              </Link>
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
-  );
-}
-
 const CHAPTER_FREQ: Record<string, number> = Object.fromEntries(
   CHAPTER_IDS.map((id, i) => [id, 196 + i * 28])
 );
@@ -749,7 +712,7 @@ function ImmersiveInner() {
       <ProgressHUD active={active} />
       <Hero reduceMotion={reduceMotion} />
       <Chapters reduceMotion={reduceMotion} />
-      <Footer />
+      {/* El cierre del sitio (logo, newsletter, mapa, contacto, legal, WhatsApp) es el <SiteFooter /> global en SiteChrome. */}
     </div>
   );
 }

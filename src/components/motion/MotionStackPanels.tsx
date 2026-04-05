@@ -4,7 +4,7 @@ import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, type ComponentType, type ReactNode } from "react";
 import { MultiStepForm } from "@/components/home/MultiStepForm";
-import { EXTERNAL, FOOTER_COLUMNS, SITE } from "@/lib/site";
+import { EXTERNAL, FOOTER_COLUMNS, SITE, SABERES_NAV_LINKS } from "@/lib/site";
 import styles from "./MotionStackPanels.module.css";
 
 export type StackArticle = { slug: string; title: string; category: string };
@@ -354,8 +354,7 @@ export function MotionStackPanels({ featuredArticles, formCategories }: MotionSt
     { label: "Educación mediática · docentes", href: "/programas/docentes" },
   ];
 
-  const saberesLinks =
-    FOOTER_COLUMNS[2]?.links.slice(0, 4).map((l) => ({ label: l.label, href: l.href })) ?? [];
+  const saberesLinks = SABERES_NAV_LINKS.map((l) => ({ label: l.label, href: l.href }));
 
   const precisandoLinks = featuredArticles.slice(0, 4).map((a) => ({
     label: a.title,
@@ -368,7 +367,7 @@ export function MotionStackPanels({ featuredArticles, formCategories }: MotionSt
     { label: "Bot ONDA (conversar)", href: EXTERNAL.botOnda, external: true },
   ];
 
-  const footerCols = FOOTER_COLUMNS.slice(0, 4);
+  const footerCols = FOOTER_COLUMNS;
 
   const panels = [
     {
