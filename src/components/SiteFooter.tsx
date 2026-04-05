@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { footerContactRedirect } from "@/app/(site)/participa/actions";
-import { EXTERNAL, FOOTER_MEDIA, NEWSLETTER } from "@/lib/site";
+import { EXTERNAL, NEWSLETTER } from "@/lib/site";
 import styles from "./SiteFooter.module.css";
 
 const FOOTER_NAV = [
@@ -28,89 +28,66 @@ export function SiteFooter() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className={`mt-auto font-[family-name:var(--font-sans-family)]`}>
-      <div className={styles.brandStrip}>
+    <footer className={styles.footer}>
+      <div className={styles.block1}>
         <div className="prec-container">
-          <div className={styles.brandLogoWrap}>
-            <div className={styles.brandLogoCrop}>
-              <img
-                src="/logo-precisar/logo-precisar.png"
-                alt="Precisar"
-                style={{ width: "100%", maxWidth: "100%", height: "auto", display: "block" }}
-              />
-            </div>
-          </div>
-          <div className={styles.brandMarkRow}>
-            <img
-              src={FOOTER_MEDIA.symbol}
-              alt=""
-              aria-hidden
-              className={styles.logoSymbol}
-              width={96}
-              height={96}
-              loading="lazy"
-              decoding="async"
-            />
-          </div>
+          <p className={styles.wordmark}>Precisar</p>
         </div>
       </div>
 
-      <div className={`${styles.root} pt-5 pb-16 md:pt-6 md:pb-20 lg:pb-24`}>
+      <div className={styles.main}>
         <div className="prec-container">
-          <div className="mb-12 max-w-2xl md:mb-16">
-          <p className="text-lg font-medium leading-snug text-white md:text-xl">
-            Hay conversaciones que no caben en un post.
-          </p>
-          <p className="mt-5 text-sm leading-relaxed text-white/75 md:text-base">
-            Únete a nuestra comunidad y recibe análisis más profundos, recursos exclusivos y perspectivas del entorno
-            digital.
-          </p>
-          <p className="mt-6 text-sm font-medium text-white/90">Suscríbete aquí.</p>
+        <div className={styles.threeCol}>
+          <div>
+            <p className={styles.newsTitle}>Hay conversaciones que no caben en un post.</p>
+            <p className={styles.newsBody}>
+              Únete a nuestra comunidad y recibe análisis más profundos, recursos exclusivos y perspectivas del entorno
+              digital.
+            </p>
+            <p className={styles.newsCta}>Suscríbete aquí.</p>
 
-          <div className="mt-4">
-            <label className="mb-2 block text-xs tracking-wide text-white/70">
-              Correo electrónico <span className="text-white">*</span>
-            </label>
-            {NEWSLETTER.formActionUrl ? (
-              <form
-                action={NEWSLETTER.formActionUrl}
-                method="post"
-                className="flex flex-col gap-3 sm:flex-row sm:items-stretch"
-              >
-                <input
-                  type="email"
-                  name="email"
-                  required
-                  autoComplete="email"
-                  placeholder="escribe tu correo"
-                  className={styles.newsletterField}
-                />
-                <button type="submit" className={styles.btnSubscribe}>
-                  Suscribirme
-                </button>
-              </form>
-            ) : (
-              <div className="flex flex-col gap-3 sm:flex-row sm:items-end">
-                <Link
-                  href="/participa#boletin"
-                  className={`${styles.btnSubscribe} inline-flex w-full items-center justify-center text-center no-underline sm:w-auto`}
+            <div className={styles.newsForm}>
+              <label className={styles.newsLabel}>
+                Correo electrónico <span className="text-white">*</span>
+              </label>
+              {NEWSLETTER.formActionUrl ? (
+                <form
+                  action={NEWSLETTER.formActionUrl}
+                  method="post"
+                  className={styles.newsRow}
                 >
-                  Suscribirme
-                </Link>
-                <p className="text-xs text-white/45 sm:max-w-xs sm:pb-2">
-                  Completa tu correo en la sección Newsletter de Participa.
-                </p>
-              </div>
-            )}
-          </div>
+                  <input
+                    type="email"
+                    name="email"
+                    required
+                    autoComplete="email"
+                    placeholder="escribe tu correo"
+                    className={styles.newsletterField}
+                  />
+                  <button type="submit" className={styles.btnSubscribe}>
+                    Suscribirme
+                  </button>
+                </form>
+              ) : (
+                <>
+                  <div className={styles.newsRow}>
+                    <Link href="/participa#boletin" className={styles.btnSubscribe}>
+                      Suscribirme
+                    </Link>
+                  </div>
+                  <p className={styles.fallbackNote}>
+                    Completa tu correo en la sección Newsletter de Participa.
+                  </p>
+                </>
+              )}
+            </div>
           </div>
 
-          <div className="mb-12 grid gap-12 lg:mb-16 lg:grid-cols-2 lg:gap-16">
           <nav aria-label="Pie de página">
-            <ul className="space-y-4 text-sm md:text-base">
+            <ul className={styles.navList}>
               {FOOTER_NAV.map((item) => (
                 <li key={item.href}>
-                  <Link href={item.href} className="text-white/90 transition-colors hover:text-white">
+                  <Link href={item.href} className={styles.navLink}>
                     {item.label}
                   </Link>
                 </li>
@@ -119,54 +96,86 @@ export function SiteFooter() {
           </nav>
 
           <div>
-            <h2 className="text-lg font-medium tracking-tight text-white md:text-xl">Contáctanos</h2>
-            <form action={footerContactRedirect} className="mt-8 space-y-6">
-              <div>
-                <label className="mb-1 block text-xs text-white/65">
+            <h2 className={styles.contactTitle}>Contáctanos</h2>
+            <form action={footerContactRedirect} className={styles.contactForm}>
+              <div className={styles.field}>
+                <label className={styles.fieldLabel} htmlFor="footer-nombre">
                   Nombre <span className="text-white">*</span>
                 </label>
-                <input name="nombre" type="text" autoComplete="given-name" required className={styles.inputLine} />
+                <input
+                  id="footer-nombre"
+                  name="nombre"
+                  type="text"
+                  autoComplete="given-name"
+                  required
+                  className={styles.inputLine}
+                />
               </div>
-              <div>
-                <label className="mb-1 block text-xs text-white/65">
+              <div className={styles.field}>
+                <label className={styles.fieldLabel} htmlFor="footer-apellido">
                   Apellido <span className="text-white">*</span>
                 </label>
-                <input name="apellido" type="text" autoComplete="family-name" required className={styles.inputLine} />
+                <input
+                  id="footer-apellido"
+                  name="apellido"
+                  type="text"
+                  autoComplete="family-name"
+                  required
+                  className={styles.inputLine}
+                />
               </div>
-              <div>
-                <label className="mb-1 block text-xs text-white/65">
+              <div className={styles.field}>
+                <label className={styles.fieldLabel} htmlFor="footer-email">
                   Email <span className="text-white">*</span>
                 </label>
-                <input name="email" type="email" autoComplete="email" required className={styles.inputLine} />
+                <input
+                  id="footer-email"
+                  name="email"
+                  type="email"
+                  autoComplete="email"
+                  required
+                  className={styles.inputLine}
+                />
               </div>
-              <div>
-                <label className="mb-1 block text-xs text-white/65">
+              <div className={styles.field}>
+                <label className={styles.fieldLabel} htmlFor="footer-mensaje">
                   Mensaje <span className="text-white">*</span>
                 </label>
-                <textarea name="mensaje" rows={3} required className={`${styles.inputLine} resize-y min-h-[4.5rem]`} />
+                <textarea
+                  id="footer-mensaje"
+                  name="mensaje"
+                  rows={3}
+                  required
+                  className={`${styles.inputLine} min-h-[4.5rem] resize-y`}
+                />
               </div>
-              <button type="submit" className={styles.btnSend}>
-                Enviar
-              </button>
+              <div className={styles.btnSendWrap}>
+                <button type="submit" className={styles.btnSend}>
+                  Enviar
+                </button>
+              </div>
             </form>
           </div>
-          </div>
+        </div>
+        </div>
+      </div>
 
-          <div className="border-t border-white/10 pt-10 text-xs leading-relaxed text-white/55 md:text-sm">
-          <p className="max-w-xl">
+      <div className={styles.legal}>
+        <div className="prec-container">
+        <div className={styles.legalGrid}>
+          <p className={styles.legalLeft}>
             Precisar. Hecho con criterio en Chile 🇨🇱 y México 🇲🇽.
           </p>
-          <p className="mt-6 max-w-4xl">
-            © {year} Precisar. Todos los derechos reservados. Onda de Precisar es una marca registrada y un servicio
-            oficial de comunicación de la Fundación Precisar.
-          </p>
-          <Link
-            href="/legal/privacidad-consulta-2026"
-            className="mt-4 inline-block border-b border-white/30 pb-px text-white/80 transition-colors hover:border-white hover:text-white"
-          >
-            Política de Privacidad
-          </Link>
+          <div>
+            <p className={styles.legalRight}>
+              © {year} Precisar. Todos los derechos reservados. Onda de Precisar es una marca registrada y un servicio
+              oficial de comunicación de la Fundación Precisar.
+            </p>
+            <Link href="/legal/privacidad-consulta-2026" className={styles.privacyLink}>
+              Política de Privacidad
+            </Link>
           </div>
+        </div>
         </div>
       </div>
 
