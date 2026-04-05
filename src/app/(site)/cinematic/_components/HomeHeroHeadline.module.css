@@ -1,0 +1,77 @@
+@keyframes salida {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+}
+
+@keyframes entrada {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.headline {
+  font-weight: 600;
+  line-height: 1.08;
+  letter-spacing: -0.1em;
+  font-size: 15vw;
+}
+
+@media (min-width: 640px) {
+  .headline {
+    font-size: 12vw;
+  }
+}
+
+@media (min-width: 1024px) {
+  .headline {
+    font-size: 154px;
+  }
+}
+
+.line1 {
+  display: block;
+  color: #ffffff;
+  mix-blend-mode: difference;
+}
+
+.line2 {
+  display: block;
+  margin-top: 0.06em;
+  color: #db5227;
+  font-size: 1.08em;
+}
+
+.verbSlot {
+  display: block;
+  overflow: hidden;
+  height: 1.1em;
+}
+
+.verbIn {
+  display: block;
+  will-change: transform, opacity;
+  animation: entrada 0.4s ease forwards;
+}
+
+.verbShown {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.verbOut {
+  display: block;
+  will-change: transform, opacity;
+  animation: salida 0.35s ease forwards;
+}

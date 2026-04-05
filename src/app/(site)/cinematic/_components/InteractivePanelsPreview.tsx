@@ -22,8 +22,18 @@ import {
   type ImmersiveCopy,
   type ImmersiveLocale,
 } from "./immersive-i18n";
+import heroHeadline from "./HomeHeroHeadline.module.css";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
+
+const palabras = [
+  "Conecta.",
+  "Transforma.",
+  "Precisa.",
+  "Aprende.",
+  "Entiende.",
+  "Participa.",
+] as const;
 
 type ImmersiveLocaleContextValue = {
   locale: ImmersiveLocale;
@@ -117,45 +127,47 @@ function useActiveChapter(ids: readonly string[]) {
   return active;
 }
 
-function ScrambleText({
-  text,
-  className = "",
-  reduceMotion,
-}: {
-  text: string;
-  className?: string;
-  reduceMotion: boolean;
-}) {
-  const [display, setDisplay] = useState(text);
+function HomeHeroHeadline({ reduceMotion }: { reduceMotion: boolean }) {
+  const [index, setIndex] = useState(0);
+  const [mode, setMode] = useState<"in" | "shown" | "out">(reduceMotion ? "shown" : "in");
+
   useEffect(() => {
-    if (reduceMotion) {
-      setDisplay(text);
-      return;
+    if (reduceMotion) return;
+    if (mode === "in") {
+      const id = window.setTimeout(() => setMode("shown"), 400);
+      return () => window.clearTimeout(id);
     }
-    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-    let frame = 0;
-    const total = text.length + 12;
-    const frameToString = (f: number) =>
-      text
-        .split("")
-        .map((ch, i) => {
-          if (ch === " ") return " ";
-          if (f > i + 4) return text[i]!;
-          return chars[(f + i * 7) % chars.length]!;
-        })
-        .join("");
-    setDisplay(frameToString(0));
-    const interval = setInterval(() => {
-      frame += 1;
-      setDisplay(frameToString(frame));
-      if (frame > total) {
-        setDisplay(text);
-        clearInterval(interval);
-      }
-    }, 28);
-    return () => clearInterval(interval);
-  }, [text, reduceMotion]);
-  return <div className={className}>{display}</div>;
+    if (mode === "shown") {
+      const id = window.setTimeout(() => setMode("out"), 2500);
+      return () => window.clearTimeout(id);
+    }
+    const id = window.setTimeout(() => {
+      setIndex((i) => (i + 1) % palabras.length);
+      setMode("in");
+    }, 350);
+    return () => window.clearTimeout(id);
+  }, [mode, reduceMotion]);
+
+  const verbClass = reduceMotion
+    ? heroHeadline.verbShown
+    : mode === "in"
+      ? heroHeadline.verbIn
+      : mode === "out"
+        ? heroHeadline.verbOut
+        : heroHeadline.verbShown;
+
+  return (
+    <div className={heroHeadline.headline} aria-live="polite">
+      <span className={heroHeadline.line1}>Potencia la tecnología.</span>
+      <span className={heroHeadline.line2}>
+        <span className={heroHeadline.verbSlot}>
+          <span key={index} className={verbClass}>
+            {palabras[index]}
+          </span>
+        </span>
+      </span>
+    </div>
+  );
 }
 
 function AtmosphericFilm() {
@@ -391,11 +403,7 @@ function Hero({ reduceMotion }: { reduceMotion: boolean }) {
             }
             transition={{ duration: reduceMotion ? 0 : 1.25, ease: EASE }}
           >
-            <ScrambleText
-              reduceMotion={reduceMotion}
-              text={copy.heroTitle}
-              className="text-[15vw] font-semibold leading-[1.08] tracking-[-0.1em] text-black sm:text-[12vw] lg:text-[154px]"
-            />
+            <HomeHeroHeadline reduceMotion={reduceMotion} />
           </motion.div>
           <motion.div
             initial={reduceMotion ? false : { opacity: 0, y: 34 }}
