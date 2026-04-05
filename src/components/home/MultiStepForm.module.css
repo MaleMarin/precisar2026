@@ -116,6 +116,12 @@
   cursor: not-allowed;
 }
 
+.confirmBox {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
 .confirmTitle {
   font-family: var(--pds-font-display);
   font-size: var(--pds-text-title);
@@ -124,4 +130,24 @@
   letter-spacing: -0.03em;
   color: var(--pds-color-fg);
   margin: 0;
+}
+
+.confirmBody {
+  margin: 0;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  font-family: var(--pds-font-sans);
+  color: var(--pds-color-fg-muted);
+}
+
+.confirmLink {
+  color: var(--pds-color-accent);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color var(--pds-duration) var(--pds-ease);
+}
+
+.confirmLink:hover {
+  color: var(--pds-color-fg);
 }

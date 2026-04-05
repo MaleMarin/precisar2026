@@ -130,8 +130,13 @@ export function NavOverlay({
         onClick={toggle}
         aria-expanded={isOpen}
         aria-controls="nav-overlay-panel"
+        aria-label={isOpen ? "Cerrar menú" : "Abrir menú"}
       >
-        Menú
+        <span className={styles.menuBurger} aria-hidden>
+          <span className={styles.menuBurgerBar} />
+          <span className={styles.menuBurgerBar} />
+          <span className={styles.menuBurgerBar} />
+        </span>
       </button>
 
       <div

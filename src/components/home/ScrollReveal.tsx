@@ -65,8 +65,10 @@ export function ScrollReveal({
             stagger: 0.08,
             scrollTrigger: {
               trigger: root,
+              scroller: document.documentElement,
               start: "top 88%",
               once: true,
+              invalidateOnRefresh: true,
             },
           },
         );
@@ -82,8 +84,10 @@ export function ScrollReveal({
             delay,
             scrollTrigger: {
               trigger: root,
+              scroller: document.documentElement,
               start: "top 88%",
               once: true,
+              invalidateOnRefresh: true,
             },
           },
         );

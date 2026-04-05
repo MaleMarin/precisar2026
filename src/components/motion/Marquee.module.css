@@ -28,6 +28,14 @@
   white-space: nowrap;
 }
 
+.textSentence {
+  text-transform: none;
+  font-weight: 600;
+  font-size: clamp(1.65rem, 4.2vw, 3rem);
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+}
+
 .image {
   height: clamp(4rem, 10vw, 7rem);
   width: auto;

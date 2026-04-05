@@ -1,6 +1,8 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
+import { SITE } from "@/lib/site";
 import styles from "./MultiStepForm.module.css";
 
 export type MultiStepFormProps = {
@@ -43,8 +45,32 @@ export function MultiStepForm({ categories, onSubmit }: MultiStepFormProps) {
   if (step === 3) {
     return (
       <div className={styles.root}>
-        <p className={styles.stepLabel}>Paso 3 de 3</p>
-        <h2 className={styles.confirmTitle}>Mensaje recibido</h2>
+        <p className={styles.stepLabel}>Confirmación</p>
+        <div
+          className={styles.confirmBox}
+          role="status"
+          aria-live="polite"
+          aria-atomic="true"
+        >
+          <h2 className={styles.confirmTitle}>Gracias — mensaje registrado</h2>
+          <p className={styles.confirmBody}>
+            En un entorno con endpoint conectado, aquí mostrarías el envío real. Por ahora es una
+            vista previa local: tus datos no salen del navegador hasta que integres la acción del
+            formulario.
+          </p>
+          <p className={styles.confirmBody}>
+            Te respondemos en la casilla que indicaste cuando el flujo esté activo. Si necesitás
+            otra vía, escribí a{" "}
+            <a href={`mailto:${SITE.contactEmail}`} className={styles.confirmLink}>
+              {SITE.contactEmail}
+            </a>{" "}
+            o visitá{" "}
+            <Link href="/participa" className={styles.confirmLink}>
+              Participa
+            </Link>
+            .
+          </p>
+        </div>
       </div>
     );
   }

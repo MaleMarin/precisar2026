@@ -64,5 +64,7 @@ export function legacyRedirects() {
       destination: "/aqui-no-pasa",
       permanent: true,
     },
+    /** La instalación inmersiva vive en `/`; `/cinematic` queda como alias temporal. */
+    { source: "/cinematic", destination: "/", permanent: false },
   ];
 }

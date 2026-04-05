@@ -14,23 +14,25 @@ export const NEWSLETTER = {
   formActionUrl: process.env.NEXT_PUBLIC_NEWSLETTER_FORM_ACTION ?? null,
 } as const;
 
+/** Logos del footer (copiados desde `precisar2026/public` → `web/public`). */
+export const FOOTER_MEDIA = {
+  logoWordmark: "/logo-precisar.png",
+  symbol: "/3.png",
+} as const;
+
 function publicEnv(key: string): string | null {
   const v = process.env[key]?.trim();
   return v && v.length > 0 ? v : null;
 }
 
 /**
- * Video del hero (home). Sin variables → no se renderiza `<video>` (solo fondo token).
- *
- * En `.env.local`:
- * - `NEXT_PUBLIC_PRECISAR_HERO_MP4` — URL o ruta bajo `/public` (ej. `/media/hero.mp4`)
- * - `NEXT_PUBLIC_PRECISAR_HERO_WEBM` — opcional
- * - `NEXT_PUBLIC_PRECISAR_HERO_POSTER` — poster / fallback (ej. `/media/hero.webp`)
+ * Video del hero. Por defecto: `/videos/hero.mp4` (archivo en `public/videos/`).
+ * Sobreescribe con `.env.local`: `NEXT_PUBLIC_PRECISAR_HERO_MP4`, `WEBM`, `POSTER`.
  */
 export const HOME_HERO_MEDIA = {
-  videoMp4: publicEnv("NEXT_PUBLIC_PRECISAR_HERO_MP4"),
+  videoMp4: publicEnv("NEXT_PUBLIC_PRECISAR_HERO_MP4") ?? "/videos/hero.mp4",
   videoWebm: publicEnv("NEXT_PUBLIC_PRECISAR_HERO_WEBM"),
-  poster: publicEnv("NEXT_PUBLIC_PRECISAR_HERO_POSTER"),
+  poster: publicEnv("NEXT_PUBLIC_PRECISAR_HERO_POSTER") ?? "/studio/poster-1.svg",
 } as const;
 
 export function homeHeroHasVideo(): boolean {

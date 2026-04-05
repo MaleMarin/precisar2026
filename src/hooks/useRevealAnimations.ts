@@ -2,7 +2,7 @@
 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useEffect } from "react";
+import { useLayoutEffect } from "react";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -62,18 +62,63 @@ function ioFallbackReveal(el: HTMLElement): void {
   obs.observe(el);
 }
 
+function childElements(container: HTMLElement): HTMLElement[] {
+  return Array.from(container.children).filter((n): n is HTMLElement => n instanceof HTMLElement);
+}
+
+/** Lenis + ScrollTrigger: el scroller debe ser el mismo elemento del proxy (html). */
+function scrollTriggerBase(scroller: HTMLElement) {
+  return {
+    scroller,
+    start: "top 78%",
+    toggleActions: "play none none none" as const,
+    invalidateOnRefresh: true,
+  };
+}
+
+function scheduleScrollTriggerRefresh(): void {
+  const refresh = () => ScrollTrigger.refresh();
+  requestAnimationFrame(refresh);
+  requestAnimationFrame(() => requestAnimationFrame(refresh));
+}
+
 export function useRevealAnimations(routeKey: string): void {
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (typeof window === "undefined" || prefersReducedMotion()) return;
 
     let ctx: gsap.Context | undefined;
+    const scroller = document.documentElement;
+
+    const onLoad = () => ScrollTrigger.refresh();
+    window.addEventListener("load", onLoad);
 
     try {
       ctx = gsap.context(() => {
-        const stBase = {
-          start: "top 85%",
-          toggleActions: "play none none none" as const,
-        };
+        const stBase = scrollTriggerBase(scroller);
+
+        document.querySelectorAll<HTMLElement>("[data-reveal-stagger-group]").forEach((container) => {
+          const children = childElements(container);
+          if (children.length === 0) return;
+
+          const duration = numAttr(container, "data-reveal-duration", 0.95);
+          const stagger = numAttr(container, "data-reveal-stagger", 0.11);
+          const delay = numAttr(container, "data-reveal-delay", 0);
+          const dist = numAttr(container, "data-reveal-distance", 3.6) * 10;
+
+          gsap.set(children, { y: dist, opacity: 0, force3D: true });
+          gsap.to(children, {
+            y: 0,
+            opacity: 1,
+            duration,
+            delay,
+            stagger,
+            ease: "power4.out",
+            scrollTrigger: {
+              trigger: container,
+              ...stBase,
+            },
+          });
+        });
 
         document.querySelectorAll<HTMLElement>("[data-reveal]").forEach((el) => {
           const type = el.getAttribute("data-reveal");
@@ -91,7 +136,7 @@ export function useRevealAnimations(routeKey: string): void {
               opacity: startOpacity,
               duration,
               delay,
-              ease: "power3.out",
+              ease: "power4.out",
               transformPerspective: 1000,
               transformOrigin: "50% 100%",
               scrollTrigger: { trigger: el, ...stBase },
@@ -109,7 +154,7 @@ export function useRevealAnimations(routeKey: string): void {
               duration,
               delay,
               stagger,
-              ease: "power3.out",
+              ease: "power4.out",
               scrollTrigger: { trigger: el, ...stBase },
             });
             return;
@@ -121,7 +166,7 @@ export function useRevealAnimations(routeKey: string): void {
               opacity: 1,
               duration,
               delay,
-              ease: "power3.out",
+              ease: "power4.out",
               transformOrigin: "left center",
               scrollTrigger: { trigger: el, ...stBase },
             });
@@ -135,19 +180,20 @@ export function useRevealAnimations(routeKey: string): void {
               opacity: startOpacity,
               duration,
               delay,
-              ease: "power3.out",
+              ease: "power4.out",
               scrollTrigger: { trigger: el, ...stBase },
             });
           }
         });
 
-        requestAnimationFrame(() => ScrollTrigger.refresh());
+        scheduleScrollTriggerRefresh();
       });
     } catch {
       document.querySelectorAll<HTMLElement>("[data-reveal]").forEach(ioFallbackReveal);
     }
 
     return () => {
+      window.removeEventListener("load", onLoad);
       ctx?.revert();
     };
   }, [routeKey]);

@@ -1,147 +1,124 @@
 "use client";
 
+import Link from "next/link";
+import { useRef } from "react";
+import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
+import { ARTICLES } from "@/data/articles";
+import { NavOverlay } from "@/components/home/NavOverlay";
+import { EXTERNAL, HOME_HERO_MEDIA, NAV_PRIMARY, SITE } from "@/lib/site";
 import styles from "./MotionDemoPage.module.css";
+import { MotionHomeRails } from "./MotionHomeRails";
 import { Marquee } from "./Marquee";
-import { MotionFaq } from "./MotionFaq";
-import { WorkCard } from "./WorkCard";
+import { MotionStackPanels } from "./MotionStackPanels";
 
-const POSTER = "/studio/poster-1.svg";
+/** Texto de la franja en movimiento bajo el hero (titular + tagline). */
+const HERO_STRIP_TEXT = `Información con criterio · ${SITE.tagline} · `;
 
-const FAQ_ITEMS = [
-  {
-    question: "¿Qué es data-reveal?",
-    answer:
-      "Atributos en el HTML que un hook escanea al montar la ruta y animan con GSAP + ScrollTrigger (título 3D, líneas, borde, objeto).",
-  },
-  {
-    question: "¿Lenis y ScrollTrigger?",
-    answer:
-      "Lenis dispara ScrollTrigger.update en scroll; el RAF de Lenis va acoplado al ticker de GSAP para evitar desincronía.",
-  },
+const FORM_CATEGORIES = [
+  "Programas territoriales / ciudades",
+  "Formación docente",
+  "Hub y cultura digital",
+  "Cursos abiertos",
+  "Consulta o alianza",
+  "Prensa / medios",
 ];
 
+/** En desktop: accesos rápidos en barra fija; en móvil solo logo + menú hamburguesa. */
+const HOME_QUICK_NAV = NAV_PRIMARY.filter((n) => n.href !== "/agenda").slice(0, 5);
+
+const HERO_EASE = [0.22, 1, 0.36, 1] as const;
+
 export function MotionDemoPage() {
+  const reduceMotion = useReducedMotion();
+  const heroRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"],
+  });
+
+  const imgParallaxY = useTransform(scrollYProgress, [0, 1], [0, reduceMotion ? 0 : 118]);
+  const scrimParallaxY = useTransform(scrollYProgress, [0, 1], [0, reduceMotion ? 0 : 44]);
+  const contentParallaxY = useTransform(scrollYProgress, [0, 1], [0, reduceMotion ? 0 : -24]);
+
+  const featured = ARTICLES.slice(0, 4);
+  const railArticles = ARTICLES.slice(0, 6);
+
   return (
     <div className={styles.page}>
-      <header className={styles.hero}>
-        <div className={styles.heroVideo} aria-hidden>
-          <video
-            className={styles.heroVideoEl}
-            autoPlay
-            muted
-            playsInline
-            loop
-            poster={POSTER}
-          >
-            <source src="/videos/hero.mp4" type="video/mp4" />
-          </video>
-          <div className={styles.heroScrim} />
-        </div>
-        <div className={styles.heroInner}>
-          <h1
-            className={styles.heroTitle}
-            data-reveal="lines"
-            data-reveal-stagger="0.06"
-            data-reveal-duration="0.9"
-          >
-            {`Movimiento
-como sistema`}
-          </h1>
-          <p
-            className={styles.heroSub}
-            data-reveal="lines"
-            data-reveal-stagger="0.04"
-            data-reveal-duration="0.75"
-          >
-            {`Demo técnica: reveal + Lenis + tarjetas + marquee.
-Sin copiar contenido de terceros.`}
-          </p>
-          <p className={styles.heroNote}>
-            Coloca <code>/public/videos/hero.mp4</code> para el loop de fondo; si no existe, se ve el poster.
-          </p>
-        </div>
+      <header className={styles.homeTopBar}>
+        <Link href="/" className={styles.homeLogo}>
+          {SITE.name}
+        </Link>
+        <nav className={styles.homeQuickNav} aria-label="Accesos rápidos">
+          {HOME_QUICK_NAV.map((item) => (
+            <Link key={item.href} href={item.href} className={styles.homeQuickLink}>
+              {item.label}
+            </Link>
+          ))}
+        </nav>
       </header>
 
+      <NavOverlay
+        links={NAV_PRIMARY.map((n) => ({ href: n.href, label: n.label }))}
+        mobileSrc="/studio/menu-bg.svg"
+        contactLinks={[
+          { label: SITE.contactEmail, href: `mailto:${SITE.contactEmail}` },
+          { label: "Instagram", href: EXTERNAL.instagram, external: true },
+          { label: "YouTube", href: EXTERNAL.youtube, external: true },
+          { label: "Bot ONDA", href: EXTERNAL.botOnda, external: true },
+        ]}
+      />
+
+      <motion.header ref={heroRef} className={styles.hero}>
+        <motion.div className={styles.heroMediaWrap} style={{ y: imgParallaxY }} aria-hidden>
+          {/* Imagen estática: ilustra flujos sin peso de video; URL vía HOME_HERO_MEDIA.poster / env */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            className={styles.heroMediaImg}
+            src={HOME_HERO_MEDIA.poster}
+            alt=""
+            decoding="async"
+            fetchPriority="high"
+          />
+        </motion.div>
+        <motion.div className={styles.heroScrim} style={{ y: scrimParallaxY }} aria-hidden />
+
+        <motion.div className={styles.heroContentParallax} style={{ y: contentParallaxY }}>
+          <motion.div
+            className={styles.heroContent}
+            initial={reduceMotion ? false : { opacity: 0, y: 28 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.85, ease: HERO_EASE }}
+          >
+            <h1 className={styles.heroTitle}>Información con criterio</h1>
+            <p className={styles.heroTag}>{SITE.tagline}</p>
+            <div className={styles.heroCtas}>
+              <Link href="/programas" className={styles.heroCtaPrimary}>
+                Ver programas
+              </Link>
+              <Link href="/participa" className={styles.heroCtaGhost}>
+                Participa
+              </Link>
+            </div>
+          </motion.div>
+        </motion.div>
+
+        <p className={styles.heroScrollHint} aria-hidden>
+          Scroll
+        </p>
+      </motion.header>
+
       <Marquee
-        text="Precisar · criterio · información · cultura digital"
+        text={HERO_STRIP_TEXT.repeat(3)}
         bgColor="var(--color-bg, #0e0e0e)"
         textColor="var(--color-text-light, #f0f0ec)"
         height="lg"
+        uppercase={false}
       />
 
-      <section className={styles.section}>
-        <div className={styles.sectionInner}>
-          <div className={styles.workGrid}>
-            <WorkCard
-              title="Territorio"
-              tags={["AMI", "Participación"]}
-              posterSrc="/studio/poster-2.svg"
-              href="/programas/ciudades"
-            />
-            <WorkCard
-              title="Aula y docencia"
-              tags={["Mediación", "Recursos"]}
-              posterSrc="/studio/poster-3.svg"
-              href="/programas/docentes"
-            />
-            <WorkCard
-              title="Editorial"
-              tags={["Análisis", "Debates"]}
-              posterSrc="/studio/poster-4.svg"
-              href="/precisando"
-            />
-          </div>
-        </div>
-      </section>
+      <MotionHomeRails articles={railArticles} />
 
-      <Marquee
-        text="Scroll suave · GSAP · Framer · Next.js"
-        bgColor="var(--color-bg-light, #f0f0ec)"
-        textColor="var(--color-text-dark, #1a1a1a)"
-        height="md"
-      />
-
-      <section className={`${styles.section} ${styles.lightBand}`}>
-        <div className={styles.sectionInner}>
-          <div
-            className={styles.borderLine}
-            data-reveal="border"
-            data-reveal-duration="1.1"
-            aria-hidden
-          />
-          <div className={styles.perspective}>
-            <h2 className={styles.title3d} data-reveal="title" data-reveal-duration="1">
-              Título con perspectiva
-            </h2>
-          </div>
-          <p
-            className={styles.bodyLines}
-            data-reveal="lines"
-            data-reveal-stagger="0.05"
-            data-reveal-duration="0.8"
-          >
-            {`Las líneas se preparan en el hook:
-cada salto de línea genera un mask vertical.`}
-          </p>
-          <p
-            className={styles.bodyLines}
-            style={{ marginTop: "1.25rem" }}
-            data-reveal="object"
-            data-reveal-distance="2"
-            data-reveal-duration="0.7"
-            data-reveal-fade=""
-          >
-            Bloque object: desplazamiento vertical configurable con data-reveal-distance (×10 px).
-          </p>
-        </div>
-      </section>
-
-      <section className={`${styles.section} ${styles.faqSection}`}>
-        <div className={styles.sectionInner}>
-          <h2 className={styles.faqTitle}>Preguntas (details + GSAP)</h2>
-          <MotionFaq items={FAQ_ITEMS} />
-        </div>
-      </section>
+      <MotionStackPanels featuredArticles={featured} formCategories={FORM_CATEGORIES} />
     </div>
   );
 }

@@ -62,7 +62,10 @@ export default function Page() {
         </button>
       </form>
 
-      <h2 className="mt-16 font-[family-name:var(--font-display)] text-xl font-medium tracking-tight md:text-2xl">
+      <h2
+        id="boletin"
+        className="mt-16 scroll-mt-28 font-[family-name:var(--font-display)] text-xl font-medium tracking-tight md:text-2xl"
+      >
         Newsletter
       </h2>
       {NEWSLETTER.formActionUrl ? (

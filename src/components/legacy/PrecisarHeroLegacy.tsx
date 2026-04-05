@@ -37,14 +37,9 @@ export function PrecisarHeroLegacy() {
         <h1 className={styles.title}>{SITE.tagline}</h1>
         {hasVideo ? null : (
           <p className={styles.lead}>
-            El video del hero aún no está enlazado. Añade en{" "}
-            <code className={styles.code}>.env.local</code> las variables{" "}
-            <code className={styles.code}>NEXT_PUBLIC_PRECISAR_HERO_MP4</code> (obligatoria para
-            activar el video), y opcionalmente{" "}
-            <code className={styles.code}>NEXT_PUBLIC_PRECISAR_HERO_WEBM</code> y{" "}
-            <code className={styles.code}>NEXT_PUBLIC_PRECISAR_HERO_POSTER</code>. Los archivos
-            pueden vivir en <code className={styles.code}>public/media/</code> (ej.{" "}
-            <code className={styles.code}>/media/hero.mp4</code>).
+            Añade <code className={styles.code}>public/videos/hero.mp4</code> o define{" "}
+            <code className={styles.code}>NEXT_PUBLIC_PRECISAR_HERO_MP4</code> en{" "}
+            <code className={styles.code}>.env.local</code>.
           </p>
         )}
         <div className={styles.actions}>

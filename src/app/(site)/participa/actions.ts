@@ -9,3 +9,8 @@ import { redirect } from "next/navigation";
 export async function participaContactRedirect(_formData: FormData) {
   redirect("/participa/gracias");
 }
+
+/** Formulario “Contáctanos” del footer global. */
+export async function footerContactRedirect(_formData: FormData) {
+  redirect("/participa/gracias");
+}

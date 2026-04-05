@@ -7,13 +7,13 @@ import styles from "./SiteChrome.module.css";
 
 export function SiteChrome({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
-  const isStudioHome = pathname === "/";
+  const isStudioHome = pathname === "/" || pathname === "/cinematic" || pathname === "/atelier";
 
   return (
     <>
       {!isStudioHome ? <SiteHeader /> : null}
       <main className={isStudioHome ? styles.mainHome : styles.mainDefault}>{children}</main>
-      {!isStudioHome ? <SiteFooter /> : null}
+      <SiteFooter />
     </>
   );
 }
