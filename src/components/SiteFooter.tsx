@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { footerContactRedirect } from "@/app/(site)/participa/actions";
-import { EXTERNAL, FOOTER_MEDIA, NEWSLETTER, SITE } from "@/lib/site";
+import { EXTERNAL, FOOTER_MEDIA, NEWSLETTER } from "@/lib/site";
 import styles from "./SiteFooter.module.css";
 
 const FOOTER_NAV = [
@@ -34,13 +34,9 @@ export function SiteFooter() {
           <div className={styles.brandLogoWrap}>
             <div className={styles.brandLogoCrop}>
               <img
-                src={FOOTER_MEDIA.logoWordmark}
-                alt={SITE.name}
-                className={styles.logoWordmark}
-                width={1200}
-                height={280}
-                loading="lazy"
-                decoding="async"
+                src="/logo-precisar/logo-precisar.png"
+                alt="Precisar"
+                style={{ width: "100%", maxWidth: "100%", height: "auto", display: "block" }}
               />
             </div>
           </div>
