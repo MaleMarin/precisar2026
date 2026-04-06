@@ -69,7 +69,9 @@ html {
 body {
   background: var(--bg);
   color: var(--fg);
-  font-family: var(--font-sans);
+  /* Usar --font-sans-family (inyectada en <html> por next/font), no --font-sans del @theme:
+     si no, en body a veces cae solo en system-ui y casi no se nota el cambio de fuente. */
+  font-family: var(--font-sans-family), system-ui, sans-serif;
 }
 
 /* Fase 6 · foco visible (WCAG) sin anular estilos de componentes que ya lo definen */

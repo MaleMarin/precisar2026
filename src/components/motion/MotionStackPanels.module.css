@@ -34,6 +34,12 @@
   will-change: transform;
 }
 
+/** Panel “Qué nos convoca”: el contenido puede ser más alto que 100vh; scroll interno real. */
+.stickyPanelEditorial {
+  display: flex;
+  flex-direction: column;
+}
+
 .stickyPanelDark {
   border-color: #000;
   background: var(--stack-bg-dark);
@@ -127,6 +133,51 @@
     gap: 3rem;
     padding: 4rem 2.5rem;
   }
+}
+
+/* Saberes: dos columnas (frase + bajada | lista), sin aplastar la tarjeta */
+.gridSaberes {
+  align-items: flex-start;
+}
+
+@media (min-width: 1024px) {
+  .grid.gridSaberes {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 48px;
+  }
+
+  .grid.gridSaberes .colMain {
+    grid-column: 1;
+  }
+
+  .grid.gridSaberes .colAside {
+    grid-column: 2;
+  }
+}
+
+.colMainSaberes,
+.colAsideSaberes {
+  justify-content: flex-start;
+}
+
+.saberesHeadline {
+  margin: 0;
+  max-width: 560px;
+  font-family: var(--font-display, system-ui, sans-serif);
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: #0a0a0a;
+}
+
+.saberesBody {
+  margin: 0;
+  margin-top: 20px;
+  max-width: 480px;
+  font-size: 15px;
+  line-height: 1.65;
+  color: rgba(0, 0, 0, 0.5);
 }
 
 .panelMeta {
@@ -703,8 +754,9 @@
 .editorialPanelBody {
   position: relative;
   box-sizing: border-box;
-  height: 100%;
-  max-height: 100vh;
+  flex: 1 1 auto;
+  min-height: 0;
+  width: 100%;
   overflow-x: hidden;
   overflow-y: auto;
   padding: clamp(1.35rem, 3.2vw, 2.5rem) clamp(1.15rem, 2.8vw, 2.15rem);

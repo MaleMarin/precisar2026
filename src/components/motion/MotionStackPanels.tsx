@@ -339,6 +339,13 @@ function StackPanel({
     .filter(Boolean)
     .join(" ");
 
+  const isSaberes = id === "saberes";
+  const gridClass = isSaberes ? `${styles.grid} ${styles.gridSaberes}` : styles.grid;
+  const colMainClass = [styles.colMain, isSaberes ? styles.colMainSaberes : ""].filter(Boolean).join(" ");
+  const colAsideClass = [styles.colAside, isSaberes ? styles.colAsideSaberes : ""].filter(Boolean).join(" ");
+  const stackTitleClass = isSaberes ? styles.saberesHeadline : styles.displayTitle;
+  const stackBodyClass = isSaberes ? styles.saberesBody : bodyClass;
+
   const glowDrift = !reduceMotion ? styles.panelGlowDrift : "";
 
   const panelMotionStyle = {
@@ -352,9 +359,10 @@ function StackPanel({
   };
 
   if (editorialContent) {
+    const panelClassEditorial = `${panelClass} ${styles.stickyPanelEditorial}`.trim();
     return (
       <section ref={ref} className={styles.panelSection} id={id}>
-        <motion.div style={panelMotionStyle} className={panelClass}>
+        <motion.div style={panelMotionStyle} className={panelClassEditorial}>
           <div className={`${glowClass} ${glowDrift}`.trim()} aria-hidden />
           <motion.div style={{ scaleX: lineScale }} className={lineClass} aria-hidden />
           <motion.div style={{ y: contentY }} className={styles.editorialPanelBody}>
@@ -372,9 +380,9 @@ function StackPanel({
 
         <motion.div style={{ scaleX: lineScale }} className={lineClass} aria-hidden />
 
-        <motion.div style={{ y: contentY }} className={styles.grid}>
+        <motion.div style={{ y: contentY }} className={gridClass}>
           <motion.div
-            className={styles.colMain}
+            className={colMainClass}
             variants={mainBlockVariants}
             initial="hidden"
             whileInView="show"
@@ -391,17 +399,17 @@ function StackPanel({
                   <span>{label ?? ""}</span>
                 </motion.div>
               ) : null}
-              <motion.h2 className={styles.displayTitle} variants={mainItemVariants}>
+              <motion.h2 className={stackTitleClass} variants={mainItemVariants}>
                 {headline}
               </motion.h2>
-              <motion.p className={bodyClass} variants={mainItemVariants}>
+              <motion.p className={stackBodyClass} variants={mainItemVariants}>
                 {body}
               </motion.p>
             </div>
           </motion.div>
 
           <motion.div
-            className={styles.colAside}
+            className={colAsideClass}
             variants={asideVariants}
             initial="hidden"
             whileInView="show"
@@ -522,7 +530,7 @@ export function MotionStackPanels({
         "Consulta ciudadana, newsletter y canales abiertos. Contanos desde dónde trabajás y qué tema querés abordar.",
       child: (
         <>
-          <MiniList dark reduceMotion={reduceMotion} items={participaLinks} />
+          <MiniList dark glass glassExtraMargin reduceMotion={reduceMotion} items={participaLinks} />
           <div className={`${styles.asideSlot} ${styles.formScroll}`}>
             <MultiStepForm categories={formCategories} />
           </div>

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, DM_Sans, IBM_Plex_Mono, Syne } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 import "@/styles/precisar-design-tokens.css";
 import "./globals.css";
 import rootShell from "./root-layout.module.css";
@@ -8,29 +8,14 @@ import { RevealInit } from "@/components/RevealInit";
 import { SmoothScrollProvider } from "@/components/SmoothScrollProvider";
 import { SITE } from "@/lib/site";
 
-const sans = DM_Sans({
+const geistSans = Geist({
   variable: "--font-sans-family",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
 });
 
-const display = Syne({
-  variable: "--font-display-family",
-  subsets: ["latin"],
-  weight: ["500", "600", "700", "800"],
-});
-
-const mono = IBM_Plex_Mono({
+const geistMono = Geist_Mono({
   variable: "--font-mono-family",
   subsets: ["latin"],
-  weight: ["400", "500"],
-});
-
-/** Display editorial (portada lab / piezas de alto impacto). */
-const serifDisplay = Cormorant_Garamond({
-  variable: "--font-serif-display",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -63,7 +48,7 @@ export default function RootLayout({
   return (
     <html
       lang="es"
-      className={`${sans.variable} ${display.variable} ${mono.variable} ${serifDisplay.variable} ${rootShell.htmlRoot}`}
+      className={`${geistSans.className} ${geistSans.variable} ${geistMono.variable} ${rootShell.htmlRoot}`}
     >
       <body className={rootShell.bodyRoot}>
         <SmoothScrollProvider>

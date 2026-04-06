@@ -1,15 +1,21 @@
 /* Shell del documento sin Tailwind (resto del sitio sigue usando tokens legacy en globals.css). */
 .htmlRoot {
+  position: relative;
   height: 100%;
+  /* Misma familia que el cuerpo: los tokens usan --font-display-family aparte. */
+  --font-display-family: var(--font-sans-family);
+  /* Piezas que aún referencian serif editorial cargan Geist en lugar de Cormorant. */
+  --font-serif-display: var(--font-sans-family);
 }
 
 .bodyRoot {
+  position: relative;
   min-height: 100%;
   margin: 0;
   display: flex;
   flex-direction: column;
   background: var(--bg);
   color: var(--fg);
-  font-family: var(--font-sans);
+  font-family: var(--font-sans-family), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
 }

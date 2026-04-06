@@ -1,7 +1,7 @@
 /**
  * Precisar — design tokens (capa home / PDS).
  * Fondo claro por defecto. Un solo acento.
- * Fuentes: Next/font inyecta --font-*-family en <html>.
+ * Fuentes: Geist / Geist Mono vía Next/font en layout (--font-*-family en <html>).
  */
 
 :root {

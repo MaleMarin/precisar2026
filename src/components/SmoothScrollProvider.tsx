@@ -27,7 +27,7 @@ export function SmoothScrollProvider({ children }: { children: ReactNode }) {
     const scroller = document.documentElement;
     ScrollTrigger.scrollerProxy(scroller, {
       scrollTop(value) {
-        if (arguments.length && typeof value === "number") {
+        if (arguments.length && typeof value === "number" && Number.isFinite(value)) {
           lenis.scrollTo(value, { immediate: true });
         }
         return lenis.scroll;
@@ -45,7 +45,11 @@ export function SmoothScrollProvider({ children }: { children: ReactNode }) {
     lenis.on("scroll", ScrollTrigger.update);
 
     const tickerCb = (time: number) => {
-      lenis.raf(time * 1000);
+      try {
+        lenis.raf(time * 1000);
+      } catch {
+        /* Evitar que un fallo de Lenis congele todo el ticker de GSAP */
+      }
     };
     gsap.ticker.add(tickerCb);
     gsap.ticker.lagSmoothing(0);

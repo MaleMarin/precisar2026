@@ -20,14 +20,16 @@ export function GsapRouteFade({ children, overlayColor }: GsapRouteFadeProps) {
   useLayoutEffect(() => {
     const el = ref.current;
     if (!el) return;
+    gsap.set(el, { opacity: 1 });
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      gsap.set(el, { opacity: 1, y: 0 });
+      gsap.set(el, { y: 0 });
       return;
     }
+    // Solo desplazamiento: si opacity queda en 0 (ticker GSAP/Lenis), la página se ve en blanco.
     gsap.fromTo(
       el,
-      { opacity: 0, y: 18 },
-      { opacity: 1, y: 0, duration: 0.45, ease: "power2.out" },
+      { y: 14 },
+      { y: 0, duration: 0.4, ease: "power2.out" },
     );
   }, [pathname]);
 
