@@ -1,10 +1,15 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { useReducedMotion } from "framer-motion";
+import { getPreguntaDiaPair, PREGUNTA_DIA_PUBLIC_BASE } from "@/lib/preguntaDiaAssets";
 import styles from "./PreguntaDiaCards.module.css";
 
 const COUNT = 30;
+
+const IMAGE_SIZES =
+  "(max-width: 480px) 45vw, (max-width: 768px) 30vw, (max-width: 1100px) 22vw, (max-width: 1400px) 17vw, 14vw";
 
 export function PreguntaDiaCards({ pdfHref }: { pdfHref: string }) {
   const reduceMotion = useReducedMotion();
@@ -35,7 +40,13 @@ export function PreguntaDiaCards({ pdfHref }: { pdfHref: string }) {
         aria-label="Treinta tarjetas numeradas"
       >
         {Array.from({ length: COUNT }, (_, i) => (
-          <PreguntaCard key={i} index={i + 1} pdfHref={pdfHref} reduceMotion={!!reduceMotion} />
+          <PreguntaCard
+            key={i}
+            index={i + 1}
+            pair={getPreguntaDiaPair(i + 1)}
+            pdfHref={pdfHref}
+            reduceMotion={!!reduceMotion}
+          />
         ))}
       </div>
       <div className={styles.footerStrip}>
@@ -55,16 +66,61 @@ export function PreguntaDiaCards({ pdfHref }: { pdfHref: string }) {
 
 function PreguntaCard({
   index,
+  pair,
   pdfHref,
   reduceMotion,
 }: {
   index: number;
+  pair: [string, string] | null;
   pdfHref: string;
   reduceMotion: boolean;
 }) {
   const n = String(index).padStart(2, "0");
 
   if (reduceMotion) {
+    if (pair) {
+      const frontSrc = `${PREGUNTA_DIA_PUBLIC_BASE}/${pair[0]}`;
+      const backSrc = `${PREGUNTA_DIA_PUBLIC_BASE}/${pair[1]}`;
+      return (
+        <div
+          role="listitem"
+          className="flex min-h-0 flex-col gap-2 border border-[var(--border)] bg-[var(--elevated)] p-2"
+        >
+          <span className="font-[family-name:var(--font-display)] text-lg font-bold tabular-nums text-[var(--fg)]">
+            {n}
+          </span>
+          <div className="relative aspect-[3/4] w-full overflow-hidden border border-[var(--border)] bg-[var(--bg)]">
+            <Image
+              src={frontSrc}
+              alt={`Pregunta ${index}, frente`}
+              fill
+              sizes={IMAGE_SIZES}
+              className={styles.imageFill}
+            />
+          </div>
+          <p className="font-mono text-[7px] uppercase leading-snug tracking-wider text-[var(--muted)]">
+            Reverso (animación reducida):
+          </p>
+          <div className="relative aspect-[3/4] w-full overflow-hidden border border-[var(--border)] bg-[var(--fg)]">
+            <Image
+              src={backSrc}
+              alt={`Pregunta ${index}, reverso`}
+              fill
+              sizes={IMAGE_SIZES}
+              className={styles.imageFill}
+            />
+          </div>
+          <a
+            href={pdfHref}
+            target="_blank"
+            rel="noreferrer"
+            className="font-mono text-[8px] font-semibold uppercase tracking-wider text-[var(--accent)] underline underline-offset-2"
+          >
+            Abrir PDF
+          </a>
+        </div>
+      );
+    }
     return (
       <div
         role="listitem"
@@ -90,13 +146,85 @@ function PreguntaCard({
 
   return (
     <div role="listitem" className="min-h-0">
-      <FlipCard index={index} n={n} pdfHref={pdfHref} />
+      <FlipCard index={index} n={n} pair={pair} pdfHref={pdfHref} />
     </div>
   );
 }
 
-function FlipCard({ index, n, pdfHref }: { index: number; n: string; pdfHref: string }) {
+function FlipCard({
+  index,
+  n,
+  pair,
+  pdfHref,
+}: {
+  index: number;
+  n: string;
+  pair: [string, string] | null;
+  pdfHref: string;
+}) {
   const [open, setOpen] = useState(false);
+
+  if (pair) {
+    const frontSrc = `${PREGUNTA_DIA_PUBLIC_BASE}/${pair[0]}`;
+    const backSrc = `${PREGUNTA_DIA_PUBLIC_BASE}/${pair[1]}`;
+    return (
+      <button
+        type="button"
+        className={styles.card}
+        data-open={open}
+        aria-expanded={open}
+        aria-label={
+          open
+            ? `Pregunta ${index}, reverso visible. Clic para volver al frente.`
+            : `Pregunta ${index}. Clic para ver el reverso.`
+        }
+        onClick={() => setOpen((o) => !o)}
+      >
+        <span className={styles.inner}>
+          <span className={`${styles.face} ${styles.front} ${styles.faceBleed}`}>
+            <span className="sr-only">
+              Pregunta {index}, frente. Toca para voltear.
+            </span>
+            <div className={styles.imageArea}>
+              <Image
+                src={frontSrc}
+                alt=""
+                fill
+                sizes={IMAGE_SIZES}
+                className={styles.imageFill}
+                aria-hidden
+              />
+            </div>
+            <span className={`${styles.hint} px-2 pb-1 pt-1`}>Toca para voltear</span>
+          </span>
+          <span className={`${styles.face} ${styles.back} ${styles.faceBleed}`}>
+            <span className="sr-only">Pregunta {index}, reverso.</span>
+            <div className={`${styles.imageArea} relative`}>
+              <Image
+                src={backSrc}
+                alt=""
+                fill
+                sizes={IMAGE_SIZES}
+                className={styles.imageFill}
+                aria-hidden
+              />
+              <div className={styles.pdfLinkOverlay}>
+                <a
+                  href={pdfHref}
+                  target="_blank"
+                  rel="noreferrer"
+                  className={styles.pdfLinkOverlayLink}
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  Ver en PDF
+                </a>
+              </div>
+            </div>
+          </span>
+        </span>
+      </button>
+    );
+  }
 
   return (
     <button

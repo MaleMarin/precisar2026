@@ -106,13 +106,11 @@
   },
   "homePrecisando": {
     "stackKicker": "04 · Precisando",
-    "label": "Editorial",
     "stackHeadline": "Análisis y debates sobre cómo circula la información y qué efectos tiene.",
     "stackBody": "Porque la información está por todas partes — y entenderla es lo que marca la diferencia."
   },
   "homeSaberes": {
     "stackKicker": "03 · Saberes",
-    "label": "Colección",
     "stackHeadline": "Saber no es acumular datos. Es saber qué hacer con ellos.",
     "stackBody": "Tres colecciones de recursos abiertos — para reflexionar y expandir perspectivas."
   }

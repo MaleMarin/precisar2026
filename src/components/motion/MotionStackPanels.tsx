@@ -39,33 +39,6 @@ function IconBlocks({ className }: { className?: string }) {
   );
 }
 
-function IconDownload({ className }: { className?: string }) {
-  return (
-    <svg className={className} width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden>
-      <path
-        d="M12 4v12m0 0l-4-4m4 4l4-4M5 20h14"
-        stroke="currentColor"
-        strokeWidth="1.75"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
-function IconNewspaper({ className }: { className?: string }) {
-  return (
-    <svg className={className} width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden>
-      <path
-        d="M6 4h11a2 2 0 012 2v13H6a2 2 0 01-2-2V6a2 2 0 012-2zM8 8h6M8 12h6M8 16h4"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-      />
-    </svg>
-  );
-}
-
 function MiniList({
   items,
   dark = false,
@@ -348,7 +321,6 @@ function StackPanel({
     .join(" ");
 
   const isTwoColIntroLayout = id === "saberes" || id === "educacion-mediatica";
-  const saberesOnAccent = id === "saberes" && isAccent;
   const gridClass = isTwoColIntroLayout ? `${styles.grid} ${styles.gridSaberes}` : styles.grid;
   const colMainClass = [styles.colMain, isTwoColIntroLayout ? styles.colMainSaberes : ""]
     .filter(Boolean)
@@ -356,14 +328,10 @@ function StackPanel({
   const colAsideClass = [styles.colAside, isTwoColIntroLayout ? styles.colAsideSaberes : ""]
     .filter(Boolean)
     .join(" ");
-  const stackTitleClass = isTwoColIntroLayout
-    ? [styles.saberesHeadline, saberesOnAccent ? styles.saberesHeadlineOnAccent : ""].filter(Boolean).join(" ")
-    : styles.displayTitle;
-  const stackBodyClass = isTwoColIntroLayout
-    ? id === "educacion-mediatica"
-      ? `${styles.saberesBody} ${styles.saberesBodyPreline}`
-      : [styles.saberesBody, saberesOnAccent ? styles.saberesBodyOnAccent : ""].filter(Boolean).join(" ")
-    : bodyClass;
+  /** Misma tipografía en la columna izquierda que Precisando / Programas (titular display + bajada .body). */
+  const stackTitleClass = styles.displayTitle;
+  const stackBodyClass =
+    id === "educacion-mediatica" ? `${bodyClass} ${styles.saberesBodyPreline}`.trim() : bodyClass;
 
   const glowDrift = !reduceMotion ? styles.panelGlowDrift : "";
 
@@ -523,10 +491,10 @@ export function MotionStackPanels({
       id: "saberes",
       theme: "accent" as const,
       kicker: tSaberes("stackKicker"),
-      label: tSaberes("label"),
+      label: undefined,
       headline: tSaberes("stackHeadline"),
       body: tSaberes("stackBody"),
-      icon: IconDownload,
+      icon: undefined,
       child: (
         <MiniList dark glass glassExtraMargin reduceMotion={reduceMotion} items={saberesLinks} />
       ),
@@ -535,10 +503,10 @@ export function MotionStackPanels({
       id: "precisando",
       theme: "navy" as const,
       kicker: tPrecisando("stackKicker"),
-      label: tPrecisando("label"),
+      label: undefined,
       headline: tPrecisando("stackHeadline"),
       body: tPrecisando("stackBody"),
-      icon: IconNewspaper,
+      icon: undefined,
       child: (
         <MiniList
           dark

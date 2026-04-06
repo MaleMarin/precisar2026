@@ -107,6 +107,53 @@
   overflow: hidden;
 }
 
+.faceBleed {
+  padding: 0;
+  justify-content: flex-start;
+}
+
+.imageArea {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+}
+
+.imageFill {
+  object-fit: contain;
+  object-position: center;
+  background: color-mix(in oklab, var(--elevated) 88%, var(--bg));
+}
+
+.back .imageFill {
+  background: color-mix(in oklab, var(--fg) 22%, #0a0c12);
+}
+
+.pdfLinkOverlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0.45rem 0.5rem;
+  background: linear-gradient(to top, color-mix(in oklab, var(--fg) 88%, transparent), transparent);
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.pdfLinkOverlayLink {
+  pointer-events: auto;
+  font-family: ui-monospace, monospace;
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-shadow: 0 1px 2px rgb(0 0 0 / 55%);
+}
+
 .front {
   background: linear-gradient(
     155deg,

@@ -188,36 +188,8 @@
   justify-content: flex-start;
 }
 
-.saberesHeadline {
-  margin: 0;
-  max-width: 560px;
-  font-family: var(--font-display, system-ui, sans-serif);
-  font-size: clamp(32px, 4vw, 52px);
-  font-weight: 700;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
-  color: #0a0a0a;
-}
-
-.saberesBody {
-  margin: 0;
-  margin-top: 20px;
-  max-width: 480px;
-  font-size: 15px;
-  line-height: 1.65;
-  color: rgba(0, 0, 0, 0.5);
-}
-
 .saberesBodyPreline {
   white-space: pre-line;
-}
-
-.saberesHeadlineOnAccent {
-  color: #fff;
-}
-
-.saberesBodyOnAccent {
-  color: color-mix(in oklab, #fff 78%, transparent);
 }
 
 .panelMeta {
@@ -319,8 +291,8 @@
   max-width: 42rem;
   font-family: var(--font-display, system-ui, sans-serif);
   font-size: clamp(2.25rem, 6vw, 5.25rem);
-  font-weight: 500;
-  line-height: 0.95;
+  font-weight: 800;
+  line-height: 0.98;
   letter-spacing: -0.035em;
 }
 
@@ -334,17 +306,17 @@
 .body {
   margin-top: 2rem;
   max-width: 40rem;
-  font-size: 1.05rem;
-  line-height: 1.65;
+  font-size: 1.125rem;
+  line-height: 1.6;
   color: color-mix(in oklab, #0a0a0a 72%, transparent);
 }
 
 .bodyOnDark {
-  color: color-mix(in oklab, #fff 78%, transparent);
+  color: rgba(255, 255, 255, 0.85);
 }
 
 .bodyOnAccent {
-  color: color-mix(in oklab, #fff 88%, transparent);
+  color: rgba(255, 255, 255, 0.88);
 }
 
 .actions {
