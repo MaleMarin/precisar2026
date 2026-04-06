@@ -2,10 +2,6 @@
 .htmlRoot {
   position: relative;
   height: 100%;
-  /* Misma familia que el cuerpo: los tokens usan --font-display-family aparte. */
-  --font-display-family: var(--font-sans-family);
-  /* Piezas que aún referencian serif editorial cargan Geist en lugar de Cormorant. */
-  --font-serif-display: var(--font-sans-family);
 }
 
 .bodyRoot {

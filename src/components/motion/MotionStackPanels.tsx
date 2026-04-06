@@ -365,7 +365,7 @@ function StackPanel({
   if (editorialContent) {
     const panelClassEditorial = `${panelClass} ${styles.stickyPanelEditorial}`.trim();
     return (
-      <section ref={ref} className={styles.panelSection} id={id}>
+      <section ref={ref} className={`${styles.panelSection} ${styles.panelSectionEditorial}`} id={id}>
         <motion.div style={panelMotionStyle} className={panelClassEditorial}>
           <div className={`${glowClass} ${glowDrift}`.trim()} aria-hidden />
           <motion.div style={{ scaleX: lineScale }} className={lineClass} aria-hidden />

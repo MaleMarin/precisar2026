@@ -23,6 +23,8 @@
 .headline {
   max-width: 100%;
   font-weight: 600;
+  /* DM Sans (cuerpo / titular hero), coherente con el layout raíz. */
+  font-family: var(--font-sans-family), system-ui, sans-serif;
 }
 
 /* Home / hero inmersivo (tamaño display grande) */
@@ -46,7 +48,7 @@
 
 /* Explora / laboratorio — display más grande que el .title clásico, sin llegar al hero home */
 .scaleLab {
-  font-family: var(--font-display, system-ui, sans-serif);
+  font-family: var(--font-display), system-ui, sans-serif;
   font-size: clamp(2.4rem, 7.75vw, 5.05rem);
   line-height: 1.08;
   letter-spacing: -0.045em;

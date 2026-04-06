@@ -1,6 +1,6 @@
 /**
  * Tokens motion / Oaksun-style (demo + data-reveal).
- * Tipografía display: enlazada a --font-display-family (Geist) en layout.
+ * Tipografía display: Syne vía --font-display-family en layout.
  */
 :root {
   --color-bg: #0a0c12;

@@ -18,6 +18,19 @@
   perspective-origin: 50% -8%;
 }
 
+/* Primer panel editorial: más recorrido de scroll antes de que el panel Programas cubra el viewport. */
+.panelSectionEditorial {
+  height: 240vh;
+  min-height: 240vh;
+}
+
+@media (min-width: 768px) {
+  .panelSectionEditorial {
+    height: 280vh;
+    min-height: 280vh;
+  }
+}
+
 .stickyPanel {
   position: sticky;
   left: 0;
@@ -760,6 +773,8 @@
   overflow-x: hidden;
   overflow-y: auto;
   padding: clamp(1.35rem, 3.2vw, 2.5rem) clamp(1.15rem, 2.8vw, 2.15rem);
+  /* Aire bajo el cierre para poder leer IA / propuesta sin que el siguiente panel los corte. */
+  padding-bottom: clamp(5rem, 28vh, 16rem);
   -webkit-overflow-scrolling: touch;
 }
 
@@ -923,7 +938,7 @@
   grid-template-columns: minmax(0, 1fr) 2px minmax(0, 1.15fr);
   gap: clamp(1.25rem, 3vw, 2.25rem);
   align-items: start;
-  margin-bottom: clamp(1.75rem, 4vw, 2.85rem);
+  margin-bottom: clamp(2.5rem, 6vw, 4rem);
 }
 
 @media (max-width: 768px) {

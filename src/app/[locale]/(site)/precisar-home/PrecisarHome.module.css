@@ -156,7 +156,7 @@
   max-width: var(--max);
   margin: 0 auto;
   width: 100%;
-  padding-top: clamp(5.25rem, 15vh, 9rem);
+  padding-top: clamp(7rem, 24vh, 12.5rem);
   padding-bottom: clamp(1.25rem, 4vh, 2.75rem);
 }
 
@@ -165,6 +165,7 @@
   padding: 0 0 0.2em;
   max-width: 100%;
   font: inherit;
+  font-family: var(--font-sans-family), system-ui, sans-serif;
   text-transform: none;
   overflow: visible;
 }
