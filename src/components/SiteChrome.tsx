@@ -7,7 +7,7 @@ import styles from "./SiteChrome.module.css";
 
 export function SiteChrome({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
-  const isStudioHome = pathname === "/" || pathname === "/cinematic" || pathname === "/atelier";
+  const isStudioHome = pathname === "/cinematic" || pathname === "/atelier";
 
   return (
     <>

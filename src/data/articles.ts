@@ -276,8 +276,21 @@ export const ARTICLES: ArticleMeta[] = [
   },
 ];
 
-export function articleBySlug(slug: string) {
-  return ARTICLES.find((a) => a.slug === slug);
+/** Compara slugs ignorando mayúsculas y marcas diacríticas (URLs ASCII vs slugs con tildes). */
+function foldSlugForCompare(s: string): string {
+  return s
+    .normalize("NFC")
+    .normalize("NFD")
+    .replace(/\p{M}/gu, "")
+    .toLowerCase();
+}
+
+export function articleBySlug(slug: string): ArticleMeta | undefined {
+  if (!slug) return undefined;
+  const exact = ARTICLES.find((a) => a.slug === slug);
+  if (exact) return exact;
+  const folded = foldSlugForCompare(slug);
+  return ARTICLES.find((a) => foldSlugForCompare(a.slug) === folded);
 }
 
 export const PRECISANDO_PAGE_SIZE = 10;

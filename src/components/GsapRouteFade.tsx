@@ -15,7 +15,7 @@ type GsapRouteFadeProps = {
 export function GsapRouteFade({ children, overlayColor }: GsapRouteFadeProps) {
   const pathname = usePathname();
   const ref = useRef<HTMLDivElement>(null);
-  const bg = overlayColor ?? "var(--color-bg, #0e0e0e)";
+  const bg = overlayColor ?? "var(--bg)";
 
   useLayoutEffect(() => {
     const el = ref.current;

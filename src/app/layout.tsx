@@ -68,7 +68,7 @@ export default function RootLayout({
       <body className={rootShell.bodyRoot}>
         <SmoothScrollProvider>
           <RevealInit />
-          <GsapRouteFade overlayColor="var(--color-bg, #0e0e0e)">{children}</GsapRouteFade>
+          <GsapRouteFade overlayColor="var(--bg)">{children}</GsapRouteFade>
         </SmoothScrollProvider>
       </body>
     </html>

@@ -15,12 +15,14 @@ export const NEWSLETTER = {
 } as const;
 
 /**
- * Wordmark cabecera / inmersivo: `public/logo-precisar/logo-precisar.png`.
- * Pie: logo 2026 en `public/precisar logo 2026.png` (ruta con espacios, URL-encoded).
+ * Logo barra de navegación: `public/1.png` (en portada se invierte a blanco sobre el hero).
+ * Pie: wordmark vectorial (`public/brand/footer-wordmark.svg`).
  */
 export const FOOTER_MEDIA = {
   logoWordmark: "/logo-precisar/logo-precisar.png",
-  logoWordmarkFooter: "/precisar%20logo%202026.png",
+  /** Logo negro PRECISAR para la barra de navegación clara (`public/1.png`). */
+  headerLogoBlack: "/1.png",
+  logoWordmarkFooter: "/brand/footer-wordmark.svg",
   symbol: "/3.png",
 } as const;
 
@@ -56,34 +58,36 @@ export type NavItem = { label: string; href: string };
 
 /** Barra superior: acceso a todas las grandes secciones del sitio (mapa precisar.net). */
 export const NAV_PRIMARY: NavItem[] = [
-  { label: "Inicio", href: "/" },
-  { label: "Participa", href: "/participa" },
-  { label: "Precisando", href: "/precisando" },
-  { label: "Somos", href: "/somos" },
   { label: "Programas", href: "/programas" },
-  { label: "Educación mediática", href: "/educaciónmediática" },
   { label: "Saberes", href: "/saberes" },
-  { label: "Agenda", href: "/agenda" },
+  { label: "Precisando", href: "/precisando" },
+  { label: "Educación mediática", href: "/educaciónmediática" },
+  { label: "Participa", href: "/participa" },
+  { label: "Somos", href: "/somos" },
 ];
 
 /** Subprogramas y recursos (referencia; el mapa completo está en FOOTER_COLUMNS). */
 export const NAV_SECONDARY: NavItem[] = [
-  { label: "Hub Digital Consciente", href: "/programas/hub-digital-consciente" },
-  { label: "Ciudades", href: "/programas/ciudades" },
-  { label: "Aprender Digital", href: "/programas/aprender-digital" },
-  { label: "Docentes", href: "/programas/docentes" },
+  { label: "Hub Digital Consciente, muestras itinerantes", href: "/programas/hub-digital-consciente" },
+  { label: "Ciudades Conectadas con Sentido", href: "/programas/ciudades" },
+  { label: "Aprender Digital: Nunca es Tarde", href: "/programas/aprender-digital" },
+  { label: "Educación Mediática para Docentes", href: "/programas/docentes" },
   { label: "Formación pensamiento crítico digital", href: "/aqui-no-pasa" },
-  { label: "Funcionarios públicos", href: "/programas/funcionarios-publicos" },
-  { label: "Leer noticias (era digital)", href: "/programas/leer-noticias-era-digital" },
+  { label: "Curso para Servidores Públicos", href: "/programas/funcionarios-publicos" },
+  { label: "Curso Leer Noticias en la Era Digital", href: "/programas/leer-noticias-era-digital" },
+  {
+    label: "Bot Onda / Onda en Mano / Onda Civita y Onda Profes",
+    href: EXTERNAL.botOnda,
+  },
   { label: "Aquí No Pasa", href: "/aqui-no-pasa" },
 ];
 
-/** Enlaces del bloque Saberes en landing Motion (4 entradas a colección y satélites). */
+/** Enlaces del bloque Saberes en landing Motion (experiencias primero, biblioteca al cierre). */
 export const SABERES_NAV_LINKS: NavItem[] = [
-  { label: "Saberes", href: "/saberes" },
   { label: "Una pregunta al día", href: "/unapreguntaaldia" },
   { label: "Sentidos digitales", href: "/experiencias/sentidos-digitales" },
   { label: "Cultura digital", href: "/culturadigital" },
+  { label: "Saberes", href: "/saberes" },
 ];
 
 /**
@@ -94,7 +98,6 @@ export const FOOTER_COLUMNS: { title: string; links: NavItem[] }[] = [
   {
     title: "Navegación principal",
     links: [
-      { label: "Inicio", href: "/" },
       { label: "Participa", href: "/participa" },
       { label: "Precisando", href: "/precisando" },
       { label: "Somos Precisar", href: "/somos" },
@@ -104,19 +107,27 @@ export const FOOTER_COLUMNS: { title: string; links: NavItem[] }[] = [
     title: "Qué hacemos",
     links: [
       { label: "Ver todos los programas", href: "/programas" },
-      { label: "Ciudades", href: "/programas/ciudades" },
-      { label: "Hub Digital Consciente", href: "/programas/hub-digital-consciente" },
+      { label: "Ciudades Conectadas con Sentido", href: "/programas/ciudades" },
+      { label: "Hub Digital Consciente, muestras itinerantes", href: "/programas/hub-digital-consciente" },
       { label: "Aprender Digital: Nunca es Tarde", href: "/programas/aprender-digital" },
-      { label: "Docentes", href: "/programas/docentes" },
+      { label: "Educación Mediática para Docentes", href: "/programas/docentes" },
       { label: "Formación en pensamiento crítico digital", href: "/aqui-no-pasa" },
-      { label: "Funcionarios públicos", href: "/programas/funcionarios-publicos" },
+      { label: "Curso para Servidores Públicos", href: "/programas/funcionarios-publicos" },
+      { label: "Curso Leer Noticias en la Era Digital", href: "/programas/leer-noticias-era-digital" },
+      {
+        label: "Bot Onda / Onda en Mano / Onda Civita y Onda Profes",
+        href: EXTERNAL.botOnda,
+      },
     ],
   },
   {
     title: "Educación mediática",
     links: [
       { label: "Educación mediática", href: "/educaciónmediática" },
-      { label: "Agenda de Educación Mediática", href: "/agenda" },
+      {
+        label: "Propuesta de política (alfabetización mediática)",
+        href: "/educaciónmediática/propuesta-politica-alfabetizacion",
+      },
       { label: "AMI vs. alfabetización digital", href: "/ami-vs-alfabetización-digital" },
       {
         label: "Curso desinformación (Hub — PDF)",
@@ -128,10 +139,10 @@ export const FOOTER_COLUMNS: { title: string; links: NavItem[] }[] = [
   {
     title: "Saberes",
     links: [
-      { label: "Saberes", href: "/saberes" },
       { label: "Una pregunta al día", href: "/unapreguntaaldia" },
       { label: "Sentidos digitales", href: "/experiencias/sentidos-digitales" },
       { label: "Cultura digital", href: "/culturadigital" },
+      { label: "Saberes", href: "/saberes" },
     ],
   },
   {

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { footerContactRedirect } from "@/app/(site)/participa/actions";
+import { footerContactRedirect } from "@/app/[locale]/(site)/participa/actions";
 import { EXTERNAL, FOOTER_COLUMNS, FOOTER_MEDIA, NEWSLETTER } from "@/lib/site";
 import styles from "./SiteFooter.module.css";
 
@@ -20,19 +20,17 @@ export function SiteFooter() {
   return (
     <footer className={styles.footer}>
       <div className={styles.block1}>
-        <div className="prec-container">
-          <Link href="/" className={styles.wordmarkLink}>
-            <img
-              src={FOOTER_MEDIA.logoWordmarkFooter}
-              alt="Precisar"
-              className={styles.logoWordmarkImg}
-              width={720}
-              height={160}
-              loading="lazy"
-              decoding="async"
-            />
-          </Link>
-        </div>
+        <Link href="/" className={styles.wordmarkLink}>
+          <img
+            src={FOOTER_MEDIA.logoWordmarkFooter}
+            alt="Precisar"
+            className={styles.logoWordmarkImg}
+            width={520}
+            height={100}
+            loading="lazy"
+            decoding="async"
+          />
+        </Link>
       </div>
 
       <div className={styles.main}>

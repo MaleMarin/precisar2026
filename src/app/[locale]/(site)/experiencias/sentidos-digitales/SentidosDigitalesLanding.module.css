@@ -1,0 +1,426 @@
+.root {
+  --header-offset: var(--header-h, 3.75rem);
+  position: relative;
+  width: 100%;
+  min-height: calc(100dvh - var(--header-offset));
+  margin-top: calc(var(--header-offset) * -1);
+  padding-top: var(--header-offset);
+  padding-bottom: clamp(2rem, 6vw, 4rem);
+  background: var(--bg);
+  color: var(--fg);
+  overflow-x: clip;
+}
+
+@media (min-width: 768px) {
+  .root {
+    --header-offset: var(--header-h-md, 4rem);
+  }
+}
+
+.inner {
+  width: 100%;
+  max-width: 72rem;
+  margin: 0 auto;
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
+}
+
+.heroBlock {
+  width: 100%;
+  max-width: 90rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: clamp(1.35rem, 4vw, 2.75rem);
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
+  margin-bottom: clamp(2rem, 5vw, 3.5rem);
+}
+
+.heroHeading {
+  margin-bottom: clamp(0.6rem, 1.8vw, 1rem) !important;
+}
+
+.scrambleTitle {
+  margin: 0 0 clamp(1.5rem, 4vw, 2.25rem);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.85rem, 5.5vw, 3.5rem);
+  line-height: 1.06;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: var(--brand-navy);
+  text-align: center;
+}
+
+.dud {
+  opacity: 0.65;
+}
+
+.intro {
+  margin-top: 0;
+  max-width: 40rem;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: var(--font-sans);
+  font-size: clamp(0.95rem, 2.1vw, 1.05rem);
+  line-height: 1.65;
+  color: var(--muted);
+}
+
+.intro p {
+  margin: 0 0 1rem;
+}
+
+.intro ul {
+  margin: 1.25rem 0 1.25rem;
+  padding: 0;
+  list-style: none;
+}
+
+.intro li {
+  position: relative;
+  margin-bottom: 0.65rem;
+  padding-left: 1.1rem;
+}
+
+.intro li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 0.28rem;
+  height: 0.28rem;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.carouselEmbed {
+  width: 100%;
+  background: var(--bg);
+  color: var(--fg);
+  overflow-x: clip;
+  padding-top: clamp(0.35rem, 1.5vw, 1rem);
+  padding-bottom: clamp(0.75rem, 2.5vw, 1.5rem);
+  border-bottom: 1px solid var(--border);
+}
+
+.carouselEmbed .carouselHero {
+  margin-bottom: 0;
+}
+
+.carouselHero {
+  width: 100%;
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
+  margin-bottom: clamp(2.25rem, 6vw, 4rem);
+}
+
+.carouselHeroLanding {
+  padding-left: 0;
+  padding-right: 0;
+  margin-bottom: 0;
+}
+
+.carouselHeroInner {
+  width: 100%;
+  max-width: min(100%, 90rem);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.carouselHeroInnerLanding {
+  max-width: 100%;
+}
+
+.carouselCta {
+  margin: clamp(1rem, 2.5vw, 1.35rem) 0 0;
+  font-family: var(--font-sans);
+  font-size: clamp(0.875rem, 2vw, 1rem);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-align: center;
+  color: var(--muted);
+}
+
+.viewport {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  border-radius: clamp(14px, 2vw, 20px);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: clamp(1rem, 2.5vw, 1.75rem) 0;
+  box-shadow: var(--shadow-card);
+}
+
+.viewportHero {
+  padding: clamp(0.75rem, 2.2vw, 1.35rem) 0;
+}
+
+.aspect {
+  position: relative;
+  width: 100%;
+  --sd-slide-w: 280px;
+  --sd-gap: 14px;
+}
+
+.track {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: var(--sd-gap, 14px);
+  width: max-content;
+  min-height: min(72vh, 680px);
+  transition: transform 0.5s var(--ease-out, cubic-bezier(0.22, 1, 0.36, 1));
+  will-change: transform;
+}
+
+.trackHero {
+  --sd-hero-max-h: min(58dvh, 640px);
+  min-height: unset;
+  align-items: center;
+  height: min(calc(var(--sd-slide-w, 300px) * 4.12 / 3), var(--sd-hero-max-h));
+  max-height: var(--sd-hero-max-h);
+}
+
+.slide {
+  position: relative;
+  flex: 0 0 var(--sd-slide-w, 280px);
+  width: var(--sd-slide-w, 280px);
+  aspect-ratio: 3 / 4.12;
+  display: block;
+  text-decoration: none;
+  color: var(--fg);
+  outline: none;
+  overflow: hidden;
+  border-radius: clamp(18px, 2.5vw, 24px);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-card);
+}
+
+.heroSlide {
+  aspect-ratio: unset;
+  flex: 0 0 var(--sd-slide-w, 300px) !important;
+  width: var(--sd-slide-w, 300px);
+  height: min(calc(var(--sd-slide-w, 300px) * 4.12 / 3), min(58dvh, 640px));
+  max-height: min(58dvh, 640px);
+}
+
+.slide:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  box-shadow: var(--shadow-card-hover);
+}
+
+.slideBackdrop {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.slideBackdropImg {
+  object-fit: cover;
+  object-position: center center;
+}
+
+.slideGradientLayer {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background-size: cover;
+}
+
+.slideSheen {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(
+    155deg,
+    rgba(255, 255, 255, 0.5) 0%,
+    transparent 40%,
+    rgba(255, 255, 255, 0.08) 100%
+  );
+}
+
+.slideVignette {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    transparent 55%,
+    rgba(0, 0, 0, 0.12) 85%,
+    rgba(0, 0, 0, 0.28) 100%
+  );
+}
+
+.slideImageFrame {
+  position: absolute;
+  inset: 5% 6% 20%;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border-radius: 12px;
+  background: transparent;
+  box-shadow: none;
+}
+
+.slideImageInner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  border-radius: 8px;
+  overflow: visible;
+}
+
+.slideBgImg {
+  object-fit: contain;
+  object-position: center center;
+  filter: drop-shadow(0 10px 28px rgba(0, 0, 0, 0.12));
+}
+
+.slideFront {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  padding: clamp(0.75rem, 3vw, 2rem);
+}
+
+.frontImg {
+  max-height: 88%;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 12px 32px rgba(0, 0, 0, 0.45));
+}
+
+.slideCaption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 6;
+  display: flex;
+  justify-content: center;
+  padding: 0 0.65rem 0.85rem;
+  background: none;
+  pointer-events: none;
+}
+
+.slideCaptionInner {
+  display: inline-block;
+  max-width: 94%;
+  padding: 0.45rem 0.95rem;
+  border-radius: 999px;
+  background: color-mix(in oklab, var(--brand-navy) 88%, transparent);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 2px 14px rgba(10, 12, 18, 0.12);
+}
+
+.slideTitle {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: clamp(0.68rem, 2vw, 0.8rem);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  line-height: 1.25;
+  text-align: center;
+  text-transform: none;
+  color: #fff;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.85rem;
+  margin-top: clamp(1.25rem, 3vw, 1.75rem);
+}
+
+.controlsHero {
+  margin-top: clamp(0.85rem, 2.2vw, 1.35rem);
+}
+
+.navBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: var(--elevated);
+  color: var(--fg);
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.navBtn:hover {
+  background: var(--surface-2);
+  border-color: var(--border-strong);
+}
+
+.navBtn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.dots {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0 0.5rem;
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: color-mix(in oklab, var(--muted) 45%, var(--bg));
+  cursor: pointer;
+  transition:
+    width 0.25s ease,
+    border-radius 0.25s ease,
+    background 0.2s ease;
+}
+
+.dot:hover {
+  background: color-mix(in oklab, var(--brand-navy) 35%, var(--bg));
+}
+
+.dotActive {
+  width: 22px;
+  border-radius: 6px;
+  background: var(--accent);
+}
+
+.dot:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .track,
+  .trackHero {
+    transition-duration: 0.01ms;
+  }
+}

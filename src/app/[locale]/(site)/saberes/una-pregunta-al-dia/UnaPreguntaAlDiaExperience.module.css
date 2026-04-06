@@ -1,0 +1,395 @@
+.page {
+  /* Hereda paleta global (--brand-* en globals.css) */
+  --up-bg: var(--bg);
+  --up-fg: var(--fg);
+  --up-accent: var(--accent);
+  --up-muted: var(--muted);
+  --up-cream: var(--band-ink-fg);
+  background: var(--up-bg);
+  color: var(--up-fg);
+  min-height: 100vh;
+}
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 24px 64px;
+  overflow: hidden;
+}
+
+.heroGhost {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  translate: -50% -50%;
+  font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+  font-size: clamp(120px, 20vw, 220px);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.06em;
+  color: color-mix(in oklab, var(--fg) 7%, transparent);
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+  white-space: nowrap;
+}
+
+.heroInner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.eyebrow {
+  margin: 0 0 24px;
+  font-size: 11px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--up-muted);
+  text-align: center;
+}
+
+.cardRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  max-width: 480px;
+}
+
+@media (min-width: 640px) {
+  .cardRow {
+    gap: 20px;
+    max-width: none;
+  }
+}
+
+.arrowBtn {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0.5px solid color-mix(in oklab, var(--fg) 15%, transparent);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--up-fg);
+  cursor: pointer;
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.arrowBtn:hover {
+  border-color: color-mix(in oklab, var(--fg) 35%, transparent);
+  background: color-mix(in oklab, var(--fg) 4%, transparent);
+}
+
+.arrowBtn:focus-visible {
+  outline: 2px solid var(--up-accent);
+  outline-offset: 3px;
+}
+
+.arrowBtn svg {
+  width: 18px;
+  height: 18px;
+}
+
+.cardColumn {
+  flex: 0 0 auto;
+  width: 280px;
+}
+
+@media (min-width: 640px) {
+  .cardColumn {
+    width: 340px;
+  }
+}
+
+.cardContainer {
+  perspective: 1000px;
+  cursor: pointer;
+  width: 280px;
+  height: 280px;
+}
+
+@media (min-width: 640px) {
+  .cardContainer {
+    width: 340px;
+    height: 340px;
+  }
+}
+
+.cardInner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+.cardContainer[data-flipped="true"] .cardInner {
+  transform: rotateY(180deg);
+}
+
+.cardFront,
+.cardBack {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.cardFront {
+  background: var(--elevated);
+  box-shadow:
+    0 2px 40px color-mix(in oklab, var(--fg) 8%, transparent),
+    0 1px 3px color-mix(in oklab, var(--fg) 4%, transparent);
+}
+
+.cardBack {
+  background: var(--up-fg);
+  transform: rotateY(180deg);
+  box-shadow:
+    0 2px 40px color-mix(in oklab, var(--fg) 12%, transparent),
+    0 1px 3px color-mix(in oklab, var(--fg) 6%, transparent);
+}
+
+.cardNum {
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--up-accent);
+  line-height: 1;
+  padding: 28px 28px 0;
+  text-align: center;
+}
+
+.cardQuestion {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 20px 28px 28px;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--up-fg);
+  line-height: 1.4;
+  text-align: center;
+}
+
+.reflexLabel {
+  margin: 0;
+  padding: 28px 28px 0;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: color-mix(in oklab, var(--band-ink-fg) 40%, transparent);
+}
+
+.reflexBody {
+  margin: 0;
+  flex: 1;
+  overflow: auto;
+  padding: 12px 28px 28px;
+  font-size: 15px;
+  color: var(--up-cream);
+  line-height: 1.6;
+}
+
+.hint {
+  margin: 16px 0 0;
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--up-muted);
+  text-align: center;
+}
+
+.explore {
+  padding: 56px 0 48px;
+}
+
+.exploreDivider {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 0 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.exploreLine {
+  flex: 1;
+  height: 0.5px;
+  background: color-mix(in oklab, var(--fg) 15%, transparent);
+}
+
+.exploreLabel {
+  flex-shrink: 0;
+  margin: 0;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--up-muted);
+}
+
+.grid {
+  list-style: none;
+  margin: 0 auto;
+  padding: 40px 32px;
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.grid > li {
+  margin: 0;
+  padding: 0;
+  display: contents;
+}
+
+@media (min-width: 640px) {
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  }
+}
+
+.miniCard {
+  aspect-ratio: 1;
+  border: none;
+  border-radius: 12px;
+  background: var(--elevated);
+  box-shadow: 0 1px 8px color-mix(in oklab, var(--fg) 6%, transparent);
+  cursor: pointer;
+  padding: 14px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+  color: inherit;
+  font: inherit;
+}
+
+.miniCard:hover {
+  transform: scale(1.03);
+  box-shadow:
+    0 4px 20px color-mix(in oklab, var(--fg) 10%, transparent),
+    0 1px 4px color-mix(in oklab, var(--fg) 6%, transparent);
+}
+
+.miniCard:focus-visible {
+  outline: 2px solid var(--up-accent);
+  outline-offset: 2px;
+}
+
+.miniCardActive {
+  box-shadow:
+    0 0 0 2px var(--up-accent),
+    0 4px 20px color-mix(in oklab, var(--fg) 8%, transparent);
+}
+
+.miniNum {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--up-accent);
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+
+.miniQ {
+  font-size: 12px;
+  color: var(--up-fg);
+  line-height: 1.35;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-align: left;
+}
+
+.download {
+  background: var(--brand-void);
+  padding: 60px 32px;
+}
+
+.downloadInner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  gap: 40px;
+}
+
+@media (min-width: 768px) {
+  .downloadInner {
+    grid-template-columns: 1fr auto;
+    align-items: start;
+    gap: 48px;
+  }
+}
+
+.downloadTitle {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 500;
+  color: var(--up-cream);
+  line-height: 1.1;
+}
+
+.downloadDesc {
+  margin: 16px 0 0;
+  max-width: 400px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: color-mix(in oklab, var(--band-ink-fg) 55%, transparent);
+}
+
+.downloadBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--up-accent);
+  color: var(--up-cream);
+  border-radius: 4px;
+  padding: 16px 32px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+  white-space: nowrap;
+  align-self: start;
+}
+
+.downloadBtn:hover {
+  opacity: 0.92;
+}
+
+.downloadBtn:focus-visible {
+  outline: 2px solid var(--up-cream);
+  outline-offset: 3px;
+}
+
+.reduceMotion .cardInner {
+  transition: none;
+}

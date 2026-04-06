@@ -1,11 +1,16 @@
 "use client";
 
 import Link from "next/link";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef, type ComponentType, type ReactNode } from "react";
+import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
+import { useMemo, useRef, type ComponentType, type ReactNode } from "react";
+import { useTranslations } from "next-intl";
 import { MultiStepForm } from "@/components/home/MultiStepForm";
 import { EXTERNAL, FOOTER_COLUMNS, SITE, SABERES_NAV_LINKS } from "@/lib/site";
 import styles from "./MotionStackPanels.module.css";
+
+const MotionLink = motion.create(Link);
+
+const stackEase = [0.22, 1, 0.36, 1] as const;
 
 export type StackArticle = { slug: string; title: string; category: string };
 
@@ -61,28 +66,36 @@ function IconNewspaper({ className }: { className?: string }) {
   );
 }
 
-function IconUsers({ className }: { className?: string }) {
-  return (
-    <svg className={className} width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden>
-      <circle cx="9" cy="8" r="3" stroke="currentColor" strokeWidth="1.5" />
-      <path
-        d="M4 19a5 5 0 0110 0M16 11a3 3 0 013 3v1"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-      />
-    </svg>
-  );
-}
-
 function MiniList({
   items,
   dark = false,
+  glass = false,
+  glassExtraMargin = false,
+  hideIndex = false,
+  reduceMotion = false,
 }: {
   items: { label: string; href: string; external?: boolean }[];
   dark?: boolean;
+  /** Lista tipo cristal (claro: Programas/Saberes; oscuro: Precisando). */
+  glass?: boolean;
+  /** Más margen superior (alinear la lista bajo el titular). */
+  glassExtraMargin?: boolean;
+  /** Sin columna 01, 02… (p. ej. lista editorial Precisando). */
+  hideIndex?: boolean;
+  reduceMotion?: boolean;
 }) {
-  const listClass = dark ? `${styles.miniList} ${styles.miniListDark}` : styles.miniList;
+  const listClass = [
+    styles.miniList,
+    dark ? styles.miniListDark : "",
+    !dark && glass ? styles.miniListGlass : "",
+    !dark && glass && glassExtraMargin ? styles.miniListGlassExtraMargin : "",
+    dark && glass ? styles.miniListDarkGlass : "",
+    dark && glass && glassExtraMargin ? styles.miniListDarkGlassExtraMargin : "",
+    hideIndex ? styles.miniListHideIndex : "",
+  ]
+    .filter(Boolean)
+    .join(" ");
+
   return (
     <div className={listClass}>
       {items.map((item, i) => {
@@ -91,30 +104,128 @@ function MiniList({
         const labelClass = dark ? `${styles.miniLabel} ${styles.miniLabelDark}` : styles.miniLabel;
         const inner = (
           <>
-            <span className={idxClass}>{String(i + 1).padStart(2, "0")}</span>
+            {!hideIndex ? <span className={idxClass}>{String(i + 1).padStart(2, "0")}</span> : null}
             <span className={labelClass}>{item.label}</span>
-            <ArrowIcon className={styles.iconSm} />
+            <ArrowIcon className={`${styles.iconSm} ${styles.miniRowArrow}`} />
           </>
         );
+        const rowCls = `${rowClass} ${styles.miniRowMotion}`;
+        const motionRowProps = reduceMotion
+          ? { className: rowCls }
+          : {
+              className: rowCls,
+              initial: { opacity: 0, x: 36 },
+              whileInView: { opacity: 1, x: 0 },
+              viewport: { once: true, margin: "0px 0px -12% 0px" },
+              transition: { duration: 0.52, ease: stackEase, delay: i * 0.065 },
+              whileHover: {
+                x: 10,
+                transition: { type: "spring" as const, stiffness: 420, damping: 30 },
+              },
+              whileTap: { scale: 0.985 },
+            };
+
         return item.external ? (
-          <a
+          <motion.a
             key={item.href + item.label}
             href={item.href}
-            className={rowClass}
             target="_blank"
             rel="noreferrer"
+            {...motionRowProps}
           >
             {inner}
-          </a>
+          </motion.a>
         ) : (
-          <Link key={item.href + item.label} href={item.href} className={rowClass}>
+          <MotionLink key={item.href + item.label} href={item.href} {...motionRowProps}>
             {inner}
-          </Link>
+          </MotionLink>
         );
       })}
     </div>
   );
 }
+
+/** Primer panel apilado: “Qué nos convoca” (mismo formato archivo que el resto). */
+function HomeConvocaStackPanelContent() {
+  const t = useTranslations("homeConvoca");
+
+  return (
+    <div className={styles.convocaStackRoot}>
+      <div className={styles.convocaStackHero}>
+        <div className={styles.convocaStackHeroCopy}>
+          <header className={styles.convocaStackHeader}>
+            <p className={styles.convocaStackKicker}>
+              <span className={styles.convocaStackKickerSq} aria-hidden />
+              <span>{t("kickerLine1")}</span>
+              <span className={styles.convocaStackKickerSep} aria-hidden>
+                ·
+              </span>
+              <span>{t("kickerLine2")}</span>
+            </p>
+            <h2 className={styles.convocaStackHeadline} id="stack-convoca-heading">
+              <span className={styles.convocaStackHeadlineLine}>{t("headline.line1")}</span>
+              <span className={styles.convocaStackHeadlineAccent}>{t("headline.line2")}</span>
+            </h2>
+          </header>
+          <p className={styles.convocaStackIntro}>{t("intro")}</p>
+        </div>
+        <aside className={styles.convocaStackMetricsRail}>
+          <div className={styles.convocaStackMetricsGlass}>
+            <div className={styles.convocaStackMetric}>
+              <span className={styles.convocaStackMetricValue}>{t("metrics.exabytesValue")}</span>
+              <span className={styles.convocaStackMetricLabel}>{t("metrics.exabytesLabel")}</span>
+            </div>
+            <div className={styles.convocaStackMetric}>
+              <span className={styles.convocaStackMetricValue}>{t("metrics.yearsValue")}</span>
+              <span className={styles.convocaStackMetricLabel}>{t("metrics.yearsLabel")}</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+
+      <section className={styles.convocaStackChile} aria-labelledby="convoca-chile-heading">
+        <div className={styles.convocaStackChileAccent} aria-hidden />
+        <div className={styles.convocaStackChileInner}>
+          <h3 className={styles.convocaStackChileTitle} id="convoca-chile-heading">
+            {t("chile.title")}
+          </h3>
+          <p className={styles.convocaStackChileBody}>{t("chile.body")}</p>
+          <p className={styles.convocaStackPull}>{t("chile.pull")}</p>
+        </div>
+      </section>
+
+      <div className={styles.convocaStackThreads}>
+        <article className={styles.convocaStackThread}>
+          <h3 className={styles.convocaStackThreadTitle}>{t("ia.title")}</h3>
+          <p className={styles.convocaStackThreadText}>{t("ia.body")}</p>
+        </article>
+        <article className={styles.convocaStackThread}>
+          <h3 className={styles.convocaStackThreadTitle}>{t("propuesta.title")}</h3>
+          <p className={styles.convocaStackThreadText}>{t("propuesta.body1")}</p>
+          <p className={styles.convocaStackThreadText}>{t("propuesta.body2")}</p>
+        </article>
+      </div>
+
+      <p className={styles.convocaStackClosing}>{t("closing")}</p>
+    </div>
+  );
+}
+
+type StackPanelProps = {
+  index: number;
+  total: number;
+  theme?: "light" | "dark" | "accent";
+  kicker: string;
+  label?: string;
+  headline: string;
+  body: string;
+  icon?: ComponentType<{ className?: string }>;
+  id?: string;
+  children?: ReactNode;
+  reduceMotion?: boolean;
+  /** Contenido editorial a ancho completo (primer panel “Qué nos convoca”). */
+  editorialContent?: ReactNode;
+};
 
 function StackPanel({
   index,
@@ -124,38 +235,69 @@ function StackPanel({
   label,
   headline,
   body,
-  aside,
   icon: Icon,
   id,
   children,
-  primaryCta,
-  secondaryCta,
-}: {
-  index: number;
-  total: number;
-  theme?: "light" | "dark" | "accent";
-  kicker: string;
-  label: string;
-  headline: string;
-  body: string;
-  aside: string;
-  icon: ComponentType<{ className?: string }>;
-  id?: string;
-  children?: ReactNode;
-  primaryCta: { href: string; label: string; external?: boolean };
-  secondaryCta?: { href: string; label: string; external?: boolean };
-}) {
+  reduceMotion = false,
+  editorialContent,
+}: StackPanelProps) {
   const ref = useRef<HTMLElement | null>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end start"],
   });
 
-  const scale = useTransform(scrollYProgress, [0, 0.65, 1], [1, 0.965, 0.925]);
-  const y = useTransform(scrollYProgress, [0, 1], [0, -110]);
-  const borderRadius = useTransform(scrollYProgress, [0, 1], [0, 28]);
-  const contentY = useTransform(scrollYProgress, [0, 1], [0, -36]);
-  const lineScale = useTransform(scrollYProgress, [0, 0.35], [0.35, 1]);
+  /* Scroll más marcado: encoge más, sube más, más perspectiva y parallax interno */
+  const scale = useTransform(
+    scrollYProgress,
+    [0, 0.42, 1],
+    reduceMotion ? [1, 1, 1] : [1, 0.9, 0.76],
+  );
+  const y = useTransform(scrollYProgress, [0, 1], reduceMotion ? [0, 0] : [0, -268]);
+  const borderRadius = useTransform(scrollYProgress, [0, 1], reduceMotion ? [0, 0] : [0, 52]);
+  const contentY = useTransform(scrollYProgress, [0, 1], reduceMotion ? [0, 0] : [0, -96]);
+  const rotateX = useTransform(scrollYProgress, [0, 1], reduceMotion ? [0, 0] : [0, 10]);
+  const lineScale = useTransform(scrollYProgress, [0, 0.22], [0.12, 1]);
+
+  const mainBlockVariants = useMemo(
+    () => ({
+      hidden: {},
+      show: {
+        transition: {
+          staggerChildren: reduceMotion ? 0 : 0.11,
+          delayChildren: reduceMotion ? 0 : 0.05,
+        },
+      },
+    }),
+    [reduceMotion],
+  );
+
+  const mainItemVariants = useMemo(
+    () => ({
+      hidden: {
+        opacity: reduceMotion ? 1 : 0,
+        y: reduceMotion ? 0 : 44,
+      },
+      show: {
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.58, ease: stackEase },
+      },
+    }),
+    [reduceMotion],
+  );
+
+  const asideVariants = useMemo(
+    () => ({
+      hidden: { opacity: reduceMotion ? 1 : 0, y: reduceMotion ? 0 : 32 },
+      show: {
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.55, ease: stackEase, delay: reduceMotion ? 0 : 0.22 },
+      },
+    }),
+    [reduceMotion],
+  );
 
   const isDark = theme === "dark";
   const isAccent = theme === "accent";
@@ -174,26 +316,6 @@ function StackPanel({
     styles.topLine,
     isDark || isAccent ? styles.lineDark : styles.lineLight,
   ].join(" ");
-
-  const chipClass = [
-    styles.brandChip,
-    isDark || isAccent ? styles.brandChipOnDark : "",
-  ]
-    .filter(Boolean)
-    .join(" ");
-
-  const brandDotClass = [styles.brandDot, isDark || isAccent ? styles.brandDotLight : ""]
-    .filter(Boolean)
-    .join(" ");
-
-  const brandSubClass = [
-    styles.brandSub,
-    isDark || isAccent ? styles.brandSubMutedOnDark : styles.brandSubMuted,
-  ].join(" ");
-
-  const metaClass = [styles.panelMeta, isDark ? styles.panelMetaOnDark : ""]
-    .filter(Boolean)
-    .join(" ");
 
   const kickerClass = [
     styles.kicker,
@@ -222,119 +344,76 @@ function StackPanel({
     .filter(Boolean)
     .join(" ");
 
-  const asideBoxClass = [
-    styles.asideBox,
-    isDark || isAccent ? styles.asideBoxOnDark : "",
-  ]
-    .filter(Boolean)
-    .join(" ");
+  const glowDrift = !reduceMotion ? styles.panelGlowDrift : "";
 
-  const asideLabelClass = [
-    styles.asideLabel,
-    isDark || isAccent ? styles.asideLabelOnDark : "",
-  ]
-    .filter(Boolean)
-    .join(" ");
+  const panelMotionStyle = {
+    scale,
+    y,
+    rotateX,
+    borderRadius,
+    top: `${index * 32}px`,
+    zIndex: total - index,
+    transformPerspective: 880,
+  };
 
-  const primaryCtaClass = [
-    styles.cta,
-    isDark || isAccent ? styles.ctaInverse : styles.ctaLight,
-  ].join(" ");
-
-  const secClass = [
-    styles.secondaryLink,
-    isDark || isAccent ? styles.secondaryLinkOnDark : "",
-  ]
-    .filter(Boolean)
-    .join(" ");
-
-  const PrimaryInner = (
-    <>
-      {primaryCta.label}
-      <ArrowIcon className={styles.iconSm} />
-    </>
-  );
+  if (editorialContent) {
+    return (
+      <section ref={ref} className={styles.panelSection} id={id}>
+        <motion.div style={panelMotionStyle} className={panelClass}>
+          <div className={`${glowClass} ${glowDrift}`.trim()} aria-hidden />
+          <motion.div style={{ scaleX: lineScale }} className={lineClass} aria-hidden />
+          <motion.div style={{ y: contentY }} className={styles.editorialPanelBody}>
+            {editorialContent}
+          </motion.div>
+        </motion.div>
+      </section>
+    );
+  }
 
   return (
     <section ref={ref} className={styles.panelSection} id={id}>
-      <motion.div
-        style={{
-          scale,
-          y,
-          borderRadius,
-          top: `${index * 14}px`,
-          zIndex: total - index,
-        }}
-        className={panelClass}
-      >
-        <div className={glowClass} aria-hidden />
+      <motion.div style={panelMotionStyle} className={panelClass}>
+        <div className={`${glowClass} ${glowDrift}`.trim()} aria-hidden />
 
         <motion.div style={{ scaleX: lineScale }} className={lineClass} aria-hidden />
 
-        <motion.div
-          style={{ y: contentY }}
-          className={styles.grid}
-        >
-          <div className={styles.rowTop}>
-            <div className={chipClass}>
-              <span className={brandDotClass} />
-              <div>
-                <div className={styles.brandName}>{SITE.name}</div>
-                <div className={brandSubClass}>Cultura digital</div>
-              </div>
-            </div>
-            <div className={metaClass}>
-              Scroll dirigido · panel {String(index + 1).padStart(2, "0")}
-            </div>
-          </div>
-
-          <div className={styles.colMain}>
+        <motion.div style={{ y: contentY }} className={styles.grid}>
+          <motion.div
+            className={styles.colMain}
+            variants={mainBlockVariants}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.25 }}
+          >
             <div>
-              <div className={kickerClass}>
+              <motion.div className={kickerClass} variants={mainItemVariants}>
                 <span className={kickerSqClass} />
                 <span>{kicker}</span>
-              </div>
-              <div className={titleRowClass}>
-                <Icon className={styles.iconSm} />
-                <span>{label}</span>
-              </div>
-              <h2 className={styles.displayTitle}>{headline}</h2>
-              <p className={bodyClass}>{body}</p>
-            </div>
-
-            <div className={styles.actions}>
-              {primaryCta.external ? (
-                <a href={primaryCta.href} className={primaryCtaClass}>
-                  {PrimaryInner}
-                </a>
-              ) : (
-                <Link href={primaryCta.href} className={primaryCtaClass}>
-                  {PrimaryInner}
-                </Link>
-              )}
-              {secondaryCta ? (
-                secondaryCta.external ? (
-                  <a href={secondaryCta.href} className={secClass}>
-                    {secondaryCta.label}
-                    <ArrowIcon className={styles.iconSm} />
-                  </a>
-                ) : (
-                  <Link href={secondaryCta.href} className={secClass}>
-                    {secondaryCta.label}
-                    <ArrowIcon className={styles.iconSm} />
-                  </Link>
-                )
+              </motion.div>
+              {Icon ? (
+                <motion.div className={titleRowClass} variants={mainItemVariants}>
+                  <Icon className={styles.iconSm} />
+                  <span>{label ?? ""}</span>
+                </motion.div>
               ) : null}
+              <motion.h2 className={styles.displayTitle} variants={mainItemVariants}>
+                {headline}
+              </motion.h2>
+              <motion.p className={bodyClass} variants={mainItemVariants}>
+                {body}
+              </motion.p>
             </div>
-          </div>
+          </motion.div>
 
-          <div className={styles.colAside}>
-            <div className={asideBoxClass}>
-              <div className={asideLabelClass}>Función de esta sección</div>
-              <p className={styles.asideText}>{aside}</p>
-            </div>
+          <motion.div
+            className={styles.colAside}
+            variants={asideVariants}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.2 }}
+          >
             <div className={styles.asideSlot}>{children}</div>
-          </div>
+          </motion.div>
         </motion.div>
       </motion.div>
     </section>
@@ -344,17 +423,36 @@ function StackPanel({
 export type MotionStackPanelsProps = {
   featuredArticles: StackArticle[];
   formCategories: string[];
+  /** En portada Precisar: solo paneles apilados, sin pie duplicado (el sitio ya tiene SiteFooter). */
+  omitFooter?: boolean;
+  /** Si true, se atenúan animaciones (respeta preferencia del sistema si no se pasa). */
+  reduceMotion?: boolean;
 };
 
-export function MotionStackPanels({ featuredArticles, formCategories }: MotionStackPanelsProps) {
+export function MotionStackPanels({
+  featuredArticles,
+  formCategories,
+  omitFooter = false,
+  reduceMotion: reduceMotionProp,
+}: MotionStackPanelsProps) {
+  const systemReduceMotion = useReducedMotion() ?? false;
+  const reduceMotion = reduceMotionProp ?? systemReduceMotion;
+  const tPrograms = useTranslations("homePrograms");
+  const tPrecisando = useTranslations("homePrecisando");
+  const tSaberes = useTranslations("homeSaberes");
   const programLinks = [
-    { label: "Hub Digital Consciente", href: "/programas/hub-digital-consciente" },
-    { label: "Ciudades conectadas", href: "/programas/ciudades" },
-    { label: "Aprender Digital", href: "/programas/aprender-digital" },
-    { label: "Educación mediática · docentes", href: "/programas/docentes" },
+    { label: tPrograms("stackLinkCiudades"), href: "/programas/ciudades" },
+    { label: tPrograms("stackLinkHub"), href: "/programas/hub-digital-consciente" },
+    { label: tPrograms("stackLinkAprender"), href: "/programas/aprender-digital" },
+    { label: tPrograms("stackLinkDocentes"), href: "/programas/docentes" },
+    { label: tPrograms("stackLinkPensamientoCritico"), href: "/programas/leer-noticias-era-digital" },
+    { label: tPrograms("stackLinkFuncionarios"), href: "/programas/funcionarios-publicos" },
+    { label: tPrograms("stackLinkBotOnda"), href: EXTERNAL.botOnda, external: true },
   ];
 
-  const saberesLinks = SABERES_NAV_LINKS.map((l) => ({ label: l.label, href: l.href }));
+  const saberesLinks = SABERES_NAV_LINKS.filter(
+    (l) => l.href !== "/saberes" && l.href !== "/marco/comunicacion",
+  ).map((l) => ({ label: l.label, href: l.href }));
 
   const precisandoLinks = featuredArticles.slice(0, 4).map((a) => ({
     label: a.title,
@@ -363,6 +461,7 @@ export function MotionStackPanels({ featuredArticles, formCategories }: MotionSt
 
   const participaLinks = [
     { label: "Participa / consulta", href: "/participa" },
+    { label: SITE.contactEmail, href: `mailto:${SITE.contactEmail}`, external: true },
     { label: "Consulta ciudadana 2026", href: EXTERNAL.consultaCiudadana, external: true },
     { label: "Bot ONDA (conversar)", href: EXTERNAL.botOnda, external: true },
   ];
@@ -371,66 +470,64 @@ export function MotionStackPanels({ featuredArticles, formCategories }: MotionSt
 
   const panels = [
     {
-      id: "programas",
+      id: "convoca",
       theme: "dark" as const,
-      kicker: "01 · Programas",
+      kicker: "",
+      label: undefined,
+      headline: "",
+      body: "",
+      icon: undefined,
+      editorialContent: <HomeConvocaStackPanelContent />,
+    },
+    {
+      id: "programas",
+      theme: "light" as const,
+      kicker: "02 · Programas",
       label: "Iniciativas",
-      headline: "Territorio, aula y ciudad: programas con peso y jerarquía.",
-      body:
-        "Líneas de trabajo pensadas para el criterio, no para el ruido. Un panel protagonista con inventario claro: lo central manda el ritmo del recorrido, como en un sitio estudio.",
-      aside:
-        "Traducir la lógica de pieza fuerte a Precisar: una sección grande, memorable, con accesos directos a cada programa.",
+      headline: tPrograms("stackHeadline"),
+      body: tPrograms("body"),
       icon: IconBlocks,
-      primaryCta: { href: "/programas", label: "Explorar programas" },
-      secondaryCta: { href: "/somos", label: "Somos Precisar" },
-      child: <MiniList dark items={programLinks} />,
+      child: <MiniList reduceMotion={reduceMotion} glass items={programLinks} />,
     },
     {
       id: "saberes",
       theme: "light" as const,
-      kicker: "02 · Saberes",
-      label: "Colección",
-      headline: "Recursos curados: guías, actividades y marcos para leer lo digital.",
-      body:
-        "La brecha ya no es solo conectividad: es comprensión. Saberes se comporta como catálogo editorial: numeración, borde y ritmo de lectura — menos grilla neutra, más colección organizada.",
-      aside:
-        "Dar jerarquía a los materiales abiertos y enlazar hacia marcos (comunicación, educación, tecnología, cultura).",
+      kicker: tSaberes("stackKicker"),
+      label: tSaberes("label"),
+      headline: tSaberes("stackHeadline"),
+      body: tSaberes("stackBody"),
       icon: IconDownload,
-      primaryCta: { href: "/saberes", label: "Ir a Saberes" },
-      secondaryCta: { href: "/marco/comunicacion", label: "Marco comunicación" },
-      child: <MiniList items={saberesLinks} />,
+      child: <MiniList reduceMotion={reduceMotion} glass glassExtraMargin items={saberesLinks} />,
     },
     {
       id: "precisando",
       theme: "accent" as const,
-      kicker: "03 · Precisando",
-      label: "Editorial",
-      headline: "Análisis y debates: cómo circula la información y qué efectos tiene.",
-      body:
-        "La publicación entra con peso de revista: una cara de entrada, lecturas recientes y salida clara hacia el archivo completo.",
-      aside:
-        "Que el blog se sienta continuidad editorial, no solo índice: titulares con categoría y lectura en profundidad.",
+      kicker: tPrecisando("stackKicker"),
+      label: tPrecisando("label"),
+      headline: tPrecisando("stackHeadline"),
+      body: tPrecisando("stackBody"),
       icon: IconNewspaper,
-      primaryCta: { href: "/precisando", label: "Ver Precisando" },
-      secondaryCta: { href: "/agenda", label: "Agenda" },
-      child: <MiniList dark items={precisandoLinks} />,
+      child: (
+        <MiniList
+          dark
+          glass
+          glassExtraMargin
+          hideIndex
+          reduceMotion={reduceMotion}
+          items={precisandoLinks}
+        />
+      ),
     },
     {
       id: "participa",
       theme: "dark" as const,
-      kicker: "04 · Participa",
-      label: "Cierre",
+      kicker: "05 · Participa",
       headline: "Escribinos: territorio, institución y la necesidad que querés abordar.",
       body:
-        "Cierre con conversión real: formulario local (conectá tu endpoint cuando esté listo), consulta ciudadana y canales abiertos. El scroll termina con una invitación que pesa.",
-      aside:
-        "Una sola zona de acción importante con contraste suficiente para cerrar la experiencia arriba, no desinflada.",
-      icon: IconUsers,
-      primaryCta: { href: "/participa", label: "Ir a Participa" },
-      secondaryCta: { href: `mailto:${SITE.contactEmail}`, label: SITE.contactEmail },
+        "Consulta ciudadana, newsletter y canales abiertos. Contanos desde dónde trabajás y qué tema querés abordar.",
       child: (
         <>
-          <MiniList dark items={participaLinks} />
+          <MiniList dark reduceMotion={reduceMotion} items={participaLinks} />
           <div className={`${styles.asideSlot} ${styles.formScroll}`}>
             <MultiStepForm categories={formCategories} />
           </div>
@@ -443,7 +540,7 @@ export function MotionStackPanels({ featuredArticles, formCategories }: MotionSt
 
   return (
     <div className={styles.stackRoot}>
-      <main>
+      <div>
         {panels.map((panel, index) => (
           <StackPanel
             key={panel.id}
@@ -455,53 +552,54 @@ export function MotionStackPanels({ featuredArticles, formCategories }: MotionSt
             label={panel.label}
             headline={panel.headline}
             body={panel.body}
-            aside={panel.aside}
             icon={panel.icon}
-            primaryCta={panel.primaryCta}
-            secondaryCta={panel.secondaryCta}
+            reduceMotion={reduceMotion}
+            editorialContent={"editorialContent" in panel ? panel.editorialContent : undefined}
           >
-            {panel.child}
+            {"child" in panel ? panel.child : undefined}
           </StackPanel>
         ))}
 
-        <section className={styles.footerSection} aria-label="Pie de página">
-          <div className={styles.footerGrid}>
-            <div className={styles.footerBrandCol}>
-              <h2 className={styles.footerBrandTitle}>{SITE.name}</h2>
-              <p className={styles.footerBrandTag}>{SITE.tagline}</p>
-            </div>
-            <div className={styles.footerCols}>
-              {footerCols.map((col) => (
-                <div key={col.title}>
-                  <div className={styles.footerColTitle}>{col.title}</div>
-                  <div className={styles.footerLinkList}>
-                    {col.links.map((link) => {
-                      const isExt = link.href.startsWith("http");
-                      return isExt ? (
-                        <a
-                          key={link.label + link.href}
-                          href={link.href}
-                          className={styles.footerLink}
-                          target="_blank"
-                          rel="noreferrer"
-                        >
-                          <span>{link.label}</span>
-                          <ArrowIcon className={styles.footerLinkIcon} />
-                        </a>
-                      ) : (
-                        <Link key={link.label + link.href} href={link.href} className={styles.footerLink}>
-                          <span>{link.label}</span>
-                          <ArrowIcon className={styles.footerLinkIcon} />
-                        </Link>
-                      );
-                    })}
+        {!omitFooter ? (
+          <section className={styles.footerSection} aria-label="Pie de página">
+            <div className={styles.footerGrid}>
+              <div className={styles.footerBrandCol}>
+                <h2 className={styles.footerBrandTitle}>{SITE.name}</h2>
+                <p className={styles.footerBrandTag}>{SITE.tagline}</p>
+              </div>
+              <div className={styles.footerCols}>
+                {footerCols.map((col) => (
+                  <div key={col.title}>
+                    <div className={styles.footerColTitle}>{col.title}</div>
+                    <div className={styles.footerLinkList}>
+                      {col.links.map((link) => {
+                        const isExt = link.href.startsWith("http");
+                        return isExt ? (
+                          <a
+                            key={link.label + link.href}
+                            href={link.href}
+                            className={styles.footerLink}
+                            target="_blank"
+                            rel="noreferrer"
+                          >
+                            <span>{link.label}</span>
+                            <ArrowIcon className={styles.footerLinkIcon} />
+                          </a>
+                        ) : (
+                          <Link key={link.label + link.href} href={link.href} className={styles.footerLink}>
+                            <span>{link.label}</span>
+                            <ArrowIcon className={styles.footerLinkIcon} />
+                          </Link>
+                        );
+                      })}
+                    </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
-          </div>
-        </section>
-      </main>
+          </section>
+        ) : null}
+      </div>
     </div>
   );
 }

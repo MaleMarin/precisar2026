@@ -24,7 +24,7 @@ const FORM_CATEGORIES = [
 ];
 
 /** En desktop: accesos rápidos en barra fija; en móvil solo logo + menú hamburguesa. */
-const HOME_QUICK_NAV = NAV_PRIMARY.filter((n) => n.href !== "/agenda").slice(0, 5);
+const HOME_QUICK_NAV = NAV_PRIMARY;
 
 const HERO_EASE = [0.22, 1, 0.36, 1] as const;
 

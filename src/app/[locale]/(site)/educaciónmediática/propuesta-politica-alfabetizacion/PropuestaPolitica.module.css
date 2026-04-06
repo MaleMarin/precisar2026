@@ -1,0 +1,103 @@
+.layout {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+@media (min-width: 1024px) {
+  .layout {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: clamp(2rem, 4vw, 3.5rem);
+  }
+}
+
+.toc {
+  flex-shrink: 0;
+  width: 100%;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--border);
+}
+
+@media (min-width: 1024px) {
+  .toc {
+    position: sticky;
+    top: calc(var(--header-h-md, 4rem) + 1.25rem);
+    width: 11.5rem;
+    max-height: calc(100dvh - var(--header-h-md, 4rem) - 2.5rem);
+    overflow-y: auto;
+    padding-bottom: 0;
+    border-bottom: none;
+    border-right: 1px solid var(--border);
+    padding-right: 1.25rem;
+  }
+}
+
+.tocTitle {
+  margin: 0 0 0.75rem;
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted-2);
+}
+
+.tocList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tocList li {
+  margin: 0;
+}
+
+.tocLink {
+  display: block;
+  padding: 0.35rem 0;
+  font-size: 0.8125rem;
+  line-height: 1.35;
+  color: var(--muted);
+  text-decoration: none;
+  border-left: 2px solid transparent;
+  padding-left: 0.6rem;
+  margin-left: -2px;
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.tocLink:hover {
+  color: var(--fg);
+}
+
+.tocLink:focus-visible {
+  outline: 2px solid var(--fg);
+  outline-offset: 2px;
+}
+
+.main {
+  flex: 1;
+  min-width: 0;
+}
+
+.section {
+  scroll-margin-top: calc(var(--header-h, 3.75rem) + 1rem);
+}
+
+.leadBox {
+  margin-bottom: 2.5rem;
+  padding: 1.25rem 1.35rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+
+.subList {
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+  padding-left: 1.15rem;
+}
+
+.subList li {
+  margin-bottom: 0.35rem;
+}

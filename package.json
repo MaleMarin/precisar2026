@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "precisando:rss": "node scripts/build-precisando-md.mjs",
+    "precisando:rss:local": "node scripts/build-precisando-md.mjs --local"
   },
   "dependencies": {
     "@react-three/drei": "^10.7.7",
@@ -15,10 +17,12 @@
     "gsap": "^3.14.2",
     "lenis": "^1.3.21",
     "next": "16.2.2",
+    "next-intl": "^4.9.0",
     "react": "19.2.4",
     "react-dom": "19.2.4",
     "react-markdown": "^10.1.0",
-    "three": "^0.183.2"
+    "three": "^0.183.2",
+    "tone": "^15.1.22"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
@@ -29,6 +33,7 @@
     "eslint": "^9",
     "eslint-config-next": "16.2.2",
     "tailwindcss": "^4",
+    "turndown": "^7.2.4",
     "typescript": "^5"
   }
 }

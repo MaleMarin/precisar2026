@@ -1,0 +1,137 @@
+@keyframes salida {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+}
+
+@keyframes entrada {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.headline {
+  max-width: 100%;
+  font-weight: 600;
+}
+
+/* Home / hero inmersivo (tamaño display grande) */
+.scaleHome {
+  line-height: 1.08;
+  letter-spacing: -0.1em;
+  font-size: 15vw;
+}
+
+@media (min-width: 640px) {
+  .scaleHome {
+    font-size: 12vw;
+  }
+}
+
+@media (min-width: 1024px) {
+  .scaleHome {
+    font-size: 154px;
+  }
+}
+
+/* Explora / laboratorio — display más grande que el .title clásico, sin llegar al hero home */
+.scaleLab {
+  font-family: var(--font-display, system-ui, sans-serif);
+  font-size: clamp(2.4rem, 7.75vw, 5.05rem);
+  line-height: 1.08;
+  letter-spacing: -0.045em;
+  text-transform: none;
+  font-variant: normal;
+}
+
+/* Explora: corte fijo tras “Potencia el uso” — segunda línea “de la tecnología.” (ver TSX) */
+.scaleLab .line1Light,
+.scaleLab .line1Dark {
+  line-height: 1.18;
+}
+
+.scaleLab .line2 {
+  margin-top: 0.12em;
+  line-height: 1.08;
+  font-size: 1.06em;
+}
+
+.line1Light {
+  display: block;
+  color: #0a0a0c;
+}
+
+.line1Dark {
+  display: block;
+  color: #f2f5f8;
+}
+
+.line2 {
+  display: block;
+  margin-top: 0.06em;
+  font-size: 1.08em;
+}
+
+.verbSlot {
+  display: block;
+  overflow: hidden;
+  min-height: 1.12em;
+}
+
+.verbLine {
+  display: inline-flex;
+  align-items: baseline;
+  white-space: nowrap;
+}
+
+.verbWord {
+  color: #db5227;
+}
+
+/* Blanco sobre hero oscuro (Explora); en home (fondo claro) mismo tono que línea 1 para que se lea */
+.verbPeriodWhite {
+  color: #ffffff;
+}
+
+.verbPeriodLight {
+  color: #0a0a0c;
+}
+
+.verbIn {
+  display: inline-flex;
+  will-change: transform, opacity;
+  animation: entrada 0.4s ease forwards;
+}
+
+.verbShown {
+  display: inline-flex;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.verbOut {
+  display: inline-flex;
+  will-change: transform, opacity;
+  animation: salida 0.35s ease forwards;
+}
+
+/* Scramble símbolos → letras (solo verbo naranja en hero Potencia) */
+.scrambleDudVerbDark {
+  color: color-mix(in oklab, #db5227 48%, #f2f5f8);
+  opacity: 0.9;
+}
+
+.scrambleDudVerbLight {
+  color: color-mix(in oklab, #d25f2d 45%, #0a0a0c);
+  opacity: 0.88;
+}

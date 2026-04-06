@@ -7,26 +7,29 @@
   font-family: var(--font-sans-family), system-ui, sans-serif;
 }
 
-/* BLOQUE 1 — PRECISAR display */
+/* BLOQUE 1 — PRECISAR display (ancho completo del pie, sin tope --max del resto del sitio) */
 .block1 {
   background: #000;
-  padding: 40px 0 20px;
+  box-sizing: border-box;
+  width: 100%;
+  padding: clamp(2rem, 5vw, 2.75rem) var(--gutter) clamp(1rem, 3vw, 1.5rem);
 }
 
 .wordmarkLink {
   display: block;
+  width: 100%;
+  max-width: none;
   line-height: 0;
 }
 
-/* PNG oficial del wordmark (gris sobre negro), ancho completo del contenedor */
+/* Wordmark gris (#c8c8c8): escala al 100% del ancho útil del footer */
 .logoWordmarkImg {
   display: block;
   width: 100%;
   height: auto;
-  max-width: 100%;
-  max-height: min(42vw, 380px);
+  max-width: none;
   object-fit: contain;
-  object-position: left bottom;
+  object-position: left center;
 }
 
 /* BLOQUE 2 */

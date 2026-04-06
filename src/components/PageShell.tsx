@@ -14,6 +14,10 @@ export function PageShell({
   variant = "default",
   /** Contenedor extra para landings de programa (ritmo modular en CSS). */
   programCanvas = false,
+  /** Texto bajo el título en índices editoriales (`variant="editorial-index"`). */
+  indexIntro,
+  /** Texto bajo el título en cabecera estándar (p. ej. Saberes). */
+  headerLead,
 }: {
   title: string;
   kicker?: string;
@@ -22,6 +26,8 @@ export function PageShell({
   contentClassName?: string;
   variant?: PageShellVariant;
   programCanvas?: boolean;
+  indexIntro?: string;
+  headerLead?: string;
 }) {
   const bodyClass = bare
     ? contentClassName ?? ""
@@ -37,18 +43,15 @@ export function PageShell({
     <article className="prec-page">
       <div className="prec-container">
         {variant === "editorial-index" ? (
-          <header className="prec-page-head prec-page-head--magazine mb-14 md:mb-20">
-            <div className="flex flex-wrap items-center gap-3 md:gap-4">
-              <span className="size-2 shrink-0 bg-[var(--fg)]" aria-hidden />
+          <header className="prec-page-head prec-page-head--editorial-index">
+            <span className="prec-page-head__marker" aria-hidden />
+            <div className="prec-page-head__text">
               {kicker ? <p className="prec-kicker prec-kicker--accent">{kicker}</p> : null}
-            </div>
-            <h1 className="prec-title-xl mt-6 max-w-[14ch] text-[clamp(2.5rem,7vw,4.25rem)] font-medium leading-[0.98] tracking-[-0.045em] sm:max-w-none md:mt-8">
-              {title}
-            </h1>
-            <div className="mt-8 flex items-center gap-4">
-              <div className="h-px w-16 shrink-0 bg-[var(--accent)] md:w-24" aria-hidden />
-              <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--muted-2)]">
-                Publicación · Precisar
+              <h1 className="prec-title-xl mt-3 max-w-4xl text-[clamp(1.85rem,4vw,2.65rem)] leading-[1.08] tracking-[-0.035em] md:mt-4">
+                {title}
+              </h1>
+              <p className="mt-3 max-w-2xl text-base leading-relaxed text-[var(--muted)]">
+                {indexIntro ?? "Publicación editorial de Precisar."}
               </p>
             </div>
           </header>
@@ -68,6 +71,11 @@ export function PageShell({
             <div className="prec-page-head__text">
               {kicker ? <p className="prec-kicker">{kicker}</p> : null}
               <h1 className="prec-title-xl mt-3 max-w-4xl text-3xl md:text-[2.35rem]">{title}</h1>
+              {headerLead ? (
+                <p className="mt-4 max-w-2xl text-base leading-relaxed text-[var(--muted)] md:text-lg">
+                  {headerLead}
+                </p>
+              ) : null}
             </div>
           </header>
         )}

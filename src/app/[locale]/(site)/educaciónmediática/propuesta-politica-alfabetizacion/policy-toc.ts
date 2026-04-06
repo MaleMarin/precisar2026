@@ -1,0 +1,17 @@
+export const POLICY_TOC: { id: string; label: string }[] = [
+  { id: "intro", label: "Introducción" },
+  { id: "objetivos", label: "Objetivos" },
+  { id: "marco-estrategico", label: "Marco estratégico" },
+  { id: "competencia-1", label: "Competencia 1 · Crítica" },
+  { id: "competencia-2", label: "Competencia 2 · Acceso seguro" },
+  { id: "competencia-3", label: "Competencia 3 · Participación" },
+  { id: "competencia-4", label: "Competencia 4 · IA" },
+  { id: "implementacion", label: "Implementación" },
+  { id: "sectores", label: "Sectores" },
+  { id: "medicion", label: "Medición y evaluación" },
+  { id: "desafios-oportunidades", label: "Desafíos y oportunidades" },
+  { id: "alianzas", label: "Alianzas" },
+  { id: "financiamiento-sustentabilidad", label: "Financiamiento" },
+  { id: "principios", label: "Principios rectores" },
+  { id: "llamado", label: "Llamado a la acción" },
+];

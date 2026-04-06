@@ -13,7 +13,9 @@
 
 .panelSection {
   position: relative;
-  height: 175vh;
+  height: 200vh;
+  perspective: 960px;
+  perspective-origin: 50% -8%;
 }
 
 .stickyPanel {
@@ -24,8 +26,12 @@
   width: 100%;
   overflow: hidden;
   border: 1px solid color-mix(in oklab, #000 10%, transparent);
-  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.12);
+  box-shadow:
+    0 36px 120px rgba(0, 0, 0, 0.2),
+    0 12px 40px rgba(0, 0, 0, 0.12);
   transform-origin: center top;
+  transform-style: preserve-3d;
+  will-change: transform;
 }
 
 .stickyPanelDark {
@@ -50,6 +56,23 @@
   position: absolute;
   inset: 0;
   pointer-events: none;
+}
+
+.panelGlowDrift {
+  animation: stackGlowDrift 14s ease-in-out infinite;
+}
+
+@keyframes stackGlowDrift {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.9;
+    transform: scale(1.025);
+  }
 }
 
 .glowLight {
@@ -104,66 +127,6 @@
     gap: 3rem;
     padding: 4rem 2.5rem;
   }
-}
-
-.rowTop {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-}
-
-@media (min-width: 1024px) {
-  .rowTop {
-    grid-column: span 12;
-  }
-}
-
-.brandChip {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 0.5rem 1rem;
-  border: 1px solid color-mix(in oklab, #000 100%, transparent);
-}
-
-.brandChipOnDark {
-  border-color: color-mix(in oklab, #fff 20%, transparent);
-}
-
-.brandDot {
-  width: 0.75rem;
-  height: 0.75rem;
-  flex-shrink: 0;
-  background: var(--stack-accent);
-}
-
-.brandDotLight {
-  background: #fff;
-}
-
-.brandName {
-  font-family: var(--font-display, system-ui, sans-serif);
-  font-size: 1.5rem;
-  font-weight: 500;
-  letter-spacing: -0.03em;
-  line-height: 1;
-}
-
-.brandSub {
-  margin-top: 0.15rem;
-  font-family: var(--font-mono, ui-monospace, monospace);
-  font-size: 0.625rem;
-  font-weight: 600;
-  letter-spacing: 0.34em;
-  text-transform: uppercase;
-}
-
-.brandSubMuted {
-  color: color-mix(in oklab, #0a0a0a 52%, transparent);
-}
-
-.brandSubMutedOnDark {
-  color: color-mix(in oklab, #fff 60%, transparent);
 }
 
 .panelMeta {
@@ -411,8 +374,11 @@
 }
 
 .asideSlot {
-  margin-top: 1.5rem;
+  margin-top: 0;
   min-height: 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .formScroll {
@@ -429,6 +395,83 @@
 .miniListDark {
   border-color: color-mix(in oklab, #fff 14%, transparent);
   background: color-mix(in oklab, #fff 4%, transparent);
+}
+
+/* Programas · lista derecha: baja un poco + glassmorphism */
+.miniListGlass {
+  margin-top: clamp(1.85rem, 4.8vw, 3.35rem);
+  align-self: stretch;
+  border-radius: 14px;
+  overflow: hidden;
+  background: color-mix(in oklab, #fffcf7 52%, transparent);
+  border: 1px solid color-mix(in oklab, #fff 72%, #1a1208 12%);
+  box-shadow:
+    0 10px 40px color-mix(in oklab, #1a1208 10%, transparent),
+    inset 0 1px 0 color-mix(in oklab, #fff 78%, transparent);
+  backdrop-filter: blur(18px) saturate(1.25);
+  -webkit-backdrop-filter: blur(18px) saturate(1.25);
+}
+
+.miniListGlass .miniRow + .miniRow {
+  border-top-color: color-mix(in oklab, #0a0a0a 8%, transparent);
+}
+
+.miniListGlass .miniRow:hover {
+  background: color-mix(in oklab, #fff 38%, transparent);
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .miniListGlass {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: color-mix(in oklab, #fbf7f0 94%, transparent);
+  }
+}
+
+/* Saberes: lista más abajo que Programas (desalinea del borde superior del titular) */
+.miniListGlass.miniListGlassExtraMargin {
+  margin-top: clamp(3rem, 8.5vw, 5.75rem);
+}
+
+/* Precisando (panel acento): glass sobre naranja + texto claro */
+.miniListDark.miniListDarkGlass {
+  margin-top: clamp(1.85rem, 4.8vw, 3.35rem);
+  align-self: stretch;
+  border-radius: 14px;
+  overflow: hidden;
+  background: color-mix(in oklab, #fff 16%, transparent);
+  border: 1px solid color-mix(in oklab, #fff 38%, transparent);
+  box-shadow:
+    0 12px 44px color-mix(in oklab, #1a0804 35%, transparent),
+    inset 0 1px 0 color-mix(in oklab, #fff 28%, transparent);
+  backdrop-filter: blur(20px) saturate(1.12);
+  -webkit-backdrop-filter: blur(20px) saturate(1.12);
+}
+
+.miniListDark.miniListDarkGlass .miniRowDark + .miniRowDark {
+  border-top-color: color-mix(in oklab, #fff 20%, transparent);
+}
+
+.miniListDark.miniListDarkGlass .miniRowDark:hover {
+  background: color-mix(in oklab, #fff 14%, transparent);
+}
+
+.miniListDark.miniListDarkGlass.miniListDarkGlassExtraMargin {
+  margin-top: clamp(3rem, 8.5vw, 5.75rem);
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .miniListDark.miniListDarkGlass {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: color-mix(in oklab, #fff 12%, var(--stack-accent) 18%);
+  }
+}
+
+.miniListHideIndex .miniRow,
+.miniListHideIndex .miniRowDark {
+  grid-template-columns: 1fr auto;
+  gap: 0.75rem 1rem;
 }
 
 .miniRow {
@@ -458,6 +501,29 @@
 
 .miniRowDark:hover {
   background: color-mix(in oklab, #fff 6%, transparent);
+}
+
+.miniRowMotion {
+  transition:
+    background 0.25s ease,
+    box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.miniRowMotion:hover {
+  box-shadow: -4px 0 0 0 var(--stack-accent);
+}
+
+.miniRowDark.miniRowMotion:hover {
+  box-shadow: -4px 0 0 0 color-mix(in oklab, #fff 55%, transparent);
+}
+
+.miniRowArrow {
+  justify-self: end;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.miniRowMotion:hover .miniRowArrow {
+  transform: translateX(7px);
 }
 
 .miniIndex {
@@ -613,4 +679,341 @@
 .footerLink:hover .footerLinkIcon {
   opacity: 1;
   transform: translateX(2px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .panelGlowDrift {
+    animation: none;
+  }
+
+  .panelSection {
+    perspective: none;
+  }
+
+  .stickyPanel {
+    will-change: auto;
+  }
+
+  .miniRowMotion:hover .miniRowArrow {
+    transform: none;
+  }
+}
+
+/* Panel editorial “Qué nos convoca”: composición editorial + métricas glass abajo a la derecha */
+.editorialPanelBody {
+  position: relative;
+  box-sizing: border-box;
+  height: 100%;
+  max-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: clamp(1.35rem, 3.2vw, 2.5rem) clamp(1.15rem, 2.8vw, 2.15rem);
+  -webkit-overflow-scrolling: touch;
+}
+
+.convocaStackRoot {
+  max-width: 86rem;
+  margin: 0 auto;
+}
+
+/* Hero: texto a la izquierda; columna derecha empuja el bloque de datos hacia abajo */
+.convocaStackHero {
+  display: grid;
+  gap: clamp(1.5rem, 4vw, 2.25rem);
+  margin-bottom: clamp(2rem, 5vw, 3rem);
+}
+
+@media (min-width: 900px) {
+  .convocaStackHero {
+    grid-template-columns: minmax(0, 1.12fr) minmax(11rem, 15.5rem);
+    align-items: stretch;
+    column-gap: clamp(1.75rem, 4vw, 3rem);
+  }
+
+  .convocaStackMetricsRail {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding-top: clamp(3.5rem, 11vw, 7.5rem);
+  }
+}
+
+.convocaStackHeroCopy {
+  min-width: 0;
+}
+
+.convocaStackHeader {
+  margin-bottom: clamp(1.1rem, 2.8vw, 1.65rem);
+}
+
+.convocaStackKicker {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.65rem;
+  margin: 0 0 0.85rem;
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: color-mix(in oklab, #fff 58%, transparent);
+}
+
+.convocaStackKickerSq {
+  width: 10px;
+  height: 10px;
+  flex-shrink: 0;
+  background: #fff;
+}
+
+.convocaStackKickerSep {
+  color: var(--stack-accent);
+}
+
+.convocaStackHeadline {
+  margin: 0;
+  font-family: var(--font-display, system-ui, sans-serif);
+  font-size: clamp(1.85rem, 5.2vw, 3.35rem);
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  line-height: 1.02;
+  max-width: 16ch;
+}
+
+.convocaStackHeadlineLine {
+  display: block;
+  color: #fff;
+}
+
+.convocaStackHeadlineAccent {
+  display: block;
+  margin-top: 0.04em;
+  color: var(--stack-accent);
+}
+
+.convocaStackIntro {
+  margin: 0;
+  font-size: clamp(0.95rem, 1.85vw, 1.05rem);
+  line-height: 1.68;
+  color: color-mix(in oklab, #fff 80%, transparent);
+  max-width: 44rem;
+}
+
+.convocaStackMetricsRail {
+  min-width: 0;
+}
+
+.convocaStackMetricsGlass {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: clamp(0.95rem, 2.2vw, 1.15rem) clamp(1rem, 2.4vw, 1.2rem);
+  border-radius: 18px;
+  background: color-mix(in oklab, #fff 10%, transparent);
+  border: 1px solid color-mix(in oklab, #fff 28%, transparent);
+  box-shadow:
+    0 22px 56px color-mix(in oklab, #000 42%, transparent),
+    inset 0 1px 0 color-mix(in oklab, #fff 22%, transparent);
+  backdrop-filter: blur(22px) saturate(1.18);
+  -webkit-backdrop-filter: blur(22px) saturate(1.18);
+}
+
+.convocaStackMetricsGlass .convocaStackMetric {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 0.65rem 0.15rem;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+}
+
+.convocaStackMetricsGlass .convocaStackMetric + .convocaStackMetric {
+  border-top: 1px solid color-mix(in oklab, #fff 16%, transparent);
+  padding-top: 0.85rem;
+  margin-top: 0.15rem;
+}
+
+.convocaStackMetricValue {
+  font-family: var(--font-display, system-ui, sans-serif);
+  font-size: clamp(1.45rem, 2.8vw, 1.95rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: var(--stack-accent);
+  font-variant-numeric: tabular-nums;
+}
+
+.convocaStackMetricLabel {
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: color-mix(in oklab, #fff 56%, transparent);
+  line-height: 1.45;
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .convocaStackMetricsGlass {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: color-mix(in oklab, #1a2336 88%, var(--stack-accent) 8%);
+  }
+}
+
+/* Chile: franja editorial con acento, sin caja sólida plana */
+.convocaStackChile {
+  position: relative;
+  margin-bottom: clamp(1.85rem, 4.2vw, 2.65rem);
+  padding: clamp(1.25rem, 3vw, 1.85rem) clamp(1.15rem, 2.8vw, 1.65rem);
+  padding-left: clamp(1.35rem, 3.2vw, 1.85rem);
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid color-mix(in oklab, #fff 12%, transparent);
+  background:
+    radial-gradient(ellipse 90% 80% at 0% 0%, color-mix(in oklab, var(--stack-accent) 22%, transparent), transparent 55%),
+    linear-gradient(145deg, color-mix(in oklab, #fff 4%, #0c1018), color-mix(in oklab, #0e1420 92%, #090b10));
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.convocaStackChileAccent {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(
+    180deg,
+    var(--stack-accent) 0%,
+    color-mix(in oklab, var(--stack-accent) 45%, #1a2744) 100%
+  );
+  border-radius: 20px 0 0 20px;
+}
+
+.convocaStackChileInner {
+  position: relative;
+  padding-left: clamp(0.75rem, 2vw, 1.1rem);
+}
+
+.convocaStackChileTitle {
+  margin: 0 0 0.6rem;
+  font-family: var(--font-display, system-ui, sans-serif);
+  font-size: clamp(1.08rem, 2.2vw, 1.35rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  color: #fff;
+}
+
+.convocaStackChileBody {
+  margin: 0;
+  font-size: clamp(0.92rem, 1.6vw, 1rem);
+  line-height: 1.65;
+  color: color-mix(in oklab, #fff 78%, transparent);
+}
+
+.convocaStackPull {
+  margin: 0.9rem 0 0;
+  font-family: var(--font-display, system-ui, sans-serif);
+  font-size: clamp(1.02rem, 1.85vw, 1.14rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.38;
+  color: color-mix(in oklab, #fff 92%, var(--stack-accent));
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .convocaStackChile {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+}
+
+/* IA + propuesta: dos hilos con vidrio suave y desfase vertical */
+.convocaStackThreads {
+  display: grid;
+  gap: clamp(1.15rem, 2.8vw, 1.5rem);
+  margin-bottom: clamp(1.35rem, 3vw, 1.85rem);
+}
+
+@media (min-width: 768px) {
+  .convocaStackThreads {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(1.35rem, 3vw, 2rem);
+    align-items: start;
+  }
+
+  .convocaStackThread:nth-child(2) {
+    margin-top: clamp(1.75rem, 4.5vw, 2.75rem);
+  }
+}
+
+.convocaStackThread {
+  position: relative;
+  padding: clamp(1.1rem, 2.6vw, 1.5rem) clamp(1.05rem, 2.4vw, 1.35rem);
+  padding-top: clamp(1.35rem, 3vw, 1.65rem);
+  border-radius: 16px;
+  border: 1px solid color-mix(in oklab, #fff 14%, transparent);
+  background: color-mix(in oklab, #fff 6%, transparent);
+  box-shadow: 0 14px 42px color-mix(in oklab, #000 38%, transparent);
+  backdrop-filter: blur(18px) saturate(1.1);
+  -webkit-backdrop-filter: blur(18px) saturate(1.1);
+}
+
+.convocaStackThread::before {
+  content: "";
+  position: absolute;
+  top: 1rem;
+  left: clamp(1.05rem, 2.4vw, 1.35rem);
+  width: 2.25rem;
+  height: 2px;
+  background: var(--stack-accent);
+  border-radius: 1px;
+  opacity: 0.95;
+}
+
+.convocaStackThreadTitle {
+  margin: 0 0 0.55rem;
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--stack-accent);
+}
+
+.convocaStackThreadText {
+  margin: 0;
+  font-size: clamp(0.9rem, 1.55vw, 0.98rem);
+  line-height: 1.62;
+  color: color-mix(in oklab, #fff 76%, transparent);
+}
+
+.convocaStackThreadText + .convocaStackThreadText {
+  margin-top: 0.65rem;
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .convocaStackThread {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: color-mix(in oklab, #151c2c 90%, #090909);
+  }
+}
+
+.convocaStackClosing {
+  margin: 0;
+  padding: clamp(1.1rem, 2.6vw, 1.5rem) 0 0;
+  padding-left: clamp(1rem, 2.5vw, 1.35rem);
+  border-top: none;
+  border-left: 3px solid var(--stack-accent);
+  font-family: var(--font-display, system-ui, sans-serif);
+  font-size: clamp(1rem, 1.9vw, 1.2rem);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.42;
+  color: #fff;
+  max-width: 40rem;
 }

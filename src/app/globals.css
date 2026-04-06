@@ -1,21 +1,29 @@
 @import "tailwindcss";
 @import "../styles/tokens.css";
 
-/* ─── Fase 5 · Sistema visual Bauhaus contemporáneo / editorial premium ─── */
+/* ─── Paleta marca Precisar 2026 (referencia canónica) ───
+   void #0A0C12 · navy #023661 · charcoal #3F3A42 · slate #76828E · flame #DB5227
+   Los semánticos siguientes derivan de estos cinco para UI clara sobre fondo claro. */
 :root {
-  --bg: #f5f3ed;
-  --fg: #0c0c0b;
-  --muted: #5c5b54;
-  --muted-2: #6a6862;
-  --border: #d4d1c8;
-  --border-strong: #0c0c0b;
-  --surface: #ebe8e0;
-  --surface-2: #e3dfd4;
-  --elevated: #fffcf7;
-  --accent: #b83812;
-  --accent-muted: #d4a08a;
-  --accent-subtle: rgba(184, 56, 18, 0.08);
-  --hero-bg: #e8e4da;
+  --brand-void: #0a0c12;
+  --brand-navy: #023661;
+  --brand-charcoal: #3f3a42;
+  --brand-slate: #76828e;
+  --brand-flame: #db5227;
+
+  --bg: #f0f2f6;
+  --fg: var(--brand-void);
+  --muted: var(--brand-slate);
+  --muted-2: #5f6974;
+  --border: #c8d0d9;
+  --border-strong: var(--brand-charcoal);
+  --surface: #e4eaf1;
+  --surface-2: #d6dfe9;
+  --elevated: #ffffff;
+  --accent: var(--brand-flame);
+  --accent-muted: #e87352;
+  --accent-subtle: rgba(219, 82, 39, 0.12);
+  --hero-bg: #e6edf5;
   --max: 76rem;
   --max-text: 40rem;
   --max-wide: 48rem;
@@ -23,17 +31,17 @@
   --section-y: clamp(4.25rem, 10vw, 7.5rem);
   --radius: 0px;
   --radius-sm: 2px;
-  --header-h: 3.75rem;
-  --header-h-md: 4rem;
-  --shadow-card: 0 2px 0 0 var(--border-strong), 0 24px 48px -28px rgba(12, 12, 11, 0.14);
-  --shadow-card-hover: 0 3px 0 0 var(--border-strong), 0 32px 56px -24px rgba(12, 12, 11, 0.18);
+  /* Altura solo de la navbar (sin franja superior); alineada con SiteHeader + solapamiento del hero. */
+  --header-h: 5rem;
+  --header-h-md: 7.75rem;
+  --shadow-card: 0 2px 0 0 var(--border-strong), 0 24px 48px -28px rgba(10, 12, 18, 0.12);
+  --shadow-card-hover: 0 3px 0 0 var(--border-strong), 0 32px 56px -24px rgba(10, 12, 18, 0.16);
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-editorial: cubic-bezier(0.16, 1, 0.3, 1);
   --font-display: var(--font-display-family), system-ui, sans-serif;
-  /* Fase 5.2 · tensión y contraste editorial */
-  --ink: #0a0a09;
-  --band-ink: #121211;
-  --band-ink-fg: #f2efe8;
+  --ink: var(--brand-void);
+  --band-ink: var(--brand-navy);
+  --band-ink-fg: #f2f5f8;
   --home-gap: clamp(3.5rem, 12vw, 8rem);
 }
 
@@ -100,12 +108,6 @@ body {
 .prec-kicker--accent {
   color: var(--accent);
   letter-spacing: 0.32em;
-}
-
-.prec-page-head--magazine {
-  border-bottom: none;
-  margin-bottom: 0;
-  padding-bottom: 0;
 }
 
 .prec-page-head--article {
@@ -611,6 +613,11 @@ body {
   padding-top: 0.15rem;
 }
 
+.prec-page-head--editorial-index {
+  margin-bottom: clamp(1.75rem, 4vw, 2.5rem);
+  padding-bottom: clamp(1.5rem, 3vw, 2rem);
+}
+
 .prec-btn {
   display: inline-flex;
   align-items: center;
@@ -935,8 +942,16 @@ body {
 }
 
 .prec-precisando-rail {
-  background: linear-gradient(180deg, var(--band-ink) 0%, #1c1c1a 100%);
-  color: var(--band-ink-fg);
+  background: var(--surface);
+  color: var(--fg);
+  border-right: 1px solid var(--border);
+}
+
+@media (max-width: 1023px) {
+  .prec-precisando-rail {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
 }
 
 .prec-saberes-shelf {

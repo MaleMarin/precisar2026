@@ -34,19 +34,33 @@ export function ProgramLandingTemplate(props: {
 export function SaberesLibraryTemplate(props: {
   title: string;
   kicker?: string;
+  /** Párrafo de presentación bajo el h1. */
+  lead?: string;
   children: ReactNode;
 }) {
-  return <PageShell title={props.title} kicker={props.kicker}>{props.children}</PageShell>;
+  return (
+    <PageShell title={props.title} kicker={props.kicker} headerLead={props.lead}>
+      {props.children}
+    </PageShell>
+  );
 }
 
 /** Índice editorial Precisando. */
 export function EditorialIndexTemplate(props: {
   title: string;
   kicker?: string;
+  /** Línea bajo el h1; por defecto “Publicación editorial de Precisar.” */
+  intro?: string;
   children: ReactNode;
 }) {
   return (
-    <PageShell title={props.title} kicker={props.kicker} bare variant="editorial-index">
+    <PageShell
+      title={props.title}
+      kicker={props.kicker}
+      bare
+      variant="editorial-index"
+      indexIntro={props.intro}
+    >
       {props.children}
     </PageShell>
   );

@@ -3,11 +3,11 @@
  * Tipografía display: se enlaza a la variable de Next/font (Syne) en layout.
  */
 :root {
-  --color-bg: #0e0e0e;
-  --color-bg-light: #f0f0ec;
-  --color-text-dark: #1a1a1a;
-  --color-text-light: #f0f0ec;
-  --color-accent: #e63c2f;
+  --color-bg: #0a0c12;
+  --color-bg-light: #f0f2f6;
+  --color-text-dark: #0a0c12;
+  --color-text-light: #f2f5f8;
+  --color-accent: #db5227;
   --font-display: var(--font-display-family), system-ui, sans-serif;
   --font-sans: var(--font-sans-family), system-ui, sans-serif;
   --ease-pop: cubic-bezier(0.075, 0.82, 0.165, 1);

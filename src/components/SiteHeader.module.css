@@ -1,37 +1,240 @@
-/* Franja superior marca — mismo criterio que footer (negro + wordmark gris) */
-
-.brandStrip {
-  background: #000;
-  color: #fff;
+/* Logo claro sobre hero / barra oscura semitransparente */
+.navLogoLight {
+  filter: brightness(0) invert(1);
 }
 
-.brandLogoLink {
-  display: block;
-  line-height: 0;
-  text-decoration: none;
-}
-
-.brandLogoImg {
-  display: block;
-  width: auto;
-  max-width: min(72vw, 360px);
-  height: clamp(28px, 7vw, 52px);
-  object-fit: contain;
-  object-position: left center;
-  opacity: 0.92;
-  transition: opacity 0.2s ease;
-}
-
-.brandLogoLink:hover .brandLogoImg {
-  opacity: 1;
-}
-
-.brandInner {
-  padding: 10px 0 12px;
+/* Misma anchura máxima que .prec-container, con menos padding a la izquierda para acercar el logo al borde */
+.navBarOuter {
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  max-width: var(--max);
+  padding-right: var(--gutter);
+  padding-left: max(0.125rem, min(0.55rem, 0.8vw));
 }
 
 @media (min-width: 768px) {
-  .brandInner {
-    padding: 14px 0 16px;
+  .navBarOuter {
+    padding-left: clamp(0.2rem, 1vw, 0.75rem);
   }
 }
+
+.navBarRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+/* Pista bajo el menú (desktop): línea base + segmento naranja animado */
+.navTrack {
+  position: relative;
+  height: 3px;
+  width: 100%;
+  overflow: visible;
+}
+
+.navTrackBase {
+  position: absolute;
+  inset: 0;
+}
+
+.navTrackAccent {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  border-radius: 1px;
+  background: var(--accent);
+  pointer-events: none;
+  transition:
+    left 0.38s cubic-bezier(0.22, 1, 0.36, 1),
+    width 0.38s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.2s ease;
+}
+
+.navBarLogoLink {
+  display: block;
+  flex-shrink: 0;
+  line-height: 0;
+  text-decoration: none;
+  opacity: 0.96;
+  transition: opacity 0.2s ease;
+}
+
+.navBarLogoLink:hover {
+  opacity: 1;
+}
+
+.navBarLogo {
+  display: block;
+  width: auto;
+  height: clamp(48px, 11vw, 80px);
+  max-width: min(82vw, 460px);
+  object-fit: contain;
+  object-position: left center;
+}
+
+.navBarEnd {
+  display: flex;
+  min-width: 0;
+  flex: 1;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+/* Misma familia que el hero Potencia (Syne / --font-display), mayúsculas y minúsculas naturales */
+.navLinkDesktop {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(0.8125rem, 1.05vw, 0.9375rem);
+  letter-spacing: -0.04em;
+  line-height: 1.15;
+  text-transform: none;
+  font-variant: normal;
+}
+
+.navLinkMobile {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.125rem, 4.2vw, 1.35rem);
+  letter-spacing: -0.04em;
+  line-height: 1.2;
+  text-transform: none;
+  font-variant: normal;
+}
+
+/* PT / EN junto al menú principal (desktop) */
+.navLocaleGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.125rem;
+  margin-left: 0.5rem;
+  padding-left: 0.85rem;
+  border-left: 1px solid var(--border);
+}
+
+.navLocaleGroupOnDark {
+  border-left-color: rgba(255, 255, 255, 0.28);
+}
+
+/* Bot ONDA: símbolo de marca (`public/3.png`) */
+.navOndaLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 0.35rem;
+  line-height: 0;
+  border-radius: 6px;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+.navOndaLink:hover {
+  transform: scale(1.06);
+}
+
+.navOndaLink:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.navOndaIcon {
+  width: clamp(26px, 4.2vw, 32px);
+  height: auto;
+  max-height: 34px;
+  object-fit: contain;
+  display: block;
+}
+
+.navOndaIconLight {
+  opacity: 0.88;
+}
+
+.navOndaIconLight:hover {
+  opacity: 1;
+}
+
+/* Hero / barra oscura: mismo tratamiento que el logo invertido */
+.navOndaIconOnDark {
+  filter: brightness(0) invert(1);
+  opacity: 0.88;
+}
+
+.navOndaIconOnDark:hover {
+  opacity: 1;
+}
+
+.navOndaMobile {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  border-bottom: 1px solid var(--border);
+  padding: 1rem 0;
+  text-decoration: none;
+  color: var(--fg);
+  transition: color 0.2s ease;
+}
+
+.navOndaMobile:hover {
+  color: var(--accent);
+}
+
+.navOndaMobileIcon {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.navOndaMobileLabel {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+
+.navLocaleLink {
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-decoration: none;
+  padding: 0.4rem 0.45rem;
+  border-radius: 2px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.navLocaleLinkOnLight {
+  color: var(--muted);
+}
+
+.navLocaleLinkOnLight:hover {
+  color: var(--fg);
+}
+
+.navLocaleLinkActiveOnLight {
+  color: var(--fg);
+  box-shadow: inset 0 -2px 0 0 var(--accent);
+}
+
+.navLocaleLinkOnDark {
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.navLocaleLinkOnDark:hover {
+  color: #fff;
+}
+
+.navLocaleLinkActiveOnDark {
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.14);
+}
+

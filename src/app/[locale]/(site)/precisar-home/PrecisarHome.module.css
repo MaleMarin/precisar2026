@@ -1,0 +1,300 @@
+/* Animar posición de la mancha naranja que sigue al verbo del hero */
+@property --verb-flame-x {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 88%;
+}
+
+@property --verb-flame-y {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 11%;
+}
+
+/* Paleta fija Precisar 2026 (imagen de marca) */
+.root {
+  --void: #0a0c12;
+  --navy: #023661;
+  --charcoal: #3f3a42;
+  --slate: #76828e;
+  --flame: #db5227;
+  --mist: #f2f5f8;
+  --mist-dim: color-mix(in oklab, var(--mist) 72%, transparent);
+  --cream-panel: #e8ecf2;
+  background: var(--void);
+  color: var(--mist);
+  margin: calc(var(--header-h) * -1) calc(50% - 50vw) 0;
+  width: 100vw;
+  max-width: 100vw;
+  padding-top: var(--header-h);
+  overflow-x: clip;
+}
+
+@media (min-width: 768px) {
+  .root {
+    margin-top: calc(var(--header-h-md) * -1);
+    padding-top: var(--header-h-md);
+  }
+}
+
+@keyframes heroPulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.88;
+  }
+}
+
+@keyframes orbDrift {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(12px, -20px) scale(1.05);
+  }
+  66% {
+    transform: translate(-16px, 8px) scale(0.96);
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marqueeEdgePulse {
+  0%,
+  100% {
+    opacity: 0.45;
+  }
+  50% {
+    opacity: 0.85;
+  }
+}
+
+.hero {
+  position: relative;
+  min-height: min(96vh, 940px);
+  display: flex;
+  flex-direction: column;
+  padding: 0 var(--gutter) clamp(3.25rem, 11vw, 6.5rem);
+  overflow-x: clip;
+  overflow-y: visible;
+  transition:
+    --verb-flame-x 2.35s cubic-bezier(0.18, 0.06, 0.22, 1),
+    --verb-flame-y 2.35s cubic-bezier(0.18, 0.06, 0.22, 1);
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(165deg, var(--navy) 0%, var(--void) 55%, #05060a 100%);
+  z-index: 0;
+  animation: heroPulse 10s ease-in-out infinite;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse min(95%, 78vw) min(72%, 62vh) at var(--verb-flame-x) var(--verb-flame-y),
+    rgba(219, 82, 39, 0.4),
+    rgba(219, 82, 39, 0.1) 40%,
+    transparent 58%
+  );
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Mancha naranja animada (Framer + --verb-flame-* en el header); por encima del fondo, debajo del texto */
+.heroFlameMote {
+  position: absolute;
+  z-index: 1;
+  width: min(52vw, 360px);
+  height: min(52vw, 360px);
+  border-radius: 50%;
+  background: var(--flame);
+  filter: blur(38px);
+  opacity: 0.58;
+  pointer-events: none;
+}
+
+.heroOrb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.35;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.heroOrb2 {
+  width: min(45vw, 340px);
+  height: min(45vw, 340px);
+  background: var(--navy);
+  bottom: 20%;
+  left: -8%;
+  animation: orbDrift 22s ease-in-out infinite reverse;
+}
+
+.heroInner {
+  position: relative;
+  z-index: 2;
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: var(--max);
+  margin: 0 auto;
+  width: 100%;
+  padding-top: clamp(5.25rem, 15vh, 9rem);
+  padding-bottom: clamp(1.25rem, 4vh, 2.75rem);
+}
+
+.heroPotenciaH1 {
+  margin: clamp(2.65rem, 6.5vh, 4.5rem) 0 0;
+  padding: 0 0 0.2em;
+  max-width: 100%;
+  font: inherit;
+  text-transform: none;
+  overflow: visible;
+}
+
+.kicker {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--slate);
+  margin: 0 0 1.25rem;
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(2.35rem, 7.5vw, 4.25rem);
+  font-weight: 600;
+  line-height: 0.98;
+  letter-spacing: -0.045em;
+  max-width: 15ch;
+}
+
+.titleAccent {
+  color: var(--flame);
+}
+
+.titleMorphLine {
+  display: block;
+  margin-top: 0.06em;
+  line-height: 1.05;
+}
+
+.titleMorphStatic {
+  color: var(--mist);
+}
+
+.heroWordSlot {
+  display: inline-grid;
+  vertical-align: baseline;
+  min-width: min(52vw, 11.5rem);
+  text-align: left;
+}
+
+@media (min-width: 640px) {
+  .heroWordSlot {
+    min-width: 12.5rem;
+  }
+}
+
+.morphWord {
+  grid-area: 1 / 1;
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  letter-spacing: inherit;
+  line-height: inherit;
+  color: var(--flame);
+  transform-style: preserve-3d;
+  perspective: 520px;
+}
+
+.morphChar {
+  display: inline-block;
+  white-space: pre;
+  transform-style: preserve-3d;
+}
+
+.marqueeWrap {
+  position: relative;
+  border-top: 1px solid color-mix(in oklab, var(--slate) 25%, transparent);
+  border-bottom: 1px solid color-mix(in oklab, var(--slate) 25%, transparent);
+  background: color-mix(in oklab, var(--void) 92%, var(--navy));
+  padding: 1rem 0;
+  overflow: hidden;
+}
+
+.marqueeWrap::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    var(--void) 0%,
+    transparent 18%,
+    transparent 82%,
+    var(--void) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+  animation: marqueeEdgePulse 5s ease-in-out infinite;
+}
+
+.marqueeTrack {
+  display: flex;
+  width: max-content;
+  animation: marquee 28s linear infinite;
+  will-change: transform;
+}
+
+.marqueeInner {
+  display: flex;
+  gap: 3rem;
+  padding: 0 1.5rem;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--slate);
+  white-space: nowrap;
+}
+
+.marqueeInner span {
+  color: var(--mist);
+}
+
+.reduceMotion .hero::before,
+.reduceMotion .heroOrb2 {
+  animation: none;
+}
+
+.reduceMotion .marqueeTrack {
+  animation: none;
+}
+
+.reduceMotion .marqueeWrap::before {
+  animation: none;
+}

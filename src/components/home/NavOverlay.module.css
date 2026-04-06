@@ -169,6 +169,8 @@
   font-weight: 600;
   line-height: 1;
   letter-spacing: -0.04em;
+  text-transform: none;
+  font-variant: normal;
   color: var(--pds-overlay-fg);
   text-decoration: none;
   border-bottom: 1px solid var(--pds-overlay-border);
