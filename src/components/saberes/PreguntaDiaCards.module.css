@@ -114,15 +114,23 @@
 
 .imageArea {
   position: relative;
-  flex: 1;
-  min-height: 0;
+  flex: 1 1 auto;
+  /* Altura mínima: next/img dentro de 3D/backface a veces colapsa a 0; img nativo + min-height estabiliza */
+  min-height: 10rem;
   width: 100%;
 }
 
 .imageFill {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
   object-position: center;
   background: color-mix(in oklab, var(--elevated) 88%, var(--bg));
+  /* Evita que capas 3D del volteo oculten la imagen en WebKit */
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
 }
 
 .back .imageFill {

@@ -1,15 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import { useReducedMotion } from "framer-motion";
 import { getPreguntaDiaPair, PREGUNTA_DIA_PUBLIC_BASE } from "@/lib/preguntaDiaAssets";
 import styles from "./PreguntaDiaCards.module.css";
 
 const COUNT = 30;
-
-const IMAGE_SIZES =
-  "(max-width: 480px) 45vw, (max-width: 768px) 30vw, (max-width: 1100px) 22vw, (max-width: 1400px) 17vw, 14vw";
 
 export function PreguntaDiaCards({ pdfHref }: { pdfHref: string }) {
   const reduceMotion = useReducedMotion();
@@ -90,24 +86,24 @@ function PreguntaCard({
             {n}
           </span>
           <div className="relative aspect-[3/4] w-full overflow-hidden border border-[var(--border)] bg-[var(--bg)]">
-            <Image
+            <img
               src={frontSrc}
               alt={`Pregunta ${index}, frente`}
-              fill
-              sizes={IMAGE_SIZES}
               className={styles.imageFill}
+              loading="lazy"
+              decoding="async"
             />
           </div>
           <p className="font-mono text-[7px] uppercase leading-snug tracking-wider text-[var(--muted)]">
             Reverso (animación reducida):
           </p>
           <div className="relative aspect-[3/4] w-full overflow-hidden border border-[var(--border)] bg-[var(--fg)]">
-            <Image
+            <img
               src={backSrc}
               alt={`Pregunta ${index}, reverso`}
-              fill
-              sizes={IMAGE_SIZES}
               className={styles.imageFill}
+              loading="lazy"
+              decoding="async"
             />
           </div>
           <a
@@ -186,13 +182,12 @@ function FlipCard({
               Pregunta {index}, frente. Toca para voltear.
             </span>
             <div className={styles.imageArea}>
-              <Image
+              <img
                 src={frontSrc}
-                alt=""
-                fill
-                sizes={IMAGE_SIZES}
+                alt={`Pregunta ${index}, frente de la tarjeta`}
                 className={styles.imageFill}
-                aria-hidden
+                loading="lazy"
+                decoding="async"
               />
             </div>
             <span className={`${styles.hint} px-2 pb-1 pt-1`}>Toca para voltear</span>
@@ -200,13 +195,12 @@ function FlipCard({
           <span className={`${styles.face} ${styles.back} ${styles.faceBleed}`}>
             <span className="sr-only">Pregunta {index}, reverso.</span>
             <div className={`${styles.imageArea} relative`}>
-              <Image
+              <img
                 src={backSrc}
-                alt=""
-                fill
-                sizes={IMAGE_SIZES}
+                alt={`Pregunta ${index}, reverso de la tarjeta`}
                 className={styles.imageFill}
-                aria-hidden
+                loading="lazy"
+                decoding="async"
               />
               <div className={styles.pdfLinkOverlay}>
                 <a
