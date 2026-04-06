@@ -152,29 +152,31 @@ function HomeConvocaStackPanelContent() {
 
       <p className={styles.convocaStackIntroSlate}>{t("intro")}</p>
 
-      <section className={styles.convocaStackChile} aria-labelledby="convoca-chile-heading">
-        <h3 className={styles.convocaStackChileTitle} id="convoca-chile-heading">
-          {t("chile.title")}
-        </h3>
-        <p className={styles.convocaStackChileStat}>{t("chile.statValue")}</p>
-        <p className={styles.convocaStackChileBody}>{t("chile.bodyAfterStat")}</p>
-        <p className={styles.convocaStackChilePull}>{t("chile.pull")}</p>
-      </section>
-
       <section className={styles.convocaStackIa} aria-labelledby="convoca-ia-heading">
-        <h3 className={styles.convocaStackIaTitle} id="convoca-ia-heading">
-          {t("ia.title")}
-        </h3>
-        <span className={styles.convocaStackIaRule} aria-hidden />
-        <p className={styles.convocaStackIaBody}>{t("ia.body")}</p>
+        <div className={styles.convocaStackIaColLeft}>
+          <p className={styles.convocaStackIaEyebrow}>{t("ia.eyebrow")}</p>
+          <h3 className={styles.convocaStackIaHeadline} id="convoca-ia-heading">
+            {t("ia.headline")}
+          </h3>
+        </div>
+        <div className={styles.convocaStackIaColRight}>
+          <p className={styles.convocaStackIaBody}>{t("ia.body")}</p>
+        </div>
       </section>
 
       <div className={styles.convocaStackPropuesta}>
+        <p className={styles.convocaStackPropuestaEyebrow}>{t("propuesta.eyebrow")}</p>
         <p className={styles.convocaStackPropuestaText}>{t("propuesta.body1")}</p>
         <p className={styles.convocaStackPropuestaText}>{t("propuesta.body2")}</p>
       </div>
 
-      <p className={styles.convocaStackClosing}>{t("closing")}</p>
+      <div className={styles.convocaStackClosingWrap}>
+        <p className={styles.convocaStackClosing}>
+          <span className={styles.convocaStackClosingText}>{t("closing.before")}</span>
+          <span className={styles.convocaStackClosingBrand}>Precisar</span>
+          <span className={styles.convocaStackClosingText}>{t("closing.after")}</span>
+        </p>
+      </div>
     </div>
   );
 }

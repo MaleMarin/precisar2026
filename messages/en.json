@@ -46,22 +46,20 @@
       "yearsValue": "26M",
       "yearsLabel": "years to read it all"
     },
-    "chile": {
-      "title": "The opportunity in Chile",
-      "statValue": "96.5%",
-      "bodyAfterStat": "of Chilean households have internet. But a deeper gap matters: 53% of people do not fully understand what they read, and 5 million people need to build critical digital skills.",
-      "pull": "We are already connected. What is missing is judgment."
-    },
     "ia": {
-      "title": "AI as an ally",
-      "body": "Artificial intelligence is already here, filtering our reality. Learning to use it ethically and critically is not the future—it is the present."
+      "eyebrow": "■ AI AS AN ALLY",
+      "headline": "Artificial intelligence is already here.",
+      "body": "It filters our reality, amplifies certain content, and silences others. Learning to use it ethically and critically is not the future—it is the present. And it is central to what we do at Precisar."
     },
     "propuesta": {
-      "title": "Our approach",
+      "eyebrow": "■ OUR APPROACH",
       "body1": "At Precisar we turn noise into judgment. We show how information is produced and circulates, how content gets prioritised, how to spot bias, and how to verify sources.",
       "body2": "We build skills to access, analyse, create, and take part—improving how information is available, trustworthy, and shared where it is needed most."
     },
-    "closing": "From connection to understanding. That is what calls us together at Precisar."
+    "closing": {
+      "before": "From connection to understanding. That is what calls us together at ",
+      "after": "."
+    }
   },
   "homePrograms": {
     "title": "Programs",
