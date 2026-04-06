@@ -116,10 +116,14 @@
 
 .tabsBar {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: stretch;
   gap: 0;
-  background: #00cc00;
+  margin: 0;
   padding: 0;
+  list-style: none;
+  background: #00cc00;
   margin-bottom: 1.75rem;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
@@ -127,8 +131,8 @@
 
 .tabInactive,
 .tabActive {
-  flex: 1 1 auto;
-  min-width: min(100%, 8rem);
+  flex: 1 0 minmax(7.5rem, auto);
+  min-width: 0;
   border: none;
   border-radius: 0;
   cursor: pointer;
@@ -139,6 +143,8 @@
   text-transform: uppercase;
   padding: 1rem 0.85rem;
   text-align: center;
+  list-style: none;
+  margin: 0;
   transition:
     background-color 0.2s ease,
     color 0.2s ease;
@@ -162,6 +168,10 @@
   background: #fff;
   padding: clamp(1.5rem, 4vw, 2.25rem);
   border: 1px solid var(--border, #c8d0d9);
+}
+
+.tabContent {
+  transition: opacity 0.3s ease;
   animation: comunicacionTabFade 0.3s ease forwards;
 }
 
@@ -175,12 +185,6 @@
   }
 }
 
-.tabBodyStack {
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-}
-
 .tabBodyText {
   margin: 0;
   font-size: 1.0625rem;
@@ -188,10 +192,6 @@
   color: var(--brand-void, #0a0c12);
 }
 
-.tabBodyLead {
-  margin: 0;
-  font-size: 1.0625rem;
-  font-weight: 700;
-  line-height: 1.5;
-  color: var(--brand-void, #0a0c12);
+.tabBodyText + .tabBodyText {
+  margin-top: 1.25rem;
 }
