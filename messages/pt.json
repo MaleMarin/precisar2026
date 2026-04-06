@@ -96,7 +96,7 @@
     }
   },
   "homeEducacionMediatica": {
-    "stackKicker": "04 · EDUCAÇÃO MEDIÁTICA",
+    "stackKicker": "05 · EDUCAÇÃO MEDIÁTICA",
     "stackHeadline": "Entender os meios é uma habilidade que se aprende.",
     "stackBody": "Quatro dimensões para ler o mundo digital\ncom mais critério, mais consciência e mais autonomia.",
     "linkComunicacion": "Comunicação",
@@ -105,7 +105,7 @@
     "linkCultura": "Cultura"
   },
   "homePrecisando": {
-    "stackKicker": "05 · Precisando",
+    "stackKicker": "04 · Precisando",
     "label": "Editorial",
     "stackHeadline": "Análises e debates sobre como a informação circula e que efeitos tem.",
     "stackBody": "Porque a informação está em todo o lugar — e entendê-la é o que faz a diferença."

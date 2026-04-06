@@ -1,8 +1,3 @@
-/* Logo claro sobre hero / barra oscura semitransparente */
-.navLogoLight {
-  filter: brightness(0) invert(1);
-}
-
 /* Misma anchura máxima que .prec-container, con menos padding a la izquierda para acercar el logo al borde */
 .navBarOuter {
   box-sizing: border-box;
@@ -51,6 +46,11 @@
     left 0.38s cubic-bezier(0.22, 1, 0.36, 1),
     width 0.38s cubic-bezier(0.22, 1, 0.36, 1),
     opacity 0.2s ease;
+}
+
+/* Logo claro sobre hero / barra oscura semitransparente */
+.navLogoLight {
+  filter: brightness(0) invert(1);
 }
 
 .navBarLogoLink {
@@ -119,9 +119,9 @@
   border-left-color: rgba(255, 255, 255, 0.28);
 }
 
-/* Bot ONDA: símbolo de marca (`public/3.png`) */
+/* Bot ONDA: enlace con marca onda (desktop dentro del <nav>, móvil en la barra) */
 .navOndaLink {
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   margin-left: 0.35rem;
@@ -130,6 +130,24 @@
   transition:
     opacity 0.2s ease,
     transform 0.2s ease;
+}
+
+@media (min-width: 1024px) {
+  .navOndaLink:not(.navOndaLinkMobileBar) {
+    display: flex;
+  }
+}
+
+.navOndaLinkMobileBar {
+  display: flex;
+  margin-left: 0;
+  margin-right: 0.25rem;
+}
+
+@media (min-width: 1024px) {
+  .navOndaLinkMobileBar {
+    display: none;
+  }
 }
 
 .navOndaLink:hover {
@@ -142,28 +160,20 @@
 }
 
 .navOndaIcon {
-  width: clamp(26px, 4.2vw, 32px);
+  width: clamp(28px, 4.5vw, 36px);
   height: auto;
-  max-height: 34px;
+  max-height: 38px;
   object-fit: contain;
   display: block;
 }
 
-.navOndaIconLight {
-  opacity: 0.88;
+/* Logo onda a color (`logo onda.png`): sin invertir en barra oscura */
+.navOndaMarkImg {
+  filter: none;
+  opacity: 0.94;
 }
 
-.navOndaIconLight:hover {
-  opacity: 1;
-}
-
-/* Hero / barra oscura: mismo tratamiento que el logo invertido */
-.navOndaIconOnDark {
-  filter: brightness(0) invert(1);
-  opacity: 0.88;
-}
-
-.navOndaIconOnDark:hover {
+.navOndaMarkImg:hover {
   opacity: 1;
 }
 

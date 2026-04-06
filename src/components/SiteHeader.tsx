@@ -161,11 +161,11 @@ export function SiteHeader() {
       ? "h-px w-6 bg-white transition-transform duration-300 ease-out"
       : "h-px w-6 bg-[var(--fg)] transition-transform duration-300 ease-out";
 
+  const onDarkNav = navOnHero || navHomeGlass;
+
   const logoClass = [styles.navBarLogo, navOnHero || navHomeGlass ? styles.navLogoLight : ""]
     .filter(Boolean)
     .join(" ");
-
-  const onDarkNav = navOnHero || navHomeGlass;
 
   const localeLinkClass = (loc: string) =>
     [
@@ -233,12 +233,12 @@ export function SiteHeader() {
                     aria-label={tNav("botOndaAria")}
                   >
                     <img
-                      src={FOOTER_MEDIA.symbol}
+                      src={FOOTER_MEDIA.navOndaMark}
                       alt=""
                       width={64}
                       height={64}
                       decoding="async"
-                      className={`${styles.navOndaIcon} ${onDarkNav ? styles.navOndaIconOnDark : styles.navOndaIconLight}`}
+                      className={`${styles.navOndaIcon} ${styles.navOndaMarkImg}`}
                     />
                   </a>
                   <div
@@ -260,6 +260,22 @@ export function SiteHeader() {
                     ))}
                   </div>
                 </nav>
+                <a
+                  href={EXTERNAL.botOnda}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`${styles.navOndaLink} ${styles.navOndaLinkMobileBar}`}
+                  aria-label={tNav("botOndaAria")}
+                >
+                  <img
+                    src={FOOTER_MEDIA.navOndaMark}
+                    alt=""
+                    width={64}
+                    height={64}
+                    decoding="async"
+                    className={`${styles.navOndaIcon} ${styles.navOndaMarkImg}`}
+                  />
+                </a>
                 <button
                   type="button"
                   className="relative z-[60] flex h-11 w-11 flex-shrink-0 flex-col items-center justify-center gap-1.5 lg:hidden"
@@ -324,7 +340,7 @@ export function SiteHeader() {
                 onClick={() => setOpen(false)}
               >
                 <img
-                  src={FOOTER_MEDIA.symbol}
+                  src={FOOTER_MEDIA.navOndaMark}
                   alt=""
                   width={80}
                   height={80}

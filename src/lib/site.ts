@@ -20,9 +20,12 @@ export const NEWSLETTER = {
  */
 export const FOOTER_MEDIA = {
   logoWordmark: "/logo-precisar/logo-precisar.png",
-  /** Logo negro PRECISAR para la barra de navegación clara (`public/1.png`). */
+  /** Wordmark PRECISAR en la barra (`public/1.png`). */
   headerLogoBlack: "/1.png",
   logoWordmarkFooter: "/brand/footer-wordmark.svg",
+  /** Logo onda — `public/logo onda.png` (espacio en el nombre → %20 en URL). */
+  navOndaMark: "/logo%20onda.png",
+  /** Fallback / otros usos (`public/3.png`). */
   symbol: "/3.png",
 } as const;
 

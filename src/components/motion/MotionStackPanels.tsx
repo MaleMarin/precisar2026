@@ -209,7 +209,7 @@ function HomeConvocaStackPanelContent() {
 type StackPanelProps = {
   index: number;
   total: number;
-  theme?: "light" | "dark" | "accent";
+  theme?: "light" | "dark" | "accent" | "navy";
   kicker: string;
   label?: string;
   headline: string;
@@ -296,50 +296,59 @@ function StackPanel({
 
   const isDark = theme === "dark";
   const isAccent = theme === "accent";
+  const isNavy = theme === "navy";
+  const isColoredPanel = isAccent || isNavy;
 
   const panelClass = [
     styles.stickyPanel,
-    isDark ? styles.stickyPanelDark : isAccent ? styles.stickyPanelAccent : styles.stickyPanelLight,
+    isDark
+      ? styles.stickyPanelDark
+      : isAccent
+        ? styles.stickyPanelAccent
+        : isNavy
+          ? styles.stickyPanelNavy
+          : styles.stickyPanelLight,
   ].join(" ");
 
   const glowClass = [
     styles.panelGlow,
-    isDark ? styles.glowDark : isAccent ? styles.glowAccent : styles.glowLight,
+    isDark ? styles.glowDark : isAccent ? styles.glowAccent : isNavy ? styles.glowNavy : styles.glowLight,
   ].join(" ");
 
   const lineClass = [
     styles.topLine,
-    isDark || isAccent ? styles.lineDark : styles.lineLight,
+    isDark || isColoredPanel ? styles.lineDark : styles.lineLight,
   ].join(" ");
 
   const kickerClass = [
     styles.kicker,
-    isAccent ? styles.kickerOnAccent : "",
-    isDark ? styles.kickerSquareOnDark : "",
+    isColoredPanel ? styles.kickerOnAccent : "",
+    isDark && !isColoredPanel ? styles.kickerSquareOnDark : "",
   ]
     .filter(Boolean)
     .join(" ");
 
   const kickerSqClass = [
     styles.kickerSquare,
-    isAccent ? styles.kickerSquareOnAccent : "",
-    isDark ? styles.kickerSquareOnDark : "",
+    isColoredPanel ? styles.kickerSquareOnAccent : "",
+    isDark && !isColoredPanel ? styles.kickerSquareOnDark : "",
   ]
     .filter(Boolean)
     .join(" ");
 
-  const titleRowClass = [styles.titleRow, isDark || isAccent ? styles.titleRowOnDark : ""]
+  const titleRowClass = [styles.titleRow, isDark || isColoredPanel ? styles.titleRowOnDark : ""]
     .filter(Boolean)
     .join(" ");
 
   const bodyClass = [
     styles.body,
-    isDark ? styles.bodyOnDark : isAccent ? styles.bodyOnAccent : "",
+    isDark ? styles.bodyOnDark : isColoredPanel ? styles.bodyOnAccent : "",
   ]
     .filter(Boolean)
     .join(" ");
 
   const isTwoColIntroLayout = id === "saberes" || id === "educacion-mediatica";
+  const saberesOnAccent = id === "saberes" && isAccent;
   const gridClass = isTwoColIntroLayout ? `${styles.grid} ${styles.gridSaberes}` : styles.grid;
   const colMainClass = [styles.colMain, isTwoColIntroLayout ? styles.colMainSaberes : ""]
     .filter(Boolean)
@@ -347,11 +356,13 @@ function StackPanel({
   const colAsideClass = [styles.colAside, isTwoColIntroLayout ? styles.colAsideSaberes : ""]
     .filter(Boolean)
     .join(" ");
-  const stackTitleClass = isTwoColIntroLayout ? styles.saberesHeadline : styles.displayTitle;
+  const stackTitleClass = isTwoColIntroLayout
+    ? [styles.saberesHeadline, saberesOnAccent ? styles.saberesHeadlineOnAccent : ""].filter(Boolean).join(" ")
+    : styles.displayTitle;
   const stackBodyClass = isTwoColIntroLayout
     ? id === "educacion-mediatica"
       ? `${styles.saberesBody} ${styles.saberesBodyPreline}`
-      : styles.saberesBody
+      : [styles.saberesBody, saberesOnAccent ? styles.saberesBodyOnAccent : ""].filter(Boolean).join(" ")
     : bodyClass;
 
   const glowDrift = !reduceMotion ? styles.panelGlowDrift : "";
@@ -510,27 +521,19 @@ export function MotionStackPanels({
     },
     {
       id: "saberes",
-      theme: "light" as const,
+      theme: "accent" as const,
       kicker: tSaberes("stackKicker"),
       label: tSaberes("label"),
       headline: tSaberes("stackHeadline"),
       body: tSaberes("stackBody"),
       icon: IconDownload,
-      child: <MiniList reduceMotion={reduceMotion} glass glassExtraMargin items={saberesLinks} />,
-    },
-    {
-      id: "educacion-mediatica",
-      theme: "light" as const,
-      kicker: tEducacionMediatica("stackKicker"),
-      label: undefined,
-      headline: tEducacionMediatica("stackHeadline"),
-      body: tEducacionMediatica("stackBody"),
-      icon: undefined,
-      child: <MiniList reduceMotion={reduceMotion} glass items={educacionMediaticaLinks} />,
+      child: (
+        <MiniList dark glass glassExtraMargin reduceMotion={reduceMotion} items={saberesLinks} />
+      ),
     },
     {
       id: "precisando",
-      theme: "accent" as const,
+      theme: "navy" as const,
       kicker: tPrecisando("stackKicker"),
       label: tPrecisando("label"),
       headline: tPrecisando("stackHeadline"),
@@ -546,6 +549,16 @@ export function MotionStackPanels({
           items={precisandoLinks}
         />
       ),
+    },
+    {
+      id: "educacion-mediatica",
+      theme: "light" as const,
+      kicker: tEducacionMediatica("stackKicker"),
+      label: undefined,
+      headline: tEducacionMediatica("stackHeadline"),
+      body: tEducacionMediatica("stackBody"),
+      icon: undefined,
+      child: <MiniList reduceMotion={reduceMotion} glass items={educacionMediaticaLinks} />,
     },
     {
       id: "participa",
