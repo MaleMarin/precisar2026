@@ -1,9 +1,9 @@
 "use client";
 
-import Link from "next/link";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { useMemo, useRef, type ComponentType, type ReactNode } from "react";
 import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { MultiStepForm } from "@/components/home/MultiStepForm";
 import { EXTERNAL, FOOTER_COLUMNS, SITE, SABERES_NAV_LINKS } from "@/lib/site";
 import styles from "./MotionStackPanels.module.css";
@@ -339,12 +339,16 @@ function StackPanel({
     .filter(Boolean)
     .join(" ");
 
-  const isSaberes = id === "saberes";
-  const gridClass = isSaberes ? `${styles.grid} ${styles.gridSaberes}` : styles.grid;
-  const colMainClass = [styles.colMain, isSaberes ? styles.colMainSaberes : ""].filter(Boolean).join(" ");
-  const colAsideClass = [styles.colAside, isSaberes ? styles.colAsideSaberes : ""].filter(Boolean).join(" ");
-  const stackTitleClass = isSaberes ? styles.saberesHeadline : styles.displayTitle;
-  const stackBodyClass = isSaberes ? styles.saberesBody : bodyClass;
+  const isTwoColIntroLayout = id === "saberes" || id === "educacion-mediatica";
+  const gridClass = isTwoColIntroLayout ? `${styles.grid} ${styles.gridSaberes}` : styles.grid;
+  const colMainClass = [styles.colMain, isTwoColIntroLayout ? styles.colMainSaberes : ""]
+    .filter(Boolean)
+    .join(" ");
+  const colAsideClass = [styles.colAside, isTwoColIntroLayout ? styles.colAsideSaberes : ""]
+    .filter(Boolean)
+    .join(" ");
+  const stackTitleClass = isTwoColIntroLayout ? styles.saberesHeadline : styles.displayTitle;
+  const stackBodyClass = isTwoColIntroLayout ? styles.saberesBody : bodyClass;
 
   const glowDrift = !reduceMotion ? styles.panelGlowDrift : "";
 
@@ -443,6 +447,7 @@ export function MotionStackPanels({
   const tPrograms = useTranslations("homePrograms");
   const tPrecisando = useTranslations("homePrecisando");
   const tSaberes = useTranslations("homeSaberes");
+  const tEducacionMediatica = useTranslations("homeEducacionMediatica");
   const programLinks = [
     { label: tPrograms("stackLinkCiudades"), href: "/programas/ciudades" },
     { label: tPrograms("stackLinkHub"), href: "/programas/hub-digital-consciente" },
@@ -456,6 +461,13 @@ export function MotionStackPanels({
   const saberesLinks = SABERES_NAV_LINKS.filter(
     (l) => l.href !== "/saberes" && l.href !== "/marco/comunicacion",
   ).map((l) => ({ label: l.label, href: l.href }));
+
+  const educacionMediaticaLinks = [
+    { label: tEducacionMediatica("linkComunicacion"), href: "/marco/comunicacion" },
+    { label: tEducacionMediatica("linkEducacion"), href: "/marco/educacion" },
+    { label: tEducacionMediatica("linkTecnologia"), href: "/marco/tecnologia" },
+    { label: tEducacionMediatica("linkCultura"), href: "/marco/cultura" },
+  ];
 
   const precisandoLinks = featuredArticles.slice(0, 4).map((a) => ({
     label: a.title,
@@ -503,6 +515,18 @@ export function MotionStackPanels({
       child: <MiniList reduceMotion={reduceMotion} glass glassExtraMargin items={saberesLinks} />,
     },
     {
+      id: "educacion-mediatica",
+      theme: "light" as const,
+      kicker: tEducacionMediatica("stackKicker"),
+      label: undefined,
+      headline: tEducacionMediatica("stackHeadline"),
+      body: tEducacionMediatica("stackBody"),
+      icon: undefined,
+      child: (
+        <MiniList reduceMotion={reduceMotion} glass glassExtraMargin items={educacionMediaticaLinks} />
+      ),
+    },
+    {
       id: "precisando",
       theme: "accent" as const,
       kicker: tPrecisando("stackKicker"),
@@ -524,7 +548,7 @@ export function MotionStackPanels({
     {
       id: "participa",
       theme: "dark" as const,
-      kicker: "05 · Participa",
+      kicker: "06 · Participa",
       headline: "Escribinos: territorio, institución y la necesidad que querés abordar.",
       body:
         "Consulta ciudadana, newsletter y canales abiertos. Contanos desde dónde trabajás y qué tema querés abordar.",

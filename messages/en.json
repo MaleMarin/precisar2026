@@ -95,8 +95,17 @@
       }
     }
   },
+  "homeEducacionMediatica": {
+    "stackKicker": "04 · MEDIA EDUCATION",
+    "stackHeadline": "Understanding media is a skill you learn.",
+    "stackBody": "Four dimensions for reading the digital world with more judgment, more awareness, and more autonomy.",
+    "linkComunicacion": "Communication",
+    "linkEducacion": "Education",
+    "linkTecnologia": "Technology",
+    "linkCultura": "Culture"
+  },
   "homePrecisando": {
-    "stackKicker": "04 · Precisando",
+    "stackKicker": "05 · Precisando",
     "label": "Editorial",
     "stackHeadline": "Analysis and debate on how information circulates and what effects it has.",
     "stackBody": "Because information is everywhere—and understanding it is what makes the difference."
