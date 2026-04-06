@@ -193,6 +193,10 @@
   color: rgba(0, 0, 0, 0.5);
 }
 
+.saberesBodyPreline {
+  white-space: pre-line;
+}
+
 .panelMeta {
   display: none;
   font-family: var(--font-mono, ui-monospace, monospace);

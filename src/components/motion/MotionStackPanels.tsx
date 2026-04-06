@@ -348,7 +348,11 @@ function StackPanel({
     .filter(Boolean)
     .join(" ");
   const stackTitleClass = isTwoColIntroLayout ? styles.saberesHeadline : styles.displayTitle;
-  const stackBodyClass = isTwoColIntroLayout ? styles.saberesBody : bodyClass;
+  const stackBodyClass = isTwoColIntroLayout
+    ? id === "educacion-mediatica"
+      ? `${styles.saberesBody} ${styles.saberesBodyPreline}`
+      : styles.saberesBody
+    : bodyClass;
 
   const glowDrift = !reduceMotion ? styles.panelGlowDrift : "";
 
@@ -522,9 +526,7 @@ export function MotionStackPanels({
       headline: tEducacionMediatica("stackHeadline"),
       body: tEducacionMediatica("stackBody"),
       icon: undefined,
-      child: (
-        <MiniList reduceMotion={reduceMotion} glass glassExtraMargin items={educacionMediaticaLinks} />
-      ),
+      child: <MiniList reduceMotion={reduceMotion} glass items={educacionMediaticaLinks} />,
     },
     {
       id: "precisando",
