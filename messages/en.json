@@ -48,7 +48,8 @@
     },
     "chile": {
       "title": "The opportunity in Chile",
-      "body": "96.5% of Chilean households have internet. But a deeper gap matters: 53% of people do not fully understand what they read, and 5 million people need to build critical digital skills.",
+      "statValue": "96.5%",
+      "bodyAfterStat": "of Chilean households have internet. But a deeper gap matters: 53% of people do not fully understand what they read, and 5 million people need to build critical digital skills.",
       "pull": "We are already connected. What is missing is judgment."
     },
     "ia": {

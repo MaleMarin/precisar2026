@@ -151,59 +151,54 @@ function HomeConvocaStackPanelContent() {
 
   return (
     <div className={styles.convocaStackRoot}>
-      <div className={styles.convocaStackHero}>
-        <div className={styles.convocaStackHeroCopy}>
-          <header className={styles.convocaStackHeader}>
-            <p className={styles.convocaStackKicker}>
-              <span className={styles.convocaStackKickerSq} aria-hidden />
-              <span>{t("kickerLine1")}</span>
-              <span className={styles.convocaStackKickerSep} aria-hidden>
-                ·
-              </span>
-              <span>{t("kickerLine2")}</span>
-            </p>
-            <h2 className={styles.convocaStackHeadline} id="stack-convoca-heading">
-              <span className={styles.convocaStackHeadlineLine}>{t("headline.line1")}</span>
-              <span className={styles.convocaStackHeadlineAccent}>{t("headline.line2")}</span>
-            </h2>
-          </header>
-          <p className={styles.convocaStackIntro}>{t("intro")}</p>
+      <header className={styles.convocaStackHeader}>
+        <p className={styles.convocaStackKicker}>
+          <span className={styles.convocaStackKickerSq} aria-hidden />
+          <span>{t("kickerLine1")}</span>
+          <span className={styles.convocaStackKickerSep} aria-hidden>
+            ·
+          </span>
+          <span>{t("kickerLine2")}</span>
+        </p>
+        <h2 className={styles.convocaStackHeadline} id="stack-convoca-heading">
+          <span className={styles.convocaStackHeadlineLine}>{t("headline.line1")}</span>
+          <span className={styles.convocaStackHeadlineAccent}>{t("headline.line2")}</span>
+        </h2>
+      </header>
+
+      <div className={styles.convocaStackImpact}>
+        <div className={styles.convocaStackImpactItem}>
+          <span className={styles.convocaStackImpactNum}>{t("metrics.exabytesValue")}</span>
+          <span className={styles.convocaStackImpactCap}>{t("metrics.exabytesLabel")}</span>
         </div>
-        <aside className={styles.convocaStackMetricsRail}>
-          <div className={styles.convocaStackMetricsGlass}>
-            <div className={styles.convocaStackMetric}>
-              <span className={styles.convocaStackMetricValue}>{t("metrics.exabytesValue")}</span>
-              <span className={styles.convocaStackMetricLabel}>{t("metrics.exabytesLabel")}</span>
-            </div>
-            <div className={styles.convocaStackMetric}>
-              <span className={styles.convocaStackMetricValue}>{t("metrics.yearsValue")}</span>
-              <span className={styles.convocaStackMetricLabel}>{t("metrics.yearsLabel")}</span>
-            </div>
-          </div>
-        </aside>
+        <div className={styles.convocaStackImpactItem}>
+          <span className={styles.convocaStackImpactNum}>{t("metrics.yearsValue")}</span>
+          <span className={styles.convocaStackImpactCap}>{t("metrics.yearsLabel")}</span>
+        </div>
       </div>
 
+      <p className={styles.convocaStackIntroSlate}>{t("intro")}</p>
+
       <section className={styles.convocaStackChile} aria-labelledby="convoca-chile-heading">
-        <div className={styles.convocaStackChileAccent} aria-hidden />
-        <div className={styles.convocaStackChileInner}>
-          <h3 className={styles.convocaStackChileTitle} id="convoca-chile-heading">
-            {t("chile.title")}
-          </h3>
-          <p className={styles.convocaStackChileBody}>{t("chile.body")}</p>
-          <p className={styles.convocaStackPull}>{t("chile.pull")}</p>
-        </div>
+        <h3 className={styles.convocaStackChileTitle} id="convoca-chile-heading">
+          {t("chile.title")}
+        </h3>
+        <p className={styles.convocaStackChileStat}>{t("chile.statValue")}</p>
+        <p className={styles.convocaStackChileBody}>{t("chile.bodyAfterStat")}</p>
+        <p className={styles.convocaStackChilePull}>{t("chile.pull")}</p>
       </section>
 
-      <div className={styles.convocaStackThreads}>
-        <article className={styles.convocaStackThread}>
-          <h3 className={styles.convocaStackThreadTitle}>{t("ia.title")}</h3>
-          <p className={styles.convocaStackThreadText}>{t("ia.body")}</p>
-        </article>
-        <article className={styles.convocaStackThread}>
-          <h3 className={styles.convocaStackThreadTitle}>{t("propuesta.title")}</h3>
-          <p className={styles.convocaStackThreadText}>{t("propuesta.body1")}</p>
-          <p className={styles.convocaStackThreadText}>{t("propuesta.body2")}</p>
-        </article>
+      <section className={styles.convocaStackIa} aria-labelledby="convoca-ia-heading">
+        <h3 className={styles.convocaStackIaTitle} id="convoca-ia-heading">
+          {t("ia.title")}
+        </h3>
+        <span className={styles.convocaStackIaRule} aria-hidden />
+        <p className={styles.convocaStackIaBody}>{t("ia.body")}</p>
+      </section>
+
+      <div className={styles.convocaStackPropuesta}>
+        <p className={styles.convocaStackPropuestaText}>{t("propuesta.body1")}</p>
+        <p className={styles.convocaStackPropuestaText}>{t("propuesta.body2")}</p>
       </div>
 
       <p className={styles.convocaStackClosing}>{t("closing")}</p>

@@ -48,7 +48,8 @@
     },
     "chile": {
       "title": "La oportunidad en Chile",
-      "body": "96,5% de los hogares chilenos tiene internet. Pero hay una brecha que importa más: el 53% de las personas no comprende completamente lo que leen y 5 millones de personas necesitan desarrollar habilidades digitales críticas.",
+      "statValue": "96,5%",
+      "bodyAfterStat": "dos lares chilenos têm acesso à internet. Mas há uma lacuna que importa mais: 53% das pessoas não compreendem totalmente o que leem e 5 milhões de pessoas precisam desenvolver competências digitais críticas.",
       "pull": "La conexión ya la tenemos. Lo que falta es el criterio."
     },
     "ia": {
