@@ -248,22 +248,6 @@ export function SiteHeader() {
                       {NAV_PRIMARY_I18N_KEY[item.href] ? tNav(NAV_PRIMARY_I18N_KEY[item.href]) : item.label}
                     </Link>
                   ))}
-                  <a
-                    href={EXTERNAL.botOnda}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={styles.navOndaLink}
-                    aria-label={tNav("botOndaAria")}
-                  >
-                    <img
-                      src={FOOTER_MEDIA.navOndaMark}
-                      alt=""
-                      width={64}
-                      height={64}
-                      decoding="async"
-                      className={`${styles.navOndaIcon} ${styles.navOndaMarkImg}`}
-                    />
-                  </a>
                   <div
                     className={`${styles.navLocaleGroup} ${onDarkNav ? styles.navLocaleGroupOnDark : ""}`}
                     role="group"
@@ -282,7 +266,36 @@ export function SiteHeader() {
                       </button>
                     ))}
                   </div>
+                  <a
+                    href={EXTERNAL.botOnda}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`${styles.navOndaLink} ${styles.navOndaAfterLocale}`}
+                    aria-label={tNav("botOndaAria")}
+                  >
+                    <img
+                      src={FOOTER_MEDIA.navOndaMark}
+                      alt=""
+                      width={64}
+                      height={64}
+                      decoding="async"
+                      className={`${styles.navOndaIcon} ${styles.navOndaMarkImg}`}
+                    />
+                  </a>
                 </nav>
+                <button
+                  type="button"
+                  className="relative z-[60] flex h-11 w-11 flex-shrink-0 flex-col items-center justify-center gap-1.5 lg:hidden"
+                  aria-expanded={open}
+                  aria-label={open ? tNav("closeMenu") : tNav("openMenu")}
+                  onClick={() => setOpen((o) => !o)}
+                >
+                  <span className={`${barClass} ${open ? "translate-y-1.5 rotate-45" : ""}`} />
+                  <span
+                    className={`${barClass} transition-opacity duration-200 ${open ? "opacity-0" : "opacity-100"}`}
+                  />
+                  <span className={`${barClass} ${open ? "-translate-y-1.5 -rotate-45" : ""}`} />
+                </button>
                 <a
                   href={EXTERNAL.botOnda}
                   target="_blank"
@@ -299,19 +312,6 @@ export function SiteHeader() {
                     className={`${styles.navOndaIcon} ${styles.navOndaMarkImg}`}
                   />
                 </a>
-                <button
-                  type="button"
-                  className="relative z-[60] flex h-11 w-11 flex-shrink-0 flex-col items-center justify-center gap-1.5 lg:hidden"
-                  aria-expanded={open}
-                  aria-label={open ? tNav("closeMenu") : tNav("openMenu")}
-                  onClick={() => setOpen((o) => !o)}
-                >
-                  <span className={`${barClass} ${open ? "translate-y-1.5 rotate-45" : ""}`} />
-                  <span
-                    className={`${barClass} transition-opacity duration-200 ${open ? "opacity-0" : "opacity-100"}`}
-                  />
-                  <span className={`${barClass} ${open ? "-translate-y-1.5 -rotate-45" : ""}`} />
-                </button>
               </div>
             </div>
 
@@ -358,23 +358,6 @@ export function SiteHeader() {
                   </span>
                 </Link>
               ))}
-              <a
-                href={EXTERNAL.botOnda}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.navOndaMobile}
-                onClick={() => setOpen(false)}
-              >
-                <img
-                  src={FOOTER_MEDIA.navOndaMark}
-                  alt=""
-                  width={80}
-                  height={80}
-                  decoding="async"
-                  className={styles.navOndaMobileIcon}
-                />
-                <span className={styles.navOndaMobileLabel}>{tNav("botOnda")}</span>
-              </a>
               <div className="mt-6 border-t border-[var(--border)] pt-6">
                 <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-[var(--muted)]">{tLang("switch")}</p>
                 <div className="mt-3 flex flex-wrap gap-2">
@@ -396,6 +379,23 @@ export function SiteHeader() {
                   ))}
                 </div>
               </div>
+              <a
+                href={EXTERNAL.botOnda}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.navOndaMobile}
+                onClick={() => setOpen(false)}
+              >
+                <img
+                  src={FOOTER_MEDIA.navOndaMark}
+                  alt=""
+                  width={80}
+                  height={80}
+                  decoding="async"
+                  className={styles.navOndaMobileIcon}
+                />
+                <span className={styles.navOndaMobileLabel}>{tNav("botOnda")}</span>
+              </a>
             </nav>
           </div>
         </div>

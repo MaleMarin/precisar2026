@@ -194,6 +194,53 @@ function HomeConvocaStackPanelContent() {
   );
 }
 
+/** Panel Participa (#participa): consulta ciudadana antes del footer del sitio. */
+function ParticipaStackPanelContent() {
+  return (
+    <div className={styles.participaStackRoot}>
+      <div className={styles.participaStackMain}>
+        <header className={styles.participaStackHeader}>
+          <p className={`${styles.kicker} ${styles.kickerOnAccent}`}>06 · Participa</p>
+          <h2 className={styles.displayTitle} id="stack-participa-heading">
+            ¿Cómo te informas hoy?
+          </h2>
+          <p className={`${styles.body} ${styles.bodyOnAccent} ${styles.participaTagline}`}>
+            Menos ruido, más criterio.
+          </p>
+        </header>
+        <div className={styles.participaStackCopy}>
+          <p
+            className={`${styles.body} ${styles.bodyOnAccent} ${styles.participaCopyFirst}`}
+          >
+            En medio de titulares, audios, redes y mensajes, todos tomamos decisiones todos los días.
+          </p>
+          <p className={`${styles.body} ${styles.bodyOnAccent} ${styles.participaCopyFollow}`}>
+            Queremos entender cómo lo haces tú.
+          </p>
+          <p
+            className={`${styles.body} ${styles.bodyOnAccent} ${styles.participaCopyFollow} ${styles.participaEmphasis}`}
+          >
+            No es una prueba.
+            <br />
+            Es anónima.
+            <br />Y toma menos de un minuto.
+          </p>
+        </div>
+      </div>
+      <div className={styles.participaStackAside}>
+        <a
+          href={EXTERNAL.consultaCiudadana}
+          className={styles.participaStackCta}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Responder ahora
+        </a>
+      </div>
+    </div>
+  );
+}
+
 type StackPanelProps = {
   index: number;
   total: number;
@@ -208,6 +255,8 @@ type StackPanelProps = {
   reduceMotion?: boolean;
   /** Contenido editorial a ancho completo (primer panel “Qué nos convoca”). */
   editorialContent?: ReactNode;
+  /** `tall` = scroll largo (convoca); `standard` = panel compacto (participa). */
+  editorialHeight?: "tall" | "standard";
 };
 
 function StackPanel({
@@ -223,6 +272,7 @@ function StackPanel({
   children,
   reduceMotion = false,
   editorialContent,
+  editorialHeight = "tall",
 }: StackPanelProps) {
   const ref = useRef<HTMLElement | null>(null);
   const { scrollYProgress } = useScroll({
@@ -375,13 +425,20 @@ function StackPanel({
   };
 
   if (editorialContent) {
-    const panelClassEditorial = `${panelClass} ${styles.stickyPanelEditorial}`.trim();
+    const isTall = editorialHeight === "tall";
+    const sectionClass = isTall
+      ? `${styles.panelSection} ${styles.panelSectionEditorial}`
+      : styles.panelSection;
+    const panelClassEditorial = isTall
+      ? `${panelClass} ${styles.stickyPanelEditorial}`.trim()
+      : `${panelClass} ${styles.stickyPanelParticipaFit}`.trim();
+    const bodyClass = isTall ? styles.editorialPanelBody : styles.participaPanelBody;
     return (
-      <section ref={ref} className={`${styles.panelSection} ${styles.panelSectionEditorial}`} id={id}>
+      <section ref={ref} className={sectionClass} id={id}>
         <motion.div style={panelMotionStyle} className={panelClassEditorial}>
           <div className={`${glowClass} ${glowDrift}`.trim()} aria-hidden />
           <motion.div style={{ scaleX: lineScale }} className={lineClass} aria-hidden />
-          <motion.div style={{ y: contentY }} className={styles.editorialPanelBody}>
+          <motion.div style={{ y: contentY }} className={bodyClass}>
             {editorialContent}
           </motion.div>
         </motion.div>
@@ -562,11 +619,12 @@ export function MotionStackPanels({
     },
     {
       id: "participa",
-      theme: "dark" as const,
-      kicker: "06 · Participa",
-      headline: "Escribinos: territorio, institución y la necesidad que querés abordar.",
-      body:
-        "Consulta ciudadana, newsletter y canales abiertos. Contanos desde dónde trabajás y qué tema querés abordar.",
+      theme: "accent" as const,
+      kicker: "",
+      headline: "",
+      body: "",
+      editorialContent: <ParticipaStackPanelContent />,
+      editorialHeight: "standard" as const,
     },
   ];
 
@@ -589,6 +647,7 @@ export function MotionStackPanels({
             icon={panel.icon}
             reduceMotion={reduceMotion}
             editorialContent={"editorialContent" in panel ? panel.editorialContent : undefined}
+            editorialHeight={"editorialHeight" in panel ? panel.editorialHeight : "tall"}
           >
             {"child" in panel ? panel.child : undefined}
           </StackPanel>

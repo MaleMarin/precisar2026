@@ -140,8 +140,13 @@
 
 .navOndaLinkMobileBar {
   display: flex;
-  margin-left: 0;
-  margin-right: 0.25rem;
+  margin-left: 0.35rem;
+  margin-right: 0;
+}
+
+/* Logo Onda a la derecha de ES / PT / EN (desktop) */
+.navOndaAfterLocale {
+  margin-left: 0.65rem;
 }
 
 @media (min-width: 1024px) {

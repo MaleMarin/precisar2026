@@ -17,20 +17,29 @@
 
 .brandWrap {
   width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
-.brandWordmark {
-  margin: 0;
+.brandLogoLink {
+  display: block;
   width: 100%;
-  font-family: var(--font-display, system-ui, sans-serif);
-  font-size: clamp(2.75rem, 14vw, 7.5rem);
-  font-weight: 800;
-  line-height: 0.92;
-  letter-spacing: -0.04em;
-  text-align: center;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.28);
-  user-select: none;
+  max-width: min(100%, 28rem);
+  margin: 0 auto;
+  line-height: 0;
+}
+
+.brandLogoLink:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.5);
+  outline-offset: 4px;
+}
+
+.brandLogo {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  opacity: 0.92;
 }
 
 .visuallyHidden {
@@ -256,7 +265,7 @@
   display: block;
   width: fit-content;
   margin: 0 auto;
-  border: 1px solid #ff1493;
+  border: 1px solid var(--brand-flame, #db5227);
   border-radius: 50px;
   background: transparent;
   padding: 14px 60px;
@@ -264,7 +273,7 @@
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #fff;
+  color: var(--brand-flame, #db5227);
   cursor: pointer;
   transition:
     border-color 0.2s ease,
@@ -272,8 +281,8 @@
 }
 
 .btnSend:hover {
-  border-color: #ff69b4;
-  color: #fff;
+  border-color: color-mix(in oklab, var(--brand-flame, #db5227) 82%, #fff);
+  color: color-mix(in oklab, var(--brand-flame, #db5227) 82%, #fff);
 }
 
 /* BLOQUE 3 — legal */
@@ -328,6 +337,36 @@
 
 .privacyLink:hover {
   color: rgba(255, 255, 255, 0.65);
+}
+
+.footerOndaWrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 2.5rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footerOndaLink {
+  display: block;
+  line-height: 0;
+  border-radius: 8px;
+  opacity: 0.92;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+.footerOndaLink:hover {
+  opacity: 1;
+  transform: scale(1.04);
+}
+
+.footerOndaLogo {
+  display: block;
+  width: clamp(52px, 12vw, 72px);
+  height: auto;
+  object-fit: contain;
 }
 
 .whatsappFab {

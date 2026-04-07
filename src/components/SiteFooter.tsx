@@ -4,7 +4,7 @@ import { useCallback } from "react";
 import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
 import { footerContactRedirect } from "@/app/[locale]/(site)/participa/actions";
-import { EXTERNAL, NAV_PRIMARY, NAV_PRIMARY_I18N_KEY, NEWSLETTER } from "@/lib/site";
+import { EXTERNAL, FOOTER_MEDIA, NAV_PRIMARY, NAV_PRIMARY_I18N_KEY, NEWSLETTER } from "@/lib/site";
 import styles from "./SiteFooter.module.css";
 
 function isHomePath(pathname: string): boolean {
@@ -53,7 +53,16 @@ export function SiteFooter() {
     <footer className={styles.footer}>
       <div className={styles.block1}>
         <div className={`prec-container ${styles.brandWrap}`}>
-          <p className={styles.brandWordmark}>Precisar</p>
+          <Link href="/" className={styles.brandLogoLink}>
+            <img
+              src="/logo-precisar.png"
+              alt="Precisar"
+              width={500}
+              height={500}
+              className={styles.brandLogo}
+              decoding="async"
+            />
+          </Link>
         </div>
       </div>
 
@@ -213,6 +222,24 @@ export function SiteFooter() {
                 Política de Privacidad
               </Link>
             </div>
+          </div>
+          <div className={styles.footerOndaWrap}>
+            <a
+              href={EXTERNAL.botOnda}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.footerOndaLink}
+              aria-label={tNav("botOndaAria")}
+            >
+              <img
+                src={FOOTER_MEDIA.navOndaMark}
+                alt=""
+                width={96}
+                height={96}
+                decoding="async"
+                className={styles.footerOndaLogo}
+              />
+            </a>
           </div>
         </div>
       </div>

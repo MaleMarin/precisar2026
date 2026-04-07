@@ -34,30 +34,32 @@ function SectionPanel({
   return (
     <section className={sectionClass} aria-labelledby={`cd-h1-${d.slug}`} role="region">
       <div className={styles.innerScroll}>
-        <h1 id={`cd-h1-${d.slug}`} className={styles.displayH1}>
-          {d.h1}
-        </h1>
-        {d.subhead ? <p className={styles.subhead}>{d.subhead}</p> : null}
-        {d.body ? <p className={styles.bodyText}>{d.body}</p> : null}
-        <div className={styles.grid2}>
-          <div>
-            {d.left_title ? <h2 className={styles.sectionH2}>{d.left_title}</h2> : null}
-            <ul className={styles.listLeft}>
-              {d.left_bullets.map((t) => (
-                <li key={t.slice(0, 48)}>
-                  <span className={styles.bulletDot} aria-hidden />
-                  <span>{t}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className={styles.colRight}>
-            {d.right_title ? <h2 className={styles.sectionH2}>{d.right_title}</h2> : null}
-            <ul className={styles.listRight}>
-              {d.right_bullets.map((t) => (
-                <li key={t.slice(0, 48)}>{t}</li>
-              ))}
-            </ul>
+        <div className={styles.contentMeasure}>
+          <h1 id={`cd-h1-${d.slug}`} className={styles.displayH1}>
+            {d.h1}
+          </h1>
+          {d.subhead ? <p className={styles.subhead}>{d.subhead}</p> : null}
+          {d.body ? <p className={styles.bodyText}>{d.body}</p> : null}
+          <div className={styles.grid2}>
+            <div>
+              {d.left_title ? <h2 className={styles.sectionH2}>{d.left_title}</h2> : null}
+              <ul className={styles.listLeft}>
+                {d.left_bullets.map((t) => (
+                  <li key={t.slice(0, 48)}>
+                    <span className={styles.bulletDot} aria-hidden />
+                    <span>{t}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className={styles.colRight}>
+              {d.right_title ? <h2 className={styles.sectionH2}>{d.right_title}</h2> : null}
+              <ul className={styles.listRight}>
+                {d.right_bullets.map((t) => (
+                  <li key={t.slice(0, 48)}>{t}</li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </div>

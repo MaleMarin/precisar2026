@@ -37,8 +37,8 @@ export const PDF_DOWNLOAD_UI = {
   ),
   saberes30Preguntas: image(
     PDFS.saberes30Preguntas,
-    "/covers/30-preguntas-precisar.svg",
-    "Carátula del recurso «30 días, 30 preguntas» en PDF",
+    "/covers/30-preguntas-explora-vida-digital.png",
+    "Portada del PDF «30 preguntas para explorar tu vida digital»",
   ),
   saberesGuiaIa: embed(PDFS.saberesGuiaIa, "Portada de la guía práctica de Inteligencia Artificial"),
   saberesUsoConscienteIa: embed(

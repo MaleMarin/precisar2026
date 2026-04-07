@@ -1,10 +1,13 @@
 .root {
   --rise-dur: 900ms;
   --header-offset: var(--header-h, 3.75rem);
-  /* Espacio bajo el header: tiras y título viven más abajo en la viewport */
-  --cd-strips-top-gap: clamp(2.75rem, min(14vh, 9.5rem), 7.5rem);
+  /* Franja del título «Cultura Digital» bajo el header (compacta para dar más alto al hero de tiras) */
+  --cd-strips-top-gap: clamp(1.75rem, min(9vh, 5rem), 4.25rem);
+  /* Sólo un respiro inferior en viewport; el pie del sitio va después al hacer scroll */
+  --cd-footer-reserve: clamp(0px, 2.5dvh, 1.25rem);
   position: relative;
   width: 100%;
+  /* Una pantalla completa bajo el header: evita el “hueco” gris/negro entre tiras y footer */
   min-height: calc(100dvh - var(--header-offset));
   margin-top: calc(var(--header-offset) * -1);
   padding-top: var(--header-offset);
@@ -62,10 +65,17 @@
   position: fixed;
   top: calc(var(--header-offset) + var(--cd-strips-top-gap));
   left: 0;
+  right: 0;
   z-index: 10;
   display: flex;
   width: 100%;
-  height: calc(100dvh - var(--header-offset) - var(--cd-strips-top-gap));
+  /* Hero a casi pantalla completa: del título al borde inferior del viewport */
+  height: calc(
+    100dvh - var(--header-offset) - var(--cd-strips-top-gap) - var(--cd-footer-reserve)
+  );
+  min-height: calc(
+    100dvh - var(--header-offset) - var(--cd-strips-top-gap) - var(--cd-footer-reserve)
+  );
 }
 
 .stripsHidden {
@@ -131,7 +141,7 @@
   top: calc(var(--header-offset) + var(--cd-strips-top-gap));
   left: 0;
   right: 0;
-  bottom: 0;
+  bottom: var(--cd-footer-reserve);
   z-index: 15;
   pointer-events: none;
   background: radial-gradient(
@@ -150,7 +160,7 @@
   top: calc(var(--header-offset) + var(--cd-strips-top-gap));
   left: 0;
   right: 0;
-  bottom: 0;
+  bottom: var(--cd-footer-reserve);
   z-index: 20;
   display: flex;
   align-items: flex-end;
@@ -191,8 +201,8 @@
 }
 
 .mainStageOpen {
-  min-height: calc(100dvh - var(--header-offset));
-  height: calc(100dvh - var(--header-offset));
+  min-height: calc(100dvh - var(--header-offset) - var(--cd-footer-reserve));
+  height: calc(100dvh - var(--header-offset) - var(--cd-footer-reserve));
 }
 
 .contentSection {
@@ -201,12 +211,12 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: 72rem;
-  margin: 0 auto;
+  max-width: none;
+  margin: 0;
   background: #fff;
   color: #000;
-  border-radius: 0.75rem;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  border-radius: 0;
+  box-shadow: none;
   opacity: 0;
   transform: translateX(40px);
   pointer-events: none;
@@ -232,13 +242,16 @@
 .innerScroll {
   flex: 1 1 auto;
   overflow-y: auto;
-  padding: 2rem 2rem 1rem;
+  padding: 2rem var(--gutter, clamp(1.25rem, 4vw, 2.75rem)) 1rem;
 }
 
-@media (min-width: 1024px) {
-  .innerScroll {
-    padding: 2rem 3rem 1rem;
-  }
+/* Mismo ancho que el hero de portada / prec-container: título + cuerpo + columnas alineados */
+.contentMeasure {
+  width: 100%;
+  max-width: var(--max, 76rem);
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
 }
 
 .displayH1 {
@@ -260,7 +273,7 @@
   margin-top: 2.5rem;
   font-size: clamp(1.05rem, 1.8vw, 1.25rem);
   line-height: 1.65;
-  max-width: 56rem;
+  max-width: none;
 }
 
 .grid2 {
@@ -337,13 +350,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.5rem 2rem;
-}
-
-@media (min-width: 1024px) {
-  .footerNav {
-    padding: 0.5rem 3rem;
-  }
+  box-sizing: border-box;
+  width: 100%;
+  max-width: var(--max, 76rem);
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0.75rem var(--gutter, clamp(1.25rem, 4vw, 2.75rem));
 }
 
 .footerBtn {

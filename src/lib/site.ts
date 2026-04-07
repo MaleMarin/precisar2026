@@ -23,8 +23,8 @@ export const FOOTER_MEDIA = {
   /** Wordmark PRECISAR en la barra (`public/1.png`). */
   headerLogoBlack: "/1.png",
   logoWordmarkFooter: "/brand/footer-wordmark.svg",
-  /** Logo onda — `public/logo onda.png` (espacio en el nombre → %20 en URL). */
-  navOndaMark: "/logo%20onda.png",
+  /** Logo Bot Onda — `public/logo-ok-ultimo-onda.png`. */
+  navOndaMark: "/logo-ok-ultimo-onda.png",
   /** Fallback / otros usos (`public/3.png`). */
   symbol: "/3.png",
 } as const;
@@ -137,6 +137,10 @@ export function primaryNavIndexFromPathname(pathname: string): number {
   ) {
     return 3;
   }
+  /* Variante `/que-hacemos/*` (plantilla nueva): mismo ítem de menú que Programas */
+  if (p === "/que-hacemos" || p.startsWith("/que-hacemos/")) {
+    return 0;
+  }
   for (let i = 0; i < NAV_PRIMARY_LEGACY_PATH_PREFIXES.length; i++) {
     if (i === 3) continue;
     const prefix = NAV_PRIMARY_LEGACY_PATH_PREFIXES[i] ?? "";
@@ -151,7 +155,7 @@ export const NAV_SECONDARY: NavItem[] = [
   { label: "Ciudades Conectadas con Sentido", href: "/programas/ciudades" },
   { label: "Aprender Digital: Nunca es Tarde", href: "/programas/aprender-digital" },
   { label: "Alfabetización Mediática e Informacional para Docentes", href: "/programas/docentes" },
-  { label: "Formación pensamiento crítico digital", href: "/aqui-no-pasa" },
+  { label: "Formación pensamiento crítico digital", href: "/programas/pensamiento-critico" },
   { label: "Curso para Servidores Públicos", href: "/programas/funcionarios-publicos" },
   { label: "Curso Leer Noticias en la Era Digital", href: "/programas/leer-noticias-era-digital" },
   {
@@ -190,7 +194,7 @@ export const FOOTER_COLUMNS: { title: string; links: NavItem[] }[] = [
       { label: "Hub Digital Consciente, muestras itinerantes", href: "/programas/hub-digital-consciente" },
       { label: "Aprender Digital: Nunca es Tarde", href: "/programas/aprender-digital" },
       { label: "Alfabetización Mediática e Informacional para Docentes", href: "/programas/docentes" },
-      { label: "Formación en pensamiento crítico digital", href: "/aqui-no-pasa" },
+      { label: "Formación en pensamiento crítico digital", href: "/programas/pensamiento-critico" },
       { label: "Curso para Servidores Públicos", href: "/programas/funcionarios-publicos" },
       { label: "Curso Leer Noticias en la Era Digital", href: "/programas/leer-noticias-era-digital" },
       {
@@ -295,7 +299,7 @@ export const PDFS = {
     "https://www.precisar.net/_files/ugd/4c5e66_ecfcd551d56e41fcaea57e21d5b9e20b.pdf",
   saberesIaAula2:
     "https://www.precisar.net/_files/ugd/4c5e66_7b7d218709ff4052b58d9d9416715150.pdf",
-  /** PDF local en `public/30-preguntas-precisar.pdf` (una sola descarga en la página de tarjetas). */
+  /** PDF local: `public/30-preguntas-precisar.pdf` · portada PNG en `public/covers/30-preguntas-explora-vida-digital.png`. */
   saberes30Preguntas: "/30-preguntas-precisar.pdf",
   /**
    * Propuesta de política — coloca el archivo en `public/` con este nombre para habilitar la descarga.

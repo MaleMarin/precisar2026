@@ -1,6 +1,5 @@
 import type { ReactNode } from "react";
 import { PageShell } from "@/components/PageShell";
-import { ProgramFlowFooter } from "@/components/programs/ProgramFlowFooter";
 
 /** Institucional (Somos, Marco, etc.). */
 export function InstitutionalTemplate(props: {
@@ -25,7 +24,6 @@ export function ProgramLandingTemplate(props: {
       programCanvas
     >
       {props.children}
-      <ProgramFlowFooter />
     </PageShell>
   );
 }
@@ -95,7 +93,6 @@ export function CourseLandingTemplate(props: {
       programCanvas={!!props.moduleCanvas}
     >
       {props.children}
-      {props.moduleCanvas ? <ProgramFlowFooter /> : null}
     </PageShell>
   );
 }

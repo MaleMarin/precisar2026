@@ -1,5 +1,4 @@
 import type { ReactNode } from "react";
-import { Link } from "@/i18n/navigation";
 import shell from "./ProgramShell.module.css";
 
 export type ProgramModularKey = "aprender" | "leer-noticias";
@@ -37,23 +36,6 @@ export function ProgramModularShell({ program, heroEyebrow, heroTitle, heroSub, 
           </div>
         </div>
       </section>
-
-      <nav className={shell.continua} aria-label="Continúa explorando">
-        <div className={shell.inner}>
-          <p className={shell.continuaEyebrow}>CONTINÚA</p>
-          <div className={shell.continuaLinks}>
-            <Link className={shell.continuaLink} href="/programas">
-              Índice de programas →
-            </Link>
-            <Link className={shell.continuaLink} href="/participa">
-              Participa y contacto →
-            </Link>
-            <Link className={shell.continuaLink} href="/saberes">
-              Biblioteca Saberes →
-            </Link>
-          </div>
-        </div>
-      </nav>
     </main>
   );
 }

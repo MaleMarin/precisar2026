@@ -1,11 +1,14 @@
 import { PageShell } from "@/components/PageShell";
 import { PreguntaDiaCards } from "@/components/saberes/PreguntaDiaCards";
 import { PDF_DOWNLOAD_UI } from "@/lib/pdfDownloads";
+import { PDFS } from "@/lib/site";
+
+const PORTADA_30_PREGUNTAS = "/covers/30-preguntas-explora-vida-digital.png";
 
 export const metadata = {
-  title: "Una Pregunta al Día",
+  title: "30 preguntas para explorar tu vida digital · Una Pregunta al Día",
   description:
-    "Treinta días, treinta preguntas sobre cómo vives en línea. Tarjetas con frente y reverso; descarga el PDF para compartir en clase, trabajo o familia.",
+    "Treinta preguntas para explorar tu vida digital: tarjetas con frente y reverso. Descarga el PDF para compartir en clase, trabajo o familia.",
 };
 
 export default function Page() {
@@ -14,10 +17,31 @@ export default function Page() {
       <div className="prose-precisar max-w-none space-y-6">
         <div className="space-y-3">
           <p className="text-xl font-semibold leading-snug tracking-tight text-[var(--fg)] sm:text-2xl">
-            Treinta días. Treinta preguntas sobre cómo vives en línea.
+            30 preguntas para explorar tu vida digital
           </p>
-          <p className="text-lg text-[var(--muted)]">No para juzgarte. Para que te conozcas un poco mejor.</p>
+          <p className="text-lg text-[var(--muted)]">
+            Treinta días, treinta preguntas sobre cómo vives en línea. No para juzgarte. Para que te conozcas un poco
+            mejor.
+          </p>
         </div>
+
+        <a
+          href={PDFS.saberes30Preguntas}
+          target="_blank"
+          rel="noreferrer"
+          className="mx-auto block max-w-[min(100%,20rem)] overflow-hidden rounded-md border border-[var(--border)] bg-[var(--elevated)] shadow-[var(--shadow-card)] transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-[var(--shadow-card-hover)]"
+          aria-label="Abrir o descargar el PDF «30 preguntas para explorar tu vida digital»"
+        >
+          <img
+            src={PORTADA_30_PREGUNTAS}
+            alt="Portada: 30 preguntas para explorar tu vida digital — Precisar"
+            width={1186}
+            height={1692}
+            className="block h-auto w-full object-cover"
+            decoding="async"
+            fetchPriority="high"
+          />
+        </a>
 
         <div className="space-y-4">
           <h2 className="!mt-2 text-xl font-semibold tracking-tight text-[var(--fg)]">

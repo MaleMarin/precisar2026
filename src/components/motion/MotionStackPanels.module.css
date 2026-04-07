@@ -1031,3 +1031,131 @@
 .convocaStackClosingBrand {
   color: #db5227;
 }
+
+/* Panel Participa — layout estándar (sin scroll editorial largo) */
+.stickyPanelParticipaFit {
+  display: flex;
+  flex-direction: column;
+}
+
+.participaPanelBody {
+  position: relative;
+  box-sizing: border-box;
+  flex: 1 1 auto;
+  min-height: 0;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(1.35rem, 3.2vw, 2.5rem) clamp(1.15rem, 2.8vw, 2.15rem);
+  padding-bottom: clamp(2rem, 6vh, 4rem);
+  -webkit-overflow-scrolling: touch;
+}
+
+.participaStackRoot {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: clamp(1.5rem, 4vw, 2.5rem);
+  box-sizing: border-box;
+  max-width: min(100%, 72rem);
+  margin: 0 auto;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .participaStackRoot {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: clamp(2rem, 5vw, 4rem);
+  }
+}
+
+.participaStackMain {
+  flex: 1 1 auto;
+  min-width: 0;
+  max-width: 40rem;
+}
+
+.participaStackAside {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+@media (min-width: 768px) {
+  .participaStackAside {
+    justify-content: flex-end;
+    align-self: center;
+  }
+}
+
+.participaStackCta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 1.35rem;
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid var(--brand-flame, #db5227);
+  border-radius: 5px;
+  color: var(--brand-flame, #db5227);
+  background: #fff;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.participaStackCta:hover {
+  background: color-mix(in oklab, #fff 88%, var(--brand-flame, #db5227));
+  transform: translateY(-2px);
+}
+
+.participaStackCta:focus-visible {
+  outline: 2px solid var(--brand-void, #0a0c12);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .participaStackCta:hover {
+    transform: none;
+  }
+}
+
+.participaStackHeader {
+  margin-bottom: clamp(1.25rem, 3vw, 2rem);
+}
+
+/* Misma escala que .body + .bodyOnAccent en el stack; márgenes afinados (sin cuadrado kicker). */
+.participaTagline {
+  margin-top: 1.25rem !important;
+  font-weight: 600;
+}
+
+.participaStackCopy {
+  margin: 0;
+}
+
+.participaCopyFirst {
+  margin-top: 1.5rem !important;
+}
+
+.participaCopyFollow {
+  margin-top: 1rem !important;
+}
+
+.participaEmphasis {
+  font-weight: 500;
+  color: #fff;
+}
