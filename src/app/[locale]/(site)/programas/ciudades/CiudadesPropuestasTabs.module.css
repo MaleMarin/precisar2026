@@ -1,0 +1,172 @@
+/* Propuestas formativas — tabs alineados con Docentes / Aprender; activo #DB5227 */
+
+.tabsShell {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 24px rgba(0, 0, 0, 0.06);
+}
+
+.tabsBar {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background: #d4cec4;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+}
+
+@media (min-width: 1024px) {
+  .tabsBar {
+    flex-wrap: wrap;
+    overflow-x: visible;
+  }
+}
+
+.tabInactive,
+.tabActive {
+  flex: 0 0 auto;
+  min-width: min(100%, max(6.5rem, min-content));
+  max-width: 100%;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 0;
+  cursor: pointer;
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 14px 12px;
+  text-align: center;
+  line-height: 1.25;
+  white-space: nowrap;
+  hyphens: none;
+  appearance: none;
+  -webkit-appearance: none;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+@media (min-width: 1024px) {
+  .tabInactive,
+  .tabActive {
+    flex: 1 1 auto;
+    white-space: normal;
+    font-size: 12px;
+    padding: 14px 16px;
+  }
+}
+
+.tabInactive {
+  background: color-mix(in srgb, #db5227 14%, #fff);
+  color: #db5227;
+}
+
+.tabInactive:hover {
+  background: color-mix(in srgb, #db5227 22%, #fff);
+}
+
+.tabActive {
+  background: #db5227;
+  color: #fff;
+}
+
+.tabPanel {
+  background: #fff;
+  border-radius: 0 0 12px 12px;
+}
+
+.tabContent {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 40px clamp(1.25rem, 4vw, 3rem);
+  animation: ciudadesPropTabFadeIn 0.3s ease forwards;
+}
+
+@media (min-width: 768px) {
+  .tabContent {
+    padding: 40px 48px;
+  }
+}
+
+@keyframes ciudadesPropTabFadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.panelTitle {
+  margin: 0 0 1rem;
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: clamp(1.05rem, 2.5vw, 1.25rem);
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+  color: #0a0c12;
+}
+
+.intro {
+  margin: 0 0 24px;
+  font-size: 15px;
+  line-height: 1.75;
+  color: #3d3a37;
+}
+
+.sessionsLead {
+  margin: 0 0 12px;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.75;
+  color: #0a0c12;
+}
+
+.sessionList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sessionList li {
+  position: relative;
+  padding-left: 1.1rem;
+  margin-bottom: 0.85rem;
+  font-size: 14px;
+  line-height: 1.8;
+  color: #3d3a37;
+}
+
+.sessionList li:last-child {
+  margin-bottom: 0;
+}
+
+.sessionList li::before {
+  content: "■";
+  position: absolute;
+  left: 0;
+  top: 0.2em;
+  color: #db5227;
+  font-size: 10px;
+  line-height: 1;
+}
+
+.sessionStrong {
+  font-weight: 700;
+  color: #0a0c12;
+}
+
+.sessionDetail {
+  font-weight: 400;
+  color: #76828e;
+}

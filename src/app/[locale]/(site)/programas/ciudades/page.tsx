@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Link } from "@/i18n/navigation";
 import { PDFS } from "@/lib/site";
+import { CiudadesPropuestasTabs } from "./CiudadesPropuestasTabs";
 import styles from "./CiudadesPage.module.css";
 
 export const metadata: Metadata = {
@@ -53,13 +54,6 @@ const IMPACTO = [
     title: "Conexión y participación comunitaria",
     desc: "Iniciativas en espacios urbanos.",
   },
-] as const;
-
-const FORMATIVAS = [
-  "Inteligencia Artificial y su impacto",
-  "Desinformación: Hechos vs. sentimientos sobre la información",
-  "Prevención de Fraudes y Estafas en Línea",
-  "Bienestar Digital y Salud Tecnológica",
 ] as const;
 
 export default function CiudadesProgramaPage() {
@@ -159,18 +153,15 @@ export default function CiudadesProgramaPage() {
         </div>
       </section>
 
-      <section className={styles.formativas} aria-labelledby="ciudades-formativas-heading">
-        <div className={styles.formativasInner}>
-          <h2 id="ciudades-formativas-heading" className={styles.formativasTitle}>
-            Nuestras propuestas formativas
+      <section className={styles.propuestasFormativas} aria-labelledby="ciudades-propuestas-heading">
+        <div className={styles.propuestasInner}>
+          <h2 id="ciudades-propuestas-heading" className={styles.propuestasTitle}>
+            Nuestras Propuestas Formativas
           </h2>
-          <div className={styles.formativasGrid}>
-            {FORMATIVAS.map((title) => (
-              <div key={title} className={styles.formativaCard}>
-                <h3 className={styles.formativaCardTitle}>{title}</h3>
-              </div>
-            ))}
-          </div>
+          <p className={styles.propuestasSub}>
+            Programas modulares y flexibles, diseñados a la medida de tu comunidad.
+          </p>
+          <CiudadesPropuestasTabs />
         </div>
       </section>
 

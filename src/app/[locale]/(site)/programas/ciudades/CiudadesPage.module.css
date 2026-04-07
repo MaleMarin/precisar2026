@@ -314,56 +314,39 @@
   color: #76828e;
 }
 
-/* ─── Propuestas formativas (tarjetas numeradas) ─── */
-.formativas {
-  background: #0a0c12;
+/* ─── Propuestas formativas (tabs) ─── */
+.propuestasFormativas {
+  background: #f5f2ec;
   padding: 80px 48px;
-  color: #fff;
 }
 
 @media (max-width: 640px) {
-  .formativas {
+  .propuestasFormativas {
     padding: 48px 24px;
   }
 }
 
-.formativasInner {
+.propuestasInner {
   max-width: 90rem;
   margin: 0 auto;
 }
 
-.formativasTitle {
-  margin: 0 0 32px;
-  font-size: 24px;
+.propuestasTitle {
+  margin: 0 0 8px;
+  font-family: var(--font-display);
+  font-size: clamp(28px, 4vw, 44px);
   font-weight: 700;
-  color: #fff;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: #0a0c12;
 }
 
-.formativasGrid {
-  display: grid;
-  gap: 20px;
-  grid-template-columns: 1fr;
-}
-
-@media (min-width: 640px) {
-  .formativasGrid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-.formativaCard {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 12px;
-  padding: 28px;
-}
-
-.formativaCardTitle {
-  margin: 0;
+.propuestasSub {
+  margin: 0 0 48px;
   font-size: 16px;
-  font-weight: 700;
-  line-height: 1.35;
-  color: #fff;
+  line-height: 1.55;
+  color: #76828e;
+  max-width: 40rem;
 }
 
 /* ─── CTA cierre ─── */
