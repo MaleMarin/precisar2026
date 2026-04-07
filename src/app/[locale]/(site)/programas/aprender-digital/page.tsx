@@ -7,6 +7,8 @@ import {
   ProgramSplitModule,
 } from "@/components/programs/modules";
 import { ProgramLandingTemplate } from "@/components/templates/PageTemplates";
+import { AprenderModulosTabs } from "./AprenderModulosTabs";
+import modulosStyles from "./AprenderModulosSection.module.css";
 
 export const metadata = { title: "Aprender Digital: Nunca es Tarde" };
 
@@ -156,12 +158,20 @@ export default function Page() {
         ]}
       />
 
-      <ProgramBandModule variant="line">
-        <p>
-          Módulos formativos: Educación Mediática Digital · Navegación Segura · Inteligencia
-          Artificial · Bienestar Digital
-        </p>
-      </ProgramBandModule>
+      <section
+        className={`${modulosStyles.section} ${modulosStyles.padSection}`}
+        aria-labelledby="aprender-modulos-heading"
+      >
+        <div className={modulosStyles.inner}>
+          <h2 id="aprender-modulos-heading" className={modulosStyles.title}>
+            Módulos Formativos
+          </h2>
+          <p className={modulosStyles.sub}>
+            Un camino estructurado para tu aprendizaje digital, paso a paso.
+          </p>
+          <AprenderModulosTabs />
+        </div>
+      </section>
 
       <ProgramClosingModule
         title="Lleva &quot;Aprender Digital&quot; a tu Comunidad"

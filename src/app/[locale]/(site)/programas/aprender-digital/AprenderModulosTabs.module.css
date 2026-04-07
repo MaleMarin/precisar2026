@@ -1,0 +1,118 @@
+/* Tabs módulos Aprender Digital — activo #DB5227; scroll horizontal en mobile */
+
+.tabsBar {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  gap: 0;
+  margin: 0 0 1.75rem;
+  padding: 0;
+  list-style: none;
+  background: #d4cec4;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+}
+
+@media (min-width: 1024px) {
+  .tabsBar {
+    flex-wrap: wrap;
+    overflow-x: visible;
+  }
+}
+
+.tabInactive,
+.tabActive {
+  flex: 0 0 auto;
+  min-width: min(100%, max(7.5rem, min-content));
+  max-width: 100%;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 0;
+  cursor: pointer;
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 14px 16px;
+  text-align: center;
+  line-height: 1.25;
+  white-space: nowrap;
+  hyphens: none;
+  appearance: none;
+  -webkit-appearance: none;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+@media (min-width: 1024px) {
+  .tabInactive,
+  .tabActive {
+    flex: 1 1 auto;
+    white-space: normal;
+  }
+}
+
+.tabInactive {
+  background: color-mix(in srgb, #db5227 14%, #fff);
+  color: #db5227;
+}
+
+.tabInactive:hover {
+  background: color-mix(in srgb, #db5227 22%, #fff);
+}
+
+.tabActive {
+  background: #db5227;
+  color: #fff;
+}
+
+.tabPanel {
+  background: #fff;
+  border: 1px solid #c8d0d9;
+}
+
+.tabContent {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 40px 24px;
+  animation: aprenderModulosTabFadeIn 0.3s ease forwards;
+}
+
+@media (min-width: 640px) {
+  .tabContent {
+    padding: 40px 32px;
+  }
+}
+
+@keyframes aprenderModulosTabFadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.tabPanelTitle {
+  margin: 0 0 1rem;
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+  color: #0a0c12;
+}
+
+.tabBodyText {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.75;
+  color: #3f3a42;
+}
