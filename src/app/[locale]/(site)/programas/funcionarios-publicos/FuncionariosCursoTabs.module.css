@@ -1,0 +1,119 @@
+/* Tabs estructura del curso — sección oscura; activo #DB5227; scroll horizontal en mobile */
+
+.tabsBar {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  gap: 0;
+  margin: 0 0 1.75rem;
+  padding: 0;
+  list-style: none;
+  background: rgba(255, 255, 255, 0.06);
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+}
+
+@media (min-width: 1024px) {
+  .tabsBar {
+    flex-wrap: wrap;
+    overflow-x: visible;
+  }
+}
+
+.tabInactive,
+.tabActive {
+  flex: 0 0 auto;
+  min-width: min(100%, max(6.5rem, min-content));
+  max-width: 100%;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 0;
+  cursor: pointer;
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 14px 14px;
+  text-align: center;
+  line-height: 1.25;
+  white-space: nowrap;
+  hyphens: none;
+  appearance: none;
+  -webkit-appearance: none;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+@media (min-width: 1024px) {
+  .tabInactive,
+  .tabActive {
+    flex: 1 1 auto;
+    white-space: normal;
+    font-size: 12px;
+    padding: 14px 16px;
+  }
+}
+
+.tabInactive {
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.tabInactive:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.tabActive {
+  background: #db5227;
+  color: #fff;
+}
+
+.tabPanel {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.tabContent {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 36px 24px;
+  animation: funcionariosTabFadeIn 0.3s ease forwards;
+}
+
+@media (min-width: 640px) {
+  .tabContent {
+    padding: 40px 32px;
+  }
+}
+
+@keyframes funcionariosTabFadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.tabPanelTitle {
+  margin: 0 0 1rem;
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+  color: #fff;
+}
+
+.tabBodyText {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.65);
+}
