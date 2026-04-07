@@ -1,129 +1,216 @@
-import {
-  ProgramBandModule,
-  ProgramChecklistModule,
-  ProgramClosingModule,
-  ProgramLeadModule,
-  ProgramModShell,
-  ProgramSplitModule,
-} from "@/components/programs/modules";
-import { ProgramLandingTemplate } from "@/components/templates/PageTemplates";
+import type { Metadata } from "next";
+import { Link } from "@/i18n/navigation";
 import { PDFS } from "@/lib/site";
+import styles from "./CiudadesPage.module.css";
 
-export const metadata = { title: "Ciudades" };
+export const metadata: Metadata = {
+  title: "Ciudades Conectadas con Sentido",
+  description:
+    "Formación en cultura digital para municipios: talleres AMI/UNESCO, IA, bienestar digital, privacidad y desinformación.",
+};
 
-export default function Page() {
+const TEMAS = [
+  {
+    title: "Inteligencia Artificial",
+    desc: "Desmitificando el futuro y sus implicaciones.",
+  },
+  {
+    title: "Bienestar Digital",
+    desc: "Hábitos saludables en el uso de la tecnología.",
+  },
+  {
+    title: "Privacidad y Seguridad en Línea",
+    desc: "Protegiendo identidad y datos.",
+  },
+  {
+    title: "Estrategias contra la Desinformación",
+    desc: "Criterio para navegar la información.",
+  },
+] as const;
+
+const IMPACTO = [
+  {
+    title: "Ciudadanía activa y crítica",
+    desc: "Pensamiento analítico, desinformación, participación local informada.",
+  },
+  {
+    title: "Mayor seguridad digital",
+    desc: "Fraudes, privacidad, uso ético.",
+  },
+  {
+    title: "Alfabetización en IA y algoritmos",
+    desc: "Sesgos y contenido generado por IA.",
+  },
+  {
+    title: "Bienestar digital",
+    desc: "Hábitos saludables e inclusión.",
+  },
+  {
+    title: "Gobernanza local transparente",
+    desc: "AMI en políticas y servicios.",
+  },
+  {
+    title: "Conexión y participación comunitaria",
+    desc: "Iniciativas en espacios urbanos.",
+  },
+] as const;
+
+const FORMATIVAS = [
+  "Inteligencia Artificial y su impacto",
+  "Desinformación: Hechos vs. sentimientos sobre la información",
+  "Prevención de Fraudes y Estafas en Línea",
+  "Bienestar Digital y Salud Tecnológica",
+] as const;
+
+export default function CiudadesProgramaPage() {
   return (
-    <ProgramLandingTemplate title="Formación en Cultura Digital para la Ciudadanía" kicker="Ciudades">
-      <ProgramLeadModule tone="institutional" eyebrow="Territorio">
-        <p>
-          Ponemos a disposición de los municipios una oferta formativa, diseñada para capacitar a la
-          comunidad con las habilidades críticas esenciales en la era digital.
-        </p>
-        <p>
-          Nuestro trabajo en las ciudades se inspira directamente en el marco de las{" "}
-          <a href={PDFS.ciudadesAmiUnesco} target="_blank" rel="noreferrer">
-            &apos;Ciudades AMI&apos; (Alfabetización Mediática e Informacional) de la UNESCO
-          </a>
-          , adaptando sus principios para fomentar ecosistemas de información locales más críticos y
-          resilientes.
-        </p>
-      </ProgramLeadModule>
+    <article className={styles.page}>
+      <header className={styles.hero}>
+        <div className={styles.heroStat} aria-hidden>
+          <p className={styles.heroStatBig}>8 a 12</p>
+          <p className={styles.heroStatLabel}>municipios</p>
+        </div>
+        <div className={styles.heroInner}>
+          <p className={styles.heroEyebrow}>■ CIUDADES · PROGRAMA 01</p>
+          <h1 className={styles.heroTitle}>Formación en Cultura Digital para la Ciudadanía</h1>
+        </div>
+      </header>
 
-      <ProgramBandModule variant="line">
-        <p>
-          Programas de capacitación: experiencias dinámicas y transformadoras orientadas a que cada
-          participante comprenda, use y gestione los medios digitales de forma segura, responsable y
-          autónoma.
-        </p>
-      </ProgramBandModule>
-
-      <ProgramSplitModule
-        title="Flexibilidad y alcance estratégico"
-        main={
-          <div className="space-y-5 text-[0.9375rem] leading-relaxed text-[var(--muted)]">
-            <p>
-              <strong className="text-[var(--fg)]">Impacto Directo en la Ciudadanía:</strong>{" "}
-              Talleres y actividades para vecinos/as de todas las edades.
-            </p>
-            <p>
-              <strong className="text-[var(--fg)]">Capacitación de Formadores:</strong> Estrategias
-              que multiplican el impacto con educadores, bibliotecarios, equipos municipales y
-              organizaciones comunitarias.
-            </p>
-          </div>
-        }
-        side={
+      <section className={styles.territorio} aria-labelledby="ciudades-territorio-heading">
+        <div className={styles.territorioGrid}>
           <div>
-            <ul className="space-y-2">
-              <li>Inteligencia Artificial: Desmitificando el futuro y sus implicaciones.</li>
-              <li>Bienestar Digital: Hábitos saludables en el uso de la tecnología.</li>
-              <li>Privacidad y Seguridad en Línea: Protegiendo identidad y datos.</li>
-              <li>Estrategias contra la Desinformación: Criterio para navegar la información.</li>
-            </ul>
+            <h2 id="ciudades-territorio-heading" className={styles.visuallyHidden}>
+              Territorio e impacto
+            </h2>
+            <p className={styles.territorioStatNum}>100%</p>
+            <p className={styles.territorioStatLabel}>personalizable para cada municipio</p>
           </div>
-        }
-        mainNarrow
-      />
+          <div>
+            <p className={styles.territorioText}>
+              Ponemos a disposición de los municipios una oferta formativa diseñada para capacitar a la
+              comunidad con las habilidades críticas esenciales en la era digital.
+            </p>
+            <p className={styles.territorioText}>
+              Nuestro trabajo en las ciudades se inspira directamente en el marco de las{" "}
+              <a
+                href={PDFS.ciudadesAmiUnesco}
+                className={styles.territorioLink}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Ciudades AMI (Alfabetización Mediática e Informacional) de la UNESCO
+              </a>
+              , adaptando sus principios para fomentar ecosistemas de información locales más críticos y
+              resilientes.
+            </p>
+          </div>
+        </div>
+      </section>
 
-      <ProgramModShell className="prec-program-mod not-prose">
-        <h2 className="prec-program-mod__title">
-          Diseño a tu medida: modular, flexible y personalizable
-        </h2>
-        <p className="max-w-2xl text-[1.05rem] leading-relaxed text-[var(--muted)]">
-          Instancias modulares y 100% personalizables para prioridades, públicos y recursos de cada
-          municipio.
-        </p>
-      </ProgramModShell>
+      <section className={styles.propuesta} aria-labelledby="ciudades-propuesta-heading">
+        <div className={styles.propuestaInner}>
+          <h2 id="ciudades-propuesta-heading" className={styles.propuestaLead}>
+            Experiencias dinámicas para que cada participante comprenda, use y gestione los medios digitales
+            con autonomía.
+          </h2>
 
-      <ProgramChecklistModule
-        title="Impacto en el municipio"
-        items={[
-          {
-            title: "Ciudadanía activa y crítica",
-            body: "Pensamiento analítico, desinformación, participación local informada.",
-          },
-          { title: "Mayor seguridad digital", body: "Fraudes, privacidad, uso ético." },
-          {
-            title: "Alfabetización en IA y algoritmos",
-            body: "Sesgos y contenido generado por IA.",
-          },
-          { title: "Bienestar digital", body: "Hábitos saludables e inclusión." },
-          {
-            title: "Gobernanza local transparente",
-            body: "AMI en políticas y servicios.",
-          },
-          {
-            title: "Conexión y participación comunitaria",
-            body: "Iniciativas en espacios urbanos.",
-          },
-        ]}
-        columns={2}
-      />
+          <div className={styles.propuestaCols}>
+            <div className={styles.propuestaCol}>
+              <h3 className={styles.propuestaColTitle}>Impacto Directo en la Ciudadanía</h3>
+              <p className={styles.propuestaColText}>
+                Talleres y actividades para vecinos de todas las edades.
+              </p>
+            </div>
+            <div className={styles.propuestaCol}>
+              <h3 className={styles.propuestaColTitle}>Capacitación de Formadores</h3>
+              <p className={styles.propuestaColText}>
+                Estrategias que multiplican el impacto con educadores, bibliotecarios, equipos municipales y
+                organizaciones comunitarias.
+              </p>
+            </div>
+          </div>
 
-      <ProgramChecklistModule
-        title="Nuestras propuestas formativas"
-        items={[
-          { title: "Inteligencia Artificial y su impacto" },
-          { title: "Desinformación: Hechos vs. sentimientos sobre la información" },
-          { title: "Prevención de Fraudes y Estafas en Línea" },
-          { title: "Bienestar Digital y Salud Tecnológica" },
-        ]}
-        columns={2}
-      />
+          <div className={styles.propuestaGrid}>
+            {TEMAS.map((t) => (
+              <div key={t.title} className={styles.propuestaCard}>
+                <div className={styles.propuestaCardMark} aria-hidden>
+                  ■
+                </div>
+                <p className={styles.propuestaCardTitle}>{t.title}</p>
+                <p className={styles.propuestaCardDesc}>{t.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-      <ProgramModShell className="prec-program-mod border border-[var(--border)] bg-[var(--surface)] p-6 md:p-8 not-prose">
-        <p className="text-sm leading-relaxed text-[var(--muted)]">
-          (Detalle de sesiones del taller de IA según sitio actual: desmitificación, algoritmos,
-          sesgos, acoso en línea, etc.)
-        </p>
-      </ProgramModShell>
+      <section className={styles.impacto} aria-labelledby="ciudades-impacto-heading">
+        <div className={styles.impactoInner}>
+          <h2 id="ciudades-impacto-heading" className={styles.impactoTitle}>
+            Lo que cambia en tu municipio
+          </h2>
+          <div className={styles.impactoGrid}>
+            {IMPACTO.map((item) => (
+              <div key={item.title} className={styles.impactoCard}>
+                <div className={styles.impactoCardMark} aria-hidden>
+                  ■
+                </div>
+                <h3 className={styles.impactoCardTitle}>{item.title}</h3>
+                <p className={styles.impactoCardDesc}>{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-      <ProgramClosingModule
-        title="¡Lleva la Cultura Digital a tu Municipio!"
-        primaryCta={{ href: "/participa", label: "Contacto" }}
-      >
-        <p>Contáctanos para más información</p>
-      </ProgramClosingModule>
-    </ProgramLandingTemplate>
+      <section className={styles.formativas} aria-labelledby="ciudades-formativas-heading">
+        <div className={styles.formativasInner}>
+          <h2 id="ciudades-formativas-heading" className={styles.formativasTitle}>
+            Nuestras propuestas formativas
+          </h2>
+          <div className={styles.formativasGrid}>
+            {FORMATIVAS.map((title, i) => (
+              <div key={title} className={styles.formativaCard}>
+                <p className={styles.formativaNum}>{String(i + 1).padStart(2, "0")}</p>
+                <h3 className={styles.formativaCardTitle}>{title}</h3>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className={styles.cta} aria-labelledby="ciudades-cta-heading">
+        <div className={styles.ctaInner}>
+          <h2 id="ciudades-cta-heading" className={styles.ctaTitle}>
+            Lleva la cultura digital a tu municipio.
+          </h2>
+          <div>
+            <p className={styles.ctaText}>
+              Contáctanos para diseñar una propuesta a medida de tu comunidad.
+            </p>
+            <Link href="/participa" className={styles.ctaBtn}>
+              Contacto
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <nav className={styles.continua} aria-label="Continúa explorando">
+        <div className={styles.continuaInner}>
+          <p className={styles.continuaEyebrow}>CONTINÚA</p>
+          <div className={styles.continuaLinks}>
+            <Link href="/programas" className={styles.continuaLink}>
+              Índice de programas →
+            </Link>
+            <Link href="/participa" className={styles.continuaLink}>
+              Participa y contacto →
+            </Link>
+            <Link href="/saberes" className={styles.continuaLink}>
+              Biblioteca Saberes →
+            </Link>
+          </div>
+        </div>
+      </nav>
+    </article>
   );
 }
