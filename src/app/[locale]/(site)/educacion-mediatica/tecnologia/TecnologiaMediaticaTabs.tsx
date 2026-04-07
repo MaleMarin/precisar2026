@@ -1,6 +1,7 @@
 "use client";
 
 import { MediaticaTabs, type MediaticaTab } from "@/components/educacion-mediatica/MediaticaTabs";
+import pageStyles from "./TecnologiaInterior.module.css";
 
 const tabs: MediaticaTab[] = [
   {
@@ -47,6 +48,7 @@ export function TecnologiaMediaticaTabs() {
       idPrefix="tech"
       sectionTitle="Claves para entender la tecnología en la educación mediática"
       tabs={tabs}
+      sectionClassName={pageStyles.tabsAccent}
     />
   );
 }

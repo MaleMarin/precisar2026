@@ -2,12 +2,14 @@
 
 import { useState } from "react";
 import { useReducedMotion } from "framer-motion";
+import { PdfCoverDownload } from "@/components/PdfCoverDownload";
+import type { PdfDownloadSpec } from "@/lib/pdfDownloads";
 import { getPreguntaDiaPair, PREGUNTA_DIA_PUBLIC_BASE } from "@/lib/preguntaDiaAssets";
 import styles from "./PreguntaDiaCards.module.css";
 
 const COUNT = 30;
 
-export function PreguntaDiaCards({ pdfHref }: { pdfHref: string }) {
+export function PreguntaDiaCards({ pdf }: { pdf: PdfDownloadSpec }) {
   const reduceMotion = useReducedMotion();
 
   return (
@@ -26,17 +28,13 @@ export function PreguntaDiaCards({ pdfHref }: { pdfHref: string }) {
           />
         ))}
       </div>
-      <div className={styles.footerStrip}>
-        <p>Descargá el recurso completo para imprimir, proyectar o compartir en clase o en familia.</p>
-        <a
-          href={pdfHref}
-          target="_blank"
-          rel="noreferrer"
-          className="prec-btn border-[var(--fg)] bg-[var(--fg)] text-[var(--bg)] hover:opacity-90"
-        >
-          DESCARGA PDF
-        </a>
-      </div>
+      <PdfCoverDownload
+        pdfHref={pdf.href}
+        coverSrc={pdf.coverSrc}
+        coverAlt={pdf.coverAlt}
+        description="Descarga el recurso completo para imprimir, proyectar o compartir en clase o en familia."
+        ctaLabel="DESCARGA PDF"
+      />
     </section>
   );
 }

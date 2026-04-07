@@ -1,6 +1,10 @@
-/* Tabs compartidos — educación mediática (4 páginas interiores) */
+/* Tabs compartidos — educación mediática (4 páginas interiores)
+   --mediatica-accent: definido por cada página (paleta marca en *Interior.module.css)
+   --mediatica-bar: franja del tablist; por defecto slate marca */
 
 .tabsSection {
+  --mediatica-accent: var(--brand-flame);
+  --mediatica-bar: var(--brand-slate);
   background: var(--bg, #f0f2f6);
   padding: clamp(3rem, 7vw, 5rem) clamp(1.25rem, 4vw, 2.75rem) clamp(4rem, 10vw, 6rem);
 }
@@ -28,22 +32,24 @@
 .tabsBar {
   display: flex;
   flex-direction: row;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   align-items: stretch;
   gap: 0;
   margin: 0;
   padding: 0;
   list-style: none;
-  background: #00cc00;
+  background: var(--mediatica-bar);
   margin-bottom: 1.75rem;
-  overflow-x: auto;
+  overflow-x: visible;
   -webkit-overflow-scrolling: touch;
 }
 
 .tabInactive,
 .tabActive {
-  flex: 1 0 minmax(8rem, auto);
-  min-width: 0;
+  /* No comprimir por debajo del texto: evita cortar p. ej. «DESINFORMACIÓN» */
+  flex: 1 1 auto;
+  min-width: min(100%, max(7.5rem, min-content));
+  max-width: 100%;
   box-sizing: border-box;
   border: none;
   border-radius: 0;
@@ -53,8 +59,13 @@
   font-weight: 700;
   letter-spacing: 1px;
   text-transform: uppercase;
-  padding: 14px 20px;
+  padding: 14px 16px;
   text-align: center;
+  line-height: 1.25;
+  white-space: normal;
+  hyphens: none;
+  overflow-wrap: break-word;
+  word-break: normal;
   list-style: none;
   margin: 0;
   appearance: none;
@@ -65,16 +76,16 @@
 }
 
 .tabInactive {
-  background: rgba(219, 82, 39, 0.1);
-  color: #db5227;
+  background: color-mix(in srgb, var(--mediatica-accent) 12%, var(--elevated, #fff));
+  color: var(--mediatica-accent);
 }
 
 .tabInactive:hover {
-  background: rgba(219, 82, 39, 0.18);
+  background: color-mix(in srgb, var(--mediatica-accent) 20%, var(--elevated, #fff));
 }
 
 .tabActive {
-  background: #db5227;
+  background: var(--mediatica-accent);
   color: #fff;
 }
 
@@ -105,7 +116,7 @@
   margin: 0;
   font-size: 15px;
   line-height: 1.75;
-  color: #3d3a37;
+  color: var(--brand-charcoal, #3f3a42);
 }
 
 .tabBodyText + .tabBodyText {

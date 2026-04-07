@@ -111,5 +111,15 @@
     "stackKicker": "03 · Saberes",
     "stackHeadline": "Saber não é acumular dados. É saber o que fazer com eles.",
     "stackBody": "Três coleções de recursos abertos — para refletir e expandir perspectivas."
+  },
+  "mediaticaEjes": {
+    "ariaBreadcrumb": "Navegação estrutural",
+    "ariaSiblings": "Eixos de educação mediática",
+    "home": "Início",
+    "hub": "Educação mediática",
+    "comunicacion": "Comunicação",
+    "educacion": "Educação",
+    "tecnologia": "Tecnologia",
+    "cultura": "Cultura"
   }
 }

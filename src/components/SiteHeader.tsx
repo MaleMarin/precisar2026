@@ -2,7 +2,8 @@
 
 import { useLocale, useTranslations } from "next-intl";
 import { startTransition, useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
-import { Link, usePathname, useRouter } from "@/i18n/navigation";
+import { usePathname as useNextPathname, useRouter as useNextRouter } from "next/navigation";
+import { Link, usePathname } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
 import {
   EXTERNAL,
@@ -21,6 +22,7 @@ const NAV_HREF_TO_KEY: Record<
   "/#saberes": "saberes",
   "/#precisando": "precisando",
   "/#educacion-mediatica": "educacionMediatica",
+  "/educacion-mediatica/comunicacion": "educacionMediatica",
   "/#participa": "participa",
   "/#convoca": "somos",
 };
@@ -30,14 +32,16 @@ function isHomePath(pathname: string): boolean {
   return n === "/";
 }
 
+const LOCALE_PREFIXES = new Set(routing.locales.map((l) => l.toLowerCase()));
+
 export function SiteHeader() {
   const pathname = usePathname();
-  const router = useRouter();
+  const nextPathname = useNextPathname();
+  const nextRouter = useNextRouter();
   const locale = useLocale();
   const tNav = useTranslations("nav");
   const tLang = useTranslations("language");
   const isHome = isHomePath(pathname);
-  const pathForLocaleSwitch = pathname === "" ? "/" : pathname;
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [hoverIndex, setHoverIndex] = useState<number | null>(null);
@@ -115,12 +119,22 @@ export function SiteHeader() {
   const switchLocale = useCallback(
     (loc: (typeof routing.locales)[number]) => {
       if (locale === loc) return;
+      const raw = nextPathname || "/";
+      const segments = raw.split("/").filter(Boolean);
+      const first = segments[0]?.toLowerCase();
+      if (first && LOCALE_PREFIXES.has(first)) {
+        segments[0] = loc;
+      } else {
+        segments.unshift(loc);
+      }
+      const href = `/${segments.join("/")}`;
+      const hash = typeof window !== "undefined" ? window.location.hash : "";
       startTransition(() => {
-        router.replace(pathForLocaleSwitch, { locale: loc, scroll: false });
+        nextRouter.replace(href + hash, { scroll: false });
       });
       setOpen(false);
     },
-    [locale, pathForLocaleSwitch, router],
+    [locale, nextPathname, nextRouter],
   );
 
   useEffect(() => {

@@ -111,5 +111,15 @@
     "stackKicker": "03 · Saberes",
     "stackHeadline": "Knowing isn’t hoarding data. It’s knowing what to do with it.",
     "stackBody": "Three collections of open resources—to reflect and broaden perspectives."
+  },
+  "mediaticaEjes": {
+    "ariaBreadcrumb": "Breadcrumb",
+    "ariaSiblings": "Media literacy thematic axes",
+    "home": "Home",
+    "hub": "Media literacy",
+    "comunicacion": "Communication",
+    "educacion": "Education",
+    "tecnologia": "Technology",
+    "cultura": "Culture"
   }
 }

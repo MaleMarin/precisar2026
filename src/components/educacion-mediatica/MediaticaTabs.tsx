@@ -16,6 +16,8 @@ type MediaticaTabsProps = {
   tabs: readonly MediaticaTab[];
   /** Título largo (p. ej. Cultura): tipografía ligeramente menor */
   longSectionTitle?: boolean;
+  /** Clase del módulo de página que define `--mediatica-accent` (paleta por eje) */
+  sectionClassName?: string;
 };
 
 export function MediaticaTabs({
@@ -24,6 +26,7 @@ export function MediaticaTabs({
   sectionTitle,
   tabs,
   longSectionTitle = false,
+  sectionClassName,
 }: MediaticaTabsProps) {
   const [activeTab, setActiveTab] = useState(0);
   const current = tabs[activeTab]!;
@@ -32,8 +35,10 @@ export function MediaticaTabs({
     ? `${styles.tabsSectionTitle} ${styles.tabsSectionTitleLong}`
     : styles.tabsSectionTitle;
 
+  const sectionClass = [styles.tabsSection, sectionClassName].filter(Boolean).join(" ");
+
   return (
-    <section className={styles.tabsSection} aria-labelledby={headingId}>
+    <section className={sectionClass} aria-labelledby={headingId}>
       <div className={styles.tabsInner}>
         <h2 id={headingId} className={titleClass}>
           {sectionTitle}

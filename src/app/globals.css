@@ -11,6 +11,9 @@
   --brand-slate: #76828e;
   --brand-flame: #db5227;
 
+  /* Educación mediática ampliada (/educacion-mediatica/*): hero + tabs usan un acento por eje
+     (Comunicación → flame, Educación → navy, Tecnología → charcoal, Cultura → void). */
+
   --bg: #f0f2f6;
   --fg: var(--brand-void);
   --muted: var(--brand-slate);

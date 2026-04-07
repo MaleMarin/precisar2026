@@ -1,6 +1,7 @@
 "use client";
 
 import { MediaticaTabs, type MediaticaTab } from "@/components/educacion-mediatica/MediaticaTabs";
+import pageStyles from "./EducacionInterior.module.css";
 
 const tabs: MediaticaTab[] = [
   {
@@ -47,6 +48,7 @@ export function EducacionMediaticaTabs() {
       idPrefix="edu"
       sectionTitle="Claves para aprender con sentido crítico"
       tabs={tabs}
+      sectionClassName={pageStyles.tabsAccent}
     />
   );
 }

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { MediaticaEjesNav } from "@/components/educacion-mediatica/MediaticaEjesNav";
 import { ComunicacionMediaticaTabs } from "./ComunicacionMediaticaTabs";
 import styles from "./ComunicacionInterior.module.css";
 
@@ -12,6 +13,7 @@ export default function ComunicacionEducacionMediaticaPage() {
   return (
     <article className="prec-page">
       <header className={styles.hero}>
+        <MediaticaEjesNav current="comunicacion" />
         <div className={styles.heroGrid}>
           <h1 className={styles.heroTitle}>Comunicación</h1>
           <p className={styles.heroIntro}>

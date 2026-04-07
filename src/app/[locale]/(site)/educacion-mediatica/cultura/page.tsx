@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { MediaticaEjesNav } from "@/components/educacion-mediatica/MediaticaEjesNav";
 import { CulturaMediaticaTabs } from "./CulturaMediaticaTabs";
 import styles from "./CulturaInterior.module.css";
 
@@ -12,6 +13,7 @@ export default function CulturaEducacionMediaticaPage() {
   return (
     <article className="prec-page">
       <header className={styles.hero}>
+        <MediaticaEjesNav current="cultura" />
         <div className={styles.heroGrid}>
           <h1 className={styles.heroTitle}>Cultura</h1>
           <p className={styles.heroIntro}>

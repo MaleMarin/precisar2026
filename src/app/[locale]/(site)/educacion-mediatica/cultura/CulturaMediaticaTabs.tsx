@@ -1,6 +1,7 @@
 "use client";
 
 import { MediaticaTabs, type MediaticaTab } from "@/components/educacion-mediatica/MediaticaTabs";
+import pageStyles from "./CulturaInterior.module.css";
 
 const tabs: MediaticaTab[] = [
   {
@@ -58,6 +59,7 @@ export function CulturaMediaticaTabs() {
       sectionTitle={CULTURA_SECTION_TITLE}
       tabs={tabs}
       longSectionTitle
+      sectionClassName={pageStyles.tabsAccent}
     />
   );
 }

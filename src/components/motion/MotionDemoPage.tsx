@@ -14,15 +14,6 @@ import { MotionStackPanels } from "./MotionStackPanels";
 /** Texto de la franja en movimiento bajo el hero (titular + tagline). */
 const HERO_STRIP_TEXT = `Información con criterio · ${SITE.tagline} · `;
 
-const FORM_CATEGORIES = [
-  "Programas territoriales / ciudades",
-  "Formación docente",
-  "Hub y cultura digital",
-  "Cursos abiertos",
-  "Consulta o alianza",
-  "Prensa / medios",
-];
-
 /** En desktop: accesos rápidos en barra fija; en móvil solo logo + menú hamburguesa. */
 const HOME_QUICK_NAV = NAV_PRIMARY;
 
@@ -118,7 +109,7 @@ export function MotionDemoPage() {
 
       <MotionHomeRails articles={railArticles} />
 
-      <MotionStackPanels featuredArticles={featured} formCategories={FORM_CATEGORIES} />
+      <MotionStackPanels featuredArticles={featured} />
     </div>
   );
 }

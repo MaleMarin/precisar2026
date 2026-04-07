@@ -8,7 +8,7 @@ const FOOTER_MAIN_NAV = [
   { label: "Inicio", href: "/" },
   { label: "Participa", href: "/participa" },
   { label: "Qué Hacemos", href: "/programas" },
-  { label: "Educación Mediática", href: "/educaciónmediática" },
+  { label: "Educación Mediática", href: "/educacion-mediatica/comunicacion" },
   { label: "Saberes", href: "/saberes" },
   { label: "Precisando", href: "/precisando" },
   { label: "Somos Precisar", href: "/somos" },

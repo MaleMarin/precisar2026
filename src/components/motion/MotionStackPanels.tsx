@@ -4,7 +4,6 @@ import { motion, useReducedMotion, useScroll, useSpring, useTransform } from "fr
 import { useMemo, useRef, type ComponentType, type ReactNode } from "react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import { MultiStepForm } from "@/components/home/MultiStepForm";
 import { EXTERNAL, FOOTER_COLUMNS, SITE, SABERES_NAV_LINKS } from "@/lib/site";
 import styles from "./MotionStackPanels.module.css";
 
@@ -441,7 +440,6 @@ function StackPanel({
 
 export type MotionStackPanelsProps = {
   featuredArticles: StackArticle[];
-  formCategories: string[];
   /** En portada Precisar: solo paneles apilados, sin pie duplicado (el sitio ya tiene SiteFooter). */
   omitFooter?: boolean;
   /** Si true, se atenúan animaciones (respeta preferencia del sistema si no se pasa). */
@@ -450,7 +448,6 @@ export type MotionStackPanelsProps = {
 
 export function MotionStackPanels({
   featuredArticles,
-  formCategories,
   omitFooter = false,
   reduceMotion: reduceMotionProp,
 }: MotionStackPanelsProps) {
@@ -471,27 +468,20 @@ export function MotionStackPanels({
   ];
 
   const saberesLinks = SABERES_NAV_LINKS.filter(
-    (l) => l.href !== "/saberes" && l.href !== "/marco/comunicacion",
+    (l) => l.href !== "/saberes" && l.href !== "/educacion-mediatica/comunicacion",
   ).map((l) => ({ label: l.label, href: l.href }));
 
   const educacionMediaticaLinks = [
-    { label: tEducacionMediatica("linkComunicacion"), href: "/marco/comunicacion" },
-    { label: tEducacionMediatica("linkEducacion"), href: "/marco/educacion" },
-    { label: tEducacionMediatica("linkTecnologia"), href: "/marco/tecnologia" },
-    { label: tEducacionMediatica("linkCultura"), href: "/marco/cultura" },
+    { label: tEducacionMediatica("linkComunicacion"), href: "/educacion-mediatica/comunicacion" },
+    { label: tEducacionMediatica("linkEducacion"), href: "/educacion-mediatica/educacion" },
+    { label: tEducacionMediatica("linkTecnologia"), href: "/educacion-mediatica/tecnologia" },
+    { label: tEducacionMediatica("linkCultura"), href: "/educacion-mediatica/cultura" },
   ];
 
   const precisandoLinks = featuredArticles.slice(0, 4).map((a) => ({
     label: a.title,
     href: `/precisando/${encodeURI(a.slug)}`,
   }));
-
-  const participaLinks = [
-    { label: "Participa / consulta", href: "/participa" },
-    { label: SITE.contactEmail, href: `mailto:${SITE.contactEmail}`, external: true },
-    { label: "Consulta ciudadana 2026", href: EXTERNAL.consultaCiudadana, external: true },
-    { label: "Bot ONDA (conversar)", href: EXTERNAL.botOnda, external: true },
-  ];
 
   const footerCols = FOOTER_COLUMNS;
 
@@ -564,14 +554,6 @@ export function MotionStackPanels({
       headline: "Escribinos: territorio, institución y la necesidad que querés abordar.",
       body:
         "Consulta ciudadana, newsletter y canales abiertos. Contanos desde dónde trabajás y qué tema querés abordar.",
-      child: (
-        <>
-          <MiniList dark glass glassExtraMargin reduceMotion={reduceMotion} items={participaLinks} />
-          <div className={`${styles.asideSlot} ${styles.formScroll}`}>
-            <MultiStepForm categories={formCategories} />
-          </div>
-        </>
-      ),
     },
   ];
 

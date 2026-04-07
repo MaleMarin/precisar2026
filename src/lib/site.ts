@@ -77,7 +77,7 @@ export const NAV_PRIMARY: NavItem[] = [
   { label: "Programas", href: "/#programas" },
   { label: "Saberes", href: "/#saberes" },
   { label: "Precisando", href: "/#precisando" },
-  { label: "Educación mediática", href: "/#educacion-mediatica" },
+  { label: "Educación mediática", href: "/educacion-mediatica/comunicacion" },
   { label: "Participa", href: "/#participa" },
   /** Primer panel editorial (“Qué nos convoca”) — identidad y propuesta. */
   { label: "Somos", href: "/#convoca" },
@@ -88,7 +88,7 @@ export const NAV_PRIMARY_LEGACY_PATH_PREFIXES: string[] = [
   "/programas",
   "/saberes",
   "/precisando",
-  "/educaciónmediática",
+  "/educacion-mediatica",
   "/participa",
   "/somos",
 ];
@@ -114,7 +114,17 @@ export function primaryNavIndexFromHash(hash: string): number {
 export function primaryNavIndexFromPathname(pathname: string): number {
   const p = pathname.replace(/\/+$/, "") || "/";
   if (p === "/") return -1;
+  /* Educación mediática: rutas nuevas (`/educacion-mediatica/...`) y legado con tilde. */
+  if (
+    p === "/educacion-mediatica" ||
+    p.startsWith("/educacion-mediatica/") ||
+    p === "/educaciónmediática" ||
+    p.startsWith("/educaciónmediática/")
+  ) {
+    return 3;
+  }
   for (let i = 0; i < NAV_PRIMARY_LEGACY_PATH_PREFIXES.length; i++) {
+    if (i === 3) continue;
     const prefix = NAV_PRIMARY_LEGACY_PATH_PREFIXES[i] ?? "";
     if (p === prefix || p.startsWith(`${prefix}/`)) return i;
   }
@@ -178,17 +188,14 @@ export const FOOTER_COLUMNS: { title: string; links: NavItem[] }[] = [
   {
     title: "Educación mediática",
     links: [
-      { label: "Educación mediática", href: "/educaciónmediática" },
+      { label: "Comunicación", href: "/educacion-mediatica/comunicacion" },
+      { label: "Educación", href: "/educacion-mediatica/educacion" },
+      { label: "Tecnología", href: "/educacion-mediatica/tecnologia" },
+      { label: "Cultura", href: "/educacion-mediatica/cultura" },
       {
-        label: "Propuesta de política (alfabetización mediática)",
-        href: "/educaciónmediática/propuesta-politica-alfabetizacion",
+        label: "Propuesta de política de alfabetización mediática y digital",
+        href: "/educacion-mediatica/propuesta-politica-alfabetizacion",
       },
-      { label: "AMI vs. alfabetización digital", href: "/ami-vs-alfabetización-digital" },
-      {
-        label: "Curso desinformación (Hub — PDF)",
-        href: "/programas/hub-digital-consciente",
-      },
-      { label: "Leer noticias en la era digital", href: "/programas/leer-noticias-era-digital" },
     ],
   },
   {
@@ -203,10 +210,10 @@ export const FOOTER_COLUMNS: { title: string; links: NavItem[] }[] = [
   {
     title: "Ejes temáticos",
     links: [
-      { label: "Comunicación", href: "/marco/comunicacion" },
-      { label: "Educación", href: "/marco/educacion" },
-      { label: "Tecnología", href: "/marco/tecnologia" },
-      { label: "Cultura", href: "/marco/cultura" },
+      { label: "Comunicación", href: "/educacion-mediatica/comunicacion" },
+      { label: "Educación", href: "/educacion-mediatica/educacion" },
+      { label: "Tecnología", href: "/educacion-mediatica/tecnologia" },
+      { label: "Cultura", href: "/educacion-mediatica/cultura" },
     ],
   },
   {
@@ -272,6 +279,11 @@ export const PDFS = {
     "https://www.precisar.net/_files/ugd/4c5e66_7b7d218709ff4052b58d9d9416715150.pdf",
   /** PDF local en `public/30-preguntas-precisar.pdf` (una sola descarga en la página de tarjetas). */
   saberes30Preguntas: "/30-preguntas-precisar.pdf",
+  /**
+   * Propuesta de política — coloca el archivo en `public/` con este nombre para habilitar la descarga.
+   * Hasta entonces el enlace puede responder 404 hasta que subas el PDF.
+   */
+  propuestaPoliticaAlfabetizacion: "/propuesta-politica-alfabetizacion-mediatica-digital-precisar.pdf",
   saberesGuiaIa:
     "https://www.precisar.net/_files/ugd/4c5e66_601b191ddea74e71a326aa173fe28ab7.pdf",
   saberesUsoConscienteIa:

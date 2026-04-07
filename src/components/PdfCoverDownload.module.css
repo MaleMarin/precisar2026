@@ -1,0 +1,110 @@
+.block {
+  margin-top: 2rem;
+  padding: 1.25rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  background: color-mix(in oklab, var(--elevated) 92%, var(--bg));
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .block {
+    flex-direction: row;
+    align-items: center;
+    padding: 1.35rem 1.35rem;
+    gap: 1.5rem;
+  }
+}
+
+.coverLink {
+  flex-shrink: 0;
+  display: block;
+  align-self: center;
+  width: min(100%, 200px);
+  border-radius: 0.35rem;
+  overflow: hidden;
+  border: 1px solid color-mix(in oklab, var(--fg) 12%, transparent);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.12);
+  line-height: 0;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+@media (min-width: 640px) {
+  .coverLink {
+    width: 168px;
+  }
+}
+
+.coverLink:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 44px rgba(0, 0, 0, 0.16);
+}
+
+.coverImg {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 400 / 566;
+  object-fit: cover;
+}
+
+.coverFallback {
+  display: flex;
+  aspect-ratio: 400 / 566;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  background: color-mix(in oklab, var(--fg) 6%, var(--bg));
+  color: var(--muted);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 1rem;
+}
+
+.body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.text {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--muted);
+  max-width: 40rem;
+}
+
+.cta {
+  display: inline-flex;
+  align-self: flex-start;
+  align-items: center;
+  justify-content: center;
+  padding: 0.65rem 1.35rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--bg);
+  background: var(--fg);
+  border-radius: 0.25rem;
+  transition: opacity 0.2s ease;
+}
+
+.cta:hover {
+  opacity: 0.9;
+}
+
+/* Variante compacta (misma fila en móvil si hace falta) */
+.compact .block {
+  margin-top: 0;
+}

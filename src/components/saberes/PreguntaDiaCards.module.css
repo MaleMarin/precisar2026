@@ -164,25 +164,3 @@
   color: color-mix(in oklab, var(--bg) 88%, transparent);
 }
 
-.footerStrip {
-  margin-top: 2rem;
-  padding: 1.25rem 1rem;
-  border: 1px solid var(--border);
-  background: color-mix(in oklab, var(--elevated) 92%, var(--bg));
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-}
-
-.footerStrip p {
-  margin: 0;
-  font-size: 0.85rem;
-  color: var(--muted);
-  max-width: 36rem;
-}
-
-.footerStrip a {
-  flex-shrink: 0;
-}
