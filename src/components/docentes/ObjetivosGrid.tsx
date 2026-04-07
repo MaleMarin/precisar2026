@@ -1,0 +1,51 @@
+import { Kicker } from "@/components/ui/Kicker";
+
+const cards = [
+  {
+    title: "Pensamiento crítico en el aula",
+    body: "Capacitar a docentes para enseñar a evaluar información, identificar desinformación y reconocer sesgos, incluyendo contenidos generados por IA.",
+  },
+  {
+    title: "Producción responsable",
+    body: "Guiar a estudiantes en la creación de contenidos digitales éticos: derechos de autor, mensajes constructivos, huella digital.",
+  },
+  {
+    title: "Participación ética en línea",
+    body: "Formar en ciudadanía digital activa, segura y respetuosa en redes y plataformas.",
+  },
+  {
+    title: "Integración curricular",
+    body: "Materiales y guías adaptables a distintas asignaturas y niveles. Sin reinventar la rueda.",
+  },
+];
+
+export function ObjetivosGrid() {
+  return (
+    <section className="mx-auto w-full max-w-5xl px-4 sm:px-6 py-16 sm:py-20">
+      <Kicker>■ QUÉ TRABAJAMOS</Kicker>
+      <h2
+        className="mt-3 text-xl sm:text-2xl"
+        style={{ fontFamily: "var(--font-bebas), sans-serif", letterSpacing: "0.04em" }}
+      >
+        Objetivos
+      </h2>
+      <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6">
+        {cards.map((c) => (
+          <article
+            key={c.title}
+            style={{
+              border: "0.5px solid rgba(219, 82, 39, 0.3)",
+              borderRadius: 8,
+              padding: "1rem",
+            }}
+          >
+            <h3 className="text-base font-semibold">{c.title}</h3>
+            <p className="mt-2 text-sm leading-relaxed" style={{ color: "#A0A0A0" }}>
+              {c.body}
+            </p>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
+}
