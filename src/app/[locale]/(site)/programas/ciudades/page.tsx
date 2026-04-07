@@ -169,9 +169,8 @@ export default function CiudadesProgramaPage() {
             Nuestras propuestas formativas
           </h2>
           <div className={styles.formativasGrid}>
-            {FORMATIVAS.map((title, i) => (
+            {FORMATIVAS.map((title) => (
               <div key={title} className={styles.formativaCard}>
-                <p className={styles.formativaNum}>{String(i + 1).padStart(2, "0")}</p>
                 <h3 className={styles.formativaCardTitle}>{title}</h3>
               </div>
             ))}

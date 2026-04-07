@@ -10,10 +10,10 @@ export function SiteChrome({ children }: { children: React.ReactNode }) {
   const isStudioHome = pathname === "/cinematic" || pathname === "/atelier";
 
   return (
-    <>
+    <div className={styles.chrome}>
       {!isStudioHome ? <SiteHeader /> : null}
       <main className={isStudioHome ? styles.mainHome : styles.mainDefault}>{children}</main>
       <SiteFooter />
-    </>
+    </div>
   );
 }

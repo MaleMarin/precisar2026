@@ -1,18 +1,18 @@
 /* Footer precisar.net — fondo #000 */
 
 .footer {
-  margin-top: auto;
+  flex-shrink: 0;
   background: #000000;
   color: #fff;
   font-family: var(--font-sans-family), system-ui, sans-serif;
 }
 
-/* BLOQUE 1 — logo oficial a todo el ancho */
+/* BLOQUE 1 — logo oficial a todo el ancho (poco aire arriba: evita franja negra vacía) */
 .block1 {
   background: #000000;
   box-sizing: border-box;
   width: 100%;
-  padding: clamp(1.5rem, 4vw, 2.5rem) var(--gutter);
+  padding: clamp(0.35rem, 1.2vw, 0.75rem) var(--gutter) clamp(1rem, 3vw, 1.75rem);
 }
 
 .logoStrip {
@@ -26,7 +26,8 @@
   height: auto;
   max-width: none;
   object-fit: contain;
-  object-position: center center;
+  /* Si el PNG trae mucho negro sobre la marca, ancla el dibujo abajo */
+  object-position: center bottom;
 }
 
 .visuallyHidden {

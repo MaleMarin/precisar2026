@@ -5,6 +5,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
 import "lenis/dist/lenis.css";
+import styles from "./SmoothScrollProvider.module.css";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -65,5 +66,9 @@ export function SmoothScrollProvider({ children }: { children: ReactNode }) {
     };
   }, []);
 
-  return <LenisContext.Provider value={lenis}>{children}</LenisContext.Provider>;
+  return (
+    <LenisContext.Provider value={lenis}>
+      <div className={styles.flexFill}>{children}</div>
+    </LenisContext.Provider>
+  );
 }

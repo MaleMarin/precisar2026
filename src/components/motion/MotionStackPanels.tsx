@@ -56,7 +56,6 @@ function MiniList({
   dark = false,
   glass = false,
   glassExtraMargin = false,
-  hideIndex = false,
   reduceMotion = false,
 }: {
   items: { label: string; href: string; external?: boolean }[];
@@ -65,8 +64,6 @@ function MiniList({
   glass?: boolean;
   /** Más margen superior (alinear la lista bajo el titular). */
   glassExtraMargin?: boolean;
-  /** Sin columna 01, 02… (p. ej. lista editorial Precisando). */
-  hideIndex?: boolean;
   reduceMotion?: boolean;
 }) {
   const listClass = [
@@ -76,7 +73,6 @@ function MiniList({
     !dark && glass && glassExtraMargin ? styles.miniListGlassExtraMargin : "",
     dark && glass ? styles.miniListDarkGlass : "",
     dark && glass && glassExtraMargin ? styles.miniListDarkGlassExtraMargin : "",
-    hideIndex ? styles.miniListHideIndex : "",
   ]
     .filter(Boolean)
     .join(" ");
@@ -85,11 +81,9 @@ function MiniList({
     <div className={listClass}>
       {items.map((item, i) => {
         const rowClass = dark ? `${styles.miniRow} ${styles.miniRowDark}` : styles.miniRow;
-        const idxClass = dark ? `${styles.miniIndex} ${styles.miniIndexDark}` : styles.miniIndex;
         const labelClass = dark ? `${styles.miniLabel} ${styles.miniLabelDark}` : styles.miniLabel;
         const inner = (
           <>
-            {!hideIndex ? <span className={idxClass}>{String(i + 1).padStart(2, "0")}</span> : null}
             <span className={labelClass}>{item.label}</span>
             <ArrowIcon className={`${styles.iconSm} ${styles.miniRowArrow}`} />
           </>
@@ -527,14 +521,7 @@ export function MotionStackPanels({
       body: tPrecisando("stackBody"),
       icon: undefined,
       child: (
-        <MiniList
-          dark
-          glass
-          glassExtraMargin
-          hideIndex
-          reduceMotion={reduceMotion}
-          items={precisandoLinks}
-        />
+        <MiniList dark glass glassExtraMargin reduceMotion={reduceMotion} items={precisandoLinks} />
       ),
     },
     {

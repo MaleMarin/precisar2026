@@ -34,7 +34,17 @@ export function GsapRouteFade({ children, overlayColor }: GsapRouteFadeProps) {
   }, [pathname]);
 
   return (
-    <div ref={ref} style={{ minHeight: "100%", background: bg }}>
+    <div
+      ref={ref}
+      style={{
+        flex: 1,
+        display: "flex",
+        flexDirection: "column",
+        minHeight: 0,
+        minWidth: 0,
+        background: bg,
+      }}
+    >
       {children}
     </div>
   );
