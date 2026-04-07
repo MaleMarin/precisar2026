@@ -29,8 +29,8 @@ const STAIN_TO_CORNER_MS = 2800;
 
 export type PotenciaHeadlineSurface = "light" | "dark";
 
-/** `home`: tipografía grande del inicio inmersivo. `lab`: misma escala que el hero Explora (.title). */
-export type PotenciaHeadlineScale = "home" | "lab";
+/** `home`: tipografía grande del inicio inmersivo. `lab`: Explora. `precisarHome`: portada con stack. */
+export type PotenciaHeadlineScale = "home" | "lab" | "precisarHome";
 
 export function PotenciaRotatingHeadline({
   reduceMotion,
@@ -177,10 +177,15 @@ export function PotenciaRotatingHeadline({
     reduceMotion || mode !== "out" ? styles.verbShown : styles.verbOut;
 
   const line1Class = surface === "dark" ? styles.line1Dark : styles.line1Light;
-  const scaleClass = scale === "lab" ? styles.scaleLab : styles.scaleHome;
+  const scaleClass =
+    scale === "lab"
+      ? styles.scaleLab
+      : scale === "precisarHome"
+        ? styles.scalePrecisarHome
+        : styles.scaleHome;
 
   const line1 =
-    scale === "lab" ? (
+    scale === "lab" || scale === "precisarHome" ? (
       <>
         {t("lineLabA")}{" "}
         <br />

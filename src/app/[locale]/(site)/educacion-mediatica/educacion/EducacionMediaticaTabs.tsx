@@ -14,14 +14,14 @@ const tabs: MediaticaTab[] = [
     id: "aula",
     label: "Educación Mediática en Aula",
     paragraphs: [
-      "La educación mediática no es un contenido más, es una forma de ver y enseñar el mundo. Integrarla en el aula es enseñar a los estudiantes a convivir con la información, a construir conocimiento colaborativo y a vincularse con el entorno digital con sentido. Desde la infancia hasta la adultez, permite una pedagogía más conectada con la realidad y más consciente de sus impactos.",
+      "La educación mediática no es un contenido más, es una forma de ver y enseñar el mundo. Integrarla en el aula es enseñar a los estudiantes a convivir con la información, a construir conocimiento colaborativo y a vincularse con el entorno digital con sentido. Desde la infancia hasta la adultez, la Educación Mediática permite una pedagogía más conectada con la realidad y más consciente de sus impactos.",
     ],
   },
   {
     id: "produccion",
     label: "Producción de Contenidos",
     paragraphs: [
-      "Hoy todos somos potencialmente emisores. Crear contenidos no es solo una habilidad técnica, es una forma de intervención en el mundo. Aprender a producir mensajes — videos, podcasts, memes, textos — con propósito, con ética y con mirada crítica, permite ejercer la ciudadanía en red y dialogar desde lo local hacia lo global.",
+      "Hoy todos somos potencialmente emisores. Crear contenidos no es solo una habilidad técnica, es una forma de intervención en el mundo. Aprender a producir mensajes (videos, podcasts, memes, textos) con propósito, con ética y con mirada crítica, permite ejercer la ciudadanía en red y dialogar desde lo local hacia lo global. Se enseña también a escuchar y a construir con otros.",
     ],
   },
   {
@@ -35,7 +35,7 @@ const tabs: MediaticaTab[] = [
     id: "vida",
     label: "Vida Digital y Convivencia",
     paragraphs: [
-      "Estar en línea no es solo una experiencia técnica, es una experiencia humana. La educación mediática promueve formas de convivencia digital que respetan la diversidad, promueven el diálogo y rechazan la violencia. Aprender a vivir en red implica saber protegerse, pero también construir entornos más empáticos, colaborativos y democráticos.",
+      "Estar en línea no es solo una experiencia técnica, es una experiencia humana. La educación mediática promueve formas de convivencia digital que respetan la diversidad, promueven el diálogo y rechazan la violencia. Aprender a vivir en red implica saber protegerse, pero también saber construir entornos más empáticos, colaborativos y democráticos.",
     ],
   },
 ];

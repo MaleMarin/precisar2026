@@ -14,9 +14,10 @@ const tabs: MediaticaTab[] = [
     id: "libertad",
     label: "Libertad de Expresión y Derecho a la Información",
     paragraphs: [
-      "La libertad de expresión es el derecho a decir lo que pensamos, a compartir ideas, opiniones y creencias sin miedo a ser censurados o castigados. Pero también incluye el derecho a recibir información veraz, plural y oportuna.",
-      "Este derecho no es absoluto: no protege discursos que incitan al odio, la violencia o la discriminación. Ejercer la libertad de expresión implica responsabilidad: pensar en las consecuencias de lo que compartimos y promover un diálogo respetuoso, aunque pensemos distinto.",
-      "El derecho a la información garantiza que todas las personas podamos acceder a contenidos confiables, transparentes y diversos. Eso incluye medios públicos de calidad, datos abiertos, y mecanismos que nos permitan saber cómo se toman decisiones que nos afectan.",
+      "La libertad de expresión es el derecho a decir lo que pensamos, a compartir ideas, opiniones y creencias sin miedo a ser censurados o castigados. Pero también incluye el derecho a recibir información veraz, plural y oportuna, algo fundamental para poder tomar decisiones informadas en nuestra vida cotidiana.",
+      "Este derecho no es absoluto: no protege discursos que incitan al odio, la violencia o la discriminación. Por eso, ejercer la libertad de expresión también implica responsabilidad: pensar en las consecuencias de lo que compartimos y promover un diálogo respetuoso, aunque pensemos distinto.",
+      "El derecho a la información, por su parte, garantiza que todas las personas podamos acceder a contenidos confiables, transparentes y diversos. Eso incluye medios públicos de calidad, datos abiertos, y mecanismos que nos permitan saber cómo se toman decisiones que nos afectan.",
+      "Cuando estos derechos se garantizan y se respetan, se fortalece la participación ciudadana, la confianza social y la vida en común. Por eso es clave que todas las personas aprendamos a ejercerlos y también a defenderlos.",
     ],
   },
   {
@@ -30,14 +31,18 @@ const tabs: MediaticaTab[] = [
     id: "desinformacion",
     label: "Desinformación",
     paragraphs: [
-      "La desinformación existe porque hay quienes quieren manipular lo que pensamos, generar confusión o sacar provecho económico, político o social. A veces se crea con intención, otras veces se difunde por error o desconocimiento. Las redes sociales permiten que estos contenidos se propaguen muy rápido, sin filtros ni verificaciones. Combatirla no es censurar: es defender el derecho a estar bien informados y a participar con responsabilidad.",
+      "¿Por qué existe la desinformación?",
+      "La desinformación existe porque hay quienes quieren manipular lo que pensamos, generar confusión o sacar provecho (económico, político o social). A veces se crea con intención, otras veces se difunde por error o desconocimiento. Las redes sociales y los medios digitales permiten que estos contenidos se propaguen muy rápido, sin filtros ni verificaciones.",
+      "¿Por qué es importante frenarla?",
+      "Porque cuando circula información falsa, se debilita nuestra capacidad de decidir bien. Tomamos decisiones personales, sociales o incluso de salud basadas en datos que no son reales. La desinformación puede generar miedo, odio o desconfianza entre personas y grupos. Combatirla no es censurar: es defender el derecho a estar bien informados, a pensar con autonomía y a participar con responsabilidad en el mundo que compartimos.",
     ],
   },
   {
     id: "redes",
     label: "Redes sociales",
     paragraphs: [
-      "En redes sociales, muchas veces vemos solo ideas similares a las nuestras. Los algoritmos nos muestran lo que ya nos gusta o en lo que ya creemos. Así se forman burbujas informativas que refuerzan nuestros puntos de vista y nos aíslan de otras opiniones. Para salir de esa burbuja, es clave buscar distintas fuentes, contrastar información y estar abiertos al diálogo.",
+      "Redes sociales: ¿o burbujas?",
+      "En redes sociales, muchas veces vemos solo ideas similares a las nuestras. Esto pasa porque los algoritmos nos muestran lo que ya nos gusta o en lo que ya creemos. Así se forman burbujas informativas que refuerzan nuestros puntos de vista y nos aíslan de otras opiniones. Para salir de esa burbuja, es clave buscar distintas fuentes, contrastar información y estar abiertos al diálogo.",
     ],
   },
 ];

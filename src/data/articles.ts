@@ -6,6 +6,15 @@ export type ArticleMeta = {
   excerpt: string;
 };
 
+/**
+ * Listado y SEO: título, fecha, categoría y `excerpt`.
+ *
+ * El texto completo de cada nota no vive aquí: la página `/precisando/[slug]` carga
+ * `src/content/precisando/<slug>.md`. Si ese archivo no existe, solo se muestra el excerpt
+ * (parece “corto”). Los .md se pueden generar con `npm run precisando:rss`, que lee el feed
+ * de precisar.net: muchos ítems solo traen resumen (sin `content:encoded`), así que el cuerpo
+ * queda breve salvo que el feed publique el HTML completo o alguien pegue el markdown a mano.
+ */
 /** Slugs canónicos: RSS blog-feed.xml + sitemap de posts + auditoría abril 2026 (31 entradas). */
 export const ARTICLES: ArticleMeta[] = [
   {

@@ -10,10 +10,13 @@ export function HeroFlameMoteTrack({
   className,
   targetX,
   targetY,
+  quickBlend = false,
 }: {
   className: string;
   targetX: number;
   targetY: number;
+  /** true: converge más rápido al verbo para alinear la mancha con el texto */
+  quickBlend?: boolean;
 }) {
   const targetRef = useRef({ x: targetX, y: targetY });
   useLayoutEffect(() => {
@@ -25,7 +28,7 @@ export function HeroFlameMoteTrack({
   const smoothRef = useRef({ x: targetX, y: targetY });
 
   useEffect(() => {
-    const k = 0.024;
+    const k = quickBlend ? 0.095 : 0.024;
     let id = 0;
     const loop = () => {
       const t = targetRef.current;
@@ -47,7 +50,7 @@ export function HeroFlameMoteTrack({
     };
     id = requestAnimationFrame(loop);
     return () => cancelAnimationFrame(id);
-  }, [mx, my]);
+  }, [mx, my, quickBlend]);
 
   const leftPct = useTransform(mx, (x) => `${x}%`);
   const topPct = useTransform(my, (y) => `${y}%`);

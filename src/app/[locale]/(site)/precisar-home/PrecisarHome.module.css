@@ -87,9 +87,10 @@
   padding: 0 var(--gutter) clamp(3.25rem, 11vw, 6.5rem);
   overflow-x: clip;
   overflow-y: visible;
+  /* Duración por `--verb-flame-dur`: corta hacia el verbo, larga al ir al rincón */
   transition:
-    --verb-flame-x 2.35s cubic-bezier(0.18, 0.06, 0.22, 1),
-    --verb-flame-y 2.35s cubic-bezier(0.18, 0.06, 0.22, 1);
+    --verb-flame-x var(--verb-flame-dur, 0.62s) cubic-bezier(0.22, 1, 0.36, 1),
+    --verb-flame-y var(--verb-flame-dur, 0.62s) cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .hero::before {
@@ -156,12 +157,12 @@
   max-width: var(--max);
   margin: 0 auto;
   width: 100%;
-  padding-top: clamp(7rem, 24vh, 12.5rem);
+  padding-top: clamp(8.25rem, 27vh, 14rem);
   padding-bottom: clamp(1.25rem, 4vh, 2.75rem);
 }
 
 .heroPotenciaH1 {
-  margin: clamp(2.65rem, 6.5vh, 4.5rem) 0 0;
+  margin: clamp(3rem, 7.5vh, 5.25rem) 0 0;
   padding: 0 0 0.2em;
   max-width: 100%;
   font: inherit;

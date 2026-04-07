@@ -21,14 +21,14 @@ const tabs: MediaticaTab[] = [
     id: "brecha",
     label: "Brecha Digital y Acceso",
     paragraphs: [
-      "La tecnología amplifica desigualdades cuando el acceso no es garantizado para todos. Este eje visibiliza las barreras que impiden la participación plena en el entorno digital: desde la falta de conectividad hasta la ausencia de formación. Educar en tecnología con enfoque crítico es también educar para la justicia social.",
+      "La tecnología amplifica desigualdades cuando el acceso no es garantizado para todos. Este eje también visibiliza las barreras que impiden la participación plena en el entorno digital: desde la falta de conectividad hasta la ausencia de formación. Educar en tecnología con enfoque crítico es también educar para la justicia social.",
     ],
   },
   {
     id: "ia",
     label: "Inteligencia Artificial y Cultura Digital",
     paragraphs: [
-      "La inteligencia artificial ya no es ciencia ficción. Desde asistentes virtuales hasta sistemas que generan contenido, la IA forma parte del entorno informativo actual. Educar en este contexto implica no solo usar estas tecnologías, sino comprender su funcionamiento y desarrollar una mirada crítica sobre su impacto en nuestras formas de comunicarnos, aprender y convivir.",
+      "La inteligencia artificial ya no es ciencia ficción. Desde asistentes virtuales hasta sistemas que generan contenido, la IA forma parte del entorno informativo actual. Educar en este contexto implica no solo usar estas tecnologías, sino también comprender su funcionamiento y desarrollar una mirada crítica sobre su impacto en nuestras formas de comunicarnos, aprender y convivir.",
     ],
   },
   {

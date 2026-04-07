@@ -4,40 +4,30 @@ import { useLocale, useTranslations } from "next-intl";
 import { startTransition, useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { Link, usePathname, useRouter } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
-import { EXTERNAL, FOOTER_MEDIA, NAV_PRIMARY, type NavItem } from "@/lib/site";
+import {
+  EXTERNAL,
+  FOOTER_MEDIA,
+  NAV_PRIMARY,
+  primaryNavIndexFromHash,
+  primaryNavIndexFromPathname,
+} from "@/lib/site";
 import styles from "./SiteHeader.module.css";
 
-const NAV_HREF_TO_KEY: Record<string, "programas" | "saberes" | "precisando" | "educacionMediatica" | "participa" | "somos"> = {
-  "/programas": "programas",
-  "/saberes": "saberes",
-  "/precisando": "precisando",
-  "/educaciónmediática": "educacionMediatica",
-  "/participa": "participa",
-  "/somos": "somos",
+const NAV_HREF_TO_KEY: Record<
+  string,
+  "programas" | "saberes" | "precisando" | "educacionMediatica" | "participa" | "somos"
+> = {
+  "/#programas": "programas",
+  "/#saberes": "saberes",
+  "/#precisando": "precisando",
+  "/#educacion-mediatica": "educacionMediatica",
+  "/#participa": "participa",
+  "/#convoca": "somos",
 };
 
 function isHomePath(pathname: string): boolean {
   const n = pathname.replace(/\/+$/, "") || "/";
   return n === "/";
-}
-
-/** Índice del ítem de menú que mejor coincide con la ruta (prefijo más largo). */
-function primaryNavIndexForPath(pathname: string): number {
-  const p = pathname.replace(/\/+$/, "") || "/";
-  if (p === "/") return -1;
-  let best = -1;
-  let bestLen = -1;
-  NAV_PRIMARY.forEach((item: NavItem, i: number) => {
-    const h = item.href.replace(/\/+$/, "") || "/";
-    if (h === "/") return;
-    if (p === h || p.startsWith(`${h}/`)) {
-      if (h.length > bestLen) {
-        bestLen = h.length;
-        best = i;
-      }
-    }
-  });
-  return best;
 }
 
 export function SiteHeader() {
@@ -52,12 +42,42 @@ export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
   const [hoverIndex, setHoverIndex] = useState<number | null>(null);
   const [indicator, setIndicator] = useState({ left: 0, width: 0, visible: false });
+  const [hash, setHash] = useState("");
 
   const trackRef = useRef<HTMLDivElement>(null);
   const linkRefs = useRef<(HTMLAnchorElement | null)[]>([]);
 
-  const activeIndex = primaryNavIndexForPath(pathname);
+  useEffect(() => {
+    const read = () => setHash(typeof window !== "undefined" ? window.location.hash : "");
+    read();
+    window.addEventListener("hashchange", read);
+    return () => window.removeEventListener("hashchange", read);
+  }, []);
+
+  const fromHash = isHome ? primaryNavIndexFromHash(hash) : -1;
+  const fromPath = primaryNavIndexFromPathname(pathname);
+  const activeIndex = fromHash >= 0 ? fromHash : fromPath;
   const displayIndex = hoverIndex !== null ? hoverIndex : activeIndex;
+
+  const scrollToHomeSection = useCallback(
+    (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+      const i = href.indexOf("#");
+      if (i < 0) return;
+      const id = href.slice(i + 1);
+      if (!id || !isHome) return;
+      const el = document.getElementById(id);
+      if (!el) return;
+      e.preventDefault();
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+      const nextHash = `#${id}`;
+      if (window.location.hash !== nextHash) {
+        window.history.pushState(null, "", nextHash);
+        setHash(nextHash);
+      }
+      setOpen(false);
+    },
+    [isHome],
+  );
 
   const measureIndicator = useCallback(() => {
     if (typeof window === "undefined") return;
@@ -121,7 +141,7 @@ export function SiteHeader() {
     measureIndicator();
     const id = requestAnimationFrame(() => measureIndicator());
     return () => cancelAnimationFrame(id);
-  }, [measureIndicator, pathname, locale]);
+  }, [measureIndicator, pathname, locale, hash]);
 
   useEffect(() => {
     const onResize = () => measureIndicator();
@@ -217,6 +237,7 @@ export function SiteHeader() {
                       ref={(el) => {
                         linkRefs.current[i] = el;
                       }}
+                      onClick={(e) => scrollToHomeSection(e, item.href)}
                       onMouseEnter={() => setHoverIndex(i)}
                       onMouseLeave={() => setHoverIndex(null)}
                       onFocus={() => setHoverIndex(i)}
@@ -322,7 +343,10 @@ export function SiteHeader() {
                   href={item.href}
                   className={`${styles.navLinkMobile} border-b border-[var(--border)] py-4 text-[var(--fg)] transition-colors hover:text-[var(--accent)]`}
                   style={{ transitionDelay: open ? `${i * 35}ms` : "0ms" }}
-                  onClick={() => setOpen(false)}
+                  onClick={(e) => {
+                    scrollToHomeSection(e, item.href);
+                    if (!isHome) setOpen(false);
+                  }}
                 >
                   <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-[var(--muted)]">
                     {String(i + 1).padStart(2, "0")}

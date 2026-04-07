@@ -27,6 +27,7 @@ export function PrecisarHomeHero() {
         {
           ["--verb-flame-x" as string]: `${heroFlame.x}%`,
           ["--verb-flame-y" as string]: `${heroFlame.y}%`,
+          ["--verb-flame-dur" as string]: heroFlame.toCorner ? "2.35s" : "0.58s",
         } as CSSProperties
       }
     >
@@ -36,6 +37,7 @@ export function PrecisarHomeHero() {
             className={styles.heroFlameMote}
             targetX={heroFlame.x}
             targetY={heroFlame.y}
+            quickBlend={!heroFlame.toCorner}
           />
           <div className={`${styles.heroOrb} ${styles.heroOrb2}`} aria-hidden />
         </>
@@ -50,7 +52,7 @@ export function PrecisarHomeHero() {
           <PotenciaRotatingHeadline
             reduceMotion={reduceMotion}
             surface="dark"
-            scale="lab"
+            scale="precisarHome"
             flameSyncContainerRef={heroFlameRef}
             onFlamePercent={setHeroFlame}
           />

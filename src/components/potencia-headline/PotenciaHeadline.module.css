@@ -56,6 +56,26 @@
   font-variant: normal;
 }
 
+/* Portada Precisar: un escalón por encima de Explora, alineado al hero inmersivo */
+.scalePrecisarHome {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: clamp(2.85rem, 8.85vw, 5.75rem);
+  line-height: 1.06;
+  letter-spacing: -0.048em;
+  text-transform: none;
+  font-variant: normal;
+}
+
+.scalePrecisarHome .line1Light,
+.scalePrecisarHome .line1Dark {
+  line-height: 1.18;
+}
+
+.scalePrecisarHome .line2 {
+  margin-top: 0.1em;
+  font-size: 1.09em;
+}
+
 /* Explora: corte fijo tras “Potencia el uso” — segunda línea “de la tecnología.” (ver TSX) */
 .scaleLab .line1Light,
 .scaleLab .line1Dark {

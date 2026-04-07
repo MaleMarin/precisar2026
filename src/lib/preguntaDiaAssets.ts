@@ -1,14 +1,16 @@
 /**
  * Arte de las tarjetas “Una pregunta al día” (frente y reverso por par).
- * Origen: carpeta “30 preguntas con sus respuestas”; servidos desde
- * /30-preguntas-con-sus-respuestas/…
+ * Carpeta en `public`: `30 preguntas con sus respuestas` → URL con espacios como %20.
  *
- * En el set actual faltan 39.png y 40.png → solo hay 29 pares; la tarjeta 30
- * sigue usando el fallback textual + enlace al PDF hasta que existan esas piezas.
+ * Pregunta 30: PNG propios (`30-pregunta-frente.png` / `30-pregunta-reverso.png`), copiados desde
+ * `precisar2026/public/pregunta 30/` para no pisar 29.png/30.png usados por la tarjeta 15.
  */
-export const PREGUNTA_DIA_PUBLIC_BASE = "/30-preguntas-con-sus-respuestas";
+const PREGUNTA_DIA_FOLDER = "30 preguntas con sus respuestas";
 
-/** [frente, reverso] en orden de pregunta 1…29 */
+/** Base URL (segmentos con espacio codificados) */
+export const PREGUNTA_DIA_PUBLIC_BASE = `/${PREGUNTA_DIA_FOLDER.replace(/ /g, "%20")}`;
+
+/** [frente, reverso] en orden de pregunta 1…30 */
 export const PREGUNTA_DIA_IMAGE_PAIRS: readonly [string, string][] = [
   ["1.png", "2.png"],
   ["3ok.png", "4ok.png"],
@@ -39,6 +41,7 @@ export const PREGUNTA_DIA_IMAGE_PAIRS: readonly [string, string][] = [
   ["55.png", "56.png"],
   ["57.png", "58.png"],
   ["59.png", "60.png"],
+  ["30-pregunta-frente.png", "30-pregunta-reverso.png"],
 ] as const;
 
 export function getPreguntaDiaPair(index1Based: number): [string, string] | null {

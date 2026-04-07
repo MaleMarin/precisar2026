@@ -59,15 +59,67 @@ export const EXTERNAL = {
 
 export type NavItem = { label: string; href: string };
 
-/** Barra superior: acceso a todas las grandes secciones del sitio (mapa precisar.net). */
+/**
+ * IDs de los paneles apilados en portada (`MotionStackPanels`).
+ * El menú principal enlaza a `/#…` para ir a cada “sesión” sin pasar por páginas índice.
+ */
+export const HOME_STACK_SECTION_IDS = {
+  convoca: "convoca",
+  programas: "programas",
+  saberes: "saberes",
+  precisando: "precisando",
+  educacionMediatica: "educacion-mediatica",
+  participa: "participa",
+} as const;
+
+/** Barra superior: anclas en la portada (mismos bloques que el stack bajo el hero). */
 export const NAV_PRIMARY: NavItem[] = [
-  { label: "Programas", href: "/programas" },
-  { label: "Saberes", href: "/saberes" },
-  { label: "Precisando", href: "/precisando" },
-  { label: "Educación mediática", href: "/educaciónmediática" },
-  { label: "Participa", href: "/participa" },
-  { label: "Somos", href: "/somos" },
+  { label: "Programas", href: "/#programas" },
+  { label: "Saberes", href: "/#saberes" },
+  { label: "Precisando", href: "/#precisando" },
+  { label: "Educación mediática", href: "/#educacion-mediatica" },
+  { label: "Participa", href: "/#participa" },
+  /** Primer panel editorial (“Qué nos convoca”) — identidad y propuesta. */
+  { label: "Somos", href: "/#convoca" },
 ];
+
+/** Prefijos de rutas “legacy”: al visitarlas, el ítem del menú sigue resaltando. */
+export const NAV_PRIMARY_LEGACY_PATH_PREFIXES: string[] = [
+  "/programas",
+  "/saberes",
+  "/precisando",
+  "/educaciónmediática",
+  "/participa",
+  "/somos",
+];
+
+const NAV_HASH_ORDER = [
+  "programas",
+  "saberes",
+  "precisando",
+  "educacion-mediatica",
+  "participa",
+  "convoca",
+] as const;
+
+/** Índice del menú (0…5) según hash en portada, o -1. */
+export function primaryNavIndexFromHash(hash: string): number {
+  const id = hash.startsWith("#") ? hash.slice(1) : hash;
+  if (!id) return -1;
+  const i = (NAV_HASH_ORDER as readonly string[]).indexOf(id);
+  return i;
+}
+
+/** Índice del menú según ruta (páginas internas alineadas a cada sección). */
+export function primaryNavIndexFromPathname(pathname: string): number {
+  const p = pathname.replace(/\/+$/, "") || "/";
+  if (p === "/") return -1;
+  for (let i = 0; i < NAV_PRIMARY_LEGACY_PATH_PREFIXES.length; i++) {
+    const prefix = NAV_PRIMARY_LEGACY_PATH_PREFIXES[i] ?? "";
+    if (p === prefix || p.startsWith(`${prefix}/`)) return i;
+  }
+  return -1;
+}
 
 /** Subprogramas y recursos (referencia; el mapa completo está en FOOTER_COLUMNS). */
 export const NAV_SECONDARY: NavItem[] = [
@@ -218,8 +270,8 @@ export const PDFS = {
     "https://www.precisar.net/_files/ugd/4c5e66_ecfcd551d56e41fcaea57e21d5b9e20b.pdf",
   saberesIaAula2:
     "https://www.precisar.net/_files/ugd/4c5e66_7b7d218709ff4052b58d9d9416715150.pdf",
-  saberes30Preguntas:
-    "https://www.precisar.net/_files/ugd/4c5e66_7bbe4f8327d74d98a0851a9ea8af8ff6.pdf",
+  /** PDF local en `public/30-preguntas-precisar.pdf` (una sola descarga en la página de tarjetas). */
+  saberes30Preguntas: "/30-preguntas-precisar.pdf",
   saberesGuiaIa:
     "https://www.precisar.net/_files/ugd/4c5e66_601b191ddea74e71a326aa173fe28ab7.pdf",
   saberesUsoConscienteIa:

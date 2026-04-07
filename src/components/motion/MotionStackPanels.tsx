@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
+import { motion, useReducedMotion, useScroll, useSpring, useTransform } from "framer-motion";
 import { useMemo, useRef, type ComponentType, type ReactNode } from "react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
@@ -11,6 +11,19 @@ import styles from "./MotionStackPanels.module.css";
 const MotionLink = motion.create(Link);
 
 const stackEase = [0.22, 1, 0.36, 1] as const;
+
+/** Sigue el scroll con un resorte suave (Lenis + transforms lineales suelen sentirse bruscos entre paneles). */
+function useStackScrollProgress(
+  scrollYProgress: ReturnType<typeof useScroll>["scrollYProgress"],
+  reduceMotion: boolean,
+) {
+  return useSpring(scrollYProgress, {
+    stiffness: reduceMotion ? 9000 : 140,
+    damping: reduceMotion ? 120 : 38,
+    mass: reduceMotion ? 0.05 : 0.22,
+    restDelta: 0.0004,
+  });
+}
 
 export type StackArticle = { slug: string; title: string; category: string };
 
@@ -217,17 +230,31 @@ function StackPanel({
     offset: ["start start", "end start"],
   });
 
-  /* Scroll más marcado: encoge más, sube más, más perspectiva y parallax interno */
+  const progress = useStackScrollProgress(scrollYProgress, reduceMotion);
+
+  /* Curvas más largas = menos “corte” al pasar de un panel sticky al siguiente */
   const scale = useTransform(
-    scrollYProgress,
-    [0, 0.42, 1],
-    reduceMotion ? [1, 1, 1] : [1, 0.9, 0.76],
+    progress,
+    [0, 0.2, 0.45, 0.78, 1],
+    reduceMotion ? [1, 1, 1, 1, 1] : [1, 0.97, 0.9, 0.82, 0.76],
   );
-  const y = useTransform(scrollYProgress, [0, 1], reduceMotion ? [0, 0] : [0, -268]);
-  const borderRadius = useTransform(scrollYProgress, [0, 1], reduceMotion ? [0, 0] : [0, 52]);
-  const contentY = useTransform(scrollYProgress, [0, 1], reduceMotion ? [0, 0] : [0, -96]);
-  const rotateX = useTransform(scrollYProgress, [0, 1], reduceMotion ? [0, 0] : [0, 10]);
-  const lineScale = useTransform(scrollYProgress, [0, 0.22], [0.12, 1]);
+  const y = useTransform(
+    progress,
+    [0, 0.22, 0.52, 1],
+    reduceMotion ? [0, 0, 0, 0] : [0, -72, -168, -268],
+  );
+  const borderRadius = useTransform(progress, [0, 0.35, 1], reduceMotion ? [0, 0, 0] : [0, 24, 52]);
+  const contentY = useTransform(
+    progress,
+    [0, 0.28, 1],
+    reduceMotion ? [0, 0, 0] : [0, -36, -96],
+  );
+  const rotateX = useTransform(
+    progress,
+    [0, 0.32, 0.72, 1],
+    reduceMotion ? [0, 0, 0, 0] : [0, 3, 7, 10],
+  );
+  const lineScale = useTransform(progress, [0, 0.14, 0.3], [0.12, 0.62, 1]);
 
   const mainBlockVariants = useMemo(
     () => ({

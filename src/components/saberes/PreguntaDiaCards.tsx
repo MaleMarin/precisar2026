@@ -11,36 +11,17 @@ export function PreguntaDiaCards({ pdfHref }: { pdfHref: string }) {
   const reduceMotion = useReducedMotion();
 
   return (
-    <section className={styles.section} aria-labelledby="pregunta-dia-grid-title">
-      <div className={styles.sectionHead}>
-        <h2 id="pregunta-dia-grid-title" className={styles.sectionTitle}>
-          Las 30 preguntas, tarjeta por tarjeta
-        </h2>
-        <p className={styles.sectionLead}>
-          Tocá o hacé clic para voltear. En el PDF encontrás el texto completo de cada pregunta y el
-          reverso con ideas, desafíos y otras miradas — como en{" "}
-          <a
-            href="https://www.precisar.net/unapreguntaaldia"
-            target="_blank"
-            rel="noreferrer"
-            className="text-[var(--accent)] underline underline-offset-2"
-          >
-            precisar.net
-          </a>
-          .
-        </p>
-      </div>
+    <section className={styles.section} aria-label="Tarjetas interactivas">
       <div
         className={`${styles.grid} ${reduceMotion ? styles.reduceMotion : ""}`}
         role="list"
-        aria-label="Treinta tarjetas numeradas"
+        aria-label="Tarjetas numeradas"
       >
         {Array.from({ length: COUNT }, (_, i) => (
           <PreguntaCard
             key={i}
             index={i + 1}
             pair={getPreguntaDiaPair(i + 1)}
-            pdfHref={pdfHref}
             reduceMotion={!!reduceMotion}
           />
         ))}
@@ -63,12 +44,10 @@ export function PreguntaDiaCards({ pdfHref }: { pdfHref: string }) {
 function PreguntaCard({
   index,
   pair,
-  pdfHref,
   reduceMotion,
 }: {
   index: number;
   pair: [string, string] | null;
-  pdfHref: string;
   reduceMotion: boolean;
 }) {
   const n = String(index).padStart(2, "0");
@@ -94,7 +73,7 @@ function PreguntaCard({
               decoding="async"
             />
           </div>
-          <p className="font-mono text-[7px] uppercase leading-snug tracking-wider text-[var(--muted)]">
+          <p className="font-mono text-[0.65rem] uppercase leading-snug tracking-wide text-[var(--muted)]">
             Reverso (animación reducida):
           </p>
           <div className="relative aspect-[3/4] w-full overflow-hidden border border-[var(--border)] bg-[var(--fg)]">
@@ -106,14 +85,9 @@ function PreguntaCard({
               decoding="async"
             />
           </div>
-          <a
-            href={pdfHref}
-            target="_blank"
-            rel="noreferrer"
-            className="font-mono text-[8px] font-semibold uppercase tracking-wider text-[var(--accent)] underline underline-offset-2"
-          >
-            Abrir PDF
-          </a>
+          <p className="font-mono text-[0.6rem] leading-snug text-[var(--muted-2)]">
+            El PDF completo está al final de la página.
+          </p>
         </div>
       );
     }
@@ -125,24 +99,16 @@ function PreguntaCard({
         <span className="font-[family-name:var(--font-display)] text-xl font-bold tabular-nums text-[var(--fg)]">
           {n}
         </span>
-        <p className="font-mono text-[7px] uppercase leading-snug tracking-wider text-[var(--muted)]">
-          Pregunta {index}. Contenido en el PDF.
+        <p className="font-mono text-[0.65rem] uppercase leading-snug tracking-wide text-[var(--muted)]">
+          Pregunta {index}. Usá la descarga al final de la página.
         </p>
-        <a
-          href={pdfHref}
-          target="_blank"
-          rel="noreferrer"
-          className="mt-2 font-mono text-[8px] font-semibold uppercase tracking-wider text-[var(--accent)] underline underline-offset-2"
-        >
-          Abrir PDF
-        </a>
       </div>
     );
   }
 
   return (
     <div role="listitem" className="min-h-0">
-      <FlipCard index={index} n={n} pair={pair} pdfHref={pdfHref} />
+      <FlipCard index={index} n={n} pair={pair} />
     </div>
   );
 }
@@ -151,12 +117,10 @@ function FlipCard({
   index,
   n,
   pair,
-  pdfHref,
 }: {
   index: number;
   n: string;
   pair: [string, string] | null;
-  pdfHref: string;
 }) {
   const [open, setOpen] = useState(false);
 
@@ -194,7 +158,7 @@ function FlipCard({
           </span>
           <span className={`${styles.face} ${styles.back} ${styles.faceBleed}`}>
             <span className="sr-only">Pregunta {index}, reverso.</span>
-            <div className={`${styles.imageArea} relative`}>
+            <div className={styles.imageArea}>
               <img
                 src={backSrc}
                 alt={`Pregunta ${index}, reverso de la tarjeta`}
@@ -202,17 +166,6 @@ function FlipCard({
                 loading="lazy"
                 decoding="async"
               />
-              <div className={styles.pdfLinkOverlay}>
-                <a
-                  href={pdfHref}
-                  target="_blank"
-                  rel="noreferrer"
-                  className={styles.pdfLinkOverlayLink}
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  Ver en PDF
-                </a>
-              </div>
             </div>
           </span>
         </span>
@@ -241,20 +194,11 @@ function FlipCard({
         <span className={`${styles.face} ${styles.back}`}>
           <span className={styles.num}>{n}</span>
           <span>
-            <span className={styles.backTitle}>Reverso en el PDF</span>
+            <span className={styles.backTitle}>Más en el PDF</span>
             <span className={styles.backText}>
-              Reflexión, desafío y otra mirada sobre tu vida digital están en el documento descargable.
+              Reflexión, desafío y otra mirada: descargá el documento al final de esta página.
             </span>
           </span>
-          <a
-            href={pdfHref}
-            target="_blank"
-            rel="noreferrer"
-            className={styles.pdfLink}
-            onClick={(e) => e.stopPropagation()}
-          >
-            Ver en PDF
-          </a>
         </span>
       </span>
     </button>
