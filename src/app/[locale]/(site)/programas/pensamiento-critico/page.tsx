@@ -80,23 +80,25 @@ const BENEFICIOS = [
 
 export default function Page() {
   return (
-    <main className={shell.page} data-program="pensamiento">
+    <article className={shell.page} data-program="pensamiento">
       <header className={shell.hero} aria-labelledby="pc-hero-title">
         <div className={shell.heroInner}>
-          <p className={shell.heroEyebrow}>■ PENSAMIENTO CRÍTICO DIGITAL · PROGRAMA 05</p>
-          <h1 id="pc-hero-title" className={shell.heroTitle}>
+          <p className={`${shell.heroEyebrow} ${styles.heroEyebrowTight}`}>
+            ■ PENSAMIENTO CRÍTICO DIGITAL · PROGRAMA 05
+          </p>
+          <h1 id="pc-hero-title" className={`${styles.heroTitle} ${styles.heroTitleBlock}`}>
             Consumidores críticos y competentes
             <br />
             en el ecosistema digital.
           </h1>
-          <p className={shell.heroSub}>
+          <p className={styles.heroSubTight}>
             Herramientas para identificar, analizar y verificar la información que circula en el mundo digital.
           </p>
-          <div className={shell.heroStat} aria-hidden="true">
-            <p className={shell.heroStatBig}>2</p>
-            <p className={shell.heroStatLabel}>talleres disponibles</p>
-          </div>
         </div>
+        <aside className={shell.heroStat} aria-hidden="true">
+          <p className={shell.heroStatBig}>2</p>
+          <p className={shell.heroStatLabel}>talleres disponibles</p>
+        </aside>
       </header>
 
       <section className={`${shell.queEs} ${shell.padSection}`} aria-labelledby="pc-que-es">
@@ -104,7 +106,7 @@ export default function Page() {
           <div className={shell.queEsGrid}>
             <div>
               <p className={shell.statWord}>Crítico.</p>
-              <p className={shell.statSub}>Competente. Informado.</p>
+              <p className={styles.statSubLg}>Competente. Informado.</p>
             </div>
             <div>
               <p id="pc-que-es" className={shell.bodyText}>
@@ -123,7 +125,7 @@ export default function Page() {
 
       <section className={`${shell.sectionDark} ${shell.padSection}`} aria-labelledby="pc-modalidades">
         <div className={shell.inner}>
-          <h2 id="pc-modalidades" className={`${shell.secTitleLight} ${shell.secTitleLightSpaced}`}>
+          <h2 id="pc-modalidades" className={styles.modalidadesTitle}>
             Flexibilidad para aprender
           </h2>
           <div className={styles.modalRow}>
@@ -247,7 +249,7 @@ export default function Page() {
 
       <section className={`${shell.sectionCream} ${shell.padSection}`} aria-labelledby="pc-beneficios">
         <div className={shell.inner}>
-          <h2 id="pc-beneficios" className={`${shell.secTitleDark} ${shell.secTitleDarkSpaced}`}>
+          <h2 id="pc-beneficios" className={styles.beneficiosTitle}>
             Beneficios para tu organización
           </h2>
           <div className={styles.benefGrid}>
@@ -263,19 +265,19 @@ export default function Page() {
       </section>
 
       <section className={shell.cta} aria-labelledby="pc-cta-title">
-        <div className={shell.ctaInner}>
+        <div className={`${shell.ctaInner} ${shell.ctaInnerCiudades}`}>
           <div>
-            <h2 id="pc-cta-title" className={shell.ctaTitle}>
+            <h2 id="pc-cta-title" className={styles.ctaTitleTight}>
               Adapta el programa a las necesidades específicas de tu institución.
             </h2>
-            <ol className={shell.ctaSteps}>
+            <ul className={styles.ctaStepsPlain}>
               <li>01 Solicita una propuesta detallada.</li>
               <li>02 Coordinamos una presentación.</li>
               <li>03 Co-creamos el programa a tu medida.</li>
-            </ol>
+            </ul>
           </div>
-          <div className={shell.ctaRight}>
-            <p className={shell.ctaAside}>
+          <div>
+            <p className={shell.ctaText}>
               Consideramos esta capacitación una oportunidad estratégica en el capital humano y la resiliencia
               de tu organización.
             </p>
@@ -286,24 +288,34 @@ export default function Page() {
         </div>
       </section>
 
-      <nav className={shell.continua} aria-labelledby="pc-continua">
+      <nav className={shell.continua} aria-label="Otras iniciativas de programas">
         <div className={shell.inner}>
-          <p id="pc-continua" className={shell.continuaEyebrow}>
-            CONTINÚA
-          </p>
+          <p className={`${shell.continuaEyebrow} ${styles.continuaEyebrowTight}`}>CONTINÚA</p>
           <div className={shell.continuaLinks}>
+            <Link className={shell.continuaLink} href="/programas">
+              Índice de programas →
+            </Link>
+            <Link className={shell.continuaLink} href="/programas/ciudades">
+              Ciudades Conectadas con Sentido →
+            </Link>
+            <Link className={shell.continuaLink} href="/programas/hub-digital-consciente">
+              Hub Digital Consciente →
+            </Link>
             <Link className={shell.continuaLink} href="/programas/docentes">
-              AMI para Docentes →
+              Alfabetización Mediática para Docentes →
             </Link>
             <Link className={shell.continuaLink} href="/programas/funcionarios-publicos">
-              Curso para Servidores Públicos →
+              Educación Mediática para Funcionarios Públicos →
             </Link>
-            <Link className={shell.continuaLink} href="/saberes">
-              Biblioteca Saberes →
+            <Link className={shell.continuaLink} href="/programas/aprender-digital">
+              Aprender Digital: Nunca es Tarde →
+            </Link>
+            <Link className={shell.continuaLink} href="/programas/leer-noticias-era-digital">
+              Curso Leer Noticias en la Era Digital →
             </Link>
           </div>
         </div>
       </nav>
-    </main>
+    </article>
   );
 }

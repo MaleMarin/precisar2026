@@ -1,4 +1,85 @@
-/* Modalidades, talleres y beneficios — shell en ProgramShell.module.css */
+/* Pensamiento Crítico Digital — shell en ProgramShell.module.css */
+
+.heroEyebrowTight {
+  font-size: 10px;
+  letter-spacing: 3px;
+}
+
+.heroTitleBlock {
+  max-width: 800px;
+}
+
+.heroTitle {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(40px, 6vw, 80px);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: #fff;
+}
+
+.heroSubTight {
+  margin-top: 16px;
+  max-width: 560px;
+  font-size: 18px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.statSubLg {
+  margin: 8px 0 0;
+  font-size: 20px;
+  line-height: 1.45;
+  color: #76828e;
+}
+
+.modalidadesTitle {
+  margin: 0 0 48px;
+  font-family: var(--font-display);
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: #fff;
+}
+
+.ctaTitleTight {
+  margin: 0;
+  font-family: var(--font-serif-display), "Cormorant Garamond", Georgia, serif;
+  font-style: italic;
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 500;
+  line-height: 1.1;
+  color: #fff;
+}
+
+.ctaStepsPlain {
+  margin: 24px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ctaStepsPlain li {
+  font-size: 14px;
+  line-height: 2.2;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.continuaEyebrowTight {
+  font-size: 10px;
+  letter-spacing: 3px;
+}
+
+.beneficiosTitle {
+  margin: 0 0 48px;
+  font-family: var(--font-display);
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: #0a0c12;
+}
 
 .modalRow {
   display: grid;
@@ -27,7 +108,7 @@
 .modalNum {
   margin: 0;
   font-family: var(--font-display);
-  font-size: 40px;
+  font-size: clamp(36px, 5vw, 52px);
   font-weight: 800;
   color: #db5227;
   line-height: 1;
