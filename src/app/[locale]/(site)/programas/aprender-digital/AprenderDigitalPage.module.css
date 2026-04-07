@@ -1,0 +1,247 @@
+/* Aprender Digital Nunca es Tarde — estilos de página (shell en ProgramShell.module.css) */
+
+.heroEyebrowTight {
+  font-size: 10px;
+  letter-spacing: 3px;
+}
+
+.heroTitleBlock {
+  max-width: 800px;
+}
+
+.heroTitle {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(40px, 6vw, 80px);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: #fff;
+}
+
+.heroSubTight {
+  margin-top: 16px;
+  max-width: 560px;
+  font-size: 18px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.heroStatBig {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(60px, 10vw, 120px);
+  font-weight: 800;
+  line-height: 0.95;
+  color: rgba(219, 82, 39, 0.15);
+  letter-spacing: -0.04em;
+}
+
+.statSubLg {
+  margin: 8px 0 0;
+  font-size: 20px;
+  line-height: 1.45;
+  color: #76828e;
+}
+
+/* ─── Por qué importa ─── */
+.porQueLead {
+  margin: 0 0 48px;
+  max-width: 760px;
+  font-family: var(--font-serif-display), "Cormorant Garamond", Georgia, serif;
+  font-style: italic;
+  font-size: clamp(22px, 3.5vw, 38px);
+  font-weight: 500;
+  line-height: 1.3;
+  color: #fff;
+}
+
+.porQueGrid {
+  display: grid;
+  gap: clamp(1.75rem, 4vw, 2.5rem);
+}
+
+@media (min-width: 900px) {
+  .porQueGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.porQueCol {
+  border-left: 2px solid #db5227;
+  padding-left: 20px;
+}
+
+.porQueColTitle {
+  margin: 0 0 0.65rem;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #db5227;
+}
+
+.porQueColText {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* ─── Crema: título de sección + tarjetas numeradas ─── */
+.creamTitle {
+  margin: 0 0 48px;
+  font-family: var(--font-display);
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: #0a0c12;
+}
+
+.cardGrid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+  .cardGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.whiteCard {
+  background: #fff;
+  border-radius: 12px;
+  padding: 28px;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.06);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.whiteCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+}
+
+.cardNum {
+  margin: 0 0 12px;
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 800;
+  color: #db5227;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.cardTitle {
+  margin: 0 0 0.5rem;
+  font-size: 16px;
+  font-weight: 700;
+  color: #0a0c12;
+}
+
+.cardDesc {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.65;
+  color: #76828e;
+}
+
+/* ─── Impacto comunidad (oscuro) ─── */
+.impactoSub {
+  margin: 0 0 48px;
+  font-size: 16px;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.5);
+  max-width: 42rem;
+}
+
+.impactoGrid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+  .impactoGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .impactoGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.impactoCard {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 24px;
+  transition: border-color 0.2s ease;
+}
+
+.impactoCard:hover {
+  border-color: rgba(219, 82, 39, 0.4);
+}
+
+.impactoMark {
+  color: #db5227;
+  font-size: 12px;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.impactoCardTitle {
+  margin: 0 0 0.4rem;
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.impactoCardDesc {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* ─── Módulos: títulos en fondo oscuro ─── */
+.modulosTitle {
+  margin: 0 0 16px;
+  font-family: var(--font-display);
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: #fff;
+}
+
+.modulosSub {
+  margin: 0 0 48px;
+  font-size: 16px;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.5);
+  max-width: 42rem;
+}
+
+/* ─── CTA título (ajuste tamaño spec) ─── */
+.ctaTitleTight {
+  margin: 0;
+  font-family: var(--font-serif-display), "Cormorant Garamond", Georgia, serif;
+  font-style: italic;
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 500;
+  line-height: 1.1;
+  color: #fff;
+}
+
+/* ─── Continúa ─── */
+.continuaEyebrowTight {
+  font-size: 10px;
+  letter-spacing: 3px;
+}

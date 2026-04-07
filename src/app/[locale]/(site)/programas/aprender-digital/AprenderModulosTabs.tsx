@@ -6,31 +6,31 @@ import styles from "./AprenderModulosTabs.module.css";
 const TABS = [
   {
     id: "mediatica",
-    label: "Mediática digital",
+    label: "Educación mediática",
     panelTitle: "Educación Mediática Digital",
     body:
-      "En este módulo fundamental te equiparemos con las herramientas para navegar el vasto ecosistema de información. Aprenderás a identificar la desinformación y las noticias falsas, reconocer los sesgos implícitos en diversos contenidos incluyendo los generados por Inteligencia Artificial, y distinguir las imágenes y videos manipulados. Desarrollarás un pensamiento crítico que te permitirá discernir la veracidad de la información, protegerte de narrativas engañosas y consumir medios de forma consciente e informada.",
+      "En este módulo fundamental te equiparemos con las herramientas para navegar el vasto ecosistema de información. Aprenderás a identificar la desinformación y las noticias falsas, reconocer los sesgos implícitos en diversos contenidos incluyendo los generados por Inteligencia Artificial, y distinguir imágenes y videos manipulados. Desarrollarás un pensamiento crítico que te permitirá discernir la veracidad de la información, protegerte de narrativas engañosas y consumir medios de forma consciente e informada.",
   },
   {
     id: "navegacion",
     label: "Navegación segura",
     panelTitle: "Navegación Segura",
     body:
-      "La seguridad en línea es primordial. Aquí te enseñaremos estrategias efectivas para identificar y evitar los fraudes más comunes, como el phishing y las estafas. Aprenderás a crear contraseñas robustas y a gestionar tus cuentas de forma segura. Además, profundizaremos en cómo proteger tus datos personales y ajustar la configuración de privacidad en tus redes sociales y aplicaciones favoritas, asegurando una experiencia digital tranquila y sin riesgos.",
+      "Aprenderás a identificar y evitar fraudes en línea, proteger tus datos personales y gestionar tu privacidad en redes y aplicaciones. Te daremos las herramientas para sentirte seguro en cada clic y disfrutar de una experiencia digital tranquila, sin riesgos ni sorpresas.",
   },
   {
     id: "ia",
-    label: "IA",
+    label: "Inteligencia Artificial",
     panelTitle: "Inteligencia Artificial",
     body:
-      "La Inteligencia Artificial ya es parte de nuestro día a día. En este módulo desmitificaremos la IA, explicando qué es y cómo funciona de manera sencilla. Exploraremos sus aplicaciones prácticas en asistentes de voz, recomendaciones personalizadas y herramientas de creación de contenido. Descubrirás cómo interactuar con ella de forma consciente, comprendiendo sus capacidades y limitaciones, y reflexionando sobre su impacto hoy y en el futuro.",
+      "La Inteligencia Artificial es la capacidad de las máquinas para imitar y realizar tareas que requieren inteligencia humana: aprender, razonar y resolver problemas. Exploraremos cómo la IA está transformando nuestra vida diaria y el futuro. Descubriremos sus aplicaciones prácticas y cómo interactuar con ella de forma consciente.",
   },
   {
     id: "bienestar",
     label: "Bienestar digital",
     panelTitle: "Bienestar Digital",
     body:
-      "Encuentra el equilibrio perfecto entre tu vida digital y presencial. Este módulo se enfoca en el bienestar, enseñándote a gestionar el tiempo de pantalla de forma saludable y a mantener una interacción positiva en línea. Utilizaremos las herramientas digitales para enriquecer tus relaciones, fortalecer tus vínculos sociales y familiares, y asegurarnos de que la tecnología complemente y enriquezca, sin sustituir, tus interacciones cara a cara.",
+      "Encontrarás un equilibrio saludable entre el tiempo que pasas en línea y tus actividades presenciales, utilizando las herramientas digitales para enriquecer tu vida y fortalecer tus vínculos sociales sin que sustituyan las interacciones cara a cara. Promovemos un uso consciente y beneficioso de la tecnología.",
   },
 ] as const;
 
@@ -41,7 +41,7 @@ export function AprenderModulosTabs() {
   const current = TABS[activeTab]!;
 
   return (
-    <div aria-label="Módulos Formativos">
+    <div className={styles.tabsShell} aria-label="Módulos formativos">
       <div className={styles.tabsBar} role="tablist">
         {TABS.map((t, index) => (
           <button

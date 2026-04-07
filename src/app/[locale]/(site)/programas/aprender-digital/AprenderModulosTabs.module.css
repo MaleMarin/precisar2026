@@ -1,12 +1,18 @@
 /* Tabs módulos Aprender Digital — activo #DB5227; scroll horizontal en mobile */
 
+.tabsShell {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 24px rgba(0, 0, 0, 0.06);
+}
+
 .tabsBar {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   align-items: stretch;
   gap: 0;
-  margin: 0 0 1.75rem;
+  margin: 0;
   padding: 0;
   list-style: none;
   background: #d4cec4;
@@ -75,6 +81,8 @@
 .tabPanel {
   background: #fff;
   border: 1px solid #c8d0d9;
+  border-radius: 0 0 12px 12px;
+  border-top: none;
 }
 
 .tabContent {
