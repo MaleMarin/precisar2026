@@ -6,10 +6,10 @@ import styles from "./DocentesModulosTabs.module.css";
 const TABS = [
   {
     id: "fundamentos",
-    label: "Fundamentos EMI",
-    panelTitle: "Fundamentos de la Educación Mediática Digital",
+    label: "Fundamentos AMI",
+    panelTitle: "Fundamentos de la Alfabetización Mediática e Informacional",
     body:
-      "Comprender, enseñar y transformar. Explora el impacto de los medios y plataformas digitales en la vida cotidiana y su vínculo con los objetivos educativos. Aprende a integrar la educación mediática y digital en el aula a través de proyectos aplicados como la creación de contenidos, el análisis crítico de información y el debate guiado, fortaleciendo así el rol del docente como formador de ciudadanía digital activa.",
+      "Comprender, enseñar y transformar. Explora el impacto de los medios y plataformas digitales en la vida cotidiana y su vínculo con los objetivos educativos. Aprende a integrar la alfabetización mediática e informacional (AMI) en el aula a través de proyectos aplicados como la creación de contenidos, el análisis crítico de información y el debate guiado, fortaleciendo así el rol del docente como formador de ciudadanía digital activa.",
   },
   {
     id: "desinformacion",
@@ -42,9 +42,9 @@ const TABS = [
   {
     id: "integracion",
     label: "Integración curricular",
-    panelTitle: "Integración Curricular y Proyectos en Educación Mediática",
+    panelTitle: "Integración curricular y proyectos en Alfabetización Mediática e Informacional",
     body:
-      "Descubre cómo integrar la educación mediática digital en diversas asignaturas y niveles educativos. Te proporcionaremos ejemplos de proyectos exitosos y te guiaremos en el diseño de actividades prácticas que permitan a tus estudiantes aplicar sus conocimientos, culminando en proyectos significativos que demuestren su educación digital y mediática.",
+      "Descubre cómo integrar la alfabetización mediática e informacional en diversas asignaturas y niveles educativos. Te proporcionaremos ejemplos de proyectos exitosos y te guiaremos en el diseño de actividades prácticas que permitan a tus estudiantes aplicar sus conocimientos, culminando en proyectos significativos que demuestren su alfabetización mediática, informacional y digital.",
   },
 ] as const;
 

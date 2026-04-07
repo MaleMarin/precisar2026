@@ -30,6 +30,7 @@ export function PreguntaDiaCards({ pdf }: { pdf: PdfDownloadSpec }) {
       </div>
       <PdfCoverDownload
         pdfHref={pdf.href}
+        preview={pdf.preview}
         coverSrc={pdf.coverSrc}
         coverAlt={pdf.coverAlt}
         description="Descarga el recurso completo para imprimir, proyectar o compartir en clase o en familia."

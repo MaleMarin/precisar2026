@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import {
   ProgramChecklistModule,
   ProgramClosingModule,
@@ -5,13 +6,22 @@ import {
   ProgramModShell,
   ProgramProcessModule,
 } from "@/components/programs/modules";
-import { ProgramLandingTemplate } from "@/components/templates/PageTemplates";
+import { ProgramModularShell } from "@/components/programs/ProgramModularShell";
 
-export const metadata = { title: "Formación en Pensamiento Crítico Digital" };
+export const metadata: Metadata = {
+  title: "Curso Leer Noticias en la Era Digital",
+  description:
+    "Talleres de verificación de hechos y alfabetización mediática en la era de la IA: modalidades online y presencial.",
+};
 
 export default function Page() {
   return (
-    <ProgramLandingTemplate title="Formación en Pensamiento Crítico Digital" kicker="Curso">
+    <ProgramModularShell
+      program="leer-noticias"
+      heroEyebrow="■ LEER NOTICIAS EN LA ERA DIGITAL · PROGRAMA 07"
+      heroTitle="Consumidores críticos frente a la información y la IA."
+      heroSub="Verificación práctica, algoritmos y herramientas para equipos y comunidades."
+    >
       <ProgramLeadModule tone="applied" eyebrow="Capacitación">
         <p>
           Para enfrentar este desafío, se han creado cursos diseñados para transformar a los
@@ -117,6 +127,6 @@ export default function Page() {
         <p>Solicitar una Propuesta Detallada: Contáctenos para recibir una propuesta formal.</p>
         <p>Para coordinar, por favor, contacte aquí</p>
       </ProgramClosingModule>
-    </ProgramLandingTemplate>
+    </ProgramModularShell>
   );
 }

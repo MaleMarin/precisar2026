@@ -62,7 +62,6 @@ export function PageShell({
               <h1 className="prec-title-xl mt-4 max-w-[22ch] text-[clamp(1.85rem,4.2vw,2.95rem)] leading-[1.05] tracking-[-0.038em] md:max-w-[30ch]">
                 {title}
               </h1>
-              <div className="mt-8 h-px max-w-md bg-[var(--border)]" aria-hidden />
             </div>
           </header>
         ) : (

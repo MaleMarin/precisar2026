@@ -51,6 +51,16 @@ function IconBlocks({ className }: { className?: string }) {
   );
 }
 
+type MiniListItem = {
+  label: ReactNode;
+  href: string;
+  external?: boolean;
+  /** Clave estable si `label` no es string (p. ej. fila Bot Onda). */
+  itemKey?: string;
+  /** Varias líneas: alinea la flecha arriba y da más aire al bloque. */
+  multiline?: boolean;
+};
+
 function MiniList({
   items,
   dark = false,
@@ -58,7 +68,7 @@ function MiniList({
   glassExtraMargin = false,
   reduceMotion = false,
 }: {
-  items: { label: string; href: string; external?: boolean }[];
+  items: MiniListItem[];
   dark?: boolean;
   /** Lista tipo cristal (claro: Programas/Saberes; oscuro: Precisando). */
   glass?: boolean;
@@ -82,13 +92,14 @@ function MiniList({
       {items.map((item, i) => {
         const rowClass = dark ? `${styles.miniRow} ${styles.miniRowDark}` : styles.miniRow;
         const labelClass = dark ? `${styles.miniLabel} ${styles.miniLabelDark}` : styles.miniLabel;
+        const rowMultiline = item.multiline ? ` ${styles.miniRowMultiline}` : "";
         const inner = (
           <>
             <span className={labelClass}>{item.label}</span>
             <ArrowIcon className={`${styles.iconSm} ${styles.miniRowArrow}`} />
           </>
         );
-        const rowCls = `${rowClass} ${styles.miniRowMotion}`;
+        const rowCls = `${rowClass}${rowMultiline} ${styles.miniRowMotion}`.trim();
         const motionRowProps = reduceMotion
           ? { className: rowCls }
           : {
@@ -104,18 +115,14 @@ function MiniList({
               whileTap: { scale: 0.985 },
             };
 
+        const rowKey = item.itemKey ?? `${item.href}-${i}`;
+
         return item.external ? (
-          <motion.a
-            key={item.href + item.label}
-            href={item.href}
-            target="_blank"
-            rel="noreferrer"
-            {...motionRowProps}
-          >
+          <motion.a key={rowKey} href={item.href} target="_blank" rel="noreferrer" {...motionRowProps}>
             {inner}
           </motion.a>
         ) : (
-          <MotionLink key={item.href + item.label} href={item.href} {...motionRowProps}>
+          <MotionLink key={rowKey} href={item.href} {...motionRowProps}>
             {inner}
           </MotionLink>
         );
@@ -451,14 +458,33 @@ export function MotionStackPanels({
   const tPrecisando = useTranslations("homePrecisando");
   const tSaberes = useTranslations("homeSaberes");
   const tEducacionMediatica = useTranslations("homeEducacionMediatica");
-  const programLinks = [
+  const programLinks: MiniListItem[] = [
     { label: tPrograms("stackLinkCiudades"), href: "/programas/ciudades" },
     { label: tPrograms("stackLinkHub"), href: "/programas/hub-digital-consciente" },
     { label: tPrograms("stackLinkAprender"), href: "/programas/aprender-digital" },
     { label: tPrograms("stackLinkDocentes"), href: "/programas/docentes" },
     { label: tPrograms("stackLinkPensamientoCritico"), href: "/programas/leer-noticias-era-digital" },
     { label: tPrograms("stackLinkFuncionarios"), href: "/programas/funcionarios-publicos" },
-    { label: tPrograms("stackLinkBotOnda"), href: EXTERNAL.botOnda, external: true },
+    {
+      label: (
+        <span className={styles.botOndaStack}>
+          <span className={styles.botOndaLead}>{tPrograms("stackBotOndaLead")}</span>
+          <span className={styles.botOndaLine}>
+            <strong>{tPrograms("stackBotOndaManoName")}</strong> — {tPrograms("stackBotOndaManoDesc")}
+          </span>
+          <span className={styles.botOndaLine}>
+            <strong>{tPrograms("stackBotOndaCivitaName")}</strong> — {tPrograms("stackBotOndaCivitaDesc")}
+          </span>
+          <span className={styles.botOndaLine}>
+            <strong>{tPrograms("stackBotOndaProfesName")}</strong> — {tPrograms("stackBotOndaProfesDesc")}
+          </span>
+        </span>
+      ),
+      href: EXTERNAL.botOnda,
+      external: true,
+      itemKey: "programas-bot-onda",
+      multiline: true,
+    },
   ];
 
   const saberesLinks = SABERES_NAV_LINKS.filter(

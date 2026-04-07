@@ -48,6 +48,7 @@ export default async function PropuestaPoliticaAlfabetizacionPage() {
 
         <PdfCoverDownload
           pdfHref={PDF_DOWNLOAD_UI.propuestaPoliticaAlfabetizacion.href}
+          preview={PDF_DOWNLOAD_UI.propuestaPoliticaAlfabetizacion.preview}
           coverSrc={PDF_DOWNLOAD_UI.propuestaPoliticaAlfabetizacion.coverSrc}
           coverAlt={PDF_DOWNLOAD_UI.propuestaPoliticaAlfabetizacion.coverAlt}
           description="Descarga la versión completa en PDF para compartir en instituciones, talleres o espacios de conversación."

@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import {
   ProgramBandModule,
   ProgramChecklistModule,
@@ -6,15 +7,24 @@ import {
   ProgramProcessModule,
   ProgramSplitModule,
 } from "@/components/programs/modules";
-import { ProgramLandingTemplate } from "@/components/templates/PageTemplates";
+import { ProgramModularShell } from "@/components/programs/ProgramModularShell";
+import shell from "@/components/programs/ProgramShell.module.css";
 import { AprenderModulosTabs } from "./AprenderModulosTabs";
-import modulosStyles from "./AprenderModulosSection.module.css";
 
-export const metadata = { title: "Aprender Digital: Nunca es Tarde" };
+export const metadata: Metadata = {
+  title: "Aprender Digital: Nunca es Tarde",
+  description:
+    "Programa para personas adultas y mayores: habilidades digitales, educación mediática, bienestar y autonomía en línea.",
+};
 
 export default function Page() {
   return (
-    <ProgramLandingTemplate title="Aprender Digital: Nunca es Tarde" kicker="Programa">
+    <ProgramModularShell
+      program="aprender"
+      heroEyebrow="■ APRENDER DIGITAL: NUNCA ES TARDE · PROGRAMA 03"
+      heroTitle="Un espacio seguro para ganar confianza en el mundo digital."
+      heroSub="Talleres presenciales y en línea, materiales accesibles y acompañamiento cercano — sin juicios, con tiempo."
+    >
       <ProgramLeadModule tone="warm" eyebrow="Comunidad">
         <p>
           Aprender Digital Nunca es Tarde: es un espacio seguro, cercano y amigable, donde personas
@@ -159,14 +169,14 @@ export default function Page() {
       />
 
       <section
-        className={`${modulosStyles.section} ${modulosStyles.padSection}`}
+        className={`${shell.sectionCream} ${shell.padSection}`}
         aria-labelledby="aprender-modulos-heading"
       >
-        <div className={modulosStyles.inner}>
-          <h2 id="aprender-modulos-heading" className={modulosStyles.title}>
-            Módulos Formativos
+        <div className={shell.inner}>
+          <h2 id="aprender-modulos-heading" className={shell.secTitleDark}>
+            Módulos formativos
           </h2>
-          <p className={modulosStyles.sub}>
+          <p className={shell.secSubtitle}>
             Un camino estructurado para tu aprendizaje digital, paso a paso.
           </p>
           <AprenderModulosTabs />
@@ -179,6 +189,6 @@ export default function Page() {
       >
         <p>Contáctanos para mas información</p>
       </ProgramClosingModule>
-    </ProgramLandingTemplate>
+    </ProgramModularShell>
   );
 }

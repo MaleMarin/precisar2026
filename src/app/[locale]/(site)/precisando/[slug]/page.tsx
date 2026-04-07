@@ -56,7 +56,7 @@ export default async function PrecisandoArticulo({ params }: Props) {
 
   return (
     <ArticleTemplate title={post.title} kicker={`Precisando · ${post.category}`}>
-      <div className="border-b border-[var(--border)] pb-6">
+      <div className="pb-6">
         <time
           dateTime={post.pubDate}
           className="inline-block font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--muted)]"
@@ -69,6 +69,24 @@ export default async function PrecisandoArticulo({ params }: Props) {
       ) : (
         <p className="prose-precisar mt-10 max-w-2xl text-[var(--muted)]">{post.excerpt}</p>
       )}
+      <footer className="mt-14" aria-label="Cierre editorial">
+        <div className="max-w-3xl">
+          <p className="text-[1.05rem] leading-relaxed text-[var(--muted)]">Un abrazo,</p>
+          <p className="mt-1 font-[family-name:var(--font-display)] text-lg font-medium text-[var(--fg)]">
+            Equipo Precisar
+          </p>
+        </div>
+        <figure className="prec-precisando-footer-logo">
+          <img
+            src="/logo-precisar.png"
+            alt="Precisar"
+            width={500}
+            height={500}
+            loading="lazy"
+            decoding="async"
+          />
+        </figure>
+      </footer>
     </ArticleTemplate>
   );
 }

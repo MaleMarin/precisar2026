@@ -557,6 +557,40 @@
     color 0.2s ease;
 }
 
+.miniRowMultiline {
+  align-items: start;
+}
+
+.miniRowMultiline .miniRowArrow {
+  margin-top: 0.35em;
+}
+
+/* Bot Onda — bloque con lead + tres líneas en panel Programas */
+.botOndaStack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  text-align: left;
+}
+
+.botOndaLead {
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+.botOndaLine {
+  display: block;
+  font-size: 0.88em;
+  line-height: 1.5;
+  font-weight: 400;
+  color: color-mix(in oklab, #1a1814 58%, transparent);
+}
+
+.botOndaLine strong {
+  font-weight: 700;
+  color: var(--brand-void, #0a0c12);
+}
+
 .miniRow + .miniRow {
   border-top: 1px solid color-mix(in oklab, #000 10%, transparent);
 }

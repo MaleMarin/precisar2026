@@ -1,20 +1,17 @@
-import { Link } from "@/i18n/navigation";
+"use client";
+
+import { useCallback } from "react";
+import { useTranslations } from "next-intl";
+import { Link, usePathname } from "@/i18n/navigation";
 import { footerContactRedirect } from "@/app/[locale]/(site)/participa/actions";
-import { NEWSLETTER } from "@/lib/site";
+import { EXTERNAL, NAV_PRIMARY, NAV_PRIMARY_I18N_KEY, NEWSLETTER } from "@/lib/site";
 import styles from "./SiteFooter.module.css";
 
-/** Navegación principal del pie (una columna, sin submenús). */
-const FOOTER_MAIN_NAV = [
-  { label: "Inicio", href: "/" },
-  { label: "Participa", href: "/participa" },
-  { label: "Qué Hacemos", href: "/programas" },
-  { label: "Educación Mediática", href: "/educacion-mediatica/comunicacion" },
-  { label: "Saberes", href: "/saberes" },
-  { label: "Precisando", href: "/precisando" },
-  { label: "Somos Precisar", href: "/somos" },
-] as const;
+function isHomePath(pathname: string): boolean {
+  const n = pathname.replace(/\/+$/, "") || "/";
+  return n === "/";
+}
 
-const FOOTER_LOGO_SRC = "/logo-precisar.png";
 const WHATSAPP_HREF = "https://wa.me/56991553279";
 
 function WhatsAppIcon({ className }: { className?: string }) {
@@ -30,81 +27,109 @@ function WhatsAppIcon({ className }: { className?: string }) {
 
 export function SiteFooter() {
   const year = new Date().getFullYear();
+  const tNav = useTranslations("nav");
+  const pathname = usePathname();
+  const isHome = isHomePath(pathname);
+
+  const scrollToHomeSection = useCallback(
+    (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+      const i = href.indexOf("#");
+      if (i < 0 || !isHome) return;
+      const id = href.slice(i + 1);
+      if (!id) return;
+      const el = document.getElementById(id);
+      if (!el) return;
+      e.preventDefault();
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+      const nextHash = `#${id}`;
+      if (typeof window !== "undefined" && window.location.hash !== nextHash) {
+        window.history.pushState(null, "", nextHash);
+      }
+    },
+    [isHome],
+  );
 
   return (
     <footer className={styles.footer}>
       <div className={styles.block1}>
-        <div className={styles.logoOuter}>
-          <div className={styles.logoStrip}>
-            <img
-              src={FOOTER_LOGO_SRC}
-              alt="Precisar"
-              className={styles.logoFullWidth}
-              width={1920}
-              height={400}
-              loading="lazy"
-              decoding="async"
-            />
-          </div>
+        <div className={`prec-container ${styles.brandWrap}`}>
+          <p className={styles.brandWordmark}>Precisar</p>
         </div>
       </div>
 
       <div className={styles.main}>
         <div className="prec-container">
-          <div className={styles.threeCol}>
-            <div>
-              <p className={styles.newsTitle}>Hay conversaciones que no caben en un post.</p>
-              <p className={styles.newsBody}>
-                Únete a nuestra comunidad y recibe análisis más profundos, recursos exclusivos y perspectivas del
-                entorno digital.
-              </p>
-              <p className={styles.newsCta}>Suscríbete aquí.</p>
+          <section className={styles.newsletterSection} aria-labelledby="footer-newsletter-heading">
+            <h2 id="footer-newsletter-heading" className={styles.visuallyHidden}>
+              Newsletter
+            </h2>
+            <p className={styles.newsTitle}>Hay conversaciones que no caben en un post.</p>
+            <p className={styles.newsBody}>
+              Únete a nuestra comunidad y recibe análisis más profundos, recursos exclusivos y perspectivas del
+              entorno digital.
+            </p>
+            <p className={styles.newsCta}>Suscríbete aquí.</p>
 
-              <div className={styles.newsForm}>
-                {NEWSLETTER.formActionUrl ? (
-                  <form action={NEWSLETTER.formActionUrl} method="post" className={styles.newsFormInner}>
-                    <label className={styles.visuallyHidden} htmlFor="footer-newsletter-email">
-                      Correo electrónico
-                    </label>
-                    <div className={styles.newsRow}>
-                      <input
-                        id="footer-newsletter-email"
-                        type="email"
-                        name="email"
-                        required
-                        autoComplete="email"
-                        placeholder="Correo electrónico"
-                        className={styles.newsletterField}
-                      />
-                      <button type="submit" className={styles.btnSubscribe}>
-                        Suscribirme
-                      </button>
-                    </div>
-                  </form>
-                ) : (
-                  <>
-                    <div className={styles.newsRow}>
-                      <Link href="/participa#boletin" className={styles.btnSubscribe}>
-                        Suscribirme
-                      </Link>
-                    </div>
-                    <p className={styles.fallbackNote}>
-                      Completa tu correo en la sección Newsletter de Participa.
-                    </p>
-                  </>
-                )}
-              </div>
+            <div className={styles.newsForm}>
+              {NEWSLETTER.formActionUrl ? (
+                <form action={NEWSLETTER.formActionUrl} method="post" className={styles.newsFormInner}>
+                  <label className={styles.newsFieldLabel} htmlFor="footer-newsletter-email">
+                    Correo electrónico <span aria-hidden>*</span>
+                  </label>
+                  <div className={styles.newsRow}>
+                    <input
+                      id="footer-newsletter-email"
+                      type="email"
+                      name="email"
+                      required
+                      autoComplete="email"
+                      placeholder="Escribe tu correo"
+                      className={styles.newsletterField}
+                    />
+                    <button type="submit" className={styles.btnSubscribe}>
+                      Suscribirme
+                    </button>
+                  </div>
+                </form>
+              ) : (
+                <>
+                  <div className={styles.newsRow}>
+                    <Link href="/participa#boletin" className={styles.btnSubscribe}>
+                      Suscribirme
+                    </Link>
+                  </div>
+                  <p className={styles.fallbackNote}>
+                    Completa tu correo en la sección Newsletter de Participa.
+                  </p>
+                </>
+              )}
             </div>
+          </section>
 
-            <nav aria-label="Navegación principal">
+          <div className={styles.bottomGrid}>
+            <nav aria-label={tNav("main")}>
               <ul className={styles.navList}>
-                {FOOTER_MAIN_NAV.map((item) => (
+                {NAV_PRIMARY.map((item) => (
                   <li key={item.href}>
-                    <Link href={item.href} className={styles.navLink}>
-                      {item.label}
+                    <Link
+                      href={item.href}
+                      className={styles.navLink}
+                      onClick={(e) => scrollToHomeSection(e, item.href)}
+                    >
+                      {NAV_PRIMARY_I18N_KEY[item.href] ? tNav(NAV_PRIMARY_I18N_KEY[item.href]) : item.label}
                     </Link>
                   </li>
                 ))}
+                <li>
+                  <a
+                    href={EXTERNAL.botOnda}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.navLink}
+                  >
+                    {tNav("botOnda")}
+                  </a>
+                </li>
               </ul>
             </nav>
 

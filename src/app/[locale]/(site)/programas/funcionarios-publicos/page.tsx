@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import { Link } from "@/i18n/navigation";
+import shell from "@/components/programs/ProgramShell.module.css";
 import styles from "./FuncionariosPage.module.css";
 import { FuncionariosCursoTabs } from "./FuncionariosCursoTabs";
 
 export const metadata: Metadata = {
   title: "Educación Mediática para Funcionarios Públicos",
   description:
-    "Ocho sesiones de formación para la administración pública: medios digitales, verificación, comunicación institucional y uso de redes sociales.",
+    "Formación para la administración pública: medios digitales, verificación, comunicación institucional y uso responsable de redes sociales.",
 };
 
 const BENEFICIOS = [
@@ -52,45 +53,39 @@ const PASOS = [
 
 export default function Page() {
   return (
-    <main className={styles.page}>
-      <h1 className={styles.visuallyHidden}>Capacitación en Educación Mediática para Funcionarios Públicos</h1>
-
-      <section className={styles.hero} aria-labelledby="fp-hero-title">
-        <div className={styles.heroInner}>
-          <p className={styles.heroEyebrow}>■ FUNCIONARIOS PÚBLICOS · PROGRAMA 06</p>
-          <h2 id="fp-hero-title" className={styles.heroTitle}>
+    <main className={shell.page} data-program="funcionarios">
+      <header className={shell.hero} aria-labelledby="fp-hero-title">
+        <div className={shell.heroInner}>
+          <p className={shell.heroEyebrow}>■ FUNCIONARIOS PÚBLICOS · PROGRAMA 06</p>
+          <h1 id="fp-hero-title" className={shell.heroTitle}>
             Capacitación en Educación Mediática
             <br />
             para Funcionarios Públicos.
-          </h2>
-          <p className={styles.heroSub}>
+          </h1>
+          <p className={shell.heroSub}>
             Formación diseñada específicamente para el contexto de la administración pública.
           </p>
-          <div className={styles.heroStat} aria-hidden="true">
-            <p className={styles.heroStatBig}>8</p>
-            <p className={styles.heroStatLabel}>sesiones de formación</p>
-          </div>
         </div>
-      </section>
+      </header>
 
-      <section className={`${styles.queEs} ${styles.padSection}`} aria-labelledby="fp-por-que">
-        <div className={styles.inner}>
-          <div className={styles.queEsGrid}>
+      <section className={`${shell.queEs} ${shell.padSection}`} aria-labelledby="fp-por-que">
+        <div className={shell.inner}>
+          <div className={shell.queEsGrid}>
             <div>
-              <p className={styles.statWord}>Riesgo</p>
-              <p className={styles.statSub}>directo para la democracia.</p>
+              <p className={shell.statWord}>Riesgo</p>
+              <p className={shell.statSub}>directo para la democracia.</p>
             </div>
             <div>
-              <p id="fp-por-que" className={styles.bodyText}>
+              <p id="fp-por-que" className={shell.bodyText}>
                 En el entorno digital actual, la desinformación y la manipulación informativa no son solo un
                 desafío social, sino un riesgo directo para la administración pública, la confianza ciudadana y la
                 estabilidad democrática.
               </p>
-              <p className={styles.bodyText}>
+              <p className={shell.bodyText}>
                 La capacidad de los servidores públicos para navegar, evaluar y utilizar los medios de
                 comunicación de manera eficaz y segura es una competencia fundamental.
               </p>
-              <p className={styles.bodyText}>
+              <p className={shell.bodyText}>
                 Este programa ha sido diseñado específicamente para el contexto de la administración pública. Su
                 objetivo es dotar a los funcionarios de las herramientas necesarias para trabajar de forma segura,
                 confiable y eficiente en un mundo saturado de medios, fortaleciendo la transparencia
@@ -101,21 +96,21 @@ export default function Page() {
         </div>
       </section>
 
-      <section className={`${styles.sectionDark} ${styles.padSection}`} aria-labelledby="fp-estructura">
-        <div className={styles.inner}>
-          <h2 id="fp-estructura" className={styles.secTitleLight}>
+      <section className={`${shell.sectionDark} ${shell.padSection}`} aria-labelledby="fp-estructura">
+        <div className={shell.inner}>
+          <h2 id="fp-estructura" className={shell.secTitleLight}>
             Contenido y estructura del curso
           </h2>
-          <p className={styles.secSubMuted}>
+          <p className={shell.secSubMuted}>
             8 sesiones diseñadas para el contexto de la administración pública.
           </p>
           <FuncionariosCursoTabs />
         </div>
       </section>
 
-      <section className={`${styles.sectionCream} ${styles.padSection}`} aria-labelledby="fp-beneficios">
-        <div className={styles.inner}>
-          <h2 id="fp-beneficios" className={styles.secTitleDark}>
+      <section className={`${shell.sectionCream} ${shell.padSection}`} aria-labelledby="fp-beneficios">
+        <div className={shell.inner}>
+          <h2 id="fp-beneficios" className={`${shell.secTitleDark} ${shell.secTitleDarkSpaced}`}>
             Beneficios para la institución pública
           </h2>
           <div className={styles.benefGrid}>
@@ -130,8 +125,8 @@ export default function Page() {
         </div>
       </section>
 
-      <section className={`${styles.sectionDark} ${styles.padSection}`} aria-labelledby="fp-pasos">
-        <div className={styles.inner}>
+      <section className={`${shell.sectionDark} ${shell.padSection}`} aria-labelledby="fp-pasos">
+        <div className={shell.inner}>
           <p id="fp-pasos" className={styles.pasosLead}>
             Consideramos esta capacitación una oportunidad estratégica en el capital humano y la resiliencia de
             la administración pública.
@@ -148,43 +143,43 @@ export default function Page() {
         </div>
       </section>
 
-      <section className={styles.cta} aria-labelledby="fp-cta-title">
-        <div className={styles.ctaInner}>
+      <section className={shell.cta} aria-labelledby="fp-cta-title">
+        <div className={shell.ctaInner}>
           <div>
-            <h2 id="fp-cta-title" className={styles.ctaTitle}>
+            <h2 id="fp-cta-title" className={shell.ctaTitle}>
               Lleva este programa a tu institución pública.
             </h2>
           </div>
-          <div className={styles.ctaRight}>
-            <p className={styles.ctaAside}>
+          <div className={shell.ctaRight}>
+            <p className={shell.ctaAside}>
               Estamos listos para adaptar el programa a las necesidades específicas de tu institución.
               Contáctanos para coordinar.
             </p>
-            <Link className={styles.ctaBtn} href="/participa">
+            <Link className={shell.ctaBtn} href="/participa">
               Contacto
             </Link>
           </div>
         </div>
       </section>
 
-      <section className={styles.continua} aria-labelledby="fp-continua">
-        <div className={styles.inner}>
-          <p id="fp-continua" className={styles.continuaEyebrow}>
+      <nav className={shell.continua} aria-labelledby="fp-continua">
+        <div className={shell.inner}>
+          <p id="fp-continua" className={shell.continuaEyebrow}>
             CONTINÚA
           </p>
-          <nav className={styles.continuaLinks} aria-label="Enlaces relacionados">
-            <Link className={styles.continuaLink} href="/programas/pensamiento-critico">
+          <div className={shell.continuaLinks}>
+            <Link className={shell.continuaLink} href="/programas/pensamiento-critico">
               Formación en Pensamiento Crítico Digital →
             </Link>
-            <Link className={styles.continuaLink} href="/programas/leer-noticias-era-digital">
+            <Link className={shell.continuaLink} href="/programas/leer-noticias-era-digital">
               Curso Leer Noticias en la Era Digital →
             </Link>
-            <Link className={styles.continuaLink} href="/participa">
+            <Link className={shell.continuaLink} href="/participa">
               Participa y contacto →
             </Link>
-          </nav>
+          </div>
         </div>
-      </section>
+      </nav>
     </main>
   );
 }

@@ -1,13 +1,13 @@
 "use client";
 
-import { ARTICLES } from "@/data/articles";
+import { articlesSortedByDate } from "@/data/articles";
 import { MotionStackPanels } from "@/components/motion/MotionStackPanels";
 
 /**
  * Paneles full-viewport que se van apilando al hacer scroll (sesiones tipo “archivos”).
  */
 export function PrecisarHomeStackPanelsSection({ reduceMotion = false }: { reduceMotion?: boolean }) {
-  const featured = ARTICLES.slice(0, 4).map((a) => ({
+  const featured = articlesSortedByDate().slice(0, 4).map((a) => ({
     slug: a.slug,
     title: a.title,
     category: a.category,

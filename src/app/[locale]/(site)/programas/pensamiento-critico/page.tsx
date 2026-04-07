@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Link } from "@/i18n/navigation";
+import shell from "@/components/programs/ProgramShell.module.css";
 import styles from "./PensamientoCriticoPage.module.css";
 
 export const metadata: Metadata = {
@@ -79,41 +80,39 @@ const BENEFICIOS = [
 
 export default function Page() {
   return (
-    <main className={styles.page}>
-      <h1 className={styles.visuallyHidden}>Formación en Pensamiento Crítico Digital</h1>
-
-      <section className={styles.hero} aria-labelledby="pc-hero-title">
-        <div className={styles.heroInner}>
-          <p className={styles.heroEyebrow}>■ PENSAMIENTO CRÍTICO DIGITAL · PROGRAMA 05</p>
-          <h2 id="pc-hero-title" className={styles.heroTitle}>
+    <main className={shell.page} data-program="pensamiento">
+      <header className={shell.hero} aria-labelledby="pc-hero-title">
+        <div className={shell.heroInner}>
+          <p className={shell.heroEyebrow}>■ PENSAMIENTO CRÍTICO DIGITAL · PROGRAMA 05</p>
+          <h1 id="pc-hero-title" className={shell.heroTitle}>
             Consumidores críticos y competentes
             <br />
             en el ecosistema digital.
-          </h2>
-          <p className={styles.heroSub}>
+          </h1>
+          <p className={shell.heroSub}>
             Herramientas para identificar, analizar y verificar la información que circula en el mundo digital.
           </p>
-          <div className={styles.heroStat} aria-hidden="true">
-            <p className={styles.heroStatBig}>2</p>
-            <p className={styles.heroStatLabel}>talleres disponibles</p>
+          <div className={shell.heroStat} aria-hidden="true">
+            <p className={shell.heroStatBig}>2</p>
+            <p className={shell.heroStatLabel}>talleres disponibles</p>
           </div>
         </div>
-      </section>
+      </header>
 
-      <section className={`${styles.queEs} ${styles.padSection}`} aria-labelledby="pc-que-es">
-        <div className={styles.inner}>
-          <div className={styles.queEsGrid}>
+      <section className={`${shell.queEs} ${shell.padSection}`} aria-labelledby="pc-que-es">
+        <div className={shell.inner}>
+          <div className={shell.queEsGrid}>
             <div>
-              <p className={styles.statWord}>Crítico.</p>
-              <p className={styles.statSub}>Competente. Informado.</p>
+              <p className={shell.statWord}>Crítico.</p>
+              <p className={shell.statSub}>Competente. Informado.</p>
             </div>
             <div>
-              <p id="pc-que-es" className={styles.bodyText}>
+              <p id="pc-que-es" className={shell.bodyText}>
                 Para enfrentar este desafío, se han creado cursos diseñados para transformar a los participantes
                 en consumidores críticos y competentes, entregándoles las herramientas necesarias para
                 identificar, analizar y verificar la información que encuentran en el ecosistema digital actual.
               </p>
-              <p className={styles.bodyText}>
+              <p className={shell.bodyText}>
                 Entendemos que cada persona tiene necesidades distintas, por eso ofrecemos dos formas de tomar
                 los cursos.
               </p>
@@ -122,9 +121,9 @@ export default function Page() {
         </div>
       </section>
 
-      <section className={`${styles.sectionDark} ${styles.padSection}`} aria-labelledby="pc-modalidades">
-        <div className={styles.inner}>
-          <h2 id="pc-modalidades" className={styles.secTitleLight}>
+      <section className={`${shell.sectionDark} ${shell.padSection}`} aria-labelledby="pc-modalidades">
+        <div className={shell.inner}>
+          <h2 id="pc-modalidades" className={`${shell.secTitleLight} ${shell.secTitleLightSpaced}`}>
             Flexibilidad para aprender
           </h2>
           <div className={styles.modalRow}>
@@ -148,8 +147,8 @@ export default function Page() {
         </div>
       </section>
 
-      <section className={`${styles.sectionCream} ${styles.padSection}`} aria-labelledby="pc-taller1-title">
-        <div className={styles.inner}>
+      <section className={`${shell.sectionCream} ${shell.padSection}`} aria-labelledby="pc-taller1-title">
+        <div className={shell.inner}>
           <p className={styles.workshopEyebrow}>■ TALLER 01</p>
           <h2 id="pc-taller1-title" className={styles.workshopTitle}>
             Entendiendo las Noticias y Verificación de Hechos
@@ -197,8 +196,8 @@ export default function Page() {
         </div>
       </section>
 
-      <section className={`${styles.sectionDark} ${styles.padSection}`} aria-labelledby="pc-taller2-title">
-        <div className={styles.inner}>
+      <section className={`${shell.sectionDark} ${shell.padSection}`} aria-labelledby="pc-taller2-title">
+        <div className={shell.inner}>
           <p className={styles.workshopEyebrow}>■ TALLER 02</p>
           <h2 id="pc-taller2-title" className={`${styles.workshopTitle} ${styles.workshopTitleLight}`}>
             Alfabetización Mediática y Digital en la Era de la IA
@@ -246,9 +245,9 @@ export default function Page() {
         </div>
       </section>
 
-      <section className={`${styles.sectionCream} ${styles.padSection}`} aria-labelledby="pc-beneficios">
-        <div className={styles.inner}>
-          <h2 id="pc-beneficios" className={styles.secTitleDark}>
+      <section className={`${shell.sectionCream} ${shell.padSection}`} aria-labelledby="pc-beneficios">
+        <div className={shell.inner}>
+          <h2 id="pc-beneficios" className={`${shell.secTitleDark} ${shell.secTitleDarkSpaced}`}>
             Beneficios para tu organización
           </h2>
           <div className={styles.benefGrid}>
@@ -263,48 +262,48 @@ export default function Page() {
         </div>
       </section>
 
-      <section className={styles.cta} aria-labelledby="pc-cta-title">
-        <div className={styles.ctaInner}>
+      <section className={shell.cta} aria-labelledby="pc-cta-title">
+        <div className={shell.ctaInner}>
           <div>
-            <h2 id="pc-cta-title" className={styles.ctaTitle}>
+            <h2 id="pc-cta-title" className={shell.ctaTitle}>
               Adapta el programa a las necesidades específicas de tu institución.
             </h2>
-            <ol className={styles.ctaSteps}>
+            <ol className={shell.ctaSteps}>
               <li>01 Solicita una propuesta detallada.</li>
               <li>02 Coordinamos una presentación.</li>
               <li>03 Co-creamos el programa a tu medida.</li>
             </ol>
           </div>
-          <div className={styles.ctaRight}>
-            <p className={styles.ctaAside}>
+          <div className={shell.ctaRight}>
+            <p className={shell.ctaAside}>
               Consideramos esta capacitación una oportunidad estratégica en el capital humano y la resiliencia
               de tu organización.
             </p>
-            <Link className={styles.ctaBtn} href="/participa">
+            <Link className={shell.ctaBtn} href="/participa">
               Contacto
             </Link>
           </div>
         </div>
       </section>
 
-      <section className={styles.continua} aria-labelledby="pc-continua">
-        <div className={styles.inner}>
-          <p id="pc-continua" className={styles.continuaEyebrow}>
+      <nav className={shell.continua} aria-labelledby="pc-continua">
+        <div className={shell.inner}>
+          <p id="pc-continua" className={shell.continuaEyebrow}>
             CONTINÚA
           </p>
-          <nav className={styles.continuaLinks} aria-label="Enlaces relacionados">
-            <Link className={styles.continuaLink} href="/programas/docentes">
-              Educación Mediática para Docentes →
+          <div className={shell.continuaLinks}>
+            <Link className={shell.continuaLink} href="/programas/docentes">
+              AMI para Docentes →
             </Link>
-            <Link className={styles.continuaLink} href="/programas/funcionarios-publicos">
+            <Link className={shell.continuaLink} href="/programas/funcionarios-publicos">
               Curso para Servidores Públicos →
             </Link>
-            <Link className={styles.continuaLink} href="/saberes">
+            <Link className={shell.continuaLink} href="/saberes">
               Biblioteca Saberes →
             </Link>
-          </nav>
+          </div>
         </div>
-      </section>
+      </nav>
     </main>
   );
 }

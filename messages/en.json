@@ -70,10 +70,16 @@
     "stackLinkCiudades": "Cities Connected with Purpose",
     "stackLinkHub": "Hub Digital Consciente, traveling exhibits",
     "stackLinkAprender": "Learn Digital: It’s Never Too Late",
-    "stackLinkDocentes": "Media Literacy for Teachers",
+    "stackLinkDocentes": "Media and Information Literacy for Teachers",
     "stackLinkPensamientoCritico": "Course: Reading News in the Digital Age",
     "stackLinkFuncionarios": "Course for Public Servants",
-    "stackLinkBotOnda": "Bot Onda / Onda en Mano / Onda Civita and Onda Profes",
+    "stackBotOndaLead": "Bot Onda:",
+    "stackBotOndaManoName": "Onda en Mano",
+    "stackBotOndaManoDesc": "helps with everyday phone use, apps, and online tasks in plain language.",
+    "stackBotOndaCivitaName": "Onda Civita",
+    "stackBotOndaCivitaDesc": "strengthens digital citizenship: rights, participation, and critical reading of information.",
+    "stackBotOndaProfesName": "Onda Profes",
+    "stackBotOndaProfesDesc": "supports workplaces and schools: communication, tools, and responsible digital habits.",
     "tiles": {
       "ciudades": {
         "title": "Cities Connected with Purpose",
@@ -88,7 +94,7 @@
         "body": "A programme designed especially for older adults, with in-person and online workshops that combine practical device use, digital safety, and social activities—strengthening their autonomy and connection with family and community."
       },
       "docentes": {
-        "title": "Media Literacy for Teachers",
+        "title": "Media and Information Literacy for Teachers",
         "body": "We offer workshops and teaching resources, classroom guides, and hands-on training for use in class to help students improve how they critically evaluate information, create content, and take part on digital networks—with a responsible, ethical approach online."
       }
     }

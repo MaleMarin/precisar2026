@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import { Link } from "@/i18n/navigation";
+import shell from "@/components/programs/ProgramShell.module.css";
 import { PDFS } from "@/lib/site";
 import styles from "./HubDigitalPage.module.css";
 
 export const metadata: Metadata = {
   title: "Hub Digital Consciente",
   description:
-    "Muestras portátiles de cultura digital: Pixel, Vector y Holo. Para plazas, bibliotecas, educación, corporativos y territorio.",
+    "Muestras portátiles e interactivas de cultura digital para plazas, bibliotecas, educación, corporativos y territorio.",
 };
 
 const PARA_QUIEN = [
@@ -61,37 +62,31 @@ const ENCONTRARAS = [
 
 export default function Page() {
   return (
-    <main className={styles.page}>
-      <h1 className={styles.visuallyHidden}>Hub Digital Consciente</h1>
-
-      <section className={styles.hero} aria-labelledby="hub-hero-title">
-        <div className={styles.heroInner}>
-          <p className={styles.heroEyebrow}>■ HUB DIGITAL CONSCIENTE · PROGRAMA 02</p>
-          <h2 id="hub-hero-title" className={styles.heroTitle}>
+    <main className={shell.page} data-program="hub">
+      <header className={shell.hero} aria-labelledby="hub-hero-title">
+        <div className={shell.heroInner}>
+          <p className={shell.heroEyebrow}>■ HUB DIGITAL CONSCIENTE · PROGRAMA 02</p>
+          <h1 id="hub-hero-title" className={shell.heroTitle}>
             Cultura digital que viaja a donde está la gente.
-          </h2>
-          <div className={styles.heroStat} aria-hidden="true">
-            <p className={styles.heroStatBig}>3</p>
-            <p className={styles.heroStatLabel}>formatos: Pixel · Vector · Holo</p>
-          </div>
+          </h1>
         </div>
-      </section>
+      </header>
 
-      <section className={`${styles.queEs} ${styles.padSection}`} aria-labelledby="hub-que-es">
-        <div className={styles.inner}>
-          <div className={styles.queEsGrid}>
+      <section className={`${shell.queEs} ${shell.padSection}`} aria-labelledby="hub-que-es">
+        <div className={shell.inner}>
+          <div className={shell.queEsGrid}>
             <div>
-              <p className={styles.statWord}>Portátil.</p>
-              <p className={styles.statSub}>Diseñada para cualquier espacio.</p>
+              <p className={shell.statWord}>Portátil.</p>
+              <p className={shell.statSub}>Diseñada para cualquier espacio.</p>
             </div>
             <div>
-              <p id="hub-que-es" className={styles.bodyText}>
+              <p id="hub-que-es" className={shell.bodyText}>
                 En el Hub Digital Consciente nos sumergimos en la cultura digital a través de muestras
                 interactivas y temáticas. Cada una es portátil y está diseñada para explorar cómo los
                 medios y la tecnología influyen en nuestra sociedad, llevando el conocimiento
                 directamente a eventos, municipios, espacios públicos y más.
               </p>
-              <p className={styles.bodyText}>
+              <p className={shell.bodyText}>
                 No solo presentamos temas: también abrimos un espacio para el diálogo y la acción. Con
                 cada muestra, traducimos conceptos complejos, desde la desinformación e inteligencia
                 artificial hasta la privacidad, en experiencias sensoriales accesibles que impulsan
@@ -102,8 +97,8 @@ export default function Page() {
         </div>
       </section>
 
-      <section className={`${styles.paraQuien} ${styles.padSection}`} aria-labelledby="hub-para-quien">
-        <div className={styles.inner}>
+      <section className={`${styles.paraQuien} ${shell.padSection}`} aria-labelledby="hub-para-quien">
+        <div className={shell.inner}>
           <p id="hub-para-quien" className={styles.paraLead}>
             Esta experiencia se adapta a cualquier evento, para cualquier público, en cualquier espacio.
           </p>
@@ -119,8 +114,8 @@ export default function Page() {
         </div>
       </section>
 
-      <section className={`${styles.encontraras} ${styles.padSection}`} aria-labelledby="hub-encontraras">
-        <div className={styles.inner}>
+      <section className={`${styles.encontraras} ${shell.padSection}`} aria-labelledby="hub-encontraras">
+        <div className={shell.inner}>
           <h2 id="hub-encontraras" className={styles.secTitle}>
             Lo que encontrarás en cada muestra
           </h2>
@@ -136,112 +131,8 @@ export default function Page() {
         </div>
       </section>
 
-      <section
-        id="formatos"
-        className={`${styles.formatos} ${styles.padSection}`}
-        aria-labelledby="hub-formatos"
-      >
-        <div className={styles.inner}>
-          <h2 id="hub-formatos" className={styles.formatosTitle}>
-            Elige tu formato
-          </h2>
-          <p className={styles.formatosSub}>
-            Tres modelos de instalación para adaptarse a tu espacio, duración y público.
-          </p>
-
-          <div className={styles.fmtRow}>
-            <article className={styles.fmtCard}>
-              <div className={`${styles.fmtHead} ${styles.fmtHeadPixel}`}>
-                <h3 className={styles.fmtHeadTitle}>PIXEL</h3>
-                <p className={styles.fmtHeadSub}>Formato básico para espacios reducidos</p>
-              </div>
-              <div className={styles.fmtBody}>
-                <ul className={styles.fmtList}>
-                  <li>2 Carteles Temáticos</li>
-                  <li>1 Pantalla de Animación</li>
-                  <li>2 Experiencias Interactivas</li>
-                </ul>
-                <div className={styles.fmtSpecGrid}>
-                  <div className={styles.fmtSpec}>
-                    <strong>Espacio</strong>8 a 12 m²
-                  </div>
-                  <div className={styles.fmtSpec}>
-                    <strong>Instalación</strong>45 a 60 minutos
-                  </div>
-                  <div className={styles.fmtSpec}>
-                    <strong>Duración</strong>1 a 3 días
-                  </div>
-                  <div className={styles.fmtSpec}>
-                    <strong>Audiencia</strong>50 a 100 personas/día
-                  </div>
-                </div>
-              </div>
-            </article>
-
-            <article className={styles.fmtCard}>
-              <div className={`${styles.fmtHead} ${styles.fmtHeadVector}`}>
-                <h3 className={styles.fmtHeadTitle}>VECTOR</h3>
-                <p className={styles.fmtHeadSub}>Formato estándar para eventos medianos</p>
-              </div>
-              <div className={styles.fmtBody}>
-                <ul className={styles.fmtList}>
-                  <li>3 Carteles Temáticos</li>
-                  <li>3 Pantallas de Animación</li>
-                  <li>3 Estaciones Interactivas</li>
-                  <li>Experiencias Prácticas para Debate (opcional)</li>
-                </ul>
-                <div className={styles.fmtSpecGrid}>
-                  <div className={styles.fmtSpec}>
-                    <strong>Espacio</strong>15 a 25 m²
-                  </div>
-                  <div className={styles.fmtSpec}>
-                    <strong>Instalación</strong>2 a 3 horas
-                  </div>
-                  <div className={styles.fmtSpec}>
-                    <strong>Duración</strong>3 días a 2 semanas
-                  </div>
-                  <div className={styles.fmtSpec}>
-                    <strong>Audiencia</strong>100 a 300 personas/día
-                  </div>
-                </div>
-              </div>
-            </article>
-
-            <article className={styles.fmtCard}>
-              <div className={`${styles.fmtHead} ${styles.fmtHeadHolo}`}>
-                <h3 className={styles.fmtHeadTitle}>HOLO</h3>
-                <p className={styles.fmtHeadSub}>Formato completo para instalaciones duraderas</p>
-              </div>
-              <div className={styles.fmtBody}>
-                <ul className={styles.fmtList}>
-                  <li>6 Carteles Visuales</li>
-                  <li>3 Animaciones de Video</li>
-                  <li>4 Aplicaciones Interactivas</li>
-                  <li>Consultas adaptadas al público</li>
-                  <li>Zona Central para debate y reflexión</li>
-                </ul>
-                <div className={styles.fmtSpecGrid}>
-                  <div className={styles.fmtSpec}>
-                    <strong>Espacio</strong>30 a 50 m²
-                  </div>
-                  <div className={styles.fmtSpec}>
-                    <strong>Instalación</strong>4 a 6 horas
-                  </div>
-                  <div className={styles.fmtSpec}>
-                    <strong>Duración</strong>2 semanas a permanente
-                  </div>
-                  <div className={styles.fmtSpec}>
-                    <strong>Audiencia</strong>200 a 500 personas/día
-                  </div>
-                </div>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section className={`${styles.personaliza} ${styles.padSection}`} aria-labelledby="hub-personaliza">
-        <div className={styles.inner}>
+      <section className={`${styles.personaliza} ${shell.padSection}`} aria-labelledby="hub-personaliza">
+        <div className={shell.inner}>
           <h2 id="hub-personaliza" className={styles.secTitle}>
             Se adapta a lo que necesitas
           </h2>
@@ -272,8 +163,8 @@ export default function Page() {
         </div>
       </section>
 
-      <section className={`${styles.ediciones} ${styles.padSection}`} aria-labelledby="hub-ediciones">
-        <div className={styles.inner}>
+      <section className={`${styles.ediciones} ${shell.padSection}`} aria-labelledby="hub-ediciones">
+        <div className={shell.inner}>
           <h2 id="hub-ediciones" className={styles.edicionesTitle}>
             Ediciones temáticas disponibles
           </h2>
@@ -306,8 +197,8 @@ export default function Page() {
         </div>
       </section>
 
-      <section className={`${styles.como} ${styles.padSection}`} aria-labelledby="hub-como">
-        <div className={styles.inner}>
+      <section className={`${styles.como} ${shell.padSection}`} aria-labelledby="hub-como">
+        <div className={shell.inner}>
           <h2 id="hub-como" className={styles.secTitle}>
             Cómo desarrollamos cada muestra
           </h2>
@@ -330,44 +221,44 @@ export default function Page() {
         </div>
       </section>
 
-      <section className={styles.cta} aria-labelledby="hub-cta-title">
-        <div className={styles.ctaInner}>
+      <section className={shell.cta} aria-labelledby="hub-cta-title">
+        <div className={shell.ctaInner}>
           <div>
-            <h2 id="hub-cta-title" className={styles.ctaTitle}>
+            <h2 id="hub-cta-title" className={shell.ctaTitle}>
               Lleva el Hub Digital Consciente a tu espacio.
             </h2>
-            <ol className={styles.ctaSteps}>
-              <li>01 Elige tu formato: Pixel, Vector o Holo.</li>
+            <ol className={shell.ctaSteps}>
+              <li>01 Contanos espacio, público y duración que imaginás para la muestra.</li>
               <li>02 Escríbenos: Cuéntanos tu idea y contexto.</li>
               <li>03 Co-creemos: Juntos afinamos contenidos, montaje y cronograma.</li>
             </ol>
           </div>
-          <div className={styles.ctaRight}>
-            <Link className={styles.ctaBtn} href="/participa">
+          <div className={shell.ctaRight}>
+            <Link className={shell.ctaBtn} href="/participa">
               Contacto
             </Link>
           </div>
         </div>
       </section>
 
-      <section className={styles.continua} aria-labelledby="hub-continua">
-        <div className={styles.inner}>
-          <p id="hub-continua" className={styles.continuaEyebrow}>
+      <nav className={shell.continua} aria-labelledby="hub-continua">
+        <div className={shell.inner}>
+          <p id="hub-continua" className={shell.continuaEyebrow}>
             CONTINÚA
           </p>
-          <nav className={styles.continuaLinks} aria-label="Enlaces relacionados">
-            <Link className={styles.continuaLink} href="/programas/ciudades">
+          <div className={shell.continuaLinks}>
+            <Link className={shell.continuaLink} href="/programas/ciudades">
               Ciudades Conectadas con Sentido →
             </Link>
-            <Link className={styles.continuaLink} href="/participa">
+            <Link className={shell.continuaLink} href="/participa">
               Participa y contacto →
             </Link>
-            <Link className={styles.continuaLink} href="/saberes">
+            <Link className={shell.continuaLink} href="/saberes">
               Biblioteca Saberes →
             </Link>
-          </nav>
+          </div>
         </div>
-      </section>
+      </nav>
     </main>
   );
 }

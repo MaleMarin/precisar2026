@@ -70,10 +70,16 @@
     "stackLinkCiudades": "Cidades Conectadas com Sentido",
     "stackLinkHub": "Hub Digital Consciente, mostras itinerantes",
     "stackLinkAprender": "Aprender Digital: Nunca é Tarde",
-    "stackLinkDocentes": "Educação Midiática para Docentes",
+    "stackLinkDocentes": "AMI para docentes",
     "stackLinkPensamientoCritico": "Curso Ler Notícias na Era Digital",
     "stackLinkFuncionarios": "Curso para Servidores Públicos",
-    "stackLinkBotOnda": "Bot Onda / Onda en Mano / Onda Civita e Onda Profes",
+    "stackBotOndaLead": "Bot Onda:",
+    "stackBotOndaManoName": "Onda en Mano",
+    "stackBotOndaManoDesc": "acompanha o uso cotidiano do celular, apps e serviços online com linguagem acessível.",
+    "stackBotOndaCivitaName": "Onda Civita",
+    "stackBotOndaCivitaDesc": "reforça cidadania digital: direitos, participação e leitura crítica da informação.",
+    "stackBotOndaProfesName": "Onda Profes",
+    "stackBotOndaProfesDesc": "orienta em ambientes de trabalho e educação: comunicação, ferramentas e hábitos digitais responsáveis.",
     "tiles": {
       "ciudades": {
         "title": "Ciudades Conectadas con Sentido",
@@ -88,7 +94,7 @@
         "body": "Un programa especialmente creado para personas mayores, con talleres presenciales y en línea que combinan uso práctico de dispositivos, seguridad digital y dinámicas sociales, fortaleciendo su autonomía y conexión con familiares y comunidad."
       },
       "docentes": {
-        "title": "Educación Mediática para Docentes",
+        "title": "Alfabetização mediática e informacional para docentes",
         "body": "Ofrecemos talleres y recursos didácticos, guías de aula y formación práctica para usar en aula y así mejorar las habilidades de los estudiantes en la evaluación crítica de la información, la producción de contenidos y la participación activa en redes digitales, fomentando un enfoque responsable y ético en el espacio digital."
       }
     }

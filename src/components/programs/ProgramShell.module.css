@@ -1,0 +1,426 @@
+/**
+ * Shell compartido: landings de programas (hero full-bleed, secciones, CTA, Continúa).
+ * Color del hero: `data-program` en el mismo elemento que `.page`.
+ */
+
+.page {
+  --program-hero-from: #023661;
+  padding: 0;
+  margin: 0;
+}
+
+.page[data-program="hub"] {
+  --program-hero-from: #3f3a42;
+}
+
+.page[data-program="docentes"] {
+  --program-hero-from: #db5227;
+}
+
+.page[data-program="aprender"] {
+  --program-hero-from: #023661;
+}
+
+.page[data-program="funcionarios"] {
+  --program-hero-from: #023661;
+}
+
+.page[data-program="pensamiento"] {
+  --program-hero-from: #3f3a42;
+}
+
+.page[data-program="leer-noticias"] {
+  --program-hero-from: #3f3a42;
+}
+
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.padSection {
+  padding: 80px 48px;
+}
+
+@media (max-width: 640px) {
+  .padSection {
+    padding: 48px 24px;
+  }
+}
+
+.inner {
+  max-width: 90rem;
+  margin: 0 auto;
+}
+
+/* ─── Hero ─── */
+.hero {
+  position: relative;
+  min-height: 80vh;
+  display: flex;
+  align-items: flex-end;
+  padding: 80px 48px;
+  background: linear-gradient(135deg, var(--program-hero-from) 0%, #0a0c12 55%, #0a0c12 100%);
+  color: #fff;
+  overflow: hidden;
+}
+
+.heroInner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 90rem;
+  margin: 0 auto;
+}
+
+.heroEyebrow {
+  margin: 0 0 1.25rem;
+  font-family: var(--font-mono);
+  font-size: clamp(12px, 1.15vw, 14px);
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #db5227;
+}
+
+.heroTitle {
+  margin: 0;
+  max-width: 860px;
+  font-family: var(--font-display);
+  font-size: clamp(44px, 6.5vw, 88px);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: #fff;
+}
+
+.heroSub {
+  margin: 1.25rem 0 0;
+  max-width: 560px;
+  font-size: 18px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.68);
+}
+
+.heroStat {
+  position: absolute;
+  right: 48px;
+  bottom: 80px;
+  text-align: right;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.heroStatBig {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(80px, 12vw, 140px);
+  font-weight: 800;
+  line-height: 0.95;
+  color: rgba(219, 82, 39, 0.15);
+  letter-spacing: -0.04em;
+}
+
+.heroStatLabel {
+  margin: 0.35rem 0 0;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #fff;
+  letter-spacing: 0.02em;
+}
+
+@media (max-width: 900px) {
+  .hero {
+    align-items: flex-start;
+    min-height: min(80vh, 720px);
+    padding: clamp(3rem, 8vw, 5rem) clamp(1.25rem, 4vw, 2.75rem) clamp(2.5rem, 6vw, 4rem);
+  }
+
+  .heroStat {
+    position: static;
+    margin-top: 2rem;
+    text-align: left;
+    pointer-events: auto;
+  }
+
+  .heroStatBig {
+    font-size: clamp(64px, 18vw, 120px);
+  }
+}
+
+/* ─── Bloque tipo “qué es” (blanco) ─── */
+.queEs {
+  background: #fff;
+}
+
+.queEsGrid {
+  display: grid;
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: start;
+}
+
+@media (min-width: 900px) {
+  .queEsGrid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+  }
+}
+
+.statWord {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(60px, 10vw, 100px);
+  font-weight: 800;
+  line-height: 1;
+  color: #db5227;
+  letter-spacing: -0.03em;
+}
+
+.statSub {
+  margin: 8px 0 0;
+  font-size: 18px;
+  line-height: 1.45;
+  color: #76828e;
+}
+
+.bodyText {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.75;
+  color: #3d3a37;
+}
+
+.bodyText + .bodyText {
+  margin-top: 1.25rem;
+}
+
+/* ─── Secciones ritmo oscuro / crema ─── */
+.sectionDark {
+  background: #0a0c12;
+  color: #fff;
+}
+
+.sectionCream {
+  background: #f5f2ec;
+}
+
+.secTitleLight {
+  margin: 0 0 16px;
+  font-family: var(--font-display);
+  font-size: clamp(30px, 4.4vw, 48px);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: #fff;
+}
+
+.secTitleLightSpaced {
+  margin-bottom: 48px;
+}
+
+.secSubMuted {
+  margin: 0 0 48px;
+  font-size: 16px;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.5);
+  max-width: 40rem;
+}
+
+.secTitleDark {
+  margin: 0 0 16px;
+  font-family: var(--font-display);
+  font-size: clamp(30px, 4.4vw, 48px);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: #0a0c12;
+}
+
+.secTitleDarkSpaced {
+  margin-bottom: 48px;
+}
+
+.secSubtitle {
+  margin: 0 0 48px;
+  font-size: 16px;
+  line-height: 1.55;
+  color: #76828e;
+  max-width: 42rem;
+}
+
+/* ─── CTA naranja ─── */
+.cta {
+  background: #db5227;
+  padding: 80px 48px;
+  color: #fff;
+}
+
+@media (max-width: 640px) {
+  .cta {
+    padding: 48px 24px;
+  }
+}
+
+.ctaInner {
+  display: grid;
+  gap: clamp(1.75rem, 4vw, 3rem);
+  max-width: 90rem;
+  margin: 0 auto;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .ctaInner {
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  }
+}
+
+.ctaInnerEnd {
+  align-items: end;
+}
+
+@media (min-width: 768px) {
+  .ctaInnerCiudades {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    align-items: end;
+  }
+}
+
+.ctaTitle {
+  margin: 0;
+  font-family: var(--font-serif-display), "Cormorant Garamond", Georgia, serif;
+  font-style: italic;
+  font-size: clamp(30px, 4.2vw, 52px);
+  font-weight: 500;
+  line-height: 1.1;
+  color: #fff;
+}
+
+.ctaText {
+  margin: 0 0 24px;
+  font-size: 15px;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.ctaSteps {
+  margin: 24px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ctaSteps li {
+  font-size: 14px;
+  line-height: 2;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.ctaRight {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+@media (min-width: 768px) {
+  .ctaRight {
+    align-items: flex-end;
+    text-align: right;
+  }
+}
+
+.ctaAside {
+  margin: 0 0 24px;
+  font-size: 15px;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.75);
+  max-width: 28rem;
+}
+
+@media (min-width: 768px) {
+  .ctaAside {
+    margin-left: auto;
+  }
+}
+
+.ctaBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  color: #db5227;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 14px 28px;
+  border-radius: 3px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.ctaBtn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* ─── Continúa (crema) ─── */
+.continua {
+  background: #f5f2ec;
+  padding: 40px 48px;
+}
+
+@media (max-width: 640px) {
+  .continua {
+    padding: 32px 24px;
+  }
+}
+
+.continuaEyebrow {
+  margin: 0 0 20px;
+  font-family: var(--font-mono);
+  font-size: clamp(12px, 1.15vw, 14px);
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #76828e;
+}
+
+.continuaLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 2rem;
+}
+
+.continuaLink {
+  font-size: 14px;
+  font-weight: 700;
+  color: #db5227;
+  text-decoration: none;
+  transition: opacity 0.15s ease;
+}
+
+.continuaLink:hover {
+  opacity: 0.85;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* ─── Cuerpo modular (Aprender / Leer noticias) ─── */
+.modularBand {
+  background: #fff;
+}
+
+.modularCanvas {
+  min-width: 0;
+}

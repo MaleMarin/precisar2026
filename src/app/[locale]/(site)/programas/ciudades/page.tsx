@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Link } from "@/i18n/navigation";
+import shell from "@/components/programs/ProgramShell.module.css";
 import { PDFS } from "@/lib/site";
 import { CiudadesPropuestasTabs } from "./CiudadesPropuestasTabs";
 import styles from "./CiudadesPage.module.css";
@@ -58,18 +59,21 @@ const IMPACTO = [
 
 export default function CiudadesProgramaPage() {
   return (
-    <article className={styles.page}>
-      <header className={styles.hero}>
-        <div className={styles.heroInner}>
-          <p className={styles.heroEyebrow}>■ CIUDADES · PROGRAMA 01</p>
-          <h1 className={styles.heroTitle}>Formación en Cultura Digital para la Ciudadanía</h1>
+    <article className={shell.page} data-program="ciudades">
+      <header className={shell.hero}>
+        <div className={shell.heroInner}>
+          <p className={shell.heroEyebrow}>■ CIUDADES · PROGRAMA 01</p>
+          <h1 className={shell.heroTitle}>Formación en Cultura Digital para la Ciudadanía</h1>
         </div>
       </header>
 
-      <section className={styles.territorio} aria-labelledby="ciudades-territorio-heading">
-        <div className={styles.territorioGrid}>
+      <section
+        className={`${shell.padSection} ${styles.territorio}`}
+        aria-labelledby="ciudades-territorio-heading"
+      >
+        <div className={`${shell.inner} ${styles.territorioGrid}`}>
           <div>
-            <h2 id="ciudades-territorio-heading" className={styles.visuallyHidden}>
+            <h2 id="ciudades-territorio-heading" className={shell.visuallyHidden}>
               Territorio e impacto
             </h2>
             <p className={styles.territorioStatNum}>100%</p>
@@ -165,33 +169,33 @@ export default function CiudadesProgramaPage() {
         </div>
       </section>
 
-      <section className={styles.cta} aria-labelledby="ciudades-cta-heading">
-        <div className={styles.ctaInner}>
-          <h2 id="ciudades-cta-heading" className={styles.ctaTitle}>
+      <section className={shell.cta} aria-labelledby="ciudades-cta-heading">
+        <div className={`${shell.ctaInner} ${shell.ctaInnerCiudades}`}>
+          <h2 id="ciudades-cta-heading" className={shell.ctaTitle}>
             Lleva la cultura digital a tu municipio.
           </h2>
           <div>
-            <p className={styles.ctaText}>
+            <p className={shell.ctaText}>
               Contáctanos para diseñar una propuesta a medida de tu comunidad.
             </p>
-            <Link href="/participa" className={styles.ctaBtn}>
+            <Link href="/participa" className={shell.ctaBtn}>
               Contacto
             </Link>
           </div>
         </div>
       </section>
 
-      <nav className={styles.continua} aria-label="Continúa explorando">
-        <div className={styles.continuaInner}>
-          <p className={styles.continuaEyebrow}>CONTINÚA</p>
-          <div className={styles.continuaLinks}>
-            <Link href="/programas" className={styles.continuaLink}>
+      <nav className={shell.continua} aria-label="Continúa explorando">
+        <div className={shell.inner}>
+          <p className={shell.continuaEyebrow}>CONTINÚA</p>
+          <div className={shell.continuaLinks}>
+            <Link href="/programas" className={shell.continuaLink}>
               Índice de programas →
             </Link>
-            <Link href="/participa" className={styles.continuaLink}>
+            <Link href="/participa" className={shell.continuaLink}>
               Participa y contacto →
             </Link>
-            <Link href="/saberes" className={styles.continuaLink}>
+            <Link href="/saberes" className={shell.continuaLink}>
               Biblioteca Saberes →
             </Link>
           </div>

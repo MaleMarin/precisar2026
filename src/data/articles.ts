@@ -18,6 +18,14 @@ export type ArticleMeta = {
 /** Slugs canónicos: RSS blog-feed.xml + sitemap de posts + auditoría abril 2026 (31 entradas). */
 export const ARTICLES: ArticleMeta[] = [
   {
+    slug: "chile-respondio-verdad-incomoda-informe-enero-2026",
+    title: "Chile respondió y nos contó la verdad incómoda",
+    category: "Informes",
+    pubDate: "2026-01-31",
+    excerpt:
+      "366 personas respondieron en enero cómo realmente se informan. Lo que dijeron desarma la narrativa del «ciudadano descuidado» y la reemplaza con algo más honesto: estamos sobrepasados, no somos tontos.",
+  },
+  {
     slug: "escuchar-primero-implementar-después-la-metodología-de-precisar-para-construir-ciudades-ami",
     title:
       "Escuchar Primero, Implementar Después: La Metodología de Precisar para Construir Ciudades AMI",

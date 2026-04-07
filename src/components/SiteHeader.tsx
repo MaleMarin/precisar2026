@@ -9,23 +9,11 @@ import {
   EXTERNAL,
   FOOTER_MEDIA,
   NAV_PRIMARY,
+  NAV_PRIMARY_I18N_KEY,
   primaryNavIndexFromHash,
   primaryNavIndexFromPathname,
 } from "@/lib/site";
 import styles from "./SiteHeader.module.css";
-
-const NAV_HREF_TO_KEY: Record<
-  string,
-  "programas" | "saberes" | "precisando" | "educacionMediatica" | "participa" | "somos"
-> = {
-  "/#programas": "programas",
-  "/#saberes": "saberes",
-  "/#precisando": "precisando",
-  "/#educacion-mediatica": "educacionMediatica",
-  "/educacion-mediatica/comunicacion": "educacionMediatica",
-  "/#participa": "participa",
-  "/#convoca": "somos",
-};
 
 function isHomePath(pathname: string): boolean {
   const n = pathname.replace(/\/+$/, "") || "/";
@@ -257,7 +245,7 @@ export function SiteHeader() {
                       onFocus={() => setHoverIndex(i)}
                       onBlur={() => setHoverIndex(null)}
                     >
-                      {NAV_HREF_TO_KEY[item.href] ? tNav(NAV_HREF_TO_KEY[item.href]) : item.label}
+                      {NAV_PRIMARY_I18N_KEY[item.href] ? tNav(NAV_PRIMARY_I18N_KEY[item.href]) : item.label}
                     </Link>
                   ))}
                   <a
@@ -366,7 +354,7 @@ export function SiteHeader() {
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <span className="mt-1 block">
-                    {NAV_HREF_TO_KEY[item.href] ? tNav(NAV_HREF_TO_KEY[item.href]) : item.label}
+                    {NAV_PRIMARY_I18N_KEY[item.href] ? tNav(NAV_PRIMARY_I18N_KEY[item.href]) : item.label}
                   </span>
                 </Link>
               ))}

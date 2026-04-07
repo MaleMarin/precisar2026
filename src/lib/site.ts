@@ -83,6 +83,20 @@ export const NAV_PRIMARY: NavItem[] = [
   { label: "Somos", href: "/#convoca" },
 ];
 
+/** `href` del menú principal → clave `nav.*` en mensajes i18n (header y footer). */
+export const NAV_PRIMARY_I18N_KEY: Record<
+  string,
+  "programas" | "saberes" | "precisando" | "educacionMediatica" | "participa" | "somos"
+> = {
+  "/#programas": "programas",
+  "/#saberes": "saberes",
+  "/#precisando": "precisando",
+  "/#educacion-mediatica": "educacionMediatica",
+  "/educacion-mediatica/comunicacion": "educacionMediatica",
+  "/#participa": "participa",
+  "/#convoca": "somos",
+};
+
 /** Prefijos de rutas “legacy”: al visitarlas, el ítem del menú sigue resaltando. */
 export const NAV_PRIMARY_LEGACY_PATH_PREFIXES: string[] = [
   "/programas",
@@ -136,12 +150,12 @@ export const NAV_SECONDARY: NavItem[] = [
   { label: "Hub Digital Consciente, muestras itinerantes", href: "/programas/hub-digital-consciente" },
   { label: "Ciudades Conectadas con Sentido", href: "/programas/ciudades" },
   { label: "Aprender Digital: Nunca es Tarde", href: "/programas/aprender-digital" },
-  { label: "Educación Mediática para Docentes", href: "/programas/docentes" },
+  { label: "Alfabetización Mediática e Informacional para Docentes", href: "/programas/docentes" },
   { label: "Formación pensamiento crítico digital", href: "/aqui-no-pasa" },
   { label: "Curso para Servidores Públicos", href: "/programas/funcionarios-publicos" },
   { label: "Curso Leer Noticias en la Era Digital", href: "/programas/leer-noticias-era-digital" },
   {
-    label: "Bot Onda / Onda en Mano / Onda Civita y Onda Profes",
+    label: "Bot Onda: Onda en Mano, Onda Civita y Onda Profes",
     href: EXTERNAL.botOnda,
   },
   { label: "Aquí No Pasa", href: "/aqui-no-pasa" },
@@ -175,12 +189,12 @@ export const FOOTER_COLUMNS: { title: string; links: NavItem[] }[] = [
       { label: "Ciudades Conectadas con Sentido", href: "/programas/ciudades" },
       { label: "Hub Digital Consciente, muestras itinerantes", href: "/programas/hub-digital-consciente" },
       { label: "Aprender Digital: Nunca es Tarde", href: "/programas/aprender-digital" },
-      { label: "Educación Mediática para Docentes", href: "/programas/docentes" },
+      { label: "Alfabetización Mediática e Informacional para Docentes", href: "/programas/docentes" },
       { label: "Formación en pensamiento crítico digital", href: "/aqui-no-pasa" },
       { label: "Curso para Servidores Públicos", href: "/programas/funcionarios-publicos" },
       { label: "Curso Leer Noticias en la Era Digital", href: "/programas/leer-noticias-era-digital" },
       {
-        label: "Bot Onda / Onda en Mano / Onda Civita y Onda Profes",
+        label: "Bot Onda: Onda en Mano, Onda Civita y Onda Profes",
         href: EXTERNAL.botOnda,
       },
     ],
@@ -219,6 +233,10 @@ export const FOOTER_COLUMNS: { title: string; links: NavItem[] }[] = [
   {
     title: "Blog — Precisando",
     links: [
+      {
+        label: "Chile respondió: informe «¿Cómo te informas hoy?» (enero 2026)",
+        href: "/precisando/chile-respondio-verdad-incomoda-informe-enero-2026",
+      },
       {
         label: "Escuchar primero, implementar después",
         href: "/precisando/escuchar-primero-implementar-después-la-metodología-de-precisar-para-construir-ciudades-ami",
