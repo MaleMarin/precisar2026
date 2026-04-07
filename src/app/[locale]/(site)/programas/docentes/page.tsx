@@ -185,7 +185,7 @@ export default function Page() {
       <section className={`${styles.sectionCream} ${styles.padSection}`} aria-labelledby="docentes-modulos">
         <div className={styles.inner}>
           <h2 id="docentes-modulos" className={styles.modulosTitle}>
-            Módulos formativos
+            Módulos Formativos
           </h2>
           <p className={styles.modulosSub}>
             Un camino estructurado para tu aprendizaje digital, paso a paso.

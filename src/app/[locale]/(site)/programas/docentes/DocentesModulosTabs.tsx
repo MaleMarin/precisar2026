@@ -9,42 +9,42 @@ const TABS = [
     label: "Fundamentos EMI",
     panelTitle: "Fundamentos de la Educación Mediática Digital",
     body:
-      "Comprender, enseñar y transformar. Explora el impacto de los medios y plataformas digitales en la vida cotidiana y su vínculo con los objetivos educativos. Aprende a integrar la educación mediática y digital en el aula a través de proyectos aplicados como la creación de contenidos, el análisis crítico de información y el debate guiado, fortaleciendo el rol del docente como formador de ciudadanía digital activa.",
+      "Comprender, enseñar y transformar. Explora el impacto de los medios y plataformas digitales en la vida cotidiana y su vínculo con los objetivos educativos. Aprende a integrar la educación mediática y digital en el aula a través de proyectos aplicados como la creación de contenidos, el análisis crítico de información y el debate guiado, fortaleciendo así el rol del docente como formador de ciudadanía digital activa.",
   },
   {
     id: "desinformacion",
     label: "Desinformación",
-    panelTitle: "Desinformación y Verificación de Datos",
+    panelTitle: "Desinformación, Verificación de Datos",
     body:
-      "Aprende a identificar noticias falsas, reconocer sesgos informativos y enseñar a tus estudiantes a verificar fuentes antes de compartir contenidos. Herramientas prácticas para trabajar la desinformación en el aula con enfoque crítico y sin alarmismo.",
+      "Adquiere estrategias prácticas para enseñar a tus estudiantes a identificar y desmantelar la desinformación: aprenderán técnicas de verificación de datos, uso de herramientas de fact-checking y métodos para contrastar fuentes, reconocer patrones de manipulación y aplicar estas competencias tanto en sus investigaciones escolares como en su día a día.",
   },
   {
     id: "algoritmos",
     label: "Algoritmos e IA",
-    panelTitle: "Algoritmos e Inteligencia Artificial",
+    panelTitle: "Algoritmos y Inteligencia Artificial",
     body:
-      "Comprende cómo funcionan los algoritmos que determinan qué vemos en redes sociales y buscadores. Explora el impacto de la IA en la producción de contenidos y cómo enseñar a tus estudiantes a interactuar con estas tecnologías de forma crítica y responsable.",
+      "Profundiza en cómo los algoritmos y la Inteligencia Artificial influyen en lo que vemos en línea, desde redes sociales hasta motores de búsqueda. Analizaremos los sesgos inherentes a la IA y su impacto en la información, y te daremos herramientas para enseñar a tus estudiantes a evaluar críticamente el contenido generado o filtrado por estas tecnologías. Además, aprenderás a establecer condiciones de uso claras como acuerdos de responsabilidad digital, criterios de selección de fuentes automatizadas y proyectos colaborativos docente-estudiante, que fomenten un entorno seguro y reflexivo para explorar la IA en el aula.",
   },
   {
     id: "produccion",
     label: "Producción digital",
     panelTitle: "Producción de Contenidos Digitales y Ciudadanía",
     body:
-      "Guía a tus estudiantes en la creación de contenidos digitales con propósito, ética y responsabilidad. Desde el respeto por los derechos de autor hasta la construcción de mensajes constructivos que fortalezcan la ciudadanía digital activa.",
+      "Este módulo te capacitará para guiar a tus estudiantes en la creación de contenidos digitales responsables y significativos. Exploraremos herramientas para la producción de texto, imagen y video, enfocándonos en la ética, el respeto a la propiedad intelectual y el impacto de sus mensajes. Fomentaremos la participación activa y constructiva en el espacio digital, convirtiendo a los estudiantes en creadores conscientes y responsables.",
   },
   {
     id: "seguridad",
     label: "Seguridad y bienestar",
     panelTitle: "Seguridad, Privacidad y Bienestar Digital",
     body:
-      "Incorpora buenas prácticas de protección de datos, gestión de privacidad y bienestar digital en tu práctica docente. Aprende a prevenir el ciberacoso, proteger la identidad digital y promover hábitos saludables de uso de la tecnología.",
+      "Aprende a abordar temas cruciales como la ciberseguridad, la protección de datos personales y la gestión de la privacidad con tus estudiantes. Desarrollarás estrategias para promover un uso saludable y equilibrado de la tecnología, previniendo el ciberacoso y fomentando un bienestar digital que integre la vida online y offline.",
   },
   {
     id: "integracion",
     label: "Integración curricular",
     panelTitle: "Integración Curricular y Proyectos en Educación Mediática",
     body:
-      "Diseña proyectos interdisciplinarios que integren la educación mediática en diferentes asignaturas y niveles. Recursos listos para adaptar, plantillas pedagógicas y ejemplos concretos para llevar al aula desde el primer día.",
+      "Descubre cómo integrar la educación mediática digital en diversas asignaturas y niveles educativos. Te proporcionaremos ejemplos de proyectos exitosos y te guiaremos en el diseño de actividades prácticas que permitan a tus estudiantes aplicar sus conocimientos, culminando en proyectos significativos que demuestren su educación digital y mediática.",
   },
 ] as const;
 
@@ -53,7 +53,7 @@ export function DocentesModulosTabs() {
   const current = TABS[activeTab]!;
 
   return (
-    <div aria-label="Módulos formativos">
+    <div aria-label="Módulos Formativos">
       <div className={styles.tabsBar} role="tablist">
         {TABS.map((t, index) => (
           <button
