@@ -1,7 +1,21 @@
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { footerContactRedirect } from "@/app/[locale]/(site)/participa/actions";
-import { EXTERNAL, FOOTER_COLUMNS, FOOTER_MEDIA, NEWSLETTER } from "@/lib/site";
+import { NEWSLETTER } from "@/lib/site";
 import styles from "./SiteFooter.module.css";
+
+/** Navegación principal del pie (una columna, sin submenús). */
+const FOOTER_MAIN_NAV = [
+  { label: "Inicio", href: "/" },
+  { label: "Participa", href: "/participa" },
+  { label: "Qué Hacemos", href: "/programas" },
+  { label: "Educación Mediática", href: "/educaciónmediática" },
+  { label: "Saberes", href: "/saberes" },
+  { label: "Precisando", href: "/precisando" },
+  { label: "Somos Precisar", href: "/somos" },
+] as const;
+
+const FOOTER_LOGO_SRC = "/logo-precisar.png";
+const WHATSAPP_HREF = "https://wa.me/56991553279";
 
 function WhatsAppIcon({ className }: { className?: string }) {
   return (
@@ -20,191 +34,164 @@ export function SiteFooter() {
   return (
     <footer className={styles.footer}>
       <div className={styles.block1}>
-        <Link href="/" className={styles.wordmarkLink}>
+        <div className={styles.logoStrip}>
           <img
-            src={FOOTER_MEDIA.logoWordmarkFooter}
+            src={FOOTER_LOGO_SRC}
             alt="Precisar"
-            className={styles.logoWordmarkImg}
-            width={520}
-            height={100}
+            className={styles.logoFullWidth}
+            width={1920}
+            height={400}
             loading="lazy"
             decoding="async"
           />
-        </Link>
+        </div>
       </div>
 
       <div className={styles.main}>
         <div className="prec-container">
-        <div className={styles.threeCol}>
-          <div>
-            <p className={styles.newsTitle}>Hay conversaciones que no caben en un post.</p>
-            <p className={styles.newsBody}>
-              Únete a nuestra comunidad y recibe análisis más profundos, recursos exclusivos y perspectivas del entorno
-              digital.
-            </p>
-            <p className={styles.newsCta}>Suscríbete aquí.</p>
+          <div className={styles.threeCol}>
+            <div>
+              <p className={styles.newsTitle}>Hay conversaciones que no caben en un post.</p>
+              <p className={styles.newsBody}>
+                Únete a nuestra comunidad y recibe análisis más profundos, recursos exclusivos y perspectivas del
+                entorno digital.
+              </p>
+              <p className={styles.newsCta}>Suscríbete aquí.</p>
 
-            <div className={styles.newsForm}>
-              <label className={styles.newsLabel}>
-                Correo electrónico <span className="text-white">*</span>
-              </label>
-              {NEWSLETTER.formActionUrl ? (
-                <form
-                  action={NEWSLETTER.formActionUrl}
-                  method="post"
-                  className={styles.newsRow}
-                >
-                  <input
-                    type="email"
-                    name="email"
-                    required
-                    autoComplete="email"
-                    placeholder="escribe tu correo"
-                    className={styles.newsletterField}
-                  />
-                  <button type="submit" className={styles.btnSubscribe}>
-                    Suscribirme
-                  </button>
-                </form>
-              ) : (
-                <>
-                  <div className={styles.newsRow}>
-                    <Link href="/participa#boletin" className={styles.btnSubscribe}>
-                      Suscribirme
+              <div className={styles.newsForm}>
+                {NEWSLETTER.formActionUrl ? (
+                  <form action={NEWSLETTER.formActionUrl} method="post" className={styles.newsFormInner}>
+                    <label className={styles.visuallyHidden} htmlFor="footer-newsletter-email">
+                      Correo electrónico
+                    </label>
+                    <div className={styles.newsRow}>
+                      <input
+                        id="footer-newsletter-email"
+                        type="email"
+                        name="email"
+                        required
+                        autoComplete="email"
+                        placeholder="Correo electrónico"
+                        className={styles.newsletterField}
+                      />
+                      <button type="submit" className={styles.btnSubscribe}>
+                        Suscribirme
+                      </button>
+                    </div>
+                  </form>
+                ) : (
+                  <>
+                    <div className={styles.newsRow}>
+                      <Link href="/participa#boletin" className={styles.btnSubscribe}>
+                        Suscribirme
+                      </Link>
+                    </div>
+                    <p className={styles.fallbackNote}>
+                      Completa tu correo en la sección Newsletter de Participa.
+                    </p>
+                  </>
+                )}
+              </div>
+            </div>
+
+            <nav aria-label="Navegación principal">
+              <ul className={styles.navList}>
+                {FOOTER_MAIN_NAV.map((item) => (
+                  <li key={item.href}>
+                    <Link href={item.href} className={styles.navLink}>
+                      {item.label}
                     </Link>
-                  </div>
-                  <p className={styles.fallbackNote}>
-                    Completa tu correo en la sección Newsletter de Participa.
-                  </p>
-                </>
-              )}
-            </div>
-          </div>
+                  </li>
+                ))}
+              </ul>
+            </nav>
 
-          <nav aria-label="Mapa del sitio">
-            <div className={styles.sitemapGrid}>
-              {FOOTER_COLUMNS.map((col) => (
-                <div key={col.title} className={styles.sitemapBlock}>
-                  <p className={styles.sitemapHeading}>{col.title}</p>
-                  <ul className={styles.sitemapList}>
-                    {col.links.map((item) => {
-                      const ext = item.href.startsWith("http");
-                      return (
-                        <li key={`${col.title}-${item.label}`}>
-                          {ext ? (
-                            <a
-                              href={item.href}
-                              className={styles.sitemapLink}
-                              target="_blank"
-                              rel="noreferrer"
-                            >
-                              {item.label}
-                            </a>
-                          ) : (
-                            <Link href={item.href} className={styles.sitemapLink}>
-                              {item.label}
-                            </Link>
-                          )}
-                        </li>
-                      );
-                    })}
-                  </ul>
+            <div>
+              <h2 className={styles.contactTitle}>Contáctanos</h2>
+              <form action={footerContactRedirect} className={styles.contactForm}>
+                <div className={styles.field}>
+                  <label className={styles.fieldLabel} htmlFor="footer-nombre">
+                    Nombre
+                  </label>
+                  <input
+                    id="footer-nombre"
+                    name="nombre"
+                    type="text"
+                    autoComplete="given-name"
+                    required
+                    className={styles.inputLine}
+                  />
                 </div>
-              ))}
+                <div className={styles.field}>
+                  <label className={styles.fieldLabel} htmlFor="footer-apellido">
+                    Apellido
+                  </label>
+                  <input
+                    id="footer-apellido"
+                    name="apellido"
+                    type="text"
+                    autoComplete="family-name"
+                    required
+                    className={styles.inputLine}
+                  />
+                </div>
+                <div className={styles.field}>
+                  <label className={styles.fieldLabel} htmlFor="footer-email">
+                    Email
+                  </label>
+                  <input
+                    id="footer-email"
+                    name="email"
+                    type="email"
+                    autoComplete="email"
+                    required
+                    className={styles.inputLine}
+                  />
+                </div>
+                <div className={styles.field}>
+                  <label className={styles.fieldLabel} htmlFor="footer-mensaje">
+                    Mensaje
+                  </label>
+                  <textarea
+                    id="footer-mensaje"
+                    name="mensaje"
+                    rows={3}
+                    required
+                    className={`${styles.inputLine} ${styles.textareaLine}`}
+                  />
+                </div>
+                <div className={styles.btnSendWrap}>
+                  <button type="submit" className={styles.btnSend}>
+                    Enviar
+                  </button>
+                </div>
+              </form>
             </div>
-          </nav>
-
-          <div>
-            <h2 className={styles.contactTitle}>Contáctanos</h2>
-            <form action={footerContactRedirect} className={styles.contactForm}>
-              <div className={styles.field}>
-                <label className={styles.fieldLabel} htmlFor="footer-nombre">
-                  Nombre <span className="text-white">*</span>
-                </label>
-                <input
-                  id="footer-nombre"
-                  name="nombre"
-                  type="text"
-                  autoComplete="given-name"
-                  required
-                  className={styles.inputLine}
-                />
-              </div>
-              <div className={styles.field}>
-                <label className={styles.fieldLabel} htmlFor="footer-apellido">
-                  Apellido <span className="text-white">*</span>
-                </label>
-                <input
-                  id="footer-apellido"
-                  name="apellido"
-                  type="text"
-                  autoComplete="family-name"
-                  required
-                  className={styles.inputLine}
-                />
-              </div>
-              <div className={styles.field}>
-                <label className={styles.fieldLabel} htmlFor="footer-email">
-                  Email <span className="text-white">*</span>
-                </label>
-                <input
-                  id="footer-email"
-                  name="email"
-                  type="email"
-                  autoComplete="email"
-                  required
-                  className={styles.inputLine}
-                />
-              </div>
-              <div className={styles.field}>
-                <label className={styles.fieldLabel} htmlFor="footer-mensaje">
-                  Mensaje <span className="text-white">*</span>
-                </label>
-                <textarea
-                  id="footer-mensaje"
-                  name="mensaje"
-                  rows={3}
-                  required
-                  className={`${styles.inputLine} min-h-[4.5rem] resize-y`}
-                />
-              </div>
-              <div className={styles.btnSendWrap}>
-                <button type="submit" className={styles.btnSend}>
-                  Enviar
-                </button>
-              </div>
-            </form>
           </div>
-        </div>
         </div>
       </div>
 
       <div className={styles.legal}>
         <div className="prec-container">
-        <div className={styles.legalGrid}>
-          <p className={styles.legalLeft}>
-            Precisar. Hecho con criterio en Chile 🇨🇱 y México 🇲🇽.
-          </p>
-          <div>
-            <p className={styles.legalRight}>
-              © {year} Precisar. Todos los derechos reservados. Onda de Precisar es una marca registrada y un servicio
-              oficial de comunicación de la Fundación Precisar.
+          <div className={styles.legalGrid}>
+            <p className={styles.legalLeft}>
+              Precisar. Hecho con criterio en Chile 🇨🇱 y México 🇲🇽.
             </p>
-            <div className="mt-4 flex flex-wrap gap-x-6 gap-y-2">
+            <div className={styles.legalRightCol}>
+              <p className={styles.legalRight}>
+                © {year} Precisar. Todos los derechos reservados. Onda de Precisar es una marca registrada y un servicio
+                oficial de comunicación de la Fundación Precisar.
+              </p>
               <Link href="/legal/privacidad-consulta-2026" className={styles.privacyLink}>
-                Política de privacidad
-              </Link>
-              <Link href="/legal/privacidad-bot-onda" className={styles.privacyLink}>
-                Privacidad Bot ONDA
+                Política de Privacidad
               </Link>
             </div>
           </div>
         </div>
-        </div>
       </div>
 
       <a
-        href={EXTERNAL.whatsappShare}
+        href={WHATSAPP_HREF}
         target="_blank"
         rel="noreferrer"
         className={styles.whatsappFab}
