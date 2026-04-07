@@ -34,16 +34,18 @@ export function SiteFooter() {
   return (
     <footer className={styles.footer}>
       <div className={styles.block1}>
-        <div className={styles.logoStrip}>
-          <img
-            src={FOOTER_LOGO_SRC}
-            alt="Precisar"
-            className={styles.logoFullWidth}
-            width={1920}
-            height={400}
-            loading="lazy"
-            decoding="async"
-          />
+        <div className={styles.logoOuter}>
+          <div className={styles.logoStrip}>
+            <img
+              src={FOOTER_LOGO_SRC}
+              alt="Precisar"
+              className={styles.logoFullWidth}
+              width={1920}
+              height={400}
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
         </div>
       </div>
 

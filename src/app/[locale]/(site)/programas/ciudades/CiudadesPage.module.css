@@ -59,51 +59,12 @@
   color: #fff;
 }
 
-.heroStat {
-  position: absolute;
-  right: 48px;
-  bottom: 80px;
-  text-align: right;
-  pointer-events: none;
-  z-index: 0;
-}
-
-.heroStatBig {
-  margin: 0;
-  font-family: var(--font-display);
-  font-size: clamp(80px, 12vw, 140px);
-  font-weight: 800;
-  line-height: 0.95;
-  color: rgba(219, 82, 39, 0.15);
-  letter-spacing: -0.04em;
-}
-
-.heroStatLabel {
-  margin: 0.35rem 0 0;
-  font-family: var(--font-sans);
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: #fff;
-  letter-spacing: 0.02em;
-}
-
 @media (max-width: 900px) {
   .hero {
     flex-direction: column;
     align-items: flex-start;
     min-height: min(80vh, 720px);
     padding: clamp(3rem, 8vw, 5rem) clamp(1.25rem, 4vw, 2.75rem) clamp(2.5rem, 6vw, 4rem);
-  }
-
-  .heroStat {
-    position: static;
-    margin-top: 2rem;
-    text-align: left;
-    pointer-events: auto;
-  }
-
-  .heroStatBig {
-    font-size: clamp(64px, 18vw, 120px);
   }
 }
 

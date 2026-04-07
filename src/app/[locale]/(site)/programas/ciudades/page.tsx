@@ -66,10 +66,6 @@ export default function CiudadesProgramaPage() {
   return (
     <article className={styles.page}>
       <header className={styles.hero}>
-        <div className={styles.heroStat} aria-hidden>
-          <p className={styles.heroStatBig}>8 a 12</p>
-          <p className={styles.heroStatLabel}>municipios</p>
-        </div>
         <div className={styles.heroInner}>
           <p className={styles.heroEyebrow}>■ CIUDADES · PROGRAMA 01</p>
           <h1 className={styles.heroTitle}>Formación en Cultura Digital para la Ciudadanía</h1>

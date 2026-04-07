@@ -7,27 +7,36 @@
   font-family: var(--font-sans-family), system-ui, sans-serif;
 }
 
-/* BLOQUE 1 — logo oficial a todo el ancho (poco aire arriba: evita franja negra vacía) */
+/* BLOQUE 1 — marca tipo “hero”: grande, alineada al mismo ancho que .prec-container */
 .block1 {
   background: #000000;
   box-sizing: border-box;
   width: 100%;
-  padding: clamp(0.35rem, 1.2vw, 0.75rem) var(--gutter) clamp(1rem, 3vw, 1.75rem);
+  padding: clamp(1.25rem, 3.5vw, 2.75rem) 0 clamp(1.25rem, 2.5vw, 2rem);
+}
+
+.logoOuter {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: var(--max, 90rem);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--gutter, 1.25rem);
+  padding-right: var(--gutter, 1.25rem);
 }
 
 .logoStrip {
-  width: 100%;
+  width: min(100%, 90%);
   line-height: 0;
 }
 
 .logoFullWidth {
   display: block;
   width: 100%;
-  height: auto;
-  max-width: none;
+  height: clamp(4.5rem, 22vw, 13.5rem);
+  max-width: 100%;
   object-fit: contain;
-  /* Si el PNG trae mucho negro sobre la marca, ancla el dibujo abajo */
-  object-position: center bottom;
+  object-position: left center;
 }
 
 .visuallyHidden {
