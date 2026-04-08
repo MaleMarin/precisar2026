@@ -1,0 +1,59 @@
+/**
+ * Wizard shell: ritmo vertical + completion.
+ */
+
+.wizardFlow {
+  gap: clamp(1rem, 2.8vw, 1.25rem);
+  padding-top: clamp(1.35rem, 3.2vw, 1.75rem);
+  padding-bottom: clamp(1.35rem, 3vw, 1.65rem);
+}
+
+.completeTitle {
+  margin: 0 0 0.5rem;
+  font-size: clamp(1.12rem, 2.6vw, 1.28rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--sheet-heading, #0c3a63);
+}
+
+.completeText {
+  margin: 0 0 1.15rem;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--sheet-body, #4a5568);
+  max-width: min(100%, 48rem);
+}
+
+.restartBtn {
+  margin: 0;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+  background: none;
+  width: 100%;
+  min-height: 48px;
+  transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.restartBtn:hover {
+  transform: translateY(-2px);
+}
+
+.restartBtn:focus-visible {
+  outline: 2px solid #0096ff;
+  outline-offset: 4px;
+}
+
+.liveRegion {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

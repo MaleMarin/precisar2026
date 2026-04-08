@@ -1,0 +1,118 @@
+/**
+ * Liquid Glass — tokens (dark, material, reusable).
+ * Scope: opt-in via .lg-root or [data-lg-root] on a subtree; does not override site :root.
+ */
+
+.lg-root,
+[data-lg-root] {
+  /* ─── Base (grafito / azul noche / negro azulado) ─── */
+  --lg-void: #030406;
+  --lg-graphite: #0b0e14;
+  --lg-night: #080c14;
+  --lg-slate-deep: #121826;
+  --lg-slate-mid: #1a2235;
+  --lg-surface-ink: #0d1018;
+
+  /* Plato estabilizado (relleno); el blur lo aplica la capa .lg-plate */
+  --lg-plate-fill: linear-gradient(
+    165deg,
+    rgba(22, 28, 44, 0.78) 0%,
+    rgba(10, 14, 24, 0.82) 48%,
+    rgba(6, 8, 14, 0.88) 100%
+  );
+  --lg-plate-solid: #141a28;
+  --lg-plate-solid-elevated: #1a2234;
+
+  /* Acentos (reflejo / glow / profundidad; no fondos planos) */
+  --lg-accent-electric: #3d8cff;
+  --lg-accent-violet: #8b6bff;
+  --lg-accent-magenta: #e040c8;
+  --lg-accent-cyan: #2ee6e6;
+  --lg-accent-warm: #e85d2c;
+
+  --lg-glow-electric: rgba(61, 140, 255, 0.45);
+  --lg-glow-violet: rgba(139, 107, 255, 0.4);
+  --lg-glow-cyan: rgba(46, 230, 230, 0.35);
+  --lg-glow-warm: rgba(232, 93, 44, 0.4);
+
+  /* Texto estable sobre plato */
+  --lg-text: rgba(244, 246, 252, 0.96);
+  --lg-text-muted: rgba(210, 218, 235, 0.62);
+  --lg-text-dim: rgba(170, 184, 210, 0.42);
+
+  /* Modelo de luz único: key desde arriba-izquierda */
+  --lg-light-angle: 165deg;
+  --lg-highlight-strong: rgba(255, 255, 255, 0.14);
+  --lg-highlight-soft: rgba(255, 255, 255, 0.05);
+  --lg-rim-lit: rgba(255, 255, 255, 0.1);
+  --lg-rim-shadow: rgba(0, 0, 0, 0.55);
+  --lg-inner-stroke: rgba(255, 255, 255, 0.07);
+  --lg-edge-separation: rgba(0, 0, 0, 0.42);
+
+  /* Geometría */
+  --lg-radius-sm: 10px;
+  --lg-radius-md: 14px;
+  --lg-radius-lg: 18px;
+  --lg-radius-xl: 22px;
+  --lg-radius-pill: 999px;
+  --lg-blur-strength: 18px;
+  --lg-blur-reduced: 10px;
+
+  /* Sombras: profundidad + contacto */
+  --lg-shadow-drop-1: 0 32px 96px -24px rgba(0, 0, 0, 0.82);
+  --lg-shadow-drop-2: 0 16px 48px -12px rgba(0, 0, 0, 0.62);
+  --lg-shadow-contact: 0 4px 14px -2px rgba(0, 0, 0, 0.55);
+  --lg-shadow-shell-ring: 0 0 0 1px rgba(0, 0, 0, 0.72);
+
+  /* Interacción */
+  --lg-focus-ring: var(--lg-accent-cyan);
+  --lg-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --lg-duration: 0.22s;
+
+  /* Tipografía UI del sistema (Inter vía --font-glass-family en layout) */
+  --lg-font: var(--font-glass-family), ui-sans-serif, system-ui, sans-serif;
+  --lg-font-mono: var(--font-mono-family), ui-monospace, monospace;
+  --lg-tracking-ui: 0.02em;
+  --lg-tracking-tight: -0.02em;
+
+  color: var(--lg-text);
+  font-family: var(--lg-font);
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lg-root,
+  [data-lg-root] {
+    --lg-duration: 0.01ms;
+    --lg-blur-strength: 12px;
+  }
+}
+
+/* Fallback explícito sin backdrop-filter (legibilidad garantizada) */
+.lg-root.lg--no-blur .lg-plate,
+[data-lg-root].lg--no-blur .lg-plate,
+.lg-plate.lg-plate--force-solid {
+  background: var(--lg-plate-solid) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .lg-root .lg-plate,
+  [data-lg-root] .lg-plate {
+    background: var(--lg-plate-solid);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+}
+
+/* Utilidades de texto dentro del árbol glass */
+.lg-root .lg-text-muted,
+[data-lg-root] .lg-text-muted {
+  color: var(--lg-text-muted);
+}
+
+.lg-root .lg-text-dim,
+[data-lg-root] .lg-text-dim {
+  color: var(--lg-text-dim);
+}

@@ -1,0 +1,97 @@
+.consultaRoot {
+  --cq-ink: #ffffff;
+  --cq-ink-muted: rgba(255, 255, 255, 0.72);
+  --cq-mock-blue: #0096ff;
+  --cq-mock-coral: #ff3264;
+  --cq-mock-base: #0a2540;
+  --cq-blue: #0096ff;
+  --cq-blue-electric: #00b4ff;
+  --cq-blue-deep: #0066cc;
+  --cq-purple: #a855f7;
+  --cq-coral: #ff3264;
+  --cq-coral-hot: #ff3264;
+  --cq-cyan: #00d4ff;
+  --cq-focus-ring: #0096ff;
+  --cq-selected: #0096ff;
+
+  --cq-g-depth-out: rgba(8, 40, 80, 0.42);
+  --cq-g-depth-in: rgba(4, 30, 70, 0.38);
+  --cq-g-key: rgba(255, 255, 255, 0.12);
+  --cq-g-key-soft: rgba(255, 255, 255, 0.08);
+  --cq-plate-deep: linear-gradient(168deg, #0f3560 0%, #164574 42%, #0c2d50 100%);
+  --cq-plate-wiz: linear-gradient(172deg, #0e3358 0%, #1a4a78 48%, #0a2848 100%);
+
+  --cq-blur-btn: 22px;
+  --cq-blur-btn-2: 14px;
+  --cq-blur-opt: 16px;
+  --cq-blur-hero-card: 28px;
+
+  --cq-surface-light: rgba(255, 255, 255, 0.92);
+  --cq-surface-light-soft: #f1f4fa;
+  --cq-ink-on-light: #0f3d66;
+  --cq-ink-on-light-muted: #4a6d8c;
+  --cq-shadow-float-light: 0 22px 50px rgba(12, 18, 36, 0.12), 0 10px 24px rgba(0, 150, 255, 0.06),
+    0 0 0 1px rgba(255, 255, 255, 0.9) inset;
+
+  /* Tipografía sobre la hoja clara (mockup móvil) */
+  --sheet-heading: #0c3a63;
+  --sheet-body: #4a6d8c;
+  --sheet-kicker: #6b8caf;
+  --sheet-muted: #5a7a9a;
+
+  min-height: 100vh;
+  font-family: var(--font-consulta), ui-sans-serif, system-ui, sans-serif;
+  color: var(--cq-ink);
+  background-color: var(--cq-mock-base);
+  background-image:
+    radial-gradient(circle at 15% 25%, rgba(0, 180, 255, 0.42), transparent 40%),
+    radial-gradient(circle at 88% 20%, rgba(0, 120, 255, 0.35), transparent 38%),
+    radial-gradient(circle at 80% 85%, rgba(0, 200, 255, 0.2), transparent 45%),
+    radial-gradient(circle at 10% 80%, rgba(255, 80, 120, 0.16), transparent 42%),
+    radial-gradient(ellipse 100% 80% at 50% 120%, rgba(40, 100, 220, 0.22), transparent 50%),
+    linear-gradient(168deg, #061830 0%, #0c3666 32%, #0a4a7a 58%, #082f52 100%);
+  background-attachment: fixed;
+  -webkit-font-smoothing: antialiased;
+}
+
+.consultaRoot::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background: radial-gradient(circle at 50% 0%, rgba(180, 230, 255, 0.12), transparent 42%);
+}
+
+.main {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: min(100%, 76rem);
+  margin: 0 auto;
+  padding: clamp(1.25rem, 3vw, 2rem) clamp(1rem, 4vw, 2.5rem) clamp(3rem, 8vw, 5rem);
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/**
+ * Hoja clara tipo pantalla de app (como referencia): todo el cuerpo bajo el hero.
+ */
+.contentSheet {
+  position: relative;
+  margin-top: -0.65rem;
+  padding: clamp(1.35rem, 3vw, 2rem) clamp(1.25rem, 3vw, 2.25rem) clamp(2rem, 5vw, 3.25rem);
+  border-radius: clamp(20px, 2.5vw, 28px);
+  background: linear-gradient(180deg, #f5f9ff 0%, #eaf2fc 48%, #e2edf9 100%);
+  box-shadow:
+    0 -12px 48px rgba(8, 50, 100, 0.22),
+    0 24px 64px rgba(0, 100, 180, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.75rem, 5vw, 2.5rem);
+  color: var(--sheet-body);
+}
+

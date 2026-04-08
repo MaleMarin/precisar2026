@@ -1,0 +1,144 @@
+.scalePad {
+  padding: 0.85rem 0.75rem 0.95rem;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  align-items: stretch;
+  justify-content: space-between;
+}
+
+.scaleBtn {
+  margin: 0;
+  padding: 0.3rem 0.35rem;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+  flex: 1 1 4.5rem;
+  min-width: min(100%, 4.5rem);
+  min-height: 48px;
+  max-width: 100%;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.4rem;
+  transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.scaleBtn:hover {
+  transform: translateY(-2px);
+}
+
+.scaleBtn:focus-visible {
+  outline: 2px solid var(--cq-focus-ring, #0096ff);
+  outline-offset: 3px;
+}
+
+.scaleBtn[data-selected="true"] {
+  box-shadow:
+    0 0 0 3px rgba(0, 150, 255, 0.35),
+    0 12px 28px rgba(0, 150, 255, 0.1);
+}
+
+.scaleBtn[data-selected="true"][data-accent="coral"] {
+  box-shadow:
+    0 0 0 3px rgba(255, 50, 100, 0.35),
+    0 12px 28px rgba(255, 50, 100, 0.08);
+}
+
+.scaleRail {
+  flex: 0 0 auto;
+  width: 100%;
+  height: 6px;
+  border-radius: 999px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.scaleRailBlue {
+  background: linear-gradient(90deg, #0070d0, #0096ff);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.25),
+    0 0 16px rgba(0, 150, 255, 0.4);
+}
+
+.scaleRailCoral {
+  background: linear-gradient(90deg, #d92550, #ff3264);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.22),
+    0 0 16px rgba(255, 50, 100, 0.38);
+}
+
+.scaleLightCard {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.65rem 0.4rem 0.7rem;
+  border-radius: 16px;
+  background: var(--cq-surface-light, rgba(252, 252, 255, 0.97));
+  border: 1px solid rgba(10, 55, 100, 0.06);
+  box-shadow: var(
+    --cq-shadow-float-light,
+    0 12px 28px rgba(10, 55, 100, 0.12),
+    0 0 0 1px rgba(255, 255, 255, 0.9) inset
+  );
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.scaleBtn[data-selected="true"] .scaleLightCard {
+  border-color: rgba(0, 150, 255, 0.45);
+  box-shadow:
+    0 0 0 2px rgba(0, 150, 255, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 1);
+}
+
+.scaleBtn[data-selected="true"][data-accent="coral"] .scaleLightCard {
+  border-color: rgba(255, 50, 100, 0.45);
+  box-shadow:
+    0 0 0 2px rgba(255, 50, 100, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 1);
+}
+
+.num {
+  display: block;
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: var(--cq-ink-on-light, #0f3d66);
+  margin-bottom: 0.2rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.word {
+  display: block;
+  font-size: 0.5625rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--cq-ink-on-light-muted, #64748b);
+  line-height: 1.3;
+  text-align: center;
+}
+
+.scaleBtn[data-selected="true"] .word {
+  color: #0096ff;
+}
+
+.scaleBtn[data-selected="true"][data-accent="coral"] .word {
+  color: #ff3264;
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .scaleLightCard {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+}

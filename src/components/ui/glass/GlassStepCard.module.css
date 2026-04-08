@@ -1,0 +1,44 @@
+.grid {
+  display: grid;
+  gap: 1rem 1.25rem;
+  align-items: start;
+}
+
+@media (min-width: 560px) {
+  .grid {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+}
+
+.stepNum {
+  font-family: var(--lg-font);
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: rgba(200, 220, 255, 0.88);
+  text-shadow: 0 0 28px var(--lg-glow-electric), 0 0 1px rgba(255, 255, 255, 0.35);
+}
+
+.title {
+  margin: 0 0 0.35rem;
+  font-family: var(--lg-font);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: var(--lg-tracking-tight);
+  color: var(--lg-text);
+}
+
+.body {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--lg-text-muted);
+}
+
+.body > *:first-child {
+  margin-top: 0;
+}
+
+.body > *:last-child {
+  margin-bottom: 0;
+}

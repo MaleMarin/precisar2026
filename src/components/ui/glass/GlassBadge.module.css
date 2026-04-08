@@ -1,0 +1,31 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+  font-family: var(--lg-font);
+  font-weight: 600;
+  font-size: 0.625rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--lg-text-muted);
+}
+
+.inner {
+  padding: 0.28rem 0.55rem;
+}
+
+.variantNeutral {
+  color: var(--lg-text-muted);
+}
+
+.variantElectric {
+  color: rgba(186, 210, 255, 0.92);
+}
+
+.variantWarm {
+  color: rgba(255, 200, 180, 0.95);
+}
+
+.variantViolet {
+  color: rgba(210, 198, 255, 0.95);
+}

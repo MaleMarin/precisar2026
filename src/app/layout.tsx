@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, DM_Sans, IBM_Plex_Mono, Syne } from "next/font/google";
+import { Cormorant_Garamond, DM_Sans, IBM_Plex_Mono, Inter, Syne } from "next/font/google";
 import "@/styles/precisar-design-tokens.css";
 import "./globals.css";
 import rootShell from "./root-layout.module.css";
@@ -28,6 +28,12 @@ const mono = IBM_Plex_Mono({
 
 const serifDisplay = Cormorant_Garamond({
   variable: "--font-serif-display",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
+
+const glassUi = Inter({
+  variable: "--font-glass-family",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
 });
@@ -62,7 +68,7 @@ export default function RootLayout({
   return (
     <html
       lang="es"
-      className={`${sans.className} ${sans.variable} ${display.variable} ${mono.variable} ${serifDisplay.variable} ${rootShell.htmlRoot}`}
+      className={`${sans.className} ${sans.variable} ${display.variable} ${mono.variable} ${serifDisplay.variable} ${glassUi.variable} ${rootShell.htmlRoot}`}
     >
       <body className={rootShell.bodyRoot}>
         <SmoothScrollProvider>

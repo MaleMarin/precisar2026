@@ -1,0 +1,499 @@
+/**
+ * Consulta — premium tech: fondo con gradientes en shell; glass solo en botones,
+ * inputs y tarjetas de opción. Intro / modalidad / wizard = placas elevadas sin blur.
+ */
+
+/* ─── MODALIDAD / INTRO — placas con luz, sin backdrop blur ─── */
+
+.glassStandardShell {
+  position: relative;
+  isolation: isolate;
+  border-radius: 24px;
+  padding: 6px;
+  background: linear-gradient(
+    138deg,
+    rgba(255, 255, 255, 0.14) 0%,
+    rgba(59, 130, 246, 0.22) 38%,
+    rgba(168, 85, 247, 0.16) 68%,
+    rgba(251, 113, 133, 0.12) 100%
+  );
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.1),
+    inset 0 0 0 2px rgba(147, 197, 253, 0.22),
+    inset 0 2px 0 rgba(255, 255, 255, 0.22),
+    0 20px 52px var(--cq-g-depth-out),
+    0 0 56px rgba(59, 130, 246, 0.14),
+    0 0 80px rgba(168, 85, 247, 0.06);
+}
+
+.glassStandardShellThick {
+  padding: 7px;
+  border-radius: 26px;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.1),
+    inset 0 0 0 2px rgba(186, 230, 253, 0.24),
+    inset 0 2px 0 rgba(255, 255, 255, 0.24),
+    0 22px 56px var(--cq-g-depth-out),
+    0 0 64px rgba(56, 189, 248, 0.12),
+    0 0 88px rgba(244, 63, 94, 0.06);
+}
+
+.glassStandardPlate {
+  position: relative;
+  isolation: isolate;
+  border-radius: 19px;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse 70% 50% at 92% 4%, rgba(56, 189, 248, 0.28) 0%, transparent 52%),
+    radial-gradient(ellipse 55% 42% at 6% 96%, rgba(168, 85, 247, 0.22) 0%, transparent 48%),
+    radial-gradient(ellipse 80% 40% at 50% 100%, rgba(251, 113, 133, 0.1) 0%, transparent 45%),
+    var(--cq-plate-deep);
+  box-shadow:
+    inset 0 2px 0 var(--cq-g-key-soft),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.08),
+    inset 0 -26px 44px var(--cq-g-depth-in),
+    inset 0 0 60px -12px rgba(34, 211, 238, 0.06);
+}
+
+.glassStandardShellThick .glassStandardPlate {
+  border-radius: 20px;
+}
+
+.glassStandardPlate::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(165deg, rgba(255, 255, 255, 0.12) 0%, transparent 46%);
+  pointer-events: none;
+  border-radius: inherit;
+  z-index: 0;
+}
+
+.glassStandardPlate::after {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  border-radius: inherit;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.07),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.glassStandardPlate > .plateInner {
+  position: relative;
+  z-index: 2;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  color: inherit;
+}
+
+.glassStandardPlateSelected {
+  background:
+    radial-gradient(ellipse 68% 52% at 88% 8%, rgba(34, 211, 238, 0.32) 0%, transparent 54%),
+    radial-gradient(ellipse 48% 40% at 10% 92%, rgba(251, 113, 133, 0.2) 0%, transparent 50%),
+    linear-gradient(168deg, #0a1628 0%, #132a4a 42%, #0f172a 100%);
+  box-shadow:
+    inset 0 2px 0 rgba(255, 255, 255, 0.16),
+    inset 0 0 0 2px rgba(34, 211, 238, 0.5),
+    inset 0 0 0 4px rgba(15, 23, 42, 0.55),
+    inset 0 -22px 40px var(--cq-g-depth-in),
+    0 0 32px rgba(34, 211, 238, 0.18),
+    0 0 48px rgba(251, 113, 133, 0.08);
+}
+
+.glassStandardPlateSelected::after {
+  box-shadow:
+    inset 0 0 0 1px rgba(34, 211, 238, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+:global([aria-checked="true"]) > .glassStandardShellThick {
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.1),
+    inset 0 0 0 2px rgba(34, 211, 238, 0.42),
+    inset 0 0 0 3px rgba(251, 113, 133, 0.15),
+    inset 0 2px 0 rgba(255, 255, 255, 0.22),
+    0 22px 56px var(--cq-g-depth-out),
+    0 0 48px rgba(34, 211, 238, 0.22),
+    0 0 64px rgba(244, 63, 94, 0.1);
+}
+
+/* ─── WIZARD — legible, capas sin blur en el contenedor principal ─── */
+
+.glassReadableShell {
+  position: relative;
+  isolation: isolate;
+  border-radius: 22px;
+  padding: 5px;
+  background: linear-gradient(
+    142deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(59, 130, 246, 0.14) 45%,
+    rgba(251, 113, 133, 0.1) 100%
+  );
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.08),
+    inset 0 0 0 2px rgba(147, 197, 253, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    0 16px 44px var(--cq-g-depth-out),
+    0 0 40px rgba(59, 130, 246, 0.1);
+}
+
+.glassReadableShellThick {
+  padding: 6px;
+  border-radius: 24px;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.09),
+    inset 0 0 0 2px rgba(147, 197, 253, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    0 18px 48px var(--cq-g-depth-out),
+    0 0 48px rgba(56, 189, 248, 0.1);
+}
+
+.glassReadablePlate {
+  position: relative;
+  isolation: isolate;
+  border-radius: 17px;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse 60% 48% at 94% 2%, rgba(56, 189, 248, 0.2) 0%, transparent 50%),
+    radial-gradient(ellipse 50% 38% at 4% 98%, rgba(168, 85, 247, 0.14) 0%, transparent 46%),
+    var(--cq-plate-wiz);
+  box-shadow:
+    inset 0 2px 0 var(--cq-g-key-soft),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.07),
+    inset 0 -20px 36px var(--cq-g-depth-in);
+}
+
+.glassReadableShellThick .glassReadablePlate {
+  border-radius: 18px;
+}
+
+.glassReadablePlate::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.09) 0%, transparent 34%);
+  pointer-events: none;
+  border-radius: inherit;
+  z-index: 0;
+}
+
+.glassReadablePlate::after {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.glassReadablePlate > .plateInner {
+  position: relative;
+  z-index: 2;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  color: inherit;
+}
+
+.glassReadableOptShell {
+  padding: 4px;
+  border-radius: 18px;
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.11) 0%,
+    rgba(59, 130, 246, 0.18) 45%,
+    rgba(251, 113, 133, 0.1) 100%
+  );
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.08),
+    inset 0 0 0 2px rgba(147, 197, 253, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.14),
+    0 6px 20px rgba(0, 0, 0, 0.4);
+  transition: box-shadow 0.2s ease;
+}
+
+.glassReadableOptPlate {
+  position: relative;
+  isolation: isolate;
+  border-radius: 14px;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse 72% 52% at 82% 0%, rgba(56, 189, 248, 0.2) 0%, transparent 46%),
+    linear-gradient(168deg, #0c1524 0%, #162038 52%, #0f172a 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.06),
+    inset 0 -14px 28px rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(var(--cq-blur-opt)) saturate(1.18);
+  -webkit-backdrop-filter: blur(var(--cq-blur-opt)) saturate(1.18);
+  transition: box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.glassReadableOptPlate::before,
+.glassReadableOptPlate::after {
+  display: none;
+}
+
+.glassReadableOptPlate > .plateInner {
+  position: relative;
+  z-index: 1;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.glassReadableOptPlateSelected {
+  background:
+    radial-gradient(ellipse 68% 52% at 78% 0%, rgba(34, 211, 238, 0.28) 0%, transparent 50%),
+    radial-gradient(ellipse 55% 40% at 20% 100%, rgba(251, 113, 133, 0.18) 0%, transparent 48%),
+    linear-gradient(168deg, #0a1628 0%, #0f2844 50%, #111827 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.16),
+    inset 0 0 0 2px rgba(34, 211, 238, 0.55),
+    inset 0 0 0 4px rgba(15, 23, 42, 0.52),
+    inset 0 -12px 32px rgba(0, 0, 0, 0.32),
+    0 0 28px rgba(34, 211, 238, 0.22),
+    0 0 40px rgba(244, 63, 94, 0.1);
+}
+
+:global([data-selected="true"]) > .glassReadableOptShell {
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.09),
+    inset 0 0 0 2px rgba(34, 211, 238, 0.45),
+    inset 0 0 0 3px rgba(251, 113, 133, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    0 8px 28px rgba(0, 0, 0, 0.45),
+    0 0 36px rgba(34, 211, 238, 0.2),
+    0 0 48px rgba(244, 63, 94, 0.08);
+}
+
+/* ═══ BOTONES: glass + glow (primario cian + coral) ═══ */
+
+.glassBtnShell {
+  position: relative;
+  isolation: isolate;
+  border-radius: 22px;
+  padding: 4px;
+  background: linear-gradient(
+    128deg,
+    rgba(255, 255, 255, 0.16) 0%,
+    rgba(125, 211, 252, 0.24) 32%,
+    rgba(192, 132, 252, 0.18) 58%,
+    rgba(253, 164, 175, 0.14) 100%
+  );
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.1),
+    inset 0 0 0 2px rgba(147, 197, 253, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.24),
+    0 10px 32px rgba(0, 0, 0, 0.48),
+    0 0 40px rgba(59, 130, 246, 0.14);
+  transition: box-shadow 0.22s ease;
+}
+
+.glassBtnShellThick {
+  padding: 5px;
+  border-radius: 24px;
+}
+
+.glassBtnPill {
+  border-radius: 999px;
+}
+
+.glassBtnPlate {
+  position: relative;
+  isolation: isolate;
+  border-radius: 18px;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse 88% 62% at 72% 0%, rgba(56, 189, 248, 0.42) 0%, transparent 54%),
+    radial-gradient(ellipse 52% 46% at 10% 100%, rgba(244, 63, 94, 0.22) 0%, transparent 50%),
+    linear-gradient(168deg, #080c14 0%, #111827 42%, #1a2238 100%);
+  box-shadow:
+    inset 0 2px 0 rgba(255, 255, 255, 0.16),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.08),
+    inset 0 -22px 44px rgba(0, 0, 0, 0.38),
+    inset 0 0 52px -6px rgba(34, 211, 238, 0.14),
+    inset 0 0 40px -4px rgba(168, 85, 247, 0.1);
+  backdrop-filter: blur(var(--cq-blur-btn)) saturate(1.28);
+  -webkit-backdrop-filter: blur(var(--cq-blur-btn)) saturate(1.28);
+  transition: box-shadow 0.22s ease;
+}
+
+.glassBtnShellThick .glassBtnPlate {
+  border-radius: 19px;
+}
+
+.glassBtnPill .glassBtnPlate {
+  border-radius: 999px;
+}
+
+.glassBtnPlate::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 42%;
+  max-height: 52px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, transparent 100%);
+  pointer-events: none;
+  border-radius: inherit;
+  z-index: 0;
+}
+
+.glassBtnPlate::after {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.35);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.glassBtnPlate > .plateInner {
+  position: relative;
+  z-index: 2;
+}
+
+.glassBtnAccent {
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.12),
+    inset 0 0 0 2px rgba(34, 211, 238, 0.55),
+    inset 0 0 0 3px rgba(251, 113, 133, 0.2),
+    inset 0 2px 0 rgba(255, 255, 255, 0.3),
+    0 0 44px rgba(34, 211, 238, 0.38),
+    0 0 72px rgba(59, 130, 246, 0.22),
+    0 0 96px rgba(244, 63, 94, 0.12),
+    0 12px 36px rgba(0, 0, 0, 0.52);
+}
+
+button:not(:disabled):hover .glassBtnAccent,
+a:hover .glassBtnAccent {
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.14),
+    inset 0 0 0 2px rgba(34, 211, 238, 0.72),
+    inset 0 0 0 3px rgba(251, 113, 133, 0.28),
+    inset 0 2px 0 rgba(255, 255, 255, 0.36),
+    0 0 56px rgba(34, 211, 238, 0.48),
+    0 0 96px rgba(59, 130, 246, 0.28),
+    0 0 120px rgba(244, 63, 94, 0.14),
+    0 14px 40px rgba(0, 0, 0, 0.55);
+}
+
+button:not(:disabled):hover .glassBtnAccent .glassBtnPlate,
+a:hover .glassBtnAccent .glassBtnPlate {
+  box-shadow:
+    inset 0 2px 0 rgba(255, 255, 255, 0.22),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.11),
+    inset 0 -18px 44px rgba(0, 0, 0, 0.32),
+    inset 0 0 60px -4px rgba(34, 211, 238, 0.3),
+    inset 0 0 44px -4px rgba(244, 63, 94, 0.12);
+}
+
+.glassBtnShell:not(.glassBtnAccent) {
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.09) 0%,
+    rgba(30, 58, 138, 0.35) 48%,
+    rgba(15, 23, 42, 0.9) 100%
+  );
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.07),
+    inset 0 0 0 2px rgba(96, 165, 250, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    0 10px 28px rgba(0, 0, 0, 0.52);
+}
+
+.glassBtnShell:not(.glassBtnAccent) .glassBtnPlate {
+  background: linear-gradient(168deg, #0a0f18 0%, #1e293b 38%, #0f172a 100%);
+  backdrop-filter: blur(var(--cq-blur-btn-2)) saturate(1.08);
+  -webkit-backdrop-filter: blur(var(--cq-blur-btn-2)) saturate(1.08);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.05),
+    inset 0 -16px 32px rgba(0, 0, 0, 0.48);
+}
+
+button:not(:disabled):hover .glassBtnShell:not(.glassBtnAccent),
+a:hover .glassBtnShell:not(.glassBtnAccent) {
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.09),
+    inset 0 1px 0 rgba(255, 255, 255, 0.16),
+    0 12px 32px rgba(0, 0, 0, 0.55),
+    0 0 36px rgba(59, 130, 246, 0.1);
+}
+
+button:not(:disabled):active .glassBtnPlate,
+a:active .glassBtnPlate {
+  box-shadow:
+    inset 0 4px 16px rgba(0, 0, 0, 0.45),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.07);
+}
+
+button:focus-visible .glassBtnShell,
+a:focus-visible .glassBtnShell {
+  outline: 2px solid var(--cq-focus-ring);
+  outline-offset: 3px;
+}
+
+button:disabled .glassBtnShell,
+button:disabled .glassBtnShellThick {
+  cursor: not-allowed;
+  opacity: 0.48;
+  filter: saturate(0.65);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.04),
+    0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+button:disabled .glassBtnAccent {
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.04),
+    0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+button:disabled .glassBtnPlate {
+  background: linear-gradient(168deg, #1e293b 0%, #0f172a 100%);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.plateInner {
+  position: relative;
+  z-index: 1;
+}
+
+.padSm {
+  padding: 0.75rem 1rem;
+}
+
+.padMd {
+  padding: 1.1rem 1.25rem;
+}
+
+.padLg {
+  padding: 1.35rem 1.5rem;
+}
+
+.padXl {
+  padding: 1.5rem 1.65rem;
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .glassReadableOptPlate {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .glassBtnPlate {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+}

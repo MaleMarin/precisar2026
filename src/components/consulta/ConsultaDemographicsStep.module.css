@@ -1,0 +1,74 @@
+.grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.fieldLabel {
+  font-size: 0.53125rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--sheet-kicker, #8b95a8);
+}
+
+.fieldShell {
+  border-radius: 18px;
+  padding: 3px;
+  background: linear-gradient(135deg, rgba(0, 150, 255, 0.3), rgba(255, 50, 100, 0.2));
+  box-shadow: 0 8px 28px rgba(12, 18, 36, 0.06);
+  transition: box-shadow 0.2s ease;
+}
+
+.fieldShell:focus-within {
+  box-shadow:
+    0 0 0 3px rgba(0, 150, 255, 0.2),
+    0 10px 32px rgba(0, 150, 255, 0.08);
+}
+
+.input,
+.select {
+  width: 100%;
+  margin: 0;
+  padding: 0.85rem 1rem;
+  border: none;
+  border-radius: 15px;
+  font: inherit;
+  font-size: 0.875rem;
+  letter-spacing: -0.015em;
+  color: var(--cq-ink-on-light, #0f3d66);
+  background: var(--cq-surface-light, rgba(252, 252, 255, 0.97));
+  border: 1px solid rgba(10, 55, 100, 0.06);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 1),
+    inset 0 -1px 0 rgba(10, 55, 100, 0.04);
+}
+
+.input::placeholder {
+  color: rgba(10, 55, 100, 0.35);
+}
+
+.input:focus,
+.select:focus {
+  outline: none;
+}
+
+.select {
+  cursor: pointer;
+  appearance: none;
+  padding-right: 2.2rem;
+  background-color: var(--cq-surface-light, rgba(252, 252, 255, 0.97));
+  background-image:
+    linear-gradient(45deg, transparent 50%, #0f3d66 50%),
+    linear-gradient(135deg, #0f3d66 50%, transparent 50%);
+  background-position:
+    calc(100% - 1rem) calc(50% + 0.15rem),
+    calc(100% - 0.65rem) calc(50% + 0.15rem);
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat, no-repeat;
+}

@@ -1,0 +1,123 @@
+.root {
+  min-height: 100vh;
+  background-color: #020308;
+  background-image:
+    radial-gradient(120% 80% at 20% 0%, #1a1f2e 0%, #05060a 55%, #020308 100%),
+    radial-gradient(70% 55% at 92% 12%, rgba(61, 140, 255, 0.07), transparent 55%),
+    radial-gradient(55% 45% at 8% 88%, rgba(139, 107, 255, 0.055), transparent 50%),
+    radial-gradient(45% 38% at 72% 92%, rgba(232, 93, 44, 0.04), transparent 48%),
+    radial-gradient(50% 40% at 48% 50%, rgba(46, 230, 230, 0.025), transparent 60%);
+  background-attachment: fixed;
+}
+
+.inner {
+  width: 100%;
+  max-width: 56rem;
+  margin: 0 auto;
+  padding: clamp(2rem, 5vw, 4rem) clamp(1.25rem, 4vw, 2rem) clamp(4rem, 10vw, 6rem);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2.5rem, 6vw, 4rem);
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.sectionLabel {
+  margin: 0;
+  font-family: var(--lg-font-mono);
+  font-size: 0.5625rem;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--lg-text-dim);
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1rem;
+  align-items: center;
+}
+
+.rowTight {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.65rem;
+  align-items: center;
+}
+
+.panelGrid {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 720px) {
+  .panelGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.panelSampleTitle {
+  margin: 0 0 0.35rem;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--lg-text-muted);
+}
+
+.panelSampleText {
+  margin: 0;
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: var(--lg-text-dim);
+}
+
+.heroPanelTitle {
+  margin: 0 0 0.35rem;
+  font-size: clamp(1.75rem, 4.5vw, 2.75rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  color: var(--lg-text);
+}
+
+.heroPanelLead {
+  margin: 0 0 1rem;
+  font-size: clamp(1rem, 2.2vw, 1.2rem);
+  font-weight: 500;
+  color: var(--lg-text-muted);
+}
+
+.heroPanelBody {
+  margin: 0;
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: var(--lg-text-muted);
+  max-width: 36rem;
+}
+
+.progressStack {
+  display: flex;
+  flex-direction: column;
+  gap: 1.35rem;
+}
+
+.stepOptions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.stepHint {
+  margin: 0.75rem 0 0;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: var(--lg-text-dim);
+}

@@ -1,0 +1,123 @@
+.canvas {
+  position: relative;
+  scroll-margin-top: 1rem;
+}
+
+.editorialGrid {
+  --ctx-gap: clamp(1rem, 2.8vw, 1.25rem);
+  display: grid;
+  gap: var(--ctx-gap);
+  grid-template-columns: 1fr;
+}
+
+.sideStack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ctx-gap);
+}
+
+@media (min-width: 720px) {
+  .editorialGrid {
+    grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+    align-items: start;
+  }
+}
+
+.sheetCard,
+.sheetCardCompact {
+  border-radius: 28px;
+  padding: clamp(1.15rem, 3vw, 1.45rem);
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  box-shadow:
+    0 20px 50px rgba(8, 50, 100, 0.09),
+    0 8px 24px rgba(0, 150, 255, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.sheetCardCompact {
+  padding: clamp(1rem, 2.5vw, 1.2rem);
+}
+
+.kicker {
+  margin: 0 0 0.45rem;
+  font-size: 0.5625rem;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--sheet-kicker, #8b95a8);
+}
+
+.title {
+  margin: 0 0 0.6rem;
+  font-size: clamp(1.05rem, 2.8vw, 1.22rem);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  color: var(--sheet-heading, #0c3a63);
+}
+
+.body {
+  margin: 0;
+  font-size: 0.875rem;
+  line-height: 1.65;
+  color: var(--sheet-body, #4a5568);
+}
+
+.emphasis {
+  margin: 0;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--sheet-heading, #0c3a63);
+}
+
+.emphasisSm {
+  margin: 0 0 0.65rem;
+  font-size: 0.84375rem;
+  line-height: 1.45;
+  font-weight: 600;
+  color: var(--sheet-heading, #0c3a63);
+}
+
+.tagRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.tagBlue,
+.tagCoral {
+  border-radius: 999px;
+  padding: 0.4rem 0.85rem;
+  font-size: 0.5625rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+.tagBlue {
+  background: linear-gradient(135deg, #0096ff 0%, #0066cc 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.25),
+    0 6px 18px rgba(0, 150, 255, 0.35);
+}
+
+.tagCoral {
+  background: linear-gradient(135deg, #ff4d7a 0%, #ff3264 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.25),
+    0 6px 18px rgba(255, 50, 100, 0.35);
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .sheetCard,
+  .sheetCardCompact {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: #ffffff;
+  }
+}

@@ -1,0 +1,122 @@
+.outer {
+  margin: 0 0 clamp(1.1rem, 2.5vw, 1.4rem);
+}
+
+.progressDock {
+  border-radius: 20px;
+  padding: 3px;
+  background: linear-gradient(125deg, rgba(0, 150, 255, 0.4), rgba(255, 50, 100, 0.28));
+  box-shadow: 0 12px 36px rgba(10, 55, 100, 0.08);
+}
+
+.inner {
+  padding: 0.75rem 0.85rem 0.8rem;
+  border-radius: 17px;
+  background: rgba(255, 255, 255, 0.97);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.35rem 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.label {
+  margin: 0;
+  font-size: 0.5rem;
+  font-weight: 700;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--sheet-kicker, #8b95a8);
+}
+
+.count {
+  margin: 0;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  font-variant-numeric: tabular-nums;
+  color: var(--sheet-heading, #0c3a63);
+}
+
+.remaining {
+  margin: 0 0 0.55rem;
+  font-size: 0.71875rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--sheet-muted, #6b7280);
+}
+
+.segments {
+  display: flex;
+  gap: 5px;
+  margin-bottom: 0.55rem;
+  flex-wrap: wrap;
+}
+
+.segment {
+  flex: 1 1 0;
+  min-width: 6px;
+  max-width: 100%;
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(10, 55, 100, 0.07);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06);
+  transition: background 0.25s ease, box-shadow 0.25s ease;
+}
+
+.segmentDoneBlue {
+  background: linear-gradient(90deg, #0070d0, #0096ff);
+  box-shadow: 0 0 14px rgba(0, 150, 255, 0.45);
+}
+
+.segmentDoneCoral {
+  background: linear-gradient(90deg, #d92550, #ff3264);
+  box-shadow: 0 0 14px rgba(255, 50, 100, 0.4);
+}
+
+.segmentCurrentBlue {
+  background: linear-gradient(90deg, #1aadff, #0096ff);
+  box-shadow:
+    0 0 18px rgba(0, 150, 255, 0.55),
+    0 0 28px rgba(0, 150, 255, 0.2);
+}
+
+.segmentCurrentCoral {
+  background: linear-gradient(90deg, #ff5c84, #ff3264);
+  box-shadow:
+    0 0 18px rgba(255, 50, 100, 0.5),
+    0 0 28px rgba(255, 50, 100, 0.18);
+}
+
+.track {
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(10, 55, 100, 0.06);
+  box-shadow:
+    inset 0 1px 4px rgba(0, 0, 0, 0.05),
+    inset 0 0 0 1px rgba(10, 55, 100, 0.04);
+  overflow: hidden;
+}
+
+.fill {
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #0096ff, #7c3aed 42%, #ff3264);
+  box-shadow: 0 0 18px rgba(0, 150, 255, 0.35);
+  transition: width 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .inner {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+}

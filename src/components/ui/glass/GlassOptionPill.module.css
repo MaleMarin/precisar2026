@@ -1,0 +1,39 @@
+.pill {
+  display: inline-flex;
+  margin: 0;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: var(--lg-font);
+  font-weight: 600;
+  font-size: 0.8125rem;
+  letter-spacing: var(--lg-tracking-ui);
+  color: var(--lg-text);
+  transition:
+    transform var(--lg-duration) var(--lg-ease),
+    filter var(--lg-duration) var(--lg-ease);
+}
+
+.pill:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.pill:focus-visible {
+  outline: 2px solid var(--lg-focus-ring);
+  outline-offset: 3px;
+}
+
+.inner {
+  padding: 0.55rem 1rem;
+  transition: box-shadow var(--lg-duration) var(--lg-ease);
+}
+
+.selected .inner {
+  box-shadow: inset 0 0 0 1px rgba(46, 230, 230, 0.35), 0 0 32px -10px var(--lg-glow-cyan);
+}
+
+.pressedShell {
+  box-shadow: var(--lg-shadow-shell-ring), 0 0 0 1px rgba(46, 230, 230, 0.22),
+    0 0 36px -8px var(--lg-glow-cyan), var(--lg-shadow-drop-2), var(--lg-shadow-contact);
+}

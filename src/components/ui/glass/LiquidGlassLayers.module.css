@@ -1,0 +1,115 @@
+/**
+ * Capas materiales: outer shell → inner plate → highlight band → inner stroke → sombra.
+ * Requiere ancestro .lg-root o [data-lg-root].
+ */
+
+.shell {
+  position: relative;
+  display: block;
+  border-radius: var(--lg-radius-lg);
+  padding: 1px;
+  background: linear-gradient(
+    var(--lg-light-angle),
+    var(--lg-highlight-strong) 0%,
+    rgba(255, 255, 255, 0.03) 38%,
+    var(--lg-edge-separation) 100%
+  );
+  box-shadow: var(--lg-shadow-shell-ring), var(--lg-shadow-drop-1), var(--lg-shadow-drop-2),
+    var(--lg-shadow-contact);
+}
+
+.shellSm {
+  border-radius: var(--lg-radius-md);
+}
+
+.shellLg {
+  border-radius: var(--lg-radius-xl);
+}
+
+.shellPill {
+  border-radius: var(--lg-radius-pill);
+}
+
+/* Reflejo de acento en el borde exterior (no relleno plano) */
+.shellAccentElectric {
+  box-shadow: var(--lg-shadow-shell-ring), 0 0 0 1px rgba(61, 140, 255, 0.12),
+    0 0 48px -8px var(--lg-glow-electric), var(--lg-shadow-drop-2), var(--lg-shadow-contact);
+}
+
+.shellAccentWarm {
+  box-shadow: var(--lg-shadow-shell-ring), 0 0 0 1px rgba(232, 93, 44, 0.1),
+    0 0 40px -10px var(--lg-glow-warm), var(--lg-shadow-drop-2), var(--lg-shadow-contact);
+}
+
+.plate {
+  position: relative;
+  display: block;
+  border-radius: calc(var(--lg-radius-lg) - 1px);
+  background: var(--lg-plate-fill);
+  backdrop-filter: blur(var(--lg-blur-strength)) saturate(1.28);
+  -webkit-backdrop-filter: blur(var(--lg-blur-strength)) saturate(1.28);
+  box-shadow: inset 0 1px 0 var(--lg-rim-lit), inset 0 -1px 0 var(--lg-rim-shadow),
+    inset 1px 0 0 var(--lg-highlight-soft), inset -1px 0 0 rgba(0, 0, 0, 0.35),
+    inset 0 0 0 1px var(--lg-inner-stroke);
+  overflow: hidden;
+}
+
+.plateSm {
+  border-radius: calc(var(--lg-radius-md) - 1px);
+}
+
+.plateLg {
+  border-radius: calc(var(--lg-radius-xl) - 1px);
+}
+
+.platePill {
+  border-radius: var(--lg-radius-pill);
+}
+
+/* Banda especular superior (highlight band) */
+.plate::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 38%;
+  max-height: 120px;
+  border-radius: inherit;
+  background: linear-gradient(
+    var(--lg-light-angle),
+    rgba(255, 255, 255, 0.11) 0%,
+    rgba(255, 255, 255, 0.02) 55%,
+    transparent 100%
+  );
+  pointer-events: none;
+  opacity: 0.85;
+}
+
+/* Micro-separación borde interno */
+.plate::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+  pointer-events: none;
+}
+
+.shellSm .plate {
+  border-radius: calc(var(--lg-radius-md) - 1px);
+}
+
+.shellLg .plate {
+  border-radius: calc(var(--lg-radius-xl) - 1px);
+}
+
+.shellPill .plate {
+  border-radius: var(--lg-radius-pill);
+}
+
+/* Contenido por encima de pseudoelementos */
+.plateInner {
+  position: relative;
+  z-index: 1;
+}
