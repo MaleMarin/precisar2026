@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion, useScroll, useSpring, useTransform } from "framer-motion";
+import NextLink from "next/link";
 import { useMemo, useRef, type ComponentType, type ReactNode } from "react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
@@ -228,14 +229,9 @@ function ParticipaStackPanelContent() {
         </div>
       </div>
       <div className={styles.participaStackAside}>
-        <a
-          href={EXTERNAL.consultaCiudadana}
-          className={styles.participaStackCta}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <NextLink href="/consulta" className={styles.participaStackCta}>
           Responder ahora
-        </a>
+        </NextLink>
       </div>
     </div>
   );
@@ -656,8 +652,8 @@ export function MotionStackPanels({
         {!omitFooter ? (
           <section className={styles.footerSection} aria-label="Pie de página">
             <div className={styles.footerGrid}>
+              <h2 className={styles.footerBrandTitle}>{SITE.name}</h2>
               <div className={styles.footerBrandCol}>
-                <h2 className={styles.footerBrandTitle}>{SITE.name}</h2>
                 <p className={styles.footerBrandTag}>{SITE.tagline}</p>
               </div>
               <div className={styles.footerCols}>

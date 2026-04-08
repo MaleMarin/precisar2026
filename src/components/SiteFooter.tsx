@@ -52,13 +52,13 @@ export function SiteFooter() {
   return (
     <footer className={styles.footer}>
       <div className={styles.block1}>
-        <div className={`prec-container ${styles.brandWrap}`}>
+        <div className={styles.brandStrip}>
           <Link href="/" className={styles.brandLogoLink}>
             <img
-              src="/logo-precisar.png"
+              src={FOOTER_MEDIA.footerBrandStrip}
               alt="Precisar"
-              width={500}
-              height={500}
+              width={1920}
+              height={1080}
               className={styles.brandLogo}
               decoding="async"
             />
@@ -136,7 +136,10 @@ export function SiteFooter() {
                     rel="noopener noreferrer"
                     className={styles.navLink}
                   >
-                    {tNav("botOnda")}
+                    <span className={styles.footerBotOndaLine}>
+                      {tNav("botOnda")}
+                      <span className={styles.footerBotOndaBeta}>{tNav("botOndaBeta")}</span>
+                    </span>
                   </a>
                 </li>
               </ul>
@@ -239,6 +242,7 @@ export function SiteFooter() {
                 decoding="async"
                 className={styles.footerOndaLogo}
               />
+              <span className={styles.footerOndaBeta}>{tNav("botOndaBeta")}</span>
             </a>
           </div>
         </div>

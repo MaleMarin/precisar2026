@@ -1,8 +1,7 @@
 "use client";
 
 import { useLocale, useTranslations } from "next-intl";
-import { startTransition, useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
-import { usePathname as useNextPathname, useRouter as useNextRouter } from "next/navigation";
+import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { Link, usePathname } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
 import {
@@ -24,8 +23,6 @@ const LOCALE_PREFIXES = new Set(routing.locales.map((l) => l.toLowerCase()));
 
 export function SiteHeader() {
   const pathname = usePathname();
-  const nextPathname = useNextPathname();
-  const nextRouter = useNextRouter();
   const locale = useLocale();
   const tNav = useTranslations("nav");
   const tLang = useTranslations("language");
@@ -104,26 +101,24 @@ export function SiteHeader() {
     };
   }, [open]);
 
-  const switchLocale = useCallback(
-    (loc: (typeof routing.locales)[number]) => {
-      if (locale === loc) return;
-      const raw = nextPathname || "/";
-      const segments = raw.split("/").filter(Boolean);
-      const first = segments[0]?.toLowerCase();
-      if (first && LOCALE_PREFIXES.has(first)) {
-        segments[0] = loc;
-      } else {
-        segments.unshift(loc);
-      }
-      const href = `/${segments.join("/")}`;
-      const hash = typeof window !== "undefined" ? window.location.hash : "";
-      startTransition(() => {
-        nextRouter.replace(href + hash, { scroll: false });
-      });
-      setOpen(false);
-    },
-    [locale, nextPathname, nextRouter],
-  );
+  /**
+   * Navegación completa: evita que el cliente se quede con mensajes/RSC del locale anterior
+   * (en algunos entornos `router.replace` + next-intl no refrescaba `NextIntlClientProvider`).
+   */
+  const switchLocale = useCallback((loc: (typeof routing.locales)[number]) => {
+    if (locale === loc) return;
+    if (typeof window === "undefined") return;
+    const segments = window.location.pathname.split("/").filter(Boolean);
+    const first = segments[0]?.toLowerCase();
+    if (first && LOCALE_PREFIXES.has(first)) {
+      segments[0] = loc;
+    } else {
+      segments.unshift(loc);
+    }
+    const nextPath = segments.length ? `/${segments.join("/")}` : `/${loc}`;
+    window.location.assign(`${nextPath}${window.location.search}${window.location.hash}`);
+    setOpen(false);
+  }, [locale]);
 
   useEffect(() => {
     if (!isHome) {
@@ -214,7 +209,7 @@ export function SiteHeader() {
         <div className={shellClass}>
           <div className="flex flex-col">
             <div
-              className={`${styles.navBarOuter} relative flex min-h-[4rem] items-center py-2 md:min-h-[6.5rem] md:py-2.5 ${styles.navBarRow}`}
+              className={`${styles.navBarOuter} relative flex min-h-[4rem] items-end py-2 md:min-h-[6.5rem] md:py-2.5 ${styles.navBarRow}`}
             >
               <Link href="/" className={styles.navBarLogoLink} onClick={() => setOpen(false)}>
                 <img
@@ -228,7 +223,7 @@ export function SiteHeader() {
               </Link>
               <div className={styles.navBarEnd}>
                 <nav
-                  className="hidden max-w-[min(100%,52rem)] flex-wrap items-center justify-end gap-x-0 gap-y-1 lg:flex"
+                  className={`hidden lg:flex ${styles.navDesktop}`}
                   aria-label={tNav("main")}
                 >
                   {NAV_PRIMARY.map((item, i) => (
@@ -273,14 +268,17 @@ export function SiteHeader() {
                     className={`${styles.navOndaLink} ${styles.navOndaAfterLocale}`}
                     aria-label={tNav("botOndaAria")}
                   >
-                    <img
-                      src={FOOTER_MEDIA.navOndaMark}
-                      alt=""
-                      width={64}
-                      height={64}
-                      decoding="async"
-                      className={`${styles.navOndaIcon} ${styles.navOndaMarkImg}`}
-                    />
+                    <span className={styles.navOndaWithBeta}>
+                      <img
+                        src={FOOTER_MEDIA.navOndaMark}
+                        alt=""
+                        width={64}
+                        height={64}
+                        decoding="async"
+                        className={`${styles.navOndaIcon} ${styles.navOndaMarkImg}`}
+                      />
+                      <span className={styles.navOndaBeta}>{tNav("botOndaBeta")}</span>
+                    </span>
                   </a>
                 </nav>
                 <button
@@ -303,14 +301,17 @@ export function SiteHeader() {
                   className={`${styles.navOndaLink} ${styles.navOndaLinkMobileBar}`}
                   aria-label={tNav("botOndaAria")}
                 >
-                  <img
-                    src={FOOTER_MEDIA.navOndaMark}
-                    alt=""
-                    width={64}
-                    height={64}
-                    decoding="async"
-                    className={`${styles.navOndaIcon} ${styles.navOndaMarkImg}`}
-                  />
+                  <span className={styles.navOndaWithBeta}>
+                    <img
+                      src={FOOTER_MEDIA.navOndaMark}
+                      alt=""
+                      width={64}
+                      height={64}
+                      decoding="async"
+                      className={`${styles.navOndaIcon} ${styles.navOndaMarkImg}`}
+                    />
+                    <span className={styles.navOndaBeta}>{tNav("botOndaBeta")}</span>
+                  </span>
                 </a>
               </div>
             </div>
@@ -394,7 +395,10 @@ export function SiteHeader() {
                   decoding="async"
                   className={styles.navOndaMobileIcon}
                 />
-                <span className={styles.navOndaMobileLabel}>{tNav("botOnda")}</span>
+                <span className={styles.navOndaMobileLabel}>
+                  {tNav("botOnda")}
+                  <span className={styles.navOndaMobileBeta}>{tNav("botOndaBeta")}</span>
+                </span>
               </a>
             </nav>
           </div>

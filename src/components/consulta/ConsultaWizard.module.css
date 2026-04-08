@@ -57,3 +57,11 @@
   white-space: nowrap;
   border: 0;
 }
+
+:global([data-consulta-live="true"]) .completeTitle {
+  color: #e8f0ff;
+}
+
+:global([data-consulta-live="true"]) .completeText {
+  color: rgba(200, 215, 245, 0.88);
+}

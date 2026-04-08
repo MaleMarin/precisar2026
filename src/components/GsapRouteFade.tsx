@@ -37,6 +37,8 @@ export function GsapRouteFade({ children, overlayColor }: GsapRouteFadeProps) {
     <div
       ref={ref}
       style={{
+        position: "relative",
+        zIndex: 1,
         flex: 1,
         display: "flex",
         flexDirection: "column",

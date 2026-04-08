@@ -10,9 +10,10 @@ type Props = {
   onChange: (n: number) => void;
   error?: string | null;
   headingId: string;
+  onInteraction?: () => void;
 };
 
-export function ConsultaScaleStep({ step, value, onChange, error, headingId }: Props) {
+export function ConsultaScaleStep({ step, value, onChange, error, headingId, onInteraction }: Props) {
   return (
     <div>
       <div className={st.stepHead}>
@@ -38,7 +39,10 @@ export function ConsultaScaleStep({ step, value, onChange, error, headingId }: P
                     className={sc.scaleBtn}
                     data-selected={on ? "true" : "false"}
                     data-accent={blue ? "blue" : "coral"}
-                    onClick={() => onChange(opt.value)}
+                    onClick={() => {
+                      onChange(opt.value);
+                      onInteraction?.();
+                    }}
                   >
                     <span
                       className={[sc.scaleRail, blue ? sc.scaleRailBlue : sc.scaleRailCoral].join(" ")}

@@ -1,5 +1,7 @@
 /* Deja que GsapRouteFade + SiteChrome usen flex column sin hueco fantasma antes del footer */
 .flexFill {
+  position: relative;
+  z-index: 1;
   flex: 1;
   display: flex;
   flex-direction: column;

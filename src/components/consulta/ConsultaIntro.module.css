@@ -1,10 +1,26 @@
 .canvas {
   position: relative;
   scroll-margin-top: 1rem;
+  padding-bottom: clamp(0.35rem, 1.5vw, 0.75rem);
+}
+
+.canvas::after {
+  content: "";
+  display: block;
+  margin-top: clamp(1.25rem, 3.5vw, 1.85rem);
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(0, 0, 0, 0.06) 20%,
+    rgba(0, 0, 0, 0.06) 80%,
+    transparent 100%
+  );
+  pointer-events: none;
 }
 
 .editorialGrid {
-  --ctx-gap: clamp(1rem, 2.8vw, 1.25rem);
+  --ctx-gap: clamp(1.1rem, 3vw, 1.45rem);
   display: grid;
   gap: var(--ctx-gap);
   grid-template-columns: 1fr;
@@ -25,20 +41,24 @@
 
 .sheetCard,
 .sheetCardCompact {
-  border-radius: 28px;
-  padding: clamp(1.15rem, 3vw, 1.45rem);
-  background: rgba(255, 255, 255, 0.88);
-  border: 1px solid rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  padding: clamp(1.2rem, 3vw, 1.5rem);
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.9);
   box-shadow:
-    0 20px 50px rgba(8, 50, 100, 0.09),
-    0 8px 24px rgba(0, 150, 255, 0.05),
-    inset 0 1px 0 rgba(255, 255, 255, 1);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+    0 20px 40px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
 }
 
 .sheetCardCompact {
-  padding: clamp(1rem, 2.5vw, 1.2rem);
+  padding: clamp(1rem, 2.5vw, 1.15rem);
+  background: rgba(255, 255, 255, 0.65);
+}
+
+.sideStack .sheetCard {
+  background: rgba(255, 255, 255, 0.72);
 }
 
 .kicker {
@@ -47,7 +67,7 @@
   font-weight: 700;
   letter-spacing: 0.28em;
   text-transform: uppercase;
-  color: var(--sheet-kicker, #8b95a8);
+  color: var(--sheet-kicker, #7c8aa3);
 }
 
 .title {
@@ -55,14 +75,14 @@
   font-size: clamp(1.05rem, 2.8vw, 1.22rem);
   font-weight: 700;
   letter-spacing: -0.035em;
-  color: var(--sheet-heading, #0c3a63);
+  color: var(--sheet-heading, #1e3c72);
 }
 
 .body {
   margin: 0;
   font-size: 0.875rem;
   line-height: 1.65;
-  color: var(--sheet-body, #4a5568);
+  color: var(--sheet-body, #5a6578);
 }
 
 .emphasis {
@@ -71,7 +91,7 @@
   line-height: 1.5;
   font-weight: 600;
   letter-spacing: -0.02em;
-  color: var(--sheet-heading, #0c3a63);
+  color: var(--sheet-heading, #1e3c72);
 }
 
 .emphasisSm {
@@ -79,7 +99,7 @@
   font-size: 0.84375rem;
   line-height: 1.45;
   font-weight: 600;
-  color: var(--sheet-heading, #0c3a63);
+  color: var(--sheet-heading, #1e3c72);
 }
 
 .tagRow {
@@ -100,24 +120,42 @@
 }
 
 .tagBlue {
-  background: linear-gradient(135deg, #0096ff 0%, #0066cc 100%);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.25),
-    0 6px 18px rgba(0, 150, 255, 0.35);
+  background: linear-gradient(135deg, #4da3ff 0%, #2a5298 100%);
+  box-shadow: 0 6px 16px rgba(77, 163, 255, 0.25);
 }
 
 .tagCoral {
-  background: linear-gradient(135deg, #ff4d7a 0%, #ff3264 100%);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.25),
-    0 6px 18px rgba(255, 50, 100, 0.35);
+  background: linear-gradient(135deg, #ff4d6d, #ff7a18);
+  box-shadow: 0 6px 16px rgba(255, 77, 109, 0.22);
 }
 
-@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
-  .sheetCard,
-  .sheetCardCompact {
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-    background: #ffffff;
-  }
+/* Mapa vivo */
+:global([data-consulta-page][data-live-map="true"]) .canvas::after {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(100, 180, 255, 0.12) 20%,
+    rgba(255, 100, 80, 0.1) 80%,
+    transparent 100%
+  );
+}
+
+:global([data-consulta-page][data-live-map="true"]) .sheetCard,
+:global([data-consulta-page][data-live-map="true"]) .sheetCardCompact {
+  background: rgba(12, 16, 30, 0.75);
+  border: 1px solid rgba(100, 180, 255, 0.14);
+  box-shadow:
+    0 20px 48px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+:global([data-consulta-page][data-live-map="true"]) .kicker {
+  color: rgba(160, 200, 255, 0.5);
+}
+
+:global([data-consulta-page][data-live-map="true"]) .title,
+:global([data-consulta-page][data-live-map="true"]) .body,
+:global([data-consulta-page][data-live-map="true"]) .emphasis,
+:global([data-consulta-page][data-live-map="true"]) .emphasisSm {
+  color: rgba(230, 238, 255, 0.92);
 }

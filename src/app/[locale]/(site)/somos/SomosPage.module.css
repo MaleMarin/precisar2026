@@ -204,67 +204,6 @@
   color: rgba(255, 255, 255, 0.82);
 }
 
-/* ─── Números ─── */
-.stats {
-  background: #f5f2ec;
-}
-
-.statsInner {
-  max-width: min(100%, var(--max, 76rem));
-  margin: 0 auto;
-}
-
-.statsTitle {
-  margin: 0 0 48px;
-  font-size: clamp(28px, 4vw, 44px);
-  font-weight: 700;
-  line-height: 1.15;
-  color: #0a0c12;
-  letter-spacing: -0.02em;
-}
-
-.statsGrid {
-  display: grid;
-  gap: 1.25rem;
-  grid-template-columns: 1fr;
-}
-
-@media (min-width: 640px) {
-  .statsGrid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (min-width: 1024px) {
-  .statsGrid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-}
-
-.statCard {
-  background: #ffffff;
-  border-radius: 12px;
-  padding: 32px;
-  text-align: center;
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.06);
-}
-
-.statNum {
-  margin: 0;
-  font-size: clamp(40px, 6vw, 64px);
-  font-weight: 800;
-  line-height: 1;
-  color: #db5227;
-  letter-spacing: -0.03em;
-}
-
-.statDesc {
-  margin: 8px 0 0;
-  font-size: 13px;
-  line-height: 1.5;
-  color: #76828e;
-}
-
 /* ─── Lo que hacemos ─── */
 .work {
   background: #0a0c12;

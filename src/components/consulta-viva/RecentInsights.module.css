@@ -1,0 +1,69 @@
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.item,
+.itemHot {
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: rgba(232, 234, 239, 0.72);
+  padding-left: 0.85rem;
+  position: relative;
+}
+
+.itemHot {
+  color: rgba(232, 234, 239, 0.92);
+}
+
+.dot {
+  position: absolute;
+  left: 0;
+  top: 0.45em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: rgba(143, 212, 255, 0.65);
+}
+
+.itemHot .dot {
+  background: #c94a1e;
+  box-shadow: 0 0 12px rgba(201, 74, 30, 0.55);
+}
+
+.empty {
+  margin: 0;
+  font-size: 0.8rem;
+  color: rgba(232, 234, 239, 0.35);
+}
+
+.activityKicker {
+  margin: 0.35rem 0 0;
+  font-family: var(--font-mono-family), ui-monospace, monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(232, 234, 239, 0.4);
+}
+
+.activityList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.activityItem {
+  font-size: 0.76rem;
+  line-height: 1.4;
+  color: rgba(232, 234, 239, 0.55);
+  padding: 0.4rem 0.5rem;
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.2);
+}

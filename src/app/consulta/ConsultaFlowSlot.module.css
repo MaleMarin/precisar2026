@@ -12,44 +12,28 @@
 }
 
 .wizChrome {
-  border-radius: 28px;
-  padding: 4px;
-  background: linear-gradient(135deg, rgba(0, 150, 255, 0.35), rgba(255, 50, 100, 0.22));
-  box-shadow: 0 18px 48px rgba(8, 50, 100, 0.1);
+  border-radius: 20px;
+  padding: 0;
+  background: transparent;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
 }
 
 .inner {
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: 1fr;
   gap: 0;
   align-items: stretch;
   min-height: 0;
   padding: 0;
   overflow: hidden;
-  border-radius: 24px;
-  background: rgba(255, 255, 255, 0.96);
-  border: 1px solid rgba(255, 255, 255, 0.98);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 1);
-}
-
-@media (max-width: 520px) {
-  .inner {
-    grid-template-columns: 1fr;
-  }
-
-  .stepRail {
-    display: none;
-  }
-}
-
-.stepRail {
-  width: 6px;
-  min-height: 100%;
-  border-radius: 0 2px 2px 0;
-  background: linear-gradient(180deg, #0096ff 0%, #0066cc 35%, #ff3264 100%);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.9);
   box-shadow:
-    0 0 24px rgba(0, 150, 255, 0.35),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.25);
+    0 12px 24px rgba(0, 0, 0, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
 }
 
 .flowBody {
@@ -116,11 +100,36 @@
   font-size: 0.59375rem;
   font-weight: 800;
   color: #ffffff;
-  background: linear-gradient(145deg, #0096ff 0%, #ff3264 100%);
-  box-shadow: 0 4px 12px rgba(0, 150, 255, 0.25);
+  background: linear-gradient(135deg, #4da3ff, #2a5298);
+  box-shadow: 0 4px 12px rgba(77, 163, 255, 0.25);
 }
 
 .stepCopy {
   flex: 1;
   min-width: 0;
+}
+
+/* Mapa vivo — panel del wizard */
+:global([data-consulta-page][data-live-map="true"]) #consulta-flujo .inner {
+  background: rgba(10, 14, 28, 0.55);
+  border: 1px solid rgba(100, 180, 255, 0.16);
+  box-shadow:
+    0 16px 40px rgba(0, 0, 0, 0.42),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+:global([data-consulta-page][data-live-map="true"]) #consulta-flujo .wizChrome {
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.35);
+}
+
+:global([data-consulta-page][data-live-map="true"]) #consulta-flujo .kicker {
+  color: rgba(160, 200, 255, 0.5);
+}
+
+:global([data-consulta-page][data-live-map="true"]) #consulta-flujo .heading {
+  color: #e8f0ff;
+}
+
+:global([data-consulta-page][data-live-map="true"]) #consulta-flujo .text {
+  color: rgba(200, 215, 245, 0.85);
 }

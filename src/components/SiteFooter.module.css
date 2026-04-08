@@ -1,32 +1,45 @@
-/* Footer precisar.net — fondo #000 (layout alineado al sitio clásico) */
+/* Footer precisar.net — carbón (no negro puro) para que el wordmark gris contraste */
 
 .footer {
+  --footer-bg: #1a1d26;
+  --footer-bg-brand: #252a35;
+  --footer-bg-legal: #161920;
+
   flex-shrink: 0;
-  background: #000000;
+  background: var(--footer-bg);
   color: #fff;
   font-family: var(--font-sans-family), system-ui, sans-serif;
 }
 
-/* BLOQUE 1 — wordmark grande, tipo sitio anterior */
+/* BLOQUE 1 — franja del wordmark un poco más clara */
 .block1 {
-  background: #000000;
+  background: linear-gradient(180deg, var(--footer-bg-brand) 0%, #1f232e 55%, var(--footer-bg) 100%);
   box-sizing: border-box;
   width: 100%;
-  padding: clamp(2rem, 5vw, 3.5rem) 0 clamp(1.5rem, 3vw, 2.25rem);
+  /* Solo aire vertical; el logo va de borde a borde en horizontal */
+  padding: clamp(2.25rem, 5vw, 4rem) 0 clamp(2rem, 4vw, 3.25rem);
 }
 
-.brandWrap {
+/* Tira a ancho viewport completo (sin gutter) — izquierda a derecha */
+.brandStrip {
+  box-sizing: border-box;
   width: 100%;
-  display: flex;
-  justify-content: center;
+  max-width: none;
+  margin: 0;
+  padding: 0;
 }
 
 .brandLogoLink {
   display: block;
   width: 100%;
-  max-width: min(100%, 28rem);
-  margin: 0 auto;
+  max-width: 100%;
+  margin: 0;
   line-height: 0;
+  /* Altura según proporción del PNG: ancho 100%, crece hacia abajo */
+  min-height: clamp(5rem, 18vw, 9rem);
+  height: auto;
+  overflow: visible;
+  border-radius: 0;
 }
 
 .brandLogoLink:focus-visible {
@@ -38,8 +51,11 @@
   display: block;
   width: 100%;
   height: auto;
+  max-height: none;
   object-fit: contain;
-  opacity: 0.92;
+  object-position: center center;
+  opacity: 1;
+  filter: brightness(1.06) contrast(1.04);
 }
 
 .visuallyHidden {
@@ -56,13 +72,13 @@
 
 /* BLOQUE 2 — newsletter ancho contenedor + debajo 2 columnas */
 .main {
-  background: #000000;
-  padding: 0 0 clamp(3rem, 5vw, 4rem);
+  background: var(--footer-bg);
+  padding: clamp(0.5rem, 2vw, 1rem) 0 clamp(3.5rem, 7vw, 5.5rem);
 }
 
 .newsletterSection {
-  padding-bottom: clamp(2.5rem, 5vw, 3.5rem);
-  margin-bottom: clamp(2.5rem, 5vw, 3.5rem);
+  padding-bottom: clamp(3rem, 6vw, 4.25rem);
+  margin-bottom: clamp(3rem, 6vw, 4.25rem);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
@@ -74,13 +90,13 @@
 
 .bottomGrid {
   display: grid;
-  gap: clamp(2.5rem, 4vw, 3rem);
+  gap: clamp(3rem, 5vw, 4rem);
 }
 
 @media (min-width: 1024px) {
   .bottomGrid {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    gap: clamp(2rem, 5vw, 4rem);
+    gap: clamp(2.5rem, 6vw, 5rem);
     align-items: start;
   }
 }
@@ -243,7 +259,7 @@
 }
 
 .textareaLine {
-  min-height: 4.5rem;
+  min-height: 6rem;
   resize: vertical;
 }
 
@@ -287,20 +303,20 @@
 
 /* BLOQUE 3 — legal */
 .legal {
-  background: #000000;
-  padding: 32px 0 120px;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--footer-bg-legal);
+  padding: clamp(2.25rem, 4vw, 3rem) 0 clamp(8rem, 18vw, 10rem);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .legalGrid {
   display: grid;
-  gap: 28px;
+  gap: clamp(1.75rem, 3vw, 2.5rem);
 }
 
 @media (min-width: 768px) {
   .legalGrid {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
-    gap: 40px;
+    gap: clamp(2.5rem, 4vw, 3.5rem);
     align-items: start;
   }
 }
@@ -342,19 +358,47 @@
 .footerOndaWrap {
   display: flex;
   justify-content: center;
-  margin-top: 2.5rem;
-  padding-top: 1.75rem;
+  margin-top: clamp(2.5rem, 4vw, 3.5rem);
+  padding-top: clamp(1.75rem, 3vw, 2.5rem);
   border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
+.footerBotOndaLine {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.footerBotOndaBeta {
+  font-family: var(--font-mono);
+  font-size: 0.5625rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  line-height: 1;
+  color: var(--accent);
+}
+
 .footerOndaLink {
-  display: block;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
   line-height: 0;
   border-radius: 8px;
   opacity: 0.92;
+  text-decoration: none;
   transition:
     opacity 0.2s ease,
     transform 0.2s ease;
+}
+
+.footerOndaBeta {
+  font-family: var(--font-mono);
+  font-size: 0.5625rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  line-height: 1;
+  color: var(--accent);
 }
 
 .footerOndaLink:hover {

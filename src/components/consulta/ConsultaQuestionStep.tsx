@@ -10,9 +10,11 @@ type Props = {
   onChange: (id: ConsultaMultiId, next: string[]) => void;
   error?: string | null;
   headingId: string;
+  /** Mapa vivo: pulso al elegir opción */
+  onInteraction?: () => void;
 };
 
-export function ConsultaQuestionStep({ step, value, onChange, error, headingId }: Props) {
+export function ConsultaQuestionStep({ step, value, onChange, error, headingId, onInteraction }: Props) {
   const selected = value ?? [];
   const [capMsg, setCapMsg] = useState<string | null>(null);
 
@@ -31,8 +33,9 @@ export function ConsultaQuestionStep({ step, value, onChange, error, headingId }
         return;
       }
       onChange(step.id, [...selected, optionId]);
+      onInteraction?.();
     },
-    [onChange, selected, step.id, step.maxSelections],
+    [onChange, onInteraction, selected, step.id, step.maxSelections],
   );
 
   const dense = step.options.length >= 8;
@@ -54,9 +57,8 @@ export function ConsultaQuestionStep({ step, value, onChange, error, headingId }
         role="group"
         aria-labelledby={headingId}
       >
-        {step.options.map((opt, index) => {
+        {step.options.map((opt) => {
           const on = selected.includes(opt.id);
-          const accentBlue = index % 2 === 0;
           return (
             <button
               key={opt.id}
@@ -64,29 +66,10 @@ export function ConsultaQuestionStep({ step, value, onChange, error, headingId }
               className={st.optionBtn}
               aria-pressed={on}
               data-selected={on ? "true" : "false"}
-              data-accent={accentBlue ? "blue" : "coral"}
               onClick={() => toggle(opt.id)}
             >
-              <span
-                className={[st.optionRailNeo, accentBlue ? st.optionNeoBlue : st.optionNeoCoral].join(" ")}
-                aria-hidden="true"
-              >
-                <span className={st.optionNeoDot} />
-              </span>
               <span className={st.optionLightCard}>
                 <span className={st.optionLabel}>{opt.label}</span>
-              </span>
-              <span
-                className={[
-                  st.optionActionCap,
-                  accentBlue ? st.optionActionBlue : st.optionActionCoral,
-                  on ? st.optionActionOn : "",
-                ]
-                  .filter(Boolean)
-                  .join(" ")}
-                aria-hidden="true"
-              >
-                {on ? "✓" : ""}
               </span>
             </button>
           );

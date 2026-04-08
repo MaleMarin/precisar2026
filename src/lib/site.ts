@@ -20,6 +20,8 @@ export const NEWSLETTER = {
  */
 export const FOOTER_MEDIA = {
   logoWordmark: "/logo-precisar/logo-precisar.png",
+  /** Franja superior del pie: wordmark a todo el ancho (`public/precisar-footer-wordmark.png`). */
+  footerBrandStrip: "/precisar-footer-wordmark.png",
   /** Wordmark PRECISAR en la barra (`public/1.png`). */
   headerLogoBlack: "/1.png",
   logoWordmarkFooter: "/brand/footer-wordmark.svg",
@@ -74,78 +76,110 @@ export const HOME_STACK_SECTION_IDS = {
 
 /** Barra superior: anclas en la portada (mismos bloques que el stack bajo el hero). */
 export const NAV_PRIMARY: NavItem[] = [
+  { label: "Qué nos convoca", href: "/#convoca" },
   { label: "Programas", href: "/#programas" },
   { label: "Saberes", href: "/#saberes" },
   { label: "Precisando", href: "/#precisando" },
   { label: "Educación mediática", href: "/educacion-mediatica/comunicacion" },
   { label: "Participa", href: "/#participa" },
-  /** Primer panel editorial (“Qué nos convoca”) — identidad y propuesta. */
-  { label: "Somos", href: "/#convoca" },
+  { label: "Somos", href: "/somos" },
 ];
 
 /** `href` del menú principal → clave `nav.*` en mensajes i18n (header y footer). */
 export const NAV_PRIMARY_I18N_KEY: Record<
   string,
-  "programas" | "saberes" | "precisando" | "educacionMediatica" | "participa" | "somos"
+  | "queNosConvoca"
+  | "somos"
+  | "programas"
+  | "saberes"
+  | "precisando"
+  | "educacionMediatica"
+  | "participa"
 > = {
+  "/#convoca": "queNosConvoca",
+  "/somos": "somos",
   "/#programas": "programas",
   "/#saberes": "saberes",
   "/#precisando": "precisando",
   "/#educacion-mediatica": "educacionMediatica",
   "/educacion-mediatica/comunicacion": "educacionMediatica",
   "/#participa": "participa",
-  "/#convoca": "somos",
 };
 
-/** Prefijos de rutas “legacy”: al visitarlas, el ítem del menú sigue resaltando. */
+/** Prefijos de rutas relacionados con el menú (referencia / búsquedas). */
 export const NAV_PRIMARY_LEGACY_PATH_PREFIXES: string[] = [
+  "/somos",
   "/programas",
   "/saberes",
   "/precisando",
   "/educacion-mediatica",
   "/participa",
-  "/somos",
 ];
 
-const NAV_HASH_ORDER = [
-  "programas",
-  "saberes",
-  "precisando",
-  "educacion-mediatica",
-  "participa",
-  "convoca",
-] as const;
-
-/** Índice del menú (0…5) según hash en portada, o -1. */
+/** Índice del ítem de `NAV_PRIMARY` según hash en portada, o -1. */
 export function primaryNavIndexFromHash(hash: string): number {
   const id = hash.startsWith("#") ? hash.slice(1) : hash;
   if (!id) return -1;
-  const i = (NAV_HASH_ORDER as readonly string[]).indexOf(id);
-  return i;
+
+  const exact = NAV_PRIMARY.findIndex((item) => {
+    const j = item.href.indexOf("#");
+    if (j < 0) return false;
+    return item.href.slice(j + 1) === id;
+  });
+  if (exact >= 0) return exact;
+
+  if (id === "educacion-mediatica") {
+    return NAV_PRIMARY.findIndex(
+      (item) =>
+        item.href.includes("/educacion-mediatica") || item.href.includes("/educaciónmediática"),
+    );
+  }
+
+  return -1;
 }
 
-/** Índice del menú según ruta (páginas internas alineadas a cada sección). */
+/** Índice del ítem de `NAV_PRIMARY` según ruta (páginas internas alineadas a cada sección). */
 export function primaryNavIndexFromPathname(pathname: string): number {
   const p = pathname.replace(/\/+$/, "") || "/";
   if (p === "/") return -1;
-  /* Educación mediática: rutas nuevas (`/educacion-mediatica/...`) y legado con tilde. */
+
   if (
     p === "/educacion-mediatica" ||
     p.startsWith("/educacion-mediatica/") ||
     p === "/educaciónmediática" ||
     p.startsWith("/educaciónmediática/")
   ) {
-    return 3;
+    return NAV_PRIMARY.findIndex(
+      (item) =>
+        item.href.includes("/educacion-mediatica") || item.href.includes("/educaciónmediática"),
+    );
   }
-  /* Variante `/que-hacemos/*` (plantilla nueva): mismo ítem de menú que Programas */
+
   if (p === "/que-hacemos" || p.startsWith("/que-hacemos/")) {
-    return 0;
+    return NAV_PRIMARY.findIndex((item) => item.href.endsWith("#programas"));
   }
-  for (let i = 0; i < NAV_PRIMARY_LEGACY_PATH_PREFIXES.length; i++) {
-    if (i === 3) continue;
-    const prefix = NAV_PRIMARY_LEGACY_PATH_PREFIXES[i] ?? "";
-    if (p === prefix || p.startsWith(`${prefix}/`)) return i;
+
+  const sectionToHashHref: Record<string, string> = {
+    "/programas": "/#programas",
+    "/saberes": "/#saberes",
+    "/precisando": "/#precisando",
+    "/participa": "/#participa",
+  };
+  for (const [prefix, targetHref] of Object.entries(sectionToHashHref)) {
+    if (p === prefix || p.startsWith(`${prefix}/`)) {
+      return NAV_PRIMARY.findIndex((item) => item.href === targetHref);
+    }
   }
+
+  for (let i = 0; i < NAV_PRIMARY.length; i++) {
+    const href = NAV_PRIMARY[i].href;
+    if (href.startsWith("/#")) continue;
+    const base = href.split("#")[0].replace(/\/+$/, "") || "/";
+    if (base !== "/" && (p === base || p.startsWith(`${base}/`))) {
+      return i;
+    }
+  }
+
   return -1;
 }
 

@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useState, type ReactNode } from "react";
+import { useConsultaLivePulse } from "./ConsultaLiveMapProvider";
 import { useConsultaFlow } from "./ConsultaFlowContext";
 import { ConsultaCompletion } from "./ConsultaCompletion";
 import { ConsultaDemographicsStep } from "./ConsultaDemographicsStep";
@@ -34,6 +35,8 @@ export function ConsultaWizard() {
     continueQuickMore,
     restartEntire,
   } = useConsultaFlow();
+
+  const { pulseOnAnswer, pulseOnSelect } = useConsultaLivePulse();
 
   const [softError, setSoftError] = useState<string | null>(null);
   const [liveMsg, setLiveMsg] = useState("");
@@ -73,8 +76,12 @@ export function ConsultaWizard() {
 
   const onPrimary = useCallback(() => {
     const r = advance();
-    if (!r.ok) setSoftError(r.error);
-  }, [advance]);
+    if (!r.ok) {
+      setSoftError(r.error);
+      return;
+    }
+    pulseOnAnswer();
+  }, [advance, pulseOnAnswer]);
 
   const prog =
     modo && phase === "active"
@@ -135,6 +142,7 @@ export function ConsultaWizard() {
             onChange={setMultiAnswer}
             error={softError}
             headingId={STEP_HEADING_ID}
+            onInteraction={pulseOnSelect}
           />
         ) : null}
         {step.kind === "scale" ? (
@@ -144,6 +152,7 @@ export function ConsultaWizard() {
             onChange={setScaleAnswer}
             error={softError}
             headingId={STEP_HEADING_ID}
+            onInteraction={pulseOnSelect}
           />
         ) : null}
         {step.kind === "open" ? (
@@ -188,7 +197,12 @@ export function ConsultaWizard() {
   }
 
   return (
-    <section id="consulta-flujo" className={flowShell.canvas} aria-label="Preguntas">
+    <section
+      id="consulta-flujo"
+      className={flowShell.canvas}
+      aria-label="Preguntas"
+      data-consulta-live="true"
+    >
       <span className={wz.liveRegion} aria-live="polite">
         {liveMsg}
       </span>
@@ -196,7 +210,6 @@ export function ConsultaWizard() {
         <div className={flowShell.flowAnchor} data-consulta-cluster="flow-entry">
           <div className={flowShell.wizChrome}>
             <div className={flowShell.inner}>
-              <div className={flowShell.stepRail} aria-hidden="true" />
               <div className={[flowShell.flowBody, wz.wizardFlow].join(" ")}>{body}</div>
             </div>
           </div>

@@ -17,7 +17,7 @@
 
 .navBarRow {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: space-between;
   gap: 1rem;
 }
@@ -79,16 +79,39 @@
   display: flex;
   min-width: 0;
   flex: 1;
-  align-items: center;
+  align-items: flex-end;
   justify-content: flex-end;
   gap: 0.5rem;
+}
+
+/* Desktop: un solo renglón — enlaces + idiomas + Onda, alineados a la línea del logo (sin wrap arriba).
+   display:flex lo aporta `lg:flex` en el componente para no pisar `hidden` en móvil. */
+.navDesktop {
+  flex: 1;
+  min-width: 0;
+  flex-wrap: nowrap;
+  align-items: flex-end;
+  justify-content: flex-end;
+  column-gap: clamp(0.1rem, 0.35vw, 0.35rem);
+  row-gap: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+}
+
+.navDesktop > a,
+.navDesktop > button,
+.navDesktop > div {
+  flex-shrink: 0;
 }
 
 /* Misma familia que el hero Potencia (Syne / --font-display), mayúsculas y minúsculas naturales */
 .navLinkDesktop {
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: clamp(0.8125rem, 1.05vw, 0.9375rem);
+  font-size: clamp(0.75rem, 0.95vw, 0.875rem);
   letter-spacing: -0.04em;
   line-height: 1.15;
   text-transform: none;
@@ -108,10 +131,10 @@
 /* PT / EN junto al menú principal (desktop) */
 .navLocaleGroup {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   gap: 0.125rem;
-  margin-left: 0.5rem;
-  padding-left: 0.85rem;
+  margin-left: 0.35rem;
+  padding-left: 0.65rem;
   border-left: 1px solid var(--border);
 }
 
@@ -122,7 +145,7 @@
 /* Bot ONDA: enlace con marca onda (desktop dentro del <nav>, móvil en la barra) */
 .navOndaLink {
   display: none;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
   margin-left: 0.35rem;
   line-height: 0;
@@ -162,6 +185,23 @@
 .navOndaLink:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
+}
+
+.navOndaWithBeta {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 0.35rem;
+  line-height: 0;
+}
+
+.navOndaBeta {
+  font-family: var(--font-mono);
+  font-size: 0.5625rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  line-height: 1;
+  color: var(--accent);
+  flex-shrink: 0;
 }
 
 .navOndaIcon {
@@ -205,10 +245,23 @@
 }
 
 .navOndaMobileLabel {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.45rem;
+  flex-wrap: wrap;
   font-family: var(--font-display);
   font-size: 1.125rem;
   font-weight: 600;
   letter-spacing: -0.03em;
+}
+
+.navOndaMobileBeta {
+  font-family: var(--font-mono);
+  font-size: 0.5625rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  line-height: 1;
+  color: var(--accent);
 }
 
 .navLocaleLink {

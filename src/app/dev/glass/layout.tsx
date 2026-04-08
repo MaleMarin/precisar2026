@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
+import "@/styles/liquid-glass-tokens.css";
+
 export const metadata: Metadata = {
   title: "Liquid Glass — preview",
   robots: { index: false, follow: false },

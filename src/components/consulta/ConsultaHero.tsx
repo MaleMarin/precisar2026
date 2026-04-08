@@ -6,15 +6,6 @@ export function ConsultaHero() {
       <div className={styles.phoneBezel} data-consulta-cluster="hero">
         <div className={styles.heroAura} aria-hidden="true" />
         <div className={styles.heroCard}>
-          <div className={styles.heroTopBar}>
-            <span className={styles.heroTopSpacer} />
-            <span className={styles.heroSignal} aria-hidden="true">
-              <span className={styles.heroDot} />
-              <span className={styles.heroDot} />
-              <span className={styles.heroDot} />
-            </span>
-          </div>
-
           <div className={styles.heroBody}>
             <div className={styles.heroMainCol}>
               <div className={styles.impactZone} data-consulta-module="impact">

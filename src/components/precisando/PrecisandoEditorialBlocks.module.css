@@ -1,0 +1,41 @@
+/* Lista editorial con portada opcional (ruta bajo /public) */
+
+.item {
+  display: grid;
+  gap: 1.25rem;
+  align-items: start;
+}
+
+@media (min-width: 768px) {
+  .itemWithCover {
+    grid-template-columns: minmax(11rem, 16rem) minmax(0, 1fr);
+    gap: clamp(1.25rem, 3vw, 2rem);
+  }
+}
+
+.coverLink {
+  position: relative;
+  display: block;
+  aspect-ratio: 16 / 10;
+  width: 100%;
+  max-width: 20rem;
+  overflow: hidden;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  background: var(--bg-elevated, rgba(0, 0, 0, 0.04));
+}
+
+@media (min-width: 768px) {
+  .coverLink {
+    max-width: none;
+  }
+}
+
+.coverLink:focus-visible {
+  outline: 2px solid var(--fg);
+  outline-offset: 3px;
+}
+
+.body {
+  min-width: 0;
+}

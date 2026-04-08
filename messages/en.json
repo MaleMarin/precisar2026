@@ -3,6 +3,7 @@
     "tagline": "What circulates, what matters, what we need to understand."
   },
   "nav": {
+    "queNosConvoca": "What calls us",
     "programas": "Programs",
     "saberes": "Resources",
     "precisando": "Precisando",
@@ -14,7 +15,8 @@
     "openMenu": "Open menu",
     "closeMenu": "Close menu",
     "botOnda": "Bot ONDA",
-    "botOndaAria": "Open Bot ONDA chat in a new tab"
+    "botOndaBeta": "BETA",
+    "botOndaAria": "Open Bot ONDA chat (beta) in a new tab"
   },
   "language": {
     "switch": "Language",

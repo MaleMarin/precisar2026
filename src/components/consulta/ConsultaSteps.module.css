@@ -6,33 +6,23 @@
 .stepHead {
   position: relative;
   margin-bottom: clamp(1rem, 2.5vw, 1.25rem);
-  padding-left: clamp(0.85rem, 2vw, 1.1rem);
-}
-
-.stepHead::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0.2rem;
-  bottom: 0.2rem;
-  width: 3px;
-  border-radius: 2px;
-  background: linear-gradient(180deg, #0096ff, #ff3264);
-  box-shadow: 0 0 14px rgba(0, 150, 255, 0.45);
+  padding-left: 0;
 }
 
 .stepPanel {
-  border-radius: 22px;
-  padding: 3px;
-  background: linear-gradient(135deg, rgba(0, 150, 255, 0.28), rgba(255, 50, 100, 0.18));
-  box-shadow: 0 12px 32px rgba(12, 18, 36, 0.08);
+  border-radius: 20px;
+  padding: 0;
+  background: transparent;
+  box-shadow: none;
 }
 
 .stepPanelInner {
-  border-radius: 19px;
-  background: rgba(255, 255, 255, 0.98);
-  border: 1px solid rgba(255, 255, 255, 1);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 1);
+  border-radius: 20px;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  box-shadow:
+    0 12px 24px rgba(0, 0, 0, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
 }
 
 .stepPanelPad {
@@ -99,9 +89,8 @@
 }
 
 .optionBtn {
-  --opt-glow: transparent;
   margin: 0;
-  padding: 0.35rem 0.4rem;
+  padding: 0;
   border: none;
   background: none;
   cursor: pointer;
@@ -110,107 +99,40 @@
   text-align: left;
   width: 100%;
   min-height: 52px;
-  border-radius: 22px;
-  display: flex;
-  flex-direction: row;
-  align-items: stretch;
-  gap: 0.55rem;
-  transition:
-    transform 0.22s cubic-bezier(0.22, 1, 0.36, 1),
-    box-shadow 0.22s ease;
-  box-shadow: 0 0 0 0 var(--opt-glow);
+  border-radius: 20px;
+  display: block;
+  transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .optionBtn:hover {
-  transform: translateY(-2px);
+  transform: translateY(-1px);
 }
 
 .optionBtn:focus-visible {
-  outline: 2px solid var(--cq-focus-ring, #0096ff);
+  outline: 2px solid #4da3ff;
   outline-offset: 3px;
 }
 
-.optionBtn[data-selected="true"] {
-  --opt-glow: rgba(255, 50, 100, 0.35);
-  box-shadow:
-    0 0 0 3px var(--opt-glow),
-    0 16px 40px rgba(255, 50, 100, 0.1);
-}
-
-.optionBtn[data-selected="true"][data-accent="blue"] {
-  --opt-glow: rgba(0, 150, 255, 0.4);
-  box-shadow:
-    0 0 0 3px var(--opt-glow),
-    0 16px 40px rgba(0, 150, 255, 0.12);
-}
-
-.optionRailNeo {
-  flex: 0 0 auto;
-  width: 2.65rem;
-  min-height: 2.65rem;
-  align-self: center;
-  border-radius: 14px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(145deg, #2a5f8f 0%, #1a4a78 50%, #0f3d66 100%);
-  box-shadow:
-    inset 2px 2px 6px rgba(255, 255, 255, 0.12),
-    inset -3px -3px 10px rgba(4, 35, 75, 0.4),
-    0 6px 16px rgba(0, 100, 180, 0.2);
-}
-
-.optionNeoBlue .optionNeoDot {
-  background: radial-gradient(circle at 30% 30%, #5ecfff, #0096ff);
-  box-shadow: 0 0 12px rgba(0, 150, 255, 0.85);
-}
-
-.optionNeoCoral .optionNeoDot {
-  background: radial-gradient(circle at 30% 30%, #ff7a9a, #ff3264);
-  box-shadow: 0 0 12px rgba(255, 50, 100, 0.8);
-}
-
-.optionNeoDot {
-  width: 11px;
-  height: 11px;
-  border-radius: 50%;
-}
-
 .optionLightCard {
-  flex: 1 1 auto;
-  min-width: 0;
   display: flex;
   align-items: center;
-  padding: 0.65rem 0.9rem;
-  border-radius: 18px;
-  background: var(--cq-surface-light, rgba(252, 252, 255, 0.97));
-  border: 1px solid rgba(10, 55, 100, 0.06);
-  box-shadow: var(
-    --cq-shadow-float-light,
-    0 16px 40px rgba(10, 55, 100, 0.14),
-    0 0 0 1px rgba(255, 255, 255, 0.9) inset
-  );
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+  min-width: 0;
+  padding: 0.75rem 1rem;
+  border-radius: 20px;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  box-shadow:
+    0 12px 24px rgba(0, 0, 0, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .optionBtn[data-selected="true"] .optionLightCard {
-  border-color: rgba(0, 150, 255, 0.45);
+  border: 2px solid #4da3ff;
   box-shadow:
-    0 12px 32px rgba(12, 18, 36, 0.08),
-    0 0 0 2px rgba(0, 150, 255, 0.2),
-    0 0 28px rgba(0, 150, 255, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 1);
-}
-
-.optionBtn[data-selected="true"][data-accent="coral"] .optionLightCard {
-  border-color: rgba(255, 50, 100, 0.45);
-  box-shadow:
-    0 12px 32px rgba(12, 18, 36, 0.08),
-    0 0 0 2px rgba(255, 50, 100, 0.22),
-    0 0 28px rgba(255, 50, 100, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 1);
+    0 0 0 4px rgba(77, 163, 255, 0.1),
+    0 12px 24px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
 }
 
 .optionLabel {
@@ -218,42 +140,7 @@
   font-weight: 600;
   line-height: 1.38;
   letter-spacing: -0.018em;
-  color: var(--cq-ink-on-light, #0f3d66);
-}
-
-.optionActionCap {
-  flex: 0 0 auto;
-  width: 2.35rem;
-  min-height: 2.35rem;
-  align-self: center;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.75rem;
-  font-weight: 800;
-  color: #ffffff;
-  transition: box-shadow 0.2s ease, transform 0.2s ease;
-}
-
-.optionActionBlue {
-  background: linear-gradient(180deg, #1aadff 0%, #0096ff 45%, #0070d0 100%);
-  box-shadow:
-    inset 0 2px 0 rgba(255, 255, 255, 0.3),
-    0 6px 20px rgba(0, 150, 255, 0.5);
-}
-
-.optionActionCoral {
-  background: linear-gradient(180deg, #ff5c84 0%, #ff3264 45%, #d92550 100%);
-  box-shadow:
-    inset 0 2px 0 rgba(255, 255, 255, 0.28),
-    0 6px 20px rgba(255, 50, 100, 0.48);
-}
-
-.optionActionOn {
-  box-shadow:
-    inset 0 2px 6px rgba(0, 0, 0, 0.15),
-    0 0 20px rgba(255, 255, 255, 0.35);
+  color: var(--sheet-heading, #1e3c72);
 }
 
 .navChrome {
@@ -262,16 +149,15 @@
 }
 
 .navLightDock {
-  border-radius: 22px;
+  border-radius: 20px;
   padding: 0.65rem 0.75rem 0.7rem;
-  background: var(--cq-surface-light-soft, rgba(241, 245, 249, 0.98));
-  border: 1px solid rgba(255, 255, 255, 0.65);
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.9);
   box-shadow:
-    0 22px 56px rgba(10, 55, 100, 0.2),
-    0 0 0 1px rgba(10, 55, 100, 0.04) inset,
-    0 1px 0 rgba(255, 255, 255, 0.95) inset;
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+    0 20px 40px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
 }
 
 .navRow {
@@ -335,27 +221,24 @@
 }
 
 .navPrimarySolid {
-  border-radius: 16px;
-  padding: 3px;
-  background: linear-gradient(135deg, rgba(255, 50, 100, 0.55), rgba(0, 150, 255, 0.4));
-  box-shadow: 0 8px 28px rgba(255, 50, 100, 0.25);
+  border-radius: 999px;
+  padding: 0;
+  background: transparent;
+  box-shadow: none;
 }
 
 .navPrimarySolidInner {
-  border-radius: 13px;
+  border-radius: 999px;
   padding: 0.95rem 1.5rem;
   font-size: 0.625rem;
   font-weight: 800;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: #ffffff;
-  background: linear-gradient(180deg, #ff5c84 0%, #ff3264 38%, #0096ff 130%);
-  background-size: 100% 140%;
-  background-position: center top;
+  background: linear-gradient(135deg, #ff4d6d, #ff7a18);
   box-shadow:
-    inset 0 2px 0 rgba(255, 255, 255, 0.25),
-    0 8px 32px rgba(255, 50, 100, 0.35),
-    0 0 40px rgba(0, 150, 255, 0.12);
+    0 10px 30px rgba(255, 77, 109, 0.4),
+    0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .navPrimaryLabel {
@@ -432,40 +315,113 @@
 .textAreaWrap {
   position: relative;
   border-radius: 20px;
-  padding: 3px;
-  background: linear-gradient(135deg, rgba(0, 150, 255, 0.25), rgba(255, 50, 100, 0.16));
-  box-shadow: 0 12px 36px rgba(12, 18, 36, 0.06);
+  padding: 0;
+  background: transparent;
+  box-shadow: none;
 }
 
 .textAreaInner {
-  border-radius: 17px;
+  border-radius: 20px;
   padding: 1.05rem 1.2rem;
-  background: var(--cq-surface-light, rgba(252, 252, 255, 0.97));
-  border: 1px solid rgba(10, 55, 100, 0.06);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 1);
-  transition: box-shadow 0.2s ease;
-}
-
-.textAreaWrap:focus-within {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.06);
   box-shadow:
-    0 0 0 3px rgba(0, 150, 255, 0.22),
-    0 14px 40px rgba(0, 150, 255, 0.1);
+    0 12px 24px rgba(0, 0, 0, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
 .textAreaWrap:focus-within .textAreaInner {
+  border-color: rgba(77, 163, 255, 0.45);
   box-shadow:
-    inset 0 0 0 1px rgba(0, 150, 255, 0.25),
-    inset 0 1px 0 rgba(255, 255, 255, 1);
+    0 0 0 4px rgba(77, 163, 255, 0.1),
+    0 12px 24px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
 }
 
-@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
-  .optionLightCard {
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-  }
-
-  .navLightDock {
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-  }
+/* ─── Mapa vivo (data-consulta-live en #consulta-flujo) ─── */
+:global([data-consulta-live="true"]) .eyebrow {
+  color: rgba(160, 200, 255, 0.5);
 }
+
+:global([data-consulta-live="true"]) .prompt {
+  color: #e8f0ff;
+}
+
+:global([data-consulta-live="true"]) .helper {
+  color: rgba(190, 210, 245, 0.75);
+}
+
+:global([data-consulta-live="true"]) .softError {
+  color: #fecaca;
+  background: rgba(127, 29, 29, 0.35);
+  border-color: rgba(248, 113, 113, 0.35);
+}
+
+:global([data-consulta-live="true"]) .capHint {
+  color: rgba(170, 195, 235, 0.6);
+}
+
+:global([data-consulta-live="true"]) .optionLightCard {
+  background: rgba(18, 24, 42, 0.92);
+  border: 1px solid rgba(100, 180, 255, 0.12);
+  box-shadow:
+    0 10px 24px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+:global([data-consulta-live="true"]) .optionBtn[data-selected="true"] .optionLightCard {
+  border: 2px solid rgba(100, 200, 255, 0.55);
+  box-shadow:
+    0 0 0 3px rgba(77, 163, 255, 0.12),
+    0 12px 28px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+:global([data-consulta-live="true"]) .optionLabel {
+  color: #e2ebff;
+}
+
+:global([data-consulta-live="true"]) .navLightDock {
+  background: rgba(12, 16, 30, 0.72);
+  border: 1px solid rgba(100, 180, 255, 0.14);
+  box-shadow:
+    0 16px 36px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+:global([data-consulta-live="true"]) .navGhost {
+  color: rgba(180, 205, 245, 0.75);
+}
+
+:global([data-consulta-live="true"]) .navGhost:hover:not(:disabled) {
+  color: #e8f0ff;
+}
+
+:global([data-consulta-live="true"]) .stepPanelInner {
+  background: rgba(18, 24, 42, 0.92);
+  border: 1px solid rgba(100, 180, 255, 0.12);
+  box-shadow:
+    0 12px 28px rgba(0, 0, 0, 0.32),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+:global([data-consulta-live="true"]) .textAreaInner {
+  background: rgba(18, 24, 42, 0.92);
+  border: 1px solid rgba(100, 180, 255, 0.12);
+}
+
+:global([data-consulta-live="true"]) .textArea {
+  color: #e8f0ff;
+}
+
+:global([data-consulta-live="true"]) .textArea::placeholder {
+  color: rgba(160, 180, 220, 0.45);
+}
+
+:global([data-consulta-live="true"]) .completionRestart {
+  color: #e8f0ff;
+  background: rgba(18, 24, 42, 0.85);
+  border: 1px solid rgba(100, 180, 255, 0.15);
+}
+

@@ -13,21 +13,18 @@ const OPCIONES: {
   title: string;
   meta: [string, string];
   desc: string;
-  accent: "blue" | "coral";
 }[] = [
   {
     id: "rapido",
     title: "Modo rápido",
     meta: ["4–6 preguntas", "30–45 segundos"],
     desc: "Para responder en pocos segundos.",
-    accent: "blue",
   },
   {
     id: "completo",
     title: "Modo completo",
     meta: ["10–12 preguntas", "2–3 minutos"],
     desc: "Para contar con más detalle cómo te informas.",
-    accent: "coral",
   },
 ];
 
@@ -55,7 +52,6 @@ export function ConsultaModeSelector() {
         <div className={styles.optionsGrid} role="radiogroup" aria-label="Elige cómo quieres responder">
           {OPCIONES.map((op) => {
             const on = modo === op.id;
-            const blue = op.accent === "blue";
             return (
               <button
                 key={op.id}
@@ -66,32 +62,12 @@ export function ConsultaModeSelector() {
                 className={styles.modeChoice}
                 data-selected={on ? "true" : "false"}
               >
-                <div className={styles.modeRow}>
-                  <span
-                    className={[styles.modeRailNeo, blue ? styles.modeNeoBlue : styles.modeNeoCoral].join(" ")}
-                    aria-hidden="true"
-                  >
-                    <span className={styles.modeNeoDot} />
-                  </span>
-                  <div className={styles.modeLightBody}>
-                    <p className={styles.choiceTitle}>{op.title}</p>
-                    <p className={styles.meta}>{op.meta[0]}</p>
-                    <p className={styles.meta}>{op.meta[1]}</p>
-                    <p className={styles.desc}>{op.desc}</p>
-                    {on ? <p className={styles.mark}>Seleccionado</p> : null}
-                  </div>
-                  <span
-                    className={[
-                      styles.modeCap,
-                      blue ? styles.modeCapBlue : styles.modeCapCoral,
-                      on ? styles.modeCapOn : "",
-                    ]
-                      .filter(Boolean)
-                      .join(" ")}
-                    aria-hidden="true"
-                  >
-                    {on ? "✓" : ""}
-                  </span>
+                <div className={styles.modeCardBody}>
+                  <p className={styles.choiceTitle}>{op.title}</p>
+                  <p className={styles.meta}>{op.meta[0]}</p>
+                  <p className={styles.meta}>{op.meta[1]}</p>
+                  <p className={styles.desc}>{op.desc}</p>
+                  {on ? <p className={styles.mark}>Seleccionado</p> : null}
                 </div>
               </button>
             );

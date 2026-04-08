@@ -1,9 +1,6 @@
 import { PageShell } from "@/components/PageShell";
 import { PreguntaDiaCards } from "@/components/saberes/PreguntaDiaCards";
 import { PDF_DOWNLOAD_UI } from "@/lib/pdfDownloads";
-import { PDFS } from "@/lib/site";
-
-const PORTADA_30_PREGUNTAS = "/covers/30-preguntas-explora-vida-digital.png";
 
 export const metadata = {
   title: "30 preguntas para explorar tu vida digital · Una Pregunta al Día",
@@ -24,24 +21,6 @@ export default function Page() {
             mejor.
           </p>
         </div>
-
-        <a
-          href={PDFS.saberes30Preguntas}
-          target="_blank"
-          rel="noreferrer"
-          className="mx-auto block max-w-[min(100%,20rem)] overflow-hidden rounded-md border border-[var(--border)] bg-[var(--elevated)] shadow-[var(--shadow-card)] transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-[var(--shadow-card-hover)]"
-          aria-label="Abrir o descargar el PDF «30 preguntas para explorar tu vida digital»"
-        >
-          <img
-            src={PORTADA_30_PREGUNTAS}
-            alt="Portada: 30 preguntas para explorar tu vida digital — Precisar"
-            width={1186}
-            height={1692}
-            className="block h-auto w-full object-cover"
-            decoding="async"
-            fetchPriority="high"
-          />
-        </a>
 
         <div className="space-y-4">
           <h2 className="!mt-2 text-xl font-semibold tracking-tight text-[var(--fg)]">

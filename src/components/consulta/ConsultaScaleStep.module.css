@@ -40,15 +40,24 @@
 }
 
 .scaleBtn[data-selected="true"] {
-  box-shadow:
-    0 0 0 3px rgba(0, 150, 255, 0.35),
-    0 12px 28px rgba(0, 150, 255, 0.1);
+  box-shadow: none;
 }
 
 .scaleBtn[data-selected="true"][data-accent="coral"] {
+  box-shadow: none;
+}
+
+:global([data-consulta-live="true"]) .scaleLightCard {
+  background: rgba(18, 24, 42, 0.92);
+  border: 1px solid rgba(100, 180, 255, 0.12);
   box-shadow:
-    0 0 0 3px rgba(255, 50, 100, 0.35),
-    0 12px 28px rgba(255, 50, 100, 0.08);
+    0 10px 24px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+:global([data-consulta-live="true"]) .num,
+:global([data-consulta-live="true"]) .word {
+  color: #e8f0ff;
 }
 
 .scaleRail {
@@ -60,17 +69,13 @@
 }
 
 .scaleRailBlue {
-  background: linear-gradient(90deg, #0070d0, #0096ff);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.25),
-    0 0 16px rgba(0, 150, 255, 0.4);
+  background: linear-gradient(90deg, #2a5298, #4da3ff);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25);
 }
 
 .scaleRailCoral {
-  background: linear-gradient(90deg, #d92550, #ff3264);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.22),
-    0 0 16px rgba(255, 50, 100, 0.38);
+  background: linear-gradient(90deg, #ff4d6d, #ff7a18);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22);
 }
 
 .scaleLightCard {
@@ -80,31 +85,29 @@
   align-items: center;
   justify-content: center;
   padding: 0.65rem 0.4rem 0.7rem;
-  border-radius: 16px;
-  background: var(--cq-surface-light, rgba(252, 252, 255, 0.97));
-  border: 1px solid rgba(10, 55, 100, 0.06);
-  box-shadow: var(
-    --cq-shadow-float-light,
-    0 12px 28px rgba(10, 55, 100, 0.12),
-    0 0 0 1px rgba(255, 255, 255, 0.9) inset
-  );
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  border-radius: 20px;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  box-shadow:
+    0 12px 24px rgba(0, 0, 0, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .scaleBtn[data-selected="true"] .scaleLightCard {
-  border-color: rgba(0, 150, 255, 0.45);
+  border: 2px solid #4da3ff;
   box-shadow:
-    0 0 0 2px rgba(0, 150, 255, 0.18),
-    inset 0 1px 0 rgba(255, 255, 255, 1);
+    0 0 0 4px rgba(77, 163, 255, 0.1),
+    0 12px 24px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
 }
 
 .scaleBtn[data-selected="true"][data-accent="coral"] .scaleLightCard {
-  border-color: rgba(255, 50, 100, 0.45);
+  border: 2px solid #4da3ff;
   box-shadow:
-    0 0 0 2px rgba(255, 50, 100, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 1);
+    0 0 0 4px rgba(77, 163, 255, 0.1),
+    0 12px 24px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
 }
 
 .num {
@@ -129,16 +132,10 @@
 }
 
 .scaleBtn[data-selected="true"] .word {
-  color: #0096ff;
+  color: #4da3ff;
 }
 
 .scaleBtn[data-selected="true"][data-accent="coral"] .word {
-  color: #ff3264;
+  color: #4da3ff;
 }
 
-@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
-  .scaleLightCard {
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-  }
-}

@@ -1,55 +1,23 @@
 .consultaRoot {
-  --cq-ink: #ffffff;
-  --cq-ink-muted: rgba(255, 255, 255, 0.72);
   --cq-mock-blue: #0096ff;
-  --cq-mock-coral: #ff3264;
-  --cq-mock-base: #0a2540;
-  --cq-blue: #0096ff;
-  --cq-blue-electric: #00b4ff;
-  --cq-blue-deep: #0066cc;
-  --cq-purple: #a855f7;
-  --cq-coral: #ff3264;
-  --cq-coral-hot: #ff3264;
-  --cq-cyan: #00d4ff;
-  --cq-focus-ring: #0096ff;
-  --cq-selected: #0096ff;
+  --cq-mock-coral: #ff4d6d;
+  --cq-focus-ring: #4da3ff;
+  --cq-selected: #4da3ff;
 
-  --cq-g-depth-out: rgba(8, 40, 80, 0.42);
-  --cq-g-depth-in: rgba(4, 30, 70, 0.38);
-  --cq-g-key: rgba(255, 255, 255, 0.12);
-  --cq-g-key-soft: rgba(255, 255, 255, 0.08);
-  --cq-plate-deep: linear-gradient(168deg, #0f3560 0%, #164574 42%, #0c2d50 100%);
-  --cq-plate-wiz: linear-gradient(172deg, #0e3358 0%, #1a4a78 48%, #0a2848 100%);
-
-  --cq-blur-btn: 22px;
-  --cq-blur-btn-2: 14px;
-  --cq-blur-opt: 16px;
-  --cq-blur-hero-card: 28px;
-
-  --cq-surface-light: rgba(255, 255, 255, 0.92);
-  --cq-surface-light-soft: #f1f4fa;
-  --cq-ink-on-light: #0f3d66;
-  --cq-ink-on-light-muted: #4a6d8c;
-  --cq-shadow-float-light: 0 22px 50px rgba(12, 18, 36, 0.12), 0 10px 24px rgba(0, 150, 255, 0.06),
-    0 0 0 1px rgba(255, 255, 255, 0.9) inset;
-
-  /* Tipografía sobre la hoja clara (mockup móvil) */
-  --sheet-heading: #0c3a63;
-  --sheet-body: #4a6d8c;
-  --sheet-kicker: #6b8caf;
-  --sheet-muted: #5a7a9a;
+  --sheet-heading: #1e3c72;
+  --sheet-body: #5a6578;
+  --sheet-kicker: #7c8aa3;
+  --sheet-muted: #6b7280;
 
   min-height: 100vh;
   font-family: var(--font-consulta), ui-sans-serif, system-ui, sans-serif;
-  color: var(--cq-ink);
-  background-color: var(--cq-mock-base);
+  color: var(--sheet-body);
+  background-color: #f4f6fb;
   background-image:
-    radial-gradient(circle at 15% 25%, rgba(0, 180, 255, 0.42), transparent 40%),
-    radial-gradient(circle at 88% 20%, rgba(0, 120, 255, 0.35), transparent 38%),
-    radial-gradient(circle at 80% 85%, rgba(0, 200, 255, 0.2), transparent 45%),
-    radial-gradient(circle at 10% 80%, rgba(255, 80, 120, 0.16), transparent 42%),
-    radial-gradient(ellipse 100% 80% at 50% 120%, rgba(40, 100, 220, 0.22), transparent 50%),
-    linear-gradient(168deg, #061830 0%, #0c3666 32%, #0a4a7a 58%, #082f52 100%);
+    radial-gradient(ellipse 120% 80% at 10% -10%, rgba(77, 163, 255, 0.14), transparent 55%),
+    radial-gradient(ellipse 90% 70% at 90% 15%, rgba(167, 139, 250, 0.1), transparent 50%),
+    radial-gradient(ellipse 100% 60% at 50% 100%, rgba(255, 120, 100, 0.08), transparent 55%),
+    linear-gradient(165deg, #f4f6fb 0%, #eef1fa 35%, #f2f0fb 70%, #faf6f7 100%);
   background-attachment: fixed;
   -webkit-font-smoothing: antialiased;
 }
@@ -60,7 +28,8 @@
   inset: 0;
   pointer-events: none;
   z-index: 0;
-  background: radial-gradient(circle at 50% 0%, rgba(180, 230, 255, 0.12), transparent 42%);
+  background: radial-gradient(ellipse 80% 50% at 50% 0%, rgba(255, 255, 255, 0.5), transparent 60%);
+  opacity: 0.85;
 }
 
 .main {
@@ -73,25 +42,62 @@
   display: flex;
   flex-direction: column;
   gap: 0;
+  isolation: isolate;
 }
 
 /**
- * Hoja clara tipo pantalla de app (como referencia): todo el cuerpo bajo el hero.
+ * Contenedor principal bajo el hero — volumen suave tipo app.
  */
 .contentSheet {
   position: relative;
+  z-index: 1;
   margin-top: -0.65rem;
   padding: clamp(1.35rem, 3vw, 2rem) clamp(1.25rem, 3vw, 2.25rem) clamp(2rem, 5vw, 3.25rem);
-  border-radius: clamp(20px, 2.5vw, 28px);
-  background: linear-gradient(180deg, #f5f9ff 0%, #eaf2fc 48%, #e2edf9 100%);
-  box-shadow:
-    0 -12px 48px rgba(8, 50, 100, 0.22),
-    0 24px 64px rgba(0, 100, 180, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border: 1px solid rgba(255, 255, 255, 0.85);
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
   display: flex;
   flex-direction: column;
   gap: clamp(1.75rem, 5vw, 2.5rem);
   color: var(--sheet-body);
 }
 
+/* ─── Mapa vivo: raíz transparente para ver el canvas fijo detrás ─── */
+.consultaRoot[data-live-map="true"] {
+  position: relative;
+  z-index: 1;
+  background: transparent;
+  background-image: none;
+  color: rgba(220, 230, 255, 0.88);
+}
+
+.consultaRoot[data-live-map="true"]::before {
+  opacity: 0.35;
+  background:
+    radial-gradient(ellipse 100% 80% at 50% -20%, rgba(0, 90, 180, 0.18), transparent 55%),
+    radial-gradient(ellipse 80% 60% at 100% 60%, rgba(180, 40, 60, 0.1), transparent 45%),
+    radial-gradient(ellipse 70% 50% at 50% 0%, rgba(80, 160, 255, 0.08), transparent 65%);
+}
+
+.consultaRoot[data-live-map="true"] .main {
+  position: relative;
+  z-index: 1;
+}
+
+.consultaRoot[data-live-map="true"] .contentSheet {
+  background: rgba(8, 12, 26, 0.62);
+  border: 1px solid rgba(100, 180, 255, 0.18);
+  box-shadow:
+    0 24px 48px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  color: rgba(215, 225, 250, 0.9);
+  --sheet-heading: #e8f0ff;
+  --sheet-body: rgba(200, 215, 245, 0.88);
+  --sheet-kicker: rgba(160, 190, 255, 0.55);
+  --sheet-muted: rgba(170, 190, 230, 0.55);
+}

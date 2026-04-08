@@ -6,7 +6,14 @@ import { routing } from "@/i18n/routing";
 const LOCALE_SET = new Set(routing.locales.map((l) => l.toLowerCase()));
 
 /** Rutas en la raíz de `app/` que no usan el segmento `[locale]`. */
-const SKIP_LOCALE_PREFIX_SEGMENTS = new Set(["api", "_next", "opengraph-image", "dev", "consulta"]);
+const SKIP_LOCALE_PREFIX_SEGMENTS = new Set([
+  "api",
+  "_next",
+  "opengraph-image",
+  "dev",
+  "consulta",
+  "consulta-viva",
+]);
 
 const RESERVED_ROOT_SEGMENTS = new Set(
   [

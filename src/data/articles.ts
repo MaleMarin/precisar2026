@@ -4,7 +4,21 @@ export type ArticleMeta = {
   category: string;
   pubDate: string;
   excerpt: string;
+  /** Ruta bajo `/public` (p. ej. `/covers/nota.png`). */
+  coverImage?: string;
+  /** Texto alternativo de la portada (accesibilidad). */
+  coverAlt?: string;
+  /** Archivo estático en `/public` para descarga (PDF, etc.). */
+  downloadUrl?: string;
+  downloadLabel?: string;
 };
+
+/**
+ * Informe «Chile respondió…». El archivo físico debe estar en `web/public/` (mismo nombre que en
+ * precisar2026/public si tenés dos carpetas en el repo). URL codificada para espacios en el nombre.
+ */
+export const INFORME_CHILE_ENERO_2026_PDF =
+  "/Informe%20final%20Hallazgos%20FONSELP_%20V.2.pdf";
 
 /**
  * Listado y SEO: título, fecha, categoría y `excerpt`.
@@ -14,8 +28,11 @@ export type ArticleMeta = {
  * (parece “corto”). Los .md se pueden generar con `npm run precisando:rss`, que lee el feed
  * de precisar.net: muchos ítems solo traen resumen (sin `content:encoded`), así que el cuerpo
  * queda breve salvo que el feed publique el HTML completo o alguien pegue el markdown a mano.
+ *
+ * Inventario: `npm run precisando:audit` (JSON stdout) · `npm run precisando:audit:export`
+ * (JSON + CSV checklist en `_audit/`).
  */
-/** Slugs canónicos: RSS blog-feed.xml + sitemap de posts + auditoría abril 2026 (31 entradas). */
+/** Slugs canónicos: RSS blog-feed.xml + sitemap de posts + auditoría abril 2026 (~32 entradas). */
 export const ARTICLES: ArticleMeta[] = [
   {
     slug: "chile-respondio-verdad-incomoda-informe-enero-2026",
@@ -24,6 +41,10 @@ export const ARTICLES: ArticleMeta[] = [
     pubDate: "2026-01-31",
     excerpt:
       "366 personas respondieron en enero cómo realmente se informan. Lo que dijeron desarma la narrativa del «ciudadano descuidado» y la reemplaza con algo más honesto: estamos sobrepasados, no somos tontos.",
+    coverImage: "/covers/informe-chile-respondio-enero-2026.png",
+    coverAlt: "Portada del informe «Chile respondió y nos contó la verdad incómoda»",
+    downloadUrl: INFORME_CHILE_ENERO_2026_PDF,
+    downloadLabel: "Descargar informe completo (PDF)",
   },
   {
     slug: "escuchar-primero-implementar-después-la-metodología-de-precisar-para-construir-ciudades-ami",

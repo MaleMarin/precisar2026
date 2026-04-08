@@ -8,7 +8,9 @@
     "start": "next start",
     "lint": "eslint",
     "precisando:rss": "node scripts/build-precisando-md.mjs",
-    "precisando:rss:local": "node scripts/build-precisando-md.mjs --local"
+    "precisando:rss:local": "node scripts/build-precisando-md.mjs --local",
+    "precisando:audit": "node scripts/audit-precisando-content.mjs",
+    "precisando:audit:export": "node scripts/audit-precisando-content.mjs --export"
   },
   "dependencies": {
     "@react-three/drei": "^10.7.7",

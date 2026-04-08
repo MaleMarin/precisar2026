@@ -3,6 +3,7 @@
     "tagline": "Lo que circula, lo que importa, lo que hay que entender."
   },
   "nav": {
+    "queNosConvoca": "Qué nos convoca",
     "programas": "Programas",
     "saberes": "Saberes",
     "precisando": "Precisando",
@@ -14,7 +15,8 @@
     "openMenu": "Abrir menú",
     "closeMenu": "Cerrar menú",
     "botOnda": "Bot ONDA",
-    "botOndaAria": "Abrir el chat Bot ONDA en una pestaña nueva"
+    "botOndaBeta": "BETA",
+    "botOndaAria": "Abrir el chat Bot ONDA (beta) en una pestaña nueva"
   },
   "language": {
     "switch": "Idioma",

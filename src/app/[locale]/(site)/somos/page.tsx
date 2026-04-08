@@ -95,32 +95,6 @@ export default function SomosPrecisarPage() {
         </div>
       </section>
 
-      <section className={`${styles.stats} ${styles.sectionPad}`} aria-labelledby="somos-stats-title">
-        <div className={styles.statsInner}>
-          <h2 id="somos-stats-title" className={styles.statsTitle}>
-            Precisar en números
-          </h2>
-          <div className={styles.statsGrid}>
-            <div className={styles.statCard}>
-              <p className={styles.statNum}>2021</p>
-              <p className={styles.statDesc}>Año de fundación</p>
-            </div>
-            <div className={styles.statCard}>
-              <p className={styles.statNum}>400+</p>
-              <p className={styles.statDesc}>Participantes en consulta ciudadana</p>
-            </div>
-            <div className={styles.statCard}>
-              <p className={styles.statNum}>126</p>
-              <p className={styles.statDesc}>Localidades alcanzadas</p>
-            </div>
-            <div className={styles.statCard}>
-              <p className={styles.statNum}>2</p>
-              <p className={styles.statDesc}>Países: Chile y México</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <section className={`${styles.work} ${styles.sectionPad}`} aria-labelledby="somos-work-title">
         <div className={styles.workInner}>
           <h2 id="somos-work-title" className={styles.workTitle}>
