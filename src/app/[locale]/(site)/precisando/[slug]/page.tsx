@@ -1,10 +1,11 @@
 import Image from "next/image";
-import { notFound, permanentRedirect } from "next/navigation";
+import { notFound, permanentRedirect, redirect } from "next/navigation";
 import { ArticleMarkdown } from "@/components/ArticleMarkdown";
 import { ARTICLES, articleBySlug } from "@/data/articles";
 import { PRECISANDO_SLUG_ALIASES } from "@/data/slug-aliases";
 import { loadArticleMarkdown } from "@/lib/load-article-markdown";
-import { SITE } from "@/lib/site";
+import { PRECISANDO_ARTICLES_UNDER_CONSTRUCTION } from "@/lib/precisando-access";
+import { absoluteLocaleUrl, hreflangAlternates, SITE } from "@/lib/site";
 import { ArticleTemplate } from "@/components/templates/PageTemplates";
 
 type Props = { params: Promise<{ locale: string; slug: string }> };
@@ -14,27 +15,34 @@ export function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props) {
-  const { slug: raw } = await params;
+  const { locale, slug: raw } = await params;
   const slug = decodeURIComponent(raw);
+  if (PRECISANDO_ARTICLES_UNDER_CONSTRUCTION) {
+    return { title: "Precisando", robots: { index: false, follow: false } };
+  }
   const post = articleBySlug(slug);
   if (!post) return { title: "No encontrado" };
+  const path = `/precisando/${post.slug}`;
+  const canonical = absoluteLocaleUrl(locale, path);
   const ogImage = post.coverImage
     ? [{ url: new URL(post.coverImage, SITE.url).toString() }]
     : undefined;
+  const ogLocale = locale === "pt" ? "pt_BR" : locale === "en" ? "en_US" : "es_CL";
 
   return {
     title: post.title,
     description: post.excerpt,
     alternates: {
-      canonical: `${SITE.url}/precisando/${encodeURI(post.slug)}`,
+      canonical,
+      languages: hreflangAlternates(path),
     },
     openGraph: {
       title: post.title,
       description: post.excerpt,
-      url: `${SITE.url}/precisando/${encodeURI(post.slug)}`,
+      url: canonical,
       type: "article",
       publishedTime: post.pubDate,
-      locale: "es_CL",
+      locale: ogLocale,
       siteName: SITE.name,
       ...(ogImage ? { images: ogImage } : {}),
     },
@@ -44,6 +52,9 @@ export async function generateMetadata({ params }: Props) {
 
 export default async function PrecisandoArticulo({ params }: Props) {
   const { locale, slug: raw } = await params;
+  if (PRECISANDO_ARTICLES_UNDER_CONSTRUCTION) {
+    redirect(`/${locale}#precisando`);
+  }
   const slug = decodeURIComponent(raw);
 
   const canonicalFromAlias = PRECISANDO_SLUG_ALIASES[slug];

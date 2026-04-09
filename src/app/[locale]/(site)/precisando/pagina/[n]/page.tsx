@@ -1,5 +1,6 @@
 import { notFound, redirect } from "next/navigation";
 import { articlesSortedByDate, PRECISANDO_PAGE_SIZE } from "@/data/articles";
+import { PRECISANDO_ARTICLES_UNDER_CONSTRUCTION } from "@/lib/precisando-access";
 import { SITE } from "@/lib/site";
 import { EditorialIndexTemplate } from "@/components/templates/PageTemplates";
 import {
@@ -10,10 +11,13 @@ import {
 import { PrecisandoIndexFrame } from "@/components/precisando/PrecisandoIndexFrame";
 import Link from "next/link";
 
-type Props = { params: Promise<{ n: string }> };
+type Props = { params: Promise<{ locale: string; n: string }> };
 
 export async function generateMetadata({ params }: Props) {
   const { n } = await params;
+  if (PRECISANDO_ARTICLES_UNDER_CONSTRUCTION) {
+    return { title: "Precisando", robots: { index: false, follow: false } };
+  }
   const page = Number.parseInt(n, 10);
   if (page === 1) return { title: "Precisando" };
   return {
@@ -30,7 +34,10 @@ export function generateStaticParams() {
 }
 
 export default async function PrecisandoPagina({ params }: Props) {
-  const { n } = await params;
+  const { locale, n } = await params;
+  if (PRECISANDO_ARTICLES_UNDER_CONSTRUCTION) {
+    redirect(`/${locale}#precisando`);
+  }
   const page = Number.parseInt(n, 10);
   if (Number.isNaN(page) || page < 1) notFound();
   if (page === 1) redirect("/precisando");

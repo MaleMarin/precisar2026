@@ -17,9 +17,9 @@
 
 .navBarRow {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: space-between;
-  gap: 1rem;
+  gap: clamp(1.25rem, 4vw, 3rem);
 }
 
 /* Pista bajo el menú (desktop): línea base + segmento naranja animado */
@@ -75,30 +75,42 @@
   object-position: left center;
 }
 
+/* Menos ancho del wordmark en desktop: deja sitio al menú completo sin depender del scroll horizontal */
+@media (min-width: 1024px) {
+  .navBarLogo {
+    max-width: min(300px, 28vw);
+    height: clamp(42px, 7vw, 68px);
+  }
+}
+
 .navBarEnd {
   display: flex;
   min-width: 0;
   flex: 1;
-  align-items: flex-end;
+  align-items: center;
   justify-content: flex-end;
-  gap: 0.5rem;
+  gap: 0.75rem;
+  padding-left: clamp(0.75rem, 2.5vw, 2rem);
 }
 
-/* Desktop: un solo renglón — enlaces + idiomas + Onda, alineados a la línea del logo (sin wrap arriba).
-   display:flex lo aporta `lg:flex` en el componente para no pisar `hidden` en móvil. */
+/* Desktop: enlaces en orden de lectura desde la izquierda.
+   Nunca `flex-end` aquí: con overflow-x auto la vista quedaba anclada al final y se cortaban
+   “Qué nos convoca” y el inicio de “Programas” (solo se veía un trozo como “ramas”). */
 .navDesktop {
   flex: 1;
   min-width: 0;
   flex-wrap: nowrap;
-  align-items: flex-end;
-  justify-content: flex-end;
-  column-gap: clamp(0.1rem, 0.35vw, 0.35rem);
+  align-items: center;
+  justify-content: flex-start;
+  column-gap: clamp(0.55rem, 1.35vw, 1.1rem);
   row-gap: 0;
   overflow-x: auto;
   overflow-y: hidden;
   overscroll-behavior-x: contain;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: thin;
+  scroll-behavior: smooth;
+  padding-right: 0.25rem;
 }
 
 .navDesktop > a,
@@ -118,6 +130,20 @@
   font-variant: normal;
 }
 
+/* “Qué nos” / “convoca” en dos líneas: se lee entero y no se pierde “convoca” en pantallas estrechas */
+.navLinkConvoca {
+  white-space: pre-line;
+  line-height: 1.12;
+  text-align: center;
+  padding-left: 0.35rem;
+  padding-right: 0.35rem;
+}
+
+.navLinkMobileConvoca {
+  white-space: pre-line;
+  line-height: 1.2;
+}
+
 .navLinkMobile {
   font-family: var(--font-display);
   font-weight: 600;
@@ -131,7 +157,7 @@
 /* PT / EN junto al menú principal (desktop) */
 .navLocaleGroup {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   gap: 0.125rem;
   margin-left: 0.35rem;
   padding-left: 0.65rem;
@@ -145,10 +171,10 @@
 /* Bot ONDA: enlace con marca onda (desktop dentro del <nav>, móvil en la barra) */
 .navOndaLink {
   display: none;
-  align-items: flex-end;
+  align-items: center;
   justify-content: center;
   margin-left: 0.35rem;
-  line-height: 0;
+  line-height: 1;
   border-radius: 6px;
   transition:
     opacity 0.2s ease,
@@ -167,9 +193,11 @@
   margin-right: 0;
 }
 
-/* Logo Onda a la derecha de ES / PT / EN (desktop) */
-.navOndaAfterLocale {
-  margin-left: 0.65rem;
+/* Fuera del <nav> con scroll: el texto no se recorta con overflow-x */
+.navOndaDesktop {
+  flex-shrink: 0;
+  align-self: center;
+  margin-left: clamp(0.35rem, 1vw, 0.85rem);
 }
 
 @media (min-width: 1024px) {
@@ -189,27 +217,30 @@
 
 .navOndaWithBeta {
   display: inline-flex;
-  align-items: flex-end;
-  gap: 0.35rem;
-  line-height: 0;
+  align-items: center;
+  gap: 0.5rem;
+  line-height: 1.2;
 }
 
-.navOndaBeta {
-  font-family: var(--font-mono);
-  font-size: 0.5625rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  line-height: 1;
+/* Legible junto al círculo (antes ~8px en viewport estrecho parecía “ausente”) */
+.navOndaNavBadge {
+  font-family: var(--font-display);
+  font-size: clamp(0.78rem, 1.05vw, 0.875rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
   color: var(--accent);
   flex-shrink: 0;
+  white-space: nowrap;
 }
 
 .navOndaIcon {
   width: clamp(28px, 4.5vw, 36px);
-  height: auto;
-  max-height: 38px;
+  height: clamp(28px, 4.5vw, 36px);
   object-fit: contain;
   display: block;
+  flex-shrink: 0;
+  align-self: center;
 }
 
 /* Logo onda a color (`logo onda.png`): sin invertir en barra oscura */
@@ -246,21 +277,13 @@
 
 .navOndaMobileLabel {
   display: inline-flex;
-  align-items: baseline;
-  gap: 0.45rem;
+  align-items: center;
   flex-wrap: wrap;
   font-family: var(--font-display);
-  font-size: 1.125rem;
+  font-size: 1.05rem;
   font-weight: 600;
   letter-spacing: -0.03em;
-}
-
-.navOndaMobileBeta {
-  font-family: var(--font-mono);
-  font-size: 0.5625rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  line-height: 1;
+  line-height: 1.25;
   color: var(--accent);
 }
 

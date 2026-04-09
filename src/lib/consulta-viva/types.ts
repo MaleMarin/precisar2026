@@ -26,22 +26,32 @@ export type CountrySignal = {
   name: string;
   responsesTotal: number;
   responsesRecent: number;
+  /** Última señal del país en la sesión (acumulado). */
   lastSeenAt: number | null;
+  /** Canal dominante según toda la sesión (no solo ventana reciente). */
   dominantSource: SourceType | null;
   recentCountBySource: Record<SourceType, number>;
+  /** Conteo por fuente en toda la sesión (sostiene líneas y peso del nodo). */
+  sessionCountBySource: Record<SourceType, number>;
   avgTrust: number | null;
   topConcern: ConcernType | null;
   trend: Trend;
   trendDelta: number;
+  /** 0–1: fuerza del halo / pulso por actividad reciente (decae con el tiempo). */
+  pulseIntensity: number;
+  /** Última respuesta dentro de la ventana reciente (null si responsesRecent === 0). */
+  lastRecentAt: number | null;
 };
 
 export type FlowEdge = {
   source: SourceType;
   fromIso: string;
+  /** Grosor relativo según acumulado de sesión. */
   value: number;
   lastSeenAt: number | null;
+  pulseIntensity: number;
+  recentValue: number;
 };
 
-/** Alias usado en componentes existentes */
 export type DominantSource = SourceType;
 export type TopConcern = ConcernType;

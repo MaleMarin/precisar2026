@@ -1,29 +1,17 @@
 "use client";
 
-import { motion, useReducedMotion, useScroll, useSpring, useTransform } from "framer-motion";
+import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import NextLink from "next/link";
 import { useMemo, useRef, type ComponentType, type ReactNode } from "react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
+import { PRECISANDO_ARTICLES_UNDER_CONSTRUCTION } from "@/lib/precisando-access";
 import { EXTERNAL, FOOTER_COLUMNS, SITE, SABERES_NAV_LINKS } from "@/lib/site";
 import styles from "./MotionStackPanels.module.css";
 
 const MotionLink = motion.create(Link);
 
 const stackEase = [0.22, 1, 0.36, 1] as const;
-
-/** Sigue el scroll con un resorte suave (Lenis + transforms lineales suelen sentirse bruscos entre paneles). */
-function useStackScrollProgress(
-  scrollYProgress: ReturnType<typeof useScroll>["scrollYProgress"],
-  reduceMotion: boolean,
-) {
-  return useSpring(scrollYProgress, {
-    stiffness: reduceMotion ? 9000 : 140,
-    damping: reduceMotion ? 120 : 38,
-    mass: reduceMotion ? 0.05 : 0.22,
-    restDelta: 0.0004,
-  });
-}
 
 export type StackArticle = { slug: string; title: string; category: string };
 
@@ -54,12 +42,14 @@ function IconBlocks({ className }: { className?: string }) {
 
 type MiniListItem = {
   label: ReactNode;
-  href: string;
+  href?: string;
   external?: boolean;
   /** Clave estable si `label` no es string (p. ej. fila Bot Onda). */
   itemKey?: string;
   /** Varias líneas: alinea la flecha arriba y da más aire al bloque. */
   multiline?: boolean;
+  /** Solo texto; sin enlace ni flecha (p. ej. sección en construcción). */
+  disabled?: boolean;
 };
 
 function MiniList({
@@ -94,36 +84,51 @@ function MiniList({
         const rowClass = dark ? `${styles.miniRow} ${styles.miniRowDark}` : styles.miniRow;
         const labelClass = dark ? `${styles.miniLabel} ${styles.miniLabelDark}` : styles.miniLabel;
         const rowMultiline = item.multiline ? ` ${styles.miniRowMultiline}` : "";
+        const disabledCls = item.disabled ? ` ${styles.miniRowDisabled}` : "";
         const inner = (
           <>
             <span className={labelClass}>{item.label}</span>
-            <ArrowIcon className={`${styles.iconSm} ${styles.miniRowArrow}`} />
+            {!item.disabled ? (
+              <ArrowIcon className={`${styles.iconSm} ${styles.miniRowArrow}`} />
+            ) : null}
           </>
         );
-        const rowCls = `${rowClass}${rowMultiline} ${styles.miniRowMotion}`.trim();
-        const motionRowProps = reduceMotion
+        const rowCls = `${rowClass}${rowMultiline}${disabledCls} ${styles.miniRowMotion}`.trim();
+        const motionRowProps = item.disabled
           ? { className: rowCls }
-          : {
-              className: rowCls,
-              initial: { opacity: 0, x: 36 },
-              whileInView: { opacity: 1, x: 0 },
-              viewport: { once: true, margin: "0px 0px -12% 0px" },
-              transition: { duration: 0.52, ease: stackEase, delay: i * 0.065 },
-              whileHover: {
-                x: 10,
-                transition: { type: "spring" as const, stiffness: 420, damping: 30 },
-              },
-              whileTap: { scale: 0.985 },
-            };
+          : reduceMotion
+            ? { className: rowCls }
+            : {
+                className: rowCls,
+                initial: { opacity: 0, x: 36 },
+                whileInView: { opacity: 1, x: 0 },
+                viewport: { once: true, margin: "0px 0px -12% 0px" },
+                transition: { duration: 0.52, ease: stackEase, delay: i * 0.065 },
+                whileHover: {
+                  x: 10,
+                  transition: { type: "spring" as const, stiffness: 420, damping: 30 },
+                },
+                whileTap: { scale: 0.985 },
+              };
 
-        const rowKey = item.itemKey ?? `${item.href}-${i}`;
+        const rowKey = item.itemKey ?? `${item.href ?? "row"}-${i}`;
+
+        if (item.disabled) {
+          return (
+            <motion.div key={rowKey} role="status" {...motionRowProps}>
+              {inner}
+            </motion.div>
+          );
+        }
+
+        const href = item.href ?? "/";
 
         return item.external ? (
-          <motion.a key={rowKey} href={item.href} target="_blank" rel="noreferrer" {...motionRowProps}>
+          <motion.a key={rowKey} href={href} target="_blank" rel="noreferrer" {...motionRowProps}>
             {inner}
           </motion.a>
         ) : (
-          <MotionLink key={rowKey} href={item.href} {...motionRowProps}>
+          <MotionLink key={rowKey} href={href} {...motionRowProps}>
             {inner}
           </MotionLink>
         );
@@ -276,29 +281,25 @@ function StackPanel({
     offset: ["start start", "end start"],
   });
 
-  const progress = useStackScrollProgress(scrollYProgress, reduceMotion);
+  /* Sin useSpring: Lenis ya suaviza el scroll; otro resorte encima retrasaba los paneles (“freno”). */
+  const progress = scrollYProgress;
 
-  /* Curvas más largas = menos “corte” al pasar de un panel sticky al siguiente */
+  /* Escala suave y sin rotateX: la perspectiva deformaba titulares y cuerpo al cambiar de sesión. */
   const scale = useTransform(
     progress,
     [0, 0.2, 0.45, 0.78, 1],
-    reduceMotion ? [1, 1, 1, 1, 1] : [1, 0.97, 0.9, 0.82, 0.76],
+    reduceMotion ? [1, 1, 1, 1, 1] : [1, 0.992, 0.985, 0.978, 0.972],
   );
   const y = useTransform(
     progress,
     [0, 0.22, 0.52, 1],
-    reduceMotion ? [0, 0, 0, 0] : [0, -72, -168, -268],
+    reduceMotion ? [0, 0, 0, 0] : [0, -48, -112, -180],
   );
   const borderRadius = useTransform(progress, [0, 0.35, 1], reduceMotion ? [0, 0, 0] : [0, 24, 52]);
   const contentY = useTransform(
     progress,
     [0, 0.28, 1],
-    reduceMotion ? [0, 0, 0] : [0, -36, -96],
-  );
-  const rotateX = useTransform(
-    progress,
-    [0, 0.32, 0.72, 1],
-    reduceMotion ? [0, 0, 0, 0] : [0, 3, 7, 10],
+    reduceMotion ? [0, 0, 0] : [0, -24, -64],
   );
   const lineScale = useTransform(progress, [0, 0.14, 0.3], [0.12, 0.62, 1]);
 
@@ -410,14 +411,13 @@ function StackPanel({
 
   const glowDrift = !reduceMotion ? styles.panelGlowDrift : "";
 
+  const stackTopGap = 48;
   const panelMotionStyle = {
     scale,
     y,
-    rotateX,
     borderRadius,
-    top: `${index * 32}px`,
+    top: `${index * stackTopGap}px`,
     zIndex: total - index,
-    transformPerspective: 880,
   };
 
   if (editorialContent) {
@@ -551,10 +551,19 @@ export function MotionStackPanels({
     { label: tEducacionMediatica("linkCultura"), href: "/educacion-mediatica/cultura" },
   ];
 
-  const precisandoLinks = featuredArticles.slice(0, 4).map((a) => ({
-    label: a.title,
-    href: `/precisando/${encodeURI(a.slug)}`,
-  }));
+  const precisandoLinks: MiniListItem[] = PRECISANDO_ARTICLES_UNDER_CONSTRUCTION
+    ? [
+        {
+          label: tPrecisando("stackUnderConstruction"),
+          disabled: true,
+          itemKey: "precisando-under-construction",
+          multiline: true,
+        },
+      ]
+    : featuredArticles.slice(0, 4).map((a) => ({
+        label: a.title,
+        href: `/precisando/${encodeURI(a.slug)}`,
+      }));
 
   const footerCols = FOOTER_COLUMNS;
 

@@ -1,6 +1,7 @@
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { ARTICLES, articlesSortedByDate } from "@/data/articles";
 import { categoryToSlug } from "@/lib/category-slug";
+import { PRECISANDO_ARTICLES_UNDER_CONSTRUCTION } from "@/lib/precisando-access";
 import { SITE } from "@/lib/site";
 import { EditorialIndexTemplate } from "@/components/templates/PageTemplates";
 import {
@@ -10,7 +11,7 @@ import {
 import { PrecisandoIndexFrame } from "@/components/precisando/PrecisandoIndexFrame";
 import Link from "next/link";
 
-type Props = { params: Promise<{ slug: string }> };
+type Props = { params: Promise<{ locale: string; slug: string }> };
 
 export function generateStaticParams() {
   const cats = new Set(ARTICLES.map((a) => categoryToSlug(a.category)));
@@ -19,6 +20,9 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props) {
   const { slug } = await params;
+  if (PRECISANDO_ARTICLES_UNDER_CONSTRUCTION) {
+    return { title: "Precisando", robots: { index: false, follow: false } };
+  }
   const label =
     ARTICLES.find((a) => categoryToSlug(a.category) === slug)?.category ?? slug;
   return {
@@ -29,7 +33,10 @@ export async function generateMetadata({ params }: Props) {
 }
 
 export default async function PrecisandoCategoria({ params }: Props) {
-  const { slug } = await params;
+  const { locale, slug } = await params;
+  if (PRECISANDO_ARTICLES_UNDER_CONSTRUCTION) {
+    redirect(`/${locale}#precisando`);
+  }
   const label = ARTICLES.find((a) => categoryToSlug(a.category) === slug)?.category;
   if (!label) notFound();
 

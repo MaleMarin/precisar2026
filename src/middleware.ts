@@ -2,6 +2,8 @@ import { NextResponse, type NextRequest } from "next/server";
 import { articleBySlug } from "@/data/articles";
 import { PRECISANDO_SLUG_ALIASES } from "@/data/slug-aliases";
 import { routing } from "@/i18n/routing";
+import { matchLegacyRedirect } from "@/lib/legacy-redirects";
+import { PRECISANDO_ARTICLES_UNDER_CONSTRUCTION } from "@/lib/precisando-access";
 
 const LOCALE_SET = new Set(routing.locales.map((l) => l.toLowerCase()));
 
@@ -53,7 +55,21 @@ function hasLocalePrefix(pathname: string): boolean {
   return first != null && LOCALE_SET.has(first);
 }
 
+function redirectHomePrecisando(request: NextRequest, localeSeg: string) {
+  const url = request.nextUrl.clone();
+  url.pathname = `/${localeSeg}`;
+  url.hash = "precisando";
+  return NextResponse.redirect(url, 307);
+}
+
 export function middleware(request: NextRequest) {
+  const host = request.headers.get("host")?.split(":")[0]?.toLowerCase() ?? "";
+  if (host === "www.precisar.net") {
+    const url = request.nextUrl.clone();
+    url.hostname = "precisar.net";
+    return NextResponse.redirect(url, 308);
+  }
+
   const pathname = request.nextUrl.pathname;
   if (pathname.includes(".")) return NextResponse.next();
 
@@ -73,6 +89,17 @@ export function middleware(request: NextRequest) {
   }
 
   if (!hasLocalePrefix(pathname)) {
+    const legacy = matchLegacyRedirect(pathname);
+    if (legacy) {
+      if (legacy.destination.startsWith("http://") || legacy.destination.startsWith("https://")) {
+        return NextResponse.redirect(legacy.destination, legacy.permanent ? 308 : 307);
+      }
+      const target = request.nextUrl.clone();
+      const destPath = legacy.destination === "/" ? `/${routing.defaultLocale}` : `/${routing.defaultLocale}${legacy.destination}`;
+      target.pathname = destPath;
+      return NextResponse.redirect(target, legacy.permanent ? 308 : 307);
+    }
+
     const url = request.nextUrl.clone();
     const suffix = pathname === "/" ? "" : pathname;
     url.pathname = `/${routing.defaultLocale}${suffix}`;
@@ -83,16 +110,33 @@ export function middleware(request: NextRequest) {
   const localeSeg = parts[0];
   const afterLocale = parts.slice(1);
 
+  if (
+    PRECISANDO_ARTICLES_UNDER_CONSTRUCTION &&
+    afterLocale[0] === "precisando" &&
+    afterLocale.length === 2
+  ) {
+    const slugSeg = decodePathSegment(afterLocale[1]);
+    if (articleBySlug(slugSeg)) {
+      return redirectHomePrecisando(request, localeSeg);
+    }
+  }
+
   if (afterLocale.length === 1) {
     const decoded = decodePathSegment(afterLocale[0]);
     const aliasTarget = PRECISANDO_SLUG_ALIASES[decoded];
     if (aliasTarget) {
+      if (PRECISANDO_ARTICLES_UNDER_CONSTRUCTION) {
+        return redirectHomePrecisando(request, localeSeg);
+      }
       const url = request.nextUrl.clone();
       url.pathname = `/${localeSeg}/precisando/${encodeURI(aliasTarget)}`;
       return NextResponse.redirect(url, 308);
     }
     const postFromRoot = !RESERVED_ROOT_SEGMENTS.has(decoded) ? articleBySlug(decoded) : undefined;
     if (postFromRoot) {
+      if (PRECISANDO_ARTICLES_UNDER_CONSTRUCTION) {
+        return redirectHomePrecisando(request, localeSeg);
+      }
       const url = request.nextUrl.clone();
       url.pathname = `/${localeSeg}/precisando/${encodeURI(postFromRoot.slug)}`;
       return NextResponse.redirect(url, 308);

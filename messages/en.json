@@ -15,6 +15,7 @@
     "openMenu": "Open menu",
     "closeMenu": "Close menu",
     "botOnda": "Bot ONDA",
+    "botOndaNavBadge": "Bot Onda/Beta",
     "botOndaBeta": "BETA",
     "botOndaAria": "Open Bot ONDA chat (beta) in a new tab"
   },
@@ -113,7 +114,8 @@
   "homePrecisando": {
     "stackKicker": "04 · Precisando",
     "stackHeadline": "Analysis and debate on how information circulates and what effects it has.",
-    "stackBody": "Because information is everywhere—and understanding it is what makes the difference."
+    "stackBody": "Because information is everywhere—and understanding it is what makes the difference.",
+    "stackUnderConstruction": "Under construction. Articles will be published here soon."
   },
   "homeSaberes": {
     "stackKicker": "03 · Saberes",

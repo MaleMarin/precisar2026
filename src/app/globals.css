@@ -65,8 +65,9 @@
   }
 }
 
+/* Lenis controla el suavizado; `smooth` nativo aquí pelea con el proxy y se siente duro o a tirones. */
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
 }
 
 body {

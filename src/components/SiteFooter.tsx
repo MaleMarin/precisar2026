@@ -2,7 +2,7 @@
 
 import { useCallback } from "react";
 import { useTranslations } from "next-intl";
-import { Link, usePathname } from "@/i18n/navigation";
+import { Link, usePathname, useRouter } from "@/i18n/navigation";
 import { footerContactRedirect } from "@/app/[locale]/(site)/participa/actions";
 import { EXTERNAL, FOOTER_MEDIA, NAV_PRIMARY, NAV_PRIMARY_I18N_KEY, NEWSLETTER } from "@/lib/site";
 import styles from "./SiteFooter.module.css";
@@ -28,6 +28,7 @@ function WhatsAppIcon({ className }: { className?: string }) {
 export function SiteFooter() {
   const year = new Date().getFullYear();
   const tNav = useTranslations("nav");
+  const router = useRouter();
   const pathname = usePathname();
   const isHome = isHomePath(pathname);
 
@@ -49,9 +50,65 @@ export function SiteFooter() {
     [isHome],
   );
 
+  const newsletterForm =
+    NEWSLETTER.formActionUrl ? (
+      <form action={NEWSLETTER.formActionUrl} method="post" className={styles.newsFormInner}>
+        <label className={styles.visuallyHidden} htmlFor="footer-newsletter-email">
+          Correo electrónico
+        </label>
+        <div className={styles.newsRow}>
+          <input
+            id="footer-newsletter-email"
+            type="email"
+            name="email"
+            required
+            autoComplete="email"
+            placeholder="Escribe tu correo"
+            className={styles.newsletterField}
+          />
+          <button type="submit" className={styles.btnSubscribe}>
+            Suscribirme
+          </button>
+        </div>
+      </form>
+    ) : (
+      <form
+        className={styles.newsFormInner}
+        onSubmit={(e) => {
+          e.preventDefault();
+          const form = e.currentTarget;
+          const input = form.elements.namedItem("email") as HTMLInputElement | null;
+          if (!input?.value?.trim() || !input.validity.valid) {
+            input?.reportValidity();
+            return;
+          }
+          router.push("/participa");
+        }}
+      >
+        <label className={styles.visuallyHidden} htmlFor="footer-newsletter-email">
+          Correo electrónico
+        </label>
+        <div className={styles.newsRow}>
+          <input
+            id="footer-newsletter-email"
+            type="email"
+            name="email"
+            required
+            autoComplete="email"
+            placeholder="Escribe tu correo"
+            className={styles.newsletterField}
+          />
+          <button type="submit" className={styles.btnSubscribe}>
+            Suscribirme
+          </button>
+        </div>
+      </form>
+    );
+
   return (
     <footer className={styles.footer}>
-      <div className={styles.block1}>
+      {/* 1 · Wordmark + newsletter (centrado, editorial) */}
+      <div className={styles.footerBrandZone}>
         <div className={styles.brandStrip}>
           <Link href="/" className={styles.brandLogoLink}>
             <img
@@ -64,10 +121,8 @@ export function SiteFooter() {
             />
           </Link>
         </div>
-      </div>
 
-      <div className={styles.main}>
-        <div className="prec-container">
+        <div className={`prec-container ${styles.newsletterBand}`}>
           <section className={styles.newsletterSection} aria-labelledby="footer-newsletter-heading">
             <h2 id="footer-newsletter-heading" className={styles.visuallyHidden}>
               Newsletter
@@ -77,76 +132,47 @@ export function SiteFooter() {
               Únete a nuestra comunidad y recibe análisis más profundos, recursos exclusivos y perspectivas del
               entorno digital.
             </p>
-            <p className={styles.newsCta}>Suscríbete aquí.</p>
-
-            <div className={styles.newsForm}>
-              {NEWSLETTER.formActionUrl ? (
-                <form action={NEWSLETTER.formActionUrl} method="post" className={styles.newsFormInner}>
-                  <label className={styles.newsFieldLabel} htmlFor="footer-newsletter-email">
-                    Correo electrónico <span aria-hidden>*</span>
-                  </label>
-                  <div className={styles.newsRow}>
-                    <input
-                      id="footer-newsletter-email"
-                      type="email"
-                      name="email"
-                      required
-                      autoComplete="email"
-                      placeholder="Escribe tu correo"
-                      className={styles.newsletterField}
-                    />
-                    <button type="submit" className={styles.btnSubscribe}>
-                      Suscribirme
-                    </button>
-                  </div>
-                </form>
-              ) : (
-                <>
-                  <div className={styles.newsRow}>
-                    <Link href="/participa#boletin" className={styles.btnSubscribe}>
-                      Suscribirme
-                    </Link>
-                  </div>
-                  <p className={styles.fallbackNote}>
-                    Completa tu correo en la sección Newsletter de Participa.
-                  </p>
-                </>
-              )}
-            </div>
+            <div className={styles.newsForm}>{newsletterForm}</div>
           </section>
+        </div>
+      </div>
 
-          <div className={styles.bottomGrid}>
-            <nav aria-label={tNav("main")}>
+      {/* 2 · Navegación | Contacto */}
+      <div className={styles.footerMid}>
+        <div className="prec-container">
+          <div className={styles.midDivider} aria-hidden />
+          <div className={styles.midGrid}>
+            <nav className={styles.navColumn} aria-label={tNav("main")}>
+              <p className={styles.midEyebrow}>Menú</p>
               <ul className={styles.navList}>
                 {NAV_PRIMARY.map((item) => (
                   <li key={item.href}>
                     <Link
                       href={item.href}
-                      className={styles.navLink}
+                      className={`${styles.navLink}${item.href === "/#convoca" ? ` ${styles.navLinkPreline}` : ""}`}
                       onClick={(e) => scrollToHomeSection(e, item.href)}
                     >
                       {NAV_PRIMARY_I18N_KEY[item.href] ? tNav(NAV_PRIMARY_I18N_KEY[item.href]) : item.label}
                     </Link>
                   </li>
                 ))}
-                <li>
+                <li className={styles.navBotOndaItem}>
                   <a
                     href={EXTERNAL.botOnda}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={styles.navLink}
+                    className={styles.navLinkBotOnda}
                   >
-                    <span className={styles.footerBotOndaLine}>
-                      {tNav("botOnda")}
-                      <span className={styles.footerBotOndaBeta}>{tNav("botOndaBeta")}</span>
-                    </span>
+                    <span className={styles.navBotOndaLabel}>{tNav("botOnda")}</span>
+                    <span className={styles.navBotOndaBeta}>{tNav("botOndaBeta")}</span>
                   </a>
                 </li>
               </ul>
             </nav>
 
-            <div>
+            <div className={styles.contactColumn}>
               <h2 className={styles.contactTitle}>Contáctanos</h2>
+              <p className={styles.contactLead}>Escribe tu mensaje y te respondemos.</p>
               <form action={footerContactRedirect} className={styles.contactForm}>
                 <div className={styles.field}>
                   <label className={styles.fieldLabel} htmlFor="footer-nombre">
@@ -210,40 +236,42 @@ export function SiteFooter() {
         </div>
       </div>
 
+      {/* 3 · Institucional + legal + Bot Onda integrado */}
       <div className={styles.legal}>
         <div className="prec-container">
           <div className={styles.legalGrid}>
-            <p className={styles.legalLeft}>
-              Precisar. Hecho con criterio en Chile 🇨🇱 y México 🇲🇽.
-            </p>
-            <div className={styles.legalRightCol}>
-              <p className={styles.legalRight}>
-                © {year} Precisar. Todos los derechos reservados. Onda de Precisar es una marca registrada y un servicio
-                oficial de comunicación de la Fundación Precisar.
+            <div className={styles.legalPrimary}>
+              <p className={styles.legalTagline}>
+                Precisar. Hecho con criterio en Chile 🇨🇱 y México 🇲🇽.
+              </p>
+              <a
+                href={EXTERNAL.botOnda}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.legalOndaInline}
+                aria-label={tNav("botOndaAria")}
+              >
+                <img
+                  src={FOOTER_MEDIA.navOndaMark}
+                  alt=""
+                  width={48}
+                  height={48}
+                  decoding="async"
+                  className={styles.legalOndaMark}
+                />
+                <span className={styles.legalOndaText}>{tNav("botOnda")}</span>
+                <span className={styles.legalOndaBetaTag}>{tNav("botOndaBeta")}</span>
+              </a>
+            </div>
+            <div className={styles.legalMeta}>
+              <p className={styles.legalCopyright}>
+                © {year} Precisar. Todos los derechos reservados. Onda de Precisar es una marca registrada y un
+                servicio oficial de comunicación de la Fundación Precisar.
               </p>
               <Link href="/legal/privacidad-consulta-2026" className={styles.privacyLink}>
                 Política de Privacidad
               </Link>
             </div>
-          </div>
-          <div className={styles.footerOndaWrap}>
-            <a
-              href={EXTERNAL.botOnda}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.footerOndaLink}
-              aria-label={tNav("botOndaAria")}
-            >
-              <img
-                src={FOOTER_MEDIA.navOndaMark}
-                alt=""
-                width={96}
-                height={96}
-                decoding="async"
-                className={styles.footerOndaLogo}
-              />
-              <span className={styles.footerOndaBeta}>{tNav("botOndaBeta")}</span>
-            </a>
           </div>
         </div>
       </div>

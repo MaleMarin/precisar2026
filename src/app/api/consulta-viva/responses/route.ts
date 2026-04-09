@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { seedMockResponses } from "@/lib/consulta-viva/mockResponses";
+import { rejuvenateIfStale, seedMockResponses } from "@/lib/consulta-viva/mockResponses";
 import type { ConcernType, LiveResponse, SourceType, TrustLevel } from "@/lib/consulta-viva/types";
 
 export const runtime = "nodejs";
@@ -50,6 +50,8 @@ function isConcern(x: unknown): x is ConcernType {
 
 export async function GET(request: Request) {
   const store = getStore();
+  store.responses = rejuvenateIfStale(store.responses);
+
   const url = new URL(request.url);
   const sinceStr = url.searchParams.get("since");
   const since = sinceStr ? Number(sinceStr) : null;

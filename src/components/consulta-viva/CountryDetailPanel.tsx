@@ -1,75 +1,53 @@
 "use client";
 
-import { concernLabel, trustLabel } from "@/lib/consulta-viva/aggregations";
-import { SOURCE_LABELS } from "@/lib/consulta-viva/sourceColors";
+import type { ReactNode } from "react";
+import { CONCERN_LABELS, SOURCE_LABELS } from "@/lib/consulta-viva/aggregations";
 import type { CountrySignal } from "@/lib/consulta-viva/types";
-import styles from "./CountryDetailPanel.module.css";
-
-const TREND_LABEL: Record<CountrySignal["trend"], string> = {
-  up: "Al alza",
-  stable: "Estable",
-  down: "A la baja",
-};
 
 type Props = {
   signal: CountrySignal | null;
-  hint?: boolean;
 };
 
-export function CountryDetailPanel({ signal, hint = true }: Props) {
+export function CountryDetailPanel({ signal }: Props) {
   if (!signal) {
     return (
-      <div className={styles.empty}>
-        <p className={styles.emptyTitle}>Selección regional</p>
-        {hint ? (
-          <p className={styles.emptyText}>
-            Pasá el cursor o tocá un país en el mapa para ver canal dominante, confianza y preocupación
-            principal.
-          </p>
-        ) : null}
+      <div className="rounded-[24px] border border-slate-200 bg-white p-5 text-slate-500 shadow-[0_14px_34px_rgba(15,23,42,0.08)]">
+        Tocá un país en el mapa para ver cómo se informa ahí.
       </div>
     );
   }
 
   return (
-    <div className={styles.root}>
-      <h3 className={styles.country}>{signal.name}</h3>
-      <dl className={styles.dl}>
-        <div className={styles.row}>
-          <dt>Canal dominante</dt>
-          <dd>
-            {signal.dominantSource ? SOURCE_LABELS[signal.dominantSource] : "Sin señal reciente"}
-          </dd>
-        </div>
-        <div className={styles.row}>
-          <dt>Confianza promedio</dt>
-          <dd>
-            {signal.avgTrust != null ? `${signal.avgTrust.toFixed(1)} · ${trustLabel(signal.avgTrust)}` : "—"}
-          </dd>
-        </div>
-        <div className={styles.row}>
-          <dt>Principal preocupación</dt>
-          <dd>{signal.topConcern ? concernLabel(signal.topConcern) : "—"}</dd>
-        </div>
-        <div className={styles.row}>
-          <dt>Señales (últimos 5 min)</dt>
-          <dd className={styles.em}>{signal.responsesRecent}</dd>
-        </div>
-        <div className={styles.row}>
-          <dt>Señales totales (sesión)</dt>
-          <dd>{signal.responsesTotal.toLocaleString("es-CL")}</dd>
-        </div>
-        <div className={styles.row}>
-          <dt>Tendencia</dt>
-          <dd>
-            {signal.trend === "up"
-              ? `${TREND_LABEL.up} (+${signal.trendDelta})`
-              : signal.trend === "down"
-                ? `${TREND_LABEL.down} (${signal.trendDelta})`
-                : TREND_LABEL.stable}
-          </dd>
-        </div>
-      </dl>
+    <div className="rounded-[24px] border border-slate-200 bg-white p-5 shadow-[0_14px_34px_rgba(15,23,42,0.08)]">
+      <div className="mb-4 text-xs uppercase tracking-[0.22em] text-slate-400">País activo</div>
+      <h3 className="mb-1 text-2xl font-semibold tracking-tight text-slate-900">{signal.name}</h3>
+      <p className="mb-4 text-sm text-slate-500">Lectura acumulada en esta sesión y actividad reciente.</p>
+
+      <div className="grid gap-3">
+        <Row label="Canal dominante">
+          {signal.dominantSource ? SOURCE_LABELS[signal.dominantSource] : "Todavía no alcanza para una lectura clara"}
+        </Row>
+
+        <Row label="Confianza promedio">
+          {signal.avgTrust != null ? signal.avgTrust.toFixed(1) : "—"}
+        </Row>
+
+        <Row label="Principal preocupación">
+          {signal.topConcern ? CONCERN_LABELS[signal.topConcern] : "—"}
+        </Row>
+
+        <Row label="Respuestas recientes">{signal.responsesRecent}</Row>
+        <Row label="Respuestas totales">{signal.responsesTotal}</Row>
+      </div>
+    </div>
+  );
+}
+
+function Row({ label, children }: { label: string; children: ReactNode }) {
+  return (
+    <div className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3">
+      <div className="text-xs uppercase tracking-[0.18em] text-slate-400">{label}</div>
+      <div className="mt-1 text-sm font-medium text-slate-800">{children}</div>
     </div>
   );
 }

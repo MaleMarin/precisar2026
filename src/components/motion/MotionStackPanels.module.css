@@ -17,8 +17,8 @@
   position: relative;
   height: 200vh;
   scroll-margin-top: 5.5rem;
-  perspective: 960px;
-  perspective-origin: 50% -8%;
+  /* Sin perspectiva 3D: el texto se lee estable al pasar de una sesión a otra. */
+  perspective: none;
 }
 
 /* Primer panel editorial: más recorrido de scroll antes de que el panel Programas cubra el viewport. */
@@ -38,15 +38,19 @@
   position: sticky;
   left: 0;
   top: 0;
-  height: 100vh;
-  width: 100%;
+  /* Más “delgado” que el viewport: deja ver el fondo de la página arriba, abajo y a los lados. */
+  height: calc(100vh - clamp(2.75rem, 7vh, 4.5rem));
+  width: calc(100% - clamp(1.25rem, 4.5vw, 2.75rem));
+  max-width: min(90rem, calc(100% - clamp(1.25rem, 4.5vw, 2.75rem)));
+  margin-left: auto;
+  margin-right: auto;
   overflow: hidden;
   border: 1px solid color-mix(in oklab, #000 10%, transparent);
   box-shadow:
     0 36px 120px rgba(0, 0, 0, 0.2),
     0 12px 40px rgba(0, 0, 0, 0.12);
   transform-origin: center top;
-  transform-style: preserve-3d;
+  transform-style: flat;
   will-change: transform;
 }
 
@@ -605,6 +609,18 @@
 
 .miniRowDark:hover {
   background: color-mix(in oklab, #fff 6%, transparent);
+}
+
+.miniRowDisabled,
+.miniRowDisabled:hover {
+  cursor: default;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.miniRowDark.miniRowDisabled:hover {
+  background: transparent !important;
+  box-shadow: none !important;
 }
 
 .miniRowMotion {

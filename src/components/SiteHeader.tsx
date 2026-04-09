@@ -209,7 +209,7 @@ export function SiteHeader() {
         <div className={shellClass}>
           <div className="flex flex-col">
             <div
-              className={`${styles.navBarOuter} relative flex min-h-[4rem] items-end py-2 md:min-h-[6.5rem] md:py-2.5 ${styles.navBarRow}`}
+              className={`${styles.navBarOuter} relative flex min-h-[4rem] items-center py-2 md:min-h-[6.5rem] md:py-2.5 ${styles.navBarRow}`}
             >
               <Link href="/" className={styles.navBarLogoLink} onClick={() => setOpen(false)}>
                 <img
@@ -230,7 +230,9 @@ export function SiteHeader() {
                     <Link
                       key={item.href}
                       href={item.href}
-                      className={linkDesktop}
+                      className={[linkDesktop, item.href === "/#convoca" ? styles.navLinkConvoca : ""]
+                        .filter(Boolean)
+                        .join(" ")}
                       ref={(el) => {
                         linkRefs.current[i] = el;
                       }}
@@ -261,26 +263,26 @@ export function SiteHeader() {
                       </button>
                     ))}
                   </div>
-                  <a
-                    href={EXTERNAL.botOnda}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`${styles.navOndaLink} ${styles.navOndaAfterLocale}`}
-                    aria-label={tNav("botOndaAria")}
-                  >
-                    <span className={styles.navOndaWithBeta}>
-                      <img
-                        src={FOOTER_MEDIA.navOndaMark}
-                        alt=""
-                        width={64}
-                        height={64}
-                        decoding="async"
-                        className={`${styles.navOndaIcon} ${styles.navOndaMarkImg}`}
-                      />
-                      <span className={styles.navOndaBeta}>{tNav("botOndaBeta")}</span>
-                    </span>
-                  </a>
                 </nav>
+                <a
+                  href={EXTERNAL.botOnda}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`${styles.navOndaLink} ${styles.navOndaDesktop}`}
+                  aria-label={tNav("botOndaAria")}
+                >
+                  <span className={styles.navOndaWithBeta}>
+                    <img
+                      src={FOOTER_MEDIA.navOndaMark}
+                      alt=""
+                      width={64}
+                      height={64}
+                      decoding="async"
+                      className={`${styles.navOndaIcon} ${styles.navOndaMarkImg}`}
+                    />
+                    <span className={styles.navOndaNavBadge}>{tNav("botOndaNavBadge")}</span>
+                  </span>
+                </a>
                 <button
                   type="button"
                   className="relative z-[60] flex h-11 w-11 flex-shrink-0 flex-col items-center justify-center gap-1.5 lg:hidden"
@@ -310,7 +312,7 @@ export function SiteHeader() {
                       decoding="async"
                       className={`${styles.navOndaIcon} ${styles.navOndaMarkImg}`}
                     />
-                    <span className={styles.navOndaBeta}>{tNav("botOndaBeta")}</span>
+                    <span className={styles.navOndaNavBadge}>{tNav("botOndaNavBadge")}</span>
                   </span>
                 </a>
               </div>
@@ -354,7 +356,9 @@ export function SiteHeader() {
                   <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-[var(--muted)]">
                     {String(i + 1).padStart(2, "0")}
                   </span>
-                  <span className="mt-1 block">
+                  <span
+                    className={`mt-1 block ${item.href === "/#convoca" ? styles.navLinkMobileConvoca : ""}`.trim()}
+                  >
                     {NAV_PRIMARY_I18N_KEY[item.href] ? tNav(NAV_PRIMARY_I18N_KEY[item.href]) : item.label}
                   </span>
                 </Link>
@@ -395,10 +399,7 @@ export function SiteHeader() {
                   decoding="async"
                   className={styles.navOndaMobileIcon}
                 />
-                <span className={styles.navOndaMobileLabel}>
-                  {tNav("botOnda")}
-                  <span className={styles.navOndaMobileBeta}>{tNav("botOndaBeta")}</span>
-                </span>
+                <span className={styles.navOndaMobileLabel}>{tNav("botOndaNavBadge")}</span>
               </a>
             </nav>
           </div>

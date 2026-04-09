@@ -3,7 +3,7 @@
     "tagline": "Lo que circula, lo que importa, lo que hay que entender."
   },
   "nav": {
-    "queNosConvoca": "Qué nos convoca",
+    "queNosConvoca": "Qué nos\nconvoca",
     "programas": "Programas",
     "saberes": "Saberes",
     "precisando": "Precisando",
@@ -15,6 +15,7 @@
     "openMenu": "Abrir menú",
     "closeMenu": "Cerrar menú",
     "botOnda": "Bot ONDA",
+    "botOndaNavBadge": "Bot Onda/Beta",
     "botOndaBeta": "BETA",
     "botOndaAria": "Abrir el chat Bot ONDA (beta) en una pestaña nueva"
   },
@@ -113,7 +114,8 @@
   "homePrecisando": {
     "stackKicker": "04 · Precisando",
     "stackHeadline": "Análisis y debates sobre cómo circula la información y qué efectos tiene.",
-    "stackBody": "Porque la información está por todas partes — y entenderla es lo que marca la diferencia."
+    "stackBody": "Porque la información está por todas partes — y entenderla es lo que marca la diferencia.",
+    "stackUnderConstruction": "En construcción. Pronto publicaremos las notas aquí."
   },
   "homeSaberes": {
     "stackKicker": "03 · Saberes",

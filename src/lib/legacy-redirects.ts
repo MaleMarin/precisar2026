@@ -1,3 +1,54 @@
+function escapeRegex(s: string): string {
+  return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+function normalizePathname(pathname: string): string {
+  try {
+    return decodeURIComponent(pathname).normalize("NFC");
+  } catch {
+    return pathname.normalize("NFC");
+  }
+}
+
+function stripTrailingSlash(path: string): string {
+  if (path.length <= 1) return path;
+  return path.replace(/\/+$/, "") || "/";
+}
+
+/**
+ * Coincidencia de rutas legacy **sin** prefijo de locale.
+ * El middleware debe ejecutar esto antes de redirigir a `/{locale}/…`, si no `next.config` redirects no alcanzan.
+ */
+export function matchLegacyRedirect(pathname: string): {
+  destination: string;
+  permanent: boolean;
+} | null {
+  const raw = stripTrailingSlash(normalizePathname(pathname.split("?")[0] || "/"));
+  const rules = legacyRedirects();
+
+  for (const rule of rules) {
+    if (rule.source.includes(":n")) {
+      const base = rule.source.replace("/:n", "");
+      const re = new RegExp(`^${escapeRegex(base)}/(\\d+)$`);
+      const m = raw.match(re);
+      if (m) {
+        return {
+          destination: rule.destination.replace(":n", m[1]!),
+          permanent: rule.permanent,
+        };
+      }
+      continue;
+    }
+
+    const srcNorm = stripTrailingSlash(normalizePathname(rule.source));
+    if (raw === srcNorm) {
+      return { destination: rule.destination, permanent: rule.permanent };
+    }
+  }
+
+  return null;
+}
+
 /**
  * Redirects 308 desde rutas antiguas (Wix). Sin patrones comodín genéricos que puedan
  * colisionar con rutas nuevas (`/blog`, `/post`, etc.).

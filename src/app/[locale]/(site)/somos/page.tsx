@@ -1,25 +1,40 @@
 import type { Metadata } from "next";
 import { Link } from "@/i18n/navigation";
-import { SITE } from "@/lib/site";
+import { absoluteLocaleUrl, hreflangAlternates, SITE } from "@/lib/site";
 import styles from "./SomosPage.module.css";
 
-export const metadata: Metadata = {
-  title: "Somos Precisar",
-  description:
-    "Organización sin fines de lucro desde 2021: cultura digital, alfabetización mediática, herramientas y programas en Chile y México.",
-  alternates: {
-    canonical: `${SITE.url}/somos`,
-  },
-  openGraph: {
+function ogLocaleTag(locale: string): string {
+  if (locale === "pt") return "pt_BR";
+  if (locale === "en") return "en_US";
+  return "es_CL";
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const canonical = absoluteLocaleUrl(locale, "/somos");
+  return {
     title: "Somos Precisar",
     description:
-      "Potenciar con precisión la cultura digital. Herramientas, experiencias y programas para una democracia digital informada.",
-    url: `${SITE.url}/somos`,
-    siteName: SITE.name,
-    locale: "es_CL",
-    type: "website",
-  },
-};
+      "Organización sin fines de lucro desde 2021: cultura digital, alfabetización mediática, herramientas y programas en Chile y México.",
+    alternates: {
+      canonical,
+      languages: hreflangAlternates("/somos"),
+    },
+    openGraph: {
+      title: "Somos Precisar",
+      description:
+        "Potenciar con precisión la cultura digital. Herramientas, experiencias y programas para una democracia digital informada.",
+      url: canonical,
+      siteName: SITE.name,
+      locale: ogLocaleTag(locale),
+      type: "website",
+    },
+  };
+}
 
 export default function SomosPrecisarPage() {
   return (

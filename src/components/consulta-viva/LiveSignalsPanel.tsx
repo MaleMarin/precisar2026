@@ -1,41 +1,42 @@
 "use client";
 
-import { SOURCE_COLORS, SOURCE_LABELS } from "@/lib/consulta-viva/sourceColors";
-import type { DominantSource } from "@/lib/consulta-viva/types";
-import styles from "./LiveSignalsPanel.module.css";
-
-const ORDER: DominantSource[] = ["whatsapp", "social", "tv_radio", "news", "ai"];
-
 type Props = {
-  volumeBySource: Record<DominantSource, number>;
+  insights: string[];
+  recentActivity: string[];
 };
 
-export function LiveSignalsPanel({ volumeBySource }: Props) {
-  const max = Math.max(...ORDER.map((k) => volumeBySource[k]), 1);
+export function LiveSignalsPanel({ insights, recentActivity }: Props) {
   return (
-    <div className={styles.root}>
-      <p className={styles.caption}>Volumen relativo por corriente</p>
-      <ul className={styles.bars}>
-        {ORDER.map((key) => {
-          const v = volumeBySource[key];
-          const pct = Math.round((v / max) * 100);
-          return (
-            <li key={key} className={styles.barRow}>
-              <span className={styles.barLabel}>{SOURCE_LABELS[key]}</span>
-              <span className={styles.barTrack}>
-                <span
-                  className={styles.barFill}
-                  style={{
-                    width: `${pct}%`,
-                    background: `linear-gradient(90deg, ${SOURCE_COLORS[key]}cc, ${SOURCE_COLORS[key]}44)`,
-                    boxShadow: `0 0 14px ${SOURCE_COLORS[key]}33`,
-                  }}
-                />
-              </span>
-            </li>
-          );
-        })}
-      </ul>
+    <div className="grid gap-4">
+      <div className="rounded-[24px] border border-slate-200 bg-white p-5 shadow-[0_14px_34px_rgba(15,23,42,0.08)]">
+        <div className="mb-1 text-xs uppercase tracking-[0.22em] text-slate-400">Lectura instantánea</div>
+        <p className="mb-3 text-sm text-slate-500">Qué está pasando en la región, en pocas frases.</p>
+        <div className="space-y-3">
+          {insights.map((item, i) => (
+            <div
+              key={i}
+              className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-800"
+            >
+              {item}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="rounded-[24px] border border-slate-200 bg-white p-5 shadow-[0_14px_34px_rgba(15,23,42,0.08)]">
+        <div className="mb-1 text-xs uppercase tracking-[0.22em] text-slate-400">Actividad reciente</div>
+        <p className="mb-3 text-sm text-slate-500">Últimas respuestas que entraron al sistema.</p>
+        <div className="space-y-2">
+          {recentActivity.slice(0, 6).map((item, i) => (
+            <div
+              key={i}
+              className="rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-800"
+            >
+              {item}
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }

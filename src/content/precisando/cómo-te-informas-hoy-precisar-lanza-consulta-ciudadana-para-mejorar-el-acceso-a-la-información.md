@@ -30,7 +30,7 @@ Se lanza en la Semana Mundial AMI 2025
 
 La consulta se inicia en el marco de la Semana Mundial de la Alfabetización Mediática e Informacional 2025, cuyo lema es “Piensa ante la IA — AMI en el mundo digital”. La Conferencia destacada de este año es organizada por UNESCO y la República de Colombia y se celebra el 23 y 24 de octubre de 2025 en Cartagena de Indias, con foco en cómo la IA reconfigura el ecosistema informativo y por qué la AMI es clave para interactuar críticamente con contenidos generados por IA. La Semana se conmemora a nivel global del 24 al 31 de octubre. 
 
-La consulta se lanza el 24 de octubre y estará abierta hasta el 31 de diciembre, en la pagina: https://www.precisar.net/participacion
+La consulta se lanza el 24 de octubre y estará abierta hasta el 31 de diciembre, en la página: https://precisar.net/es/participa
 
 
 

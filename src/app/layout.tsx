@@ -6,7 +6,7 @@ import rootShell from "./root-layout.module.css";
 import { GsapRouteFade } from "@/components/GsapRouteFade";
 import { RevealInit } from "@/components/RevealInit";
 import { SmoothScrollProvider } from "@/components/SmoothScrollProvider";
-import { SITE } from "@/lib/site";
+import { absoluteLocaleUrl, SITE } from "@/lib/site";
 
 const sans = DM_Sans({
   variable: "--font-sans-family",
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     siteName: SITE.name,
     title: `${SITE.name} · ${SITE.tagline}`,
     description: SITE.tagline,
-    url: SITE.url,
+    url: absoluteLocaleUrl("es", "/"),
   },
   twitter: {
     card: "summary_large_image",

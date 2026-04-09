@@ -17,12 +17,18 @@ export function SmoothScrollProvider({ children }: { children: ReactNode }) {
   const [lenis, setLenis] = useState<Lenis | null>(null);
 
   useLayoutEffect(() => {
+    /**
+     * Scroll más suave en home / sitio:
+     * - `lerp` bajo (~0.07): inercia más fluida (valores altos se sienten “secos” o duros).
+     * - `wheelMultiplier` > 1: menos esfuerzo por tick de rueda, menos sensación de frenado.
+     * - `autoRaf: true`: RAF del navegador (sin ticker GSAP dedicado a Lenis).
+     */
     const lenis = new Lenis({
-      duration: 1.4,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      lerp: 0.072,
+      wheelMultiplier: 1.12,
       orientation: "vertical",
       smoothWheel: true,
-      autoRaf: false,
+      autoRaf: true,
     });
 
     const scroller = document.documentElement;
@@ -45,20 +51,12 @@ export function SmoothScrollProvider({ children }: { children: ReactNode }) {
 
     lenis.on("scroll", ScrollTrigger.update);
 
-    const tickerCb = (time: number) => {
-      try {
-        lenis.raf(time * 1000);
-      } catch {
-        /* Evitar que un fallo de Lenis congele todo el ticker de GSAP */
-      }
-    };
-    gsap.ticker.add(tickerCb);
-    gsap.ticker.lagSmoothing(0);
+    /* Default de GSAP: suaviza picos cuando el frame rate cae (lagSmoothing(0) lo desactivaba y endurecía todo). */
+    gsap.ticker.lagSmoothing(500, 33);
 
     setLenis(lenis);
 
     return () => {
-      gsap.ticker.remove(tickerCb);
       ScrollTrigger.scrollerProxy(scroller, {});
       lenis.destroy();
       setLenis(null);

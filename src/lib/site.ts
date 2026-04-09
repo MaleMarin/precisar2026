@@ -1,10 +1,40 @@
+import { routing } from "@/i18n/routing";
+import { PRECISANDO_ARTICLES_UNDER_CONSTRUCTION } from "@/lib/precisando-access";
+
 export const SITE = {
   name: "Precisar",
   tagline: "Lo que circula, lo que importa, lo que hay que entender.",
-  url: "https://www.precisar.net",
+  /** Origen canónico (apex). Redirigir `www` → apex en middleware. */
+  url: "https://precisar.net",
   contactEmail: "contacto@precisar.net",
   privacyEmail: "male@precisar.net",
 } as const;
+
+const SITE_ORIGIN = SITE.url.replace(/\/$/, "");
+
+/**
+ * Ruta interna con prefijo de idioma (`/es`, `/es/somos`). `pathname` sin locale (`/` o `/somos`).
+ */
+export function localePath(locale: string, pathname: string): string {
+  const tail =
+    pathname === "/" || pathname === "" ? "" : pathname.startsWith("/") ? pathname : `/${pathname}`;
+  return `/${locale}${tail}`;
+}
+
+export function absoluteLocaleUrl(locale: string, pathname: string): string {
+  return `${SITE_ORIGIN}${localePath(locale, pathname)}`;
+}
+
+/** `alternates.languages` + `x-default` (español) para páginas localizadas. */
+export function hreflangAlternates(pathname: string): Record<string, string> {
+  const byLocale = Object.fromEntries(
+    routing.locales.map((l) => [l, absoluteLocaleUrl(l, pathname)] as const),
+  );
+  return {
+    ...byLocale,
+    "x-default": absoluteLocaleUrl(routing.defaultLocale, pathname),
+  };
+}
 
 /**
  * Newsletter: asignar `NEXT_PUBLIC_NEWSLETTER_FORM_ACTION` (Mailchimp, Brevo, etc.)
@@ -56,7 +86,7 @@ export const EXTERNAL = {
   instagram: "https://www.instagram.com/_precisar/",
   youtube:
     "https://www.youtube.com/channel/UCQKEOqwm3pxIeO6E1Hsokhw/videos",
-  whatsappShare: "https://api.whatsapp.com/send/?text=https://www.precisar.net",
+  whatsappShare: "https://api.whatsapp.com/send/?text=https://precisar.net",
 } as const;
 
 export type NavItem = { label: string; href: string };
@@ -80,7 +110,7 @@ export const NAV_PRIMARY: NavItem[] = [
   { label: "Programas", href: "/#programas" },
   { label: "Saberes", href: "/#saberes" },
   { label: "Precisando", href: "/#precisando" },
-  { label: "Educación mediática", href: "/educacion-mediatica/comunicacion" },
+  { label: "Educación mediática", href: "/#educacion-mediatica" },
   { label: "Participa", href: "/#participa" },
   { label: "Somos", href: "/somos" },
 ];
@@ -129,10 +159,7 @@ export function primaryNavIndexFromHash(hash: string): number {
   if (exact >= 0) return exact;
 
   if (id === "educacion-mediatica") {
-    return NAV_PRIMARY.findIndex(
-      (item) =>
-        item.href.includes("/educacion-mediatica") || item.href.includes("/educaciónmediática"),
-    );
+    return NAV_PRIMARY.findIndex((item) => item.href === "/#educacion-mediatica");
   }
 
   return -1;
@@ -149,10 +176,7 @@ export function primaryNavIndexFromPathname(pathname: string): number {
     p === "/educaciónmediática" ||
     p.startsWith("/educaciónmediática/")
   ) {
-    return NAV_PRIMARY.findIndex(
-      (item) =>
-        item.href.includes("/educacion-mediatica") || item.href.includes("/educaciónmediática"),
-    );
+    return NAV_PRIMARY.findIndex((item) => item.href === "/#educacion-mediatica");
   }
 
   if (p === "/que-hacemos" || p.startsWith("/que-hacemos/")) {
@@ -207,6 +231,42 @@ export const SABERES_NAV_LINKS: NavItem[] = [
   { label: "Saberes", href: "/saberes" },
 ];
 
+const PRECISANDO_MAIN_FOOTER_HREF = PRECISANDO_ARTICLES_UNDER_CONSTRUCTION ? "/#precisando" : "/precisando";
+
+const PRECISANDO_BLOG_FOOTER_LINKS: NavItem[] = PRECISANDO_ARTICLES_UNDER_CONSTRUCTION
+  ? [{ label: "Precisando — en construcción", href: "/#precisando" }]
+  : [
+      {
+        label: "Chile respondió: informe «¿Cómo te informas hoy?» (enero 2026)",
+        href: "/precisando/chile-respondio-verdad-incomoda-informe-enero-2026",
+      },
+      {
+        label: "Escuchar primero, implementar después",
+        href: "/precisando/escuchar-primero-implementar-después-la-metodología-de-precisar-para-construir-ciudades-ami",
+      },
+      {
+        label: "Democracia en la era digital y la IA",
+        href: "/precisando/democracia-en-la-era-dedigital-y-la-ia-desafíos-y-soluciones",
+      },
+      {
+        label: "Tres desafíos clave para la AMI en América Latina",
+        href: "/precisando/tres-desafíos-clave-para-la-alfabetización-mediática-en-américa-latina-lo-más-destacado-del-día-0-d",
+      },
+      {
+        label: "La misión crítica de la AMI — UNESCO",
+        href: "/precisando/la-misión-crítica-de-la-ami-la-unesco-redefine-su-estrategia-ante-la-era-de-la-ia-generativa",
+      },
+      {
+        label: "¿Cómo te informas hoy? (consulta ciudadana)",
+        href: "/precisando/cómo-te-informas-hoy-precisar-lanza-consulta-ciudadana-para-mejorar-el-acceso-a-la-información",
+      },
+      {
+        label: "Migración y desinformación en América Latina",
+        href: "/precisando/migración-y-conflictos-internacionales-dominan-las-tendencias-de-desinformación-en-américa-latina",
+      },
+      { label: "Todos los artículos", href: "/precisando" },
+    ];
+
 /**
  * Mapa del sitio (precisar.net) — pie, documentación y bloques tipo estudio.
  * Mantener alineado con rutas reales en `src/app/(site)/`.
@@ -216,7 +276,7 @@ export const FOOTER_COLUMNS: { title: string; links: NavItem[] }[] = [
     title: "Navegación principal",
     links: [
       { label: "Participa", href: "/participa" },
-      { label: "Precisando", href: "/precisando" },
+      { label: "Precisando", href: PRECISANDO_MAIN_FOOTER_HREF },
       { label: "Somos Precisar", href: "/somos" },
     ],
   },
@@ -270,43 +330,12 @@ export const FOOTER_COLUMNS: { title: string; links: NavItem[] }[] = [
   },
   {
     title: "Blog — Precisando",
-    links: [
-      {
-        label: "Chile respondió: informe «¿Cómo te informas hoy?» (enero 2026)",
-        href: "/precisando/chile-respondio-verdad-incomoda-informe-enero-2026",
-      },
-      {
-        label: "Escuchar primero, implementar después",
-        href: "/precisando/escuchar-primero-implementar-después-la-metodología-de-precisar-para-construir-ciudades-ami",
-      },
-      {
-        label: "Democracia en la era digital y la IA",
-        href: "/precisando/democracia-en-la-era-dedigital-y-la-ia-desafíos-y-soluciones",
-      },
-      {
-        label: "Tres desafíos clave para la AMI en América Latina",
-        href: "/precisando/tres-desafíos-clave-para-la-alfabetización-mediática-en-américa-latina-lo-más-destacado-del-día-0-d",
-      },
-      {
-        label: "La misión crítica de la AMI — UNESCO",
-        href: "/precisando/la-misión-crítica-de-la-ami-la-unesco-redefine-su-estrategia-ante-la-era-de-la-ia-generativa",
-      },
-      {
-        label: "¿Cómo te informas hoy? (consulta ciudadana)",
-        href: "/precisando/cómo-te-informas-hoy-precisar-lanza-consulta-ciudadana-para-mejorar-el-acceso-a-la-información",
-      },
-      {
-        label: "Migración y desinformación en América Latina",
-        href: "/precisando/migración-y-conflictos-internacionales-dominan-las-tendencias-de-desinformación-en-américa-latina",
-      },
-      { label: "Todos los artículos", href: "/precisando" },
-    ],
+    links: PRECISANDO_BLOG_FOOTER_LINKS,
   },
   {
     title: "Legal y otros",
     links: [
-      { label: "Política de privacidad", href: "/legal/privacidad-consulta-2026" },
-      { label: "Privacidad 2026 (consulta)", href: "/legal/privacidad-consulta-2026" },
+      { label: "Política de privacidad (consulta 2026)", href: "/legal/privacidad-consulta-2026" },
       { label: "Privacidad Bot ONDA", href: "/legal/privacidad-bot-onda" },
       { label: "Bot ONDA (conversar)", href: EXTERNAL.botOnda },
       { label: "Consulta ciudadana (formulario)", href: EXTERNAL.consultaCiudadana },

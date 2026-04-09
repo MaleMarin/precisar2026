@@ -1,9 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { concernLabel } from "@/lib/consulta-viva/aggregations";
+import { concernLabel, SOURCE_LABELS } from "@/lib/consulta-viva/aggregations";
 import { LATAM_COUNTRIES } from "@/lib/consulta-viva/countries";
-import { SOURCE_LABELS } from "@/lib/consulta-viva/sourceColors";
 import type { ConcernType, LiveResponse, SourceType, TrustLevel } from "@/lib/consulta-viva/types";
 import styles from "./QuickResponseForm.module.css";
 
@@ -134,13 +133,13 @@ export function QuickResponseForm({ defaultIso = "CL", onSubmitOptimistic }: Pro
       </div>
       <div className={styles.actions}>
         <button type="submit" className={styles.submit} disabled={status === "sending"}>
-          {status === "sending" ? "Enviando…" : "Enviar y actualizar mapa"}
+          {status === "sending" ? "Enviando…" : "Enviar mi señal al mapa"}
         </button>
         {status === "ok" ? <span className={styles.hintOk}>Listo: sincronizado</span> : null}
         {status === "error" ? <span className={styles.hintErr}>Error al sincronizar</span> : null}
       </div>
       <p className={styles.note}>
-        La señal aparece al instante en el mapa y se envía al servidor (demo in‑memory, máx. 300 eventos).
+        Tu respuesta se suma al mapa al instante y también se guarda en el servidor de demostración.
       </p>
     </form>
   );

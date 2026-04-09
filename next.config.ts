@@ -12,6 +12,19 @@ const nextConfig: NextConfig = {
   // Si hay otro lockfile en un directorio padre (repo raíz), Turbopack debe usar `web/`.
   turbopack: { root: webRoot },
   transpilePackages: ["three", "@react-three/fiber"],
+  async headers() {
+    return [
+      {
+        source: "/:path*",
+        headers: [
+          { key: "X-DNS-Prefetch-Control", value: "on" },
+          { key: "X-Content-Type-Options", value: "nosniff" },
+          { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+          { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=()" },
+        ],
+      },
+    ];
+  },
   images: {
     remotePatterns: [
       {
