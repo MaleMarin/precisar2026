@@ -251,6 +251,12 @@ export type AggOpen = {
 
 export type AggResult = AggMulti | AggScale | AggOpen;
 
+/** Radio del círculo país en el mapa según volumen de respuestas (mock). */
+export function observatorioBubbleRadius(responseCount: number): number {
+  const raw = 7 + Math.sqrt(responseCount) * 1.8;
+  return Math.min(Math.max(raw, 7), 28);
+}
+
 export function agg(
   responses: MockResponseRow[],
   iso: string | null,

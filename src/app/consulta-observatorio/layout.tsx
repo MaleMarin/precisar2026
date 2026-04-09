@@ -30,7 +30,7 @@ export const metadata: Metadata = {
 export default function ConsultaObservatorioLayout({ children }: { children: ReactNode }) {
   return (
     <div
-      className={`${font.variable} min-h-dvh bg-[#021740] text-white antialiased`}
+      className={`${font.variable} flex min-h-screen w-full flex-1 flex-col overflow-hidden bg-[#021740] text-white antialiased`}
       style={{ fontFamily: "var(--font-consulta-observatorio), system-ui, sans-serif" }}
     >
       {children}

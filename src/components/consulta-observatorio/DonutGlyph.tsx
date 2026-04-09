@@ -2,22 +2,30 @@ import type { ReactNode } from "react";
 import type { AggResult, QuestionDef } from "@/lib/consulta-observatorio/model";
 import { scaleColor } from "@/lib/consulta-observatorio/model";
 
-const RR = 22;
-const sw = 9;
-const gap = 4;
+const STROKE = 8;
+const GAP_DEG = 2.5;
 
 type Props = {
   cx: number;
   cy: number;
+  /** Radio al centro del trazo del anillo (px). */
+  r: number;
   d: AggResult;
   qDef: QuestionDef;
 };
 
-export function DonutGlyph({ cx, cy, d, qDef }: Props) {
+export function DonutGlyph({ cx, cy, r, d, qDef }: Props) {
   if (d.tp === "scale") {
     return (
       <g>
-        <circle cx={cx} cy={cy} r={RR} fill="none" stroke="rgba(255,255,255,0.06)" strokeWidth={sw} />
+        <circle
+          cx={cx}
+          cy={cy}
+          r={r}
+          fill="none"
+          stroke="rgba(255,255,255,0.06)"
+          strokeWidth={STROKE}
+        />
         {d.avg > 0 ? (
           (() => {
             const pct = (d.avg - 1) / 4;
@@ -25,16 +33,16 @@ export function DonutGlyph({ cx, cy, d, qDef }: Props) {
             const a1 = (-100 * Math.PI) / 180;
             const a2 = ((-100 + arcDeg) * Math.PI) / 180;
             const large = arcDeg > 180 ? 1 : 0;
-            const x1 = cx + RR * Math.cos(a1);
-            const y1 = cy + RR * Math.sin(a1);
-            const x2 = cx + RR * Math.cos(a2);
-            const y2 = cy + RR * Math.sin(a2);
+            const x1 = cx + r * Math.cos(a1);
+            const y1 = cy + r * Math.sin(a1);
+            const x2 = cx + r * Math.cos(a2);
+            const y2 = cy + r * Math.sin(a2);
             return (
               <path
-                d={`M${x1},${y1} A${RR},${RR},0,${large},1,${x2},${y2}`}
+                d={`M${x1},${y1} A${r},${r},0,${large},1,${x2},${y2}`}
                 fill="none"
                 stroke={scaleColor(d.avg)}
-                strokeWidth={sw}
+                strokeWidth={STROKE}
                 strokeLinecap="round"
               />
             );
@@ -49,10 +57,10 @@ export function DonutGlyph({ cx, cy, d, qDef }: Props) {
       <circle
         cx={cx}
         cy={cy}
-        r={RR}
+        r={r}
         fill="none"
         stroke="rgba(5,242,242,0.12)"
-        strokeWidth={sw}
+        strokeWidth={STROKE}
         strokeDasharray="4 4"
       />
     );
@@ -60,7 +68,7 @@ export function DonutGlyph({ cx, cy, d, qDef }: Props) {
 
   if (d.tp !== "multi") {
     return (
-      <circle cx={cx} cy={cy} r={RR} fill="none" stroke="rgba(5,242,242,0.07)" strokeWidth={sw} />
+      <circle cx={cx} cy={cy} r={r} fill="none" stroke="rgba(5,242,242,0.07)" strokeWidth={STROKE} />
     );
   }
 
@@ -68,7 +76,7 @@ export function DonutGlyph({ cx, cy, d, qDef }: Props) {
 
   if (!d.cTotal) {
     return (
-      <circle cx={cx} cy={cy} r={RR} fill="none" stroke="rgba(5,242,242,0.07)" strokeWidth={sw} />
+      <circle cx={cx} cy={cy} r={r} fill="none" stroke="rgba(5,242,242,0.07)" strokeWidth={STROKE} />
     );
   }
 
@@ -77,33 +85,33 @@ export function DonutGlyph({ cx, cy, d, qDef }: Props) {
   if (active.length === 1) {
     const only = active[0];
     return (
-      <circle cx={cx} cy={cy} r={RR} fill="none" stroke={only.c} strokeWidth={sw} />
+      <circle cx={cx} cy={cy} r={r} fill="none" stroke={only.c} strokeWidth={STROKE} />
     );
   }
 
-  const totDeg = 360 - gap * active.length;
+  const totDeg = 360 - GAP_DEG * active.length;
   let angle = -90;
   const paths: ReactNode[] = [];
   active.forEach((s) => {
     const arcDeg = (s.cnt / d.cTotal) * totDeg;
-    const a1 = ((angle + gap / 2) * Math.PI) / 180;
-    const a2 = ((angle + gap / 2 + arcDeg) * Math.PI) / 180;
+    const a1 = ((angle + GAP_DEG / 2) * Math.PI) / 180;
+    const a2 = ((angle + GAP_DEG / 2 + arcDeg) * Math.PI) / 180;
     const large = arcDeg > 180 ? 1 : 0;
-    const x1 = cx + RR * Math.cos(a1);
-    const y1 = cy + RR * Math.sin(a1);
-    const x2 = cx + RR * Math.cos(a2);
-    const y2 = cy + RR * Math.sin(a2);
+    const x1 = cx + r * Math.cos(a1);
+    const y1 = cy + r * Math.sin(a1);
+    const x2 = cx + r * Math.cos(a2);
+    const y2 = cy + r * Math.sin(a2);
     paths.push(
       <path
         key={`${s.l}-${angle}`}
-        d={`M${x1},${y1} A${RR},${RR},0,${large},1,${x2},${y2}`}
+        d={`M${x1},${y1} A${r},${r},0,${large},1,${x2},${y2}`}
         fill="none"
         stroke={s.c}
-        strokeWidth={sw}
+        strokeWidth={STROKE}
         strokeLinecap="butt"
       />,
     );
-    angle += arcDeg + gap;
+    angle += arcDeg + GAP_DEG;
   });
   return <g>{paths}</g>;
 }

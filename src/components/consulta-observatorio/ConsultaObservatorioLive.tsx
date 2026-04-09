@@ -10,6 +10,7 @@ import {
   generateInsights,
   liveFinding,
   type MockResponseRow,
+  observatorioBubbleRadius,
   OBSERVATORIO_COUNTRIES,
   QDEFS,
   scaleColor,
@@ -139,7 +140,9 @@ export function ConsultaObservatorioLive() {
                       style={{ background: finding.c }}
                       aria-hidden
                     />
-                    <span style={{ color: finding.c, fontWeight: 500 }}>{finding.text}</span>
+                    <span className={styles.liveFindingText} style={{ color: finding.c }}>
+                      {finding.text}
+                    </span>
                   </>
                 ) : null}
               </div>
@@ -159,7 +162,12 @@ export function ConsultaObservatorioLive() {
 
         <div className={styles.body}>
           <div className={styles.mapCol}>
-            <svg className={styles.mapSvg} viewBox="0 0 440 318" aria-label="Mapa de respuestas por país">
+            <svg
+              className={styles.mapSvg}
+              viewBox="0 0 440 318"
+              preserveAspectRatio="xMidYMid meet"
+              aria-label="Mapa de respuestas por país"
+            >
               <defs>
                 <pattern id="obsDots" width={26} height={26} patternUnits="userSpaceOnUse">
                   <circle cx={13} cy={13} r={0.65} fill="rgba(5,242,242,0.09)" />
@@ -183,57 +191,63 @@ export function ConsultaObservatorioLive() {
               </g>
             </svg>
           </div>
-          <aside className={styles.panel}>
-            <SidePanel
-              selIso={selIso}
-              selQ={selQ}
-              responses={responses}
-              nowTs={nowTs}
-              insights={insights}
-            />
-          </aside>
-        </div>
-
-        <div className={styles.tickerWrap}>
-          <div className={styles.tickerLabel}>Señales</div>
-          <div className={styles.tickerTrack}>
-            {tickerItems.length > 0 ? (
-              <div className={styles.tickerInner}>
-                {tickerDup.map((it, idx) => (
-                  <span key={`${it.key}-${idx}`} className={styles.tickerItem}>
-                    <span style={{ color: it.col, fontWeight: 500 }}>{it.name}</span>
-                    {" · "}
-                    {it.ts}
-                    {it.domLabel ? ` · ${it.domLabel}` : ""}
-                  </span>
-                ))}
+          <div className={styles.rightCol}>
+            <aside className={styles.panel}>
+              <SidePanel
+                selIso={selIso}
+                selQ={selQ}
+                responses={responses}
+                nowTs={nowTs}
+                insights={insights}
+              />
+            </aside>
+            <div className={styles.tickerWrap}>
+              <div className={styles.tickerLabel}>Señales</div>
+              <div className={styles.tickerTrack}>
+                {tickerItems.length > 0 ? (
+                  <div className={styles.tickerInner}>
+                    {tickerDup.map((it, idx) => (
+                      <span key={`${it.key}-${idx}`} className={styles.tickerItem}>
+                        <span className={styles.tickerName} style={{ color: it.col }}>
+                          {it.name}
+                        </span>
+                        {" · "}
+                        {it.ts}
+                        {it.domLabel ? ` · ${it.domLabel}` : ""}
+                      </span>
+                    ))}
+                  </div>
+                ) : null}
               </div>
-            ) : null}
+            </div>
           </div>
         </div>
 
         <footer className={styles.insightsBar}>
-          <span style={{ color: "rgba(255,255,255,0.4)" }}>
-            Países activos: <strong style={{ color: "#fff" }}>{activeCountries}</strong>
+          <span className={styles.insightsPiece}>
+            <span className={styles.insightsLabel}>Países activos:</span>{" "}
+            <span className={styles.insightsValue}>{activeCountries}</span>
           </span>
           <span className={styles.insightsSep}>·</span>
-          <span style={{ color: "rgba(255,255,255,0.4)" }}>
-            Señales recientes: <strong style={{ color: "#05F2F2" }}>{recentSignals}</strong>
+          <span className={styles.insightsPiece}>
+            <span className={styles.insightsLabel}>Señales recientes:</span>{" "}
+            <span className={`${styles.insightsValue} ${styles.insightsValueCyan}`}>{recentSignals}</span>
           </span>
           {lastDiffSec !== null ? (
             <>
               <span className={styles.insightsSep}>·</span>
-              <span style={{ color: "rgba(255,255,255,0.4)" }}>
-                Última:{" "}
-                <strong style={{ color: "#F2A007" }}>
+              <span className={styles.insightsPiece}>
+                <span className={styles.insightsLabel}>Última:</span>{" "}
+                <span className={`${styles.insightsValue} ${styles.insightsValueAmber}`}>
                   {lastDiffSec < 60 ? `hace ${lastDiffSec}s` : `hace ${Math.round(lastDiffSec / 60)}min`}
-                </strong>
+                </span>
               </span>
             </>
           ) : null}
           <span className={styles.insightsSep}>·</span>
-          <span style={{ color: "rgba(255,255,255,0.4)" }}>
-            Total: <strong style={{ color: "#fff" }}>{responses.length}</strong>
+          <span className={styles.insightsPiece}>
+            <span className={styles.insightsLabel}>Total:</span>{" "}
+            <span className={styles.insightsValue}>{responses.length}</span>
           </span>
         </footer>
       </div>
@@ -255,12 +269,12 @@ function Legend({ selQ }: { selQ: number }) {
       <g>
         {items.map((it, i) => (
           <g key={it.l}>
-            <circle cx={lx[i]} cy={14} r={4.5} fill={it.c} />
+            <circle cx={lx[i]} cy={14} r={3.5} fill={it.c} />
             <text
-              x={lx[i] + 9}
+              x={lx[i] + 8}
               y={14}
               dominantBaseline="central"
-              style={{ fontSize: 9, fontFamily: "sans-serif", fill: it.c, opacity: 0.9 }}
+              style={{ fontSize: 12, fontFamily: "sans-serif", fill: it.c, opacity: 0.9 }}
             >
               {it.l}
             </text>
@@ -276,7 +290,7 @@ function Legend({ selQ }: { selQ: number }) {
         y={14}
         textAnchor="middle"
         dominantBaseline="central"
-        style={{ fontSize: 9, fontFamily: "sans-serif", fill: "rgba(5,242,242,0.35)" }}
+        style={{ fontSize: 12, fontFamily: "sans-serif", fill: "rgba(5,242,242,0.35)" }}
       >
         Haz clic en un país para leer sus respuestas
       </text>
@@ -288,12 +302,12 @@ function Legend({ selQ }: { selQ: number }) {
     <g>
       {q.slots.map((s, i) => (
         <g key={s.l}>
-          <circle cx={lx[i]} cy={14} r={4.5} fill={s.c} />
+          <circle cx={lx[i]} cy={14} r={3.5} fill={s.c} />
           <text
-            x={lx[i] + 9}
+            x={lx[i] + 8}
             y={14}
             dominantBaseline="central"
-            style={{ fontSize: 8.5, fontFamily: "sans-serif", fill: s.c, opacity: 0.85 }}
+            style={{ fontSize: 12, fontFamily: "sans-serif", fill: s.c, opacity: 0.85 }}
           >
             {s.l}
           </text>
@@ -320,6 +334,10 @@ function MapCountry({
 }) {
   const qDef = QDEFS[selQ];
   const d = agg(responses, c.iso, selQ, nowTs);
+  const volume = responses.filter((row) => row.iso === c.iso).length;
+  const r = observatorioBubbleRadius(volume);
+  const innerR = Math.max(1.5, r - 9);
+  const centerIsoPx = r < 14 ? 8 : 9;
   const isSel = c.iso === selIso;
   let domC = "#05F2F2";
   if (d.tp === "multi" && d.cTotal > 0) {
@@ -346,8 +364,8 @@ function MapCountry({
       tabIndex={0}
     >
       {d.recent > 0 ? (
-        <circle cx={c.x} cy={c.y} r={27} fill="none" stroke={domC} strokeWidth={1}>
-          <animate attributeName="r" from="27" to="44" dur="2s" repeatCount="indefinite" />
+        <circle cx={c.x} cy={c.y} r={r} fill="none" stroke={domC} strokeWidth={1}>
+          <animate attributeName="r" from={r} to={r + 12} dur="2s" repeatCount="indefinite" />
           <animate attributeName="opacity" from="0.55" to="0" dur="2s" repeatCount="indefinite" />
         </circle>
       ) : null}
@@ -355,7 +373,7 @@ function MapCountry({
         <circle
           cx={c.x}
           cy={c.y}
-          r={33}
+          r={r + 4}
           fill="none"
           stroke={domC}
           strokeWidth={1.5}
@@ -363,15 +381,15 @@ function MapCountry({
           opacity={0.45}
         />
       ) : null}
-      <DonutGlyph cx={c.x} cy={c.y} d={d} qDef={qDef} />
-      <circle cx={c.x} cy={c.y} r={13.5} fill="#021740" />
+      <DonutGlyph cx={c.x} cy={c.y} r={r} d={d} qDef={qDef} />
+      <circle cx={c.x} cy={c.y} r={innerR} fill="#021740" />
       <text
         x={c.x}
         y={c.y}
         textAnchor="middle"
         dominantBaseline="central"
         style={{
-          fontSize: 8.5,
+          fontSize: centerIsoPx,
           fontFamily: "sans-serif",
           fontWeight: 700,
           fill: d.tp === "scale" && d.avg > 0 ? domC : centerColor,
@@ -380,30 +398,14 @@ function MapCountry({
       >
         {centerLabel}
       </text>
-      {d.total > 0 ? (
-        <text
-          x={c.x}
-          y={c.y - 33}
-          textAnchor="middle"
-          style={{
-            fontSize: 9.5,
-            fontFamily: "sans-serif",
-            fontWeight: 600,
-            fill: domC,
-            pointerEvents: "none",
-          }}
-        >
-          {d.total}
-        </text>
-      ) : null}
       <text
         x={c.x}
-        y={c.y + 35}
+        y={c.y + r + 12}
         textAnchor="middle"
         style={{
-          fontSize: 8.5,
+          fontSize: 12,
           fontFamily: "sans-serif",
-          fill: d.total > 0 ? "rgba(255,255,255,0.5)" : "rgba(255,255,255,0.15)",
+          fill: volume > 0 ? "rgba(255,255,255,0.5)" : "rgba(255,255,255,0.15)",
           pointerEvents: "none",
         }}
       >
@@ -477,8 +479,11 @@ function SidePanel({
     <div className={styles.panelAnimate}>
       <div className={styles.countryHead}>
         <div className={styles.countryName}>{country?.name}</div>
-        <div className={styles.countryMeta}>
-          {totalRows} respuestas · {ageStr}
+        <div className={styles.countryMetaRow}>
+          <span className={styles.countryStatNum}>{totalRows}</span>
+          <span className={styles.countryStatSuffix}>respuestas</span>
+          <span className={styles.countryMetaSep}>·</span>
+          <span className={styles.countryMetaAge}>{ageStr}</span>
         </div>
       </div>
       <div className={styles.profileLabel}>Perfil completo · 12 preguntas</div>
@@ -489,10 +494,10 @@ function SidePanel({
           if (q.t === "text" || q.t === "demo") {
             return (
               <div key={q.s} className={rowClass} style={{ alignItems: "center" }}>
-                <span style={{ fontSize: 10, color: "rgba(255,255,255,0.28)" }}>
+                <span style={{ fontSize: 12, color: "rgba(255,255,255,0.28)" }}>
                   p{qi + 1} {q.s}
                 </span>
-                <span style={{ fontSize: 10, color: "rgba(255,255,255,0.2)" }}>
+                <span style={{ fontSize: 12, color: "rgba(255,255,255,0.2)" }}>
                   {q.t === "text" ? "texto" : "datos"}
                 </span>
               </div>
@@ -504,13 +509,16 @@ function SidePanel({
               <div key={q.s} className={rowClass} style={{ alignItems: "center" }}>
                 <span
                   style={{
-                    fontSize: 10,
+                    fontSize: 12,
                     color: `rgba(255,255,255,${isActive ? 0.6 : 0.35})`,
                   }}
                 >
                   p{qi + 1} {q.s}
                 </span>
-                <span style={{ fontSize: 11, fontWeight: 600, color: scaleColor(d.avg) }}>
+                <span
+                  className={styles.profileScaleValue}
+                  style={{ color: scaleColor(d.avg) }}
+                >
                   {d.avg > 0 ? `${d.avg.toFixed(1)}★` : "—"}
                 </span>
               </div>
@@ -519,10 +527,10 @@ function SidePanel({
           if (d.tp !== "multi" || !d.cTotal) {
             return (
               <div key={q.s} className={rowClass}>
-                <span style={{ fontSize: 10, color: "rgba(255,255,255,0.22)" }}>
+                <span style={{ fontSize: 12, color: "rgba(255,255,255,0.22)" }}>
                   p{qi + 1} {q.s}
                 </span>
-                <span style={{ fontSize: 10, color: "rgba(255,255,255,0.18)" }}>—</span>
+                <span style={{ fontSize: 12, color: "rgba(255,255,255,0.18)" }}>—</span>
               </div>
             );
           }
@@ -533,13 +541,13 @@ function SidePanel({
             <div key={q.s} className={rowClass} style={{ alignItems: "center" }}>
               <span
                 style={{
-                  fontSize: 10,
+                  fontSize: 12,
                   color: `rgba(255,255,255,${isActive ? 0.6 : 0.35})`,
                 }}
               >
                 p{qi + 1} {q.s}
               </span>
-              <div style={{ display: "flex", alignItems: "center", gap: 4, maxWidth: 110 }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 4, maxWidth: 150 }}>
                 <span
                   style={{
                     width: 6,
@@ -550,13 +558,8 @@ function SidePanel({
                   }}
                 />
                 <span
-                  style={{
-                    fontSize: 10,
-                    color: "rgba(255,255,255,0.55)",
-                    overflow: "hidden",
-                    textOverflow: "ellipsis",
-                    whiteSpace: "nowrap",
-                  }}
+                  className={styles.profilePct}
+                  style={{ color: dom.c }}
                 >
                   {dom.l} {pct}%
                 </span>
