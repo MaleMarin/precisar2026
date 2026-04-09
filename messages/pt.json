@@ -19,6 +19,12 @@
     "botOndaBeta": "BETA",
     "botOndaAria": "Abrir o chat Bot ONDA (beta) numa nova aba"
   },
+  "footer": {
+    "socialEyebrow": "Redes sociais",
+    "socialX": "Precisar no X (abre numa nova aba)",
+    "socialInstagram": "Precisar no Instagram (abre numa nova aba)",
+    "socialFacebook": "Precisar no Facebook (abre numa nova aba)"
+  },
   "language": {
     "switch": "Idioma",
     "es": "Español",
@@ -112,10 +118,11 @@
     "linkCultura": "Cultura"
   },
   "homePrecisando": {
-    "stackKicker": "04 · Precisando",
+    "stackKicker": "Site novo · 04 · Precisando",
     "stackHeadline": "Análises e debates sobre como a informação circula e que efeitos tem.",
-    "stackBody": "Porque a informação está em todo o lugar — e entendê-la é o que faz a diferença.",
-    "stackUnderConstruction": "Em construção. Em breve publicaremos as notas aqui."
+    "stackBody": "Ainda estamos a montar o arquivo completo nesta versão. Entretanto, todos os artigos do blog continuam no site anterior.",
+    "stackUnderConstruction": "Em construção. Em breve publicaremos as notas aqui.",
+    "linkLegacyPrecisando": "Ver artigos no site anterior da Precisar (blog / Precisando)"
   },
   "homeSaberes": {
     "stackKicker": "03 · Saberes",

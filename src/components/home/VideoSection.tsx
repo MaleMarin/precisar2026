@@ -40,7 +40,7 @@ export function VideoSection({
           {srcWebm ? <source src={srcWebm} type="video/webm" /> : null}
           <source src={srcMp4} type="video/mp4" />
         </video>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
+        { }
         <img
           className={styles.poster}
           src={mobileSrc}

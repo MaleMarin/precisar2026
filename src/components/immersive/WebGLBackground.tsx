@@ -1,6 +1,6 @@
 "use client";
 
-import { Canvas, useFrame, useThree } from "@react-three/fiber";
+import { Canvas, useFrame } from "@react-three/fiber";
 import { Float, Sparkles } from "@react-three/drei";
 import { useRef, type MutableRefObject } from "react";
 import type { Group } from "three";
@@ -13,13 +13,13 @@ type WebGLBackgroundProps = {
 };
 
 function CameraRig({ mouseRef }: { mouseRef: LabMouseRef }) {
-  const { camera } = useThree();
   const cur = useRef({ x: 0, y: 0 });
-  useFrame(() => {
+  useFrame((state) => {
     const tx = mouseRef.current.x * 0.22;
     const ty = mouseRef.current.y * 0.14;
     cur.current.x += (tx - cur.current.x) * 0.035;
     cur.current.y += (ty - cur.current.y) * 0.035;
+    const { camera } = state;
     camera.position.x = cur.current.x;
     camera.position.y = cur.current.y;
     camera.lookAt(0, 0.05, 0);
@@ -37,7 +37,7 @@ function PearlSculpture({
   const groupRef = useRef<Group>(null);
   const haloRef = useRef<Group>(null);
 
-  useFrame((_s, dt) => {
+  useFrame(() => {
     const g = groupRef.current;
     const h = haloRef.current;
     if (!g) return;

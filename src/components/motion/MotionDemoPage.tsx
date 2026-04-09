@@ -63,7 +63,7 @@ export function MotionDemoPage() {
       <motion.header ref={heroRef} className={styles.hero}>
         <motion.div className={styles.heroMediaWrap} style={{ y: imgParallaxY }} aria-hidden>
           {/* Imagen estática: ilustra flujos sin peso de video; URL vía HOME_HERO_MEDIA.poster / env */}
-          {/* eslint-disable-next-line @next/next/no-img-element */}
+          { }
           <img
             className={styles.heroMediaImg}
             src={HOME_HERO_MEDIA.poster}

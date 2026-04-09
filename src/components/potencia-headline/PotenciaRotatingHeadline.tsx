@@ -59,7 +59,9 @@ export function PotenciaRotatingHeadline({
   const verbRef = useRef<HTMLSpanElement | null>(null);
 
   useEffect(() => {
-    setClientReady(true);
+    queueMicrotask(() => {
+      setClientReady(true);
+    });
   }, []);
 
   const verbDud =
@@ -80,8 +82,10 @@ export function PotenciaRotatingHeadline({
   });
 
   useEffect(() => {
-    setIndex(0);
-    setMode(reduceMotion ? "shown" : "in");
+    queueMicrotask(() => {
+      setIndex(0);
+      setMode(reduceMotion ? "shown" : "in");
+    });
   }, [locale, reduceMotion]);
 
   /**

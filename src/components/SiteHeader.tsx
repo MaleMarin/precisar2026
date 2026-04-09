@@ -122,11 +122,15 @@ export function SiteHeader() {
 
   useEffect(() => {
     if (!isHome) {
-      setScrolled(false);
+      queueMicrotask(() => {
+        setScrolled(false);
+      });
       return;
     }
     const onScroll = () => setScrolled(window.scrollY > 60);
-    onScroll();
+    queueMicrotask(() => {
+      onScroll();
+    });
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, [isHome, pathname]);
@@ -135,9 +139,19 @@ export function SiteHeader() {
   const navHomeGlass = isHome && scrolled;
 
   useLayoutEffect(() => {
-    measureIndicator();
-    const id = requestAnimationFrame(() => measureIndicator());
-    return () => cancelAnimationFrame(id);
+    let raf = 0;
+    let cancelled = false;
+    queueMicrotask(() => {
+      if (cancelled) return;
+      measureIndicator();
+      raf = requestAnimationFrame(() => {
+        if (!cancelled) measureIndicator();
+      });
+    });
+    return () => {
+      cancelled = true;
+      cancelAnimationFrame(raf);
+    };
   }, [measureIndicator, pathname, locale, hash]);
 
   useEffect(() => {

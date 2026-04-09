@@ -62,7 +62,7 @@ export function Marquee({
         {text}
       </span>
       {imageSrc ? (
-        // eslint-disable-next-line @next/next/no-img-element
+         
         <img className={styles.image} src={imageSrc} alt="" />
       ) : null}
     </div>

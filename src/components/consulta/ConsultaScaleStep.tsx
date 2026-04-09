@@ -1,5 +1,6 @@
 "use client";
 
+import { consultaStepTextStyle } from "./consultaStepTextStyle";
 import st from "./ConsultaSteps.module.css";
 import sc from "./ConsultaScaleStep.module.css";
 import type { ConsultaScaleStep as ConsultaScaleStepDef } from "@/lib/consulta/types";
@@ -17,8 +18,10 @@ export function ConsultaScaleStep({ step, value, onChange, error, headingId, onI
   return (
     <div>
       <div className={st.stepHead}>
-        <p className={st.eyebrow}>Tu respuesta</p>
-        <h3 id={headingId} className={st.prompt} tabIndex={-1}>
+        <p className={st.eyebrow} style={consultaStepTextStyle.eyebrow}>
+          Tu respuesta
+        </p>
+        <h3 id={headingId} className={st.prompt} style={consultaStepTextStyle.prompt} tabIndex={-1}>
           {step.prompt}
         </h3>
       </div>

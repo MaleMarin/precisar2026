@@ -14,7 +14,7 @@
   font-weight: 700;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--sheet-kicker, #8b95a8);
+  color: #5c6578;
 }
 
 .fieldShell {
@@ -39,7 +39,7 @@
   font: inherit;
   font-size: 0.875rem;
   letter-spacing: -0.015em;
-  color: var(--sheet-heading, #1e3c72);
+  color: #0a1628;
   background: #ffffff;
   border: 1px solid rgba(0, 0, 0, 0.06);
   box-shadow:

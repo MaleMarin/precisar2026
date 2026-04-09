@@ -47,7 +47,7 @@
   box-shadow: none;
 }
 
-:global([data-consulta-live="true"]) .scaleLightCard {
+:global([data-consulta-page][data-live-map="true"]) #consulta-flujo .scaleLightCard {
   background: rgba(18, 24, 42, 0.92);
   border: 1px solid rgba(100, 180, 255, 0.12);
   box-shadow:
@@ -55,8 +55,8 @@
     inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
-:global([data-consulta-live="true"]) .num,
-:global([data-consulta-live="true"]) .word {
+:global([data-consulta-page][data-live-map="true"]) #consulta-flujo .num,
+:global([data-consulta-page][data-live-map="true"]) #consulta-flujo .word {
   color: #e8f0ff;
 }
 

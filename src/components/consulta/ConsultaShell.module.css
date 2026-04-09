@@ -101,3 +101,15 @@
   --sheet-kicker: rgba(160, 190, 255, 0.55);
   --sheet-muted: rgba(170, 190, 230, 0.55);
 }
+
+/*
+ * Solo el bloque #consulta-flujo: panel claro + copy oscuro. No afecta Intro/Modo (son hermanos fuera de #consulta-flujo).
+ * Sin esto, hereda el color azul claro del .contentSheet y cualquier var(--sheet-*) ilegible sobre blanco.
+ */
+.consultaRoot[data-live-map="true"] #consulta-flujo {
+  color: #0a1628;
+  --sheet-heading: #0a1628;
+  --sheet-body: #2d3a4a;
+  --sheet-kicker: #4a5568;
+  --sheet-muted: #5a6570;
+}

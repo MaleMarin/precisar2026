@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useState, type ReactNode } from "react";
+import { useCallback, useEffect, useMemo, useState, type ReactNode } from "react";
 import { useConsultaLivePulse } from "./ConsultaLiveMapProvider";
 import { useConsultaFlow } from "./ConsultaFlowContext";
 import { ConsultaCompletion } from "./ConsultaCompletion";
@@ -39,12 +39,26 @@ export function ConsultaWizard() {
   const { pulseOnAnswer, pulseOnSelect } = useConsultaLivePulse();
 
   const [softError, setSoftError] = useState<string | null>(null);
-  const [liveMsg, setLiveMsg] = useState("");
 
   const step = phase === "active" && activeView === "question" ? getStepDefinition(questionIndex) : undefined;
 
+  const liveMsg = useMemo(() => {
+    if (phase === "active" && activeView === "question" && step) {
+      return `Pregunta ${questionIndex + 1}. ${step.prompt.slice(0, 80)}`;
+    }
+    if (phase === "active" && activeView === "interstitial") {
+      return "Mitad del recorrido: puedes terminar aquí o seguir con más preguntas.";
+    }
+    if (phase === "complete") {
+      return "Gracias, terminaste el recorrido.";
+    }
+    return "";
+  }, [phase, activeView, step, questionIndex]);
+
   useEffect(() => {
-    setSoftError(null);
+    queueMicrotask(() => {
+      setSoftError(null);
+    });
   }, [questionIndex, activeView, phase]);
 
   useEffect(() => {
@@ -61,18 +75,6 @@ export function ConsultaWizard() {
     }
     document.getElementById(STEP_HEADING_ID)?.focus();
   }, [questionIndex, activeView, phase]);
-
-  useEffect(() => {
-    if (phase === "active" && activeView === "question" && step) {
-      setLiveMsg(`Pregunta ${questionIndex + 1}. ${step.prompt.slice(0, 80)}`);
-    } else if (phase === "active" && activeView === "interstitial") {
-      setLiveMsg("Mitad del recorrido: puedes terminar aquí o seguir con más preguntas.");
-    } else if (phase === "complete") {
-      setLiveMsg("Gracias, terminaste el recorrido.");
-    } else {
-      setLiveMsg("");
-    }
-  }, [phase, activeView, step, questionIndex]);
 
   const onPrimary = useCallback(() => {
     const r = advance();
@@ -209,7 +211,7 @@ export function ConsultaWizard() {
       {phase !== "awaiting_entry" ? (
         <div className={flowShell.flowAnchor} data-consulta-cluster="flow-entry">
           <div className={flowShell.wizChrome}>
-            <div className={flowShell.inner}>
+            <div className={flowShell.inner} data-consulta-wizard-inner="true">
               <div className={[flowShell.flowBody, wz.wizardFlow].join(" ")}>{body}</div>
             </div>
           </div>

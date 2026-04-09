@@ -72,11 +72,13 @@ export function ConsultaFlowProvider({ children }: { children: ReactNode }) {
     }
     if (prevModoRef.current === modo) return;
     prevModoRef.current = modo;
-    setPhase("awaiting_entry");
-    setActiveView("question");
-    setQuestionIndex(0);
-    setQuickExtended(false);
-    setAnswersState({});
+    queueMicrotask(() => {
+      setPhase("awaiting_entry");
+      setActiveView("question");
+      setQuestionIndex(0);
+      setQuickExtended(false);
+      setAnswersState({});
+    });
   }, [modo]);
 
   const setModo = useCallback((m: ConsultaModo | null) => {

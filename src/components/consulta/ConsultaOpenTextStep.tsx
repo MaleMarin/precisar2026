@@ -1,5 +1,6 @@
 "use client";
 
+import { consultaStepTextStyle } from "./consultaStepTextStyle";
 import st from "./ConsultaSteps.module.css";
 import type { ConsultaOpenStep } from "@/lib/consulta/types";
 
@@ -15,11 +16,15 @@ export function ConsultaOpenTextStep({ step, value, onChange, error, headingId }
   return (
     <div>
       <div className={st.stepHead}>
-        <p className={st.eyebrow}>Tu respuesta</p>
-        <h3 id={headingId} className={st.prompt} tabIndex={-1}>
+        <p className={st.eyebrow} style={consultaStepTextStyle.eyebrow}>
+          Tu respuesta
+        </p>
+        <h3 id={headingId} className={st.prompt} style={consultaStepTextStyle.prompt} tabIndex={-1}>
           {step.prompt}
         </h3>
-        <p className={st.helper}>{step.helper}</p>
+        <p className={st.helper} style={consultaStepTextStyle.helper}>
+          {step.helper}
+        </p>
       </div>
       {error ? <p className={st.softError}>{error}</p> : null}
 

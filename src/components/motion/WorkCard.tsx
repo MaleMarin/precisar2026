@@ -28,7 +28,7 @@ export function WorkCard({ title, tags, videoSrc, posterSrc, href }: WorkCardPro
               <source src={videoSrc} type="video/mp4" />
             </video>
           ) : null}
-          {/* eslint-disable-next-line @next/next/no-img-element */}
+          { }
           <img className={styles.poster} src={posterSrc} alt="" decoding="async" />
         </div>
         <div className={styles.scrim} aria-hidden />

@@ -54,12 +54,16 @@ export function SmoothScrollProvider({ children }: { children: ReactNode }) {
     /* Default de GSAP: suaviza picos cuando el frame rate cae (lagSmoothing(0) lo desactivaba y endurecía todo). */
     gsap.ticker.lagSmoothing(500, 33);
 
-    setLenis(lenis);
+    queueMicrotask(() => {
+      setLenis(lenis);
+    });
 
     return () => {
       ScrollTrigger.scrollerProxy(scroller, {});
       lenis.destroy();
-      setLenis(null);
+      queueMicrotask(() => {
+        setLenis(null);
+      });
       ScrollTrigger.refresh();
     };
   }, []);

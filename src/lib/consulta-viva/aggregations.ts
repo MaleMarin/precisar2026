@@ -310,20 +310,47 @@ export function buildSparseFlows(signals: CountrySignal[], maxTotal = 3): FlowEd
   return edges.sort((a, b) => b.recentValue - a.recentValue).slice(0, maxTotal);
 }
 
+/**
+ * Para la capa "Cruce": un par de países para enlazar en el mapa (misma lectura dominante u otro país activo).
+ */
+export function crossPairForSelection(
+  selectedIso: string,
+  signals: CountrySignal[],
+): { fromIso: string; toIso: string } | null {
+  const sel = signals.find((s) => s.iso === selectedIso);
+  if (!sel) return null;
+  const others = signals.filter((s) => s.iso !== selectedIso && s.responsesTotal > 0);
+  if (!others.length) return null;
+
+  if (sel.dominantSource) {
+    const same = [...others]
+      .filter((s) => s.dominantSource === sel.dominantSource)
+      .sort(
+        (a, b) =>
+          b.responsesRecent - a.responsesRecent || b.responsesTotal - a.responsesTotal,
+      );
+    if (same[0]) return { fromIso: selectedIso, toIso: same[0].iso };
+  }
+
+  const top = [...others].sort(
+    (a, b) => b.responsesRecent - a.responsesRecent || b.responsesTotal - a.responsesTotal,
+  )[0];
+  return top ? { fromIso: selectedIso, toIso: top.iso } : null;
+}
+
 export function buildLiveInsights(signals: CountrySignal[], now: number): string[] {
   const activeRecent = signals.filter((s) => s.responsesRecent > 0);
   const withSession = signals.filter((s) => s.responsesTotal > 0);
-  const minutes = 5;
 
   if (!activeRecent.length) {
     if (withSession.length) {
       const top = [...withSession].sort((a, b) => b.responsesTotal - a.responsesTotal)[0];
       return [
-        `En los últimos ${minutes} minutos no entraron señales nuevas; el mapa sigue mostrando lo acumulado en ${withSession.length} países.`,
-        top ? `Hoy con más respuestas en conjunto: ${top.name}.` : "",
+        `El mapa sigue mostrando lo que ya sumamos en la región.`,
+        top ? `Con más respuestas hasta ahora: ${top.name}.` : "",
       ].filter(Boolean);
     }
-    return ["Cuando empiecen a llegar respuestas, aquí verás una lectura sencilla de la región."];
+    return [`Cuando entren respuestas, aquí verás en pocas frases qué está pasando en conjunto.`];
   }
 
   const dominanceBySource = SOURCE_KEYS.reduce(
@@ -339,35 +366,21 @@ export function buildLiveInsights(signals: CountrySignal[], now: number): string
   }
 
   const topSource = topKey(dominanceBySource);
-  const topSourceN = topSource ? dominanceBySource[topSource] : 0;
-
-  const trendingUp = activeRecent.filter((s) => s.trend === "up");
   const hotCountry = [...activeRecent].sort((a, b) => b.responsesRecent - a.responsesRecent)[0];
 
   const lines: string[] = [];
 
   if (topSource) {
-    lines.push(
-      `En varios países, lo que más se repite ahora es: ${SOURCE_LABELS[topSource]} (${topSourceN} países con esa lectura en los últimos ${minutes} min).`,
-    );
+    lines.push(`En varios países, lo que más se repite es informarse por: ${SOURCE_LABELS[topSource]}.`);
   }
 
   if (hotCountry) {
-    lines.push(
-      `Donde más se movió la conversación reciente: ${hotCountry.name} (${hotCountry.responsesRecent} respuestas en ${minutes} min).`,
-    );
-  }
-
-  if (trendingUp.length >= 2) {
-    const names = trendingUp.slice(0, 3).map((x) => x.name).join(", ");
-    lines.push(`Países donde la actividad viene subiendo: ${names}${trendingUp.length > 3 ? "…" : ""}.`);
-  } else {
-    lines.push("La actividad reciente se mantiene pareja, sin picos claros en la región.");
+    lines.push(`Donde más hubo actividad reciente: ${hotCountry.name}.`);
   }
 
   const last = Math.max(...activeRecent.map((s) => s.lastRecentAt ?? 0));
   const sec = clamp(Math.round((now - last) / 1000), 0, 9999);
-  lines.push(`La última respuesta en esta ventana llegó hace ${sec} s.`);
+  lines.push(`La última respuesta llegó hace ${sec} s.`);
 
   return lines;
 }

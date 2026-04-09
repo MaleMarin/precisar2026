@@ -1,0 +1,99 @@
+.panel {
+  border-radius: 12px;
+  border: 1px solid rgba(26, 55, 95, 0.12);
+  background: #ffffff;
+  padding: 1.1rem 1.2rem;
+  box-shadow: 0 8px 28px rgba(15, 40, 75, 0.06);
+}
+
+.eyebrow {
+  margin: 0 0 0.35rem;
+  font-size: 0.65rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(15, 39, 68, 0.45);
+}
+
+.title {
+  margin: 0 0 0.5rem;
+  font-size: 1.35rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--cv-deep, #0f2744);
+  line-height: 1.2;
+}
+
+.lead {
+  margin: 0 0 0.75rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: rgba(15, 39, 68, 0.62);
+}
+
+.body {
+  margin: 0;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: rgba(15, 39, 68, 0.78);
+}
+
+.muted {
+  margin: 0;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: rgba(15, 39, 68, 0.55);
+}
+
+.rowGrid {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.row {
+  border-radius: 10px;
+  border: 1px solid rgba(26, 55, 95, 0.1);
+  background: rgba(220, 228, 239, 0.35);
+  padding: 0.65rem 0.85rem;
+}
+
+.rowLabel {
+  font-size: 0.6rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(15, 39, 68, 0.42);
+}
+
+.rowValue {
+  margin-top: 0.25rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--cv-deep, #0f2744);
+}
+
+.insightList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.insightItem {
+  border-radius: 10px;
+  border: 1px solid rgba(26, 55, 95, 0.1);
+  background: rgba(220, 228, 239, 0.35);
+  padding: 0.65rem 0.85rem;
+  font-size: 0.875rem;
+  line-height: 1.45;
+  color: rgba(15, 39, 68, 0.85);
+}
+
+.activityItem {
+  border-radius: 8px;
+  border: 1px solid rgba(26, 55, 95, 0.08);
+  background: #fafbfc;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.8125rem;
+  color: rgba(15, 39, 68, 0.82);
+}

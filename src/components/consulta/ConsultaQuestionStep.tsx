@@ -1,6 +1,7 @@
 "use client";
 
-import { useCallback, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
+import { consultaStepTextStyle } from "./consultaStepTextStyle";
 import st from "./ConsultaSteps.module.css";
 import type { ConsultaMultiId, ConsultaMultiStep } from "@/lib/consulta/types";
 
@@ -15,7 +16,7 @@ type Props = {
 };
 
 export function ConsultaQuestionStep({ step, value, onChange, error, headingId, onInteraction }: Props) {
-  const selected = value ?? [];
+  const selected = useMemo(() => value ?? [], [value]);
   const [capMsg, setCapMsg] = useState<string | null>(null);
 
   const toggle = useCallback(
@@ -43,11 +44,15 @@ export function ConsultaQuestionStep({ step, value, onChange, error, headingId, 
   return (
     <div>
       <div className={st.stepHead}>
-        <p className={st.eyebrow}>Tu respuesta</p>
-        <h3 id={headingId} className={st.prompt} tabIndex={-1}>
+        <p className={st.eyebrow} style={consultaStepTextStyle.eyebrow}>
+          Tu respuesta
+        </p>
+        <h3 id={headingId} className={st.prompt} style={consultaStepTextStyle.prompt} tabIndex={-1}>
           {step.prompt}
         </h3>
-        <p className={st.helper}>{step.helper}</p>
+        <p className={st.helper} style={consultaStepTextStyle.helper}>
+          {step.helper}
+        </p>
       </div>
       {error ? <p className={st.softError}>{error}</p> : null}
       {capMsg ? <p className={st.softError}>{capMsg}</p> : null}

@@ -1,5 +1,6 @@
 "use client";
 
+import { consultaStepTextStyle } from "./consultaStepTextStyle";
 import st from "./ConsultaSteps.module.css";
 import dm from "./ConsultaDemographicsStep.module.css";
 import type { ConsultaDemographics, ConsultaDemographicsStep as DemoStepDef } from "@/lib/consulta/types";
@@ -19,11 +20,15 @@ export function ConsultaDemographicsStep({ step, value, onPatch, error, headingI
   return (
     <div>
       <div className={st.stepHead}>
-        <p className={st.eyebrow}>Opcional</p>
-        <h3 id={headingId} className={st.prompt} tabIndex={-1}>
+        <p className={st.eyebrow} style={consultaStepTextStyle.eyebrow}>
+          Opcional
+        </p>
+        <h3 id={headingId} className={st.prompt} style={consultaStepTextStyle.prompt} tabIndex={-1}>
           {step.prompt}
         </h3>
-        <p className={st.helper}>{step.helper}</p>
+        <p className={st.helper} style={consultaStepTextStyle.helper}>
+          {step.helper}
+        </p>
       </div>
       {error ? <p className={st.softError}>{error}</p> : null}
 

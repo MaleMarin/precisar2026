@@ -133,14 +133,12 @@ export function QuickResponseForm({ defaultIso = "CL", onSubmitOptimistic }: Pro
       </div>
       <div className={styles.actions}>
         <button type="submit" className={styles.submit} disabled={status === "sending"}>
-          {status === "sending" ? "Enviando…" : "Enviar mi señal al mapa"}
+          {status === "sending" ? "Enviando…" : "Enviar al mapa"}
         </button>
         {status === "ok" ? <span className={styles.hintOk}>Listo: sincronizado</span> : null}
         {status === "error" ? <span className={styles.hintErr}>Error al sincronizar</span> : null}
       </div>
-      <p className={styles.note}>
-        Tu respuesta se suma al mapa al instante y también se guarda en el servidor de demostración.
-      </p>
+      <p className={styles.note}>Se guarda en el mapa al instante y en el servidor de prueba.</p>
     </form>
   );
 }

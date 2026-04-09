@@ -19,6 +19,12 @@
     "botOndaBeta": "BETA",
     "botOndaAria": "Abrir el chat Bot ONDA (beta) en una pestaña nueva"
   },
+  "footer": {
+    "socialEyebrow": "Redes sociales",
+    "socialX": "Precisar en X (se abre en una pestaña nueva)",
+    "socialInstagram": "Precisar en Instagram (se abre en una pestaña nueva)",
+    "socialFacebook": "Precisar en Facebook (se abre en una pestaña nueva)"
+  },
   "language": {
     "switch": "Idioma",
     "es": "Español",
@@ -112,10 +118,11 @@
     "linkCultura": "Cultura"
   },
   "homePrecisando": {
-    "stackKicker": "04 · Precisando",
+    "stackKicker": "Sitio nuevo · 04 · Precisando",
     "stackHeadline": "Análisis y debates sobre cómo circula la información y qué efectos tiene.",
-    "stackBody": "Porque la información está por todas partes — y entenderla es lo que marca la diferencia.",
-    "stackUnderConstruction": "En construcción. Pronto publicaremos las notas aquí."
+    "stackBody": "Seguimos armando el archivo completo en esta versión. Mientras tanto, todos los artículos del blog siguen en el sitio anterior.",
+    "stackUnderConstruction": "En construcción. Pronto publicaremos las notas aquí.",
+    "linkLegacyPrecisando": "Ver artículos en el sitio anterior de Precisar (blog / Precisando)"
   },
   "homeSaberes": {
     "stackKicker": "03 · Saberes",

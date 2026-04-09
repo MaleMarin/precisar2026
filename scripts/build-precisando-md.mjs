@@ -109,7 +109,6 @@ for (const it of items) {
   const link = (it.match(/<link>([^<]+)<\/link>/) || [])[1];
   if (!link) continue;
   const slug = decodeURIComponent(new URL(link).pathname.slice(1));
-  const title = extractCdata(/<title><!\[CDATA\[([\s\S]*?)\]\]>/, it) || (it.match(/<title>([^<]*)<\/title>/) || [])[1]?.trim() || "";
   const descRaw = extractCdata(/<description><!\[CDATA\[([\s\S]*?)\]\]>/, it) || (it.match(/<description>([^<]*)<\/description>/) || [])[1]?.trim() || "";
   const pub = (it.match(/<pubDate>([^<]+)<\/pubDate>/) || [])[1] || "";
   const cat = extractCdata(/<category><!\[CDATA\[([\s\S]*?)\]\]>/, it) || (it.match(/<category>([^<]*)<\/category>/) || [])[1]?.trim() || "";

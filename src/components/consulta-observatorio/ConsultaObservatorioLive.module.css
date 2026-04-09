@@ -1,0 +1,415 @@
+.wrap {
+  max-width: 900px;
+  margin: 32px auto;
+  padding: 0 16px;
+}
+
+.shell {
+  border-radius: 12px;
+  border: 0.5px solid rgba(5, 242, 242, 0.2);
+  overflow: hidden;
+  font-family: var(--font-sans, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif);
+  background: #021740;
+}
+
+.header {
+  padding: 11px 16px;
+  border-bottom: 0.5px solid rgba(5, 242, 242, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.kicker {
+  font-size: 10px;
+  color: rgba(5, 242, 242, 0.45);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+
+.title {
+  font-size: 15px;
+  font-weight: 500;
+  color: #fff;
+}
+
+.badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 500;
+  color: #05f2f2;
+  padding: 4px 11px;
+  border-radius: 99px;
+  background: rgba(5, 242, 242, 0.08);
+  border: 0.5px solid rgba(5, 242, 242, 0.3);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.badgeDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #05f2f2;
+  display: inline-block;
+  animation: liveGlow 1.4s ease-in-out infinite;
+}
+
+.hero {
+  padding: 14px 16px;
+  border-bottom: 0.5px solid rgba(5, 242, 242, 0.1);
+  background: #010e25;
+}
+
+.heroRow {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.navBtn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 0.5px solid rgba(5, 242, 242, 0.2);
+  background: transparent;
+  color: rgba(5, 242, 242, 0.6);
+  font-size: 14px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.navBtn:disabled {
+  cursor: default;
+}
+
+.heroMain {
+  flex: 1;
+  min-width: 0;
+}
+
+.heroMeta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.qnum {
+  font-size: 10px;
+  color: rgba(5, 242, 242, 0.5);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.pills {
+  display: flex;
+  gap: 3px;
+  flex-wrap: wrap;
+}
+
+.pill {
+  width: 26px;
+  height: 18px;
+  border-radius: 99px;
+  border: 0.5px solid rgba(5, 242, 242, 0.12);
+  background: transparent;
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 9px;
+  font-weight: 400;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.pillActive {
+  border-color: #05f2f2;
+  background: rgba(5, 242, 242, 0.15);
+  color: #05f2f2;
+  font-weight: 700;
+}
+
+.pillDim {
+  color: rgba(255, 255, 255, 0.18);
+}
+
+.qtext {
+  font-size: 15px;
+  font-weight: 500;
+  color: #fff;
+  line-height: 1.4;
+  margin-bottom: 5px;
+}
+
+.qwhy {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.35);
+  line-height: 1.5;
+  margin-bottom: 8px;
+  font-style: italic;
+}
+
+.liveFinding {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+}
+
+.liveFindingDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  animation: liveGlow 1.5s ease-in-out infinite;
+}
+
+.body {
+  display: flex;
+}
+
+.mapCol {
+  flex: 1;
+  min-width: 0;
+}
+
+.mapSvg {
+  display: block;
+  width: 100%;
+}
+
+.panel {
+  width: 210px;
+  background: #010e25;
+  border-left: 0.5px solid rgba(5, 242, 242, 0.1);
+  padding: 15px;
+  overflow-y: auto;
+  min-height: 318px;
+}
+
+.panelSectionLabel {
+  font-size: 9px;
+  color: rgba(5, 242, 242, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 10px;
+}
+
+.insightRow {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 8px 0;
+  border-bottom: 0.5px solid rgba(5, 242, 242, 0.07);
+}
+
+.insightDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.insightText {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 1.5;
+}
+
+.panelHint {
+  padding-top: 12px;
+  border-top: 0.5px solid rgba(5, 242, 242, 0.1);
+}
+
+.panelHintText {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.22);
+  line-height: 1.8;
+  margin-bottom: 12px;
+}
+
+.ctaAmber {
+  display: block;
+  width: 100%;
+  padding: 9px;
+  border-radius: 8px;
+  border: 0.5px solid rgba(242, 160, 7, 0.4);
+  background: rgba(242, 160, 7, 0.08);
+  color: #f2a007;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: inherit;
+  text-align: center;
+  text-decoration: none;
+}
+
+.ctaCyan {
+  display: block;
+  width: 100%;
+  padding: 9px;
+  border-radius: 8px;
+  border: 0.5px solid rgba(5, 242, 242, 0.28);
+  background: rgba(5, 242, 242, 0.06);
+  color: #05f2f2;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: inherit;
+  text-align: center;
+  text-decoration: none;
+}
+
+.emptyCountry {
+  padding-top: 80px;
+  text-align: center;
+  color: rgba(5, 242, 242, 0.2);
+  font-size: 12px;
+  line-height: 2.2;
+}
+
+.countryHead {
+  margin-bottom: 12px;
+}
+
+.countryName {
+  font-size: 18px;
+  font-weight: 500;
+  color: #fff;
+  margin-bottom: 3px;
+}
+
+.countryMeta {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.28);
+}
+
+.profileLabel {
+  font-size: 9px;
+  color: rgba(5, 242, 242, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 8px;
+}
+
+.profileRow {
+  border-bottom: 0.5px solid rgba(5, 242, 242, 0.06);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 0;
+}
+
+.profileRowActive {
+  background: rgba(5, 242, 242, 0.07);
+  border-radius: 4px;
+  margin: 0 -4px;
+  padding: 5px 4px;
+}
+
+.tickerWrap {
+  border-top: 0.5px solid rgba(5, 242, 242, 0.08);
+  overflow: hidden;
+  height: 28px;
+  background: #010e25;
+  display: flex;
+  align-items: center;
+}
+
+.tickerLabel {
+  font-size: 9px;
+  color: #05f2f2;
+  padding: 0 10px;
+  white-space: nowrap;
+  border-right: 0.5px solid rgba(5, 242, 242, 0.15);
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.tickerTrack {
+  overflow: hidden;
+  flex: 1;
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.tickerInner {
+  display: flex;
+  gap: 0;
+  white-space: nowrap;
+  animation: tickerScroll 30s linear infinite;
+}
+
+.tickerItem {
+  padding: 0 18px;
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 10px;
+  border-right: 0.5px solid rgba(5, 242, 242, 0.1);
+}
+
+.insightsBar {
+  padding: 8px 16px;
+  border-top: 0.5px solid rgba(5, 242, 242, 0.1);
+  background: #010e25;
+  font-size: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.insightsSep {
+  color: rgba(5, 242, 242, 0.18);
+  margin: 0 10px;
+}
+
+.accumulating {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.25);
+}
+
+@keyframes liveGlow {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
+@keyframes panelIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes tickerScroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.panelAnimate {
+  animation: panelIn 0.3s ease;
+}

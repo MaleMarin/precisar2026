@@ -11,6 +11,7 @@ import {
   type RefObject,
 } from "react";
 import { LenisContext } from "@/components/SmoothScrollProvider";
+import { usePrefersReducedMotion } from "@/lib/use-prefers-reduced-motion";
 import { CINEMATIC_PANELS } from "./panels.data";
 
 if (typeof window !== "undefined") {
@@ -35,22 +36,10 @@ export function useCinematicDeck(): CinematicDeckController {
   const sectionsRef = useRef<HTMLElement[]>([]);
   const transitionToRef = useRef<(target: number) => void>(() => {});
   const [uiIndex, setUiIndex] = useState(0);
-  const [webglOn, setWebglOn] = useState(false);
-  const [reduceMotion, setReduceMotion] = useState(false);
+  const reduceMotion = usePrefersReducedMotion();
+  const webglOn = !reduceMotion;
 
   const panelCount = CINEMATIC_PANELS.length;
-
-  useLayoutEffect(() => {
-    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
-    setReduceMotion(mq.matches);
-    setWebglOn(!mq.matches);
-    const onChange = () => {
-      setReduceMotion(mq.matches);
-      setWebglOn(!mq.matches);
-    };
-    mq.addEventListener("change", onChange);
-    return () => mq.removeEventListener("change", onChange);
-  }, []);
 
   useLayoutEffect(() => {
     window.scrollTo(0, 0);
@@ -126,14 +115,18 @@ export function useCinematicDeck(): CinematicDeckController {
         gsap.set(el, { opacity: i === 0 ? 1 : 0, yPercent: 0, scale: 1 });
       });
       indexRef.current = 0;
-      setUiIndex(0);
+      queueMicrotask(() => {
+        setUiIndex(0);
+      });
       return;
     }
 
     gsap.set(sections, { opacity: 0, yPercent: 100, scale: 1 });
     gsap.set(sections[0], { opacity: 1, yPercent: 0 });
     indexRef.current = 0;
-    setUiIndex(0);
+    queueMicrotask(() => {
+      setUiIndex(0);
+    });
 
     const wheelThreshold = 16;
     const onWheel = (e: WheelEvent) => {

@@ -12,14 +12,14 @@ const consultaVivaFont = Space_Grotesk({
 const consultaVivaCanonical = `${SITE.url}/consulta-viva`;
 
 export const metadata: Metadata = {
-  title: "Consulta viva",
+  title: "Mapa vivo de los resultados de la consulta",
   description:
-    "Observatorio regional: mapa de América Latina y el Caribe con señales por país, corrientes por fuente y participación en vivo.",
+    "Visualización en vivo de las respuestas en América Latina y el Caribe. La consulta paso a paso está en /consulta.",
   alternates: { canonical: consultaVivaCanonical },
   openGraph: {
-    title: "Consulta viva · Precisar",
+    title: "Mapa vivo de los resultados de la consulta · Precisar",
     description:
-      "Mira cómo se informa América Latina y el Caribe en vivo: señales por país y participación.",
+      "Mirá cómo se reparten las respuestas en el mapa. La consulta principal sigue en precisar.net/consulta.",
     url: consultaVivaCanonical,
     siteName: SITE.name,
     locale: "es_CL",

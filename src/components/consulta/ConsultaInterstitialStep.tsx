@@ -1,5 +1,6 @@
 "use client";
 
+import { consultaStepTextStyle } from "./consultaStepTextStyle";
 import st from "./ConsultaSteps.module.css";
 
 type Props = {
@@ -12,15 +13,24 @@ export function ConsultaInterstitialStep({ onFinishNow, onMore, onBack }: Props)
   return (
     <div>
       <div className={st.stepHead}>
-        <p className={st.eyebrow}>Si quieres, un poco más</p>
-        <h3 id="consulta-interstitial-title" className={st.prompt} tabIndex={-1}>
+        <p className={st.eyebrow} style={consultaStepTextStyle.eyebrow}>
+          Si quieres, un poco más
+        </p>
+        <h3
+          id="consulta-interstitial-title"
+          className={st.prompt}
+          style={consultaStepTextStyle.prompt}
+          tabIndex={-1}
+        >
           ¿Seguimos un momento más?
         </h3>
-        <p className={st.helper}>
+        <p className={st.helper} style={consultaStepTextStyle.helper}>
           Con lo que ya respondiste nos ayudas mucho. Si te queda un poco de tiempo, puedes contestar
           algunas preguntas más y contarnos con más detalle.
         </p>
-        <p className={st.capHint}>Si sigues, son 6 preguntas más.</p>
+        <p className={st.capHint} style={consultaStepTextStyle.capHint}>
+          Si sigues, son 6 preguntas más.
+        </p>
       </div>
 
       <div className={st.navChrome}>

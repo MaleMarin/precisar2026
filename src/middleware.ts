@@ -15,6 +15,7 @@ const SKIP_LOCALE_PREFIX_SEGMENTS = new Set([
   "dev",
   "consulta",
   "consulta-viva",
+  "consulta-observatorio",
 ]);
 
 const RESERVED_ROOT_SEGMENTS = new Set(
@@ -34,6 +35,7 @@ const RESERVED_ROOT_SEGMENTS = new Set(
     "culturadigital",
     "educaciónmediática",
     "ami-vs-alfabetización-digital",
+    "consulta-observatorio",
     "_next",
   ].map((s) => s.normalize("NFC")),
 );
@@ -63,13 +65,8 @@ function redirectHomePrecisando(request: NextRequest, localeSeg: string) {
 }
 
 export function middleware(request: NextRequest) {
-  const host = request.headers.get("host")?.split(":")[0]?.toLowerCase() ?? "";
-  if (host === "www.precisar.net") {
-    const url = request.nextUrl.clone();
-    url.hostname = "precisar.net";
-    return NextResponse.redirect(url, 308);
-  }
-
+  // No forzar www ↔ apex aquí: si coincide con la opción "Dominio principal" de Vercel
+  // en el otro sentido, el navegador entra en ERR_TOO_MANY_REDIRECTS.
   const pathname = request.nextUrl.pathname;
   if (pathname.includes(".")) return NextResponse.next();
 

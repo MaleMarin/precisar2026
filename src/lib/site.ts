@@ -83,10 +83,19 @@ export function homeHeroHasVideo(): boolean {
 export const EXTERNAL = {
   botOnda: "https://onda2026.vercel.app/chat",
   consultaCiudadana: "https://encuesta-informacion.web.app/consulta-2026/",
+  /** Redes en pie y enlaces compartidos. */
+  xTwitter: "https://x.com/precisar_",
+  facebook: "https://www.facebook.com/precisar",
   instagram: "https://www.instagram.com/_precisar/",
   youtube:
     "https://www.youtube.com/channel/UCQKEOqwm3pxIeO6E1Hsokhw/videos",
   whatsappShare: "https://api.whatsapp.com/send/?text=https://precisar.net",
+  /**
+   * Blog / Precisando en el sitio anterior (Wix). Portada: enlace “Ver artículos…”.
+   * Sobreescribir con `NEXT_PUBLIC_LEGACY_PRECISANDO_URL` si la ruta cambia.
+   */
+  legacyPrecisandoArchive:
+    publicEnv("NEXT_PUBLIC_LEGACY_PRECISANDO_URL") ?? "https://www.precisar.net/blog",
 } as const;
 
 export type NavItem = { label: string; href: string };

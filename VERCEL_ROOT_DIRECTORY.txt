@@ -1,0 +1,12 @@
+Configuración obligatoria en Vercel (Settings → General → Build & Development Settings):
+
+  Root Directory  →  dejar VACÍO  o  ./
+
+Nunca pongas aquí:
+  - www.precisar.net  (es un dominio, no existe como carpeta en Git)
+  - precisar.net
+  - web  (solo si el repo fuera un monorepo y existiera la carpeta web/)
+
+El repositorio precisar2026 en GitHub tiene la app Next.js en la RAÍZ del repo.
+Si Root Directory está mal, el build falla con:
+  "The specified Root Directory '…' does not exist"

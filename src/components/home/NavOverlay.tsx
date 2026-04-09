@@ -112,7 +112,6 @@ export function NavOverlay({
     };
   }, [isOpen]);
 
-  const open = () => setIsOpen(true);
   const close = () => {
     animateClose(() => setIsOpen(false));
   };
@@ -161,7 +160,7 @@ export function NavOverlay({
             <source src={videoMp4} type="video/mp4" />
           </video>
         ) : null}
-        {/* eslint-disable-next-line @next/next/no-img-element */}
+        { }
         <img
           className={videoMp4 ? styles.videoBgFallback : styles.posterFull}
           src={mobileSrc}

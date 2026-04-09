@@ -9,6 +9,26 @@
   padding-left: 0;
 }
 
+/*
+ * Preguntas: NO usar var(--sheet-heading) aquí — en mapa vivo el contentSheet padre
+ * fuerza --sheet-heading claro (#e8f0ff) y el panel del wizard a veces sigue blanco → texto invisible.
+ */
+.stepHead .eyebrow {
+  color: #5c6570;
+}
+
+.stepHead .prompt {
+  color: #0a1628;
+}
+
+.stepHead .helper {
+  color: #3d4d60;
+}
+
+.stepHead .capHint {
+  color: #5a6570;
+}
+
 .stepPanel {
   border-radius: 20px;
   padding: 0;
@@ -35,7 +55,8 @@
   font-weight: 700;
   letter-spacing: 0.28em;
   text-transform: uppercase;
-  color: var(--sheet-kicker, #8b95a8);
+  /* No usar vars del contentSheet (mapa vivo las pone claras) → texto invisible sobre panel blanco */
+  color: #5c6578;
 }
 
 .prompt {
@@ -44,7 +65,7 @@
   font-weight: 700;
   letter-spacing: -0.042em;
   line-height: 1.18;
-  color: var(--sheet-heading, #0c3a63);
+  color: #0a1628;
 }
 
 .helper {
@@ -52,7 +73,7 @@
   font-size: 0.84375rem;
   line-height: 1.55;
   font-weight: 500;
-  color: var(--sheet-body, #4a5568);
+  color: #3d4d60;
 }
 
 .softError {
@@ -71,7 +92,27 @@
   margin: 0.75rem 0 0;
   font-size: 0.78125rem;
   line-height: 1.45;
-  color: var(--sheet-muted, #6b7280);
+  color: #5a6570;
+}
+
+/*
+ * Contraste obligatorio: el padre .contentSheet (mapa vivo) define color claro; sin !important
+ * a veces el orden de hojas deja la pregunta ilegible en producción.
+ */
+:global([data-consulta-page][data-live-map="true"]) #consulta-flujo .stepHead .eyebrow {
+  color: #4a5568 !important;
+}
+
+:global([data-consulta-page][data-live-map="true"]) #consulta-flujo .stepHead .prompt {
+  color: #061018 !important;
+}
+
+:global([data-consulta-page][data-live-map="true"]) #consulta-flujo .stepHead .helper {
+  color: #2d3a4a !important;
+}
+
+:global([data-consulta-page][data-live-map="true"]) #consulta-flujo .stepHead .capHint {
+  color: #4a5568 !important;
 }
 
 .optionsGrid {
@@ -339,30 +380,14 @@
     inset 0 1px 0 rgba(255, 255, 255, 0.7);
 }
 
-/* ─── Mapa vivo (data-consulta-live en #consulta-flujo) ─── */
-:global([data-consulta-live="true"]) .eyebrow {
-  color: rgba(160, 200, 255, 0.5);
-}
-
-:global([data-consulta-live="true"]) .prompt {
-  color: #e8f0ff;
-}
-
-:global([data-consulta-live="true"]) .helper {
-  color: rgba(190, 210, 245, 0.75);
-}
-
-:global([data-consulta-live="true"]) .softError {
+/* Errores en mapa vivo: fondo oscuro del dock; texto del paso (.prompt) siempre oscuro en ConsultaSteps. */
+:global([data-consulta-page][data-live-map="true"]) #consulta-flujo .softError {
   color: #fecaca;
   background: rgba(127, 29, 29, 0.35);
   border-color: rgba(248, 113, 113, 0.35);
 }
 
-:global([data-consulta-live="true"]) .capHint {
-  color: rgba(170, 195, 235, 0.6);
-}
-
-:global([data-consulta-live="true"]) .optionLightCard {
+:global([data-consulta-page][data-live-map="true"]) #consulta-flujo .optionLightCard {
   background: rgba(18, 24, 42, 0.92);
   border: 1px solid rgba(100, 180, 255, 0.12);
   box-shadow:
@@ -370,7 +395,10 @@
     inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
-:global([data-consulta-live="true"]) .optionBtn[data-selected="true"] .optionLightCard {
+:global([data-consulta-page][data-live-map="true"])
+  #consulta-flujo
+  .optionBtn[data-selected="true"]
+  .optionLightCard {
   border: 2px solid rgba(100, 200, 255, 0.55);
   box-shadow:
     0 0 0 3px rgba(77, 163, 255, 0.12),
@@ -378,11 +406,11 @@
     inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
-:global([data-consulta-live="true"]) .optionLabel {
+:global([data-consulta-page][data-live-map="true"]) #consulta-flujo .optionLabel {
   color: #e2ebff;
 }
 
-:global([data-consulta-live="true"]) .navLightDock {
+:global([data-consulta-page][data-live-map="true"]) #consulta-flujo .navLightDock {
   background: rgba(12, 16, 30, 0.72);
   border: 1px solid rgba(100, 180, 255, 0.14);
   box-shadow:
@@ -390,15 +418,15 @@
     inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
-:global([data-consulta-live="true"]) .navGhost {
+:global([data-consulta-page][data-live-map="true"]) #consulta-flujo .navGhost {
   color: rgba(180, 205, 245, 0.75);
 }
 
-:global([data-consulta-live="true"]) .navGhost:hover:not(:disabled) {
+:global([data-consulta-page][data-live-map="true"]) #consulta-flujo .navGhost:hover:not(:disabled) {
   color: #e8f0ff;
 }
 
-:global([data-consulta-live="true"]) .stepPanelInner {
+:global([data-consulta-page][data-live-map="true"]) #consulta-flujo .stepPanelInner {
   background: rgba(18, 24, 42, 0.92);
   border: 1px solid rgba(100, 180, 255, 0.12);
   box-shadow:
@@ -406,20 +434,20 @@
     inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
-:global([data-consulta-live="true"]) .textAreaInner {
+:global([data-consulta-page][data-live-map="true"]) #consulta-flujo .textAreaInner {
   background: rgba(18, 24, 42, 0.92);
   border: 1px solid rgba(100, 180, 255, 0.12);
 }
 
-:global([data-consulta-live="true"]) .textArea {
+:global([data-consulta-page][data-live-map="true"]) #consulta-flujo .textArea {
   color: #e8f0ff;
 }
 
-:global([data-consulta-live="true"]) .textArea::placeholder {
+:global([data-consulta-page][data-live-map="true"]) #consulta-flujo .textArea::placeholder {
   color: rgba(160, 180, 220, 0.45);
 }
 
-:global([data-consulta-live="true"]) .completionRestart {
+:global([data-consulta-page][data-live-map="true"]) #consulta-flujo .completionRestart {
   color: #e8f0ff;
   background: rgba(18, 24, 42, 0.85);
   border: 1px solid rgba(100, 180, 255, 0.15);

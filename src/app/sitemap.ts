@@ -63,7 +63,7 @@ const STATIC_PATHS = [
 ] as const;
 
 /** Fuera de `[locale]` (middleware no añade `/es`). */
-const ROOT_ONLY_PATHS = ["/consulta", "/consulta-viva"] as const;
+const ROOT_ONLY_PATHS = ["/consulta", "/consulta-viva", "/consulta-observatorio"] as const;
 
 function localizedUrl(locale: string, pathNoLocale: string): string {
   const tail = pathNoLocale === "/" ? "" : pathNoLocale;

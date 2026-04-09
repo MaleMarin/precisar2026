@@ -2,15 +2,23 @@
 
 import { useCallback, useEffect, useRef } from "react";
 import { countryByIso, projectUnit, unitToCanvas } from "@/lib/consulta-viva/countries";
-import { sourceColorRgb } from "@/lib/consulta-viva/aggregations";
-import type { CountrySignal, FlowEdge, SourceType } from "@/lib/consulta-viva/types";
+import type { CountrySignal } from "@/lib/consulta-viva/types";
 import styles from "./LiveLatamMap.module.css";
 
 const PAD = 44;
 
+/** Océano y tierra: una sola familia de azules (sin manchas ni colores por canal). */
+const OCEAN = "#dce4ef";
+const LAND_FILL = "#4a6d9a";
+const LAND_STROKE = "rgba(20, 55, 95, 0.22)";
+const NODE_FILL = "#3a5a82";
+const NODE_EMPTY = "rgba(130, 155, 190, 0.55)";
+const ACCENT = { r: 196, g: 112, b: 72 };
+const LABEL_ON_NODE = "rgba(255,255,255,0.92)";
+const LABEL_EMPTY = "rgba(255,255,255,0.75)";
+
 /**
  * Silueta esquemática en coordenadas normalizadas (misma proyección que los países).
- * Forma reconocible: México → Centroamérica → Caribe / norte de Sudamérica → Brasil → Cono sur → Pacífico.
  */
 const LAND_RING: [number, number][] = [
   [0.06, 0.28],
@@ -29,12 +37,15 @@ const LAND_RING: [number, number][] = [
   [0.1, 0.38],
 ];
 
+export type ConsultaVivaLayerMode = "resultados" | "region" | "cruce";
+
 type Props = {
   signals: CountrySignal[];
-  flows: FlowEdge[];
   selectedIso: string | null;
   hoveredIso: string | null;
   activeCountryName: string | null;
+  layerMode: ConsultaVivaLayerMode;
+  crossPair: { fromIso: string; toIso: string } | null;
   onHover: (iso: string | null) => void;
   onSelect: (iso: string | null) => void;
 };
@@ -59,19 +70,56 @@ function drawLandmass(
     else ctx.lineTo(x, y);
   }
   ctx.closePath();
-  ctx.fillStyle = "rgba(32, 48, 72, 0.92)";
+  ctx.fillStyle = LAND_FILL;
   ctx.fill();
-  ctx.strokeStyle = "rgba(255,255,255,0.12)";
-  ctx.lineWidth = 1.5;
+  ctx.strokeStyle = LAND_STROKE;
+  ctx.lineWidth = 1.25;
+  ctx.stroke();
+}
+
+function nodeCenter(
+  iso: string,
+  w: number,
+  h: number,
+  pad: number,
+): { x: number; y: number } | null {
+  const meta = countryByIso.get(iso);
+  if (!meta) return null;
+  const { ux, uy } = projectUnit(meta.lat, meta.lng);
+  return unitToCanvas(ux, uy, w, h, pad);
+}
+
+/** Punto de lectura fijo dentro del mapa (no “sumidero” de red). */
+function readingHub(w: number, h: number, pad: number) {
+  return { x: w * 0.5, y: clamp(h * 0.58, pad + 40, h - pad - 24) };
+}
+
+function drawSingleCurve(
+  ctx: CanvasRenderingContext2D,
+  x0: number,
+  y0: number,
+  x1: number,
+  y1: number,
+) {
+  const mx = (x0 + x1) * 0.5;
+  const my = Math.min(y0, y1) - Math.abs(x1 - x0) * 0.12 - 18;
+  ctx.strokeStyle = `rgba(${ACCENT.r},${ACCENT.g},${ACCENT.b},0.85)`;
+  ctx.lineWidth = 2.25;
+  ctx.lineCap = "round";
+  ctx.setLineDash([]);
+  ctx.beginPath();
+  ctx.moveTo(x0, y0);
+  ctx.quadraticCurveTo(mx, my, x1, y1);
   ctx.stroke();
 }
 
 export function LiveLatamMap({
   signals,
-  flows,
   selectedIso,
   hoveredIso,
   activeCountryName,
+  layerMode,
+  crossPair,
   onHover,
   onSelect,
 }: Props) {
@@ -80,22 +128,26 @@ export function LiveLatamMap({
   const sizeRef = useRef({ w: 0, h: 0 });
   const rafRef = useRef(0);
   const signalsRef = useRef(signals);
-  const flowsRef = useRef(flows);
   const selectedRef = useRef(selectedIso);
   const hoveredRef = useRef(hoveredIso);
+  const layerModeRef = useRef(layerMode);
+  const crossPairRef = useRef(crossPair);
 
   useEffect(() => {
     signalsRef.current = signals;
   }, [signals]);
-  useEffect(() => {
-    flowsRef.current = flows;
-  }, [flows]);
   useEffect(() => {
     selectedRef.current = selectedIso;
   }, [selectedIso]);
   useEffect(() => {
     hoveredRef.current = hoveredIso;
   }, [hoveredIso]);
+  useEffect(() => {
+    layerModeRef.current = layerMode;
+  }, [layerMode]);
+  useEffect(() => {
+    crossPairRef.current = crossPair;
+  }, [crossPair]);
 
   const pickIso = useCallback((cx: number, cy: number): string | null => {
     const nodes = layoutRef.current;
@@ -165,43 +217,32 @@ export function LiveLatamMap({
     const draw = () => {
       const { w, h } = sizeRef.current;
       const sigs = signalsRef.current;
-      const flowList = flowsRef.current;
       const sel = selectedRef.current;
       const hov = hoveredRef.current;
+      const mode = layerModeRef.current;
+      const pair = crossPairRef.current;
 
       if (w < 4 || h < 4) {
         rafRef.current = requestAnimationFrame(draw);
         return;
       }
 
-      ctx.fillStyle = "#070d14";
+      ctx.fillStyle = OCEAN;
       ctx.fillRect(0, 0, w, h);
 
       drawLandmass(ctx, w, h, PAD);
 
-      const maxTotal = Math.max(...sigs.map((s) => s.responsesTotal), 1);
-      const sinkX = w * 0.5;
-      const sinkY = h - PAD * 0.65;
-
-      for (const f of flowList) {
-        const meta = countryByIso.get(f.fromIso);
-        if (!meta) continue;
-        const { ux, uy } = projectUnit(meta.lat, meta.lng);
-        const { x: cx, y: cy } = unitToCanvas(ux, uy, w, h, PAD);
-        const [r, g, b] = sourceColorRgb(f.source);
-        const alpha = clamp(0.06 + f.pulseIntensity * 0.14, 0.05, 0.22);
-        ctx.save();
-        ctx.strokeStyle = `rgba(${r},${g},${b},${alpha})`;
-        ctx.lineWidth = 1.4;
-        ctx.beginPath();
-        ctx.moveTo(cx, cy);
-        const mx = (cx + sinkX) * 0.5;
-        const my = (cy + sinkY) * 0.55 + h * 0.08;
-        ctx.quadraticCurveTo(mx, my, sinkX, sinkY);
-        ctx.stroke();
-        ctx.restore();
+      if (mode === "region" && sel) {
+        const from = nodeCenter(sel, w, h, PAD);
+        const hub = readingHub(w, h, PAD);
+        if (from) drawSingleCurve(ctx, from.x, from.y, hub.x, hub.y);
+      } else if (mode === "cruce" && pair) {
+        const a = nodeCenter(pair.fromIso, w, h, PAD);
+        const b = nodeCenter(pair.toIso, w, h, PAD);
+        if (a && b) drawSingleCurve(ctx, a.x, a.y, b.x, b.y);
       }
 
+      const maxTotal = Math.max(...sigs.map((s) => s.responsesTotal), 1);
       const nodes: NodeLayout[] = [];
       for (const s of sigs) {
         const meta = countryByIso.get(s.iso);
@@ -212,7 +253,7 @@ export function LiveLatamMap({
           s.responsesTotal > 0
             ? Math.max(6, 7 + 20 * Math.sqrt(s.responsesTotal / maxTotal))
             : 4.5;
-        const r = sel === s.iso ? base * 1.18 : base;
+        const r = sel === s.iso ? base * 1.14 : base;
         nodes.push({ iso: s.iso, x: cx, y: cy, r });
       }
       layoutRef.current = nodes;
@@ -226,48 +267,44 @@ export function LiveLatamMap({
           s.responsesTotal > 0
             ? Math.max(6, 7 + 20 * Math.sqrt(s.responsesTotal / maxTotal))
             : 4.5;
-        const r = sel === s.iso ? base * 1.18 : base;
-        const [rC, gC, bC] = s.dominantSource
-          ? sourceColorRgb(s.dominantSource)
-          : [130, 140, 158];
+        const r = sel === s.iso ? base * 1.14 : base;
         const isSel = sel === s.iso;
         const isHov = hov === s.iso;
         const pulse = s.pulseIntensity;
 
         if (pulse > 0.05) {
           ctx.save();
-          ctx.strokeStyle = `rgba(${rC},${gC},${bC},${0.12 + pulse * 0.35})`;
+          ctx.strokeStyle = `rgba(${ACCENT.r},${ACCENT.g},${ACCENT.b},${0.12 + pulse * 0.22})`;
           ctx.lineWidth = 2;
           ctx.beginPath();
-          ctx.arc(cx, cy, r + 5 + pulse * 6, 0, Math.PI * 2);
+          ctx.arc(cx, cy, r + 4 + pulse * 5, 0, Math.PI * 2);
           ctx.stroke();
           ctx.restore();
         }
 
         if (isSel) {
           ctx.save();
-          ctx.strokeStyle = "rgba(255,255,255,0.95)";
+          ctx.strokeStyle = `rgba(${ACCENT.r},${ACCENT.g},${ACCENT.b},0.95)`;
           ctx.lineWidth = 3;
           ctx.beginPath();
-          ctx.arc(cx, cy, r + 3, 0, Math.PI * 2);
+          ctx.arc(cx, cy, r + 3.5, 0, Math.PI * 2);
           ctx.stroke();
           ctx.restore();
         }
 
         ctx.beginPath();
         ctx.arc(cx, cy, r, 0, Math.PI * 2);
-        ctx.fillStyle =
-          s.responsesTotal > 0 ? `rgba(${rC},${gC},${bC},0.82)` : "rgba(100,110,128,0.35)";
+        ctx.fillStyle = s.responsesTotal > 0 ? NODE_FILL : NODE_EMPTY;
         ctx.fill();
         ctx.strokeStyle = isSel
-          ? "rgba(255,255,255,0.95)"
+          ? `rgba(${ACCENT.r},${ACCENT.g},${ACCENT.b},0.9)`
           : isHov
-            ? "rgba(255,255,255,0.55)"
-            : "rgba(255,255,255,0.2)";
-        ctx.lineWidth = isSel ? 2.4 : 1.1;
+            ? "rgba(255,255,255,0.75)"
+            : "rgba(255,255,255,0.35)";
+        ctx.lineWidth = isSel ? 2.2 : 1.1;
         ctx.stroke();
 
-        ctx.fillStyle = s.responsesTotal > 0 ? "rgba(6,8,12,0.88)" : "rgba(255,255,255,0.45)";
+        ctx.fillStyle = s.responsesTotal > 0 ? LABEL_ON_NODE : LABEL_EMPTY;
         ctx.font = `${Math.max(7, Math.min(10, r * 0.38))}px var(--font-mono-family), ui-monospace, monospace`;
         ctx.textAlign = "center";
         ctx.textBaseline = "middle";
@@ -295,7 +332,7 @@ export function LiveLatamMap({
       <canvas ref={canvasRef} className={styles.canvas} aria-label="Mapa de América Latina y el Caribe" />
       {activeCountryName ? (
         <div className={styles.activeLabel}>
-          <span className={styles.activeLabelMuted}>País seleccionado</span>
+          <span className={styles.activeLabelMuted}>País activo</span>
           <span className={styles.activeLabelName}>{activeCountryName}</span>
         </div>
       ) : null}

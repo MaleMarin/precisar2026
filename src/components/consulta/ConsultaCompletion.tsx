@@ -2,6 +2,7 @@
 
 import cx from "./ConsultaWizard.module.css";
 import st from "./ConsultaSteps.module.css";
+import { consultaStepTextStyle } from "./consultaStepTextStyle";
 import flowShell from "@/app/consulta/ConsultaFlowSlot.module.css";
 import type { ConsultaModo } from "@/lib/consulta/types";
 
@@ -21,11 +22,18 @@ export function ConsultaCompletion({ modo, quickExtended, onRestart }: Props) {
 
   return (
     <div>
-      <p className={flowShell.kicker}>Listo</p>
-      <h3 className={cx.completeTitle} tabIndex={-1} id="consulta-completion-title">
+      <p className={flowShell.kicker} style={consultaStepTextStyle.eyebrow}>
+        Listo
+      </p>
+      <h3
+        className={cx.completeTitle}
+        style={consultaStepTextStyle.prompt}
+        tabIndex={-1}
+        id="consulta-completion-title"
+      >
         Gracias por tu tiempo
       </h3>
-      <p className={cx.completeText}>
+      <p className={cx.completeText} style={consultaStepTextStyle.helper}>
         {detail} Lo que compartiste nos ayuda a entender cómo llega la información al día a día de las
         personas.
       </p>

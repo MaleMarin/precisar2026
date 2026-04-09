@@ -5,6 +5,7 @@ import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { usePrefersReducedMotion } from "@/lib/use-prefers-reduced-motion";
 import type { LabMouseRef } from "./WebGLBackground";
 import styles from "./FrontierLabHome.module.css";
 
@@ -63,11 +64,14 @@ export function FrontierLabHome() {
   const mainRef = useRef<HTMLElement>(null);
   const pinRef = useRef<HTMLElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
+  const prefersReducedMotion = usePrefersReducedMotion();
   const [webglOn, setWebglOn] = useState(false);
 
   useLayoutEffect(() => {
-    setWebglOn(!window.matchMedia("(prefers-reduced-motion: reduce)").matches);
-  }, []);
+    queueMicrotask(() => {
+      setWebglOn(!prefersReducedMotion);
+    });
+  }, [prefersReducedMotion]);
 
   useEffect(() => {
     if (!webglOn) return;

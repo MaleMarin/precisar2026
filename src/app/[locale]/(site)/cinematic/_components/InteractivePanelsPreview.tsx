@@ -45,7 +45,9 @@ function ImmersiveLocaleProvider({ children }: { children: React.ReactNode }) {
   const [locale, setLocaleState] = useState<ImmersiveLocale>("es");
 
   useEffect(() => {
-    setLocaleState(detectInitialLocale());
+    queueMicrotask(() => {
+      setLocaleState(detectInitialLocale());
+    });
   }, []);
 
   const setLocale = useCallback((l: ImmersiveLocale) => {

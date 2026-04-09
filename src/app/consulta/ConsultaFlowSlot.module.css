@@ -109,27 +109,33 @@
   min-width: 0;
 }
 
-/* Mapa vivo — panel del wizard */
-:global([data-consulta-page][data-live-map="true"]) #consulta-flujo .inner {
-  background: rgba(10, 14, 28, 0.55);
-  border: 1px solid rgba(100, 180, 255, 0.16);
+/*
+ * Mapa vivo: el contentSheet pone color/tinta clara; el panel del wizard debe ser SIEMPRE
+ * fondo claro + texto oscuro (si no, la pregunta hereda #e8f0ff y desaparece sobre blanco).
+ */
+:global([data-consulta-page][data-live-map="true"]) #consulta-flujo .inner,
+:global([data-consulta-page][data-live-map="true"]) #consulta-flujo [data-consulta-wizard-inner="true"] {
+  background: rgba(255, 255, 255, 0.97);
+  border: 1px solid rgba(0, 0, 0, 0.07);
   box-shadow:
-    0 16px 40px rgba(0, 0, 0, 0.42),
-    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    0 16px 40px rgba(0, 0, 0, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  color: #0a1628;
 }
 
 :global([data-consulta-page][data-live-map="true"]) #consulta-flujo .wizChrome {
   box-shadow: 0 24px 48px rgba(0, 0, 0, 0.35);
 }
 
+/* Dentro del flujo el panel suele ser claro: mantener tinta oscura (no heredar tema del contentSheet). */
 :global([data-consulta-page][data-live-map="true"]) #consulta-flujo .kicker {
-  color: rgba(160, 200, 255, 0.5);
+  color: #5c6578;
 }
 
 :global([data-consulta-page][data-live-map="true"]) #consulta-flujo .heading {
-  color: #e8f0ff;
+  color: #0a1628;
 }
 
 :global([data-consulta-page][data-live-map="true"]) #consulta-flujo .text {
-  color: rgba(200, 215, 245, 0.85);
+  color: #3d4d60;
 }

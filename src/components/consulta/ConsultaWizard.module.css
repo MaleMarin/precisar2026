@@ -13,14 +13,14 @@
   font-size: clamp(1.12rem, 2.6vw, 1.28rem);
   font-weight: 700;
   letter-spacing: -0.03em;
-  color: var(--sheet-heading, #0c3a63);
+  color: #0a1628;
 }
 
 .completeText {
   margin: 0 0 1.15rem;
   font-size: 0.875rem;
   line-height: 1.6;
-  color: var(--sheet-body, #4a5568);
+  color: #3d4d60;
   max-width: min(100%, 48rem);
 }
 
@@ -58,10 +58,3 @@
   border: 0;
 }
 
-:global([data-consulta-live="true"]) .completeTitle {
-  color: #e8f0ff;
-}
-
-:global([data-consulta-live="true"]) .completeText {
-  color: rgba(200, 215, 245, 0.88);
-}

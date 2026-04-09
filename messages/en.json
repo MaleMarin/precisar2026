@@ -19,6 +19,12 @@
     "botOndaBeta": "BETA",
     "botOndaAria": "Open Bot ONDA chat (beta) in a new tab"
   },
+  "footer": {
+    "socialEyebrow": "Social",
+    "socialX": "Precisar on X (opens in a new tab)",
+    "socialInstagram": "Precisar on Instagram (opens in a new tab)",
+    "socialFacebook": "Precisar on Facebook (opens in a new tab)"
+  },
   "language": {
     "switch": "Language",
     "es": "Spanish",
@@ -112,10 +118,11 @@
     "linkCultura": "Culture"
   },
   "homePrecisando": {
-    "stackKicker": "04 · Precisando",
+    "stackKicker": "New site · 04 · Precisando",
     "stackHeadline": "Analysis and debate on how information circulates and what effects it has.",
-    "stackBody": "Because information is everywhere—and understanding it is what makes the difference.",
-    "stackUnderConstruction": "Under construction. Articles will be published here soon."
+    "stackBody": "We’re still building the full archive on this version. Until then, all blog articles remain on the previous site.",
+    "stackUnderConstruction": "Under construction. Articles will be published here soon.",
+    "linkLegacyPrecisando": "View articles on the previous Precisar site (blog / Precisando)"
   },
   "homeSaberes": {
     "stackKicker": "03 · Saberes",

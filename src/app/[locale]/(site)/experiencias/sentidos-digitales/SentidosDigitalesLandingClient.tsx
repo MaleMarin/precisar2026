@@ -2,25 +2,20 @@
 
 import { useEffect, useState } from "react";
 import { escapeHtml, useTextScramble } from "@/lib/use-text-scramble";
+import { usePrefersReducedMotion } from "@/lib/use-prefers-reduced-motion";
 import { SentidosDigitalesCarouselHero } from "./SentidosDigitalesCarouselHero";
 import styles from "./SentidosDigitalesLanding.module.css";
 
 const TITLE = "Sentidos digitales";
 
 export function SentidosDigitalesLandingClient() {
-  const [reducedMotion, setReducedMotion] = useState(false);
+  const reducedMotion = usePrefersReducedMotion();
   const [titleClient, setTitleClient] = useState(false);
 
   useEffect(() => {
-    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
-    setReducedMotion(mq.matches);
-    const onChange = () => setReducedMotion(mq.matches);
-    mq.addEventListener("change", onChange);
-    return () => mq.removeEventListener("change", onChange);
-  }, []);
-
-  useEffect(() => {
-    setTitleClient(true);
+    queueMicrotask(() => {
+      setTitleClient(true);
+    });
   }, []);
 
   const scrambleHtml = useTextScramble(TITLE, reducedMotion, styles.dud, { enabled: titleClient });
