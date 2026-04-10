@@ -223,7 +223,7 @@ export function SiteHeader() {
         <div className={shellClass}>
           <div className="flex flex-col">
             <div
-              className={`${styles.navBarOuter} relative flex min-h-[4rem] items-center py-2 md:min-h-[6.5rem] md:py-2.5 ${styles.navBarRow}`}
+              className={`${styles.navBarOuter} relative flex min-h-[4.25rem] items-center py-2 md:min-h-[7rem] md:py-2.5 ${styles.navBarRow}`}
             >
               <Link href="/" className={styles.navBarLogoLink} onClick={() => setOpen(false)}>
                 <img
