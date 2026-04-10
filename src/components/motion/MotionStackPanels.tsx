@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
+import { motion, useReducedMotion, useScroll, useSpring, useTransform } from "framer-motion";
 import NextLink from "next/link";
 import { useMemo, useRef, type ComponentType, type ReactNode } from "react";
 import { useTranslations } from "next-intl";
@@ -292,27 +292,43 @@ function StackPanel({
     offset: ["start start", "end start"],
   });
 
-  /* Sin useSpring: Lenis ya suaviza el scroll; otro resorte encima retrasaba los paneles (“freno”). */
-  const progress = scrollYProgress;
+  /* Resorte suave sobre el progreso (stiffness baja + Lenis): transición menos brusca entre sesiones. */
+  const progress = useSpring(scrollYProgress, {
+    stiffness: reduceMotion ? 10_000 : 72,
+    damping: reduceMotion ? 100 : 26,
+    mass: reduceMotion ? 0.08 : 0.95,
+    restDelta: 0.0004,
+  });
 
-  /* Escala suave y sin rotateX: la perspectiva deformaba titulares y cuerpo al cambiar de sesión. */
+  /* Escala y desplazamiento con más puntos de mando = curva más fluida al apilar. */
   const scale = useTransform(
     progress,
-    [0, 0.2, 0.45, 0.78, 1],
-    reduceMotion ? [1, 1, 1, 1, 1] : [1, 0.992, 0.985, 0.978, 0.972],
+    [0, 0.14, 0.32, 0.52, 0.74, 0.9, 1],
+    reduceMotion ? [1, 1, 1, 1, 1, 1, 1] : [1, 0.995, 0.988, 0.981, 0.974, 0.969, 0.964],
   );
   const y = useTransform(
     progress,
-    [0, 0.22, 0.52, 1],
-    reduceMotion ? [0, 0, 0, 0] : [0, -48, -112, -180],
+    [0, 0.18, 0.38, 0.58, 0.78, 1],
+    reduceMotion ? [0, 0, 0, 0, 0, 0] : [0, -36, -78, -124, -168, -208],
   );
-  const borderRadius = useTransform(progress, [0, 0.35, 1], reduceMotion ? [0, 0, 0] : [0, 24, 52]);
+  const borderRadius = useTransform(
+    progress,
+    [0, 0.22, 0.55, 1],
+    reduceMotion ? [0, 0, 0, 0] : [0, 18, 38, 56],
+  );
   const contentY = useTransform(
     progress,
-    [0, 0.28, 1],
-    reduceMotion ? [0, 0, 0] : [0, -24, -64],
+    [0, 0.22, 0.52, 1],
+    reduceMotion ? [0, 0, 0, 0] : [0, -14, -44, -72],
   );
-  const lineScale = useTransform(progress, [0, 0.14, 0.3], [0.12, 0.62, 1]);
+  const lineScale = useTransform(progress, [0, 0.1, 0.26, 0.42], [0.1, 0.48, 0.82, 1]);
+
+  /* Inclinación hacia atrás al retroceder en la pila (origen bajo = menos distorsión del titular). */
+  const rotateX = useTransform(
+    progress,
+    [0, 0.1, 0.38, 0.68, 1],
+    reduceMotion ? [0, 0, 0, 0, 0] : [0, -0.6, -2.4, -4.2, -6],
+  );
 
   const mainBlockVariants = useMemo(
     () => ({
@@ -427,6 +443,8 @@ function StackPanel({
     scale,
     y,
     borderRadius,
+    rotateX,
+    transformOrigin: "50% 88%",
     top: `${index * stackTopGap}px`,
     zIndex: total - index,
   };

@@ -27,8 +27,9 @@
   position: relative;
   height: 200vh;
   scroll-margin-top: 5.5rem;
-  /* Sin perspectiva 3D: el texto se lee estable al pasar de una sesión a otra. */
-  perspective: none;
+  /* Perspectiva suave para el rotateX del panel sticky (origen del transform en el propio motion.div). */
+  perspective: 1400px;
+  perspective-origin: 50% 42%;
 }
 
 /* Primer panel editorial: más recorrido de scroll antes de que el panel Programas cubra el viewport. */
