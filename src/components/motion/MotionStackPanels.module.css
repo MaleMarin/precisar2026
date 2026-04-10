@@ -871,8 +871,11 @@
 }
 
 .convocaStackRoot {
-  max-width: 86rem;
+  max-width: 80rem;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2.5rem, 5vw, 4rem);
 }
 
 .convocaStackHeader {
@@ -924,7 +927,7 @@
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: clamp(1.25rem, 4vw, 2.75rem);
-  margin: clamp(1.25rem, 3.5vw, 2.25rem) 0 clamp(0.35rem, 1.2vw, 0.65rem);
+  margin: 0;
 }
 
 @media (max-width: 640px) {
@@ -964,10 +967,10 @@
 }
 
 .convocaStackIntroSlate {
-  margin: clamp(0.65rem, 1.5vw, 1rem) 0 3rem;
+  margin: 0;
   padding-top: 0;
   padding-bottom: 0;
-  max-width: 72rem;
+  max-width: 56rem;
   font-size: clamp(1.05rem, 1.5vw, 1.2rem);
   font-weight: 400;
   line-height: 1.7;
@@ -981,8 +984,8 @@
   margin: clamp(1.75rem, 4.5vw, 2.75rem) 0 clamp(2.25rem, 5vw, 3.5rem);
   padding: clamp(2.25rem, 4.8vw, 3rem) clamp(1.5rem, 3.5vw, 2.5rem);
   border-radius: 2px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-left: 4px solid #db5227;
 }
 
@@ -1011,7 +1014,7 @@
   letter-spacing: 0.28em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.9);
-  border-bottom: 2px solid rgba(219, 82, 39, 0.6);
+  border-bottom: 2px solid rgba(219, 82, 39, 0.5);
   max-width: 100%;
 }
 
@@ -1055,7 +1058,7 @@
 .convocaStackChileCap {
   font-size: clamp(0.68rem, 1.25vw, 0.78rem);
   line-height: 1.45;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.55);
   max-width: 22ch;
 }
 
@@ -1065,12 +1068,12 @@
   font-size: clamp(0.9rem, 1.5vw, 1rem);
   line-height: 1.78;
   letter-spacing: 0.004em;
-  color: rgba(255, 255, 255, 0.82);
+  color: rgba(255, 255, 255, 0.8);
 }
 
 /* Nuestra propuesta — cierre limpio y concluyente */
 .convocaStackPropuesta {
-  margin: clamp(3rem, 6.5vw, 4.5rem) 0 clamp(1.5rem, 3.5vw, 2.25rem);
+  margin: 0;
   padding: max(3rem, clamp(2.65rem, 5.5vw, 3.5rem)) 0 0;
   border-top: 1px solid color-mix(in oklab, #fff 14%, transparent);
   background: transparent;
