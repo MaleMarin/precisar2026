@@ -9,8 +9,18 @@
   --stack-bg-page: #e9e2d6;
   --stack-bg-light: #efe8dc;
   --stack-bg-dark: var(--brand-void, #0a0c12);
+  /* Titular columna izquierda: una sola escala para todos los paneles (incl. Precisando). */
+  --stack-panel-title-maxw: 42rem;
+  --stack-panel-title-size: clamp(1.95rem, 5.2vw, 4.65rem);
   background: var(--stack-bg-page);
   color: var(--brand-void, #0a0c12);
+}
+
+@media (min-width: 768px) {
+  .stackRoot {
+    --stack-panel-title-maxw: 56rem;
+    --stack-panel-title-size: clamp(2.5rem, 6vw, 4.85rem);
+  }
 }
 
 .panelSection {
@@ -291,26 +301,16 @@
   opacity: 0.78;
 }
 
-/* Titular columna izquierda en paneles apilados de la home (misma escala en todas las sesiones). */
-.stackPanelLeftTitle {
+/* Titular columna izquierda: misma regla concreta para .displayTitle y .stackPanelLeftTitle (evita fallos de composes). */
+.stackPanelLeftTitle,
+.displayTitle {
   margin: 0;
-  max-width: 42rem;
+  max-width: var(--stack-panel-title-maxw);
   font-family: var(--font-display, system-ui, sans-serif);
-  font-size: clamp(1.95rem, 5.2vw, 4.65rem);
+  font-size: var(--stack-panel-title-size);
   font-weight: 800;
   line-height: 1.02;
   letter-spacing: -0.035em;
-}
-
-@media (min-width: 768px) {
-  .stackPanelLeftTitle {
-    max-width: 56rem;
-    font-size: clamp(2.5rem, 6vw, 4.85rem);
-  }
-}
-
-.displayTitle {
-  composes: stackPanelLeftTitle;
 }
 
 .body {
