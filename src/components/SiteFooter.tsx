@@ -167,25 +167,6 @@ export function SiteFooter() {
           </Link>
         </div>
 
-        <div className={styles.footerBotOndaBadge}>
-          <a
-            href={EXTERNAL.botOnda}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.footerBotOndaLink}
-            aria-label={tNav("botOndaAria")}
-          >
-            <img
-              src={FOOTER_MEDIA.navOndaMark}
-              alt=""
-              width={96}
-              height={96}
-              decoding="async"
-              className={styles.footerBotOndaImg}
-            />
-          </a>
-        </div>
-
         <div className={`prec-container ${styles.newsletterBand}`}>
           <section className={styles.newsletterSection} aria-labelledby="footer-newsletter-heading">
             <h2 id="footer-newsletter-heading" className={styles.visuallyHidden}>

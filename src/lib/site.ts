@@ -45,15 +45,15 @@ export const NEWSLETTER = {
 } as const;
 
 /**
- * Logos: barra Precisar (`logo-precisar/logo-precisar.png`); Bot Onda; pie wordmark Precisar + Onda.
+ * Logos: barra Precisar (PNG); pie con wordmark PNG (sin icono Onda bajo la marca — ver `SiteFooter`).
  */
 export const FOOTER_MEDIA = {
   logoWordmark: "/logo-precisar/logo-precisar.png",
-  /** Franja ancha del pie: solo wordmark Precisar. `public/precisar-footer-wordmark.png`. */
+  /** Franja del pie: wordmark tipográfico (`public/precisar-footer-wordmark.png`). */
   footerBrandStrip: "/precisar-footer-wordmark.png",
-  /** Wordmark Precisar en la barra (mismo asset que `logoWordmark`). */
+  /** Wordmark Precisar en la barra (sobre hero: `.navLogoLight`). */
   headerLogoBlack: "/logo-precisar/logo-precisar.png",
-  logoWordmarkFooter: "/brand/footer-wordmark.svg",
+  logoWordmarkFooter: "/precisar-footer-wordmark.png",
   /** Icono Bot Onda (barra, pie, enlaces al chat). */
   navOndaMark: "/logo-onda-ok.png",
   /** Fallback / otros usos (`public/3.png`). */

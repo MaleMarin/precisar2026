@@ -60,40 +60,6 @@
   filter: brightness(1.06) contrast(1.04);
 }
 
-/* Marca Bot Onda debajo del wordmark Precisar */
-.footerBotOndaBadge {
-  display: flex;
-  justify-content: center;
-  margin: 0;
-  padding: clamp(0.35rem, 1.2vw, 0.65rem) 0 0;
-}
-
-.footerBotOndaLink {
-  display: inline-flex;
-  align-items: center;
-  line-height: 0;
-  border-radius: 0.35rem;
-  opacity: 0.92;
-  transition: opacity 0.18s ease, transform 0.18s ease;
-}
-
-.footerBotOndaLink:hover {
-  opacity: 1;
-}
-
-.footerBotOndaLink:focus-visible {
-  outline: 2px solid rgba(255, 255, 255, 0.45);
-  outline-offset: 3px;
-}
-
-.footerBotOndaImg {
-  display: block;
-  height: clamp(2rem, 5vw, 2.65rem);
-  width: auto;
-  max-width: min(10rem, 48vw);
-  object-fit: contain;
-}
-
 .newsletterBand {
   max-width: 38rem;
   margin: 0 auto;
@@ -504,16 +470,6 @@
 
 .legalOndaInline:hover {
   color: rgba(255, 255, 255, 0.9);
-}
-
-.legalOndaMark {
-  display: block;
-  width: clamp(1.75rem, 3.5vw, 2.25rem);
-  height: auto;
-  max-height: 2.5rem;
-  flex-shrink: 0;
-  opacity: 0.9;
-  object-fit: contain;
 }
 
 .legalOndaText {
