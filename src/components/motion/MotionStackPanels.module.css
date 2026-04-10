@@ -25,7 +25,7 @@
 
 .panelSection {
   position: relative;
-  height: 130vh;
+  height: 105vh;
   scroll-margin-top: 2.75rem;
   /* Perspectiva + 3D para rotateX del stack y la entrada sutil al viewport. */
   perspective: 1200px;
@@ -35,14 +35,14 @@
 
 /* Primer panel editorial: más recorrido de scroll antes de que el panel Programas cubra el viewport. */
 .panelSectionEditorial {
-  height: 160vh;
-  min-height: 160vh;
+  height: 120vh;
+  min-height: 120vh;
 }
 
 @media (min-width: 768px) {
   .panelSectionEditorial {
-    height: 190vh;
-    min-height: 190vh;
+    height: 140vh;
+    min-height: 140vh;
   }
 }
 
@@ -64,6 +64,7 @@
   transform-origin: center top;
   transform-style: preserve-3d;
   will-change: transform;
+  transition: transform 0.3s ease-out;
 }
 
 /* Capa interior: recibe la inclinación inicial al entrar en viewport (el motion.div exterior sigue el scroll). */
@@ -1247,4 +1248,8 @@
 .participaEmphasis {
   font-weight: 500;
   color: #fff;
+}
+
+.panelSection:not(:last-child) .stickyPanel {
+  transform: scale(0.97) translateY(-8px);
 }
