@@ -515,33 +515,3 @@
 .privacyLink:hover {
   color: rgba(255, 255, 255, 0.72);
 }
-
-.whatsappFab {
-  position: fixed;
-  bottom: 1.5rem;
-  right: 1.5rem;
-  z-index: 60;
-  display: flex;
-  height: 3.25rem;
-  width: 3.25rem;
-  align-items: center;
-  justify-content: center;
-  border-radius: 9999px;
-  background: #25d366;
-  color: #fff;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
-}
-
-.whatsappFab:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 28px rgba(0, 0, 0, 0.45);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .whatsappFab:hover {
-    transform: none;
-  }
-}
