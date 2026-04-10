@@ -5,8 +5,8 @@ export const metadata = { title: "Gracias" };
 
 export default function Page() {
   return (
-    <ThanksTemplate title="Gracias" kicker="Contacto">
-      <p>Gracias por escribirnos. Si hace falta respuesta, te contactamos por correo.</p>
+    <ThanksTemplate title="Gracias" kicker="Participa">
+      <p>Muchas gracias por escribirnos. Te respondemos a la brevedad.</p>
       <p>
         <Link href="/" className="text-[var(--accent)]">
           Volver al inicio

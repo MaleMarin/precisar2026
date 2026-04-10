@@ -1,8 +1,8 @@
 "use client";
 
-import { useCallback } from "react";
+import { useCallback, useState, type FormEvent } from "react";
 import { useTranslations } from "next-intl";
-import { Link, usePathname, useRouter } from "@/i18n/navigation";
+import { Link, usePathname } from "@/i18n/navigation";
 import { footerContactRedirect } from "@/app/[locale]/(site)/participa/actions";
 import { EXTERNAL, FOOTER_MEDIA, NAV_PRIMARY, NAV_PRIMARY_I18N_KEY, NEWSLETTER } from "@/lib/site";
 import styles from "./SiteFooter.module.css";
@@ -62,9 +62,23 @@ export function SiteFooter() {
   const year = new Date().getFullYear();
   const tNav = useTranslations("nav");
   const tFooter = useTranslations("footer");
-  const router = useRouter();
   const pathname = usePathname();
   const isHome = isHomePath(pathname);
+
+  const [newsletterThanks, setNewsletterThanks] = useState(false);
+
+  const onNewsletterSubmit = (e: FormEvent<HTMLFormElement>) => {
+    if (!NEWSLETTER.formActionUrl) {
+      e.preventDefault();
+      const form = e.currentTarget;
+      const input = form.elements.namedItem("email") as HTMLInputElement | null;
+      if (!input?.value?.trim() || !input.validity.valid) {
+        input?.reportValidity();
+        return;
+      }
+    }
+    setNewsletterThanks(true);
+  };
 
   const scrollToHomeSection = useCallback(
     (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -84,60 +98,57 @@ export function SiteFooter() {
     [isHome],
   );
 
-  const newsletterForm =
-    NEWSLETTER.formActionUrl ? (
-      <form action={NEWSLETTER.formActionUrl} method="post" className={styles.newsFormInner}>
-        <label className={styles.visuallyHidden} htmlFor="footer-newsletter-email">
-          Correo electrónico
-        </label>
-        <div className={styles.newsRow}>
-          <input
-            id="footer-newsletter-email"
-            type="email"
-            name="email"
-            required
-            autoComplete="email"
-            placeholder="Escribe tu correo"
-            className={styles.newsletterField}
-          />
-          <button type="submit" className={styles.btnSubscribe}>
-            Suscribirme
-          </button>
-        </div>
-      </form>
-    ) : (
-      <form
-        className={styles.newsFormInner}
-        onSubmit={(e) => {
-          e.preventDefault();
-          const form = e.currentTarget;
-          const input = form.elements.namedItem("email") as HTMLInputElement | null;
-          if (!input?.value?.trim() || !input.validity.valid) {
-            input?.reportValidity();
-            return;
-          }
-          router.push("/participa");
-        }}
-      >
-        <label className={styles.visuallyHidden} htmlFor="footer-newsletter-email">
-          Correo electrónico
-        </label>
-        <div className={styles.newsRow}>
-          <input
-            id="footer-newsletter-email"
-            type="email"
-            name="email"
-            required
-            autoComplete="email"
-            placeholder="Escribe tu correo"
-            className={styles.newsletterField}
-          />
-          <button type="submit" className={styles.btnSubscribe}>
-            Suscribirme
-          </button>
-        </div>
-      </form>
-    );
+  const newsletterForm = newsletterThanks ? (
+    <p className={styles.newsBody} role="status">
+      Ya estás dentro. Pronto recibirás noticias que vale la pena leer.
+    </p>
+  ) : NEWSLETTER.formActionUrl ? (
+    <form
+      action={NEWSLETTER.formActionUrl}
+      method="post"
+      target="_blank"
+      className={styles.newsFormInner}
+      onSubmit={onNewsletterSubmit}
+    >
+      <label className={styles.visuallyHidden} htmlFor="footer-newsletter-email">
+        Correo electrónico
+      </label>
+      <div className={styles.newsRow}>
+        <input
+          id="footer-newsletter-email"
+          type="email"
+          name="email"
+          required
+          autoComplete="email"
+          placeholder="Escribe tu correo"
+          className={styles.newsletterField}
+        />
+        <button type="submit" className={styles.btnSubscribe}>
+          Suscribirme
+        </button>
+      </div>
+    </form>
+  ) : (
+    <form className={styles.newsFormInner} onSubmit={onNewsletterSubmit}>
+      <label className={styles.visuallyHidden} htmlFor="footer-newsletter-email">
+        Correo electrónico
+      </label>
+      <div className={styles.newsRow}>
+        <input
+          id="footer-newsletter-email"
+          type="email"
+          name="email"
+          required
+          autoComplete="email"
+          placeholder="Escribe tu correo"
+          className={styles.newsletterField}
+        />
+        <button type="submit" className={styles.btnSubscribe}>
+          Suscribirme
+        </button>
+      </div>
+    </form>
+  );
 
   return (
     <footer className={styles.footer}>
