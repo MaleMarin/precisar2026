@@ -173,7 +173,9 @@ export function SiteHeader() {
       ? "border-b-0"
       : "border-b border-[var(--border)] lg:border-b-0",
     !isHome && "bg-[var(--bg)]/92 backdrop-blur-xl backdrop-saturate-150",
-    navOnHero && "bg-transparent",
+    /* No transparente puro: si no, se ve el --bg del body (#f0f2f6) y parece “franja blanca” sobre el hero. */
+    navOnHero &&
+      "bg-[linear-gradient(165deg,rgba(2,54,97,0.92)_0%,rgba(10,12,18,0.88)_52%,rgba(10,12,18,0.82)_100%)] backdrop-blur-[10px]",
     navHomeGlass && "border-white/10 bg-[rgba(10,12,18,0.92)] backdrop-blur-[12px]",
   ]
     .filter(Boolean)
