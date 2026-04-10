@@ -116,9 +116,9 @@
 /* Desktop: barra compacta (máx. 64px); wordmark proporcional para una sola fila. */
 @media (min-width: 1024px) {
   .navBarLogo {
-    max-width: min(220px, 26vw) !important;
-    height: 36px !important;
-    max-height: 36px !important;
+    height: 56px !important;
+    max-height: 56px !important;
+    max-width: min(320px, 34vw) !important;
   }
 }
 
