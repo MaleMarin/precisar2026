@@ -308,8 +308,8 @@ function StackPanel({
   );
   const y = useTransform(
     progress,
-    [0, 0.18, 0.38, 0.58, 0.78, 1],
-    reduceMotion ? [0, 0, 0, 0, 0, 0] : [0, -36, -78, -124, -168, -208],
+    [0, 0.2, 0.42, 0.62, 0.82, 1],
+    reduceMotion ? [0, 0, 0, 0, 0, 0] : [0, -20, -48, -82, -118, -152],
   );
   const borderRadius = useTransform(
     progress,
@@ -323,11 +323,11 @@ function StackPanel({
   );
   const lineScale = useTransform(progress, [0, 0.1, 0.26, 0.42], [0.1, 0.48, 0.82, 1]);
 
-  /* Inclinación hacia atrás al retroceder en la pila (origen bajo = menos distorsión del titular). */
+  /* Inclinación casi solo al salir del foco: plano mientras domina el viewport, luego se inclina. */
   const rotateX = useTransform(
     progress,
-    [0, 0.1, 0.38, 0.68, 1],
-    reduceMotion ? [0, 0, 0, 0, 0] : [0, -0.6, -2.4, -4.2, -6],
+    [0, 0.38, 0.52, 0.68, 0.82, 1],
+    reduceMotion ? [0, 0, 0, 0, 0, 0] : [0, 0, -0.8, -3.8, -7.2, -10.5],
   );
 
   const mainBlockVariants = useMemo(
@@ -438,7 +438,8 @@ function StackPanel({
 
   const glowDrift = !reduceMotion ? styles.panelGlowDrift : "";
 
-  const stackTopGap = 48;
+  /** Escalonado mínimo entre paneles en la pila (más juntos; el relieve lo da el scroll + rotateX). */
+  const stackTopGap = 10;
   const panelMotionStyle = {
     scale,
     y,
