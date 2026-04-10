@@ -12,6 +12,8 @@
   /* Titular columna izquierda: una sola escala para todos los paneles (incl. Precisando). */
   --stack-panel-title-maxw: 42rem;
   --stack-panel-title-size: clamp(1.95rem, 5.2vw, 4.65rem);
+  overflow-x: hidden;
+  width: 100%;
   background: var(--stack-bg-page);
   color: var(--brand-void, #0a0c12);
 }
@@ -965,7 +967,7 @@
   margin: clamp(0.65rem, 1.5vw, 1rem) 0 3rem;
   padding-top: 0;
   padding-bottom: 0;
-  max-width: 640px;
+  max-width: 72rem;
   font-size: clamp(1.05rem, 1.5vw, 1.2rem);
   font-weight: 400;
   line-height: 1.7;
@@ -973,23 +975,15 @@
   color: color-mix(in oklab, #94a3b8 82%, #fff 18%);
 }
 
-/* Franja Chile — tarjeta más clara y legible sobre panel oscuro */
+/* Franja Chile — tarjeta oscura sobre panel oscuro */
 .convocaStackChile {
   position: relative;
   margin: clamp(1.75rem, 4.5vw, 2.75rem) 0 clamp(2.25rem, 5vw, 3.5rem);
   padding: clamp(2.25rem, 4.8vw, 3rem) clamp(1.5rem, 3.5vw, 2.5rem);
-  border: 1px solid color-mix(in oklab, #fff 28%, #0a0c12 72%);
-  border-left: 4px solid var(--stack-accent);
   border-radius: 2px;
-  background: linear-gradient(
-    145deg,
-    color-mix(in oklab, #e8edf4 78%, #1a2332 22%) 0%,
-    color-mix(in oklab, #d8e0ea 62%, #121a26 38%) 48%,
-    color-mix(in oklab, #c9d4e2 48%, #0f141c 52%) 100%
-  );
-  box-shadow:
-    0 12px 40px color-mix(in oklab, #000 45%, transparent),
-    inset 0 1px 0 color-mix(in oklab, #fff 55%, transparent);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-left: 4px solid #db5227;
 }
 
 .convocaStackChile::before {
@@ -1016,8 +1010,8 @@
   line-height: 1.35;
   letter-spacing: 0.28em;
   text-transform: uppercase;
-  color: var(--brand-void, #0a0c12);
-  border-bottom: 2px solid color-mix(in oklab, var(--stack-accent) 70%, #0a0c12 30%);
+  color: rgba(255, 255, 255, 0.9);
+  border-bottom: 2px solid rgba(219, 82, 39, 0.6);
   max-width: 100%;
 }
 
@@ -1061,7 +1055,7 @@
 .convocaStackChileCap {
   font-size: clamp(0.68rem, 1.25vw, 0.78rem);
   line-height: 1.45;
-  color: color-mix(in oklab, var(--brand-charcoal, #3f3a42) 88%, #0a0c12 12%);
+  color: rgba(255, 255, 255, 0.6);
   max-width: 22ch;
 }
 
@@ -1071,7 +1065,7 @@
   font-size: clamp(0.9rem, 1.5vw, 1rem);
   line-height: 1.78;
   letter-spacing: 0.004em;
-  color: color-mix(in oklab, var(--brand-void, #0a0c12) 82%, #fff 18%);
+  color: rgba(255, 255, 255, 0.82);
 }
 
 /* Nuestra propuesta — cierre limpio y concluyente */
