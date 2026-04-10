@@ -25,7 +25,7 @@
 
 .panelSection {
   position: relative;
-  height: 180vh;
+  height: 130vh;
   scroll-margin-top: 2.75rem;
   /* Perspectiva + 3D para rotateX del stack y la entrada sutil al viewport. */
   perspective: 1200px;
@@ -35,14 +35,14 @@
 
 /* Primer panel editorial: más recorrido de scroll antes de que el panel Programas cubra el viewport. */
 .panelSectionEditorial {
-  height: 216vh;
-  min-height: 216vh;
+  height: 160vh;
+  min-height: 160vh;
 }
 
 @media (min-width: 768px) {
   .panelSectionEditorial {
-    height: 252vh;
-    min-height: 252vh;
+    height: 190vh;
+    min-height: 190vh;
   }
 }
 
