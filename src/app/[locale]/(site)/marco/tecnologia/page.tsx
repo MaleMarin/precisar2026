@@ -1,6 +1,10 @@
 import { InstitutionalTemplate } from "@/components/templates/PageTemplates";
 
-export const metadata = { title: "Tecnología" };
+export const metadata = {
+  title: "Tecnología",
+  description:
+    "Cómo la tecnología y los algoritmos moldean lo que vemos y decidimos: eje de educación mediática Precisar para autonomía digital.",
+};
 
 export default function Page() {
   return (

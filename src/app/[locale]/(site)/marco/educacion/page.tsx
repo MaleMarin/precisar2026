@@ -1,6 +1,10 @@
 import { InstitutionalTemplate } from "@/components/templates/PageTemplates";
 
-export const metadata = { title: "Educación" };
+export const metadata = {
+  title: "Educación",
+  description:
+    "Alfabetización mediática a lo largo de la vida: competencias para leer el mundo digital con autonomía y participación, desde Precisar.",
+};
 
 export default function Page() {
   return (

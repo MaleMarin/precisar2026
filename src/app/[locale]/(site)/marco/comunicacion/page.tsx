@@ -1,6 +1,10 @@
 import { InstitutionalTemplate } from "@/components/templates/PageTemplates";
 
-export const metadata = { title: "Comunicación" };
+export const metadata = {
+  title: "Comunicación",
+  description:
+    "Eje de educación mediática Precisar: cómo se produce y circula la información, y cómo ejercer el derecho a informarnos y expresarnos con criterio.",
+};
 
 export default function Page() {
   return (

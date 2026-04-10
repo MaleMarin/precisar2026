@@ -68,3 +68,61 @@ export async function footerContactRedirect(formData: FormData) {
 
   redirect("/participa/gracias");
 }
+
+/**
+ * Formulario de contacto en /participa (página dedicada).
+ * Mismas variables Resend que el pie; asunto distinto para identificar el origen.
+ */
+export async function participaContactRedirect(formData: FormData) {
+  const nombre = safeField(formData.get("nombre"), 200);
+  const email = safeField(formData.get("email"), 320);
+  const mensaje = safeField(formData.get("mensaje"), MAX_MSG);
+
+  const apiKey = process.env.RESEND_API_KEY;
+  const to = process.env.FOOTER_CONTACT_TO?.trim() || "male@precisar.net";
+  const from = process.env.FOOTER_CONTACT_FROM?.trim();
+
+  if (!apiKey || !from) {
+    console.warn(
+      "[participaContactRedirect] Falta RESEND_API_KEY o FOOTER_CONTACT_FROM; no se envió correo.",
+    );
+    redirect("/participa");
+  }
+
+  const text = [
+    "Mensaje desde /participa (Precisar).",
+    "",
+    `Nombre: ${nombre}`,
+    `Correo (reply): ${email}`,
+    "",
+    "Mensaje:",
+    mensaje || "(vacío)",
+  ].join("\n");
+
+  const subject = `[Precisar · participa] ${nombre || "Sin nombre"}`.slice(0, 200);
+
+  try {
+    const res = await fetch(RESEND_API, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        from,
+        to: [to],
+        reply_to: email || undefined,
+        subject,
+        text,
+      }),
+    });
+    if (!res.ok) {
+      const body = await res.text();
+      console.error("[participaContactRedirect] Resend error", res.status, body);
+    }
+  } catch (e) {
+    console.error("[participaContactRedirect]", e);
+  }
+
+  redirect("/participa/gracias");
+}

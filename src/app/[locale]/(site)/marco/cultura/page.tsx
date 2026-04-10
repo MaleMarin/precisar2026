@@ -1,6 +1,10 @@
 import { InstitutionalTemplate } from "@/components/templates/PageTemplates";
 
-export const metadata = { title: "Cultura" };
+export const metadata = {
+  title: "Cultura",
+  description:
+    "Identidad, memoria y creación en el entorno digital: educación mediática para habitar la cultura con voz propia, con Precisar.",
+};
 
 export default function Page() {
   return (
