@@ -28,8 +28,8 @@
 @media (min-width: 1024px) {
   .navBarOuter {
     box-sizing: border-box;
-    max-height: 80px;
-    min-height: 72px !important;
+    max-height: 96px;
+    min-height: 88px !important;
     padding-top: 0.65rem !important;
     padding-bottom: 0.65rem !important;
     align-items: center;
@@ -87,6 +87,7 @@
   text-decoration: none;
   opacity: 0.96;
   transition: opacity 0.2s ease;
+  margin-left: -0.5rem;
 }
 
 .navBarLogoLink:hover {
@@ -116,25 +117,25 @@
 /* Desktop: barra compacta (máx. 64px); wordmark proporcional para una sola fila. */
 @media (min-width: 1024px) {
   .navBarLogo {
-    height: 72px !important;
-    max-height: 72px !important;
-    max-width: min(480px, 44vw) !important;
+    height: 88px !important;
+    max-height: 88px !important;
+    max-width: min(560px, 50vw) !important;
   }
 }
 
 @media (min-width: 1440px) {
   .navBarLogo {
     max-width: min(240px, 24vw) !important;
-    height: 68px !important;
-    max-height: 68px !important;
+    height: 88px !important;
+    max-height: 88px !important;
   }
 }
 
 @media (min-width: 1680px) {
   .navBarLogo {
     max-width: min(260px, 22vw) !important;
-    height: 72px !important;
-    max-height: 72px !important;
+    height: 92px !important;
+    max-height: 92px !important;
   }
 }
 
