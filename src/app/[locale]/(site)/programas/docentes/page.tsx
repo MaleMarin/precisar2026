@@ -5,9 +5,9 @@ import styles from "./DocentesPage.module.css";
 import { DocentesModulosTabs } from "./DocentesModulosTabs";
 
 export const metadata: Metadata = {
-  title: "Alfabetización Mediática e Informacional para Docentes",
+  title: "Educación mediática para docentes · Uso en sala de aula",
   description:
-    "Recursos didácticos, guías de aula y actividades prácticas para fortalecer la alfabetización mediática e informacional (AMI) sin aumentar la carga de trabajo.",
+    "Alfabetización mediática e informacional (AMI) para docentes: recursos didácticos, guías de aula y actividades prácticas pensadas para usar en sala de clase, sin aumentar la carga de trabajo.",
 };
 
 const OBJETIVOS = [
@@ -84,14 +84,17 @@ export default function Page() {
     <main className={shell.page} data-program="docentes">
       <header className={shell.hero} aria-labelledby="docentes-hero-title">
         <div className={shell.heroInner}>
-          <p className={shell.heroEyebrow}>■ AMI PARA DOCENTES · PROGRAMA 04</p>
+          <p className={shell.heroEyebrow}>
+            ■ EDUCACIÓN MEDIÁTICA PARA DOCENTES · USO EN SALA DE AULA · PROGRAMA 04
+          </p>
           <h1 id="docentes-hero-title" className={shell.heroTitle}>
             Prepara a tus estudiantes para un presente
             <br />
             digital consciente, seguro y participativo.
           </h1>
           <p className={shell.heroSub}>
-            Recursos didácticos, guías de aula y actividades prácticas — sin aumentar tu carga de trabajo.
+            Recursos didácticos, guías de aula y actividades prácticas para aplicar en sala de clase — sin
+            aumentar tu carga de trabajo.
           </p>
         </div>
       </header>
