@@ -1,6 +1,9 @@
 import { routing } from "@/i18n/routing";
 import { PRECISANDO_ARTICLES_UNDER_CONSTRUCTION } from "@/lib/precisando-access";
 
+/** Ancla del bloque «Contáctanos» en `SiteFooter` (mismo id en todas las páginas con pie). */
+export const FOOTER_CONTACT_ANCHOR_ID = "footer-contacto" as const;
+
 export const SITE = {
   name: "Precisar",
   tagline: "Lo que circula, lo que importa, lo que hay que entender.",
@@ -217,7 +220,10 @@ export const NAV_SECONDARY: NavItem[] = [
   { label: "Alfabetización Mediática e Informacional para Docentes", href: "/programas/docentes" },
   { label: "Formación pensamiento crítico digital", href: "/programas/pensamiento-critico" },
   { label: "Curso para Servidores Públicos", href: "/programas/funcionarios-publicos" },
-  { label: "Curso Leer Noticias en la Era Digital", href: "/programas/leer-noticias-era-digital" },
+  {
+    label: "Educación mediática para que los docentes la usen dentro de la sala de aula",
+    href: "/programas/leer-noticias-era-digital",
+  },
   {
     label: "Bot Onda: Onda en Mano, Onda Civita y Onda Profes",
     href: EXTERNAL.botOnda,
@@ -292,7 +298,10 @@ export const FOOTER_COLUMNS: { title: string; links: NavItem[] }[] = [
       { label: "Alfabetización Mediática e Informacional para Docentes", href: "/programas/docentes" },
       { label: "Formación en pensamiento crítico digital", href: "/programas/pensamiento-critico" },
       { label: "Curso para Servidores Públicos", href: "/programas/funcionarios-publicos" },
-      { label: "Curso Leer Noticias en la Era Digital", href: "/programas/leer-noticias-era-digital" },
+      {
+        label: "Educación mediática para que los docentes la usen dentro de la sala de aula",
+        href: "/programas/leer-noticias-era-digital",
+      },
       {
         label: "Bot Onda: Onda en Mano, Onda Civita y Onda Profes",
         href: EXTERNAL.botOnda,

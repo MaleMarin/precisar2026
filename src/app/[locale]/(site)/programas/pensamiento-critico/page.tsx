@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { FooterContactLink } from "@/components/FooterContactLink";
 import { Link } from "@/i18n/navigation";
 import shell from "@/components/programs/ProgramShell.module.css";
 import styles from "./PensamientoCriticoPage.module.css";
@@ -281,9 +282,7 @@ export default function Page() {
               Consideramos esta capacitación una oportunidad estratégica en el capital humano y la resiliencia
               de tu organización.
             </p>
-            <Link className={shell.ctaBtn} href="/participa">
-              Contacto
-            </Link>
+            <FooterContactLink className={shell.ctaBtn}>Contacto</FooterContactLink>
           </div>
         </div>
       </section>
@@ -311,7 +310,7 @@ export default function Page() {
               Aprender Digital: Nunca es Tarde →
             </Link>
             <Link className={shell.continuaLink} href="/programas/leer-noticias-era-digital">
-              Curso Leer Noticias en la Era Digital →
+              Educación mediática para que los docentes la usen dentro de la sala de aula →
             </Link>
           </div>
         </div>

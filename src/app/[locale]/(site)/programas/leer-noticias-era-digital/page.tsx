@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
+import { FooterContactLink } from "@/components/FooterContactLink";
 import { Link } from "@/i18n/navigation";
 import shell from "@/components/programs/ProgramShell.module.css";
 import styles from "../pensamiento-critico/PensamientoCriticoPage.module.css";
 
 export const metadata: Metadata = {
-  title: "Curso Leer Noticias en la Era Digital",
+  title: "Educación mediática para que los docentes la usen dentro de la sala de aula",
   description:
-    "Talleres de verificación de hechos y alfabetización mediática en la era de la IA: modalidades online y presencial.",
+    "Educación mediática y alfabetización informacional orientadas al aula: verificación, algoritmos e IA, con modalidades online y presencial.",
 };
 
 const TALLER1_MODULOS = [
@@ -84,7 +85,7 @@ export default function Page() {
       <header className={shell.hero} aria-labelledby="ln-hero-title">
         <div className={shell.heroInner}>
           <p className={`${shell.heroEyebrow} ${styles.heroEyebrowTight}`}>
-            ■ LEER NOTICIAS EN LA ERA DIGITAL · PROGRAMA 07
+            ■ EDUCACIÓN MEDIÁTICA EN EL AULA · PROGRAMA 07
           </p>
           <h1 id="ln-hero-title" className={`${styles.heroTitle} ${styles.heroTitleBlock}`}>
             Consumidores críticos frente a la información y la IA.
@@ -275,9 +276,7 @@ export default function Page() {
               Consideramos esta capacitación una oportunidad estratégica en el capital humano y la resiliencia
               de tu organización.
             </p>
-            <Link className={shell.ctaBtn} href="/participa">
-              Contacto
-            </Link>
+            <FooterContactLink className={shell.ctaBtn}>Contacto</FooterContactLink>
           </div>
         </div>
       </section>

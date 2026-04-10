@@ -42,32 +42,33 @@
     "homeDescription": "Potencialize o uso da tecnologia. Capa com hero, verbos em rotação, faixa e seções empilhadas. Precisar 2026."
   },
   "homeConvoca": {
-    "kickerLine1": "Qué nos convoca",
-    "kickerLine2": "en Precisar",
+    "kickerLine1": "O que nos convoca",
+    "kickerLine2": "na Precisar",
     "headline": {
-      "line1": "Menos Ruido,",
-      "line2": "Más Criterio"
+      "line1": "Menos ruído,",
+      "line2": "mais critério"
     },
-    "intro": "En el mundo de hoy cada día se crean 463 exabytes de datos. Para leerlos todos necesitaríamos 26 millones de años. Los algoritmos deciden qué vemos, qué leemos, qué creemos. Entender cómo funcionan estos filtros ya no es opcional.",
+    "intro": "Cada dia se produz e circula mais informação do que conseguimos processar. Nesse contexto, plataformas, algoritmos e inteligência artificial não só ordenam conteúdos: também moldam o que vemos, o que prestamos atenção e o que deixamos de lado. Mais informação não garante mais compreensão: o desafio é reconhecer o que merece confiança, o que distorce e o que realmente ajuda a decidir melhor.",
     "metrics": {
       "exabytesValue": "463",
-      "exabytesLabel": "exabytes de datos / día",
+      "exabytesLabel": "exabytes de dados / dia",
       "yearsValue": "26M",
-      "yearsLabel": "años para leerlo todo"
+      "yearsLabel": "anos para ler tudo"
     },
-    "ia": {
-      "eyebrow": "■ A IA COMO ALIADA",
-      "headline": "A inteligência artificial já está aqui.",
-      "body": "Filtra a nossa realidade, amplifica certos conteúdos e silencia outros. Aprender a usá-la de forma ética e crítica não é o futuro: é o presente. E é parte central do que fazemos na Precisar."
+    "chile": {
+      "eyebrow": "No Chile",
+      "stat1Value": "96,5%",
+      "stat1Label": "dos lares têm acesso à internet",
+      "stat2Value": "53%",
+      "stat2Label": "de compreensão da leitura",
+      "stat3Value": "5M",
+      "stat3Label": "de pessoas precisam fortalecer competências digitais",
+      "outro": "No Chile, a conexão já existe. O desafio agora é outro: ter melhores ferramentas para compreender o que vemos, contrastar informação e decidir com mais critério na vida digital."
     },
     "propuesta": {
-      "eyebrow": "■ NOSSA PROPOSTA",
-      "body1": "Na Precisar transformamos o ruído em critério. Ensinamos como a informação se produz e circula, como os conteúdos são priorizados, como detectar vieses e verificar fontes.",
-      "body2": "Desenvolvemos competências para aceder, analisar, criar e participar, melhorando a acessibilidade, a fiabilidade e a distribuição da informação, quando e onde mais é necessário."
-    },
-    "closing": {
-      "before": "Da conexão à compreensão. É isso que nos convoca na ",
-      "after": "."
+      "eyebrow": "Nossa proposta",
+      "body1": "Na Precisar fortalecemos o critério digital para que mais pessoas possam avaliar melhor a informação que recebem, reconhecer vieses, verificar fontes e tomar decisões mais informadas e autónomas.",
+      "body2": "Fazemo-lo através de programas, recursos e experiências formativas que transformam a sobrecarga informativa em compreensão útil para o dia a dia."
     }
   },
   "homePrograms": {
@@ -80,7 +81,7 @@
     "stackLinkHub": "Hub Digital Consciente, mostras itinerantes",
     "stackLinkAprender": "Aprender Digital: Nunca é Tarde",
     "stackLinkDocentes": "AMI para docentes",
-    "stackLinkPensamientoCritico": "Curso Ler Notícias na Era Digital",
+    "stackLinkPensamientoCritico": "Educação midiática para os docentes usarem na sala de aula",
     "stackLinkFuncionarios": "Curso para Servidores Públicos",
     "stackBotOndaLead": "Bot Onda:",
     "stackBotOndaManoName": "Onda en Mano",
@@ -119,8 +120,8 @@
   },
   "homePrecisando": {
     "stackKicker": "Site novo · 04 · Precisando",
-    "stackHeadline": "Análises e debates sobre como a informação circula e que efeitos tem.",
-    "stackBody": "A editorial está em precisar.net — explore artigos recentes e categorias em Precisando.",
+    "stackHeadline": "Como circula a informação e que efeitos produz.",
+    "stackBody": "Precisando é a editorial da Precisar: um espaço de artigos e debates para ler o ambiente digital com mais contexto, critério e profundidade. Explora publicações recentes e categorias.",
     "stackUnderConstruction": "Em construção. Em breve publicaremos as notas aqui."
   },
   "homeSaberes": {

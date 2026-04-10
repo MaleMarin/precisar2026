@@ -1,18 +1,34 @@
 import { Link } from "@/i18n/navigation";
 import type { ReactNode } from "react";
+import { FooterContactLink } from "@/components/FooterContactLink";
 
 export type CtaBlockProps = {
   headline: ReactNode;
   description?: ReactNode;
   buttonLabel: string;
+  /** Si se define, el botón navega a esa ruta; si no, abre el formulario del pie. */
   href?: string;
+};
+
+const ctaBtnStyle = {
+  display: "inline-flex" as const,
+  alignItems: "center" as const,
+  gap: "0.35rem",
+  backgroundColor: "#DB5227",
+  color: "#ffffff",
+  fontSize: 14,
+  fontWeight: 600,
+  letterSpacing: "0.04em",
+  padding: "0.65rem 1.25rem",
+  borderRadius: 6,
+  textDecoration: "none" as const,
 };
 
 export function CtaBlock({
   headline,
   description,
   buttonLabel,
-  href = "/contacto",
+  href,
 }: CtaBlockProps) {
   return (
     <section
@@ -50,24 +66,13 @@ export function CtaBlock({
             {description}
           </p>
         ) : null}
-        <Link
-          href={href}
-          style={{
-            display: "inline-flex",
-            alignItems: "center",
-            gap: "0.35rem",
-            backgroundColor: "#DB5227",
-            color: "#ffffff",
-            fontSize: 14,
-            fontWeight: 600,
-            letterSpacing: "0.04em",
-            padding: "0.65rem 1.25rem",
-            borderRadius: 6,
-            textDecoration: "none",
-          }}
-        >
-          {buttonLabel}
-        </Link>
+        {href ? (
+          <Link href={href} style={ctaBtnStyle}>
+            {buttonLabel}
+          </Link>
+        ) : (
+          <FooterContactLink style={ctaBtnStyle}>{buttonLabel}</FooterContactLink>
+        )}
       </div>
     </section>
   );

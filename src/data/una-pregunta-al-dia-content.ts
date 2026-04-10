@@ -28,7 +28,7 @@ export const PREGUNTAS_VIDA_DIGITAL: PreguntaTarjeta[] = [
   {
     pregunta: "¿Recuerdas algo importante que aprendiste en línea?",
     reflexion:
-      "Si algo quedó, preguntate cómo lo sabés: ¿lo leíste, lo escuchaste, lo contrastaste? La pantalla también enseña; merece el mismo rigor que un libro.",
+      "Si algo quedó, pregúntate cómo lo sabes: ¿lo leíste, lo escuchaste, lo contrastaste? La pantalla también enseña; merece el mismo rigor que un libro.",
   },
   {
     pregunta: "¿Cómo sabes si una noticia es verdadera?",
@@ -83,7 +83,7 @@ export const PREGUNTAS_VIDA_DIGITAL: PreguntaTarjeta[] = [
   {
     pregunta: "¿Reconoces cuando un contenido quiere manipularte?",
     reflexion:
-      "Titulares en mayúsculas, urgencias falsas y villanos claros suelen ser señales. Preguntate: ¿qué me piden que sienta en los primeros tres segundos?",
+      "Titulares en mayúsculas, urgencias falsas y villanos claros suelen ser señales. Pregúntate: ¿qué me piden que sienta en los primeros tres segundos?",
   },
   {
     pregunta: "¿Buscas la misma información en varias fuentes?",

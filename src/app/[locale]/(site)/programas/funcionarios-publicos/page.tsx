@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { FooterContactLink } from "@/components/FooterContactLink";
 import { Link } from "@/i18n/navigation";
 import shell from "@/components/programs/ProgramShell.module.css";
 import styles from "./FuncionariosPage.module.css";
@@ -155,9 +156,7 @@ export default function Page() {
               Estamos listos para adaptar el programa a las necesidades específicas de tu institución.
               Contáctanos para coordinar.
             </p>
-            <Link className={shell.ctaBtn} href="/participa">
-              Contacto
-            </Link>
+            <FooterContactLink className={shell.ctaBtn}>Contacto</FooterContactLink>
           </div>
         </div>
       </section>
@@ -172,11 +171,9 @@ export default function Page() {
               Formación en Pensamiento Crítico Digital →
             </Link>
             <Link className={shell.continuaLink} href="/programas/leer-noticias-era-digital">
-              Curso Leer Noticias en la Era Digital →
+              Educación mediática para que los docentes la usen dentro de la sala de aula →
             </Link>
-            <Link className={shell.continuaLink} href="/participa">
-              Participa y contacto →
-            </Link>
+            <FooterContactLink className={shell.continuaLink}>Participa y contacto →</FooterContactLink>
           </div>
         </div>
       </nav>

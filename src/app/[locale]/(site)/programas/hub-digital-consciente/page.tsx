@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { FooterContactLink } from "@/components/FooterContactLink";
 import { Link } from "@/i18n/navigation";
 import shell from "@/components/programs/ProgramShell.module.css";
 import { PDFS } from "@/lib/site";
@@ -67,7 +68,7 @@ export default function Page() {
         <div className={shell.heroInner}>
           <p className={shell.heroEyebrow}>■ HUB DIGITAL CONSCIENTE · PROGRAMA 02</p>
           <h1 id="hub-hero-title" className={shell.heroTitle}>
-            Cultura digital que viaja a donde está la gente.
+            Cultura digital que viaja a donde están las personas.
           </h1>
         </div>
       </header>
@@ -228,15 +229,13 @@ export default function Page() {
               Lleva el Hub Digital Consciente a tu espacio.
             </h2>
             <ol className={shell.ctaSteps}>
-              <li>01 Contanos espacio, público y duración que imaginás para la muestra.</li>
-              <li>02 Escríbenos: Cuéntanos tu idea y contexto.</li>
-              <li>03 Co-creemos: Juntos afinamos contenidos, montaje y cronograma.</li>
+              <li>01 Cuéntanos espacio, público y duración que imaginas para la muestra.</li>
+              <li>02 Escríbenos: cuéntanos tu idea y contexto.</li>
+              <li>03 Co-creemos: juntos afinamos contenidos, montaje y cronograma.</li>
             </ol>
           </div>
           <div className={shell.ctaRight}>
-            <Link className={shell.ctaBtn} href="/participa">
-              Contacto
-            </Link>
+            <FooterContactLink className={shell.ctaBtn}>Contacto</FooterContactLink>
           </div>
         </div>
       </section>
@@ -250,9 +249,7 @@ export default function Page() {
             <Link className={shell.continuaLink} href="/programas/ciudades">
               Ciudades Conectadas con Sentido →
             </Link>
-            <Link className={shell.continuaLink} href="/participa">
-              Participa y contacto →
-            </Link>
+            <FooterContactLink className={shell.continuaLink}>Participa y contacto →</FooterContactLink>
             <Link className={shell.continuaLink} href="/saberes">
               Biblioteca Saberes →
             </Link>

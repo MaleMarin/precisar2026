@@ -13,7 +13,9 @@ export function CountryDetailPanel({ signal }: Props) {
   if (!signal) {
     return (
       <div className={styles.panel}>
-        <p className={styles.muted}>Tocá un país en el mapa para ver números y lectura de esa señal.</p>
+        <p className={styles.muted}>
+          Selecciona un país en el mapa para ver los números y la lectura de esa señal.
+        </p>
       </div>
     );
   }

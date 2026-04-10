@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { FooterContactLink } from "@/components/FooterContactLink";
 import { Link } from "@/i18n/navigation";
 import shell from "@/components/programs/ProgramShell.module.css";
 import styles from "./DocentesPage.module.css";
@@ -204,9 +205,7 @@ export default function Page() {
               Estamos listos para colaborar contigo. Diseñamos un programa de formación docente adaptado a las
               necesidades de tu institución.
             </p>
-            <Link className={shell.ctaBtn} href="/participa">
-              Contacto
-            </Link>
+            <FooterContactLink className={shell.ctaBtn}>Contacto</FooterContactLink>
           </div>
         </div>
       </section>
@@ -221,7 +220,7 @@ export default function Page() {
               Aprender Digital: Nunca es Tarde →
             </Link>
             <Link className={shell.continuaLink} href="/programas/leer-noticias-era-digital">
-              Curso Leer Noticias en la Era Digital →
+              Educación mediática para que los docentes la usen dentro de la sala de aula →
             </Link>
             <Link className={shell.continuaLink} href="/saberes">
               Biblioteca Saberes →

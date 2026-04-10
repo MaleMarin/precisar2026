@@ -4,7 +4,14 @@ import { useCallback, useState, type FormEvent } from "react";
 import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
 import { footerContactRedirect } from "@/app/[locale]/(site)/participa/actions";
-import { EXTERNAL, FOOTER_MEDIA, NAV_PRIMARY, NAV_PRIMARY_I18N_KEY, NEWSLETTER } from "@/lib/site";
+import {
+  EXTERNAL,
+  FOOTER_CONTACT_ANCHOR_ID,
+  FOOTER_MEDIA,
+  NAV_PRIMARY,
+  NAV_PRIMARY_I18N_KEY,
+  NEWSLETTER,
+} from "@/lib/site";
 import styles from "./SiteFooter.module.css";
 
 function isHomePath(pathname: string): boolean {
@@ -202,7 +209,7 @@ export function SiteFooter() {
               </ul>
             </nav>
 
-            <div className={styles.contactColumn}>
+            <div className={styles.contactColumn} id={FOOTER_CONTACT_ANCHOR_ID}>
               <h2 className={styles.contactTitle}>Contáctanos</h2>
               <p className={styles.contactLead}>Escribe tu mensaje y te respondemos.</p>
               <form action={footerContactRedirect} className={styles.contactForm}>

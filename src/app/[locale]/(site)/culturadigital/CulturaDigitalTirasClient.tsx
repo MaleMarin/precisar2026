@@ -167,7 +167,7 @@ export function CulturaDigitalTirasClient() {
       }
     >
       <p className={styles.skipHint}>
-        Treinta y seis tiras: elegí un tema para leer reflexiones y acciones sugeridas.
+        Treinta y seis tiras: elige un tema para leer reflexiones y acciones sugeridas.
       </p>
 
       <div

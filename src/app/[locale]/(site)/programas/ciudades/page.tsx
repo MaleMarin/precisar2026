@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { FooterContactLink } from "@/components/FooterContactLink";
 import { Link } from "@/i18n/navigation";
 import shell from "@/components/programs/ProgramShell.module.css";
 import { PDFS } from "@/lib/site";
@@ -178,9 +179,7 @@ export default function CiudadesProgramaPage() {
             <p className={shell.ctaText}>
               Contáctanos para diseñar una propuesta a medida de tu comunidad.
             </p>
-            <Link href="/participa" className={shell.ctaBtn}>
-              Contacto
-            </Link>
+            <FooterContactLink className={shell.ctaBtn}>Contacto</FooterContactLink>
           </div>
         </div>
       </section>
@@ -192,9 +191,7 @@ export default function CiudadesProgramaPage() {
             <Link href="/programas" className={shell.continuaLink}>
               Índice de programas →
             </Link>
-            <Link href="/participa" className={shell.continuaLink}>
-              Participa y contacto →
-            </Link>
+            <FooterContactLink className={shell.continuaLink}>Participa y contacto →</FooterContactLink>
             <Link href="/saberes" className={shell.continuaLink}>
               Biblioteca Saberes →
             </Link>

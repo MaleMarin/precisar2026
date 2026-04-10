@@ -14,7 +14,7 @@ export function CrossLayerPanel({ pair, signals }: Props) {
     return (
       <div className={styles.panel}>
         <p className={styles.muted}>
-          Elegí un país en el mapa. Te mostraremos un vínculo simple con otro país para comparar lecturas.
+          Elige un país en el mapa. Te mostraremos un vínculo simple con otro país para comparar lecturas.
         </p>
       </div>
     );
@@ -53,7 +53,7 @@ export function CrossLayerPanel({ pair, signals }: Props) {
         </p>
       ) : (
         <p className={styles.body}>
-          No comparten el mismo canal principal todavía; igual podés leer cada país en la capa Región.
+          No comparten el mismo canal principal todavía; igual puedes leer cada país en la capa Región.
         </p>
       )}
     </div>

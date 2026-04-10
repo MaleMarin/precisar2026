@@ -275,6 +275,7 @@
 
 .contactColumn {
   min-width: 0;
+  scroll-margin-top: 6.5rem;
 }
 
 .contactTitle {

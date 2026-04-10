@@ -15,7 +15,7 @@ export type ArticleMeta = {
 
 /**
  * Informe «Chile respondió…». El archivo físico debe estar en `web/public/` (mismo nombre que en
- * precisar2026/public si tenés dos carpetas en el repo). URL codificada para espacios en el nombre.
+ * precisar2026/public si tienes dos carpetas en el repo). URL codificada para espacios en el nombre.
  */
 export const INFORME_CHILE_ENERO_2026_PDF =
   "/Informe%20final%20Hallazgos%20FONSELP_%20V.2.pdf";

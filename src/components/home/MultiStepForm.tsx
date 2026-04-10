@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { FooterContactLink } from "@/components/FooterContactLink";
 import { SITE } from "@/lib/site";
 import styles from "./MultiStepForm.module.css";
 
@@ -64,11 +65,9 @@ export function MultiStepForm({ categories, onSubmit }: MultiStepFormProps) {
             <a href={`mailto:${SITE.contactEmail}`} className={styles.confirmLink}>
               {SITE.contactEmail}
             </a>{" "}
-            o visitá{" "}
-            <Link href="/participa" className={styles.confirmLink}>
-              Participa
-            </Link>
-            .
+            o escríbenos en{" "}
+            <FooterContactLink className={styles.confirmLink}>Contáctanos</FooterContactLink> (pie del
+            sitio).
           </p>
         </div>
       </div>

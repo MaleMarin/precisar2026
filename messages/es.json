@@ -48,26 +48,27 @@
       "line1": "Menos Ruido,",
       "line2": "Más Criterio"
     },
-    "intro": "En el mundo de hoy cada día se crean 463 exabytes de datos. Para leerlos todos necesitaríamos 26 millones de años. Los algoritmos deciden qué vemos, qué leemos, qué creemos. Entender cómo funcionan estos filtros ya no es opcional.",
+    "intro": "Cada día se produce y circula más información de la que podemos procesar. En ese entorno, plataformas, algoritmos e inteligencia artificial no solo ordenan contenidos: también moldean qué vemos, qué atendemos y qué dejamos fuera. Más información no garantiza más comprensión: el reto está en reconocer qué merece confianza, qué distorsiona y qué realmente ayuda a decidir mejor.",
     "metrics": {
       "exabytesValue": "463",
       "exabytesLabel": "exabytes de datos / día",
       "yearsValue": "26M",
       "yearsLabel": "años para leerlo todo"
     },
-    "ia": {
-      "eyebrow": "■ LA IA COMO ALIADA",
-      "headline": "La inteligencia artificial ya está aquí.",
-      "body": "Filtra nuestra realidad, amplifica ciertos contenidos y silencia otros. Aprender a usarla de manera ética y crítica no es el futuro: es el presente. Y es parte central de lo que hacemos en Precisar."
+    "chile": {
+      "eyebrow": "En Chile",
+      "stat1Value": "96,5%",
+      "stat1Label": "de los hogares tiene acceso a internet",
+      "stat2Value": "53%",
+      "stat2Label": "de comprensión lectora",
+      "stat3Value": "5M",
+      "stat3Label": "de personas necesitan fortalecer habilidades digitales",
+      "outro": "En Chile, la conexión ya existe. El desafío ahora es otro: contar con mejores herramientas para comprender lo que vemos, contrastar información y decidir con más criterio en la vida digital."
     },
     "propuesta": {
-      "eyebrow": "■ NUESTRA PROPUESTA",
-      "body1": "En Precisar transformamos el ruido en criterio. Te enseñamos cómo se produce y circula la información, cómo se priorizan los contenidos, cómo detectar sesgos y verificar fuentes.",
-      "body2": "Desarrollamos habilidades para acceder, analizar, crear y participar, mejorando la accesibilidad, la confiabilidad y la distribución de la información, cuando y donde más se necesita."
-    },
-    "closing": {
-      "before": "De la conexión a la comprensión. Eso nos convoca en ",
-      "after": "."
+      "eyebrow": "Nuestra propuesta",
+      "body1": "En Precisar fortalecemos el criterio digital para que más personas puedan evaluar mejor la información que reciben, reconocer sesgos, verificar fuentes y tomar decisiones más informadas y autónomas.",
+      "body2": "Lo hacemos a través de programas, recursos y experiencias formativas que convierten la sobrecarga informativa en comprensión útil para la vida cotidiana."
     }
   },
   "homePrograms": {
@@ -80,7 +81,7 @@
     "stackLinkHub": "Hub Digital Consciente, muestras itinerantes",
     "stackLinkAprender": "Aprender Digital: Nunca es Tarde",
     "stackLinkDocentes": "AMI para Docentes",
-    "stackLinkPensamientoCritico": "Curso Leer Noticias en la Era Digital",
+    "stackLinkPensamientoCritico": "Educación mediática para que los docentes la usen dentro de la sala de aula",
     "stackLinkFuncionarios": "Curso para Servidores Públicos",
     "stackBotOndaLead": "Bot Onda:",
     "stackBotOndaManoName": "Onda en Mano",
@@ -119,8 +120,8 @@
   },
   "homePrecisando": {
     "stackKicker": "Sitio nuevo · 04 · Precisando",
-    "stackHeadline": "Análisis y debates sobre cómo circula la información y qué efectos tiene.",
-    "stackBody": "La editorial está en precisar.net: explorá artículos recientes y categorías en Precisando.",
+    "stackHeadline": "Cómo circula la información y qué efectos produce.",
+    "stackBody": "Precisando es la editorial de Precisar: un espacio de artículos y debates para leer el entorno digital con más contexto, criterio y profundidad. Explora publicaciones recientes y sus categorías.",
     "stackUnderConstruction": "En construcción. Pronto publicaremos las notas aquí."
   },
   "homeSaberes": {

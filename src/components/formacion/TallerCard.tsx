@@ -44,7 +44,7 @@ export function TallerCard({ label, title, hook, description, outcomes, modulos 
         {description}
       </p>
       <p className="mt-8 text-xs font-semibold uppercase tracking-wide" style={{ color: "#DB5227" }}>
-        Al terminar vas a poder
+        Al terminar podrás
       </p>
       <ul className="mt-4 max-w-3xl space-y-3">
         {outcomes.map((o) => (

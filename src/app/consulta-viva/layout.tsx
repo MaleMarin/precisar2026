@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Mapa vivo de los resultados de la consulta · Precisar",
     description:
-      "Mirá cómo se reparten las respuestas en el mapa. La consulta principal sigue en precisar.net/consulta.",
+      "Mira cómo se reparten las respuestas en el mapa. La consulta principal sigue en precisar.net/consulta.",
     url: consultaVivaCanonical,
     siteName: SITE.name,
     locale: "es_CL",

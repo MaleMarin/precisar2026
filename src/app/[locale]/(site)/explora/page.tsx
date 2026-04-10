@@ -19,8 +19,8 @@ export default function ExploraPage() {
           <p className={styles.kicker}>Sitio nuevo · Editorial</p>
           <h1 className={styles.title}>Explora</h1>
           <p className={styles.lede}>
-            La información está por todas partes. Acá reunimos los artículos de{" "}
-            <strong className="font-medium text-[var(--fg)]">Precisando</strong>: abrí cada tarjeta para
+            La información está por todas partes. Aquí reunimos los artículos de{" "}
+            <strong className="font-medium text-[var(--fg)]">Precisando</strong>: abre cada tarjeta para
             leer el texto en esta versión del sitio.
           </p>
         </header>
@@ -44,7 +44,7 @@ export default function ExploraPage() {
         </ul>
 
         <p className={styles.footerNote}>
-          También podés filtrar por categoría en la{" "}
+          También puedes filtrar por categoría en la{" "}
           <Link href="/precisando">vista clásica de Precisando</Link>.
         </p>
       </div>

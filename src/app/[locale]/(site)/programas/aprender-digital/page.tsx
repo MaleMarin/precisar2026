@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { FooterContactLink } from "@/components/FooterContactLink";
 import { Link } from "@/i18n/navigation";
 import shell from "@/components/programs/ProgramShell.module.css";
 import { AprenderModulosTabs } from "./AprenderModulosTabs";
@@ -255,9 +256,7 @@ export default function AprenderDigitalPage() {
             <p className={shell.ctaText}>
               Diseñamos el programa a medida de tu comunidad, tu espacio y tus participantes.
             </p>
-            <Link href="/participa" className={shell.ctaBtn}>
-              Contacto
-            </Link>
+            <FooterContactLink className={shell.ctaBtn}>Contacto</FooterContactLink>
           </div>
         </div>
       </section>
@@ -285,7 +284,7 @@ export default function AprenderDigitalPage() {
               Formación en Pensamiento Crítico Digital →
             </Link>
             <Link href="/programas/leer-noticias-era-digital" className={shell.continuaLink}>
-              Curso Leer Noticias en la Era Digital →
+              Educación mediática para que los docentes la usen dentro de la sala de aula →
             </Link>
           </div>
         </div>

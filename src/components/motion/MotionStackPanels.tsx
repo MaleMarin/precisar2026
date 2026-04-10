@@ -177,31 +177,34 @@ function HomeConvocaStackPanelContent() {
 
       <p className={styles.convocaStackIntroSlate}>{t("intro")}</p>
 
-      <section className={styles.convocaStackIa} aria-labelledby="convoca-ia-heading">
-        <div className={styles.convocaStackIaColLeft}>
-          <p className={styles.convocaStackIaEyebrow}>{t("ia.eyebrow")}</p>
-          <h3 className={styles.convocaStackIaHeadline} id="convoca-ia-heading">
-            {t("ia.headline")}
-          </h3>
+      <section className={styles.convocaStackChile} aria-labelledby="convoca-chile-heading">
+        <h3 className={styles.convocaStackChileEyebrow} id="convoca-chile-heading">
+          {t("chile.eyebrow")}
+        </h3>
+        <div className={styles.convocaStackChileGrid}>
+          <div className={styles.convocaStackChileItem}>
+            <span className={styles.convocaStackChileNum}>{t("chile.stat1Value")}</span>
+            <span className={styles.convocaStackChileCap}>{t("chile.stat1Label")}</span>
+          </div>
+          <div className={styles.convocaStackChileItem}>
+            <span className={styles.convocaStackChileNum}>{t("chile.stat2Value")}</span>
+            <span className={styles.convocaStackChileCap}>{t("chile.stat2Label")}</span>
+          </div>
+          <div className={styles.convocaStackChileItem}>
+            <span className={styles.convocaStackChileNum}>{t("chile.stat3Value")}</span>
+            <span className={styles.convocaStackChileCap}>{t("chile.stat3Label")}</span>
+          </div>
         </div>
-        <div className={styles.convocaStackIaColRight}>
-          <p className={styles.convocaStackIaBody}>{t("ia.body")}</p>
-        </div>
+        <p className={styles.convocaStackChileOutro}>{t("chile.outro")}</p>
       </section>
 
-      <div className={styles.convocaStackPropuesta}>
-        <p className={styles.convocaStackPropuestaEyebrow}>{t("propuesta.eyebrow")}</p>
-        <p className={styles.convocaStackPropuestaText}>{t("propuesta.body1")}</p>
-        <p className={styles.convocaStackPropuestaText}>{t("propuesta.body2")}</p>
-      </div>
-
-      <div className={styles.convocaStackClosingWrap}>
-        <p className={styles.convocaStackClosing}>
-          <span className={styles.convocaStackClosingText}>{t("closing.before")}</span>
-          <span className={styles.convocaStackClosingBrand}>Precisar</span>
-          <span className={styles.convocaStackClosingText}>{t("closing.after")}</span>
-        </p>
-      </div>
+      <section className={styles.convocaStackPropuesta} aria-labelledby="convoca-propuesta-heading">
+        <h3 className={styles.convocaStackPropuestaEyebrow} id="convoca-propuesta-heading">
+          {t("propuesta.eyebrow")}
+        </h3>
+        <p className={styles.convocaStackPropuestaLead}>{t("propuesta.body1")}</p>
+        <p className={styles.convocaStackPropuestaClosing}>{t("propuesta.body2")}</p>
+      </section>
     </div>
   );
 }

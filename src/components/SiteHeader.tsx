@@ -183,7 +183,7 @@ export function SiteHeader() {
 
   const linkDesktop = [
     styles.navLinkDesktop,
-    "relative z-10 px-2.5 py-2 transition-colors duration-300 xl:px-3",
+    "relative z-10 px-1.5 py-2 transition-colors duration-300 lg:px-2 xl:px-2.5",
     navOnHero || navHomeGlass
       ? "text-white/85 hover:text-white"
       : "text-[var(--muted)] hover:text-[var(--fg)]",
@@ -225,7 +225,7 @@ export function SiteHeader() {
         <div className={shellClass}>
           <div className="flex flex-col">
             <div
-              className={`${styles.navBarOuter} relative flex min-h-[5rem] items-center py-2 md:min-h-[7.75rem] md:py-2.5 ${styles.navBarRow}`}
+              className={`${styles.navBarOuter} relative flex min-h-[5rem] items-center py-2 md:min-h-[7.75rem] md:py-2.5 lg:min-h-0 lg:py-3 ${styles.navBarRow}`}
             >
               <Link href="/" className={styles.navBarLogoLink} onClick={() => setOpen(false)}>
                 <img
@@ -238,31 +238,31 @@ export function SiteHeader() {
                   fetchPriority="high"
                 />
               </Link>
-              <div className={styles.navBarEnd}>
-                <nav
-                  className={`hidden lg:flex ${styles.navDesktop}`}
-                  aria-label={tNav("main")}
-                >
-                  {NAV_PRIMARY.map((item, i) => (
-                    <Link
-                      key={item.href}
-                      href={item.href}
-                      className={[linkDesktop, item.href === "/#convoca" ? styles.navLinkConvoca : ""]
-                        .filter(Boolean)
-                        .join(" ")}
-                      ref={(el) => {
-                        linkRefs.current[i] = el;
-                      }}
-                      onClick={(e) => scrollToHomeSection(e, item.href)}
-                      onMouseEnter={() => setHoverIndex(i)}
-                      onMouseLeave={() => setHoverIndex(null)}
-                      onFocus={() => setHoverIndex(i)}
-                      onBlur={() => setHoverIndex(null)}
-                    >
-                      {NAV_PRIMARY_I18N_KEY[item.href] ? tNav(NAV_PRIMARY_I18N_KEY[item.href]) : item.label}
-                    </Link>
-                  ))}
-                </nav>
+              <nav
+                className={`hidden lg:flex ${styles.navDesktop}`}
+                aria-label={tNav("main")}
+              >
+                {NAV_PRIMARY.map((item, i) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className={[linkDesktop, item.href === "/#convoca" ? styles.navLinkConvoca : ""]
+                      .filter(Boolean)
+                      .join(" ")}
+                    ref={(el) => {
+                      linkRefs.current[i] = el;
+                    }}
+                    onClick={(e) => scrollToHomeSection(e, item.href)}
+                    onMouseEnter={() => setHoverIndex(i)}
+                    onMouseLeave={() => setHoverIndex(null)}
+                    onFocus={() => setHoverIndex(i)}
+                    onBlur={() => setHoverIndex(null)}
+                  >
+                    {NAV_PRIMARY_I18N_KEY[item.href] ? tNav(NAV_PRIMARY_I18N_KEY[item.href]) : item.label}
+                  </Link>
+                ))}
+              </nav>
+              <div className={styles.navBarAside}>
                 <div
                   className={`${styles.navLocaleGroup} ${onDarkNav ? styles.navLocaleGroupOnDark : ""}`}
                   role="group"

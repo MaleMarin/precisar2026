@@ -1,8 +1,11 @@
-import { permanentRedirect } from "next/navigation";
+import type { Metadata } from "next";
+import { ContactoScrollClient } from "./ContactoScrollClient";
 
-type Props = { params: Promise<{ locale: string }> };
+export const metadata: Metadata = {
+  title: "Contacto",
+  description: "Escribe en el formulario Contáctanos del pie de página.",
+};
 
-export default async function ContactoPage({ params }: Props) {
-  const { locale } = await params;
-  permanentRedirect(`/${locale}/participa`);
+export default function ContactoPage() {
+  return <ContactoScrollClient />;
 }

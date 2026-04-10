@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { FooterContactLink } from "@/components/FooterContactLink";
 import { Link } from "@/i18n/navigation";
 import { absoluteLocaleUrl, hreflangAlternates, SITE } from "@/lib/site";
 import styles from "./SomosPage.module.css";
@@ -169,9 +170,7 @@ export default function SomosPrecisarPage() {
             <p className={styles.ctaBody}>
               Escríbenos y cuéntanos tu idea, tu institución o tu comunidad. Diseñamos propuestas a medida.
             </p>
-            <Link href="/participa" className={styles.ctaBtn}>
-              Contacto
-            </Link>
+            <FooterContactLink className={styles.ctaBtn}>Contacto</FooterContactLink>
           </div>
         </div>
       </section>

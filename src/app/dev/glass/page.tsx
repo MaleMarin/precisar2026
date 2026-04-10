@@ -127,7 +127,7 @@ export default function DevGlassPreviewPage() {
           </p>
           <GlassStepCard step={2} title="¿Por dónde te informas más en este momento?">
             <p className={styles.panelSampleText}>
-              Elegí una opción para ver estado y contraste sobre la tarjeta.
+              Elige una opción para ver estado y contraste sobre la tarjeta.
             </p>
             <div className={styles.stepOptions}>
               <GlassOptionPill selected={stepPill === "1"} onClick={() => setStepPill("1")}>

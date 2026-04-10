@@ -10,7 +10,7 @@ const steps = [
   {
     n: 2,
     title: "Cuéntanos tu contexto",
-    body: "Qué evento, para quién, dónde. Mientras más detalle, mejor el resultado.",
+    body: "Indica el evento, para quién es y dónde será. Cuántos más detalles compartas, mejor el resultado.",
     accent: false,
   },
   {

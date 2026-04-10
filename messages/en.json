@@ -48,26 +48,27 @@
       "line1": "Less noise,",
       "line2": "more judgment"
     },
-    "intro": "Every day the world creates 463 exabytes of data. Reading it all would take 26 million years. Algorithms shape what we see, read, and believe. Understanding how those filters work is no longer optional.",
+    "intro": "Every day, more information is produced and circulated than we can process. In that environment, platforms, algorithms, and artificial intelligence do not only sort content—they also shape what we see, what we attend to, and what we leave out. More information does not guarantee more understanding: the challenge is to recognise what deserves trust, what distorts, and what truly helps us decide better.",
     "metrics": {
       "exabytesValue": "463",
       "exabytesLabel": "exabytes of data / day",
       "yearsValue": "26M",
       "yearsLabel": "years to read it all"
     },
-    "ia": {
-      "eyebrow": "■ AI AS AN ALLY",
-      "headline": "Artificial intelligence is already here.",
-      "body": "It filters our reality, amplifies certain content, and silences others. Learning to use it ethically and critically is not the future—it is the present. And it is central to what we do at Precisar."
+    "chile": {
+      "eyebrow": "In Chile",
+      "stat1Value": "96.5%",
+      "stat1Label": "of households have internet access",
+      "stat2Value": "53%",
+      "stat2Label": "reading comprehension",
+      "stat3Value": "5M",
+      "stat3Label": "people need stronger digital skills",
+      "outro": "In Chile, connectivity is already a given. The challenge now is different: better tools to understand what we see, compare information, and exercise sounder judgment in digital life."
     },
     "propuesta": {
-      "eyebrow": "■ OUR APPROACH",
-      "body1": "At Precisar we turn noise into judgment. We show how information is produced and circulates, how content gets prioritised, how to spot bias, and how to verify sources.",
-      "body2": "We build skills to access, analyse, create, and take part—improving how information is available, trustworthy, and shared where it is needed most."
-    },
-    "closing": {
-      "before": "From connection to understanding. That is what calls us together at ",
-      "after": "."
+      "eyebrow": "Our proposal",
+      "body1": "At Precisar we strengthen digital judgment so more people can better evaluate the information they receive, recognise bias, verify sources, and make more informed, autonomous decisions.",
+      "body2": "We do this through programmes, resources, and learning experiences that turn information overload into understanding that matters in everyday life."
     }
   },
   "homePrograms": {
@@ -80,7 +81,7 @@
     "stackLinkHub": "Hub Digital Consciente, traveling exhibits",
     "stackLinkAprender": "Learn Digital: It’s Never Too Late",
     "stackLinkDocentes": "Media and Information Literacy for Teachers",
-    "stackLinkPensamientoCritico": "Course: Reading News in the Digital Age",
+    "stackLinkPensamientoCritico": "Media education for teachers to use in the classroom",
     "stackLinkFuncionarios": "Course for Public Servants",
     "stackBotOndaLead": "Bot Onda:",
     "stackBotOndaManoName": "Onda en Mano",
@@ -119,8 +120,8 @@
   },
   "homePrecisando": {
     "stackKicker": "New site · 04 · Precisando",
-    "stackHeadline": "Analysis and debate on how information circulates and what effects it has.",
-    "stackBody": "Editorial on precisar.net — browse recent articles and categories in Precisando.",
+    "stackHeadline": "How information circulates—and what effects it produces.",
+    "stackBody": "Precisando is Precisar’s editorial: articles and debate to read the digital environment with more context, judgment, and depth. Explore recent posts and categories.",
     "stackUnderConstruction": "Under construction. Articles will be published here soon."
   },
   "homeSaberes": {

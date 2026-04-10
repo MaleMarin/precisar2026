@@ -23,7 +23,7 @@ const chapters = [
     step: "03",
     title: "Una puerta al resto del sitio",
     text:
-      "Desde aquí podés saltar a Precisando, programas o Participa — la biblioteca es una pieza del mapa completo de Precisar.",
+      "Desde aquí puedes saltar a Precisando, programas o Participa — la biblioteca es una pieza del mapa completo de Precisar.",
   },
 ] as const;
 

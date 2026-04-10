@@ -38,7 +38,7 @@ const WORK_ITEMS: CinematicWorkItem[] = [
   },
   {
     id: "noticias",
-    title: "Leer noticias en la era digital",
+    title: "Educación mediática para la sala de aula",
     tags: ["Curso", "Verificación"],
     href: "/programas/leer-noticias-era-digital",
   },
