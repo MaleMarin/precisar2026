@@ -33,10 +33,14 @@
       "logo aside"
       "nav nav";
     column-gap: clamp(1rem, 2.5vw, 2rem);
-    row-gap: 0.45rem;
+    row-gap: 0.35rem;
     align-items: center;
     justify-content: initial;
     overflow-x: visible;
+    overflow-y: visible;
+    border-bottom: none;
+    background: transparent;
+    box-shadow: none;
   }
 
   .navBarLogoLink {
@@ -139,21 +143,23 @@
   }
 }
 
-/* Desktop: una sola fila, sin wrap; tipografía y gap compactos para los 7 ítems sin recortes */
+/* Desktop: 7 ítems en toda la fila; sin max-width que recorte; space-between reparte el ancho */
 .navDesktop {
   position: relative;
   z-index: 1;
   box-sizing: border-box;
   flex-wrap: nowrap;
+  flex: 1 1 auto;
   width: 100%;
   min-width: 0;
-  max-width: 100%;
   align-items: center;
-  justify-content: flex-start;
-  column-gap: clamp(0.12rem, 0.4vw, 0.42rem);
+  justify-content: space-between;
+  column-gap: clamp(0.35rem, 1.1vw, 1rem);
   overflow: visible;
   padding-right: 0;
   padding-bottom: 0;
+  border-bottom: none;
+  background: transparent;
 }
 
 .navDesktop > a,
@@ -165,7 +171,7 @@
 .navLinkDesktop {
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: clamp(0.5625rem, calc(0.35vw + 0.42rem), 0.8125rem);
+  font-size: clamp(0.5rem, calc(0.3vw + 0.4rem), 0.8rem);
   letter-spacing: -0.045em;
   line-height: 1.15;
   text-transform: none;
@@ -175,12 +181,12 @@
 
 @media (min-width: 1024px) and (max-width: 1279px) {
   .navLinkDesktop {
-    font-size: clamp(0.5rem, calc(0.32vw + 0.38rem), 0.6875rem);
+    font-size: clamp(0.48rem, calc(0.28vw + 0.36rem), 0.75rem);
     letter-spacing: -0.04em;
   }
 
   .navDesktop {
-    column-gap: clamp(0.06rem, 0.28vw, 0.3rem);
+    column-gap: clamp(0.25rem, 0.9vw, 0.75rem);
   }
 }
 
@@ -419,3 +425,14 @@
   box-shadow: none;
 }
 
+/*
+ * El shell del header (SiteHeader.tsx) combina `lg:border-b-0` con `border-white/10` al hacer scroll en home;
+ * en desktop reaparece un borde inferior grisáceo bajo la fila del menú. Se anula aquí sin tocar el TSX.
+ * Solo aplica a este header: es el único `header.sticky.top-0.z-50` del proyecto.
+ */
+@media (min-width: 1024px) {
+  :global(header.sticky.top-0.z-50) > div > div {
+    border-bottom-width: 0 !important;
+    border-bottom-color: transparent !important;
+  }
+}
