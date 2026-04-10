@@ -48,7 +48,7 @@
       "line1": "Menos Ruido,",
       "line2": "Más Criterio"
     },
-    "intro": "Cada día se produce y circula más información de la que podemos procesar. En ese entorno, plataformas, algoritmos e inteligencia artificial no solo ordenan contenidos: también moldean qué vemos, qué atendemos y qué dejamos fuera. Más información no garantiza más comprensión: el reto está en reconocer qué merece confianza, qué distorsiona y qué realmente ayuda a decidir mejor.",
+    "intro": "Cada día se produce y circula más información de la que podemos procesar. En ese entorno, plataformas, algoritmos e inteligencia artificial no solo ordenan contenidos: también moldean qué vemos, qué atendemos y qué dejamos fuera. El reto está en reconocer qué merece confianza, qué distorsiona y qué realmente ayuda a decidir mejor.",
     "metrics": {
       "exabytesValue": "463",
       "exabytesLabel": "exabytes de datos / día",
