@@ -88,6 +88,11 @@ export function ConsultaFlowProvider({ children }: { children: ReactNode }) {
     if (err) return { ok: false, error: err };
 
     if (questionIndex >= 11) {
+      /*
+       * Envío / persistencia: al completar el flujo, las respuestas agregadas en `answers`
+       * deben persistirse en Firestore (p. ej. `addDoc(collection(db, "consulta_respuestas"), payload)`).
+       * Colección prevista: **consulta_respuestas** (un documento por envío).
+       */
       setPhase("complete");
       return { ok: true };
     }

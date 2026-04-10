@@ -6,7 +6,7 @@ export const CONSULTA_STEPS: ConsultaStepDef[] = [
     id: "p1",
     kind: "multi",
     prompt: "¿Por dónde te informas más en este momento?",
-    helper: "Puedes elegir hasta 3 opciones.",
+    helper: "Elige las que más te sirven o te resultan prácticas.",
     maxSelections: 3,
     options: [
       { id: "redes", label: "Redes sociales" },

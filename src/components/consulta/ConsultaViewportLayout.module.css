@@ -1,0 +1,13 @@
+/**
+ * Centrado del bloque de consulta en el viewport (vertical + horizontal del contenido).
+ */
+.viewport {
+  width: 100%;
+  min-height: 100dvh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  box-sizing: border-box;
+}

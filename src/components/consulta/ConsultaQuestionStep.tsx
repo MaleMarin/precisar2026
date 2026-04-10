@@ -2,6 +2,7 @@
 
 import { useCallback, useMemo, useState } from "react";
 import { consultaStepTextStyle } from "./consultaStepTextStyle";
+import { ConsultaQuestionOptions } from "./ConsultaQuestionOptions";
 import st from "./ConsultaSteps.module.css";
 import type { ConsultaMultiId, ConsultaMultiStep } from "@/lib/consulta/types";
 
@@ -57,29 +58,13 @@ export function ConsultaQuestionStep({ step, value, onChange, error, headingId, 
       {error ? <p className={st.softError}>{error}</p> : null}
       {capMsg ? <p className={st.softError}>{capMsg}</p> : null}
 
-      <div
-        className={[st.optionsGrid, dense ? st.dense : ""].filter(Boolean).join(" ")}
-        role="group"
-        aria-labelledby={headingId}
-      >
-        {step.options.map((opt) => {
-          const on = selected.includes(opt.id);
-          return (
-            <button
-              key={opt.id}
-              type="button"
-              className={st.optionBtn}
-              aria-pressed={on}
-              data-selected={on ? "true" : "false"}
-              onClick={() => toggle(opt.id)}
-            >
-              <span className={st.optionLightCard}>
-                <span className={st.optionLabel}>{opt.label}</span>
-              </span>
-            </button>
-          );
-        })}
-      </div>
+      <ConsultaQuestionOptions
+        options={step.options}
+        selected={selected}
+        dense={dense}
+        headingId={headingId}
+        onToggle={toggle}
+      />
     </div>
   );
 }
