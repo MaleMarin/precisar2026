@@ -69,8 +69,8 @@
 .navBarLogo {
   display: block;
   width: auto;
-  height: clamp(48px, 11vw, 80px);
-  max-width: min(82vw, 460px);
+  height: clamp(56px, 12vw, 96px);
+  max-width: min(82vw, 540px);
   object-fit: contain;
   object-position: left center;
 }
@@ -78,8 +78,8 @@
 /* Menos ancho del wordmark en desktop: deja sitio al menú completo sin depender del scroll horizontal */
 @media (min-width: 1024px) {
   .navBarLogo {
-    max-width: min(300px, 28vw);
-    height: clamp(42px, 7vw, 68px);
+    max-width: min(380px, 32vw);
+    height: clamp(50px, 8.2vw, 84px);
   }
 }
 
