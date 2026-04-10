@@ -18,7 +18,7 @@
 /* Móvil: logo | idiomas + Bot Onda + menú. Desktop (lg+): una sola fila — logo | nav | idiomas + Bot Onda. */
 .navBarRow {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: center;
   justify-content: space-between;
   column-gap: clamp(0.75rem, 2vw, 1.5rem);
@@ -37,6 +37,7 @@
 
   .navBarRow {
     display: grid;
+    min-height: 64px;
     grid-template-columns: auto minmax(0, 1fr) auto;
     grid-template-areas: "logo nav aside";
     column-gap: clamp(0.75rem, 1.5vw, 1.25rem);
@@ -97,7 +98,7 @@
   display: block;
   box-sizing: border-box;
   width: auto !important;
-  height: clamp(90px, 17.5vw, 150px) !important;
+  height: clamp(28px, 4vw, 36px) !important;
   max-width: min(90vw, 800px) !important;
   max-height: none;
   object-fit: contain;
