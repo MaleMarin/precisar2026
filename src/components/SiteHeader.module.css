@@ -116,25 +116,25 @@
 /* Desktop: barra compacta (máx. 64px); wordmark proporcional para una sola fila. */
 @media (min-width: 1024px) {
   .navBarLogo {
-    height: 56px !important;
-    max-height: 56px !important;
-    max-width: min(320px, 34vw) !important;
+    height: 64px !important;
+    max-height: 64px !important;
+    max-width: min(420px, 40vw) !important;
   }
 }
 
 @media (min-width: 1440px) {
   .navBarLogo {
     max-width: min(240px, 24vw) !important;
-    height: 38px !important;
-    max-height: 38px !important;
+    height: 68px !important;
+    max-height: 68px !important;
   }
 }
 
 @media (min-width: 1680px) {
   .navBarLogo {
     max-width: min(260px, 22vw) !important;
-    height: 40px !important;
-    max-height: 40px !important;
+    height: 72px !important;
+    max-height: 72px !important;
   }
 }
 
