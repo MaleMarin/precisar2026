@@ -25,8 +25,8 @@
 
 .panelSection {
   position: relative;
-  height: 200vh;
-  scroll-margin-top: 5.5rem;
+  height: 180vh;
+  scroll-margin-top: 2.75rem;
   /* Perspectiva + 3D para rotateX del stack y la entrada sutil al viewport. */
   perspective: 1200px;
   perspective-origin: 50% 36%;
@@ -35,14 +35,14 @@
 
 /* Primer panel editorial: más recorrido de scroll antes de que el panel Programas cubra el viewport. */
 .panelSectionEditorial {
-  height: 240vh;
-  min-height: 240vh;
+  height: 216vh;
+  min-height: 216vh;
 }
 
 @media (min-width: 768px) {
   .panelSectionEditorial {
-    height: 280vh;
-    min-height: 280vh;
+    height: 252vh;
+    min-height: 252vh;
   }
 }
 
@@ -50,10 +50,10 @@
   position: sticky;
   left: 0;
   top: 0;
-  /* Más “delgado” que el viewport: deja ver el fondo de la página arriba, abajo y a los lados. */
-  height: calc(100vh - clamp(2.75rem, 7vh, 4.5rem));
-  width: calc(100% - clamp(1.25rem, 4.5vw, 2.75rem));
-  max-width: min(90rem, calc(100% - clamp(1.25rem, 4.5vw, 2.75rem)));
+  /* Franja del fondo de página ≤8px entre tarjetas apiladas (total vertical y horizontal). */
+  height: calc(100vh - 8px);
+  width: calc(100% - 8px);
+  max-width: min(90rem, calc(100% - 8px));
   margin-left: auto;
   margin-right: auto;
   overflow: hidden;
