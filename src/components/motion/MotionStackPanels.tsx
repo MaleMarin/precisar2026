@@ -323,11 +323,11 @@ function StackPanel({
   );
   const lineScale = useTransform(progress, [0, 0.1, 0.26, 0.42], [0.1, 0.48, 0.82, 1]);
 
-  /* Inclinación marcada al final del tramo (sale de vista); plano mientras el panel es el foco. */
+  /* Muy plano al centro; inclinación fuerte solo al salir de vista. */
   const rotateX = useTransform(
     progress,
-    [0, 0.34, 0.48, 0.6, 0.76, 1],
-    reduceMotion ? [0, 0, 0, 0, 0, 0] : [0, 0, -1.5, -5.5, -11, -16.5],
+    [0, 0.36, 0.5, 0.62, 0.78, 1],
+    reduceMotion ? [0, 0, 0, 0, 0, 0] : [0, 0, -2.2, -9, -18, -26],
   );
 
   const mainBlockVariants = useMemo(
@@ -438,8 +438,8 @@ function StackPanel({
 
   const glowDrift = !reduceMotion ? styles.panelGlowDrift : "";
 
-  /** Escalonado: suficiente para leer la pila, sin separar como antes (48px). */
-  const stackTopGap = 16;
+  /** Pila junta (no pegada): ~8px entre tarjetas. */
+  const stackTopGap = 8;
   const panelMotionStyle = {
     scale,
     y,

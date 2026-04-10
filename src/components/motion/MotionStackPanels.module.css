@@ -28,8 +28,8 @@
   height: 200vh;
   scroll-margin-top: 5.5rem;
   /* Perspectiva suave para el rotateX del panel sticky (origen del transform en el propio motion.div). */
-  perspective: 1100px;
-  perspective-origin: 50% 38%;
+  perspective: 980px;
+  perspective-origin: 50% 36%;
 }
 
 /* Primer panel editorial: más recorrido de scroll antes de que el panel Programas cubra el viewport. */
