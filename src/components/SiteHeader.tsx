@@ -1,7 +1,7 @@
 "use client";
 
 import { useLocale, useTranslations } from "next-intl";
-import { Fragment, useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
+import { Fragment, useCallback, useEffect, useState } from "react";
 import { Link, usePathname } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
 import {
@@ -9,8 +9,6 @@ import {
   FOOTER_MEDIA,
   NAV_PRIMARY,
   NAV_PRIMARY_I18N_KEY,
-  primaryNavIndexFromHash,
-  primaryNavIndexFromPathname,
 } from "@/lib/site";
 import styles from "./SiteHeader.module.css";
 
@@ -29,24 +27,6 @@ export function SiteHeader() {
   const isHome = isHomePath(pathname);
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [hoverIndex, setHoverIndex] = useState<number | null>(null);
-  const [indicator, setIndicator] = useState({ left: 0, width: 0, visible: false });
-  const [hash, setHash] = useState("");
-
-  const trackRef = useRef<HTMLDivElement>(null);
-  const linkRefs = useRef<(HTMLAnchorElement | null)[]>([]);
-
-  useEffect(() => {
-    const read = () => setHash(typeof window !== "undefined" ? window.location.hash : "");
-    read();
-    window.addEventListener("hashchange", read);
-    return () => window.removeEventListener("hashchange", read);
-  }, []);
-
-  const fromHash = isHome ? primaryNavIndexFromHash(hash) : -1;
-  const fromPath = primaryNavIndexFromPathname(pathname);
-  const activeIndex = fromHash >= 0 ? fromHash : fromPath;
-  const displayIndex = hoverIndex !== null ? hoverIndex : activeIndex;
 
   const scrollToHomeSection = useCallback(
     (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -61,33 +41,11 @@ export function SiteHeader() {
       const nextHash = `#${id}`;
       if (window.location.hash !== nextHash) {
         window.history.pushState(null, "", nextHash);
-        setHash(nextHash);
       }
       setOpen(false);
     },
     [isHome],
   );
-
-  const measureIndicator = useCallback(() => {
-    if (typeof window === "undefined") return;
-    if (displayIndex < 0) {
-      setIndicator({ left: 0, width: 0, visible: false });
-      return;
-    }
-    const track = trackRef.current;
-    const link = linkRefs.current[displayIndex];
-    if (!track || !link) {
-      setIndicator((prev) => ({ ...prev, visible: false }));
-      return;
-    }
-    const tr = track.getBoundingClientRect();
-    const lr = link.getBoundingClientRect();
-    setIndicator({
-      left: lr.left - tr.left,
-      width: lr.width,
-      visible: true,
-    });
-  }, [displayIndex]);
 
   useEffect(() => {
     const htmlLang = locale === "en" ? "en" : locale === "es" ? "es" : "pt";
@@ -138,34 +96,6 @@ export function SiteHeader() {
   const navOnHero = isHome && !scrolled;
   const navHomeGlass = isHome && scrolled;
 
-  useLayoutEffect(() => {
-    let raf = 0;
-    let cancelled = false;
-    queueMicrotask(() => {
-      if (cancelled) return;
-      measureIndicator();
-      raf = requestAnimationFrame(() => {
-        if (!cancelled) measureIndicator();
-      });
-    });
-    return () => {
-      cancelled = true;
-      cancelAnimationFrame(raf);
-    };
-  }, [measureIndicator, pathname, locale, hash]);
-
-  useEffect(() => {
-    const onResize = () => measureIndicator();
-    window.addEventListener("resize", onResize);
-    const track = trackRef.current;
-    const ro = typeof ResizeObserver !== "undefined" ? new ResizeObserver(onResize) : null;
-    if (track && ro) ro.observe(track);
-    return () => {
-      window.removeEventListener("resize", onResize);
-      ro?.disconnect();
-    };
-  }, [measureIndicator]);
-
   const shellClass = [
     "relative transition-[background-color,backdrop-filter,border-color] duration-300 ease-out",
     /* Sin borde sobre el hero: evita la línea gris entre barra y gradiente */
@@ -183,7 +113,7 @@ export function SiteHeader() {
 
   const linkDesktop = [
     styles.navLinkDesktop,
-    "relative z-10 px-1 py-2 transition-colors duration-300 lg:px-1.5",
+    "relative z-10 px-0.5 py-2 transition-colors duration-300 lg:px-1",
     navOnHero || navHomeGlass
       ? "text-white/85 hover:text-white"
       : "text-[var(--muted)] hover:text-[var(--fg)]",
@@ -212,142 +142,112 @@ export function SiteHeader() {
           : styles.navLocaleLinkOnLight,
     ].join(" ");
 
-  /* Sin franja gris tipo “campo”: solo el segmento naranja del ítem activo */
-  const trackBaseClass = "bg-transparent";
-
   return (
     <header className="sticky top-0 z-50">
       <div className="relative z-[70]">
         <div className={shellClass}>
-          <div className="flex flex-col">
-            <div
-              className={`${styles.navBarOuter} relative flex min-h-[5rem] items-center py-2 md:min-h-[7.75rem] md:py-2.5 lg:min-h-0 lg:py-3 ${styles.navBarRow}`}
-            >
-              <Link href="/" className={styles.navBarLogoLink} onClick={() => setOpen(false)}>
-                <img
-                  src={FOOTER_MEDIA.headerLogoBlack}
-                  alt="Precisar"
-                  className={logoClass}
-                  width={550}
-                  height={138}
-                  decoding="async"
-                  fetchPriority="high"
-                />
-              </Link>
-              <nav
-                className={`hidden lg:flex ${styles.navDesktop}`}
-                aria-label={tNav("main")}
+          <div
+            className={`${styles.navBarOuter} relative flex min-h-[5rem] items-center py-2 md:min-h-[7.75rem] md:py-2.5 lg:min-h-0 lg:py-3 ${styles.navBarRow}`}
+          >
+            <Link href="/" className={styles.navBarLogoLink} onClick={() => setOpen(false)}>
+              <img
+                src={FOOTER_MEDIA.headerLogoBlack}
+                alt="Precisar"
+                className={logoClass}
+                width={550}
+                height={138}
+                decoding="async"
+                fetchPriority="high"
+              />
+            </Link>
+            <nav className={`hidden lg:flex ${styles.navDesktop}`} aria-label={tNav("main")}>
+              {NAV_PRIMARY.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={linkDesktop}
+                  onClick={(e) => scrollToHomeSection(e, item.href)}
+                >
+                  {NAV_PRIMARY_I18N_KEY[item.href] ? tNav(NAV_PRIMARY_I18N_KEY[item.href]) : item.label}
+                </Link>
+              ))}
+            </nav>
+            <div className={styles.navBarAside}>
+              <div
+                className={`${styles.navLocaleGroup} ${onDarkNav ? styles.navLocaleGroupOnDark : ""}`}
+                role="group"
+                aria-label={tLang("switch")}
               >
-                {NAV_PRIMARY.map((item, i) => (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    className={linkDesktop}
-                    ref={(el) => {
-                      linkRefs.current[i] = el;
-                    }}
-                    onClick={(e) => scrollToHomeSection(e, item.href)}
-                    onMouseEnter={() => setHoverIndex(i)}
-                    onMouseLeave={() => setHoverIndex(null)}
-                    onFocus={() => setHoverIndex(i)}
-                    onBlur={() => setHoverIndex(null)}
-                  >
-                    {NAV_PRIMARY_I18N_KEY[item.href] ? tNav(NAV_PRIMARY_I18N_KEY[item.href]) : item.label}
-                  </Link>
+                {routing.locales.map((loc, i) => (
+                  <Fragment key={loc}>
+                    {i > 0 ? (
+                      <span className={styles.navLocaleSep} aria-hidden>
+                        |
+                      </span>
+                    ) : null}
+                    <button
+                      type="button"
+                      className={localeLinkClass(loc)}
+                      aria-current={locale === loc ? "true" : undefined}
+                      aria-label={tLang(loc)}
+                      onClick={() => switchLocale(loc)}
+                    >
+                      {loc.toUpperCase()}
+                    </button>
+                  </Fragment>
                 ))}
-              </nav>
-              <div className={styles.navBarAside}>
-                <div
-                  className={`${styles.navLocaleGroup} ${onDarkNav ? styles.navLocaleGroupOnDark : ""}`}
-                  role="group"
-                  aria-label={tLang("switch")}
-                >
-                  {routing.locales.map((loc, i) => (
-                    <Fragment key={loc}>
-                      {i > 0 ? (
-                        <span className={styles.navLocaleSep} aria-hidden>
-                          |
-                        </span>
-                      ) : null}
-                      <button
-                        type="button"
-                        className={localeLinkClass(loc)}
-                        aria-current={locale === loc ? "true" : undefined}
-                        aria-label={tLang(loc)}
-                        onClick={() => switchLocale(loc)}
-                      >
-                        {loc.toUpperCase()}
-                      </button>
-                    </Fragment>
-                  ))}
-                </div>
-                <a
-                  href={EXTERNAL.botOnda}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`${styles.navOndaLink} ${styles.navOndaDesktop}`}
-                  aria-label={tNav("botOndaAria")}
-                >
-                  <span className={styles.navOndaWithBeta}>
-                    <img
-                      src={FOOTER_MEDIA.navOndaMark}
-                      alt=""
-                      width={72}
-                      height={72}
-                      decoding="async"
-                      className={`${styles.navOndaIcon} ${styles.navOndaMarkImg}`}
-                    />
-                    <span className={styles.navOndaNavBadge}>{tNav("botOndaNavBadge")}</span>
-                  </span>
-                </a>
-                <button
-                  type="button"
-                  className="relative z-[60] flex h-11 w-11 flex-shrink-0 flex-col items-center justify-center gap-1.5 lg:hidden"
-                  aria-expanded={open}
-                  aria-label={open ? tNav("closeMenu") : tNav("openMenu")}
-                  onClick={() => setOpen((o) => !o)}
-                >
-                  <span className={`${barClass} ${open ? "translate-y-1.5 rotate-45" : ""}`} />
-                  <span
-                    className={`${barClass} transition-opacity duration-200 ${open ? "opacity-0" : "opacity-100"}`}
+              </div>
+              <a
+                href={EXTERNAL.botOnda}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${styles.navOndaLink} ${styles.navOndaDesktop}`}
+                aria-label={tNav("botOndaAria")}
+              >
+                <span className={styles.navOndaWithBeta}>
+                  <img
+                    src={FOOTER_MEDIA.navOndaMark}
+                    alt=""
+                    width={72}
+                    height={72}
+                    decoding="async"
+                    className={`${styles.navOndaIcon} ${styles.navOndaMarkImg}`}
                   />
-                  <span className={`${barClass} ${open ? "-translate-y-1.5 -rotate-45" : ""}`} />
-                </button>
-                <a
-                  href={EXTERNAL.botOnda}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`${styles.navOndaLink} ${styles.navOndaLinkMobileBar}`}
-                  aria-label={tNav("botOndaAria")}
-                >
-                  <span className={styles.navOndaWithBeta}>
-                    <img
-                      src={FOOTER_MEDIA.navOndaMark}
-                      alt=""
-                      width={72}
-                      height={72}
-                      decoding="async"
-                      className={`${styles.navOndaIcon} ${styles.navOndaMarkImg}`}
-                    />
-                    <span className={styles.navOndaNavBadge}>{tNav("botOndaNavBadge")}</span>
-                  </span>
-                </a>
-              </div>
-            </div>
-
-            <div className={`${styles.navBarOuter} hidden pb-0 pt-0 lg:block`}>
-              <div ref={trackRef} className={styles.navTrack}>
-                <div className={`${styles.navTrackBase} ${trackBaseClass}`} aria-hidden />
-                <div
-                  className={styles.navTrackAccent}
-                  style={{
-                    left: indicator.left,
-                    width: indicator.visible ? indicator.width : 0,
-                    opacity: indicator.visible && indicator.width > 0 ? 1 : 0,
-                  }}
-                  aria-hidden
+                  <span className={styles.navOndaNavBadge}>{tNav("botOndaNavBadge")}</span>
+                </span>
+              </a>
+              <button
+                type="button"
+                className="relative z-[60] flex h-11 w-11 flex-shrink-0 flex-col items-center justify-center gap-1.5 lg:hidden"
+                aria-expanded={open}
+                aria-label={open ? tNav("closeMenu") : tNav("openMenu")}
+                onClick={() => setOpen((o) => !o)}
+              >
+                <span className={`${barClass} ${open ? "translate-y-1.5 rotate-45" : ""}`} />
+                <span
+                  className={`${barClass} transition-opacity duration-200 ${open ? "opacity-0" : "opacity-100"}`}
                 />
-              </div>
+                <span className={`${barClass} ${open ? "-translate-y-1.5 -rotate-45" : ""}`} />
+              </button>
+              <a
+                href={EXTERNAL.botOnda}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${styles.navOndaLink} ${styles.navOndaLinkMobileBar}`}
+                aria-label={tNav("botOndaAria")}
+              >
+                <span className={styles.navOndaWithBeta}>
+                  <img
+                    src={FOOTER_MEDIA.navOndaMark}
+                    alt=""
+                    width={72}
+                    height={72}
+                    decoding="async"
+                    className={`${styles.navOndaIcon} ${styles.navOndaMarkImg}`}
+                  />
+                  <span className={styles.navOndaNavBadge}>{tNav("botOndaNavBadge")}</span>
+                </span>
+              </a>
             </div>
           </div>
 
