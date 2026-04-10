@@ -228,7 +228,7 @@ export function SiteHeader() {
               <Link href="/" className={styles.navBarLogoLink} onClick={() => setOpen(false)}>
                 <img
                   src={FOOTER_MEDIA.headerLogoBlack}
-                  alt="Precisar"
+                  alt="Onda"
                   className={logoClass}
                   width={440}
                   height={110}

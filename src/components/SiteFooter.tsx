@@ -158,7 +158,7 @@ export function SiteFooter() {
           <Link href="/" className={styles.brandLogoLink}>
             <img
               src={FOOTER_MEDIA.footerBrandStrip}
-              alt="Precisar"
+              alt="Onda"
               width={1920}
               height={1080}
               className={styles.brandLogo}

@@ -45,18 +45,17 @@ export const NEWSLETTER = {
 } as const;
 
 /**
- * Logo barra de navegación: `public/1.png` (en portada se invierte a blanco sobre el hero).
- * Pie: wordmark vectorial (`public/brand/footer-wordmark.svg`).
+ * Logos de marca: `public/logo-onda-ok.png` (Onda). En portada el header se invierte sobre el hero.
  */
 export const FOOTER_MEDIA = {
   logoWordmark: "/logo-precisar/logo-precisar.png",
-  /** Franja superior del pie: wordmark a todo el ancho (`public/precisar-footer-wordmark.png`). */
-  footerBrandStrip: "/precisar-footer-wordmark.png",
-  /** Wordmark PRECISAR en la barra (`public/1.png`). */
-  headerLogoBlack: "/1.png",
+  /** Franja superior del pie — logo Onda. */
+  footerBrandStrip: "/logo-onda-ok.png",
+  /** Logo principal en la barra — Onda. */
+  headerLogoBlack: "/logo-onda-ok.png",
   logoWordmarkFooter: "/brand/footer-wordmark.svg",
-  /** Logo Bot Onda — `public/logo-ok-ultimo-onda.png`. */
-  navOndaMark: "/logo-ok-ultimo-onda.png",
+  /** Icono Onda (menú / enlaces Bot Onda). */
+  navOndaMark: "/logo-onda-ok.png",
   /** Fallback / otros usos (`public/3.png`). */
   symbol: "/3.png",
 } as const;
