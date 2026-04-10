@@ -118,8 +118,7 @@
 }
 
 .navDesktop > a,
-.navDesktop > button,
-.navDesktop > div {
+.navDesktop > button {
   flex-shrink: 0;
 }
 
@@ -158,14 +157,22 @@
   font-variant: normal;
 }
 
-/* PT / EN junto al menú principal (desktop) */
+/* PT / EN: fuera del <nav> con overflow-x (si no, al hacer scroll solo se ven enlaces y se corta ES/PT/EN).
+   En móvil los idiomas van en el drawer; aquí solo desktop. */
 .navLocaleGroup {
-  display: flex;
+  display: none;
+  flex-shrink: 0;
   align-items: center;
   gap: 0.125rem;
   margin-left: 0.35rem;
   padding-left: 0.65rem;
   border-left: 1px solid var(--border);
+}
+
+@media (min-width: 1024px) {
+  .navLocaleGroup {
+    display: flex;
+  }
 }
 
 .navLocaleGroupOnDark {

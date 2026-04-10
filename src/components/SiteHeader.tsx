@@ -258,25 +258,25 @@ export function SiteHeader() {
                       {NAV_PRIMARY_I18N_KEY[item.href] ? tNav(NAV_PRIMARY_I18N_KEY[item.href]) : item.label}
                     </Link>
                   ))}
-                  <div
-                    className={`${styles.navLocaleGroup} ${onDarkNav ? styles.navLocaleGroupOnDark : ""}`}
-                    role="group"
-                    aria-label={tLang("switch")}
-                  >
-                    {routing.locales.map((loc) => (
-                      <button
-                        key={loc}
-                        type="button"
-                        className={localeLinkClass(loc)}
-                        aria-current={locale === loc ? "true" : undefined}
-                        aria-label={tLang(loc)}
-                        onClick={() => switchLocale(loc)}
-                      >
-                        {loc.toUpperCase()}
-                      </button>
-                    ))}
-                  </div>
                 </nav>
+                <div
+                  className={`${styles.navLocaleGroup} ${onDarkNav ? styles.navLocaleGroupOnDark : ""}`}
+                  role="group"
+                  aria-label={tLang("switch")}
+                >
+                  {routing.locales.map((loc) => (
+                    <button
+                      key={loc}
+                      type="button"
+                      className={localeLinkClass(loc)}
+                      aria-current={locale === loc ? "true" : undefined}
+                      aria-label={tLang(loc)}
+                      onClick={() => switchLocale(loc)}
+                    >
+                      {loc.toUpperCase()}
+                    </button>
+                  ))}
+                </div>
                 <a
                   href={EXTERNAL.botOnda}
                   target="_blank"
