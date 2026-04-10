@@ -198,16 +198,17 @@ export function SiteHeader() {
     .filter(Boolean)
     .join(" ");
 
-  /** ES | PT | EN: estilos en Tailwind aquí para no depender solo del CSS module (visibles entre nav y Bot Onda). */
-  const localeLinkClass = (loc: string) => {
-    const active = locale === loc;
-    const base =
-      "font-mono text-[10px] font-semibold uppercase tracking-[0.12em] border-none bg-transparent cursor-pointer px-1 py-1.5 transition-[opacity,color] duration-200";
-    if (onDarkNav) {
-      return `${base} ${active ? "text-white opacity-100" : "text-white opacity-50 hover:opacity-80"}`;
-    }
-    return `${base} ${active ? "text-[var(--fg)] opacity-100" : "text-[var(--fg)] opacity-50 hover:opacity-80"}`;
-  };
+  const localeLinkClass = (loc: string) =>
+    [
+      styles.navLocaleLink,
+      locale === loc
+        ? onDarkNav
+          ? styles.navLocaleLinkActiveOnDark
+          : styles.navLocaleLinkActiveOnLight
+        : onDarkNav
+          ? styles.navLocaleLinkOnDark
+          : styles.navLocaleLinkOnLight,
+    ].join(" ");
 
   /* En portada sobre el hero: sin franja horizontal (solo el segmento naranja) */
   const trackBaseClass = navOnHero
@@ -261,25 +262,14 @@ export function SiteHeader() {
                   ))}
                 </nav>
                 <div
-                  className={[
-                    "relative z-10 flex shrink-0 items-center gap-0",
-                    "ml-1 lg:ml-[0.35rem] lg:border-l lg:pl-[0.65rem]",
-                    onDarkNav ? "lg:border-white/[0.28]" : "lg:border-[var(--border)]",
-                  ].join(" ")}
-                  style={{ display: "flex", flexShrink: 0, minWidth: "min-content" }}
+                  className={`${styles.navLocaleGroup} ${onDarkNav ? styles.navLocaleGroupOnDark : ""}`}
                   role="group"
                   aria-label={tLang("switch")}
                 >
                   {routing.locales.map((loc, i) => (
                     <Fragment key={loc}>
                       {i > 0 ? (
-                        <span
-                          className={[
-                            "shrink-0 select-none px-0.5 font-mono text-[10px] font-semibold leading-none",
-                            onDarkNav ? "text-white/40" : "text-[var(--muted)]",
-                          ].join(" ")}
-                          aria-hidden
-                        >
+                        <span className={styles.navLocaleSep} aria-hidden>
                           |
                         </span>
                       ) : null}

@@ -108,6 +108,8 @@
    Nunca `flex-end` aquí: con overflow-x auto la vista quedaba anclada al final y se cortaban
    “Qué nos convoca” y el inicio de “Programas” (solo se veía un trozo como “ramas”). */
 .navDesktop {
+  position: relative;
+  z-index: 1;
   flex: 1;
   min-width: 0;
   flex-wrap: nowrap;
@@ -164,8 +166,10 @@
   font-variant: normal;
 }
 
-/* ES | PT | EN: fuera del <nav> con overflow-x. Visible en móvil antes del botón menú (orden en SiteHeader). */
+/* ES | PT | EN: fuera del <nav> con overflow-x. z-index por si el nav scrollable pinta encima. */
 .navLocaleGroup {
+  position: relative;
+  z-index: 25;
   display: flex;
   flex-shrink: 0;
   align-items: center;
@@ -353,28 +357,33 @@
 }
 
 .navLocaleLinkOnLight {
-  color: var(--muted);
+  color: var(--fg) !important;
+  opacity: 0.5;
 }
 
 .navLocaleLinkOnLight:hover {
-  color: var(--fg);
+  opacity: 0.85;
 }
 
 .navLocaleLinkActiveOnLight {
-  color: var(--fg);
-  box-shadow: inset 0 -2px 0 0 var(--accent);
+  color: var(--fg) !important;
+  opacity: 1;
+  box-shadow: none;
 }
 
 .navLocaleLinkOnDark {
-  color: rgba(255, 255, 255, 0.62);
+  color: #fff !important;
+  opacity: 0.5;
 }
 
 .navLocaleLinkOnDark:hover {
-  color: #fff;
+  opacity: 0.85;
 }
 
 .navLocaleLinkActiveOnDark {
-  color: #fff;
-  background-color: rgba(255, 255, 255, 0.14);
+  color: #fff !important;
+  opacity: 1;
+  background-color: transparent;
+  box-shadow: none;
 }
 
