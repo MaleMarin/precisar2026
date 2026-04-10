@@ -202,8 +202,10 @@ function HomeConvocaStackPanelContent() {
         <h3 className={styles.convocaStackPropuestaEyebrow} id="convoca-propuesta-heading">
           {t("propuesta.eyebrow")}
         </h3>
-        <p className={styles.convocaStackPropuestaLead}>{t("propuesta.body1")}</p>
-        <p className={styles.convocaStackPropuestaClosing}>{t("propuesta.body2")}</p>
+        <div className={styles.convocaStackPropuestaCopy}>
+          <p className={styles.convocaStackPropuestaLead}>{t("propuesta.body1")}</p>
+          <p className={styles.convocaStackPropuestaClosing}>{t("propuesta.body2")}</p>
+        </div>
       </section>
     </div>
   );
