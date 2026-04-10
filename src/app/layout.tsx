@@ -45,6 +45,9 @@ export const metadata: Metadata = {
   },
   description: SITE.tagline,
   metadataBase: new URL(SITE.url),
+  icons: {
+    icon: [{ url: "/favicon%20precisar.png", type: "image/png" }],
+  },
   openGraph: {
     type: "website",
     locale: "es_CL",
