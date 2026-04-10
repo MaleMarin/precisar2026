@@ -70,6 +70,8 @@ html {
   scroll-behavior: auto;
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
+  max-width: 100%;
   /* Oscuro por defecto en el borde del viewport: en home el header ya no deja ver un flash gris/claro. */
   background-color: var(--brand-void);
 }
@@ -77,6 +79,8 @@ html {
 body {
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
+  max-width: 100%;
   background: var(--bg);
   color: var(--fg);
   /* Usar --font-sans-family (inyectada en <html> por next/font), no --font-sans del @theme:
