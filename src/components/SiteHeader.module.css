@@ -66,11 +66,15 @@
   opacity: 1;
 }
 
+/* Tamaño solo por CSS (sin width/height en el <img>): evita que atributos HTML + preflight pisen el clamp.
+   !important: gana a utilidades globales (p. ej. img { max-width: 100%; height: auto }) si el orden lo desfavorece. */
 .navBarLogo {
   display: block;
-  width: auto;
-  height: clamp(64px, 13vw, 112px);
-  max-width: min(85vw, 620px);
+  box-sizing: border-box;
+  width: auto !important;
+  height: clamp(72px, 14vw, 120px) !important;
+  max-width: min(88vw, 640px) !important;
+  max-height: none;
   object-fit: contain;
   object-position: left center;
 }
@@ -78,8 +82,8 @@
 /* Menos ancho del wordmark en desktop: deja sitio al menú completo sin depender del scroll horizontal */
 @media (min-width: 1024px) {
   .navBarLogo {
-    max-width: min(460px, 36vw);
-    height: clamp(58px, 9.2vw, 100px);
+    max-width: min(500px, 38vw) !important;
+    height: clamp(64px, 10vw, 108px) !important;
   }
 }
 

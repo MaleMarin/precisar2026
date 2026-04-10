@@ -230,9 +230,8 @@ export function SiteHeader() {
                   src={FOOTER_MEDIA.headerLogoBlack}
                   alt="Precisar"
                   className={logoClass}
-                  width={440}
-                  height={110}
                   decoding="async"
+                  fetchPriority="high"
                 />
               </Link>
               <div className={styles.navBarEnd}>
