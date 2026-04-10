@@ -22,14 +22,14 @@ export function GsapRouteFade({ children, overlayColor }: GsapRouteFadeProps) {
     if (!el) return;
     gsap.set(el, { opacity: 1 });
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      gsap.set(el, { y: 0 });
       return;
     }
-    // Solo desplazamiento: si opacity queda en 0 (ticker GSAP/Lenis), la página se ve en blanco.
+    /* Antes: y: 14 → y: 0 desplazaba todo el árbol (header incluido) y dejaba una franja del color de --bg
+       sobre el hero oscuro. Transición muy suave solo por opacidad, sin translateY. */
     gsap.fromTo(
       el,
-      { y: 14 },
-      { y: 0, duration: 0.4, ease: "power2.out" },
+      { opacity: 0.985 },
+      { opacity: 1, duration: 0.35, ease: "power2.out" },
     );
   }, [pathname]);
 

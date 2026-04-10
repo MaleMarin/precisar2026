@@ -68,6 +68,8 @@
 /* Lenis controla el suavizado; `smooth` nativo aquí pelea con el proxy y se siente duro o a tirones. */
 html {
   scroll-behavior: auto;
+  /* Mismo fondo que body: evita una línea del color por defecto del agente si hay subpíxeles o transforms. */
+  background-color: var(--bg);
 }
 
 body {
