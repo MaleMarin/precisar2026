@@ -120,9 +120,8 @@
   "homePrecisando": {
     "stackKicker": "New site · 04 · Precisando",
     "stackHeadline": "Analysis and debate on how information circulates and what effects it has.",
-    "stackBody": "We’re still building the full archive on this version. Until then, all blog articles remain on the previous site.",
-    "stackUnderConstruction": "Under construction. Articles will be published here soon.",
-    "linkLegacyPrecisando": "View articles on the previous Precisar site (blog / Precisando)"
+    "stackBody": "Editorial on precisar.net — browse recent articles and categories in Precisando.",
+    "stackUnderConstruction": "Under construction. Articles will be published here soon."
   },
   "homeSaberes": {
     "stackKicker": "03 · Saberes",

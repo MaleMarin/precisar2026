@@ -557,13 +557,6 @@ export function MotionStackPanels({
     { label: tEducacionMediatica("linkCultura"), href: "/educacion-mediatica/cultura" },
   ];
 
-  const precisandoLegacyLink: MiniListItem = {
-    label: tPrecisando("linkLegacyPrecisando"),
-    href: EXTERNAL.legacyPrecisandoArchive,
-    external: true,
-    itemKey: "precisando-legacy-archive",
-  };
-
   const precisandoLinks: MiniListItem[] = PRECISANDO_ARTICLES_UNDER_CONSTRUCTION
     ? [
         {
@@ -572,15 +565,12 @@ export function MotionStackPanels({
           itemKey: "precisando-under-construction",
           multiline: true,
         },
-        precisandoLegacyLink,
       ]
-    : [
-        ...featuredArticles.slice(0, 4).map((a) => ({
-          label: a.title,
-          href: `/precisando/${encodeURI(a.slug)}`,
-        })),
-        precisandoLegacyLink,
-      ];
+    : featuredArticles.slice(0, 4).map((a) => ({
+        label: a.title,
+        href: `/precisando/${encodeURI(a.slug)}`,
+        itemKey: `precisando-${a.slug}`,
+      }));
 
   const footerCols = FOOTER_COLUMNS;
 

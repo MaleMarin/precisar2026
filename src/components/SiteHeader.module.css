@@ -235,8 +235,8 @@
 }
 
 .navOndaIcon {
-  width: clamp(28px, 4.5vw, 36px);
-  height: clamp(28px, 4.5vw, 36px);
+  width: clamp(32px, 5.2vw, 42px);
+  height: clamp(32px, 5.2vw, 42px);
   object-fit: contain;
   display: block;
   flex-shrink: 0;
@@ -269,8 +269,8 @@
 }
 
 .navOndaMobileIcon {
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   object-fit: contain;
   flex-shrink: 0;
 }

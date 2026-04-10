@@ -228,7 +228,7 @@ export function SiteHeader() {
               <Link href="/" className={styles.navBarLogoLink} onClick={() => setOpen(false)}>
                 <img
                   src={FOOTER_MEDIA.headerLogoBlack}
-                  alt="Onda"
+                  alt="Precisar"
                   className={logoClass}
                   width={440}
                   height={110}
@@ -289,8 +289,8 @@ export function SiteHeader() {
                     <img
                       src={FOOTER_MEDIA.navOndaMark}
                       alt=""
-                      width={64}
-                      height={64}
+                      width={72}
+                      height={72}
                       decoding="async"
                       className={`${styles.navOndaIcon} ${styles.navOndaMarkImg}`}
                     />
@@ -321,8 +321,8 @@ export function SiteHeader() {
                     <img
                       src={FOOTER_MEDIA.navOndaMark}
                       alt=""
-                      width={64}
-                      height={64}
+                      width={72}
+                      height={72}
                       decoding="async"
                       className={`${styles.navOndaIcon} ${styles.navOndaMarkImg}`}
                     />
@@ -408,8 +408,8 @@ export function SiteHeader() {
                 <img
                   src={FOOTER_MEDIA.navOndaMark}
                   alt=""
-                  width={80}
-                  height={80}
+                  width={88}
+                  height={88}
                   decoding="async"
                   className={styles.navOndaMobileIcon}
                 />

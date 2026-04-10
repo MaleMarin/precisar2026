@@ -158,13 +158,32 @@ export function SiteFooter() {
           <Link href="/" className={styles.brandLogoLink}>
             <img
               src={FOOTER_MEDIA.footerBrandStrip}
-              alt="Onda"
+              alt="Precisar"
               width={1920}
               height={1080}
               className={styles.brandLogo}
               decoding="async"
             />
           </Link>
+        </div>
+
+        <div className={styles.footerBotOndaBadge}>
+          <a
+            href={EXTERNAL.botOnda}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.footerBotOndaLink}
+            aria-label={tNav("botOndaAria")}
+          >
+            <img
+              src={FOOTER_MEDIA.navOndaMark}
+              alt=""
+              width={96}
+              height={96}
+              decoding="async"
+              className={styles.footerBotOndaImg}
+            />
+          </a>
         </div>
 
         <div className={`prec-container ${styles.newsletterBand}`}>
@@ -339,8 +358,8 @@ export function SiteFooter() {
                 <img
                   src={FOOTER_MEDIA.navOndaMark}
                   alt=""
-                  width={48}
-                  height={48}
+                  width={72}
+                  height={72}
                   decoding="async"
                   className={styles.legalOndaMark}
                 />

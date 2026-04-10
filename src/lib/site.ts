@@ -45,16 +45,16 @@ export const NEWSLETTER = {
 } as const;
 
 /**
- * Logos de marca: `public/logo-onda-ok.png` (Onda). En portada el header se invierte sobre el hero.
+ * Logos: barra Precisar (`logo-precisar/logo-precisar.png`); Bot Onda; pie wordmark Precisar + Onda.
  */
 export const FOOTER_MEDIA = {
   logoWordmark: "/logo-precisar/logo-precisar.png",
-  /** Franja superior del pie — logo Onda. */
-  footerBrandStrip: "/logo-onda-ok.png",
-  /** Logo principal en la barra — Onda. */
-  headerLogoBlack: "/logo-onda-ok.png",
+  /** Franja ancha del pie: solo wordmark Precisar. `public/precisar-footer-wordmark.png`. */
+  footerBrandStrip: "/precisar-footer-wordmark.png",
+  /** Wordmark Precisar en la barra (mismo asset que `logoWordmark`). */
+  headerLogoBlack: "/logo-precisar/logo-precisar.png",
   logoWordmarkFooter: "/brand/footer-wordmark.svg",
-  /** Icono Onda (menú / enlaces Bot Onda). */
+  /** Icono Bot Onda (barra, pie, enlaces al chat). */
   navOndaMark: "/logo-onda-ok.png",
   /** Fallback / otros usos (`public/3.png`). */
   symbol: "/3.png",
@@ -89,12 +89,6 @@ export const EXTERNAL = {
   youtube:
     "https://www.youtube.com/channel/UCQKEOqwm3pxIeO6E1Hsokhw/videos",
   whatsappShare: "https://api.whatsapp.com/send/?text=https://precisar.net",
-  /**
-   * Blog / Precisando en el sitio anterior (Wix). Portada: enlace “Ver artículos…”.
-   * Sobreescribir con `NEXT_PUBLIC_LEGACY_PRECISANDO_URL` si la ruta cambia.
-   */
-  legacyPrecisandoArchive:
-    publicEnv("NEXT_PUBLIC_LEGACY_PRECISANDO_URL") ?? "https://www.precisar.net/blog",
 } as const;
 
 export type NavItem = { label: string; href: string };
