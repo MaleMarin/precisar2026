@@ -183,7 +183,7 @@ export function SiteHeader() {
 
   const linkDesktop = [
     styles.navLinkDesktop,
-    "relative z-10 px-1.5 py-2 transition-colors duration-300 lg:px-2 xl:px-2.5",
+    "relative z-10 px-1 py-2 transition-colors duration-300 lg:px-1.5",
     navOnHero || navHomeGlass
       ? "text-white/85 hover:text-white"
       : "text-[var(--muted)] hover:text-[var(--fg)]",
@@ -212,12 +212,8 @@ export function SiteHeader() {
           : styles.navLocaleLinkOnLight,
     ].join(" ");
 
-  /* En portada sobre el hero: sin franja horizontal (solo el segmento naranja) */
-  const trackBaseClass = navOnHero
-    ? "bg-transparent"
-    : onDarkNav
-      ? "bg-white/18"
-      : "bg-[var(--border)]";
+  /* Sin franja gris tipo “campo”: solo el segmento naranja del ítem activo */
+  const trackBaseClass = "bg-transparent";
 
   return (
     <header className="sticky top-0 z-50">
@@ -246,9 +242,7 @@ export function SiteHeader() {
                   <Link
                     key={item.href}
                     href={item.href}
-                    className={[linkDesktop, item.href === "/#convoca" ? styles.navLinkConvoca : ""]
-                      .filter(Boolean)
-                      .join(" ")}
+                    className={linkDesktop}
                     ref={(el) => {
                       linkRefs.current[i] = el;
                     }}
