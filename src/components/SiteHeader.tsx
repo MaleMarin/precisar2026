@@ -1,7 +1,7 @@
 "use client";
 
 import { useLocale, useTranslations } from "next-intl";
-import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
+import { Fragment, useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { Link, usePathname } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
 import {
@@ -223,13 +223,15 @@ export function SiteHeader() {
         <div className={shellClass}>
           <div className="flex flex-col">
             <div
-              className={`${styles.navBarOuter} relative flex min-h-[4.25rem] items-center py-2 md:min-h-[7rem] md:py-2.5 ${styles.navBarRow}`}
+              className={`${styles.navBarOuter} relative flex min-h-[5rem] items-center py-2 md:min-h-[7.75rem] md:py-2.5 ${styles.navBarRow}`}
             >
               <Link href="/" className={styles.navBarLogoLink} onClick={() => setOpen(false)}>
                 <img
                   src={FOOTER_MEDIA.headerLogoBlack}
                   alt="Precisar"
                   className={logoClass}
+                  width={550}
+                  height={138}
                   decoding="async"
                   fetchPriority="high"
                 />
@@ -264,17 +266,23 @@ export function SiteHeader() {
                   role="group"
                   aria-label={tLang("switch")}
                 >
-                  {routing.locales.map((loc) => (
-                    <button
-                      key={loc}
-                      type="button"
-                      className={localeLinkClass(loc)}
-                      aria-current={locale === loc ? "true" : undefined}
-                      aria-label={tLang(loc)}
-                      onClick={() => switchLocale(loc)}
-                    >
-                      {loc.toUpperCase()}
-                    </button>
+                  {routing.locales.map((loc, i) => (
+                    <Fragment key={loc}>
+                      {i > 0 ? (
+                        <span className={styles.navLocaleSep} aria-hidden>
+                          |
+                        </span>
+                      ) : null}
+                      <button
+                        type="button"
+                        className={localeLinkClass(loc)}
+                        aria-current={locale === loc ? "true" : undefined}
+                        aria-label={tLang(loc)}
+                        onClick={() => switchLocale(loc)}
+                      >
+                        {loc.toUpperCase()}
+                      </button>
+                    </Fragment>
                   ))}
                 </div>
                 <a

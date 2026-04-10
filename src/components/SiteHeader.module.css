@@ -66,14 +66,13 @@
   opacity: 1;
 }
 
-/* Tamaño solo por CSS (sin width/height en el <img>): evita que atributos HTML + preflight pisen el clamp.
-   !important: gana a utilidades globales (p. ej. img { max-width: 100%; height: auto }) si el orden lo desfavorece. */
+/* Tamaño por CSS (!important gana preflight). width/height en <img> = proporción intrínseca (~+25% sobre 440×110). */
 .navBarLogo {
   display: block;
   box-sizing: border-box;
   width: auto !important;
-  height: clamp(72px, 14vw, 120px) !important;
-  max-width: min(88vw, 640px) !important;
+  height: clamp(90px, 17.5vw, 150px) !important;
+  max-width: min(90vw, 800px) !important;
   max-height: none;
   object-fit: contain;
   object-position: left center;
@@ -82,8 +81,8 @@
 /* Menos ancho del wordmark en desktop: deja sitio al menú completo sin depender del scroll horizontal */
 @media (min-width: 1024px) {
   .navBarLogo {
-    max-width: min(500px, 38vw) !important;
-    height: clamp(64px, 10vw, 108px) !important;
+    max-width: min(625px, 40vw) !important;
+    height: clamp(80px, 12.5vw, 135px) !important;
   }
 }
 
@@ -157,26 +156,49 @@
   font-variant: normal;
 }
 
-/* PT / EN: fuera del <nav> con overflow-x (si no, al hacer scroll solo se ven enlaces y se corta ES/PT/EN).
-   En móvil los idiomas van en el drawer; aquí solo desktop. */
+/* ES | PT | EN: fuera del <nav> con overflow-x. Visible en móvil antes del botón menú (orden en SiteHeader). */
 .navLocaleGroup {
-  display: none;
+  display: flex;
   flex-shrink: 0;
   align-items: center;
-  gap: 0.125rem;
-  margin-left: 0.35rem;
-  padding-left: 0.65rem;
-  border-left: 1px solid var(--border);
+  gap: 0;
+  margin-left: 0.25rem;
+  padding-left: 0;
+  border-left: none;
 }
 
 @media (min-width: 1024px) {
   .navLocaleGroup {
-    display: flex;
+    margin-left: 0.35rem;
+    padding-left: 0.65rem;
+    border-left: 1px solid var(--border);
   }
 }
 
 .navLocaleGroupOnDark {
   border-left-color: rgba(255, 255, 255, 0.28);
+}
+
+.navLocaleSep {
+  flex-shrink: 0;
+  padding: 0 0.2em;
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  font-weight: 600;
+  color: var(--muted);
+  user-select: none;
+  line-height: 1;
+}
+
+@media (max-width: 1023px) {
+  .navLocaleSep {
+    font-size: 0.5625rem;
+    padding: 0 0.12em;
+  }
+}
+
+.navLocaleGroupOnDark .navLocaleSep {
+  color: rgba(255, 255, 255, 0.38);
 }
 
 /* Bot ONDA: enlace con marca onda (desktop dentro del <nav>, móvil en la barra) */
@@ -302,9 +324,9 @@
   font-family: var(--font-mono);
   font-size: 0.625rem;
   font-weight: 600;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.12em;
   text-decoration: none;
-  padding: 0.4rem 0.45rem;
+  padding: 0.35rem 0.2rem;
   border-radius: 2px;
   border: none;
   background: transparent;
@@ -312,6 +334,14 @@
   transition:
     color 0.2s ease,
     background-color 0.2s ease;
+}
+
+@media (max-width: 1023px) {
+  .navLocaleLink {
+    font-size: 0.5625rem;
+    letter-spacing: 0.1em;
+    padding: 0.3rem 0.15rem;
+  }
 }
 
 .navLocaleLinkOnLight {
