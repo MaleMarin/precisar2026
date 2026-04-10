@@ -27,7 +27,7 @@ export function ConsultaIntro() {
             <p className={styles.emphasisSm}>Tu forma de informarte importa.</p>
             <div className={styles.tagRow}>
               <span className={styles.tagBlue}>Anónima</span>
-              <span className={styles.tagCoral}>Rápida</span>
+              <span className={styles.tagCoral}>12 preguntas</span>
             </div>
           </div>
         </aside>

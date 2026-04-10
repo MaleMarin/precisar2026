@@ -1,8 +1,4 @@
-export type ConsultaModo = "rapido" | "completo";
-
 export type ConsultaFlowPhase = "awaiting_entry" | "active" | "complete";
-
-export type ConsultaActiveView = "question" | "interstitial";
 
 export type ConsultaStepKind = "multi" | "scale" | "open" | "demographics";
 

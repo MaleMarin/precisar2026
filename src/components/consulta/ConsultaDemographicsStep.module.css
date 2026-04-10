@@ -14,7 +14,7 @@
   font-weight: 700;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: #5c6578;
+  color: rgba(96, 69, 244, 0.88);
 }
 
 .fieldShell {
@@ -39,7 +39,7 @@
   font: inherit;
   font-size: 0.875rem;
   letter-spacing: -0.015em;
-  color: #0a1628;
+  color: #0f1417;
   background: #ffffff;
   border: 1px solid rgba(0, 0, 0, 0.06);
   box-shadow:
@@ -62,8 +62,8 @@
   padding-right: 2.2rem;
   background-color: #ffffff;
   background-image:
-    linear-gradient(45deg, transparent 50%, #1e3c72 50%),
-    linear-gradient(135deg, #1e3c72 50%, transparent 50%);
+    linear-gradient(45deg, transparent 50%, #6045f4 50%),
+    linear-gradient(135deg, #6045f4 50%, transparent 50%);
   background-position:
     calc(100% - 1rem) calc(50% + 0.15rem),
     calc(100% - 0.65rem) calc(50% + 0.15rem);

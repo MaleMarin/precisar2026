@@ -2,14 +2,7 @@
 
 import React, { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
-import {
-  motion,
-  useMotionValue,
-  useReducedMotion,
-  useScroll,
-  useSpring,
-  useTransform,
-} from "framer-motion";
+import { motion, useMotionValue, useScroll, useSpring, useTransform } from "framer-motion";
 import { FOOTER_MEDIA } from "@/lib/site";
 import {
   CHAPTER_IDS,
@@ -645,7 +638,20 @@ function SoundToggle({
 }
 
 function ImmersiveInner() {
-  const reduceMotion = useReducedMotion() ?? false;
+  /**
+   * No usar `useReducedMotion()` directo en el primer render: en SSR suele ser false y en cliente
+   * puede ser true si el usuario activó “reducir movimiento”, → error de hidratación.
+   */
+  const [reduceMotion, setReduceMotion] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const apply = () => setReduceMotion(mq.matches);
+    apply();
+    mq.addEventListener("change", apply);
+    return () => mq.removeEventListener("change", apply);
+  }, []);
+
   const active = useActiveChapter(CHAPTER_IDS);
   const [soundOn, setSoundOn] = useState(false);
   const { copy } = useImmersiveLocale();

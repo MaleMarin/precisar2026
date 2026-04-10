@@ -5,7 +5,6 @@ import { useConsultaLivePulse } from "./ConsultaLiveMapProvider";
 import { useConsultaFlow } from "./ConsultaFlowContext";
 import { ConsultaCompletion } from "./ConsultaCompletion";
 import { ConsultaDemographicsStep } from "./ConsultaDemographicsStep";
-import { ConsultaInterstitialStep } from "./ConsultaInterstitialStep";
 import { ConsultaOpenTextStep } from "./ConsultaOpenTextStep";
 import { ConsultaProgress } from "./ConsultaProgress";
 import { ConsultaQuestionStep } from "./ConsultaQuestionStep";
@@ -19,11 +18,8 @@ const STEP_HEADING_ID = "consulta-step-title";
 
 export function ConsultaWizard() {
   const {
-    modo,
     phase,
-    activeView,
     questionIndex,
-    quickExtended,
     answers,
     setMultiAnswer,
     setScaleAnswer,
@@ -31,8 +27,6 @@ export function ConsultaWizard() {
     patchDemographics,
     advance,
     back,
-    finishQuickNow,
-    continueQuickMore,
     restartEntire,
   } = useConsultaFlow();
 
@@ -40,26 +34,23 @@ export function ConsultaWizard() {
 
   const [softError, setSoftError] = useState<string | null>(null);
 
-  const step = phase === "active" && activeView === "question" ? getStepDefinition(questionIndex) : undefined;
+  const step = phase === "active" ? getStepDefinition(questionIndex) : undefined;
 
   const liveMsg = useMemo(() => {
-    if (phase === "active" && activeView === "question" && step) {
+    if (phase === "active" && step) {
       return `Pregunta ${questionIndex + 1}. ${step.prompt.slice(0, 80)}`;
-    }
-    if (phase === "active" && activeView === "interstitial") {
-      return "Mitad del recorrido: puedes terminar aquí o seguir con más preguntas.";
     }
     if (phase === "complete") {
       return "Gracias, terminaste el recorrido.";
     }
     return "";
-  }, [phase, activeView, step, questionIndex]);
+  }, [phase, step, questionIndex]);
 
   useEffect(() => {
     queueMicrotask(() => {
       setSoftError(null);
     });
-  }, [questionIndex, activeView, phase]);
+  }, [questionIndex, phase]);
 
   useEffect(() => {
     if (phase === "complete") {
@@ -69,12 +60,8 @@ export function ConsultaWizard() {
     if (phase === "awaiting_entry") {
       return;
     }
-    if (phase === "active" && activeView === "interstitial") {
-      document.getElementById("consulta-interstitial-title")?.focus();
-      return;
-    }
     document.getElementById(STEP_HEADING_ID)?.focus();
-  }, [questionIndex, activeView, phase]);
+  }, [questionIndex, phase]);
 
   const onPrimary = useCallback(() => {
     const r = advance();
@@ -85,47 +72,17 @@ export function ConsultaWizard() {
     pulseOnAnswer();
   }, [advance, pulseOnAnswer]);
 
-  const prog =
-    modo && phase === "active"
-      ? progressCurrent({
-          modo,
-          quickExtended,
-          activeView,
-          questionIndex,
-        })
-      : null;
+  const prog = phase === "active" ? progressCurrent({ questionIndex }) : null;
 
   const isLastQuestion = questionIndex >= 11;
-  const canBack =
-    phase === "active" &&
-    (activeView === "interstitial" || (activeView === "question" && questionIndex > 0));
+  const canBack = phase === "active" && questionIndex > 0;
 
   let body: ReactNode;
 
   if (phase === "complete") {
-    body = (
-      <ConsultaCompletion modo={modo} quickExtended={quickExtended} onRestart={restartEntire} />
-    );
+    body = <ConsultaCompletion onRestart={restartEntire} />;
   } else if (phase === "awaiting_entry") {
     body = null;
-  } else if (activeView === "interstitial") {
-    body = (
-      <>
-        {prog ? (
-          <ConsultaProgress
-            current={prog.current}
-            total={prog.total}
-            remainingAfterThis={0}
-            modeLabel="interstitial"
-          />
-        ) : null}
-        <ConsultaInterstitialStep
-          onFinishNow={finishQuickNow}
-          onMore={continueQuickMore}
-          onBack={back}
-        />
-      </>
-    );
   } else if (step) {
     body = (
       <>

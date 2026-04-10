@@ -4,10 +4,9 @@ type Props = {
   current: number;
   total: number;
   remainingAfterThis: number;
-  modeLabel?: "interstitial";
 };
 
-export function ConsultaProgress({ current, total, remainingAfterThis, modeLabel }: Props) {
+export function ConsultaProgress({ current, total, remainingAfterThis }: Props) {
   const pct = total > 0 ? (current / total) * 100 : 0;
   const showSegments = total <= 12 && total >= 1;
 
@@ -16,14 +15,12 @@ export function ConsultaProgress({ current, total, remainingAfterThis, modeLabel
       <div className={styles.progressDock}>
         <div className={styles.inner}>
           <div className={styles.row}>
-            <p className={styles.label}>
-              {modeLabel === "interstitial" ? "Mitad del recorrido" : "Tu avance"}
-            </p>
+            <p className={styles.label}>Tu avance</p>
             <p className={styles.count} aria-hidden="true">
               {current} / {total}
             </p>
           </div>
-          {remainingAfterThis > 0 && modeLabel !== "interstitial" ? (
+          {remainingAfterThis > 0 ? (
             <p className={styles.remaining}>Quedan {remainingAfterThis} preguntas</p>
           ) : null}
 
@@ -33,9 +30,7 @@ export function ConsultaProgress({ current, total, remainingAfterThis, modeLabel
                 const n = i + 1;
                 const altBlue = i % 2 === 0;
                 let cls = styles.segment;
-                if (modeLabel === "interstitial") {
-                  cls += ` ${altBlue ? styles.segmentDoneBlue : styles.segmentDoneCoral}`;
-                } else if (n < current) {
+                if (n < current) {
                   cls += ` ${altBlue ? styles.segmentDoneBlue : styles.segmentDoneCoral}`;
                 } else if (n === current) {
                   cls += ` ${altBlue ? styles.segmentCurrentBlue : styles.segmentCurrentCoral}`;

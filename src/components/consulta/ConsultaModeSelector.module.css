@@ -8,13 +8,13 @@
   z-index: 1;
   border-radius: 20px;
   padding: clamp(1.25rem, 3.2vw, 1.65rem);
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(235, 235, 237, 0.95);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.75);
   box-shadow:
-    0 20px 40px rgba(0, 0, 0, 0.08),
-    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    0 20px 40px rgba(0, 0, 0, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.85);
   display: flex;
   flex-direction: column;
   gap: clamp(1.15rem, 3vw, 1.5rem);
@@ -39,7 +39,7 @@
   font-weight: 700;
   letter-spacing: -0.04em;
   line-height: 1.12;
-  color: var(--sheet-heading, #1e3c72);
+  color: var(--sheet-heading, #6045f4);
 }
 
 .lead {
@@ -84,7 +84,7 @@
 }
 
 .modeChoice:focus-visible {
-  outline: 2px solid #4da3ff;
+  outline: 2px solid #6045f4;
   outline-offset: 3px;
 }
 
@@ -102,9 +102,9 @@
 }
 
 .modeChoice[data-selected="true"] .modeCardBody {
-  border: 2px solid #4da3ff;
+  border: 2px solid #6045f4;
   box-shadow:
-    0 0 0 4px rgba(77, 163, 255, 0.1),
+    0 0 0 4px rgba(96, 69, 244, 0.12),
     0 12px 24px rgba(0, 0, 0, 0.08),
     inset 0 1px 0 rgba(255, 255, 255, 0.7);
 }
@@ -114,7 +114,7 @@
   font-size: 1rem;
   font-weight: 700;
   letter-spacing: -0.03em;
-  color: var(--sheet-heading, #1e3c72);
+  color: var(--sheet-heading, #6045f4);
 }
 
 .meta {
@@ -139,7 +139,7 @@
   font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: #4da3ff;
+  color: #53e6d4;
 }
 
 .decisionFooter {
@@ -171,7 +171,7 @@
 }
 
 .continueBtn:focus-visible {
-  outline: 2px solid #4da3ff;
+  outline: 2px solid #6045f4;
   outline-offset: 3px;
 }
 
@@ -184,10 +184,10 @@
   padding: 1rem 1.35rem 1.1rem;
   border-radius: 999px;
   color: #ffffff;
-  background: linear-gradient(135deg, #ff4d6d, #ff7a18);
+  background: linear-gradient(135deg, #6045f4 0%, #4b35c4 52%, #53e6d4 100%);
   box-shadow:
-    0 10px 30px rgba(255, 77, 109, 0.4),
-    0 4px 10px rgba(0, 0, 0, 0.1);
+    0 10px 30px rgba(96, 69, 244, 0.38),
+    0 4px 10px rgba(0, 0, 0, 0.12);
 }
 
 .continueBtn:disabled .continueSolidInner {
@@ -215,49 +215,49 @@
 }
 
 :global([data-consulta-page][data-live-map="true"]) .sheetCard {
-  background: rgba(12, 16, 30, 0.75);
-  border: 1px solid rgba(100, 180, 255, 0.14);
+  background: rgba(15, 20, 23, 0.78);
+  border: 1px solid rgba(83, 230, 212, 0.2);
   box-shadow:
-    0 20px 48px rgba(0, 0, 0, 0.4),
-    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    0 20px 48px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
 }
 
 :global([data-consulta-page][data-live-map="true"]) .kicker {
-  color: rgba(160, 200, 255, 0.5);
+  color: rgba(83, 230, 212, 0.68);
 }
 
 :global([data-consulta-page][data-live-map="true"]) .title {
-  color: #e8f0ff;
+  color: #ffffff;
 }
 
 :global([data-consulta-page][data-live-map="true"]) .lead {
-  color: rgba(200, 215, 245, 0.88);
+  color: rgba(255, 255, 255, 0.88);
 }
 
 :global([data-consulta-page][data-live-map="true"]) .modeCardBody {
-  background: rgba(18, 24, 42, 0.9);
-  border: 1px solid rgba(100, 180, 255, 0.1);
+  background: rgba(15, 20, 23, 0.92);
+  border: 1px solid rgba(83, 230, 212, 0.14);
   box-shadow:
-    0 12px 28px rgba(0, 0, 0, 0.35),
-    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    0 12px 28px rgba(0, 0, 0, 0.38),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
 :global([data-consulta-page][data-live-map="true"]) .modeChoice[data-selected="true"] .modeCardBody {
-  border: 2px solid rgba(100, 200, 255, 0.55);
+  border: 2px solid rgba(83, 230, 212, 0.5);
   box-shadow:
-    0 0 0 3px rgba(77, 163, 255, 0.12),
-    0 12px 28px rgba(0, 0, 0, 0.4),
+    0 0 0 3px rgba(96, 69, 244, 0.14),
+    0 12px 28px rgba(0, 0, 0, 0.42),
     inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
 :global([data-consulta-page][data-live-map="true"]) .choiceTitle {
-  color: #e8f0ff;
+  color: rgba(255, 255, 255, 0.95);
 }
 
 :global([data-consulta-page][data-live-map="true"]) .desc {
-  color: rgba(200, 215, 245, 0.85);
+  color: rgba(255, 255, 255, 0.82);
 }
 
 :global([data-consulta-page][data-live-map="true"]) .meta {
-  color: rgba(160, 190, 230, 0.55);
+  color: rgba(255, 255, 255, 0.48);
 }

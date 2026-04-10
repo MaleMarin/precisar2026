@@ -4,22 +4,12 @@ import cx from "./ConsultaWizard.module.css";
 import st from "./ConsultaSteps.module.css";
 import { consultaStepTextStyle } from "./consultaStepTextStyle";
 import flowShell from "@/app/consulta/ConsultaFlowSlot.module.css";
-import type { ConsultaModo } from "@/lib/consulta/types";
 
 type Props = {
-  modo: ConsultaModo | null;
-  quickExtended: boolean;
   onRestart: () => void;
 };
 
-export function ConsultaCompletion({ modo, quickExtended, onRestart }: Props) {
-  const detail =
-    modo === "rapido" && !quickExtended
-      ? "Dejaste el recorrido rápido en el punto intermedio."
-      : modo === "rapido" && quickExtended
-        ? "Completaste el recorrido rápido, con las preguntas extra."
-        : "Completaste el recorrido completo.";
-
+export function ConsultaCompletion({ onRestart }: Props) {
   return (
     <div>
       <p className={flowShell.kicker} style={consultaStepTextStyle.eyebrow}>
@@ -34,8 +24,8 @@ export function ConsultaCompletion({ modo, quickExtended, onRestart }: Props) {
         Gracias por tu tiempo
       </h3>
       <p className={cx.completeText} style={consultaStepTextStyle.helper}>
-        {detail} Lo que compartiste nos ayuda a entender cómo llega la información al día a día de las
-        personas.
+        Completaste las 12 preguntas y el bloque de datos básicos. Lo que compartiste nos ayuda a
+        entender cómo llega la información al día a día de las personas.
       </p>
       <div className={st.navLightDock}>
         <button type="button" className={cx.restartBtn} onClick={onRestart}>

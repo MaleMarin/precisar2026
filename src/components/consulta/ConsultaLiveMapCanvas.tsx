@@ -109,12 +109,12 @@ export const ConsultaLiveMapCanvas = forwardRef<ConsultaLiveMapHandle>(function 
         return;
       }
 
-      ctx.fillStyle = "#03060f";
+      ctx.fillStyle = "#1f0a10";
       ctx.fillRect(0, 0, w, h);
 
       ctx.save();
       ctx.globalAlpha = 0.055;
-      ctx.strokeStyle = "#4da3ff";
+      ctx.strokeStyle = "rgba(21, 93, 132, 0.4)";
       ctx.lineWidth = 1;
       for (let i = 0; i < 6; i++) {
         const x = (i / 5) * w;
@@ -132,7 +132,7 @@ export const ConsultaLiveMapCanvas = forwardRef<ConsultaLiveMapHandle>(function 
         const t = Math.min(1, age / 780);
         const ez = easeOutCubic(t);
         const r = 2 + ez * 6.5;
-        const hue = 198 + ux * 132;
+        const hue = 195 + ux * 85;
         return { x, y, r, age, hue, n: 1 };
       });
 
@@ -190,7 +190,7 @@ export const ConsultaLiveMapCanvas = forwardRef<ConsultaLiveMapHandle>(function 
           ctx.font = `600 ${fs}px system-ui, sans-serif`;
           ctx.textAlign = "center";
           ctx.textBaseline = "middle";
-          ctx.fillStyle = `rgba(230, 245, 255, ${0.5 + ez * 0.4})`;
+          ctx.fillStyle = `rgba(220, 252, 245, ${0.5 + ez * 0.4})`;
           ctx.fillText(String(b.n), cx, cy + 0.5);
           ctx.restore();
         }

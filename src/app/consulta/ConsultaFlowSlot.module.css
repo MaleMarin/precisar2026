@@ -27,13 +27,13 @@
   padding: 0;
   overflow: hidden;
   border-radius: 20px;
-  background: rgba(255, 255, 255, 0.92);
+  background: rgba(235, 235, 237, 0.97);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.75);
   box-shadow:
-    0 12px 24px rgba(0, 0, 0, 0.06),
-    inset 0 1px 0 rgba(255, 255, 255, 0.7);
+    0 12px 24px rgba(0, 0, 0, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.85);
 }
 
 .flowBody {
@@ -49,7 +49,7 @@
   font-weight: 700;
   letter-spacing: 0.32em;
   text-transform: uppercase;
-  color: var(--sheet-kicker, #8b95a8);
+  color: var(--sheet-kicker, rgba(96, 69, 244, 0.8));
 }
 
 .heading {
@@ -58,7 +58,7 @@
   font-weight: 700;
   letter-spacing: -0.035em;
   line-height: 1.2;
-  color: var(--sheet-heading, #0a0e18);
+  color: var(--sheet-heading, #6045f4);
 }
 
 .text {
@@ -66,7 +66,7 @@
   font-size: 0.8125rem;
   line-height: 1.62;
   font-weight: 400;
-  color: var(--sheet-body, #4a5568);
+  color: var(--sheet-body, rgba(15, 20, 23, 0.85));
   max-width: min(100%, 52rem);
 }
 
@@ -86,7 +86,7 @@
   gap: 0.65rem;
   font-size: 0.78125rem;
   line-height: 1.45;
-  color: var(--sheet-body, #4a5568);
+  color: var(--sheet-body, rgba(15, 20, 23, 0.85));
 }
 
 .stepNum {
@@ -100,8 +100,8 @@
   font-size: 0.59375rem;
   font-weight: 800;
   color: #ffffff;
-  background: linear-gradient(135deg, #4da3ff, #2a5298);
-  box-shadow: 0 4px 12px rgba(77, 163, 255, 0.25);
+  background: linear-gradient(135deg, #6045f4, #53e6d4);
+  box-shadow: 0 4px 12px rgba(96, 69, 244, 0.35);
 }
 
 .stepCopy {
@@ -115,12 +115,12 @@
  */
 :global([data-consulta-page][data-live-map="true"]) #consulta-flujo .inner,
 :global([data-consulta-page][data-live-map="true"]) #consulta-flujo [data-consulta-wizard-inner="true"] {
-  background: rgba(255, 255, 255, 0.97);
-  border: 1px solid rgba(0, 0, 0, 0.07);
+  background: rgba(235, 235, 237, 0.98);
+  border: 1px solid rgba(15, 20, 23, 0.08);
   box-shadow:
-    0 16px 40px rgba(0, 0, 0, 0.12),
-    inset 0 1px 0 rgba(255, 255, 255, 0.9);
-  color: #0a1628;
+    0 16px 40px rgba(0, 0, 0, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.95);
+  color: #0f1417;
 }
 
 :global([data-consulta-page][data-live-map="true"]) #consulta-flujo .wizChrome {
@@ -129,13 +129,13 @@
 
 /* Dentro del flujo el panel suele ser claro: mantener tinta oscura (no heredar tema del contentSheet). */
 :global([data-consulta-page][data-live-map="true"]) #consulta-flujo .kicker {
-  color: #5c6578;
+  color: rgba(96, 69, 244, 0.85);
 }
 
 :global([data-consulta-page][data-live-map="true"]) #consulta-flujo .heading {
-  color: #0a1628;
+  color: #6045f4;
 }
 
 :global([data-consulta-page][data-live-map="true"]) #consulta-flujo .text {
-  color: #3d4d60;
+  color: rgba(15, 20, 23, 0.85);
 }

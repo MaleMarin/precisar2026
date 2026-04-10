@@ -1,23 +1,46 @@
 .consultaRoot {
-  --cq-mock-blue: #0096ff;
-  --cq-mock-coral: #ff4d6d;
-  --cq-focus-ring: #4da3ff;
-  --cq-selected: #4da3ff;
+  /* Paleta consulta: Royal Purple, Neon Mint, Soft Gray, Carbon Black */
+  --cq-royal: #6045f4;
+  --cq-mint: #53e6d4;
+  --cq-soft: #ebebed;
+  --cq-carbon: #0f1417;
 
-  --sheet-heading: #1e3c72;
-  --sheet-body: #5a6578;
-  --sheet-kicker: #7c8aa3;
-  --sheet-muted: #6b7280;
+  --cq-wine: #6045f4;
+  --cq-indigo: #53e6d4;
+  --cq-rust: #53e6d4;
+  --cq-mock-blue: #6045f4;
+  --cq-mock-coral: #53e6d4;
+  --cq-focus-ring: #6045f4;
+  --cq-selected: #6045f4;
+
+  --cq-ink-on-light: #0f1417;
+  --cq-ink-on-light-muted: rgba(15, 20, 23, 0.62);
+  --cq-ink-on-dark: rgba(255, 255, 255, 0.94);
+
+  /* Placas “glass” (ConsultaMaterial) — base carbón */
+  --cq-plate-deep: #121820;
+  --cq-plate-wiz: #151c24;
+  --cq-g-depth-out: rgba(0, 0, 0, 0.55);
+  --cq-g-depth-in: rgba(0, 0, 0, 0.42);
+  --cq-g-key-soft: rgba(255, 255, 255, 0.08);
+  --cq-blur-opt: 12px;
+  --cq-blur-btn: 14px;
+  --cq-blur-btn-2: 12px;
+
+  --sheet-heading: #6045f4;
+  --sheet-body: rgba(15, 20, 23, 0.88);
+  --sheet-kicker: rgba(96, 69, 244, 0.78);
+  --sheet-muted: rgba(15, 20, 23, 0.55);
 
   min-height: 100vh;
   font-family: var(--font-consulta), ui-sans-serif, system-ui, sans-serif;
-  color: var(--sheet-body);
-  background-color: #f4f6fb;
+  color: rgba(255, 255, 255, 0.92);
+  background-color: #0f1417;
   background-image:
-    radial-gradient(ellipse 120% 80% at 10% -10%, rgba(77, 163, 255, 0.14), transparent 55%),
-    radial-gradient(ellipse 90% 70% at 90% 15%, rgba(167, 139, 250, 0.1), transparent 50%),
-    radial-gradient(ellipse 100% 60% at 50% 100%, rgba(255, 120, 100, 0.08), transparent 55%),
-    linear-gradient(165deg, #f4f6fb 0%, #eef1fa 35%, #f2f0fb 70%, #faf6f7 100%);
+    radial-gradient(ellipse 120% 80% at 10% -10%, rgba(96, 69, 244, 0.22), transparent 55%),
+    radial-gradient(ellipse 90% 70% at 90% 15%, rgba(83, 230, 212, 0.1), transparent 50%),
+    radial-gradient(ellipse 100% 60% at 50% 100%, rgba(96, 69, 244, 0.08), transparent 55%),
+    linear-gradient(165deg, #0f1417 0%, #121a22 35%, #0f1417 70%, #0c1014 100%);
   background-attachment: fixed;
   -webkit-font-smoothing: antialiased;
 }
@@ -54,13 +77,13 @@
   margin-top: -0.65rem;
   padding: clamp(1.35rem, 3vw, 2rem) clamp(1.25rem, 3vw, 2.25rem) clamp(2rem, 5vw, 3.25rem);
   border-radius: 20px;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(235, 235, 237, 0.96);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.65);
   box-shadow:
-    0 20px 40px rgba(0, 0, 0, 0.08),
-    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    0 20px 40px rgba(0, 0, 0, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.75);
   display: flex;
   flex-direction: column;
   gap: clamp(1.75rem, 5vw, 2.5rem);
@@ -73,15 +96,15 @@
   z-index: 1;
   background: transparent;
   background-image: none;
-  color: rgba(220, 230, 255, 0.88);
+  color: rgba(255, 255, 255, 0.94);
 }
 
 .consultaRoot[data-live-map="true"]::before {
-  opacity: 0.35;
+  opacity: 0.45;
   background:
-    radial-gradient(ellipse 100% 80% at 50% -20%, rgba(0, 90, 180, 0.18), transparent 55%),
-    radial-gradient(ellipse 80% 60% at 100% 60%, rgba(180, 40, 60, 0.1), transparent 45%),
-    radial-gradient(ellipse 70% 50% at 50% 0%, rgba(80, 160, 255, 0.08), transparent 65%);
+    radial-gradient(ellipse 100% 80% at 50% -20%, rgba(96, 69, 244, 0.18), transparent 55%),
+    radial-gradient(ellipse 80% 60% at 100% 60%, rgba(15, 20, 23, 0.35), transparent 45%),
+    radial-gradient(ellipse 70% 50% at 50% 0%, rgba(83, 230, 212, 0.08), transparent 65%);
 }
 
 .consultaRoot[data-live-map="true"] .main {
@@ -90,16 +113,16 @@
 }
 
 .consultaRoot[data-live-map="true"] .contentSheet {
-  background: rgba(8, 12, 26, 0.62);
-  border: 1px solid rgba(100, 180, 255, 0.18);
+  background: rgba(15, 20, 23, 0.82);
+  border: 1px solid rgba(83, 230, 212, 0.22);
   box-shadow:
-    0 24px 48px rgba(0, 0, 0, 0.45),
+    0 24px 48px rgba(0, 0, 0, 0.5),
     inset 0 1px 0 rgba(255, 255, 255, 0.06);
-  color: rgba(215, 225, 250, 0.9);
-  --sheet-heading: #e8f0ff;
-  --sheet-body: rgba(200, 215, 245, 0.88);
-  --sheet-kicker: rgba(160, 190, 255, 0.55);
-  --sheet-muted: rgba(170, 190, 230, 0.55);
+  color: rgba(255, 255, 255, 0.92);
+  --sheet-heading: #ffffff;
+  --sheet-body: rgba(255, 255, 255, 0.88);
+  --sheet-kicker: rgba(83, 230, 212, 0.75);
+  --sheet-muted: rgba(255, 255, 255, 0.55);
 }
 
 /*
@@ -107,9 +130,9 @@
  * Sin esto, hereda el color azul claro del .contentSheet y cualquier var(--sheet-*) ilegible sobre blanco.
  */
 .consultaRoot[data-live-map="true"] #consulta-flujo {
-  color: #0a1628;
-  --sheet-heading: #0a1628;
-  --sheet-body: #2d3a4a;
-  --sheet-kicker: #4a5568;
-  --sheet-muted: #5a6570;
+  color: #0f1417;
+  --sheet-heading: #6045f4;
+  --sheet-body: rgba(15, 20, 23, 0.9);
+  --sheet-kicker: rgba(96, 69, 244, 0.85);
+  --sheet-muted: rgba(15, 20, 23, 0.58);
 }

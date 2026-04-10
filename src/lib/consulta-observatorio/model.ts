@@ -32,11 +32,11 @@ export const QDEFS: QuestionDef[] = [
     f: "¿Por dónde te informas más en este momento?",
     why: "El canal define el tipo de información que recibes y cómo te llega.",
     slots: [
-      { l: "Redes sociales", c: "#9430BF" },
-      { l: "WhatsApp/TG", c: "#05F2F2" },
-      { l: "YouTube/Pod.", c: "#0596A6" },
-      { l: "TV/Radio/Prensa", c: "#F2A007" },
-      { l: "IA/Personas", c: "#e879f9" },
+      { l: "Redes sociales", c: "#9D2A80" },
+      { l: "WhatsApp/TG", c: "#155D84" },
+      { l: "YouTube/Pod.", c: "#155D84" },
+      { l: "TV/Radio/Prensa", c: "#D03F37" },
+      { l: "IA/Personas", c: "#9D2A80" },
     ],
   },
   {
@@ -45,11 +45,11 @@ export const QDEFS: QuestionDef[] = [
     f: "¿Por qué usas más esos canales?",
     why: "La motivación revela las barreras reales para acceder a información de calidad.",
     slots: [
-      { l: "Rápido/Cómodo", c: "#05F2F2" },
-      { l: "Hábito", c: "#9430BF" },
-      { l: "Confianza", c: "#0596A6" },
-      { l: "Me ayuda a entender", c: "#F2A007" },
-      { l: "Primero/Gratis", c: "#e879f9" },
+      { l: "Rápido/Cómodo", c: "#155D84" },
+      { l: "Hábito", c: "#9D2A80" },
+      { l: "Confianza", c: "#155D84" },
+      { l: "Me ayuda a entender", c: "#D03F37" },
+      { l: "Primero/Gratis", c: "#9D2A80" },
     ],
   },
   {
@@ -58,11 +58,11 @@ export const QDEFS: QuestionDef[] = [
     f: "¿Qué temas sigues para entender lo que pasa a tu alrededor?",
     why: "Los temas que seguimos revelan qué narrativas moldean la percepción pública.",
     slots: [
-      { l: "Política/Seguridad", c: "#9430BF" },
-      { l: "Economía/Trabajo", c: "#F2A007" },
-      { l: "Salud/Educación", c: "#0596A6" },
-      { l: "Tecnología/IA", c: "#05F2F2" },
-      { l: "Cultura/Derechos", c: "#e879f9" },
+      { l: "Política/Seguridad", c: "#9D2A80" },
+      { l: "Economía/Trabajo", c: "#D03F37" },
+      { l: "Salud/Educación", c: "#155D84" },
+      { l: "Tecnología/IA", c: "#155D84" },
+      { l: "Cultura/Derechos", c: "#9D2A80" },
     ],
   },
   {
@@ -71,11 +71,11 @@ export const QDEFS: QuestionDef[] = [
     f: "¿Qué te preocupa más de la información que recibes?",
     why: "Conocer los miedos permite diseñar herramientas de protección efectivas.",
     slots: [
-      { l: "Noticias falsas", c: "#9430BF" },
-      { l: "Manipulación/Sesgo", c: "#05F2F2" },
-      { l: "Titulares engañosos", c: "#F2A007" },
-      { l: "Privacidad/Datos", c: "#0596A6" },
-      { l: "Exceso/Violencia", c: "#e879f9" },
+      { l: "Noticias falsas", c: "#9D2A80" },
+      { l: "Manipulación/Sesgo", c: "#155D84" },
+      { l: "Titulares engañosos", c: "#D03F37" },
+      { l: "Privacidad/Datos", c: "#155D84" },
+      { l: "Exceso/Violencia", c: "#9D2A80" },
     ],
   },
   {
@@ -84,11 +84,11 @@ export const QDEFS: QuestionDef[] = [
     f: "¿Qué te ayudaría más a sentir seguridad y confianza?",
     why: "Las respuestas guían el diseño de educación mediática con impacto real.",
     slots: [
-      { l: "Saber la fuente", c: "#05F2F2" },
-      { l: "Comparar fuentes", c: "#9430BF" },
-      { l: "Lenguaje simple", c: "#0596A6" },
-      { l: "Detectar/Verificar", c: "#F2A007" },
-      { l: "Señales IA/Datos", c: "#e879f9" },
+      { l: "Saber la fuente", c: "#155D84" },
+      { l: "Comparar fuentes", c: "#9D2A80" },
+      { l: "Lenguaje simple", c: "#155D84" },
+      { l: "Detectar/Verificar", c: "#D03F37" },
+      { l: "Señales IA/Datos", c: "#9D2A80" },
     ],
   },
   {
@@ -103,11 +103,11 @@ export const QDEFS: QuestionDef[] = [
     f: "Cuando dudas de una información, ¿qué haces normalmente?",
     why: "La respuesta ante la duda define si la desinformación circula o se detiene.",
     slots: [
-      { l: "Busco más info", c: "#05F2F2" },
-      { l: "Reviso con calma", c: "#9430BF" },
-      { l: "Pregunto a alguien", c: "#0596A6" },
-      { l: "Le pregunto a IA", c: "#F2A007" },
-      { l: "Nada/Comparto igual", c: "#e879f9" },
+      { l: "Busco más info", c: "#155D84" },
+      { l: "Reviso con calma", c: "#9D2A80" },
+      { l: "Pregunto a alguien", c: "#155D84" },
+      { l: "Le pregunto a IA", c: "#D03F37" },
+      { l: "Nada/Comparto igual", c: "#9D2A80" },
     ],
   },
   {
@@ -116,11 +116,11 @@ export const QDEFS: QuestionDef[] = [
     f: "¿Qué formato te ayuda más a entender un tema importante?",
     why: "El formato preferido orienta el diseño de materiales educativos accesibles.",
     slots: [
-      { l: "Video corto", c: "#9430BF" },
-      { l: "Texto simple", c: "#05F2F2" },
-      { l: "Infografía", c: "#0596A6" },
-      { l: "Audio", c: "#F2A007" },
-      { l: "Chat/Preguntas", c: "#e879f9" },
+      { l: "Video corto", c: "#9D2A80" },
+      { l: "Texto simple", c: "#155D84" },
+      { l: "Infografía", c: "#155D84" },
+      { l: "Audio", c: "#D03F37" },
+      { l: "Chat/Preguntas", c: "#9D2A80" },
     ],
   },
   {
@@ -129,11 +129,11 @@ export const QDEFS: QuestionDef[] = [
     f: "¿Necesitas alguna adaptación para informarte mejor?",
     why: "La inclusión en el acceso a la información es un derecho, no un extra.",
     slots: [
-      { l: "Sin adaptación", c: "#05F2F2" },
-      { l: "Letra grande", c: "#9430BF" },
-      { l: "Lectura fácil", c: "#0596A6" },
-      { l: "Subtítulos/Audio", c: "#F2A007" },
-      { l: "Contraste/Idioma", c: "#e879f9" },
+      { l: "Sin adaptación", c: "#155D84" },
+      { l: "Letra grande", c: "#9D2A80" },
+      { l: "Lectura fácil", c: "#155D84" },
+      { l: "Subtítulos/Audio", c: "#D03F37" },
+      { l: "Contraste/Idioma", c: "#9D2A80" },
     ],
   },
   {
@@ -142,11 +142,11 @@ export const QDEFS: QuestionDef[] = [
     f: "Cuando un contenido menciona o usa IA, ¿qué querrías saber?",
     why: "La transparencia sobre IA es urgente en un ecosistema de contenido generado.",
     slots: [
-      { l: "Si fue con IA", c: "#05F2F2" },
-      { l: "Qué parte IA", c: "#9430BF" },
-      { l: "Quién revisó", c: "#0596A6" },
-      { l: "Fuentes/Margen", c: "#F2A007" },
-      { l: "No es importante", c: "#e879f9" },
+      { l: "Si fue con IA", c: "#155D84" },
+      { l: "Qué parte IA", c: "#9D2A80" },
+      { l: "Quién revisó", c: "#155D84" },
+      { l: "Fuentes/Margen", c: "#D03F37" },
+      { l: "No es importante", c: "#9D2A80" },
     ],
   },
   {
@@ -191,11 +191,11 @@ export type MockResponseRow = {
 };
 
 export function scaleColor(v: number): string {
-  if (!v) return "rgba(5,242,242,0.3)";
-  if (v < 2) return "#F2A007";
-  if (v < 3) return "#e879f9";
-  if (v < 4) return "#0596A6";
-  return "#05F2F2";
+  if (!v) return "rgba(21,93,132,0.35)";
+  if (v < 2) return "#D03F37";
+  if (v < 3) return "#9D2A80";
+  if (v < 4) return "#155D84";
+  return "#D03F37";
 }
 
 export function makeResp(iso: string): MockResponseRow {
@@ -251,7 +251,7 @@ export type AggOpen = {
 
 export type AggResult = AggMulti | AggScale | AggOpen;
 
-/** Radio del círculo país en el mapa según volumen de respuestas (mock). */
+/** Radio del círculo país según volumen de respuestas (mock). */
 export function observatorioBubbleRadius(responseCount: number): number {
   const raw = 7 + Math.sqrt(responseCount) * 1.8;
   return Math.min(Math.max(raw, 7), 28);
@@ -322,7 +322,7 @@ export function liveFinding(
   }
   if (q.t === "text" || q.t === "demo") {
     return {
-      c: "rgba(5,242,242,0.5)",
+      c: "rgba(21,93,132,0.5)",
       text: `${responses.length} personas han respondido la consulta`,
     };
   }
@@ -366,16 +366,16 @@ export function generateInsights(
       scores.reduce((a, b) => a + b.d.avg, 0) / scores.length
     ).toFixed(1);
     return [
-      { c: "#05F2F2", t: `Más confianza: ${scores[0].name} (${scores[0].d.avg.toFixed(1)}★)` },
+      { c: "#155D84", t: `Más confianza: ${scores[0].name} (${scores[0].d.avg.toFixed(1)}★)` },
       {
-        c: "#F2A007",
+        c: "#D03F37",
         t: `Menos confianza: ${scores[scores.length - 1].name} (${scores[scores.length - 1].d.avg.toFixed(1)}★)`,
       },
-      { c: "#0596A6", t: `Promedio regional: ${avg} de 5 estrellas` },
+      { c: "#9D2A80", t: `Promedio regional: ${avg} de 5 estrellas` },
     ];
   }
   if (q.t === "text" || q.t === "demo") {
-    return [{ c: "rgba(5,242,242,0.5)", t: "Selecciona un país para leer sus respuestas." }];
+    return [{ c: "rgba(21,93,132,0.5)", t: "Selecciona un país para leer sus respuestas." }];
   }
   if (q.t !== "multi") return [];
 

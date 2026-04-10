@@ -1,14 +1,21 @@
+/* Paleta alineada con /consulta: Royal Purple, Neon Mint, Soft Gray, Carbon Black */
 .root {
-  --cv-deep: #0f2744;
-  --cv-mid: #3d5f8f;
-  --cv-accent: #c47048;
-  --cv-surface: #f4f6fa;
-  --cv-border: rgba(26, 55, 95, 0.12);
-  --cv-map-ocean: #dce4ef;
+  --cv-royal: #6045f4;
+  --cv-mint: #53e6d4;
+  --cv-soft: #ebebed;
+  --cv-carbon: #0f1417;
+  --cv-deep: #6045f4;
+  --cv-mid: #53e6d4;
+  --cv-accent: #6045f4;
+  --cv-ink: rgba(15, 20, 23, 0.92);
+  --cv-ink-muted: rgba(15, 20, 23, 0.58);
+  --cv-surface: #ebebed;
+  --cv-border: rgba(96, 69, 244, 0.2);
+  --cv-map-ocean: #ebebed;
 
   min-height: 100dvh;
   background: var(--cv-surface);
-  color: var(--cv-deep);
+  color: var(--cv-ink);
   font-family: var(--font-consulta-viva), system-ui, sans-serif;
 }
 
@@ -20,11 +27,11 @@
 
 .hero {
   border-radius: 16px;
-  background: linear-gradient(145deg, var(--cv-deep) 0%, #1a3d5c 48%, var(--cv-mid) 100%);
+  background: linear-gradient(145deg, #0f1417 0%, #6045f4 42%, #3d2ba8 78%, #53e6d4 100%);
   padding: clamp(1.25rem, 3vw, 1.75rem) clamp(1.25rem, 3vw, 2rem);
   margin-bottom: 1rem;
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  box-shadow: 0 20px 50px rgba(15, 39, 68, 0.18);
+  border: 1px solid rgba(83, 230, 212, 0.28);
+  box-shadow: 0 20px 50px rgba(15, 20, 23, 0.28);
 }
 
 .heroEyebrow {
@@ -32,7 +39,7 @@
   font-size: 0.65rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.55);
+  color: rgba(255, 255, 255, 0.65);
 }
 
 .heroTitle {
@@ -49,7 +56,7 @@
   margin: 0;
   font-size: 0.9375rem;
   line-height: 1.5;
-  color: rgba(255, 255, 255, 0.88);
+  color: rgba(255, 255, 255, 0.9);
   max-width: 36rem;
 }
 
@@ -58,7 +65,7 @@
   padding: 0 0.15rem;
   font-size: 0.875rem;
   line-height: 1.55;
-  color: rgba(15, 39, 68, 0.65);
+  color: var(--cv-ink-muted);
   max-width: 40rem;
 }
 
@@ -68,16 +75,16 @@
 }
 
 .inlineLink {
-  color: var(--cv-mid);
+  color: var(--cv-deep);
   font-weight: 600;
   text-decoration: underline;
-  text-decoration-color: rgba(61, 95, 143, 0.35);
+  text-decoration-color: rgba(96, 69, 244, 0.35);
   text-underline-offset: 0.15em;
 }
 
 .inlineLink:hover {
-  color: var(--cv-deep);
-  text-decoration-color: rgba(15, 39, 68, 0.35);
+  color: #4b35c4;
+  text-decoration-color: rgba(83, 230, 212, 0.45);
 }
 
 .mainGrid {
@@ -121,7 +128,7 @@
   border-radius: 10px;
   border: 1px solid var(--cv-border);
   background: #fff;
-  color: rgba(15, 39, 68, 0.65);
+  color: var(--cv-ink-muted);
   font-size: 0.8125rem;
   font-weight: 600;
   font-family: inherit;
@@ -134,19 +141,19 @@
 }
 
 .layerTab:hover {
-  border-color: rgba(61, 95, 143, 0.35);
-  color: var(--cv-deep);
+  border-color: rgba(96, 69, 244, 0.4);
+  color: var(--cv-carbon);
 }
 
 .layerTabActive {
   background: var(--cv-deep);
   border-color: var(--cv-deep);
   color: #fff;
-  box-shadow: 0 6px 20px rgba(15, 39, 68, 0.2);
+  box-shadow: 0 6px 20px rgba(96, 69, 244, 0.28);
 }
 
 .layerTab:focus-visible {
-  outline: 2px solid var(--cv-accent);
+  outline: 2px solid var(--cv-mint);
   outline-offset: 2px;
 }
 
@@ -154,7 +161,7 @@
   margin: 0 0 0.5rem;
   font-size: 0.75rem;
   line-height: 1.4;
-  color: rgba(15, 39, 68, 0.48);
+  color: rgba(15, 20, 23, 0.48);
 }
 
 .formSection {
@@ -163,7 +170,7 @@
   border: 1px solid var(--cv-border);
   background: #fff;
   padding: clamp(1.1rem, 2.5vw, 1.5rem) clamp(1.1rem, 2.5vw, 1.5rem);
-  box-shadow: 0 12px 36px rgba(15, 40, 75, 0.06);
+  box-shadow: 0 12px 36px rgba(15, 20, 23, 0.08);
 }
 
 .formTitle {
@@ -177,6 +184,6 @@
   margin: 0 0 1rem;
   font-size: 0.875rem;
   line-height: 1.5;
-  color: rgba(15, 39, 68, 0.6);
+  color: var(--cv-ink-muted);
   max-width: 32rem;
 }

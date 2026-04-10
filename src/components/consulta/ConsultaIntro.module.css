@@ -43,22 +43,22 @@
 .sheetCardCompact {
   border-radius: 20px;
   padding: clamp(1.2rem, 3vw, 1.5rem);
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(235, 235, 237, 0.95);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.75);
   box-shadow:
-    0 20px 40px rgba(0, 0, 0, 0.08),
-    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    0 20px 40px rgba(0, 0, 0, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.85);
 }
 
 .sheetCardCompact {
   padding: clamp(1rem, 2.5vw, 1.15rem);
-  background: rgba(255, 255, 255, 0.65);
+  background: rgba(235, 235, 237, 0.88);
 }
 
 .sideStack .sheetCard {
-  background: rgba(255, 255, 255, 0.72);
+  background: rgba(235, 235, 237, 0.92);
 }
 
 .kicker {
@@ -67,7 +67,7 @@
   font-weight: 700;
   letter-spacing: 0.28em;
   text-transform: uppercase;
-  color: var(--sheet-kicker, #7c8aa3);
+  color: var(--sheet-kicker, rgba(96, 69, 244, 0.78));
 }
 
 .title {
@@ -75,14 +75,14 @@
   font-size: clamp(1.05rem, 2.8vw, 1.22rem);
   font-weight: 700;
   letter-spacing: -0.035em;
-  color: var(--sheet-heading, #1e3c72);
+  color: var(--sheet-heading, #6045f4);
 }
 
 .body {
   margin: 0;
   font-size: 0.875rem;
   line-height: 1.65;
-  color: var(--sheet-body, #5a6578);
+  color: var(--sheet-body, rgba(15, 20, 23, 0.88));
 }
 
 .emphasis {
@@ -91,7 +91,7 @@
   line-height: 1.5;
   font-weight: 600;
   letter-spacing: -0.02em;
-  color: var(--sheet-heading, #1e3c72);
+  color: var(--sheet-heading, #6045f4);
 }
 
 .emphasisSm {
@@ -99,7 +99,7 @@
   font-size: 0.84375rem;
   line-height: 1.45;
   font-weight: 600;
-  color: var(--sheet-heading, #1e3c72);
+  color: var(--sheet-heading, #6045f4);
 }
 
 .tagRow {
@@ -120,13 +120,13 @@
 }
 
 .tagBlue {
-  background: linear-gradient(135deg, #4da3ff 0%, #2a5298 100%);
-  box-shadow: 0 6px 16px rgba(77, 163, 255, 0.25);
+  background: linear-gradient(135deg, #6045f4 0%, #4b35c4 52%, #53e6d4 100%);
+  box-shadow: 0 6px 16px rgba(96, 69, 244, 0.28);
 }
 
 .tagCoral {
-  background: linear-gradient(135deg, #ff4d6d, #ff7a18);
-  box-shadow: 0 6px 16px rgba(255, 77, 109, 0.22);
+  background: linear-gradient(135deg, #53e6d4, #6045f4);
+  box-shadow: 0 6px 16px rgba(83, 230, 212, 0.22);
 }
 
 /* Mapa vivo */
@@ -134,28 +134,28 @@
   background: linear-gradient(
     90deg,
     transparent 0%,
-    rgba(100, 180, 255, 0.12) 20%,
-    rgba(255, 100, 80, 0.1) 80%,
+    rgba(96, 69, 244, 0.14) 20%,
+    rgba(83, 230, 212, 0.1) 80%,
     transparent 100%
   );
 }
 
 :global([data-consulta-page][data-live-map="true"]) .sheetCard,
 :global([data-consulta-page][data-live-map="true"]) .sheetCardCompact {
-  background: rgba(12, 16, 30, 0.75);
-  border: 1px solid rgba(100, 180, 255, 0.14);
+  background: rgba(15, 20, 23, 0.78);
+  border: 1px solid rgba(83, 230, 212, 0.2);
   box-shadow:
-    0 20px 48px rgba(0, 0, 0, 0.4),
-    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    0 20px 48px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
 }
 
 :global([data-consulta-page][data-live-map="true"]) .kicker {
-  color: rgba(160, 200, 255, 0.5);
+  color: rgba(83, 230, 212, 0.7);
 }
 
 :global([data-consulta-page][data-live-map="true"]) .title,
 :global([data-consulta-page][data-live-map="true"]) .body,
 :global([data-consulta-page][data-live-map="true"]) .emphasis,
 :global([data-consulta-page][data-live-map="true"]) .emphasisSm {
-  color: rgba(230, 238, 255, 0.92);
+  color: rgba(255, 255, 255, 0.94);
 }

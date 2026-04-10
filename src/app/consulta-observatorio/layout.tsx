@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Consulta Viva · Observatorio en vivo · Precisar",
     description:
-      "Mapa y señales en vivo. La consulta paso a paso está en precisar.net/consulta.",
+      "Señales en vivo por país. La consulta paso a paso está en precisar.net/consulta.",
     url: canonical,
     siteName: SITE.name,
     locale: "es_CL",
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
 export default function ConsultaObservatorioLayout({ children }: { children: ReactNode }) {
   return (
     <div
-      className={`${font.variable} flex min-h-screen w-full flex-1 flex-col overflow-hidden bg-[#021740] text-white antialiased`}
+      className={`${font.variable} flex min-h-screen w-full flex-1 flex-col overflow-hidden bg-[#4E0722] text-white antialiased`}
       style={{ fontFamily: "var(--font-consulta-observatorio), system-ui, sans-serif" }}
     >
       {children}

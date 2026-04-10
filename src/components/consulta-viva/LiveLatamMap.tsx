@@ -7,15 +7,15 @@ import styles from "./LiveLatamMap.module.css";
 
 const PAD = 44;
 
-/** Océano y tierra: una sola familia de azules (sin manchas ni colores por canal). */
-const OCEAN = "#dce4ef";
-const LAND_FILL = "#4a6d9a";
-const LAND_STROKE = "rgba(20, 55, 95, 0.22)";
-const NODE_FILL = "#3a5a82";
-const NODE_EMPTY = "rgba(130, 155, 190, 0.55)";
-const ACCENT = { r: 196, g: 112, b: 72 };
-const LABEL_ON_NODE = "rgba(255,255,255,0.92)";
-const LABEL_EMPTY = "rgba(255,255,255,0.75)";
+/** Océano / tierra / nodos: paleta consulta (soft gray, carbón, royal purple, mint). */
+const OCEAN = "#ebebed";
+const LAND_FILL = "#4a4658";
+const LAND_STROKE = "rgba(96, 69, 244, 0.22)";
+const NODE_FILL = "#6045f4";
+const NODE_EMPTY = "rgba(96, 69, 244, 0.38)";
+const ACCENT = { r: 83, g: 230, b: 212 };
+const LABEL_ON_NODE = "rgba(255,255,255,0.95)";
+const LABEL_EMPTY = "rgba(255,255,255,0.78)";
 
 /**
  * Silueta esquemática en coordenadas normalizadas (misma proyección que los países).

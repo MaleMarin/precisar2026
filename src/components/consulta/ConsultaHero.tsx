@@ -1,3 +1,4 @@
+import { ConsultaStartButton } from "./ConsultaStartButton";
 import styles from "./ConsultaHero.module.css";
 
 export function ConsultaHero() {
@@ -28,9 +29,7 @@ export function ConsultaHero() {
 
             <div className={styles.heroAsideCol}>
               <div className={styles.ctaZone} data-consulta-module="cta">
-                <a href="#consulta-modo" className={styles.ctaPrimary}>
-                  Comenzar
-                </a>
+                <ConsultaStartButton />
               </div>
             </div>
           </div>

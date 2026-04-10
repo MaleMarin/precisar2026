@@ -59,7 +59,7 @@ export function DonutGlyph({ cx, cy, r, d, qDef }: Props) {
         cy={cy}
         r={r}
         fill="none"
-        stroke="rgba(5,242,242,0.12)"
+        stroke="rgba(21,93,132,0.18)"
         strokeWidth={STROKE}
         strokeDasharray="4 4"
       />
@@ -68,7 +68,7 @@ export function DonutGlyph({ cx, cy, r, d, qDef }: Props) {
 
   if (d.tp !== "multi") {
     return (
-      <circle cx={cx} cy={cy} r={r} fill="none" stroke="rgba(5,242,242,0.07)" strokeWidth={STROKE} />
+      <circle cx={cx} cy={cy} r={r} fill="none" stroke="rgba(21,93,132,0.1)" strokeWidth={STROKE} />
     );
   }
 
@@ -76,7 +76,7 @@ export function DonutGlyph({ cx, cy, r, d, qDef }: Props) {
 
   if (!d.cTotal) {
     return (
-      <circle cx={cx} cy={cy} r={r} fill="none" stroke="rgba(5,242,242,0.07)" strokeWidth={STROKE} />
+      <circle cx={cx} cy={cy} r={r} fill="none" stroke="rgba(21,93,132,0.1)" strokeWidth={STROKE} />
     );
   }
 

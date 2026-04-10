@@ -77,7 +77,7 @@ export function ConsultaObservatorioLive() {
           : null;
       const td = Math.round((nowTs - r.ts) / 1000);
       const ts = formatAge(td);
-      const col = dom ? dom.c : "rgba(5,242,242,0.5)";
+      const col = dom ? dom.c : "rgba(21,93,132,0.55)";
       return { key: `${r.iso}-${r.ts}`, name: c?.name ?? r.iso, ts, col, domLabel: dom?.l };
     });
   }, [responses, nowTs]);
@@ -166,14 +166,14 @@ export function ConsultaObservatorioLive() {
               className={styles.mapSvg}
               viewBox="0 0 440 318"
               preserveAspectRatio="xMidYMid meet"
-              aria-label="Mapa de respuestas por país"
+              aria-label="Respuestas por país en vivo"
             >
               <defs>
                 <pattern id="obsDots" width={26} height={26} patternUnits="userSpaceOnUse">
-                  <circle cx={13} cy={13} r={0.65} fill="rgba(5,242,242,0.09)" />
+                  <circle cx={13} cy={13} r={0.65} fill="rgba(21,93,132,0.12)" />
                 </pattern>
               </defs>
-              <rect width={440} height={318} fill="#021740" />
+              <rect width={440} height={318} fill="#4E0722" />
               <rect width={440} height={318} fill="url(#obsDots)" />
               <Legend selQ={selQ} />
               <g>
@@ -259,10 +259,10 @@ function Legend({ selQ }: { selQ: number }) {
   const q = QDEFS[selQ];
   if (q.t === "scale") {
     const items = [
-      { c: "#F2A007", l: "1★ Nada" },
-      { c: "#e879f9", l: "2★ Poca" },
-      { c: "#0596A6", l: "3★ Intermedia" },
-      { c: "#05F2F2", l: "4–5★ Alta" },
+      { c: "#4E0722", l: "1★ Nada" },
+      { c: "#D03F37", l: "2★ Poca" },
+      { c: "#9D2A80", l: "3★ Intermedia" },
+      { c: "#155D84", l: "4–5★ Alta" },
     ];
     const lx = [28, 108, 198, 308];
     return (
@@ -290,7 +290,7 @@ function Legend({ selQ }: { selQ: number }) {
         y={14}
         textAnchor="middle"
         dominantBaseline="central"
-        style={{ fontSize: 12, fontFamily: "sans-serif", fill: "rgba(5,242,242,0.35)" }}
+        style={{ fontSize: 12, fontFamily: "sans-serif", fill: "rgba(21,93,132,0.45)" }}
       >
         Haz clic en un país para leer sus respuestas
       </text>
@@ -339,7 +339,7 @@ function MapCountry({
   const innerR = Math.max(1.5, r - 9);
   const centerIsoPx = r < 14 ? 8 : 9;
   const isSel = c.iso === selIso;
-  let domC = "#05F2F2";
+  let domC = "#155D84";
   if (d.tp === "multi" && d.cTotal > 0) {
     if (qDef.t === "multi") domC = qDef.slots[d.domIdx].c;
   } else if (d.tp === "scale" && d.avg > 0) {
@@ -348,7 +348,7 @@ function MapCountry({
 
   const centerLabel =
     d.tp === "scale" && d.avg > 0 ? d.avg.toFixed(1) : c.iso;
-  const centerColor = d.total > 0 ? domC : "rgba(5,242,242,0.22)";
+  const centerColor = d.total > 0 ? domC : "rgba(21,93,132,0.28)";
 
   return (
     <g
@@ -382,7 +382,7 @@ function MapCountry({
         />
       ) : null}
       <DonutGlyph cx={c.x} cy={c.y} r={r} d={d} qDef={qDef} />
-      <circle cx={c.x} cy={c.y} r={innerR} fill="#021740" />
+      <circle cx={c.x} cy={c.y} r={innerR} fill="#4E0722" />
       <text
         x={c.x}
         y={c.y}
@@ -450,7 +450,7 @@ function SidePanel({
             Haz clic en cualquier país para ver su perfil completo de las 12 preguntas.
           </p>
           <Link href="/consulta" className={styles.ctaAmber}>
-            Suma tu voz al mapa ↗
+            Suma tu opinión ↗
           </Link>
         </div>
       </div>

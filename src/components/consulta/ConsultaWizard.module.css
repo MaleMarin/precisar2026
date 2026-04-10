@@ -13,14 +13,14 @@
   font-size: clamp(1.12rem, 2.6vw, 1.28rem);
   font-weight: 700;
   letter-spacing: -0.03em;
-  color: #0a1628;
+  color: #6045f4;
 }
 
 .completeText {
   margin: 0 0 1.15rem;
   font-size: 0.875rem;
   line-height: 1.6;
-  color: #3d4d60;
+  color: rgba(15, 20, 23, 0.85);
   max-width: min(100%, 48rem);
 }
 
@@ -42,7 +42,7 @@
 }
 
 .restartBtn:focus-visible {
-  outline: 2px solid #0096ff;
+  outline: 2px solid #6045f4;
   outline-offset: 4px;
 }
 

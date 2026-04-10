@@ -1,9 +1,4 @@
-import type {
-  ConsultaAnswers,
-  ConsultaDemographics,
-  ConsultaModo,
-  ConsultaStepDef,
-} from "./types";
+import type { ConsultaAnswers, ConsultaDemographics, ConsultaStepDef } from "./types";
 import { emptyDemographics } from "./types";
 
 export const CONSULTA_STEPS: ConsultaStepDef[] = [
@@ -320,21 +315,12 @@ export function mergeDemographics(
   return { ...emptyDemographics(), ...prev, ...patch };
 }
 
-export function progressTotals(modo: ConsultaModo, quickExtended: boolean): { total: number } {
-  if (modo === "completo") return { total: 12 };
-  return { total: quickExtended ? 12 : 6 };
-}
+const CONSULTA_TOTAL_STEPS = 12;
 
 export function progressCurrent(params: {
-  modo: ConsultaModo;
-  quickExtended: boolean;
-  activeView: "question" | "interstitial";
   questionIndex: number;
 }): { current: number; total: number; remainingAfterThis: number } {
-  const { total } = progressTotals(params.modo, params.quickExtended);
-  if (params.activeView === "interstitial") {
-    return { current: 6, total: 6, remainingAfterThis: 0 };
-  }
+  const total = CONSULTA_TOTAL_STEPS;
   const current = params.questionIndex + 1;
   const remainingAfterThis = Math.max(0, total - current);
   return { current, total, remainingAfterThis };

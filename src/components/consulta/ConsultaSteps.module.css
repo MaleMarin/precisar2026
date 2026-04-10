@@ -14,19 +14,19 @@
  * fuerza --sheet-heading claro (#e8f0ff) y el panel del wizard a veces sigue blanco → texto invisible.
  */
 .stepHead .eyebrow {
-  color: #5c6570;
+  color: rgba(96, 69, 244, 0.88);
 }
 
 .stepHead .prompt {
-  color: #0a1628;
+  color: #6045f4;
 }
 
 .stepHead .helper {
-  color: #3d4d60;
+  color: rgba(15, 20, 23, 0.85);
 }
 
 .stepHead .capHint {
-  color: #5a6570;
+  color: rgba(15, 20, 23, 0.62);
 }
 
 .stepPanel {
@@ -56,7 +56,7 @@
   letter-spacing: 0.28em;
   text-transform: uppercase;
   /* No usar vars del contentSheet (mapa vivo las pone claras) → texto invisible sobre panel blanco */
-  color: #5c6578;
+  color: rgba(96, 69, 244, 0.88);
 }
 
 .prompt {
@@ -65,7 +65,7 @@
   font-weight: 700;
   letter-spacing: -0.042em;
   line-height: 1.18;
-  color: #0a1628;
+  color: #6045f4;
 }
 
 .helper {
@@ -73,7 +73,7 @@
   font-size: 0.84375rem;
   line-height: 1.55;
   font-weight: 500;
-  color: #3d4d60;
+  color: rgba(15, 20, 23, 0.85);
 }
 
 .softError {
@@ -92,7 +92,7 @@
   margin: 0.75rem 0 0;
   font-size: 0.78125rem;
   line-height: 1.45;
-  color: #5a6570;
+  color: rgba(15, 20, 23, 0.62);
 }
 
 /*
@@ -100,19 +100,19 @@
  * a veces el orden de hojas deja la pregunta ilegible en producción.
  */
 :global([data-consulta-page][data-live-map="true"]) #consulta-flujo .stepHead .eyebrow {
-  color: #4a5568 !important;
+  color: rgba(96, 69, 244, 0.9) !important;
 }
 
 :global([data-consulta-page][data-live-map="true"]) #consulta-flujo .stepHead .prompt {
-  color: #061018 !important;
+  color: #6045f4 !important;
 }
 
 :global([data-consulta-page][data-live-map="true"]) #consulta-flujo .stepHead .helper {
-  color: #2d3a4a !important;
+  color: rgba(15, 20, 23, 0.88) !important;
 }
 
 :global([data-consulta-page][data-live-map="true"]) #consulta-flujo .stepHead .capHint {
-  color: #4a5568 !important;
+  color: rgba(15, 20, 23, 0.62) !important;
 }
 
 .optionsGrid {
@@ -150,7 +150,7 @@
 }
 
 .optionBtn:focus-visible {
-  outline: 2px solid #4da3ff;
+  outline: 2px solid #6045f4;
   outline-offset: 3px;
 }
 
@@ -169,9 +169,9 @@
 }
 
 .optionBtn[data-selected="true"] .optionLightCard {
-  border: 2px solid #4da3ff;
+  border: 2px solid #6045f4;
   box-shadow:
-    0 0 0 4px rgba(77, 163, 255, 0.1),
+    0 0 0 4px rgba(96, 69, 244, 0.12),
     0 12px 24px rgba(0, 0, 0, 0.08),
     inset 0 1px 0 rgba(255, 255, 255, 0.7);
 }
@@ -181,7 +181,7 @@
   font-weight: 600;
   line-height: 1.38;
   letter-spacing: -0.018em;
-  color: var(--sheet-heading, #1e3c72);
+  color: var(--sheet-heading, #0f1417);
 }
 
 .navChrome {
@@ -236,11 +236,11 @@
 }
 
 .navGhost:hover:not(:disabled) {
-  color: var(--cq-ink-on-light, #0f3d66);
+  color: var(--cq-ink-on-light, #0f1417);
 }
 
 .navGhost:focus-visible {
-  outline: 2px solid var(--cq-focus-ring, #0096ff);
+  outline: 2px solid var(--cq-focus-ring, #6045f4);
   outline-offset: 2px;
 }
 
@@ -276,10 +276,10 @@
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: #ffffff;
-  background: linear-gradient(135deg, #ff4d6d, #ff7a18);
+  background: linear-gradient(135deg, #6045f4 0%, #4b35c4 52%, #53e6d4 100%);
   box-shadow:
-    0 10px 30px rgba(255, 77, 109, 0.4),
-    0 4px 10px rgba(0, 0, 0, 0.1);
+    0 10px 30px rgba(96, 69, 244, 0.38),
+    0 4px 10px rgba(0, 0, 0, 0.12);
 }
 
 .navPrimaryLabel {
@@ -298,11 +298,11 @@
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--cq-ink-on-light, #0f3d66);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(241, 245, 249, 0.9));
+  color: var(--cq-ink-on-light, #0f1417);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(235, 235, 237, 0.95));
   border-radius: 12px;
-  border: 1px solid rgba(10, 55, 100, 0.08);
-  box-shadow: 0 4px 14px rgba(10, 55, 100, 0.08);
+  border: 1px solid rgba(96, 69, 244, 0.14);
+  box-shadow: 0 4px 14px rgba(15, 20, 23, 0.08);
 }
 
 .navCluster {
@@ -322,11 +322,11 @@
   font-weight: 800;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--cq-ink-on-light, #0f3d66);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(241, 245, 249, 0.95));
+  color: var(--cq-ink-on-light, #0f1417);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(235, 235, 237, 0.96));
   border-radius: 14px;
-  border: 1px solid rgba(10, 55, 100, 0.08);
-  box-shadow: 0 6px 20px rgba(10, 55, 100, 0.08);
+  border: 1px solid rgba(96, 69, 244, 0.14);
+  box-shadow: 0 6px 20px rgba(15, 20, 23, 0.08);
 }
 
 .textArea {
@@ -339,7 +339,7 @@
   font: inherit;
   font-size: 0.90625rem;
   line-height: 1.58;
-  color: var(--cq-ink-on-light, #0f3d66);
+  color: var(--cq-ink-on-light, #0f1417);
   background: transparent;
   resize: vertical;
   min-height: 7.5rem;
@@ -373,9 +373,9 @@
 }
 
 .textAreaWrap:focus-within .textAreaInner {
-  border-color: rgba(77, 163, 255, 0.45);
+  border-color: rgba(96, 69, 244, 0.45);
   box-shadow:
-    0 0 0 4px rgba(77, 163, 255, 0.1),
+    0 0 0 4px rgba(96, 69, 244, 0.1),
     0 12px 24px rgba(0, 0, 0, 0.08),
     inset 0 1px 0 rgba(255, 255, 255, 0.7);
 }
@@ -388,10 +388,10 @@
 }
 
 :global([data-consulta-page][data-live-map="true"]) #consulta-flujo .optionLightCard {
-  background: rgba(18, 24, 42, 0.92);
-  border: 1px solid rgba(100, 180, 255, 0.12);
+  background: rgba(15, 20, 23, 0.94);
+  border: 1px solid rgba(83, 230, 212, 0.16);
   box-shadow:
-    0 10px 24px rgba(0, 0, 0, 0.3),
+    0 10px 24px rgba(0, 0, 0, 0.35),
     inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
@@ -399,57 +399,57 @@
   #consulta-flujo
   .optionBtn[data-selected="true"]
   .optionLightCard {
-  border: 2px solid rgba(100, 200, 255, 0.55);
+  border: 2px solid rgba(83, 230, 212, 0.55);
   box-shadow:
-    0 0 0 3px rgba(77, 163, 255, 0.12),
+    0 0 0 3px rgba(96, 69, 244, 0.14),
     0 12px 28px rgba(0, 0, 0, 0.35),
     inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
 :global([data-consulta-page][data-live-map="true"]) #consulta-flujo .optionLabel {
-  color: #e2ebff;
+  color: rgba(255, 255, 255, 0.94);
 }
 
 :global([data-consulta-page][data-live-map="true"]) #consulta-flujo .navLightDock {
-  background: rgba(12, 16, 30, 0.72);
-  border: 1px solid rgba(100, 180, 255, 0.14);
+  background: rgba(15, 20, 23, 0.78);
+  border: 1px solid rgba(83, 230, 212, 0.2);
   box-shadow:
-    0 16px 36px rgba(0, 0, 0, 0.4),
-    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    0 16px 36px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
 }
 
 :global([data-consulta-page][data-live-map="true"]) #consulta-flujo .navGhost {
-  color: rgba(180, 205, 245, 0.75);
+  color: rgba(255, 255, 255, 0.72);
 }
 
 :global([data-consulta-page][data-live-map="true"]) #consulta-flujo .navGhost:hover:not(:disabled) {
-  color: #e8f0ff;
+  color: #ffffff;
 }
 
 :global([data-consulta-page][data-live-map="true"]) #consulta-flujo .stepPanelInner {
-  background: rgba(18, 24, 42, 0.92);
-  border: 1px solid rgba(100, 180, 255, 0.12);
+  background: rgba(15, 20, 23, 0.94);
+  border: 1px solid rgba(83, 230, 212, 0.18);
   box-shadow:
-    0 12px 28px rgba(0, 0, 0, 0.32),
-    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    0 12px 28px rgba(0, 0, 0, 0.38),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
 :global([data-consulta-page][data-live-map="true"]) #consulta-flujo .textAreaInner {
-  background: rgba(18, 24, 42, 0.92);
-  border: 1px solid rgba(100, 180, 255, 0.12);
+  background: rgba(15, 20, 23, 0.94);
+  border: 1px solid rgba(83, 230, 212, 0.18);
 }
 
 :global([data-consulta-page][data-live-map="true"]) #consulta-flujo .textArea {
-  color: #e8f0ff;
+  color: rgba(255, 255, 255, 0.94);
 }
 
 :global([data-consulta-page][data-live-map="true"]) #consulta-flujo .textArea::placeholder {
-  color: rgba(160, 180, 220, 0.45);
+  color: rgba(255, 255, 255, 0.38);
 }
 
 :global([data-consulta-page][data-live-map="true"]) #consulta-flujo .completionRestart {
-  color: #e8f0ff;
-  background: rgba(18, 24, 42, 0.85);
-  border: 1px solid rgba(100, 180, 255, 0.15);
+  color: rgba(255, 255, 255, 0.94);
+  background: rgba(15, 20, 23, 0.88);
+  border: 1px solid rgba(83, 230, 212, 0.22);
 }
 
