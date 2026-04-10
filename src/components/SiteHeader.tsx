@@ -202,7 +202,7 @@ export function SiteHeader() {
   const localeLinkClass = (loc: string) => {
     const active = locale === loc;
     const base =
-      "font-mono text-[9px] font-semibold uppercase tracking-[0.14em] border-none bg-transparent cursor-pointer px-1 py-1.5 transition-[opacity,color] duration-200";
+      "font-mono text-[10px] font-semibold uppercase tracking-[0.12em] border-none bg-transparent cursor-pointer px-1 py-1.5 transition-[opacity,color] duration-200";
     if (onDarkNav) {
       return `${base} ${active ? "text-white opacity-100" : "text-white opacity-50 hover:opacity-80"}`;
     }
@@ -266,6 +266,7 @@ export function SiteHeader() {
                     "ml-1 lg:ml-[0.35rem] lg:border-l lg:pl-[0.65rem]",
                     onDarkNav ? "lg:border-white/[0.28]" : "lg:border-[var(--border)]",
                   ].join(" ")}
+                  style={{ display: "flex", flexShrink: 0, minWidth: "min-content" }}
                   role="group"
                   aria-label={tLang("switch")}
                 >
@@ -274,7 +275,7 @@ export function SiteHeader() {
                       {i > 0 ? (
                         <span
                           className={[
-                            "shrink-0 select-none px-0.5 font-mono text-[9px] font-semibold leading-none",
+                            "shrink-0 select-none px-0.5 font-mono text-[10px] font-semibold leading-none",
                             onDarkNav ? "text-white/40" : "text-[var(--muted)]",
                           ].join(" ")}
                           aria-hidden

@@ -78,6 +78,14 @@
   object-position: left center;
 }
 
+/* Móvil/tablet: el wordmark no puede comerse casi todo el ancho o ES|PT|EN + menú + Bot Onda quedan fuera. */
+@media (max-width: 1023px) {
+  .navBarLogo {
+    max-width: min(52vw, 300px) !important;
+    height: clamp(56px, 13vw, 96px) !important;
+  }
+}
+
 /* Menos ancho del wordmark en desktop: deja sitio al menú completo sin depender del scroll horizontal */
 @media (min-width: 1024px) {
   .navBarLogo {
