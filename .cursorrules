@@ -1,0 +1,10 @@
+## REGLA DE GIT — OBLIGATORIA
+
+Después de CADA tarea completada, sin excepción:
+
+1. git add -A
+2. git commit -m "descripción corta del cambio"
+3. git push
+
+Nunca terminar una tarea sin hacer push.
+Si el push falla, reportarlo explícitamente.
