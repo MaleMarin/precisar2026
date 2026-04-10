@@ -450,6 +450,21 @@ function StackPanel({
     zIndex: total - index,
   };
 
+  /** Entrada al viewport: inclinación leve hacia “adentro” → plano (capa interior; el exterior sigue el scroll). */
+  const panelDepthEnterProps = useMemo(
+    () =>
+      reduceMotion
+        ? { className: styles.panelDepthEnter }
+        : {
+            className: styles.panelDepthEnter,
+            initial: { rotateX: 2, scale: 0.98 },
+            whileInView: { rotateX: 0, scale: 1 },
+            viewport: { once: true, amount: 0.22 },
+            transition: { duration: 0.6, ease: "easeOut" as const },
+          },
+    [reduceMotion],
+  );
+
   if (editorialContent) {
     const isTall = editorialHeight === "tall";
     const sectionClass = isTall
@@ -462,10 +477,12 @@ function StackPanel({
     return (
       <section ref={ref} className={sectionClass} id={id}>
         <motion.div style={panelMotionStyle} className={panelClassEditorial}>
-          <div className={`${glowClass} ${glowDrift}`.trim()} aria-hidden />
-          <motion.div style={{ scaleX: lineScale }} className={lineClass} aria-hidden />
-          <motion.div style={{ y: contentY }} className={bodyClass}>
-            {editorialContent}
+          <motion.div {...panelDepthEnterProps}>
+            <div className={`${glowClass} ${glowDrift}`.trim()} aria-hidden />
+            <motion.div style={{ scaleX: lineScale }} className={lineClass} aria-hidden />
+            <motion.div style={{ y: contentY }} className={bodyClass}>
+              {editorialContent}
+            </motion.div>
           </motion.div>
         </motion.div>
       </section>
@@ -475,46 +492,48 @@ function StackPanel({
   return (
     <section ref={ref} className={styles.panelSection} id={id}>
       <motion.div style={panelMotionStyle} className={panelClass}>
-        <div className={`${glowClass} ${glowDrift}`.trim()} aria-hidden />
+        <motion.div {...panelDepthEnterProps}>
+          <div className={`${glowClass} ${glowDrift}`.trim()} aria-hidden />
 
-        <motion.div style={{ scaleX: lineScale }} className={lineClass} aria-hidden />
+          <motion.div style={{ scaleX: lineScale }} className={lineClass} aria-hidden />
 
-        <motion.div style={{ y: contentY }} className={gridClass}>
-          <motion.div
-            className={colMainClass}
-            variants={mainBlockVariants}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.25 }}
-          >
-            <div>
-              <motion.div className={kickerClass} variants={mainItemVariants}>
-                <span className={kickerSqClass} />
-                <span>{kicker}</span>
-              </motion.div>
-              {Icon ? (
-                <motion.div className={titleRowClass} variants={mainItemVariants}>
-                  <Icon className={styles.iconSm} />
-                  <span>{label ?? ""}</span>
+          <motion.div style={{ y: contentY }} className={gridClass}>
+            <motion.div
+              className={colMainClass}
+              variants={mainBlockVariants}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.25 }}
+            >
+              <div>
+                <motion.div className={kickerClass} variants={mainItemVariants}>
+                  <span className={kickerSqClass} />
+                  <span>{kicker}</span>
                 </motion.div>
-              ) : null}
-              <motion.h2 className={stackTitleClass} variants={mainItemVariants}>
-                {headline}
-              </motion.h2>
-              <motion.p className={stackBodyClass} variants={mainItemVariants}>
-                {body}
-              </motion.p>
-            </div>
-          </motion.div>
+                {Icon ? (
+                  <motion.div className={titleRowClass} variants={mainItemVariants}>
+                    <Icon className={styles.iconSm} />
+                    <span>{label ?? ""}</span>
+                  </motion.div>
+                ) : null}
+                <motion.h2 className={stackTitleClass} variants={mainItemVariants}>
+                  {headline}
+                </motion.h2>
+                <motion.p className={stackBodyClass} variants={mainItemVariants}>
+                  {body}
+                </motion.p>
+              </div>
+            </motion.div>
 
-          <motion.div
-            className={colAsideClass}
-            variants={asideVariants}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.2 }}
-          >
-            <div className={styles.asideSlot}>{children}</div>
+            <motion.div
+              className={colAsideClass}
+              variants={asideVariants}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.2 }}
+            >
+              <div className={styles.asideSlot}>{children}</div>
+            </motion.div>
           </motion.div>
         </motion.div>
       </motion.div>

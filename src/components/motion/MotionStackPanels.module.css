@@ -27,9 +27,10 @@
   position: relative;
   height: 200vh;
   scroll-margin-top: 5.5rem;
-  /* Perspectiva suave para el rotateX del panel sticky (origen del transform en el propio motion.div). */
-  perspective: 980px;
+  /* Perspectiva + 3D para rotateX del stack y la entrada sutil al viewport. */
+  perspective: 1200px;
   perspective-origin: 50% 36%;
+  transform-style: preserve-3d;
 }
 
 /* Primer panel editorial: más recorrido de scroll antes de que el panel Programas cubra el viewport. */
@@ -61,8 +62,21 @@
     0 36px 120px rgba(0, 0, 0, 0.2),
     0 12px 40px rgba(0, 0, 0, 0.12);
   transform-origin: center top;
-  transform-style: flat;
+  transform-style: preserve-3d;
   will-change: transform;
+}
+
+/* Capa interior: recibe la inclinación inicial al entrar en viewport (el motion.div exterior sigue el scroll). */
+.panelDepthEnter {
+  box-sizing: border-box;
+  display: flex;
+  min-height: 0;
+  flex: 1 1 auto;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transform-origin: 50% 45%;
 }
 
 /** Panel “Qué nos convoca”: el contenido puede ser más alto que 100vh; scroll interno real. */
@@ -821,10 +835,16 @@
 
   .panelSection {
     perspective: none;
+    transform-style: flat;
   }
 
   .stickyPanel {
     will-change: auto;
+    transform-style: flat;
+  }
+
+  .panelDepthEnter {
+    transform-style: flat;
   }
 
   .miniRowMotion:hover .miniRowArrow {
