@@ -177,6 +177,18 @@ function HomeConvocaStackPanelContent() {
 
       <p className={styles.convocaStackIntroSlate}>{t("intro")}</p>
 
+      <section className={styles.convocaStackPropuesta} aria-labelledby="convoca-propuesta-heading">
+        <h3 className={styles.convocaStackPropuestaEyebrow} id="convoca-propuesta-heading">
+          {t("propuesta.eyebrow")}
+        </h3>
+        <div className={styles.convocaStackPropuestaCopy}>
+          <p className={styles.convocaStackPropuestaLead}>{t("propuesta.body1")}</p>
+          <p className={styles.convocaStackPropuestaClosing}>{t("propuesta.body2")}</p>
+        </div>
+      </section>
+
+      <p className={styles.convocaStackIntroSlate}>{t("introContinued")}</p>
+
       <section className={styles.convocaStackChile} aria-labelledby="convoca-chile-heading">
         <h3 className={styles.convocaStackChileEyebrow} id="convoca-chile-heading">
           {t("chile.eyebrow")}
@@ -196,16 +208,6 @@ function HomeConvocaStackPanelContent() {
           </div>
         </div>
         <p className={styles.convocaStackChileOutro}>{t("chile.outro")}</p>
-      </section>
-
-      <section className={styles.convocaStackPropuesta} aria-labelledby="convoca-propuesta-heading">
-        <h3 className={styles.convocaStackPropuestaEyebrow} id="convoca-propuesta-heading">
-          {t("propuesta.eyebrow")}
-        </h3>
-        <div className={styles.convocaStackPropuestaCopy}>
-          <p className={styles.convocaStackPropuestaLead}>{t("propuesta.body1")}</p>
-          <p className={styles.convocaStackPropuestaClosing}>{t("propuesta.body2")}</p>
-        </div>
       </section>
     </div>
   );

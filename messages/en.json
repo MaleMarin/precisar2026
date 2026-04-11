@@ -52,7 +52,8 @@
       "line1": "Less noise,",
       "line2": "more judgment"
     },
-    "intro": "Every day, more information is produced and circulated than we can process. In that environment, platforms, algorithms, and artificial intelligence do not only sort content—they also shape what we see, what we attend to, and what we leave out. More information does not guarantee more understanding: the challenge is to recognise what deserves trust, what distorts, and what truly helps us decide better.",
+    "intro": "Every day, more information is produced and circulated than we can process.",
+    "introContinued": "In that environment, platforms, algorithms, and artificial intelligence do not only sort content—they also shape what we see, what we attend to, and what we leave out. More information does not guarantee more understanding: the challenge is to recognise what deserves trust, what distorts, and what truly helps us decide better.",
     "metrics": {
       "exabytesValue": "463",
       "exabytesLabel": "exabytes of data / day",
