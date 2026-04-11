@@ -1,5 +1,4 @@
-"use client";
-
+"use client"
 import {
   useState,
   useRef,
@@ -8,19 +7,16 @@ import {
   type MouseEvent,
   type TouchEvent,
   type WheelEvent,
-} from "react";
-import dynamic from "next/dynamic";
-import { Canvas } from "@react-three/fiber";
-import styles from "./HubCylinder.module.css";
+} from "react"
+import styles from "./HubCylinder.module.css"
 
-const HubCylinderScene = dynamic(() => import("./HubCylinderScene"), { ssr: false });
-
-const N = 6;
+const N = 6
 
 const CONTENT = [
   {
     kicker: "01 · Presentación",
     title: "Cultura digital\nque viaja",
+    sub: "Portátil. Para cualquier espacio.",
     body: "Portátil y diseñada para cualquier espacio. Lleva la conversación directamente a donde están las personas.",
     groups: [
       {
@@ -35,12 +31,12 @@ const CONTENT = [
         ],
       },
     ],
-    bg: "#DB5227",
-    light: true,
+    bg: "#DB5227", tc: "#F5F2EC",
   },
   {
     kicker: "02 · Contenido",
     title: "Lo que\nencontrarás",
+    sub: "4 elementos que cautivarán.",
     body: "Combinación de elementos visuales, tecnológicos y prácticos que cautivarán a tus participantes desde el primer momento.",
     groups: [
       {
@@ -53,12 +49,12 @@ const CONTENT = [
         ],
       },
     ],
-    bg: "#023661",
-    light: true,
+    bg: "#023661", tc: "#F5F2EC",
   },
   {
     kicker: "03 · Formatos",
     title: "Modelos de\ninstalación",
+    sub: "PIXEL · VECTOR · HOLO",
     body: "Tres paquetes modulares que se ajustan al espacio, la duración y el público de tu evento.",
     groups: [
       {
@@ -93,12 +89,12 @@ const CONTENT = [
         ],
       },
     ],
-    bg: "#F5F2EC",
-    light: false,
+    bg: "#F5F2EC", tc: "#0A0C12",
   },
   {
     kicker: "04 · Implementación",
     title: "10 formas de\nimplementar",
+    sub: "De activaciones a experiencias inmersivas.",
     body: "Desde activaciones previas hasta experiencias inmersivas y gamificación.",
     groups: [
       {
@@ -117,12 +113,12 @@ const CONTENT = [
         ],
       },
     ],
-    bg: "#DB5227",
-    light: true,
+    bg: "#DB5227", tc: "#F5F2EC",
   },
   {
     kicker: "05 · Personalización",
     title: "Ediciones\ntemáticas",
+    sub: "Desinformación · IA · Comunitaria",
     body: "Cada muestra se adapta a un tema específico o se personaliza para tu comunidad.",
     groups: [
       {
@@ -141,21 +137,14 @@ const CONTENT = [
         ],
       },
     ],
-    bg: "#023661",
-    light: true,
+    bg: "#023661", tc: "#F5F2EC",
   },
   {
     kicker: "06 · Contacto",
     title: "Lleva el Hub\na tu espacio",
+    sub: "Diseñamos a medida.",
     body: "Cuéntanos tu espacio, público y duración. Diseñamos una propuesta a medida para tu evento o municipio.",
     groups: [
-      {
-        label: "Cómo lo desarrollamos",
-        items: [
-          "Colaboración con expertos — Profesionales en diversos campos aseguran contenido preciso.",
-          "Investigación en campo — Directamente con la audiencia para entender desafíos reales.",
-        ],
-      },
       {
         label: "El proceso",
         items: [
@@ -164,315 +153,334 @@ const CONTENT = [
           "03 · Co-creamos juntos el montaje, contenidos y cronograma.",
         ],
       },
+      {
+        label: "Cómo lo desarrollamos",
+        items: [
+          "Colaboración con expertos — Profesionales en diversos campos aseguran contenido preciso.",
+          "Investigación en campo — Directamente con la audiencia para entender desafíos reales.",
+        ],
+      },
     ],
-    bg: "#F5F2EC",
-    light: false,
+    bg: "#F5F2EC", tc: "#0A0C12",
   },
-] as const;
+]
 
 export default function HubCylinder() {
-  const [activeIdx, setActiveIdx] = useState(0);
-  const [isExpanded, setIsExpanded] = useState(false);
-  const [expandedIdx, setExpandedIdx] = useState(0);
-  const [blobDir, setBlobDir] = useState<"left" | "right" | "none">("right");
+  const [current, setCurrent] = useState(0)
+  const [isExpanded, setIsExpanded] = useState(false)
+  const [expandedIdx, setExpandedIdx] = useState(0)
+  const [rotation, setRotation] = useState(0)
 
-  const posYRef = useRef(0);
-  const velYRef = useRef(0);
-  const targetRotYRef = useRef(0);
-  const isDragging = useRef(false);
-  const lastX = useRef(0);
-  const dragVelX = useRef(0);
-  const clickStartX = useRef(0);
-  const clickStartY = useRef(0);
-  const blobTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const isDrag = useRef(false)
+  const startX = useRef(0)
+  const lastDx = useRef(0)
+  const rotRef = useRef(0)
+  const animRef = useRef<number | undefined>(undefined)
+  const targetRot = useRef(0)
 
-  const showBlob = useCallback((dir: "left" | "right" | "none") => {
-    setBlobDir(dir);
-    if (blobTimerRef.current !== null) {
-      clearTimeout(blobTimerRef.current);
-      blobTimerRef.current = null;
-    }
-    if (dir !== "none") {
-      blobTimerRef.current = setTimeout(() => setBlobDir("none"), 2500);
-    }
-  }, []);
+  const R = 480
+  const angleStep = 360 / N
 
-  const goTo = useCallback(
-    (i: number) => {
-      const snap = (i / N) * Math.PI * 2;
-      const diff = snap - posYRef.current;
-      const normalized = ((diff + Math.PI * 3) % (Math.PI * 2)) - Math.PI;
-      velYRef.current = normalized * 0.12;
-      setActiveIdx(i);
-      showBlob(normalized > 0 ? "right" : "left");
-    },
-    [showBlob],
-  );
+  const goTo = useCallback((i: number) => {
+    const idx = ((i % N) + N) % N
+    targetRot.current = -(idx / N) * 360
+    setCurrent(idx)
+  }, [])
 
-  const openExpand = useCallback(
-    (idx: number) => {
-      setExpandedIdx(idx);
-      setIsExpanded(true);
-      showBlob("none");
-    },
-    [showBlob],
-  );
+  const next = useCallback(() => goTo(current + 1), [current, goTo])
+  const prev = useCallback(() => goTo(current - 1), [current, goTo])
 
-  const closeExpand = useCallback(() => {
-    setIsExpanded(false);
-    setTimeout(() => showBlob("right"), 400);
-  }, [showBlob]);
-
+  // Animación suave
   useEffect(() => {
-    let rafId = 0;
-    const loop = () => {
-      if (!isDragging.current) {
-        velYRef.current *= 0.95;
-        posYRef.current += velYRef.current;
-      }
-      targetRotYRef.current = posYRef.current;
-      rafId = requestAnimationFrame(loop);
-    };
-    rafId = requestAnimationFrame(loop);
-    return () => cancelAnimationFrame(rafId);
-  }, []);
+    const animate = () => {
+      rotRef.current += (targetRot.current - rotRef.current) * 0.09
+      setRotation(rotRef.current)
+      animRef.current = requestAnimationFrame(animate)
+    }
+    animRef.current = requestAnimationFrame(animate)
+    return () => {
+      if (animRef.current !== undefined) cancelAnimationFrame(animRef.current)
+    }
+  }, [])
 
+  // Eventos drag
   useEffect(() => {
     const onMove = (e: globalThis.MouseEvent) => {
-      if (!isDragging.current || isExpanded) return;
-      const dx = e.clientX - lastX.current;
-      dragVelX.current = dx;
-      posYRef.current += dx * 0.005;
-      lastX.current = e.clientX;
-      if (Math.abs(dx) > 3) showBlob(dx > 0 ? "left" : "right");
-    };
+      if (!isDrag.current || isExpanded) return
+      lastDx.current = e.clientX - startX.current
+    }
     const onMoveT = (e: globalThis.TouchEvent) => {
-      if (!isDragging.current || isExpanded) return;
-      const dx = e.touches[0].clientX - lastX.current;
-      dragVelX.current = dx;
-      posYRef.current += dx * 0.006;
-      lastX.current = e.touches[0].clientX;
-      if (Math.abs(dx) > 3) showBlob(dx > 0 ? "left" : "right");
-    };
-    const onUp = (e: globalThis.MouseEvent) => {
-      if (!isDragging.current || isExpanded) return;
-      isDragging.current = false;
-      velYRef.current = dragVelX.current * 0.005;
-      const moved = Math.abs(e.clientX - clickStartX.current) + Math.abs(e.clientY - clickStartY.current);
-      if (moved < 8) {
-        const nearest = Math.round((posYRef.current / (Math.PI * 2)) * N);
-        openExpand(((nearest % N) + N) % N);
-      } else {
-        setTimeout(() => {
-          const nearest = Math.round((posYRef.current / (Math.PI * 2)) * N);
-          goTo(((nearest % N) + N) % N);
-        }, 600);
+      if (!isDrag.current || isExpanded) return
+      lastDx.current = e.touches[0].clientX - startX.current
+    }
+    const onUp = () => {
+      if (!isDrag.current || isExpanded) return
+      isDrag.current = false
+      if (Math.abs(lastDx.current) > 40) {
+        if (lastDx.current < 0) next()
+        else prev()
       }
-    };
-    const onUpT = (e: globalThis.TouchEvent) => {
-      if (!isDragging.current || isExpanded) return;
-      isDragging.current = false;
-      velYRef.current = dragVelX.current * 0.005;
-      const moved = Math.abs(e.changedTouches[0].clientX - clickStartX.current);
-      if (moved < 10) {
-        const nearest = Math.round((posYRef.current / (Math.PI * 2)) * N);
-        openExpand(((nearest % N) + N) % N);
-      } else {
-        setTimeout(() => {
-          const nearest = Math.round((posYRef.current / (Math.PI * 2)) * N);
-          goTo(((nearest % N) + N) % N);
-        }, 600);
-      }
-    };
-    window.addEventListener("mousemove", onMove);
-    window.addEventListener("touchmove", onMoveT, { passive: true });
-    window.addEventListener("mouseup", onUp);
-    window.addEventListener("touchend", onUpT);
+    }
+    window.addEventListener("mousemove", onMove)
+    window.addEventListener("touchmove", onMoveT, { passive: true })
+    window.addEventListener("mouseup", onUp)
+    window.addEventListener("touchend", onUp)
     return () => {
-      window.removeEventListener("mousemove", onMove);
-      window.removeEventListener("touchmove", onMoveT);
-      window.removeEventListener("mouseup", onUp);
-      window.removeEventListener("touchend", onUpT);
-    };
-  }, [isExpanded, goTo, openExpand, showBlob]);
+      window.removeEventListener("mousemove", onMove)
+      window.removeEventListener("touchmove", onMoveT)
+      window.removeEventListener("mouseup", onUp)
+      window.removeEventListener("touchend", onUp)
+    }
+  }, [isExpanded, next, prev])
 
-  useEffect(() => {
-    const t = setTimeout(() => showBlob("right"), 800);
-    return () => clearTimeout(t);
-  }, [showBlob]);
+  const handleMouseDown = (e: MouseEvent<HTMLDivElement>) => {
+    if (isExpanded) return
+    isDrag.current = true
+    lastDx.current = 0
+    startX.current = e.clientX
+  }
 
-  useEffect(() => {
-    return () => {
-      if (blobTimerRef.current !== null) clearTimeout(blobTimerRef.current);
-    };
-  }, []);
+  const handleTouchStart = (e: TouchEvent<HTMLDivElement>) => {
+    if (isExpanded) return
+    isDrag.current = true
+    lastDx.current = 0
+    startX.current = e.touches[0].clientX
+  }
 
-  const handleMouseDown = (e: MouseEvent) => {
-    if (isExpanded) return;
-    isDragging.current = true;
-    dragVelX.current = 0;
-    lastX.current = e.clientX;
-    clickStartX.current = e.clientX;
-    clickStartY.current = e.clientY;
-    showBlob("none");
-  };
+  const handleWheel = (e: WheelEvent<HTMLDivElement>) => {
+    if (isExpanded) return
+    e.preventDefault()
+    if (e.deltaY > 0) next()
+    else prev()
+  }
 
-  const handleTouchStart = (e: TouchEvent) => {
-    if (isExpanded) return;
-    isDragging.current = true;
-    dragVelX.current = 0;
-    lastX.current = e.touches[0].clientX;
-    clickStartX.current = e.touches[0].clientX;
-    clickStartY.current = e.touches[0].clientY;
-  };
+  const openExpand = (idx: number) => {
+    setExpandedIdx(idx)
+    setIsExpanded(true)
+  }
 
-  const handleWheel = (e: WheelEvent) => {
-    if (isExpanded) return;
-    e.preventDefault();
-    velYRef.current += e.deltaY * 0.0012;
-    showBlob(e.deltaY > 0 ? "right" : "left");
-  };
+  const closeExpand = () => {
+    setIsExpanded(false)
+  }
 
-  const s = CONTENT[activeIdx];
-  const exp = CONTENT[expandedIdx];
+  const exp = CONTENT[expandedIdx]
+  const isLight = exp.tc === "#F5F2EC"
 
   return (
     <div
-      className={styles.hubWrap}
+      className={styles.wrap}
       onMouseDown={handleMouseDown}
       onTouchStart={handleTouchStart}
       onWheel={handleWheel}
     >
-      <Canvas
-        camera={{ position: [0, 0, 0], fov: 70 }}
-        className={styles.hubCanvas}
-        dpr={[1, 2]}
-        gl={{
-          alpha: true,
-          antialias: true,
-          powerPreference: "high-performance",
-        }}
-      >
-        <HubCylinderScene targetRotationYRef={targetRotYRef} onSectionChange={setActiveIdx} />
-      </Canvas>
+      {/* Manchas de fondo */}
+      <div className={styles.blobOrange} aria-hidden />
+      <div className={styles.blobBlue} aria-hidden />
 
-      <div
-        className={`${styles.blob} ${styles.blobLeft} ${blobDir === "left" ? styles.blobVisible : styles.blobHidden}`}
-        aria-hidden
-      />
-
-      <div
-        className={`${styles.blob} ${styles.blobRight} ${blobDir === "right" ? styles.blobVisible : styles.blobHidden}`}
-        aria-hidden
-      />
-
-      {blobDir === "right" && (
-        <div className={`${styles.hint} ${styles.hintRight}`}>
-          <div className={styles.hintLine} />
-          <p className={styles.hintText}>siguiente</p>
+      {/* Escena CSS 3D */}
+      <div className={styles.scene}>
+        <div
+          className={styles.carousel}
+          style={{ transform: `rotateY(${rotation}deg)` }}
+        >
+          {CONTENT.map((s, i) => {
+            const angle = (i / N) * 360
+            const isDark = s.tc === "#0A0C12"
+            return (
+              <div
+                key={i}
+                className={styles.card}
+                style={{
+                  transform: `rotateY(${angle}deg) translateZ(${R}px)`,
+                  background: s.bg,
+                  border: isDark
+                    ? "1px solid rgba(10,12,18,0.1)"
+                    : "1px solid rgba(245,242,236,0.15)",
+                  boxShadow: isDark
+                    ? "0 8px 40px rgba(0,0,0,0.12)"
+                    : "0 8px 40px rgba(0,0,0,0.4)",
+                }}
+                onClick={() => openExpand(i)}
+              >
+                <span
+                  className={styles.cardNum}
+                  style={{ color: s.tc }}
+                >
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <h3
+                  className={styles.cardTitle}
+                  style={{ color: s.tc }}
+                >
+                  {s.title.split("\n").map((l, j) => (
+                    <span key={j}>
+                      {l}
+                      {j < s.title.split("\n").length - 1 && <br />}
+                    </span>
+                  ))}
+                </h3>
+                <p
+                  className={styles.cardSub}
+                  style={{ color: s.tc }}
+                >
+                  {s.sub}
+                </p>
+                <p
+                  className={styles.cardHint}
+                  style={{ color: s.tc }}
+                >
+                  click para leer →
+                </p>
+              </div>
+            )
+          })}
         </div>
-      )}
+      </div>
 
-      {blobDir === "left" && (
-        <div className={`${styles.hint} ${styles.hintLeft}`}>
-          <div className={styles.hintLine} />
-          <p className={styles.hintText}>anterior</p>
-        </div>
-      )}
-
-      <p
-        className={styles.hubKickerOverlay}
-        style={{ color: s.light ? "rgba(245,242,236,0.4)" : "rgba(10,12,18,0.35)" }}
-      >
-        {s.kicker}
+      {/* Kicker activo */}
+      <p className={styles.kickerTop}>
+        {CONTENT[current].kicker}
       </p>
 
-      <nav className={styles.hubDots} aria-label="Secciones del Hub">
+      {/* Flechas */}
+      <button
+        type="button"
+        className={styles.arrowLeft}
+        onClick={prev}
+        aria-label="Sección anterior"
+      >
+        ←
+      </button>
+      <button
+        type="button"
+        className={styles.arrowRight}
+        onClick={next}
+        aria-label="Sección siguiente"
+      >
+        →
+      </button>
+
+      {/* Dots */}
+      <nav className={styles.dots} aria-label="Secciones">
         {CONTENT.map((_, i) => (
           <button
             key={i}
             type="button"
             onClick={() => goTo(i)}
-            className={i === activeIdx ? styles.hubDotActive : styles.hubDot}
+            className={
+              i === current ? styles.dotActive : styles.dot
+            }
             aria-label={`Sección ${i + 1}`}
           />
         ))}
       </nav>
 
+      {/* Panel expandido */}
       <div
-        className={`${styles.expandPanel} ${isExpanded ? styles.expandVisible : styles.expandHidden}`}
+        className={`${styles.expand} ${
+          isExpanded ? styles.expandOpen : styles.expandClosed
+        }`}
         style={{ background: exp.bg }}
       >
         <div className={styles.expandInner}>
-          <button
-            type="button"
-            onClick={closeExpand}
-            className={styles.backBtn}
-            style={{
-              color: exp.light ? "rgba(245,242,236,0.5)" : "#DB5227",
-              borderColor: exp.light ? "rgba(245,242,236,0.25)" : "rgba(10,12,18,0.2)",
-            }}
-          >
-            ← volver
-          </button>
+          {/* Header del panel */}
+          <div className={styles.expandHeader}>
+            <button
+              type="button"
+              onClick={closeExpand}
+              className={styles.closeBtn}
+              style={{
+                color: isLight
+                  ? "rgba(245,242,236,0.6)"
+                  : "rgba(10,12,18,0.5)",
+                borderColor: isLight
+                  ? "rgba(245,242,236,0.25)"
+                  : "rgba(10,12,18,0.2)",
+              }}
+            >
+              ✕ volver a la esfera
+            </button>
+            <p
+              className={styles.expandCounter}
+              style={{
+                color: isLight
+                  ? "rgba(245,242,236,0.3)"
+                  : "rgba(10,12,18,0.3)",
+              }}
+            >
+              {String(expandedIdx + 1).padStart(2, "0")} / {N}
+            </p>
+          </div>
 
+          {/* Contenido */}
           <p
             className={styles.expandKicker}
             style={{
-              color: exp.light ? "rgba(245,242,236,0.48)" : "#DB5227",
+              color: isLight
+                ? "rgba(245,242,236,0.5)"
+                : "#DB5227",
             }}
           >
             {exp.kicker}
           </p>
-
           <h2
             className={styles.expandTitle}
-            style={{
-              color: exp.light ? "#F5F2EC" : "#0A0C12",
-            }}
+            style={{ color: exp.tc }}
           >
-            {exp.title.split("\n").map((line, i) => (
+            {exp.title.split("\n").map((l, i) => (
               <span key={i}>
-                {line}
+                {l}
                 {i < exp.title.split("\n").length - 1 && <br />}
               </span>
             ))}
           </h2>
-
           <p
             className={styles.expandBody}
             style={{
-              color: exp.light ? "rgba(245,242,236,0.7)" : "rgba(10,12,18,0.62)",
+              color: isLight
+                ? "#F5F2EC"
+                : "rgba(10,12,18,0.72)",
             }}
           >
             {exp.body}
           </p>
 
+          {/* Grupos de items */}
           {exp.groups.map((group, gi) => (
             <div key={gi}>
               <p
                 className={styles.groupLabel}
                 style={{
-                  color: exp.light ? "rgba(245,242,236,0.3)" : "rgba(10,12,18,0.3)",
-                  borderTopColor: exp.light ? "rgba(245,242,236,0.08)" : "rgba(10,12,18,0.08)",
+                  color: isLight
+                    ? "rgba(245,242,236,0.4)"
+                    : "#DB5227",
+                  borderTopColor: isLight
+                    ? "rgba(245,242,236,0.1)"
+                    : "rgba(10,12,18,0.1)",
                 }}
               >
                 {group.label}
               </p>
-              <ul className={styles.groupItems}>
+              <ul className={styles.groupList}>
                 {group.items.map((item, ii) => (
                   <li
                     key={ii}
                     className={styles.groupItem}
                     style={{
-                      color: exp.light ? "rgba(245,242,236,0.62)" : "rgba(10,12,18,0.55)",
-                      borderBottomColor: exp.light ? "rgba(245,242,236,0.08)" : "rgba(10,12,18,0.08)",
+                      color: isLight
+                        ? "rgba(245,242,236,0.82)"
+                        : "rgba(10,12,18,0.65)",
+                      borderBottomColor: isLight
+                        ? "rgba(245,242,236,0.1)"
+                        : "rgba(10,12,18,0.1)",
                     }}
                   >
                     <span
                       className={styles.groupDot}
                       style={{
-                        background: exp.light ? "rgba(245,242,236,0.6)" : "#DB5227",
+                        background: isLight
+                          ? "#F5F2EC"
+                          : "#DB5227",
                       }}
                     />
                     {item}
@@ -481,8 +489,58 @@ export default function HubCylinder() {
               </ul>
             </div>
           ))}
+
+          {/* Navegación entre secciones */}
+          <div className={styles.expandNav}>
+            {expandedIdx > 0 ? (
+              <button
+                type="button"
+                className={styles.expandNavBtn}
+                style={{
+                  color: isLight
+                    ? "rgba(245,242,236,0.6)"
+                    : "rgba(10,12,18,0.5)",
+                  borderColor: isLight
+                    ? "rgba(245,242,236,0.2)"
+                    : "rgba(10,12,18,0.15)",
+                }}
+                onClick={() => {
+                  setExpandedIdx(expandedIdx - 1)
+                  document
+                    .querySelector(`.${styles.expand}`)
+                    ?.scrollTo(0, 0)
+                }}
+              >
+                ← {CONTENT[expandedIdx - 1].kicker}
+              </button>
+            ) : (
+              <div />
+            )}
+            {expandedIdx < N - 1 ? (
+              <button
+                type="button"
+                className={styles.expandNavBtnPrimary}
+                onClick={() => {
+                  setExpandedIdx(expandedIdx + 1)
+                  document
+                    .querySelector(`.${styles.expand}`)
+                    ?.scrollTo(0, 0)
+                }}
+              >
+                {CONTENT[expandedIdx + 1].kicker} →
+              </button>
+            ) : (
+              <button
+                type="button"
+                className={styles.expandNavBtnPrimary}
+                onClick={closeExpand}
+              >
+                Volver a la esfera →
+              </button>
+            )}
+          </div>
         </div>
       </div>
     </div>
-  );
+  )
 }
