@@ -143,6 +143,39 @@ function MiniList({
   );
 }
 
+/** Columna Saberes: lista de recursos + Bot Onda (título, frase, tres ondas). */
+function HomeSaberesAside({ reduceMotion, items }: { reduceMotion: boolean; items: MiniListItem[] }) {
+  const tSaberes = useTranslations("homeSaberes");
+  const tPrograms = useTranslations("homePrograms");
+
+  return (
+    <div className={styles.saberesAsideStack}>
+      <MiniList dark glass glassExtraMargin reduceMotion={reduceMotion} items={items} />
+      <div className={styles.saberesBotOndaDivider} aria-hidden />
+      <a
+        href={EXTERNAL.botOnda}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={styles.saberesBotOndaBlock}
+      >
+        <p className={styles.saberesBotOndaTitle}>{tSaberes("stackBotOndaTitle")}</p>
+        <p className={styles.saberesBotOndaTagline}>{tSaberes("stackBotOndaTagline")}</p>
+        <span className={`${styles.botOndaStack} ${styles.saberesBotOndaPersonas}`}>
+          <span className={styles.botOndaLine}>
+            <strong>{tPrograms("stackBotOndaManoName")}</strong> — {tPrograms("stackBotOndaManoDesc")}
+          </span>
+          <span className={styles.botOndaLine}>
+            <strong>{tPrograms("stackBotOndaCivitaName")}</strong> — {tPrograms("stackBotOndaCivitaDesc")}
+          </span>
+          <span className={styles.botOndaLine}>
+            <strong>{tPrograms("stackBotOndaProfesName")}</strong> — {tPrograms("stackBotOndaProfesDesc")}
+          </span>
+        </span>
+      </a>
+    </div>
+  );
+}
+
 /** Primer panel apilado: “Qué nos convoca” (mismo formato archivo que el resto). */
 function HomeConvocaStackPanelContent() {
   const t = useTranslations("homeConvoca");
@@ -572,26 +605,6 @@ export function MotionStackPanels({
       multiline: true,
     },
     { label: tPrograms("stackLinkFuncionarios"), href: "/programas/funcionarios-publicos", multiline: true },
-    {
-      label: (
-        <span className={styles.botOndaStack}>
-          <span className={styles.botOndaLead}>{tPrograms("stackBotOndaLead")}</span>
-          <span className={styles.botOndaLine}>
-            <strong>{tPrograms("stackBotOndaManoName")}</strong> — {tPrograms("stackBotOndaManoDesc")}
-          </span>
-          <span className={styles.botOndaLine}>
-            <strong>{tPrograms("stackBotOndaCivitaName")}</strong> — {tPrograms("stackBotOndaCivitaDesc")}
-          </span>
-          <span className={styles.botOndaLine}>
-            <strong>{tPrograms("stackBotOndaProfesName")}</strong> — {tPrograms("stackBotOndaProfesDesc")}
-          </span>
-        </span>
-      ),
-      href: EXTERNAL.botOnda,
-      external: true,
-      itemKey: "programas-bot-onda",
-      multiline: true,
-    },
   ];
 
   const saberesLinks = SABERES_NAV_LINKS.filter(
@@ -652,9 +665,7 @@ export function MotionStackPanels({
       headline: tSaberes("stackHeadline"),
       body: tSaberes("stackBody"),
       icon: undefined,
-      child: (
-        <MiniList dark glass glassExtraMargin reduceMotion={reduceMotion} items={saberesLinks} />
-      ),
+      child: <HomeSaberesAside reduceMotion={reduceMotion} items={saberesLinks} />,
     },
     {
       id: "precisando",

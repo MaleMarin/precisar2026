@@ -642,6 +642,71 @@
   color: var(--brand-void, #0a0c12);
 }
 
+/* Saberes — columna derecha: lista + divisor + Bot Onda */
+.saberesAsideStack {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: clamp(0.85rem, 2vw, 1.35rem);
+}
+
+.saberesBotOndaDivider {
+  height: 1px;
+  flex-shrink: 0;
+  background: color-mix(in oklab, #fff 16%, transparent);
+}
+
+.saberesBotOndaBlock {
+  display: block;
+  box-sizing: border-box;
+  padding: clamp(1.05rem, 2.1vw, 1.35rem) clamp(1.15rem, 2.2vw, 1.45rem);
+  border-radius: 2px;
+  border: 1px solid color-mix(in oklab, #fff 18%, transparent);
+  background: color-mix(in oklab, #fff 5%, transparent);
+  text-decoration: none;
+  color: inherit;
+  transition:
+    background 0.2s ease,
+    box-shadow 0.25s ease;
+}
+
+.saberesBotOndaBlock:hover {
+  background: color-mix(in oklab, #fff 9%, transparent);
+  box-shadow: -4px 0 0 0 color-mix(in oklab, #fff 55%, transparent);
+}
+
+.saberesBotOndaTitle {
+  margin: 0 0 0.35rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: #fff;
+}
+
+.saberesBotOndaTagline {
+  margin: 0 0 0.75rem;
+  max-width: 36rem;
+  font-size: clamp(0.82rem, 1.22vw, 0.92rem);
+  font-weight: 500;
+  line-height: 1.45;
+  color: color-mix(in oklab, #fff 82%, transparent);
+}
+
+.saberesBotOndaPersonas {
+  gap: 0.4rem;
+}
+
+.saberesBotOndaBlock .botOndaLine {
+  font-size: 0.86em;
+  font-weight: 400;
+  color: color-mix(in oklab, #fff 76%, transparent);
+}
+
+.saberesBotOndaBlock .botOndaLine strong {
+  font-weight: 700;
+  color: #fff;
+}
+
 .miniRow + .miniRow {
   border-top: 1px solid color-mix(in oklab, #000 10%, transparent);
 }
