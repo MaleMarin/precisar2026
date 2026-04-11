@@ -348,9 +348,9 @@ export default function HubCylinder() {
     setIsExpanded(true)
   }
 
-  const closeExpand = () => {
+  const closeExpand = useCallback(() => {
     setIsExpanded(false)
-  }
+  }, [])
 
   const exp = CONTENT[expandedIdx]
   const isLight = exp.tc === "#F5F2EC"
@@ -593,7 +593,14 @@ export default function HubCylinder() {
                     ? "rgba(245,242,236,0.7)"
                     : "rgba(10,12,18,0.7)",
                 }}
-                onClick={closeExpand}
+                onClick={(e) => {
+                  e.preventDefault()
+                  closeExpand()
+                  setTimeout(() => {
+                    const el = document.getElementById("contacto")
+                    if (el) el.scrollIntoView({ behavior: "smooth" })
+                  }, 300)
+                }}
               >
                 Contáctanos →
               </a>
