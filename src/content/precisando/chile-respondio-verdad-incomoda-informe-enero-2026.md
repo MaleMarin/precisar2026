@@ -45,3 +45,7 @@ El informe completo tiene 45 páginas de datos, cruces por edad y género, y pro
 **■ CON EL APOYO DE**
 
 Esta consulta fue diseñada y ejecutada por Fundación Precisar con el respaldo del **Fondo DemocráTICa** (CIVICUS · Digital Democracy Initiative) y el soporte de **Wingu**.
+
+---
+
+**Informe completo (FONSELP)** · [Descargar *Informe final Hallazgos FONSELP* V.2 en PDF](/Informe%20final%20Hallazgos%20FONSELP_%20V.2.pdf) — metodología, tablas y anexos tal como se entregaron en la versión documental del estudio.
