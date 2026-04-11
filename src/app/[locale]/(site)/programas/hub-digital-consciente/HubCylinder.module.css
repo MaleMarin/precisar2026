@@ -194,33 +194,30 @@
 
 /* Panel expandido */
 .expand {
-  position: absolute;
-  top: 0;
-  left: 0;
+  position: relative;
   width: 100%;
-  min-height: 100%;
-  height: 100%;
   z-index: 20;
-  overflow-y: scroll;
-  -webkit-overflow-scrolling: touch;
-  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+  transition: opacity 0.5s cubic-bezier(0.4,0,0.2,1),
     background 0.4s ease;
 }
 .expandOpen {
   opacity: 1;
   pointer-events: all;
+  display: block;
 }
 .expandClosed {
   opacity: 0;
   pointer-events: none;
+  display: none;
 }
 .expandInner {
-  min-height: max-content;
+  width: 100%;
   padding: clamp(2.5rem, 5vw, 4rem)
     clamp(2rem, 6vw, 5rem)
-    clamp(5rem, 10vw, 8rem);
+    clamp(4rem, 8vw, 6rem);
   display: flex;
   flex-direction: column;
+  box-sizing: border-box;
 }
 .expandHeader {
   display: flex;

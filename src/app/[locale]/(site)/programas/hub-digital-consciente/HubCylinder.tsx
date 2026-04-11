@@ -344,6 +344,7 @@ export default function HubCylinder() {
     velYRef.current = 0
     setExpandedIdx(idx)
     setIsExpanded(true)
+    window.scrollTo({ top: 0, behavior: "smooth" })
   }
 
   const closeExpand = () => {
@@ -356,6 +357,11 @@ export default function HubCylinder() {
   return (
     <div
       className={styles.wrap}
+      style={{
+        height: isExpanded ? "auto" : "100vh",
+        overflow: isExpanded ? "visible" : "hidden",
+        cursor: isExpanded ? "default" : undefined,
+      }}
       onMouseDown={handleMouseDown}
       onTouchStart={handleTouchStart}
       onWheel={handleWheel}
@@ -587,9 +593,7 @@ export default function HubCylinder() {
                 }}
                 onClick={() => {
                   setExpandedIdx(expandedIdx - 1)
-                  document
-                    .querySelector(`.${styles.expand}`)
-                    ?.scrollTo(0, 0)
+                  window.scrollTo({ top: 0, behavior: "smooth" })
                 }}
               >
                 ← {CONTENT[expandedIdx - 1].kicker}
@@ -603,9 +607,7 @@ export default function HubCylinder() {
                 className={styles.expandNavBtnPrimary}
                 onClick={() => {
                   setExpandedIdx(expandedIdx + 1)
-                  document
-                    .querySelector(`.${styles.expand}`)
-                    ?.scrollTo(0, 0)
+                  window.scrollTo({ top: 0, behavior: "smooth" })
                 }}
               >
                 {`Siguiente → ${CONTENT[expandedIdx + 1].kicker}`}
