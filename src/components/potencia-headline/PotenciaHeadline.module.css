@@ -23,8 +23,8 @@
 .headline {
   max-width: 100%;
   font-weight: 600;
-  /* Misma familia que header y titulares home (--font-display = DM Sans en layout). */
-  font-family: var(--font-display), system-ui, sans-serif;
+  /* DM Sans (cuerpo / titular hero), coherente con el layout raíz. */
+  font-family: var(--font-sans-family), system-ui, sans-serif;
 }
 
 /* Home / hero inmersivo (tamaño display grande) */
@@ -48,6 +48,7 @@
 
 /* Explora / laboratorio — display más grande que el .title clásico, sin llegar al hero home */
 .scaleLab {
+  font-family: var(--font-display), system-ui, sans-serif;
   font-size: clamp(2.4rem, 7.75vw, 5.05rem);
   line-height: 1.08;
   letter-spacing: -0.045em;
@@ -55,26 +56,24 @@
   font-variant: normal;
 }
 
-/* Portada Precisar: misma tipometría que titulares del stack (variables --home-hero-title-* en .root). */
+/* Portada Precisar: un escalón por encima de Explora, alineado al hero inmersivo */
 .scalePrecisarHome {
-  font-size: var(--home-hero-title-size, clamp(1.95rem, 5.2vw, 4.65rem));
-  font-weight: 800;
-  line-height: 1.02;
-  letter-spacing: -0.035em;
-  max-width: var(--home-hero-title-maxw, 42rem);
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: clamp(2.85rem, 8.85vw, 5.75rem);
+  line-height: 1.06;
+  letter-spacing: -0.048em;
   text-transform: none;
   font-variant: normal;
 }
 
 .scalePrecisarHome .line1Light,
 .scalePrecisarHome .line1Dark {
-  line-height: 1.06;
+  line-height: 1.18;
 }
 
 .scalePrecisarHome .line2 {
-  margin-top: 0.12em;
-  font-size: 1em;
-  line-height: 1.02;
+  margin-top: 0.1em;
+  font-size: 1.09em;
 }
 
 /* Explora: corte fijo tras “Potencia el uso” — segunda línea “de la tecnología.” (ver TSX) */

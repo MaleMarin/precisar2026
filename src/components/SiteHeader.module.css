@@ -181,7 +181,7 @@
   flex-shrink: 0;
 }
 
-/* Misma familia que titulares display (DM Sans / --font-display), mayúsculas y minúsculas naturales */
+/* Misma familia que el hero Potencia (Syne / --font-display), mayúsculas y minúsculas naturales */
 .navLinkDesktop {
   font-family: var(--font-display);
   font-weight: 600;
