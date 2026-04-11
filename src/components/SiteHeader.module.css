@@ -28,7 +28,7 @@
 @media (min-width: 1024px) {
   .navBarOuter {
     box-sizing: border-box;
-    max-height: 96px;
+    max-height: 108px;
     min-height: 88px !important;
     padding-top: 0.65rem !important;
     padding-bottom: 0.65rem !important;
@@ -195,7 +195,7 @@
 
 @media (min-width: 1024px) {
   .navLinkDesktop {
-    font-size: 0.78rem;
+    font-size: 0.9rem;
     letter-spacing: -0.04em;
   }
 }
