@@ -4,6 +4,9 @@ import { Link } from "@/i18n/navigation";
 import shell from "@/components/programs/ProgramShell.module.css";
 import { PDFS } from "@/lib/site";
 import styles from "./HubDigitalPage.module.css";
+import { HubPosibilidades } from "./HubPosibilidades";
+import { HubModelos } from "./HubModelos";
+import { HubPersonalizacion } from "./HubPersonalizacion";
 
 export const metadata: Metadata = {
   title: "Hub Digital Consciente",
@@ -132,37 +135,7 @@ export default function Page() {
         </div>
       </section>
 
-      <section className={`${styles.personaliza} ${shell.padSection}`} aria-labelledby="hub-personaliza">
-        <div className={shell.inner}>
-          <h2 id="hub-personaliza" className={styles.secTitle}>
-            Se adapta a lo que necesitas
-          </h2>
-          <div className={styles.persCols}>
-            <div className={styles.persCol}>
-              <h3 className={styles.persColTitle}>Ediciones temáticas</h3>
-              <p className={styles.persColText}>
-                Profundiza en áreas específicas, IA, desinformación, privacidad digital, incorporando
-                contenidos y tecnologías especializadas como estaciones de realidad virtual o
-                simulaciones avanzadas.
-              </p>
-            </div>
-            <div className={styles.persCol}>
-              <h3 className={styles.persColTitle}>Edición comunitaria</h3>
-              <p className={styles.persColText}>
-                Adapta la realidad de tu comuna o grupo objetivo, integrando dinámicas de participación
-                local y foros de debate que empoderan a vecinos de todas las edades.
-              </p>
-            </div>
-            <div className={styles.persCol}>
-              <h3 className={styles.persColTitle}>Componentes a la carta</h3>
-              <p className={styles.persColText}>
-                Elige piezas sueltas: pósters, mini-experimentos interactivos, kits de cultura digital,
-                para complementar la exposición según tus necesidades.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <HubPersonalizacion />
 
       <section className={`${styles.ediciones} ${shell.padSection}`} aria-labelledby="hub-ediciones">
         <div className={shell.inner}>
@@ -221,6 +194,9 @@ export default function Page() {
           </div>
         </div>
       </section>
+
+      <HubPosibilidades />
+      <HubModelos />
 
       <section className={shell.cta} aria-labelledby="hub-cta-title">
         <div className={shell.ctaInner}>
