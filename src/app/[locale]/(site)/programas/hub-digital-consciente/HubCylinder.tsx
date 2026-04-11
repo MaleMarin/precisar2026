@@ -172,16 +172,27 @@ export default function HubCylinder() {
   const [rotation, setRotation] = useState(0)
   const [isReady, setIsReady] = useState(false)
 
+  const isExpandedRef = useRef(isExpanded)
+  isExpandedRef.current = isExpanded
+
   const isDrag = useRef(false)
   const pointerLastX = useRef(0)
   const rotRef = useRef(0)
   const animRef = useRef<number | undefined>(undefined)
   const targetRot = useRef(0)
+  const velYRef = useRef(0)
+  const lastDeltaRef = useRef(0)
+  const snapTimerRef = useRef<number | null>(null)
 
   const R = 480
   const stepDeg = 360 / N
 
   const goTo = useCallback((i: number) => {
+    if (snapTimerRef.current !== null) {
+      window.clearTimeout(snapTimerRef.current)
+      snapTimerRef.current = null
+    }
+    velYRef.current = 0
     const idx = ((i % N) + N) % N
     targetRot.current = -(idx / N) * 360
     setCurrent(idx)
@@ -195,10 +206,18 @@ export default function HubCylinder() {
     return () => window.clearTimeout(t)
   }, [])
 
-  // Animación suave (lerp bajo hasta isReady, luego más ágil)
+  // Animación suave (lerp bajo hasta isReady, luego más ágil) + inercia post-drag
   useEffect(() => {
     const animate = () => {
-      const lerp = isReady ? 0.04 : 0.01
+      const lerp = isReady ? 0.025 : 0.01
+      if (
+        !isDrag.current &&
+        !isExpandedRef.current &&
+        Math.abs(velYRef.current) > 1e-4
+      ) {
+        targetRot.current += velYRef.current
+        velYRef.current *= 0.88
+      }
       rotRef.current += (targetRot.current - rotRef.current) * lerp
       setRotation(rotRef.current)
       animRef.current = requestAnimationFrame(animate)
@@ -223,25 +242,41 @@ export default function HubCylinder() {
       const cx = e.clientX
       const delta = cx - pointerLastX.current
       pointerLastX.current = cx
-      targetRot.current += delta * 0.08
+      lastDeltaRef.current = delta
+      targetRot.current += delta * 0.04
+      velYRef.current = delta * 0.04
     }
     const onMoveT = (e: globalThis.TouchEvent) => {
       if (!isDrag.current || isExpanded) return
       const cx = e.touches[0].clientX
       const delta = cx - pointerLastX.current
       pointerLastX.current = cx
-      targetRot.current += delta * 0.08
+      lastDeltaRef.current = delta
+      targetRot.current += delta * 0.04
+      velYRef.current = delta * 0.04
     }
     const onUp = () => {
       if (!isDrag.current || isExpanded) return
       isDrag.current = false
-      snapCarouselToNearest()
+      velYRef.current = lastDeltaRef.current * 0.04
+      if (snapTimerRef.current !== null) {
+        window.clearTimeout(snapTimerRef.current)
+      }
+      snapTimerRef.current = window.setTimeout(() => {
+        snapCarouselToNearest()
+        velYRef.current = 0
+        snapTimerRef.current = null
+      }, 900)
     }
     window.addEventListener("mousemove", onMove)
     window.addEventListener("touchmove", onMoveT, { passive: true })
     window.addEventListener("mouseup", onUp)
     window.addEventListener("touchend", onUp)
     return () => {
+      if (snapTimerRef.current !== null) {
+        window.clearTimeout(snapTimerRef.current)
+        snapTimerRef.current = null
+      }
       window.removeEventListener("mousemove", onMove)
       window.removeEventListener("touchmove", onMoveT)
       window.removeEventListener("mouseup", onUp)
@@ -251,12 +286,22 @@ export default function HubCylinder() {
 
   const handleMouseDown = (e: MouseEvent<HTMLDivElement>) => {
     if (isExpanded) return
+    if (snapTimerRef.current !== null) {
+      window.clearTimeout(snapTimerRef.current)
+      snapTimerRef.current = null
+    }
+    velYRef.current = 0
     isDrag.current = true
     pointerLastX.current = e.clientX
   }
 
   const handleTouchStart = (e: TouchEvent<HTMLDivElement>) => {
     if (isExpanded) return
+    if (snapTimerRef.current !== null) {
+      window.clearTimeout(snapTimerRef.current)
+      snapTimerRef.current = null
+    }
+    velYRef.current = 0
     isDrag.current = true
     pointerLastX.current = e.touches[0].clientX
   }
@@ -269,6 +314,11 @@ export default function HubCylinder() {
   }
 
   const openExpand = (idx: number) => {
+    if (snapTimerRef.current !== null) {
+      window.clearTimeout(snapTimerRef.current)
+      snapTimerRef.current = null
+    }
+    velYRef.current = 0
     setExpandedIdx(idx)
     setIsExpanded(true)
   }
