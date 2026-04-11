@@ -209,10 +209,10 @@ export function SiteFooter() {
               </ul>
             </nav>
 
-            <div className={styles.contactColumn} id={FOOTER_CONTACT_ANCHOR_ID}>
+            <div className={styles.contactColumn}>
               <h2 className={styles.contactTitle}>Contáctanos</h2>
               <p className={styles.contactLead}>Escribe tu mensaje y te respondemos.</p>
-              <form action={footerContactRedirect} className={styles.contactForm}>
+              <form id={FOOTER_CONTACT_ANCHOR_ID} action={footerContactRedirect} className={styles.contactForm}>
                 <div className={styles.field}>
                   <label className={styles.fieldLabel} htmlFor="footer-nombre">
                     Nombre

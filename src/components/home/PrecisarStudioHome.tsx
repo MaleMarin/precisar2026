@@ -222,7 +222,7 @@ export function PrecisarStudioHome({ children }: PrecisarStudioHomeProps) {
           </div>
         </section>
 
-        <section className={styles.section} id="contacto">
+        <section className={styles.section} id="formulario-portada">
           <div className={styles.inner}>
             <ScrollReveal>
               <p className={styles.kicker}>Contacto</p>

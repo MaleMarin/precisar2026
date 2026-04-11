@@ -1,8 +1,8 @@
 import { routing } from "@/i18n/routing";
 import { PRECISANDO_ARTICLES_UNDER_CONSTRUCTION } from "@/lib/precisando-access";
 
-/** Ancla del bloque «Contáctanos» en `SiteFooter` (mismo id en todas las páginas con pie). */
-export const FOOTER_CONTACT_ANCHOR_ID = "footer-contacto" as const;
+/** Ancla del formulario «Contáctanos» en `SiteFooter` (`<form id="contacto">`). */
+export const FOOTER_CONTACT_ANCHOR_ID = "contacto" as const;
 
 export const SITE = {
   name: "Precisar",

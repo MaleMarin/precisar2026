@@ -10,7 +10,7 @@ export type FooterContactLinkProps = {
 };
 
 /**
- * Enlaza al formulario «Contáctanos» del pie (`SiteFooter`), con scroll suave.
+ * Enlaza al formulario «Contáctanos» del pie (`#contacto` en `SiteFooter`), con scroll suave.
  * No cambia de ruta: mantiene la página actual y actualiza el hash.
  */
 export function FooterContactLink({ className, style, children }: FooterContactLinkProps) {
