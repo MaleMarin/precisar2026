@@ -432,10 +432,10 @@ export default function HubCylinder() {
         </div>
       </div>
 
-      {/* Kicker activo */}
-      <p className={styles.kickerTop}>
-        {CONTENT[current].kicker}
-      </p>
+      <div className={styles.topLabel}>
+        <p className={styles.topTitle}>El Hub en 360°</p>
+        <p className={styles.topHint}>arrastra para girar</p>
+      </div>
 
       {/* Flechas */}
       <button
@@ -493,7 +493,7 @@ export default function HubCylinder() {
                   : "rgba(10,12,18,0.2)",
               }}
             >
-              ✕ volver a la esfera
+              ← volver al Hub en 360°
             </button>
             <p
               className={styles.expandCounter}
@@ -622,7 +622,7 @@ export default function HubCylinder() {
                 className={styles.expandNavBtnPrimary}
                 onClick={closeExpand}
               >
-                Volver a la esfera →
+                ← volver al Hub en 360°
               </button>
             )}
           </div>
