@@ -14,20 +14,25 @@ const N = 6
 
 const CONTENT = [
   {
-    kicker: "01 · Presentación",
+    kicker: "01 · Introducción",
     title: "Cultura digital\nque viaja",
     sub: "Portátil. Para cualquier espacio.",
-    body: "Portátil y diseñada para cualquier espacio. Lleva la conversación directamente a donde están las personas.",
+    body: "En el Hub Digital Consciente nos sumergimos en la cultura digital a través de muestras interactivas y temáticas. Cada una es portátil y está diseñada para explorar cómo los medios y la tecnología influyen en nuestra sociedad, llevando el conocimiento directamente a eventos, municipios, espacios públicos y más.",
     groups: [
       {
-        label: "Esta experiencia llega a",
+        label: "¿Adónde y para quién?",
         items: [
-          "Plazas y espacios públicos — Al aire libre, para comunidades de todas las edades.",
-          "Bibliotecas y salas culturales — Espacios de reflexión y aprendizaje colectivo.",
-          "Establecimientos educacionales — Desde colegios hasta universidades.",
-          "Municipios y gobiernos locales — Intervención territorial con impacto ciudadano directo.",
-          "Auditorios y eventos corporativos — Para generar conversaciones necesarias.",
-          "Eventos y festivales — Activación cultural en contextos de alta convocatoria.",
+          "Plazas, bibliotecas, salas culturales, establecimientos educacionales, auditorios y eventos corporativos.",
+          "Pensada para un público amplio de cualquier edad y nivel educacional.",
+          "Cada visitante obtiene perspectivas críticas sobre la cultura digital y herramientas prácticas.",
+        ],
+      },
+      {
+        label: "Nuestro enfoque",
+        items: [
+          "No solo presentamos temas: también abrimos un espacio para el diálogo y la acción.",
+          "Traducimos conceptos complejos —desinformación, IA, privacidad— en experiencias sensoriales accesibles.",
+          "Impulsamos conversaciones significativas sobre el uso responsable de la tecnología.",
         ],
       },
     ],
@@ -37,15 +42,15 @@ const CONTENT = [
     kicker: "02 · Contenido",
     title: "Lo que\nencontrarás",
     sub: "4 elementos que cautivarán.",
-    body: "Combinación de elementos visuales, tecnológicos y prácticos que cautivarán a tus participantes desde el primer momento.",
+    body: "Ofrecemos una combinación de elementos visuales y prácticos que cautivarán a tus participantes desde el primer momento.",
     groups: [
       {
         label: "Elementos de cada muestra",
         items: [
-          "01 · Carteles visualmente impactantes — Diseñados para provocar conversación y reflexión inmediata.",
-          "02 · Animaciones de video — Dan pie a discusiones sobre privacidad y detección de noticias falsas.",
-          "03 · Aplicaciones interactivas — Invitan a experimentar realidad aumentada e IA de primera mano.",
-          "04 · Experiencias prácticas para el debate — Complemento perfecto antes de talleres y charlas.",
+          "Carteles visualmente impactantes — Diseñados para provocar conversación y reflexión inmediata sobre temas cruciales de la tecnología contemporánea. Cada póster actúa como un 'abre ojos' que presenta información de forma clara y estética.",
+          "Aplicaciones interactivas — Invitan a experimentar de primera mano tecnologías de punta como realidad aumentada e IA para crear experiencias memorables que conectan con el público de manera lúdica.",
+          "Animaciones de video — Dan pie a discusiones profundas sobre privacidad y detección de noticias falsas. Exploran dilemas éticos del mundo digital mediante historias visuales.",
+          "Experiencias prácticas — Estimulan debates significativos entre participantes. Complemento perfecto antes de talleres, charlas o seminarios sobre cultura digital.",
         ],
       },
     ],
@@ -58,34 +63,42 @@ const CONTENT = [
     body: "Tres paquetes modulares que se ajustan al espacio, la duración y el público de tu evento.",
     groups: [
       {
-        label: "PIXEL — Formato básico",
+        label: "PIXEL — Formato básico para espacios reducidos",
         items: [
-          "2 Carteles temáticos",
-          "1 Pantalla de animación",
-          "2 Experiencias interactivas",
-          "Espacio: 8–12 m²  ·  Instalación: 45–60 min",
-          "Duración: 1–3 días  ·  Audiencia: 50–100/día",
+          "2 Carteles Temáticos — Conceptos esenciales de la edición elegida. Diseño compacto que introduce los temas principales de forma visual e impactante.",
+          "1 Pantalla de Animación — Monitor que reproduce contenido audiovisual básico con narrativas introductorias y datos clave.",
+          "2 Experiencias Interactivas — Aplicaciones simples en tablets que permiten exploración básica de conceptos a través de simulaciones sencillas.",
+          "Espacio requerido: 8–12 m²",
+          "Tiempo de instalación: 45–60 minutos",
+          "Duración recomendada: 1–3 días",
+          "Audiencia: 50–100 personas por día",
         ],
       },
       {
-        label: "VECTOR — Formato estándar",
+        label: "VECTOR — Formato estándar para eventos medianos",
         items: [
-          "3 Carteles temáticos",
-          "3 Pantallas de animación",
-          "3 Estaciones interactivas",
-          "Espacio: 15–25 m²  ·  Instalación: 2–3 horas",
-          "Duración: 3 días–2 semanas  ·  Audiencia: 100–300/día",
+          "3 Carteles Temáticos — Representan bloques clave como algoritmos, desinformación, bots y manipulación informativa.",
+          "3 Pantallas de Animación — Monitores horizontales que proyectan visualizaciones dinámicas, simulaciones o contenidos de contexto.",
+          "3 Estaciones Interactivas — Paneles digitales verticales con pantallas táctiles para aplicaciones, juegos y módulos de verificación.",
+          "Experiencias Prácticas para Debate (opcional según objetivo del evento).",
+          "Espacio requerido: 15–25 m²",
+          "Tiempo de instalación: 2–3 horas",
+          "Duración recomendada: 3 días – 2 semanas",
+          "Audiencia: 100–300 personas por día",
         ],
       },
       {
-        label: "HOLO — Formato completo",
+        label: "HOLO — Formato completo para instalaciones duraderas",
         items: [
-          "6 Carteles visuales",
-          "3 Animaciones de video",
-          "4 Aplicaciones interactivas",
-          "Zona central de reflexión",
-          "Espacio: 30–50 m²  ·  Instalación: 4–6 horas",
-          "Duración: 2 semanas–permanente  ·  Audiencia: 200–500/día",
+          "6 Carteles Visuales — Tres paneles frontales y cuatro laterales que estructuran el espacio y capturan la atención.",
+          "3 Animaciones de Video — Pantallas con datos, narrativas, visualizaciones y simulaciones interactivas.",
+          "4 Aplicaciones Interactivas — Estaciones digitales diseñadas en coordinación con el cliente según objetivos del evento.",
+          "Consultas o encuestas adaptadas al interés del público o del cliente.",
+          "Zona Central — Área con mobiliario cómodo para la reflexión, el debate, el descanso o actividades guiadas.",
+          "Espacio requerido: 30–50 m²",
+          "Tiempo de instalación: 4–6 horas",
+          "Duración recomendada: 2 semanas – permanente",
+          "Audiencia: 200–500 personas por día",
         ],
       },
     ],
@@ -95,17 +108,17 @@ const CONTENT = [
     kicker: "04 · Implementación",
     title: "10 formas de\nimplementar",
     sub: "De activaciones a experiencias inmersivas.",
-    body: "Desde activaciones previas hasta experiencias inmersivas y gamificación.",
+    body: "Pueden integrarse de múltiples formas en el espacio y el tiempo de tu evento, sin limitarse a un tipo de público específico.",
     groups: [
       {
-        label: "Posibilidades",
+        label: "Posibilidades de implementación",
         items: [
           "01 · Activación previa al evento — Despliega módulos interactivos en pasillos o vestíbulos para que la audiencia descubra conceptos clave antes de cualquier actividad programada.",
           "02 · Puntos de encuentro temáticos — Crea estaciones dedicadas a la privacidad, la IA, la desinformación o la ética digital, permitiendo que los visitantes transiten libremente entre ellas.",
           "03 · Rutas autoguiadas — Diseña un recorrido cronológico o lógico que guíe a las personas por distintos retos y experiencias, cada uno acompañado de soportes visuales y multimedia.",
           "04 · Elementos móviles — Utiliza tablets, kioscos portátiles o gafas de realidad aumentada para llevar la instalación a espacios reducidos o itinerantes dentro del mismo recinto.",
           "05 · Material descargable — Ofrece a los visitantes códigos QR que enlacen a guías, infografías y recursos digitales para profundizar después del evento.",
-          "06 · Salas de reflexión — Habilita áreas con mobiliario cómodo donde se proyecten cortos videos de discusión o paneles de expertos, invitando al diálogo espontáneo.",
+          "06 · Salas de reflexión — Habilita áreas con mobiliario cómodo donde se proyecten cortos vídeos de discusión o paneles de expertos, invitando al diálogo espontáneo.",
           "07 · Interacción IA en vivo — Incluye chatbots o asistentes virtuales que respondan preguntas, generen análisis de perfiles de privacidad y ofrezcan recomendaciones personalizadas.",
           "08 · Experiencias inmersivas — Incorpora videoproyecciones 360°, realidad virtual y entornos sonoros para sumergir al visitante en escenarios que ilustran riesgos y oportunidades tecnológicas.",
           "09 · Gamificación — Implementa desafíos y juegos basados en preguntas sobre los temas decididos, recompensando la participación con insignias digitales o reconocimientos físicos.",
@@ -119,21 +132,31 @@ const CONTENT = [
     kicker: "05 · Personalización",
     title: "Ediciones\ntemáticas",
     sub: "Desinformación · IA · Comunitaria",
-    body: "Cada muestra se adapta a un tema específico o se personaliza para tu comunidad.",
+    body: "Hub Digital Consciente ofrece tres paquetes modulares —Pixel, Vector, Holo— que se ajustan al espacio, la duración y el público del evento.",
     groups: [
       {
-        label: "Opciones disponibles",
+        label: "Ediciones temáticas",
         items: [
-          "Ediciones temáticas — IA, desinformación, privacidad con tecnologías especializadas.",
-          "Edición comunitaria — Dinámicas de participación local y foros vecinales.",
-          "Componentes a la carta — Pósters, mini-experimentos, kits de cultura digital.",
+          "Profundiza en áreas específicas (IA, desinformación, privacidad digital, etc.) incorporando contenidos y tecnologías especializadas, como estaciones de realidad virtual o simulaciones avanzadas.",
+        ],
+      },
+      {
+        label: "Edición comunitaria",
+        items: [
+          "Adapta la realidad de tu comuna o grupo objetivo, integrando dinámicas de participación local y fórums de debate que empoderan a vecinos de todas las edades.",
+        ],
+      },
+      {
+        label: "Componentes a la carta",
+        items: [
+          "Elige piezas sueltas, pósters, mini-experimentos interactivos, kits de cultura digital, para complementar la exposición según las necesidades.",
         ],
       },
       {
         label: "Ediciones disponibles",
         items: [
-          "Edición Desinformación — Ver especificaciones completas →",
-          "Edición IA y Algoritmos — Ver especificaciones completas →",
+          "01 · Edición Desinformación — Ver especificaciones completas →",
+          "02 · Edición IA y Algoritmos — Ver especificaciones completas →",
         ],
       },
     ],
@@ -146,24 +169,24 @@ const CONTENT = [
     body: "Cuéntanos tu espacio, público y duración. Diseñamos una propuesta a medida para tu evento o municipio.",
     groups: [
       {
-        label: "El proceso",
+        label: "Cómo desarrollamos cada muestra",
         items: [
-          "01 · Cuéntanos tu espacio, público y duración imaginados.",
-          "02 · Diseñamos la propuesta a medida de tu comunidad.",
-          "03 · Co-creamos juntos el montaje, contenidos y cronograma.",
+          "Colaboración con Expertos — Nos asociamos con profesionales en diversos campos para asegurar que el contenido sea preciso y relevante.",
+          "Investigación en Campo — Realizamos investigaciones directas con la audiencia para entender los desafíos reales y las perspectivas de cada muestra.",
         ],
       },
       {
-        label: "Cómo lo desarrollamos",
+        label: "El proceso",
         items: [
-          "Colaboración con expertos — Profesionales en diversos campos aseguran contenido preciso.",
-          "Investigación en campo — Directamente con la audiencia para entender desafíos reales.",
+          "01 · Cuéntanos tu espacio, público y duración imaginados para la muestra.",
+          "02 · Diseñamos la propuesta a medida de tu comunidad y objetivos.",
+          "03 · Co-creamos juntos el montaje, contenidos y cronograma.",
         ],
       },
     ],
     bg: "#F5F2EC", tc: "#0A0C12",
   },
-]
+] as const
 
 export default function HubCylinder() {
   const [current, setCurrent] = useState(0)
