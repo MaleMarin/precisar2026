@@ -369,10 +369,6 @@ export function SiteFooter() {
               </a>
             </div>
             <div className={styles.legalMeta}>
-              <p className={styles.legalCopyright}>
-                © {year} Precisar. Todos los derechos reservados. Onda de Precisar es una marca registrada y un
-                servicio oficial de comunicación de la Fundación Precisar.
-              </p>
               <Link href="/legal/privacidad-consulta-2026" className={styles.privacyLink}>
                 Política de Privacidad
               </Link>

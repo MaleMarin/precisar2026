@@ -485,13 +485,6 @@
   gap: 0.65rem;
 }
 
-.legalCopyright {
-  margin: 0;
-  font-size: 0.6875rem;
-  line-height: 1.6;
-  color: rgba(255, 255, 255, 0.4);
-}
-
 .privacyLink {
   display: inline-block;
   width: fit-content;
