@@ -123,12 +123,11 @@
 
 .leadText {
   margin: 0;
-  font-size: clamp(0.8125rem, 2vw, 0.875rem);
-  font-weight: 500;
+  font-size: clamp(0.9375rem, 2.2vw, 1.0625rem);
+  font-weight: 600;
   line-height: 1.35;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.92);
+  letter-spacing: -0.02em;
+  color: rgba(255, 255, 255, 0.95);
 }
 
 .contextZone {
@@ -141,6 +140,15 @@
   line-height: 1.65;
   letter-spacing: 0.01em;
   color: rgba(255, 255, 255, 0.82);
+}
+
+.contextTriad {
+  margin: 0.85rem 0 0;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  line-height: 1.55;
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .ctaZone {

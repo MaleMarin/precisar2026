@@ -36,8 +36,8 @@ export default function DevGlassPreviewPage() {
             <h1 className={styles.heroPanelTitle}>¿Cómo te informas hoy?</h1>
             <p className={styles.heroPanelLead}>Menos ruido, más criterio.</p>
             <p className={styles.heroPanelBody}>
-              Texto de prueba para evaluar contraste, placa interna y lectura prolongada sobre el material
-              glass sin perder nitidez ni jerarquía tipográfica.
+              Entre titulares, audios, redes y mensajes, todos nos informamos y tomamos decisiones cada día.
+              Queremos entender cómo lo haces tú.
             </p>
           </GlassPanel>
         </section>

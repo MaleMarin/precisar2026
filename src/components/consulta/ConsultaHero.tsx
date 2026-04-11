@@ -15,15 +15,22 @@ export function ConsultaHero() {
                 </h1>
               </div>
 
-              <div className={styles.contextZone} data-consulta-module="context">
-                <p className={styles.contextText}>
-                  Entre titulares, audios, videos y mensajes, tomamos decisiones todos los días.
-                  Queremos entender cómo te informas realmente.
-                </p>
+              <div className={styles.leadZone} data-consulta-module="lead">
+                <p className={styles.leadText}>Menos ruido, más criterio.</p>
               </div>
 
-              <div className={styles.leadZone} data-consulta-module="lead">
-                <p className={styles.leadText}>Menos ruido. Más criterio.</p>
+              <div className={styles.contextZone} data-consulta-module="context">
+                <p className={styles.contextText}>
+                  Entre titulares, audios, redes y mensajes, todos nos informamos y tomamos decisiones cada día.
+                  Queremos entender cómo lo haces tú.
+                </p>
+                <p className={styles.contextTriad}>
+                  No es una prueba.
+                  <br />
+                  Es anónima.
+                  <br />
+                  Y toma menos de un minuto.
+                </p>
               </div>
             </div>
 

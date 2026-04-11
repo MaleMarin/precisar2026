@@ -14,12 +14,12 @@ const consultaCanonical = `${SITE.url}/consulta`;
 export const metadata: Metadata = {
   title: "Consulta",
   description:
-    "Queremos entender cómo te informas hoy. Es anónima, rápida y no tiene respuestas correctas.",
+    "¿Cómo te informas hoy? Menos ruido, más criterio. Consulta anónima en menos de un minuto.",
   alternates: { canonical: consultaCanonical },
   openGraph: {
     title: "Consulta · Precisar",
     description:
-      "Queremos entender cómo te informas hoy. Es anónima, rápida y no tiene respuestas correctas.",
+      "¿Cómo te informas hoy? Menos ruido, más criterio. Consulta anónima en menos de un minuto.",
     url: consultaCanonical,
     siteName: SITE.name,
     locale: "es_CL",

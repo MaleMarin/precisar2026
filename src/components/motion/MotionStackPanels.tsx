@@ -226,12 +226,8 @@ function ParticipaStackPanelContent() {
           </p>
         </header>
         <div className={styles.participaStackCopy}>
-          <p
-            className={`${styles.body} ${styles.bodyOnAccent} ${styles.participaCopyFirst}`}
-          >
-            En medio de titulares, audios, redes y mensajes, todos tomamos decisiones todos los días.
-          </p>
-          <p className={`${styles.body} ${styles.bodyOnAccent} ${styles.participaCopyFollow}`}>
+          <p className={`${styles.body} ${styles.bodyOnAccent} ${styles.participaCopyFirst}`}>
+            Entre titulares, audios, redes y mensajes, todos nos informamos y tomamos decisiones cada día.
             Queremos entender cómo lo haces tú.
           </p>
           <p
@@ -240,7 +236,8 @@ function ParticipaStackPanelContent() {
             No es una prueba.
             <br />
             Es anónima.
-            <br />Y toma menos de un minuto.
+            <br />
+            Y toma menos de un minuto.
           </p>
         </div>
       </div>

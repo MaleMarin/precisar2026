@@ -8,7 +8,7 @@ export function ConsultaIntro() {
           <p className={styles.kicker}>Qué es</p>
           <h2 className={styles.title}>¿De qué se trata?</h2>
           <p className={styles.body}>
-            Queremos entender cómo llega la información a tu día a día: qué te ayuda, qué te confunde y qué
+            Nos interesa cómo llega la información a tu día a día: qué te ayuda, qué te confunde y qué
             necesitas para decidir con más claridad. No buscamos respuestas correctas, sino experiencias
             reales.
           </p>
@@ -18,8 +18,11 @@ export function ConsultaIntro() {
           <div className={styles.sheetCard}>
             <p className={styles.kicker}>Cómo funciona</p>
             <p className={styles.emphasis}>
-              No es una prueba. Es un espacio para entender cómo te informas hoy, sin juicios ni respuestas
-              correctas.
+              No es una prueba.
+              <br />
+              Es anónima.
+              <br />
+              Y toma menos de un minuto.
             </p>
           </div>
 
