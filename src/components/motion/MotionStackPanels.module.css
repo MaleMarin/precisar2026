@@ -1251,6 +1251,68 @@
   transform: scale(0.97) translateY(-8px);
 }
 
+/* Programas: el card (cristal) llena la columna derecha; nada queda recortado por el sticky — el exceso scroll dentro del card. */
+:global(#programas) .stickyPanel {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+:global(#programas) .panelDepthEnter {
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+:global(#programas) .colMain {
+  min-height: 0;
+}
+
+:global(#programas) .colAside {
+  justify-content: flex-start;
+  min-height: 0;
+}
+
+:global(#programas) .panelDepthEnter .grid {
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+:global(#programas) .grid {
+  min-height: 0;
+}
+
+:global(#programas) .asideSlot {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+:global(#programas) .miniListGlass {
+  flex: 1 1 auto;
+  min-height: 0;
+  margin-top: clamp(1rem, 2.2vw, 2rem);
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(219, 82, 39, 0.35) transparent;
+}
+
+:global(#programas) .miniListGlass::-webkit-scrollbar {
+  width: 4px;
+}
+
+:global(#programas) .miniListGlass::-webkit-scrollbar-thumb {
+  background: rgba(219, 82, 39, 0.45);
+  border-radius: 2px;
+}
+
+:global(#programas) .miniLabel {
+  overflow-wrap: break-word;
+}
+
 .stickyPanelScrollable {
   overflow: hidden;
 }
