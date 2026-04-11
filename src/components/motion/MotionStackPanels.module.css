@@ -1050,7 +1050,7 @@
 
 .convocaStackChileNum {
   font-family: var(--font-display, system-ui, sans-serif);
-  font-size: clamp(3.5rem, 11vw, 5.5rem);
+  font-size: clamp(2rem, 7vw, 3.5rem);
   font-weight: 800;
   line-height: 0.86;
   letter-spacing: -0.048em;
@@ -1060,7 +1060,7 @@
 
 @media (min-width: 901px) {
   .convocaStackChileNum {
-    font-size: max(6rem, min(8.5rem, 12vw));
+    font-size: clamp(2.5rem, 5vw, 4rem);
   }
 }
 
@@ -1082,8 +1082,9 @@
 
 /* Nuestra propuesta — cierre limpio y concluyente */
 .convocaStackPropuesta {
-  margin: 0;
-  padding: max(3rem, clamp(2.65rem, 5.5vw, 3.5rem)) 0 0;
+  margin: clamp(2rem, 4vw, 3rem) 0 0;
+  padding-bottom: clamp(2rem, 4vw, 3rem);
+  padding-top: max(3rem, clamp(2.65rem, 5.5vw, 3.5rem));
   border-top: 1px solid color-mix(in oklab, #fff 14%, transparent);
   background: transparent;
 }
