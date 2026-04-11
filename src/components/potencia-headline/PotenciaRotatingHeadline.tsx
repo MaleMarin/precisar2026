@@ -59,6 +59,8 @@ export function PotenciaRotatingHeadline({
   const [mode, setMode] = useState<"in" | "shown" | "stainOut" | "out">(reduceMotion ? "shown" : "in");
   const [clientReady, setClientReady] = useState(false);
   const verbRef = useRef<HTMLSpanElement | null>(null);
+  /** Evita resetear `mode` en el primer mount (corría con el scramble y podía dejar el ciclo en "in"). */
+  const lastLocaleResetRef = useRef<string | null>(null);
 
   useEffect(() => {
     queueMicrotask(() => {
@@ -80,11 +82,18 @@ export function PotenciaRotatingHeadline({
     enabled: clientReady,
     variant: "swap",
     swapResetKey: locale,
-    swapQuick: scale === "precisarHome",
+    /** Portada: sin scramble para que `VERB_SHOWN_MS` sea real y no compita con RAF del efecto letras. */
+    swapInstant: scale === "precisarHome",
     onSettle: handleVerbSettle,
   });
 
   useEffect(() => {
+    if (lastLocaleResetRef.current === null) {
+      lastLocaleResetRef.current = locale;
+      return;
+    }
+    if (lastLocaleResetRef.current === locale) return;
+    lastLocaleResetRef.current = locale;
     queueMicrotask(() => {
       setIndex(0);
       setMode(reduceMotion ? "shown" : "in");

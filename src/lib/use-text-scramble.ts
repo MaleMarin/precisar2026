@@ -28,6 +28,8 @@ export type TextScrambleOptions = {
   swapResetKey?: string;
   /** `swap`: menos frames por carácter (p. ej. hero con pausa corta tras el texto final). */
   swapQuick?: boolean;
+  /** `swap`: sin animación; texto final y `onSettle` en el siguiente microtask (timing predecible). */
+  swapInstant?: boolean;
 };
 
 /**
@@ -40,7 +42,7 @@ export function useTextScramble(
   dudClassName: string,
   options: TextScrambleOptions = {},
 ) {
-  const { enabled = true, variant = "intro", swapResetKey, swapQuick = false } = options;
+  const { enabled = true, variant = "intro", swapResetKey, swapQuick = false, swapInstant = false } = options;
   const onSettleRef = useRef(options.onSettle);
   onSettleRef.current = options.onSettle;
 
@@ -63,6 +65,24 @@ export function useTextScramble(
 
     let cancelled = false;
     let raf = 0;
+
+    if (variant === "swap" && swapInstant) {
+      if (swapResetKey !== undefined && swapResetKey !== prevResetKeyRef.current) {
+        prevSwapRef.current = "";
+        prevResetKeyRef.current = swapResetKey;
+      }
+      queueMicrotask(() => {
+        if (cancelled) return;
+        setHtml(escapeHtml(finalText));
+        prevSwapRef.current = finalText;
+        fireSettle();
+      });
+      return () => {
+        cancelled = true;
+        cancelAnimationFrame(raf);
+      };
+    }
+
     let frame = 0;
     let queue: QueueItem[] = [];
     let resolveAnim: (() => void) | undefined;
@@ -146,7 +166,7 @@ export function useTextScramble(
       cancelled = true;
       cancelAnimationFrame(raf);
     };
-  }, [finalText, respectReducedMotion, dudClassName, enabled, variant, swapResetKey, swapQuick]);
+  }, [finalText, respectReducedMotion, dudClassName, enabled, variant, swapResetKey, swapQuick, swapInstant]);
 
   return html;
 }
