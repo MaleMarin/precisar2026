@@ -88,11 +88,11 @@
     "stackLinkFuncionarios": "Course for Public Servants",
     "stackBotOndaLead": "Bot Onda:",
     "stackBotOndaManoName": "Onda en Mano",
-    "stackBotOndaManoDesc": "helps with everyday phone use, apps, and online tasks in plain language.",
+    "stackBotOndaManoDesc": "For what hits you every day: messages, chains, iffy links, voice notes. It helps you see what's reliable, what signals to check, and how to use AI with judgment — without doing the work for you.",
     "stackBotOndaCivitaName": "Onda Civita",
-    "stackBotOndaCivitaDesc": "strengthens digital citizenship: rights, participation, and critical reading of information.",
+    "stackBotOndaCivitaDesc": "For making sense of the public sphere: the state, laws, the economy, the environment, recent history. Clear, non-partisan language, data, and framing.",
     "stackBotOndaProfesName": "Onda Profes",
-    "stackBotOndaProfesDesc": "supports workplaces and schools: communication, tools, and responsible digital habits.",
+    "stackBotOndaProfesDesc": "For teachers and education teams: how to design activities where AI is a tool, not a shortcut; good practice, rubrics, and transparency with students. Supports those who teach.",
     "tiles": {
       "ciudades": {
         "title": "Cities Connected with Purpose",

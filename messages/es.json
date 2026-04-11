@@ -88,11 +88,11 @@
     "stackLinkFuncionarios": "Curso para Servidores Públicos",
     "stackBotOndaLead": "Bot Onda:",
     "stackBotOndaManoName": "Onda en Mano",
-    "stackBotOndaManoDesc": "acompaña el uso cotidiano del celular, apps y trámites en línea con lenguaje claro.",
+    "stackBotOndaManoDesc": "Para lo que te llega al día: mensajes, cadenas, links dudosos, audios. Te ayuda a entender qué es confiable, qué señales mirar y cómo usar la IA con criterio — sin hacer las cosas por ti.",
     "stackBotOndaCivitaName": "Onda Civita",
-    "stackBotOndaCivitaDesc": "refuerza ciudadanía digital: derechos, participación y lectura crítica de la información.",
+    "stackBotOndaCivitaDesc": "Para entender el mundo público: el Estado, las leyes, la economía, el medio ambiente, la historia reciente. Lenguaje claro y apartidario, datos y marcos.",
     "stackBotOndaProfesName": "Onda Profes",
-    "stackBotOndaProfesDesc": "orienta en entornos laborales y educativos: comunicación, herramientas y hábitos digitales responsables.",
+    "stackBotOndaProfesDesc": "Para docentes y equipos educativos: cómo diseñar actividades donde la IA sea herramienta y no atajo, buenas prácticas, rúbricas y transparencia con el alumnado. Apoya a quien enseña.",
     "tiles": {
       "ciudades": {
         "title": "Ciudades Conectadas con Sentido",
