@@ -93,10 +93,6 @@ export default function AprenderDigitalPage() {
             Un espacio seguro, cercano y amigable para personas adultas y mayores.
           </p>
         </div>
-        <aside className={shell.heroStat} aria-hidden="true">
-          <p className={styles.heroStatBig}>96,5%</p>
-          <p className={shell.heroStatLabel}>de hogares conectados en Chile</p>
-        </aside>
       </header>
 
       <section className={`${shell.queEs} ${shell.padSection}`} aria-labelledby="aprender-que-es-heading">
