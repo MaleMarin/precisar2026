@@ -363,10 +363,8 @@ export const PDFS = {
     "https://www.precisar.net/_files/ugd/4c5e66_5cb6a7e00abd433b99f65d043f612653.pdf",
   ciudadesAmiUnesco:
     "https://www.precisar.net/_files/ugd/4c5e66_5c07eaf63a3a475b9b27c753d8da1c24.pdf",
-  hubDesinformacion:
-    "https://www.precisar.net/_files/ugd/4c5e66_537f933926e8489797b79c08a731362e.pdf",
-  hubIaAlgoritmos:
-    "https://www.precisar.net/_files/ugd/4c5e66_eca907526677459d9884ce83ed878df3.pdf",
+  hubDesinformacion: "/hub-edicion-desinformacion.pdf",
+  hubIaAlgoritmos: "/hub-edicion-ia-algoritmos.pdf",
   saberesIaAula1:
     "https://www.precisar.net/_files/ugd/4c5e66_ecfcd551d56e41fcaea57e21d5b9e20b.pdf",
   saberesIaAula2:

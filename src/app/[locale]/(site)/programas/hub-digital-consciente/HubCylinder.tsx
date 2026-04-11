@@ -234,7 +234,7 @@ export default function HubCylinder() {
   // Animación suave (lerp bajo hasta isReady, luego más ágil) + inercia post-drag
   useEffect(() => {
     const animate = () => {
-      const lerp = isReady ? 0.025 : 0.01
+      const lerp = isReady ? 0.015 : 0.01
       if (
         !isDrag.current &&
         !isExpandedRef.current &&
@@ -268,8 +268,8 @@ export default function HubCylinder() {
       const delta = cx - pointerLastX.current
       pointerLastX.current = cx
       lastDeltaRef.current = delta
-      targetRot.current += delta * 0.04
-      velYRef.current = delta * 0.04
+      targetRot.current += delta * 0.02
+      velYRef.current = delta * 0.02
     }
     const onMoveT = (e: globalThis.TouchEvent) => {
       if (!isDrag.current || isExpanded) return
@@ -277,13 +277,13 @@ export default function HubCylinder() {
       const delta = cx - pointerLastX.current
       pointerLastX.current = cx
       lastDeltaRef.current = delta
-      targetRot.current += delta * 0.04
-      velYRef.current = delta * 0.04
+      targetRot.current += delta * 0.02
+      velYRef.current = delta * 0.02
     }
     const onUp = () => {
       if (!isDrag.current || isExpanded) return
       isDrag.current = false
-      velYRef.current = lastDeltaRef.current * 0.04
+      velYRef.current = lastDeltaRef.current * 0.02
       if (snapTimerRef.current !== null) {
         window.clearTimeout(snapTimerRef.current)
       }
@@ -570,9 +570,9 @@ export default function HubCylinder() {
                   let pdfHref: string | null = null
                   if (edicionesPdf) {
                     if (item.includes("Desinformación")) {
-                      pdfHref = "/Edición%20Desinformación%20ok.pdf"
+                      pdfHref = "/hub-edicion-desinformacion.pdf"
                     } else if (item.includes("IA y Algoritmos")) {
-                      pdfHref = "/Edición%20IA%20y%20Algoritmos.pdf"
+                      pdfHref = "/hub-edicion-ia-algoritmos.pdf"
                     }
                   }
                   return (
