@@ -1,6 +1,14 @@
 "use client";
 
-import { useState, useRef, useEffect, useCallback, type MouseEvent, type TouchEvent } from "react";
+import {
+  useState,
+  useRef,
+  useEffect,
+  useCallback,
+  type MouseEvent,
+  type TouchEvent,
+  type WheelEvent,
+} from "react";
 import dynamic from "next/dynamic";
 import { Canvas } from "@react-three/fiber";
 import styles from "./HubCylinder.module.css";
@@ -21,8 +29,8 @@ const CONTENT = [
           "Plazas y espacios públicos — Al aire libre, para comunidades de todas las edades.",
           "Bibliotecas y salas culturales — Espacios de reflexión y aprendizaje colectivo.",
           "Establecimientos educacionales — Desde colegios hasta universidades.",
-          "Auditorios y eventos corporativos — Para generar conversaciones necesarias.",
           "Municipios y gobiernos locales — Intervención territorial con impacto ciudadano directo.",
+          "Auditorios y eventos corporativos — Para generar conversaciones necesarias.",
           "Eventos y festivales — Activación cultural en contextos de alta convocatoria.",
         ],
       },
@@ -91,21 +99,21 @@ const CONTENT = [
   {
     kicker: "04 · Implementación",
     title: "10 formas de\nimplementar",
-    body: "Diez formas de integrar la experiencia en tu evento o espacio.",
+    body: "Desde activaciones previas hasta experiencias inmersivas y gamificación.",
     groups: [
       {
         label: "Posibilidades",
         items: [
-          "01 · Activación previa al evento — Despliega módulos en pasillos antes de actividades programadas.",
-          "02 · Puntos de encuentro temáticos — Estaciones dedicadas a privacidad, IA, desinformación o ética digital.",
+          "01 · Activación previa al evento — Módulos en pasillos antes de actividades programadas.",
+          "02 · Puntos de encuentro temáticos — Estaciones dedicadas a privacidad, IA, desinformación.",
           "03 · Rutas autoguiadas — Recorrido cronológico con soportes visuales y multimedia.",
           "04 · Elementos móviles — Tablets, kioscos portátiles o gafas de realidad aumentada.",
-          "05 · Material descargable — Códigos QR que enlazan a guías e infografías.",
-          "06 · Salas de reflexión — Áreas con mobiliario cómodo y proyección de videos de discusión.",
-          "07 · Interacción IA en vivo — Chatbots que generan análisis de perfiles de privacidad.",
-          "08 · Experiencias inmersivas — Videoproyecciones 360°, realidad virtual y entornos sonoros.",
+          "05 · Material descargable — Códigos QR con guías e infografías post-evento.",
+          "06 · Salas de reflexión — Áreas cómodas con proyección de videos de discusión.",
+          "07 · Interacción IA en vivo — Chatbots con análisis de perfiles de privacidad.",
+          "08 · Experiencias inmersivas — Videoproyecciones 360° y entornos sonoros.",
           "09 · Gamificación — Desafíos con insignias digitales o reconocimientos físicos.",
-          "10 · Integración con ponencias — Combina estaciones con conferencias para ejemplificar argumentos.",
+          "10 · Integración con ponencias — Estaciones vinculadas a conferencias del evento.",
         ],
       },
     ],
@@ -115,14 +123,14 @@ const CONTENT = [
   {
     kicker: "05 · Personalización",
     title: "Ediciones\ntemáticas",
-    body: "Cada muestra se puede adaptar a un tema específico o personalizar para tu comunidad.",
+    body: "Cada muestra se adapta a un tema específico o se personaliza para tu comunidad.",
     groups: [
       {
         label: "Opciones disponibles",
         items: [
-          "Ediciones temáticas — Profundiza en IA, desinformación, privacidad digital con tecnologías especializadas.",
-          "Edición comunitaria — Adapta la realidad de tu comuna con dinámicas de participación local.",
-          "Componentes a la carta — Elige piezas sueltas: pósters, mini-experimentos, kits de cultura digital.",
+          "Ediciones temáticas — IA, desinformación, privacidad con tecnologías especializadas.",
+          "Edición comunitaria — Dinámicas de participación local y foros vecinales.",
+          "Componentes a la carta — Pósters, mini-experimentos, kits de cultura digital.",
         ],
       },
       {
@@ -142,18 +150,18 @@ const CONTENT = [
     body: "Cuéntanos tu espacio, público y duración. Diseñamos una propuesta a medida para tu evento o municipio.",
     groups: [
       {
-        label: "Cómo desarrollamos cada muestra",
+        label: "Cómo lo desarrollamos",
         items: [
-          "Colaboración con expertos — Nos asociamos con profesionales para asegurar contenido preciso.",
-          "Investigación en campo — Investigaciones directas con la audiencia para entender desafíos reales.",
+          "Colaboración con expertos — Profesionales en diversos campos aseguran contenido preciso.",
+          "Investigación en campo — Directamente con la audiencia para entender desafíos reales.",
         ],
       },
       {
         label: "El proceso",
         items: [
-          "01 · Cuéntanos tu espacio, público y duración",
-          "02 · Diseñamos la propuesta a medida",
-          "03 · Co-creamos juntos el montaje y cronograma",
+          "01 · Cuéntanos tu espacio, público y duración imaginados.",
+          "02 · Diseñamos la propuesta a medida de tu comunidad.",
+          "03 · Co-creamos juntos el montaje, contenidos y cronograma.",
         ],
       },
     ],
@@ -164,144 +172,317 @@ const CONTENT = [
 
 export default function HubCylinder() {
   const [activeIdx, setActiveIdx] = useState(0);
-  const [targetRotation, setTargetRotation] = useState(0);
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [expandedIdx, setExpandedIdx] = useState(0);
+  const [blobDir, setBlobDir] = useState<"left" | "right" | "none">("right");
+
+  const posYRef = useRef(0);
+  const velYRef = useRef(0);
+  const targetRotYRef = useRef(0);
   const isDragging = useRef(false);
   const lastX = useRef(0);
-  const rotRef = useRef(0);
+  const dragVelX = useRef(0);
+  const clickStartX = useRef(0);
+  const clickStartY = useRef(0);
+  const blobTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const handleMouseDown = useCallback((e: MouseEvent) => {
-    isDragging.current = true;
-    lastX.current = e.clientX;
+  const showBlob = useCallback((dir: "left" | "right" | "none") => {
+    setBlobDir(dir);
+    if (blobTimerRef.current !== null) {
+      clearTimeout(blobTimerRef.current);
+      blobTimerRef.current = null;
+    }
+    if (dir !== "none") {
+      blobTimerRef.current = setTimeout(() => setBlobDir("none"), 2500);
+    }
   }, []);
 
-  const handleTouchStart = useCallback((e: TouchEvent) => {
-    isDragging.current = true;
-    lastX.current = e.touches[0].clientX;
+  const goTo = useCallback(
+    (i: number) => {
+      const snap = (i / N) * Math.PI * 2;
+      const diff = snap - posYRef.current;
+      const normalized = ((diff + Math.PI * 3) % (Math.PI * 2)) - Math.PI;
+      velYRef.current = normalized * 0.12;
+      setActiveIdx(i);
+      showBlob(normalized > 0 ? "right" : "left");
+    },
+    [showBlob],
+  );
+
+  const openExpand = useCallback(
+    (idx: number) => {
+      setExpandedIdx(idx);
+      setIsExpanded(true);
+      showBlob("none");
+    },
+    [showBlob],
+  );
+
+  const closeExpand = useCallback(() => {
+    setIsExpanded(false);
+    setTimeout(() => showBlob("right"), 400);
+  }, [showBlob]);
+
+  useEffect(() => {
+    let rafId = 0;
+    const loop = () => {
+      if (!isDragging.current) {
+        velYRef.current *= 0.95;
+        posYRef.current += velYRef.current;
+      }
+      targetRotYRef.current = posYRef.current;
+      rafId = requestAnimationFrame(loop);
+    };
+    rafId = requestAnimationFrame(loop);
+    return () => cancelAnimationFrame(rafId);
   }, []);
 
   useEffect(() => {
     const onMove = (e: globalThis.MouseEvent) => {
-      if (!isDragging.current) return;
+      if (!isDragging.current || isExpanded) return;
       const dx = e.clientX - lastX.current;
-      rotRef.current -= dx * 0.008;
-      setTargetRotation(rotRef.current);
+      dragVelX.current = dx;
+      posYRef.current += dx * 0.005;
       lastX.current = e.clientX;
+      if (Math.abs(dx) > 3) showBlob(dx > 0 ? "left" : "right");
     };
     const onMoveT = (e: globalThis.TouchEvent) => {
-      if (!isDragging.current) return;
+      if (!isDragging.current || isExpanded) return;
       const dx = e.touches[0].clientX - lastX.current;
-      rotRef.current -= dx * 0.008;
-      setTargetRotation(rotRef.current);
+      dragVelX.current = dx;
+      posYRef.current += dx * 0.006;
       lastX.current = e.touches[0].clientX;
+      if (Math.abs(dx) > 3) showBlob(dx > 0 ? "left" : "right");
     };
-    const onUp = () => {
+    const onUp = (e: globalThis.MouseEvent) => {
+      if (!isDragging.current || isExpanded) return;
       isDragging.current = false;
+      velYRef.current = dragVelX.current * 0.005;
+      const moved = Math.abs(e.clientX - clickStartX.current) + Math.abs(e.clientY - clickStartY.current);
+      if (moved < 8) {
+        const nearest = Math.round((posYRef.current / (Math.PI * 2)) * N);
+        openExpand(((nearest % N) + N) % N);
+      } else {
+        setTimeout(() => {
+          const nearest = Math.round((posYRef.current / (Math.PI * 2)) * N);
+          goTo(((nearest % N) + N) % N);
+        }, 600);
+      }
+    };
+    const onUpT = (e: globalThis.TouchEvent) => {
+      if (!isDragging.current || isExpanded) return;
+      isDragging.current = false;
+      velYRef.current = dragVelX.current * 0.005;
+      const moved = Math.abs(e.changedTouches[0].clientX - clickStartX.current);
+      if (moved < 10) {
+        const nearest = Math.round((posYRef.current / (Math.PI * 2)) * N);
+        openExpand(((nearest % N) + N) % N);
+      } else {
+        setTimeout(() => {
+          const nearest = Math.round((posYRef.current / (Math.PI * 2)) * N);
+          goTo(((nearest % N) + N) % N);
+        }, 600);
+      }
     };
     window.addEventListener("mousemove", onMove);
-    window.addEventListener("touchmove", onMoveT);
+    window.addEventListener("touchmove", onMoveT, { passive: true });
     window.addEventListener("mouseup", onUp);
-    window.addEventListener("touchend", onUp);
+    window.addEventListener("touchend", onUpT);
     return () => {
       window.removeEventListener("mousemove", onMove);
       window.removeEventListener("touchmove", onMoveT);
       window.removeEventListener("mouseup", onUp);
-      window.removeEventListener("touchend", onUp);
+      window.removeEventListener("touchend", onUpT);
+    };
+  }, [isExpanded, goTo, openExpand, showBlob]);
+
+  useEffect(() => {
+    const t = setTimeout(() => showBlob("right"), 800);
+    return () => clearTimeout(t);
+  }, [showBlob]);
+
+  useEffect(() => {
+    return () => {
+      if (blobTimerRef.current !== null) clearTimeout(blobTimerRef.current);
     };
   }, []);
 
-  const goToSection = (i: number) => {
-    rotRef.current = (i / N) * Math.PI * 2;
-    setTargetRotation(rotRef.current);
+  const handleMouseDown = (e: MouseEvent) => {
+    if (isExpanded) return;
+    isDragging.current = true;
+    dragVelX.current = 0;
+    lastX.current = e.clientX;
+    clickStartX.current = e.clientX;
+    clickStartY.current = e.clientY;
+    showBlob("none");
+  };
+
+  const handleTouchStart = (e: TouchEvent) => {
+    if (isExpanded) return;
+    isDragging.current = true;
+    dragVelX.current = 0;
+    lastX.current = e.touches[0].clientX;
+    clickStartX.current = e.touches[0].clientX;
+    clickStartY.current = e.touches[0].clientY;
+  };
+
+  const handleWheel = (e: WheelEvent) => {
+    if (isExpanded) return;
+    e.preventDefault();
+    velYRef.current += e.deltaY * 0.0012;
+    showBlob(e.deltaY > 0 ? "right" : "left");
   };
 
   const s = CONTENT[activeIdx];
-  const tc = s.light ? "#F5F2EC" : "#0A0C12";
-  const bc = s.light ? "rgba(245,242,236,0.65)" : "rgba(10,12,18,0.6)";
-  const kc = s.light ? "rgba(245,242,236,0.5)" : "#DB5227";
-  const dotActive = s.light ? "rgba(245,242,236,0.8)" : "#DB5227";
-  const itemColor = s.light ? "rgba(245,242,236,0.55)" : "rgba(10,12,18,0.5)";
-  const labelColor = s.light ? "rgba(245,242,236,0.35)" : "rgba(10,12,18,0.35)";
-  const dividerColor = s.light ? "rgba(245,242,236,0.08)" : "rgba(10,12,18,0.08)";
+  const exp = CONTENT[expandedIdx];
 
   return (
-    <div className={styles.hubWrap} style={{ background: s.bg }}>
-      <div className={styles.hubContent}>
-        <p className={styles.hubKicker} style={{ color: kc }}>
-          {s.kicker}
-        </p>
-        <h2 className={styles.hubTitle} style={{ color: tc }}>
-          {s.title.split("\n").map((line, i) => (
-            <span key={i}>
-              {line}
-              {i < s.title.split("\n").length - 1 && <br />}
-            </span>
-          ))}
-        </h2>
-        <p className={styles.hubBody} style={{ color: bc }}>
-          {s.body}
-        </p>
-        {s.groups.map((group, gi) => (
-          <div key={gi} className={styles.hubGroup}>
-            <p
-              className={styles.hubGroupLabel}
-              style={{ color: labelColor, borderTopColor: dividerColor }}
-            >
-              {group.label}
-            </p>
-            <ul className={styles.hubItems}>
-              {group.items.map((item, ii) => (
-                <li
-                  key={ii}
-                  className={styles.hubItem}
-                  style={{
-                    color: itemColor,
-                    borderBottomColor: dividerColor,
-                  }}
-                >
-                  <span className={styles.hubItemDot} style={{ background: dotActive }} />
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
-      </div>
+    <div
+      className={styles.hubWrap}
+      onMouseDown={handleMouseDown}
+      onTouchStart={handleTouchStart}
+      onWheel={handleWheel}
+    >
+      <Canvas
+        camera={{ position: [0, 0, 0], fov: 70 }}
+        className={styles.hubCanvas}
+        dpr={[1, 2]}
+        gl={{
+          alpha: true,
+          antialias: true,
+          powerPreference: "high-performance",
+        }}
+      >
+        <HubCylinderScene targetRotationYRef={targetRotYRef} onSectionChange={setActiveIdx} />
+      </Canvas>
 
       <div
-        className={styles.hubCanvasWrap}
-        onMouseDown={handleMouseDown}
-        onTouchStart={handleTouchStart}
-      >
-        <Canvas
-          camera={{ position: [0, 0, 700], fov: 55 }}
-          dpr={[1, 2]}
-          gl={{
-            alpha: true,
-            antialias: true,
-            powerPreference: "high-performance",
-          }}
-        >
-          <HubCylinderScene targetRotation={targetRotation} onSectionChange={setActiveIdx} />
-        </Canvas>
-        <p className={styles.hubHint} style={{ color: bc }}>
-          ← arrastra →
-        </p>
-      </div>
+        className={`${styles.blob} ${styles.blobLeft} ${blobDir === "left" ? styles.blobVisible : styles.blobHidden}`}
+        aria-hidden
+      />
 
-      <nav className={styles.hubNav}>
+      <div
+        className={`${styles.blob} ${styles.blobRight} ${blobDir === "right" ? styles.blobVisible : styles.blobHidden}`}
+        aria-hidden
+      />
+
+      {blobDir === "right" && (
+        <div className={`${styles.hint} ${styles.hintRight}`}>
+          <div className={styles.hintLine} />
+          <p className={styles.hintText}>siguiente</p>
+        </div>
+      )}
+
+      {blobDir === "left" && (
+        <div className={`${styles.hint} ${styles.hintLeft}`}>
+          <div className={styles.hintLine} />
+          <p className={styles.hintText}>anterior</p>
+        </div>
+      )}
+
+      <p
+        className={styles.hubKickerOverlay}
+        style={{ color: s.light ? "rgba(245,242,236,0.4)" : "rgba(10,12,18,0.35)" }}
+      >
+        {s.kicker}
+      </p>
+
+      <nav className={styles.hubDots} aria-label="Secciones del Hub">
         {CONTENT.map((_, i) => (
           <button
             key={i}
             type="button"
-            onClick={() => goToSection(i)}
-            className={i === activeIdx ? styles.hubNavDotActive : styles.hubNavDot}
-            style={{
-              background: i === activeIdx ? dotActive : "rgba(128,128,128,0.2)",
-            }}
-            aria-label={`Ir a sección ${i + 1}`}
+            onClick={() => goTo(i)}
+            className={i === activeIdx ? styles.hubDotActive : styles.hubDot}
+            aria-label={`Sección ${i + 1}`}
           />
         ))}
       </nav>
+
+      <div
+        className={`${styles.expandPanel} ${isExpanded ? styles.expandVisible : styles.expandHidden}`}
+        style={{ background: exp.bg }}
+      >
+        <div className={styles.expandInner}>
+          <button
+            type="button"
+            onClick={closeExpand}
+            className={styles.backBtn}
+            style={{
+              color: exp.light ? "rgba(245,242,236,0.5)" : "#DB5227",
+              borderColor: exp.light ? "rgba(245,242,236,0.25)" : "rgba(10,12,18,0.2)",
+            }}
+          >
+            ← volver
+          </button>
+
+          <p
+            className={styles.expandKicker}
+            style={{
+              color: exp.light ? "rgba(245,242,236,0.48)" : "#DB5227",
+            }}
+          >
+            {exp.kicker}
+          </p>
+
+          <h2
+            className={styles.expandTitle}
+            style={{
+              color: exp.light ? "#F5F2EC" : "#0A0C12",
+            }}
+          >
+            {exp.title.split("\n").map((line, i) => (
+              <span key={i}>
+                {line}
+                {i < exp.title.split("\n").length - 1 && <br />}
+              </span>
+            ))}
+          </h2>
+
+          <p
+            className={styles.expandBody}
+            style={{
+              color: exp.light ? "rgba(245,242,236,0.7)" : "rgba(10,12,18,0.62)",
+            }}
+          >
+            {exp.body}
+          </p>
+
+          {exp.groups.map((group, gi) => (
+            <div key={gi}>
+              <p
+                className={styles.groupLabel}
+                style={{
+                  color: exp.light ? "rgba(245,242,236,0.3)" : "rgba(10,12,18,0.3)",
+                  borderTopColor: exp.light ? "rgba(245,242,236,0.08)" : "rgba(10,12,18,0.08)",
+                }}
+              >
+                {group.label}
+              </p>
+              <ul className={styles.groupItems}>
+                {group.items.map((item, ii) => (
+                  <li
+                    key={ii}
+                    className={styles.groupItem}
+                    style={{
+                      color: exp.light ? "rgba(245,242,236,0.62)" : "rgba(10,12,18,0.55)",
+                      borderBottomColor: exp.light ? "rgba(245,242,236,0.08)" : "rgba(10,12,18,0.08)",
+                    }}
+                  >
+                    <span
+                      className={styles.groupDot}
+                      style={{
+                        background: exp.light ? "rgba(245,242,236,0.6)" : "#DB5227",
+                      }}
+                    />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
