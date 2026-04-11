@@ -1,0 +1,176 @@
+.hubWrap {
+  width: 100%;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 55fr 45fr;
+  position: relative;
+  transition: background 0.5s ease;
+}
+
+.hubContent {
+  padding: clamp(3rem, 6vw, 5rem) clamp(2rem, 5vw, 4rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow-y: auto;
+  border-right: 1px solid rgba(128, 128, 128, 0.1);
+  min-height: 100vh;
+  max-height: 100vh;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(219, 82, 39, 0.3) transparent;
+}
+
+.hubContent::-webkit-scrollbar {
+  width: 3px;
+}
+.hubContent::-webkit-scrollbar-thumb {
+  background: rgba(219, 82, 39, 0.4);
+  border-radius: 2px;
+}
+
+.hubKicker {
+  font-size: 0.625rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin: 0 0 1rem;
+  font-family: "Avenir Next", "Avenir", sans-serif;
+  transition: color 0.4s ease;
+}
+
+.hubTitle {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: clamp(52px, 7vw, 88px);
+  line-height: 0.88;
+  margin: 0 0 1.25rem;
+  transition: color 0.4s ease;
+}
+
+.hubBody {
+  font-size: clamp(13px, 1.3vw, 16px);
+  line-height: 1.7;
+  margin: 0 0 1.5rem;
+  max-width: 480px;
+  font-family: "Avenir Next", "Avenir", sans-serif;
+  transition: color 0.4s ease;
+}
+
+.hubGroup {
+  margin-bottom: 1.25rem;
+}
+
+.hubGroupLabel {
+  font-size: 0.625rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin: 0 0 0.5rem;
+  font-family: "Avenir Next", "Avenir", sans-serif;
+  border-top: 1px solid;
+  padding-top: 0.75rem;
+  transition: color 0.4s ease;
+}
+
+.hubItems {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.hubItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 7px 0;
+  border-bottom: 1px solid;
+  font-size: 0.8125rem;
+  font-family: "Avenir Next", "Avenir", sans-serif;
+  line-height: 1.5;
+  transition: color 0.3s ease;
+}
+
+.hubItemDot {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: inline-block;
+  margin-top: 6px;
+  transition: background 0.4s ease;
+}
+
+.hubCanvasWrap {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+  cursor: grab;
+}
+
+.hubCanvasWrap:active {
+  cursor: grabbing;
+}
+
+.hubHint {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-family: "Avenir Next", "Avenir", sans-serif;
+  opacity: 0.3;
+  margin: 0;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.hubNav {
+  position: fixed;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  z-index: 20;
+}
+
+.hubNavDot {
+  width: 3px;
+  height: 18px;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  border-radius: 1px;
+  transition: all 0.3s ease;
+}
+
+.hubNavDotActive {
+  width: 3px;
+  height: 28px;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  border-radius: 1px;
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .hubWrap {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 50vh;
+  }
+  .hubContent {
+    max-height: none;
+    min-height: auto;
+    border-right: none;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.1);
+  }
+  .hubCanvasWrap {
+    position: relative;
+    height: 50vh;
+  }
+  .hubNav {
+    display: none;
+  }
+}
