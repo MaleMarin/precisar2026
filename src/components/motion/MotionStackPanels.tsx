@@ -186,8 +186,6 @@ function HomeConvocaStackPanelContent() {
         </div>
       </section>
 
-      <p className={styles.convocaStackIntroSlate}>{t("introContinued")}</p>
-
       <section className={styles.convocaStackChile} aria-labelledby="convoca-chile-heading">
         <h3 className={styles.convocaStackChileEyebrow} id="convoca-chile-heading">
           {t("chile.eyebrow")}
