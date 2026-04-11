@@ -166,7 +166,7 @@
   padding: 0 0 0.2em;
   max-width: 100%;
   font: inherit;
-  font-family: var(--font-sans-family), system-ui, sans-serif;
+  font-family: var(--font-display), system-ui, sans-serif;
   text-transform: none;
   overflow: visible;
 }
