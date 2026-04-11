@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useState, type FormEvent } from "react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
 import { footerContactRedirect } from "@/app/[locale]/(site)/participa/actions";
 import {
@@ -63,8 +63,15 @@ function IconYouTube({ className }: { className?: string }) {
   );
 }
 
+function ccByDeedUrl(locale: string): string {
+  if (locale === "en") return "https://creativecommons.org/licenses/by/4.0/deed.en";
+  if (locale === "pt") return "https://creativecommons.org/licenses/by/4.0/deed.pt";
+  return "https://creativecommons.org/licenses/by/4.0/deed.es";
+}
+
 export function SiteFooter() {
   const year = new Date().getFullYear();
+  const locale = useLocale();
   const tNav = useTranslations("nav");
   const tFooter = useTranslations("footer");
   const pathname = usePathname();
@@ -369,6 +376,18 @@ export function SiteFooter() {
               <Link href="/legal/privacidad-consulta-2026" className={styles.privacyLink}>
                 Política de Privacidad
               </Link>
+              <p className={styles.legalLicense}>
+                {tFooter("ccLicenseBefore", { year })}
+                <a
+                  href={ccByDeedUrl(locale)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.licenseLink}
+                >
+                  {tFooter("ccLicenseName")}
+                </a>
+                {tFooter("ccLicenseAfter")}
+              </p>
             </div>
           </div>
         </div>

@@ -24,7 +24,10 @@
     "socialX": "Precisar on X (opens in a new tab)",
     "socialInstagram": "Precisar on Instagram (opens in a new tab)",
     "socialFacebook": "Precisar on Facebook (opens in a new tab)",
-    "socialYouTube": "Precisar on YouTube (opens in a new tab)"
+    "socialYouTube": "Precisar on YouTube (opens in a new tab)",
+    "ccLicenseBefore": "© {year} Precisar. Unless otherwise stated, Precisar content is distributed under the ",
+    "ccLicenseName": "Creative Commons Attribution 4.0 International (CC BY 4.0)",
+    "ccLicenseAfter": " license."
   },
   "language": {
     "switch": "Language",
