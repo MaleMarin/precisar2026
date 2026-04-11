@@ -55,9 +55,9 @@
     "intro": "Cada día se produce y circula más información de la que podemos procesar.",
     "metrics": {
       "exabytesValue": "463",
-      "exabytesLabel": "exabytes de datos / día",
+      "exabytesLabel": "Se crean 463 exabytes de datos por día.",
       "yearsValue": "26M",
-      "yearsLabel": "años para leerlo todo"
+      "yearsLabel": "Nos demoraríamos 26 millones de años para leerlos todos."
     },
     "chile": {
       "eyebrow": "Chile en cifras",
