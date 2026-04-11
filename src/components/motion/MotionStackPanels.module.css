@@ -866,7 +866,7 @@
   overflow-y: auto;
   padding: clamp(1.35rem, 3.2vw, 2.5rem) clamp(1.15rem, 2.8vw, 2.15rem);
   /* Aire bajo el cierre para poder leer Chile / propuesta sin que el siguiente panel los corte. */
-  padding-bottom: clamp(4rem, 22vh, 12rem);
+  padding-bottom: clamp(2rem, 8vh, 4rem);
   -webkit-overflow-scrolling: touch;
 }
 
@@ -1249,4 +1249,24 @@
 
 .panelSection:not(:last-child) .stickyPanel {
   transform: scale(0.97) translateY(-8px);
+}
+
+.stickyPanelScrollable {
+  overflow: hidden;
+}
+
+.stickyPanelScrollable .editorialPanelBody {
+  overflow-y: scroll;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(219, 82, 39, 0.4) transparent;
+  scroll-behavior: smooth;
+}
+
+.stickyPanelScrollable .editorialPanelBody::-webkit-scrollbar {
+  width: 4px;
+}
+
+.stickyPanelScrollable .editorialPanelBody::-webkit-scrollbar-thumb {
+  background: rgba(219, 82, 39, 0.5);
+  border-radius: 2px;
 }
