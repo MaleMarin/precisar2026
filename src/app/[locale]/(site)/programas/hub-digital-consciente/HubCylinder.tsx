@@ -170,16 +170,16 @@ export default function HubCylinder() {
   const [isExpanded, setIsExpanded] = useState(false)
   const [expandedIdx, setExpandedIdx] = useState(0)
   const [rotation, setRotation] = useState(0)
+  const [isReady, setIsReady] = useState(false)
 
   const isDrag = useRef(false)
-  const startX = useRef(0)
-  const lastDx = useRef(0)
+  const pointerLastX = useRef(0)
   const rotRef = useRef(0)
   const animRef = useRef<number | undefined>(undefined)
   const targetRot = useRef(0)
 
   const R = 480
-  const angleStep = 360 / N
+  const stepDeg = 360 / N
 
   const goTo = useCallback((i: number) => {
     const idx = ((i % N) + N) % N
@@ -190,10 +190,16 @@ export default function HubCylinder() {
   const next = useCallback(() => goTo(current + 1), [current, goTo])
   const prev = useCallback(() => goTo(current - 1), [current, goTo])
 
-  // Animación suave
+  useEffect(() => {
+    const t = window.setTimeout(() => setIsReady(true), 1200)
+    return () => window.clearTimeout(t)
+  }, [])
+
+  // Animación suave (lerp bajo hasta isReady, luego más ágil)
   useEffect(() => {
     const animate = () => {
-      rotRef.current += (targetRot.current - rotRef.current) * 0.09
+      const lerp = isReady ? 0.04 : 0.01
+      rotRef.current += (targetRot.current - rotRef.current) * lerp
       setRotation(rotRef.current)
       animRef.current = requestAnimationFrame(animate)
     }
@@ -201,25 +207,35 @@ export default function HubCylinder() {
     return () => {
       if (animRef.current !== undefined) cancelAnimationFrame(animRef.current)
     }
-  }, [])
+  }, [isReady])
+
+  const snapCarouselToNearest = useCallback(() => {
+    const k = Math.round(-targetRot.current / stepDeg)
+    const idx = ((k % N) + N) % N
+    targetRot.current = -(idx / N) * 360
+    setCurrent(idx)
+  }, [stepDeg])
 
   // Eventos drag
   useEffect(() => {
     const onMove = (e: globalThis.MouseEvent) => {
       if (!isDrag.current || isExpanded) return
-      lastDx.current = e.clientX - startX.current
+      const cx = e.clientX
+      const delta = cx - pointerLastX.current
+      pointerLastX.current = cx
+      targetRot.current += delta * 0.08
     }
     const onMoveT = (e: globalThis.TouchEvent) => {
       if (!isDrag.current || isExpanded) return
-      lastDx.current = e.touches[0].clientX - startX.current
+      const cx = e.touches[0].clientX
+      const delta = cx - pointerLastX.current
+      pointerLastX.current = cx
+      targetRot.current += delta * 0.08
     }
     const onUp = () => {
       if (!isDrag.current || isExpanded) return
       isDrag.current = false
-      if (Math.abs(lastDx.current) > 40) {
-        if (lastDx.current < 0) next()
-        else prev()
-      }
+      snapCarouselToNearest()
     }
     window.addEventListener("mousemove", onMove)
     window.addEventListener("touchmove", onMoveT, { passive: true })
@@ -231,20 +247,18 @@ export default function HubCylinder() {
       window.removeEventListener("mouseup", onUp)
       window.removeEventListener("touchend", onUp)
     }
-  }, [isExpanded, next, prev])
+  }, [isExpanded, snapCarouselToNearest])
 
   const handleMouseDown = (e: MouseEvent<HTMLDivElement>) => {
     if (isExpanded) return
     isDrag.current = true
-    lastDx.current = 0
-    startX.current = e.clientX
+    pointerLastX.current = e.clientX
   }
 
   const handleTouchStart = (e: TouchEvent<HTMLDivElement>) => {
     if (isExpanded) return
     isDrag.current = true
-    lastDx.current = 0
-    startX.current = e.touches[0].clientX
+    pointerLastX.current = e.touches[0].clientX
   }
 
   const handleWheel = (e: WheelEvent<HTMLDivElement>) => {
@@ -416,9 +430,7 @@ export default function HubCylinder() {
           <p
             className={styles.expandKicker}
             style={{
-              color: isLight
-                ? "rgba(245,242,236,0.5)"
-                : "#DB5227",
+              color: isLight ? "#F5F2EC" : "#DB5227",
             }}
           >
             {exp.kicker}
@@ -437,9 +449,7 @@ export default function HubCylinder() {
           <p
             className={styles.expandBody}
             style={{
-              color: isLight
-                ? "#F5F2EC"
-                : "rgba(10,12,18,0.72)",
+              color: isLight ? "#F5F2EC" : "#0A0C12",
             }}
           >
             {exp.body}
@@ -451,9 +461,7 @@ export default function HubCylinder() {
               <p
                 className={styles.groupLabel}
                 style={{
-                  color: isLight
-                    ? "rgba(245,242,236,0.4)"
-                    : "#DB5227",
+                  color: isLight ? "#F5F2EC" : "#DB5227",
                   borderTopColor: isLight
                     ? "rgba(245,242,236,0.1)"
                     : "rgba(10,12,18,0.1)",
@@ -467,9 +475,7 @@ export default function HubCylinder() {
                     key={ii}
                     className={styles.groupItem}
                     style={{
-                      color: isLight
-                        ? "rgba(245,242,236,0.82)"
-                        : "rgba(10,12,18,0.65)",
+                      color: isLight ? "#F5F2EC" : "#0A0C12",
                       borderBottomColor: isLight
                         ? "rgba(245,242,236,0.1)"
                         : "rgba(10,12,18,0.1)",
@@ -527,7 +533,7 @@ export default function HubCylinder() {
                     ?.scrollTo(0, 0)
                 }}
               >
-                {CONTENT[expandedIdx + 1].kicker} →
+                {`Siguiente → ${CONTENT[expandedIdx + 1].kicker}`}
               </button>
             ) : (
               <button

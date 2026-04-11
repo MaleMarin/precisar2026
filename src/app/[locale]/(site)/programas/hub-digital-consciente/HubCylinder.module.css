@@ -246,10 +246,11 @@
 }
 .expandKicker {
   font-family: 'Avenir Next', 'Avenir', sans-serif;
-  font-size: 11px;
+  font-size: 13px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   margin: 0 0 1rem;
+  opacity: 1;
 }
 .expandTitle {
   font-family: 'Bebas Neue', sans-serif;
@@ -259,19 +260,20 @@
 }
 .expandBody {
   font-family: 'Avenir Next', 'Avenir', sans-serif;
-  font-size: clamp(15px, 1.5vw, 18px);
+  font-size: clamp(16px, 1.6vw, 20px);
   line-height: 1.75;
   margin: 0 0 2rem;
   max-width: 600px;
 }
 .groupLabel {
   font-family: 'Avenir Next', 'Avenir', sans-serif;
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   margin: 1.5rem 0 0.5rem;
   padding-top: 1.5rem;
   border-top: 1px solid;
+  opacity: 1;
 }
 .groupList {
   list-style: none;
@@ -285,7 +287,7 @@
   padding: 10px 0;
   border-bottom: 1px solid;
   font-family: 'Avenir Next', 'Avenir', sans-serif;
-  font-size: clamp(14px, 1.3vw, 16px);
+  font-size: clamp(15px, 1.4vw, 17px);
   line-height: 1.55;
 }
 .groupDot {
@@ -321,15 +323,18 @@
 .expandNavBtn:hover { opacity: 0.6; }
 .expandNavBtnPrimary {
   background: #DB5227;
-  border: 1px solid #DB5227;
+  border: 2px solid #DB5227;
   color: #F5F2EC;
   font-family: 'Avenir Next', 'Avenir', sans-serif;
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  padding: 10px 24px;
+  padding: 14px 32px;
   cursor: pointer;
   transition: opacity 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 .expandNavBtnPrimary:hover { opacity: 0.85; }
 
