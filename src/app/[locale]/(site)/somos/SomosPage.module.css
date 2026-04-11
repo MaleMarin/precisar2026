@@ -59,14 +59,7 @@
 }
 
 .heroTitle {
-  margin: 0;
-  font-family: var(--font-display);
-  font-size: clamp(44px, 6.5vw, 88px);
-  font-weight: 800;
-  line-height: 1;
-  color: #ffffff;
-  max-width: 860px;
-  letter-spacing: -0.03em;
+  composes: heroTitle from "../../../../components/programs/ProgramShell.module.css";
 }
 
 .heroYear {
