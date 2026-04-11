@@ -4,9 +4,6 @@ import { Link } from "@/i18n/navigation";
 import shell from "@/components/programs/ProgramShell.module.css";
 import { PDFS } from "@/lib/site";
 import styles from "./HubDigitalPage.module.css";
-import { HubPosibilidades } from "./HubPosibilidades";
-import { HubModelos } from "./HubModelos";
-import { HubPersonalizacion } from "./HubPersonalizacion";
 import HubCylinder from "./HubCylinder";
 
 export const metadata: Metadata = {
@@ -14,56 +11,6 @@ export const metadata: Metadata = {
   description:
     "Muestras portátiles e interactivas de cultura digital para plazas, bibliotecas, educación, corporativos y territorio.",
 };
-
-const PARA_QUIEN = [
-  {
-    title: "Plazas y espacios públicos",
-    desc: "Al aire libre, para comunidades de todas las edades.",
-  },
-  {
-    title: "Bibliotecas y salas culturales",
-    desc: "Espacios de reflexión y aprendizaje colectivo.",
-  },
-  {
-    title: "Establecimientos educacionales",
-    desc: "Desde colegios hasta universidades.",
-  },
-  {
-    title: "Auditorios y eventos corporativos",
-    desc: "Para generar conversaciones necesarias en tu organización.",
-  },
-  {
-    title: "Municipios y gobiernos locales",
-    desc: "Intervención territorial con impacto ciudadano directo.",
-  },
-  {
-    title: "Eventos y festivales",
-    desc: "Activación cultural en contextos de alta convocatoria.",
-  },
-] as const;
-
-const ENCONTRARAS = [
-  {
-    num: "01",
-    title: "Carteles visualmente impactantes",
-    desc: "Diseñados para provocar conversación y reflexión inmediata. Cada póster actúa como un abre ojos que presenta información de forma clara y estética.",
-  },
-  {
-    num: "02",
-    title: "Animaciones de video",
-    desc: "Dan pie a discusiones sobre privacidad y detección de noticias falsas. Exploran dilemas éticos del mundo digital mediante historias visuales.",
-  },
-  {
-    num: "03",
-    title: "Aplicaciones interactivas",
-    desc: "Invitan a experimentar de primera mano tecnologías de punta como realidad aumentada e inteligencia artificial para crear experiencias memorables.",
-  },
-  {
-    num: "04",
-    title: "Experiencias prácticas para el debate",
-    desc: "Estimulan debates significativos entre participantes. Complemento perfecto antes de talleres, charlas o seminarios sobre cultura digital.",
-  },
-] as const;
 
 export default function Page() {
   return (
@@ -76,10 +23,6 @@ export default function Page() {
           </h1>
         </div>
       </header>
-
-      <section aria-label="Exploración interactiva del Hub Digital Consciente">
-        <HubCylinder />
-      </section>
 
       <section className={`${shell.queEs} ${shell.padSection}`} aria-labelledby="hub-que-es">
         <div className={shell.inner}>
@@ -106,41 +49,9 @@ export default function Page() {
         </div>
       </section>
 
-      <section className={`${styles.paraQuien} ${shell.padSection}`} aria-labelledby="hub-para-quien">
-        <div className={shell.inner}>
-          <p id="hub-para-quien" className={styles.paraLead}>
-            Esta experiencia se adapta a cualquier evento, para cualquier público, en cualquier espacio.
-          </p>
-          <div className={styles.paraGrid}>
-            {PARA_QUIEN.map((item) => (
-              <article key={item.title} className={styles.paraCard}>
-                <p className={styles.paraMark}>■</p>
-                <h3 className={styles.paraCardTitle}>{item.title}</h3>
-                <p className={styles.paraCardDesc}>{item.desc}</p>
-              </article>
-            ))}
-          </div>
-        </div>
+      <section aria-label="Exploración interactiva del Hub Digital Consciente">
+        <HubCylinder />
       </section>
-
-      <section className={`${styles.encontraras} ${shell.padSection}`} aria-labelledby="hub-encontraras">
-        <div className={shell.inner}>
-          <h2 id="hub-encontraras" className={styles.secTitle}>
-            Lo que encontrarás en cada muestra
-          </h2>
-          <div className={styles.enconGrid}>
-            {ENCONTRARAS.map((item) => (
-              <article key={item.num} className={styles.enconCard}>
-                <p className={styles.enconNum}>{item.num}</p>
-                <h3 className={styles.enconCardTitle}>{item.title}</h3>
-                <p className={styles.enconCardDesc}>{item.desc}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <HubPersonalizacion />
 
       <section className={`${styles.ediciones} ${shell.padSection}`} aria-labelledby="hub-ediciones">
         <div className={shell.inner}>
@@ -199,9 +110,6 @@ export default function Page() {
           </div>
         </div>
       </section>
-
-      <HubPosibilidades />
-      <HubModelos />
 
       <section className={shell.cta} aria-labelledby="hub-cta-title">
         <div className={shell.ctaInner}>
