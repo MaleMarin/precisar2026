@@ -82,8 +82,8 @@ export function PotenciaRotatingHeadline({
     enabled: clientReady,
     variant: "swap",
     swapResetKey: locale,
-    /** Portada: sin scramble para que `VERB_SHOWN_MS` sea real y no compita con RAF del efecto letras. */
-    swapInstant: scale === "precisarHome",
+    /** Portada: scramble más corto que el default; la pausa fija la define `VERB_SHOWN_MS` en `heroVerbCycle.ts`. */
+    swapQuick: scale === "precisarHome",
     onSettle: handleVerbSettle,
   });
 
