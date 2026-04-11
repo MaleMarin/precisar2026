@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { FooterContactLink } from "@/components/FooterContactLink";
-import { Link } from "@/i18n/navigation";
 import shell from "@/components/programs/ProgramShell.module.css";
 import { AprenderModulosTabs } from "./AprenderModulosTabs";
 import styles from "./AprenderDigitalPage.module.css";
@@ -256,32 +255,6 @@ export default function AprenderDigitalPage() {
           </div>
         </div>
       </section>
-
-      <nav className={shell.continua} aria-label="Otras iniciativas de programas">
-        <div className={shell.inner}>
-          <p className={`${shell.continuaEyebrow} ${styles.continuaEyebrowTight}`}>CONTINÚA</p>
-          <div className={shell.continuaLinks}>
-            <Link href="/programas" className={shell.continuaLink}>
-              Índice de programas →
-            </Link>
-            <Link href="/programas/ciudades" className={shell.continuaLink}>
-              Ciudades Conectadas con Sentido →
-            </Link>
-            <Link href="/programas/hub-digital-consciente" className={shell.continuaLink}>
-              Hub Digital Consciente →
-            </Link>
-            <Link href="/programas/funcionarios-publicos" className={shell.continuaLink}>
-              Educación Mediática para Funcionarios Públicos →
-            </Link>
-            <Link href="/programas/pensamiento-critico" className={shell.continuaLink}>
-              Formación en Pensamiento Crítico Digital →
-            </Link>
-            <Link href="/programas/leer-noticias-era-digital" className={shell.continuaLink}>
-              Educación mediática para que los docentes la usen dentro de la sala de aula →
-            </Link>
-          </div>
-        </div>
-      </nav>
     </article>
   );
 }

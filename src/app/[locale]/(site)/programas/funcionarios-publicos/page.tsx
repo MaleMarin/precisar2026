@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { FooterContactLink } from "@/components/FooterContactLink";
-import { Link } from "@/i18n/navigation";
 import shell from "@/components/programs/ProgramShell.module.css";
 import styles from "./FuncionariosPage.module.css";
 import { FuncionariosCursoTabs } from "./FuncionariosCursoTabs";
@@ -160,23 +159,6 @@ export default function Page() {
           </div>
         </div>
       </section>
-
-      <nav className={shell.continua} aria-labelledby="fp-continua">
-        <div className={shell.inner}>
-          <p id="fp-continua" className={shell.continuaEyebrow}>
-            CONTINÚA
-          </p>
-          <div className={shell.continuaLinks}>
-            <Link className={shell.continuaLink} href="/programas/pensamiento-critico">
-              Formación en Pensamiento Crítico Digital →
-            </Link>
-            <Link className={shell.continuaLink} href="/programas/leer-noticias-era-digital">
-              Educación mediática para que los docentes la usen dentro de la sala de aula →
-            </Link>
-            <FooterContactLink className={shell.continuaLink}>Participa y contacto →</FooterContactLink>
-          </div>
-        </div>
-      </nav>
     </main>
   );
 }

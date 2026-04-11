@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { FooterContactLink } from "@/components/FooterContactLink";
-import { Link } from "@/i18n/navigation";
 import { absoluteLocaleUrl, hreflangAlternates, SITE } from "@/lib/site";
 import styles from "./SomosPage.module.css";
 
@@ -172,23 +171,6 @@ export default function SomosPrecisarPage() {
             </p>
             <FooterContactLink className={styles.ctaBtn}>Contacto</FooterContactLink>
           </div>
-        </div>
-      </section>
-
-      <section className={`${styles.next} ${styles.nextPad}`} aria-label="Continúa explorando">
-        <div className={styles.nextInner}>
-          <p className={styles.nextEyebrow}>CONTINÚA</p>
-          <nav className={styles.nextLinks}>
-            <Link href="/programas" className={styles.nextLink}>
-              Ver todos los programas →
-            </Link>
-            <Link href="/participa" className={styles.nextLink}>
-              Participa →
-            </Link>
-            <Link href="/#precisando" className={styles.nextLink}>
-              Precisando →
-            </Link>
-          </nav>
         </div>
       </section>
     </article>

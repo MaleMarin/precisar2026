@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { FooterContactLink } from "@/components/FooterContactLink";
-import { Link } from "@/i18n/navigation";
 import shell from "@/components/programs/ProgramShell.module.css";
 import { PDFS } from "@/lib/site";
 import styles from "./HubDigitalPage.module.css";
@@ -123,23 +122,6 @@ export default function Page() {
           </div>
         </div>
       </section>
-
-      <nav className={shell.continua} aria-labelledby="hub-continua">
-        <div className={shell.inner}>
-          <p id="hub-continua" className={shell.continuaEyebrow}>
-            CONTINÚA
-          </p>
-          <div className={shell.continuaLinks}>
-            <Link className={shell.continuaLink} href="/programas/ciudades">
-              Ciudades Conectadas con Sentido →
-            </Link>
-            <FooterContactLink className={shell.continuaLink}>Participa y contacto →</FooterContactLink>
-            <Link className={shell.continuaLink} href="/saberes">
-              Biblioteca Saberes →
-            </Link>
-          </div>
-        </div>
-      </nav>
     </main>
   );
 }

@@ -183,21 +183,6 @@ export default function CiudadesProgramaPage() {
           </div>
         </div>
       </section>
-
-      <nav className={shell.continua} aria-label="Continúa explorando">
-        <div className={shell.inner}>
-          <p className={shell.continuaEyebrow}>CONTINÚA</p>
-          <div className={shell.continuaLinks}>
-            <Link href="/programas" className={shell.continuaLink}>
-              Índice de programas →
-            </Link>
-            <FooterContactLink className={shell.continuaLink}>Participa y contacto →</FooterContactLink>
-            <Link href="/saberes" className={shell.continuaLink}>
-              Biblioteca Saberes →
-            </Link>
-          </div>
-        </div>
-      </nav>
     </article>
   );
 }
