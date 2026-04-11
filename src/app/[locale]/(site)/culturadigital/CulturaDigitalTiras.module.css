@@ -3,19 +3,27 @@
   --header-offset: var(--header-h, 3.75rem);
   /* Franja del título «Cultura Digital» bajo el header (compacta para dar más alto al hero de tiras) */
   --cd-strips-top-gap: clamp(1.75rem, min(9vh, 5rem), 4.25rem);
-  /* Sólo un respiro inferior en viewport; el pie del sitio va después al hacer scroll */
-  --cd-footer-reserve: clamp(0px, 2.5dvh, 1.25rem);
   position: relative;
   width: 100%;
-  /* Una pantalla completa bajo el header: evita el “hueco” gris/negro entre tiras y footer */
-  min-height: calc(100dvh - var(--header-offset));
+  /* Altura en scroll: en home la reserva la aporta .homeBg::after (los hijos fixed no estiran el flujo). */
+  min-height: 0;
   margin-top: calc(var(--header-offset) * -1);
   padding-top: var(--header-offset);
   font-family: var(--font-barlow, system-ui, sans-serif);
   background: #fff;
   color: #fff;
-  overflow: hidden;
+  /* `overflow` distinto de visible recorta `position: fixed` respecto a este ancestro. */
+  overflow: visible;
   transition: background-color 0.45s ease;
+}
+
+/* Bloque en flujo: empuja el footer del sitio por debajo del hero (una pantalla) al hacer scroll. */
+.root.homeBg::after {
+  content: "";
+  display: block;
+  width: 100%;
+  min-height: 100dvh;
+  pointer-events: none;
 }
 
 @media (min-width: 768px) {
@@ -63,19 +71,15 @@
 
 .stripsContainer {
   position: fixed;
-  top: calc(var(--header-offset) + var(--cd-strips-top-gap));
+  top: 0;
   left: 0;
   right: 0;
   z-index: 10;
   display: flex;
   width: 100%;
-  /* Hero a casi pantalla completa: del título al borde inferior del viewport */
-  height: calc(
-    100dvh - var(--header-offset) - var(--cd-strips-top-gap) - var(--cd-footer-reserve)
-  );
-  min-height: calc(
-    100dvh - var(--header-offset) - var(--cd-strips-top-gap) - var(--cd-footer-reserve)
-  );
+  /* Hero: tiras a altura completa del viewport (título y header quedan encima por z-index). */
+  height: 100dvh;
+  min-height: 100dvh;
 }
 
 .stripsHidden {
@@ -138,10 +142,10 @@
 
 .lightEffect {
   position: fixed;
-  top: calc(var(--header-offset) + var(--cd-strips-top-gap));
+  top: 0;
   left: 0;
   right: 0;
-  bottom: var(--cd-footer-reserve);
+  bottom: 0;
   z-index: 15;
   pointer-events: none;
   background: radial-gradient(
@@ -157,10 +161,10 @@
 
 .overlayTitle {
   position: fixed;
-  top: calc(var(--header-offset) + var(--cd-strips-top-gap));
+  top: 0;
   left: 0;
   right: 0;
-  bottom: var(--cd-footer-reserve);
+  bottom: 0;
   z-index: 20;
   display: flex;
   align-items: flex-end;
@@ -201,8 +205,8 @@
 }
 
 .mainStageOpen {
-  min-height: calc(100dvh - var(--header-offset) - var(--cd-footer-reserve));
-  height: calc(100dvh - var(--header-offset) - var(--cd-footer-reserve));
+  min-height: calc(100dvh - var(--header-offset));
+  height: calc(100dvh - var(--header-offset));
 }
 
 .contentSection {
