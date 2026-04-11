@@ -14,15 +14,6 @@ import { HubDownloadButton } from "./HubDownloadButton"
 
 const N = 6
 
-function scrollExpandPanelIntoView() {
-  setTimeout(() => {
-    const el = document.getElementById("hub-expand-panel")
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth", block: "start" })
-    }
-  }, 100)
-}
-
 const CONTENT = [
   {
     kicker: "01 · Introducción",
@@ -355,7 +346,6 @@ export default function HubCylinder() {
     velYRef.current = 0
     setExpandedIdx(idx)
     setIsExpanded(true)
-    scrollExpandPanelIntoView()
   }
 
   const closeExpand = () => {
@@ -607,7 +597,6 @@ export default function HubCylinder() {
                 }}
                 onClick={() => {
                   setExpandedIdx(expandedIdx - 1)
-                  scrollExpandPanelIntoView()
                 }}
               >
                 ← {CONTENT[expandedIdx - 1].kicker}
@@ -621,7 +610,6 @@ export default function HubCylinder() {
                 className={styles.expandNavBtnPrimary}
                 onClick={() => {
                   setExpandedIdx(expandedIdx + 1)
-                  scrollExpandPanelIntoView()
                 }}
               >
                 {`Siguiente → ${CONTENT[expandedIdx + 1].kicker}`}
