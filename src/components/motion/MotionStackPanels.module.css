@@ -357,6 +357,17 @@
 }
 
 /* Panel Precisando (navy): bajada con medida de lectura cómoda (titular = .stackPanelLeftTitle vía .displayTitle). */
+:global(#precisando) .miniListGlass {
+  border-radius: 14px;
+  background: color-mix(in oklab, #fffcf7 52%, transparent);
+  border: 1px solid color-mix(in oklab, #fff 72%, #1a1208 12%);
+  box-shadow:
+    0 10px 40px color-mix(in oklab, #1a1208 10%, transparent),
+    inset 0 1px 0 color-mix(in oklab, #fff 78%, transparent);
+  backdrop-filter: blur(18px) saturate(1.25);
+  -webkit-backdrop-filter: blur(18px) saturate(1.25);
+}
+
 :global(#precisando) .kicker {
   margin-bottom: 0.85rem;
 }
@@ -775,6 +786,7 @@
 }
 
 .miniLabel {
+  font-family: 'Avenir Next', 'Avenir', sans-serif;
   font-size: clamp(0.97rem, 1.05vw, 1.0625rem);
   line-height: 1.45;
 }
@@ -1480,6 +1492,14 @@
 
 :global(#saberes) .miniListDark.miniListDarkGlass.miniListDarkGlassExtraMargin {
   margin-top: clamp(1rem, 2.5vw, 2.35rem);
+}
+
+:global(#saberes) .miniListDark.miniListDarkGlass {
+  backdrop-filter: blur(18px) saturate(1.25);
+  -webkit-backdrop-filter: blur(18px) saturate(1.25);
+  background: color-mix(in oklab, #fff 8%, transparent);
+  border: 1px solid color-mix(in oklab, #fff 18%, transparent);
+  border-radius: 14px;
 }
 
 :global(#programas) .miniLabel {
