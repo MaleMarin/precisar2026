@@ -7,6 +7,7 @@ import styles from "./HubDigitalPage.module.css";
 import { HubPosibilidades } from "./HubPosibilidades";
 import { HubModelos } from "./HubModelos";
 import { HubPersonalizacion } from "./HubPersonalizacion";
+import HubCylinder from "./HubCylinder";
 
 export const metadata: Metadata = {
   title: "Hub Digital Consciente",
@@ -75,6 +76,10 @@ export default function Page() {
           </h1>
         </div>
       </header>
+
+      <section aria-label="Exploración interactiva del Hub Digital Consciente">
+        <HubCylinder />
+      </section>
 
       <section className={`${shell.queEs} ${shell.padSection}`} aria-labelledby="hub-que-es">
         <div className={shell.inner}>
