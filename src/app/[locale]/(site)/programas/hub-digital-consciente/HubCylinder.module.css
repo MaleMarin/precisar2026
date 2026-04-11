@@ -319,6 +319,31 @@
   display: inline-block;
 }
 
+.actionBtns {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+.contactBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: 1px solid rgba(10,12,18,0.25);
+  color: rgba(10,12,18,0.7);
+  font-family: 'Avenir Next', 'Avenir', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+.contactBtn:hover { opacity: 0.6; }
+
 /* Navegación entre secciones */
 .expandNav {
   display: flex;

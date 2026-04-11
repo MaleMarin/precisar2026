@@ -579,7 +579,26 @@ export default function HubCylinder() {
             </div>
           ))}
 
-          {expandedIdx === 5 && <HubDownloadButton />}
+          {expandedIdx === 5 && (
+            <div className={styles.actionBtns}>
+              <HubDownloadButton />
+              <a
+                href="#contacto"
+                className={styles.contactBtn}
+                style={{
+                  borderColor: isLight
+                    ? "rgba(245,242,236,0.3)"
+                    : "rgba(10,12,18,0.25)",
+                  color: isLight
+                    ? "rgba(245,242,236,0.7)"
+                    : "rgba(10,12,18,0.7)",
+                }}
+                onClick={closeExpand}
+              >
+                Contáctanos →
+              </a>
+            </div>
+          )}
 
           {/* Navegación entre secciones */}
           <div className={styles.expandNav}>
