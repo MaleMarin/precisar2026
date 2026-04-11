@@ -558,11 +558,15 @@ export function MotionStackPanels({
   const tSaberes = useTranslations("homeSaberes");
   const tEducacionMediatica = useTranslations("homeEducacionMediatica");
   const programLinks: MiniListItem[] = [
-    { label: tPrograms("stackLinkCiudades"), href: "/programas/ciudades" },
-    { label: tPrograms("stackLinkHub"), href: "/programas/hub-digital-consciente" },
-    { label: tPrograms("stackLinkAprender"), href: "/programas/aprender-digital" },
-    { label: tPrograms("stackLinkPensamientoCritico"), href: "/programas/leer-noticias-era-digital" },
-    { label: tPrograms("stackLinkFuncionarios"), href: "/programas/funcionarios-publicos" },
+    { label: tPrograms("stackLinkCiudades"), href: "/programas/ciudades", multiline: true },
+    { label: tPrograms("stackLinkHub"), href: "/programas/hub-digital-consciente", multiline: true },
+    { label: tPrograms("stackLinkAprender"), href: "/programas/aprender-digital", multiline: true },
+    {
+      label: tPrograms("stackLinkPensamientoCritico"),
+      href: "/programas/leer-noticias-era-digital",
+      multiline: true,
+    },
+    { label: tPrograms("stackLinkFuncionarios"), href: "/programas/funcionarios-publicos", multiline: true },
     {
       label: (
         <span className={styles.botOndaStack}>
