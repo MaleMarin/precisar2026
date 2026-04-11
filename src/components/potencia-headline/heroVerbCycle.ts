@@ -12,10 +12,10 @@ export const FLAME_SYNC_TO_VERB_MS = 400;
 export const FLAME_VERB_PULSE_MS = 300;
 
 /** Transición suave mientras la mancha vaga en `shown`. */
-export const VERB_FLAME_SHOWN_DRIFT_CSS = "1.05s";
+export const VERB_FLAME_SHOWN_DRIFT_CSS = "1.65s";
 
-/** Seguimiento fino del verbo durante el scramble (`in`). */
-export const VERB_FLAME_IN_FOLLOW_CSS = "0.055s";
+/** Seguimiento del verbo durante el scramble (`in`); demasiado corto = saltos bruscos en el gradiente. */
+export const VERB_FLAME_IN_FOLLOW_CSS = "0.52s";
 
 export const VERB_CYCLE_GAP_MS = 220;
 

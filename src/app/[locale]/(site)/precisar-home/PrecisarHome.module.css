@@ -87,10 +87,10 @@
   padding: 0 var(--gutter) clamp(3.25rem, 11vw, 6.5rem);
   overflow-x: clip;
   overflow-y: visible;
-  /* Duración por `--verb-flame-dur`: corta hacia el verbo, larga al ir al rincón */
+  /* Duración por `--verb-flame-dur`; easing suave para evitar “frenazos” en la mancha */
   transition:
-    --verb-flame-x var(--verb-flame-dur, 0.62s) cubic-bezier(0.22, 1, 0.36, 1),
-    --verb-flame-y var(--verb-flame-dur, 0.62s) cubic-bezier(0.22, 1, 0.36, 1);
+    --verb-flame-x var(--verb-flame-dur, 0.72s) cubic-bezier(0.33, 0.12, 0.25, 1),
+    --verb-flame-y var(--verb-flame-dur, 0.72s) cubic-bezier(0.33, 0.12, 0.25, 1);
 }
 
 .hero::before {

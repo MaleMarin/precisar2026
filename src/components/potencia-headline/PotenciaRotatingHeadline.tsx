@@ -169,7 +169,7 @@ export function PotenciaRotatingHeadline({
       } else if (mode === "shown") {
         dur = VERB_FLAME_SHOWN_DRIFT_CSS;
       } else {
-        dur = "0.58s";
+        dur = "0.72s";
       }
       if (dur !== lastDur) {
         el.style.setProperty("--verb-flame-dur", dur);
@@ -211,10 +211,10 @@ export function PotenciaRotatingHeadline({
         y: 16 + Math.random() * 68,
       };
       applyFlamePosition();
-      timeoutId = window.setTimeout(pickAndApply, 520 + Math.random() * 480);
+      timeoutId = window.setTimeout(pickAndApply, 780 + Math.random() * 520);
     };
 
-    timeoutId = window.setTimeout(pickAndApply, 380);
+    timeoutId = window.setTimeout(pickAndApply, 520);
     return () => {
       cancelled = true;
       window.clearTimeout(timeoutId);

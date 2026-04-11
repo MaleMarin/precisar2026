@@ -28,7 +28,8 @@ export function HeroFlameMoteTrack({
   const smoothRef = useRef({ x: targetX, y: targetY });
 
   useEffect(() => {
-    const k = quickBlend ? 0.095 : 0.024;
+    /** Ganancia baja = movimiento más fluido (menos “freno” al acercarse al objetivo). */
+    const k = quickBlend ? 0.044 : 0.017;
     let id = 0;
     const loop = () => {
       const t = targetRef.current;
@@ -36,7 +37,7 @@ export function HeroFlameMoteTrack({
       const dx = t.x - x;
       const dy = t.y - y;
       const dist = Math.hypot(dx, dy);
-      if (dist < 0.01) {
+      if (dist < 0.004) {
         x = t.x;
         y = t.y;
       } else {

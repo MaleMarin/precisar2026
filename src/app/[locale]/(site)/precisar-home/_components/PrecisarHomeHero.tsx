@@ -28,7 +28,7 @@ export function PrecisarHomeHero() {
         {
           ["--verb-flame-x" as string]: `${heroFlame.x}%`,
           ["--verb-flame-y" as string]: `${heroFlame.y}%`,
-          ["--verb-flame-dur" as string]: heroFlame.toCorner ? verbFlameToCornerCssDuration() : "0.58s",
+          ["--verb-flame-dur" as string]: heroFlame.toCorner ? verbFlameToCornerCssDuration() : "0.72s",
         } as CSSProperties
       }
     >
