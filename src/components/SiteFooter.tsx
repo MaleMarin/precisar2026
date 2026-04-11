@@ -295,10 +295,7 @@ export function SiteFooter() {
                 Precisar. Hecho con criterio en Chile 🇨🇱 y México 🇲🇽.
               </p>
               <div className={styles.socialBlock}>
-                <p className={styles.socialEyebrow} id="footer-social-heading">
-                  {tFooter("socialEyebrow")}
-                </p>
-                <ul className={styles.socialList} aria-labelledby="footer-social-heading">
+                <ul className={styles.socialList} aria-label={tFooter("socialEyebrow")}>
                   <li>
                     <a
                       href={EXTERNAL.xTwitter}

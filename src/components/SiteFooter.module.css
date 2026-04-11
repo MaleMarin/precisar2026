@@ -415,16 +415,6 @@
   padding: 0.15rem 0 0.35rem;
 }
 
-.socialEyebrow {
-  margin: 0;
-  font-family: var(--font-mono, ui-monospace, monospace);
-  font-size: 0.625rem;
-  font-weight: 600;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.38);
-}
-
 .socialList {
   display: flex;
   flex-wrap: wrap;
