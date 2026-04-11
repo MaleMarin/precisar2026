@@ -120,8 +120,8 @@ export function useTextScramble(
 
     function startAnim(newText: string, oldText: string): Promise<void> {
       const len = Math.max(oldText.length, newText.length);
-      const startMax = swapQuick ? 10 : 40;
-      const spanMax = swapQuick ? 14 : 40;
+      const startMax = swapQuick ? 7 : 40;
+      const spanMax = swapQuick ? 10 : 40;
       queue = [];
       for (let i = 0; i < len; i++) {
         const from = oldText[i] ?? "";
