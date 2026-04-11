@@ -660,7 +660,8 @@
   display: block;
   box-sizing: border-box;
   padding: clamp(1.05rem, 2.1vw, 1.35rem) clamp(1.15rem, 2.2vw, 1.45rem);
-  border-radius: 2px;
+  /* Mismo radio que la MiniList glass de Saberes (14px en las cuatro esquinas). */
+  border-radius: 14px;
   border: 1px solid color-mix(in oklab, #fff 18%, transparent);
   background: color-mix(in oklab, #fff 5%, transparent);
   text-decoration: none;
