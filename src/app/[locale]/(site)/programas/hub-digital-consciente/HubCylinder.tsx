@@ -553,28 +553,57 @@ export default function HubCylinder() {
                 {group.label}
               </p>
               <ul className={styles.groupList}>
-                {group.items.map((item, ii) => (
-                  <li
-                    key={ii}
-                    className={styles.groupItem}
-                    style={{
-                      color: isLight ? "#F5F2EC" : "rgba(10,12,18,0.68)",
-                      borderBottomColor: isLight
-                        ? "rgba(245,242,236,0.1)"
-                        : "rgba(10,12,18,0.1)",
-                    }}
-                  >
-                    <span
-                      className={styles.groupDot}
-                      style={{
-                        background: isLight
-                          ? "#F5F2EC"
-                          : "#DB5227",
-                      }}
-                    />
-                    {item}
-                  </li>
-                ))}
+                {group.items.map((item, ii) => {
+                  const itemStyle = {
+                    color: isLight ? "#F5F2EC" : "rgba(10,12,18,0.68)",
+                    borderBottomColor: isLight
+                      ? "rgba(245,242,236,0.1)"
+                      : "rgba(10,12,18,0.1)",
+                  } as const
+                  const dotStyle = {
+                    background: isLight ? "#F5F2EC" : "#DB5227",
+                  } as const
+                  const edicionesPdf =
+                    group.label === "Ediciones disponibles" &&
+                    item.includes("→") &&
+                    item.toLowerCase().includes("especificaciones")
+                  let pdfHref: string | null = null
+                  if (edicionesPdf) {
+                    if (item.includes("Desinformación")) {
+                      pdfHref = "/Edición%20Desinformación%20ok.pdf"
+                    } else if (item.includes("IA y Algoritmos")) {
+                      pdfHref = "/Edición%20IA%20y%20Algoritmos.pdf"
+                    }
+                  }
+                  return (
+                    <li
+                      key={ii}
+                      className={styles.groupItem}
+                      style={itemStyle}
+                    >
+                      <span
+                        className={styles.groupDot}
+                        style={dotStyle}
+                      />
+                      {pdfHref ? (
+                        <a
+                          href={pdfHref}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          style={{
+                            color: "inherit",
+                            textDecoration: "underline",
+                            textUnderlineOffset: "3px",
+                          }}
+                        >
+                          {item}
+                        </a>
+                      ) : (
+                        item
+                      )}
+                    </li>
+                  )
+                })}
               </ul>
             </div>
           ))}
