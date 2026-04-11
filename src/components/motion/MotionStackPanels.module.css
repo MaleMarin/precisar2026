@@ -1390,6 +1390,67 @@
   border-radius: 2px;
 }
 
+/* Saberes: misma cadena flex que Programas — la columna derecha hace scroll; si no, Bot Onda queda bajo el recorte del sticky (~100vh). */
+:global(#saberes) .stickyPanel {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+:global(#saberes) .panelDepthEnter {
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+:global(#saberes) .panelDepthEnter .grid {
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+:global(#saberes) .grid {
+  min-height: 0;
+}
+
+:global(#saberes) .colMain {
+  min-height: 0;
+}
+
+:global(#saberes) .colAside {
+  justify-content: flex-start;
+  min-height: 0;
+}
+
+:global(#saberes) .asideSlot {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+:global(#saberes) .saberesAsideStack {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in oklab, #fff 35%, transparent) transparent;
+}
+
+:global(#saberes) .saberesAsideStack::-webkit-scrollbar {
+  width: 4px;
+}
+
+:global(#saberes) .saberesAsideStack::-webkit-scrollbar-thumb {
+  background: color-mix(in oklab, #fff 40%, transparent);
+  border-radius: 2px;
+}
+
+:global(#saberes) .miniListDark.miniListDarkGlass.miniListDarkGlassExtraMargin {
+  margin-top: clamp(1rem, 2.5vw, 2.35rem);
+}
+
 :global(#programas) .miniLabel {
   overflow-wrap: break-word;
 }
