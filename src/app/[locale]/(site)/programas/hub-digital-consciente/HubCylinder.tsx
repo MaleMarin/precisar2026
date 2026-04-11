@@ -444,7 +444,11 @@ export default function HubCylinder() {
         className={`${styles.expand} ${
           isExpanded ? styles.expandOpen : styles.expandClosed
         }`}
-        style={{ background: exp.bg }}
+        style={{
+          background: exp.bg,
+          overflowY: "auto",
+          WebkitOverflowScrolling: "touch",
+        }}
       >
         <div className={styles.expandInner}>
           {/* Header del panel */}
