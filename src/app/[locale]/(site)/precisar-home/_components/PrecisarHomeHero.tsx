@@ -3,6 +3,7 @@
 import type { CSSProperties } from "react";
 import { useRef, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
+import { verbFlameToCornerCssDuration } from "@/components/potencia-headline/heroVerbCycle";
 import {
   flameExitCornerForIndex,
   PotenciaRotatingHeadline,
@@ -27,7 +28,7 @@ export function PrecisarHomeHero() {
         {
           ["--verb-flame-x" as string]: `${heroFlame.x}%`,
           ["--verb-flame-y" as string]: `${heroFlame.y}%`,
-          ["--verb-flame-dur" as string]: heroFlame.toCorner ? "1.85s" : "0.58s",
+          ["--verb-flame-dur" as string]: heroFlame.toCorner ? verbFlameToCornerCssDuration() : "0.58s",
         } as CSSProperties
       }
     >

@@ -3,6 +3,11 @@
 import { useLocale, useTranslations } from "next-intl";
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { escapeHtml, useTextScramble } from "@/lib/use-text-scramble";
+import {
+  STAIN_TO_CORNER_MS,
+  VERB_CYCLE_GAP_MS,
+  VERB_SHOWN_MS,
+} from "./heroVerbCycle";
 import styles from "./PotenciaHeadline.module.css";
 
 /**
@@ -23,15 +28,6 @@ const FLAME_EXIT_CORNERS = [
 export function flameExitCornerForIndex(i: number): { x: number; y: number } {
   return FLAME_EXIT_CORNERS[((i % FLAME_EXIT_CORNERS.length) + FLAME_EXIT_CORNERS.length) % FLAME_EXIT_CORNERS.length];
 }
-
-/** Tiempo para que la mancha llegue al borde (acorde a seguimiento suave en Explora). */
-const STAIN_TO_CORNER_MS = 2200;
-
-/** Cuánto se mantiene el verbo legible antes de la salida hacia el borde. */
-const VERB_SHOWN_MS = 1000;
-
-/** Breve pausa tras la salida antes del siguiente verbo. */
-const VERB_CYCLE_GAP_MS = 280;
 
 export type PotenciaHeadlineSurface = "light" | "dark";
 
@@ -84,6 +80,7 @@ export function PotenciaRotatingHeadline({
     enabled: clientReady,
     variant: "swap",
     swapResetKey: locale,
+    swapQuick: scale === "precisarHome",
     onSettle: handleVerbSettle,
   });
 

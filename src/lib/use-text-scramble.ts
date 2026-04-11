@@ -26,6 +26,8 @@ export type TextScrambleOptions = {
   onSettle?: () => void;
   /** Si cambia (p. ej. locale), el swap reinicia desde vacío. */
   swapResetKey?: string;
+  /** `swap`: menos frames por carácter (p. ej. hero con pausa corta tras el texto final). */
+  swapQuick?: boolean;
 };
 
 /**
@@ -38,7 +40,7 @@ export function useTextScramble(
   dudClassName: string,
   options: TextScrambleOptions = {},
 ) {
-  const { enabled = true, variant = "intro", swapResetKey } = options;
+  const { enabled = true, variant = "intro", swapResetKey, swapQuick = false } = options;
   const onSettleRef = useRef(options.onSettle);
   onSettleRef.current = options.onSettle;
 
@@ -98,12 +100,14 @@ export function useTextScramble(
 
     function startAnim(newText: string, oldText: string): Promise<void> {
       const len = Math.max(oldText.length, newText.length);
+      const startMax = swapQuick ? 10 : 40;
+      const spanMax = swapQuick ? 14 : 40;
       queue = [];
       for (let i = 0; i < len; i++) {
         const from = oldText[i] ?? "";
         const to = newText[i] ?? "";
-        const start = Math.floor(Math.random() * 40);
-        const end = start + Math.floor(Math.random() * 40);
+        const start = Math.floor(Math.random() * startMax);
+        const end = start + Math.floor(Math.random() * spanMax);
         queue.push({ from, to, start, end });
       }
       frame = 0;
@@ -142,7 +146,7 @@ export function useTextScramble(
       cancelled = true;
       cancelAnimationFrame(raf);
     };
-  }, [finalText, respectReducedMotion, dudClassName, enabled, variant, swapResetKey]);
+  }, [finalText, respectReducedMotion, dudClassName, enabled, variant, swapResetKey, swapQuick]);
 
   return html;
 }
