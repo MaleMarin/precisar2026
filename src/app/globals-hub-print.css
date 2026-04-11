@@ -1,0 +1,60 @@
+/* Bloque solo visible al imprimir / guardar como PDF */
+.hub-print-content {
+  display: none;
+}
+
+@media print {
+  /* Ocultar todo excepto el contenido del panel expandido */
+  body * {
+    visibility: hidden;
+  }
+
+  .hub-print-content,
+  .hub-print-content * {
+    visibility: visible;
+  }
+
+  .hub-print-content {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    font-family: "Avenir Next", "Avenir", Helvetica, sans-serif;
+  }
+
+  /* Cabecera con logo */
+  .hub-print-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 40px;
+    border-bottom: 2px solid #db5227;
+    margin-bottom: 32px;
+  }
+
+  /* Tipografía */
+  h1 {
+    font-size: 32px;
+    margin: 0 0 8px;
+    color: #0a0c12;
+  }
+
+  h2 {
+    font-size: 20px;
+    margin: 24px 0 8px;
+    color: #db5227;
+  }
+
+  p,
+  li {
+    font-size: 12px;
+    line-height: 1.6;
+    color: #333;
+  }
+
+  /* Saltos de página */
+  .hub-print-section {
+    page-break-before: always;
+  }
+}

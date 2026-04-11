@@ -8,7 +8,9 @@ import {
   type TouchEvent,
   type WheelEvent,
 } from "react"
+import "@/app/globals-hub-print.css"
 import styles from "./HubCylinder.module.css"
+import { HubDownloadButton } from "./HubDownloadButton"
 
 const N = 6
 
@@ -186,7 +188,7 @@ const CONTENT = [
     ],
     bg: "#F5F2EC", tc: "#0A0C12",
   },
-] as const
+]
 
 export default function HubCylinder() {
   const [current, setCurrent] = useState(0)
@@ -577,6 +579,8 @@ export default function HubCylinder() {
             </div>
           ))}
 
+          {expandedIdx === 5 && <HubDownloadButton />}
+
           {/* Navegación entre secciones */}
           <div className={styles.expandNav}>
             {expandedIdx > 0 ? (
@@ -622,6 +626,54 @@ export default function HubCylinder() {
               </button>
             )}
           </div>
+        </div>
+      </div>
+
+      <div className="hub-print-content" aria-hidden>
+        <div className="hub-print-header">
+          <img
+            src="/precisar-footer-wordmark.png"
+            alt="Precisar"
+            style={{ height: 32 }}
+          />
+          <div style={{ textAlign: "right" }}>
+            <p>precisar.net</p>
+            <p>@precisar_ · @_precisar</p>
+          </div>
+        </div>
+
+        <h1>Hub Digital Consciente</h1>
+        <p>Programa 02 · Precisar</p>
+
+        {CONTENT.map((section, i) => (
+          <div key={i} className={i > 0 ? "hub-print-section" : undefined}>
+            <h2>{section.kicker}</h2>
+            <h1>{section.title.replace(/\n/g, " ")}</h1>
+            <p>{section.body}</p>
+            {section.groups.map((group, gi) => (
+              <div key={gi}>
+                <h2>{group.label}</h2>
+                <ul>
+                  {group.items.map((item, ii) => (
+                    <li key={ii}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        ))}
+
+        <div className="hub-print-section">
+          <h2>Contacto y redes</h2>
+          <p>Web: precisar.net</p>
+          <p>X / Twitter: x.com/precisar_</p>
+          <p>Instagram: instagram.com/_precisar</p>
+          <p>Facebook: facebook.com/precisar</p>
+          <p>YouTube: youtube.com/channel/UCQKEOqwm3pxIeO6E1Hsokhw</p>
+          <p>
+            © {new Date().getFullYear()} Precisar. Hecho con criterio en Chile y México.
+          </p>
+          <p>Contenidos bajo licencia Creative Commons CC BY 4.0</p>
         </div>
       </div>
     </div>
