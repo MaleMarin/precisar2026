@@ -22,30 +22,6 @@ export function MediaticaEjesNav({ current }: MediaticaEjesNavProps) {
 
   return (
     <div className={styles.wrap}>
-      <nav className={styles.breadcrumb} aria-label={t("ariaBreadcrumb")}>
-        <ol>
-          <li>
-            <Link href="/" className={styles.crumbLink}>
-              {t("home")}
-            </Link>
-          </li>
-          <li className={styles.sep} aria-hidden>
-            /
-          </li>
-          <li>
-            <Link href="/#educacion-mediatica" className={styles.crumbLink}>
-              {t("hub")}
-            </Link>
-          </li>
-          <li className={styles.sep} aria-hidden>
-            /
-          </li>
-          <li className={styles.crumbCurrent} aria-current="page">
-            {t(current)}
-          </li>
-        </ol>
-      </nav>
-
       <nav className={styles.ejes} aria-label={t("ariaSiblings")}>
         <ul>
           {EJES.map(({ slug, href }) => (
