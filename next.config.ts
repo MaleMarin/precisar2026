@@ -44,7 +44,11 @@ const nextConfig: NextConfig = {
     ],
   },
   async redirects() {
-    return legacyRedirects();
+    return [
+      ...legacyRedirects(),
+      /** Clientes que piden solo `/favicon.ico` → mismo activo en `public/favicon.png`. */
+      { source: "/favicon.ico", destination: "/favicon.png", permanent: false },
+    ];
   },
 };
 
