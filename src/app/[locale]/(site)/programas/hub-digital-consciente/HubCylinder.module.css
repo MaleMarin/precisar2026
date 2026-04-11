@@ -211,10 +211,11 @@
   display: none;
 }
 .expandInner {
+  min-height: 100%;
   width: 100%;
   padding: clamp(2.5rem, 5vw, 4rem)
     clamp(2rem, 6vw, 5rem)
-    clamp(4rem, 8vw, 6rem);
+    12rem;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
