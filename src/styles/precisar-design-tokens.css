@@ -1,7 +1,7 @@
 /**
  * Precisar — design tokens (capa home / PDS).
  * Fondo claro por defecto. Un solo acento.
- * Fuentes: DM Sans, Syne, IBM Plex Mono, Cormorant Garamond vía Next/font en layout.
+ * Fuentes: DM Sans (UI + display), IBM Plex Mono, Cormorant Garamond, Inter (glass) vía Next/font en layout.
  */
 
 :root {
@@ -26,7 +26,7 @@
   --pds-overlay-accent: #e8a080;
 
   /* ─── Tipografía ─── */
-  --pds-font-display: var(--font-display-family), system-ui, sans-serif;
+  --pds-font-display: var(--font-sans-family), system-ui, sans-serif;
   --pds-font-sans: var(--font-sans-family), system-ui, sans-serif;
   --pds-font-mono: var(--font-mono-family), ui-monospace, monospace;
 

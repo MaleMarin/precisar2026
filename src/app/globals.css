@@ -41,7 +41,8 @@
   --shadow-card-hover: 0 3px 0 0 var(--border-strong), 0 32px 56px -24px rgba(10, 12, 18, 0.16);
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-editorial: cubic-bezier(0.16, 1, 0.3, 1);
-  --font-display: var(--font-display-family), system-ui, sans-serif;
+  /* Display = mismo DM Sans que cuerpo (hero Somos, stack, PDS). */
+  --font-display: var(--font-sans-family), system-ui, sans-serif;
   --ink: var(--brand-void);
   --band-ink: var(--brand-navy);
   --band-ink-fg: #f2f5f8;
