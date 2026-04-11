@@ -264,8 +264,8 @@ type StackPanelProps = {
   reduceMotion?: boolean;
   /** Contenido editorial a ancho completo (primer panel “Qué nos convoca”). */
   editorialContent?: ReactNode;
-  /** `tall` = scroll largo (convoca); `standard` = panel compacto (participa). */
-  editorialHeight?: "tall" | "standard";
+  /** `tall` = scroll largo; `auto` = flujo natural (convoca); `standard` = panel compacto (participa). */
+  editorialHeight?: "tall" | "standard" | "auto";
 };
 
 function StackPanel({
@@ -464,13 +464,18 @@ function StackPanel({
 
   if (editorialContent) {
     const isTall = editorialHeight === "tall";
-    const sectionClass = isTall
-      ? `${styles.panelSection} ${styles.panelSectionEditorial}`
-      : styles.panelSection;
-    const panelClassEditorial = isTall
-      ? `${panelClass} ${styles.stickyPanelEditorial}`.trim()
-      : `${panelClass} ${styles.stickyPanelParticipaFit}`.trim();
-    const bodyClass = isTall ? styles.editorialPanelBody : styles.participaPanelBody;
+    const isAuto = editorialHeight === "auto";
+    const sectionClass = isAuto
+      ? styles.panelSectionAuto
+      : isTall
+        ? `${styles.panelSection} ${styles.panelSectionEditorial}`
+        : styles.panelSection;
+    const panelClassEditorial = isAuto
+      ? `${styles.stickyPanelDark} ${styles.stickyPanelAutoHeight}`.trim()
+      : isTall
+        ? `${panelClass} ${styles.stickyPanelEditorial}`.trim()
+        : `${panelClass} ${styles.stickyPanelParticipaFit}`.trim();
+    const bodyClass = isAuto || isTall ? styles.editorialPanelBody : styles.participaPanelBody;
     return (
       <section ref={ref} className={sectionClass} id={id}>
         <motion.div style={panelMotionStyle} className={panelClassEditorial}>
@@ -627,6 +632,7 @@ export function MotionStackPanels({
       body: "",
       icon: undefined,
       editorialContent: <HomeConvocaStackPanelContent />,
+      editorialHeight: "auto" as const,
     },
     {
       id: "programas",

@@ -1341,3 +1341,22 @@
   background: rgba(219, 82, 39, 0.5);
   border-radius: 2px;
 }
+
+.panelSectionAuto {
+  position: relative;
+  scroll-margin-top: 2.75rem;
+}
+
+.stickyPanelAutoHeight {
+  position: relative;
+  height: auto;
+  width: calc(100% - 8px);
+  max-width: min(90rem, calc(100% - 8px));
+  margin-left: auto;
+  margin-right: auto;
+  overflow: visible;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow:
+    0 36px 120px rgba(0, 0, 0, 0.2),
+    0 12px 40px rgba(0, 0, 0, 0.12);
+}
