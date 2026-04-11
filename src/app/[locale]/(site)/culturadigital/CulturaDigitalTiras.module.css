@@ -1,7 +1,7 @@
 .root {
   --rise-dur: 900ms;
   --header-offset: var(--header-h, 3.75rem);
-  /* Franja reservada al título «Cultura Digital» al pie del viewport (fuera del bloque de tiras) */
+  /* Franja del título «Cultura Digital» bajo el header; las tiras empiezan debajo (sin solapamiento). */
   --cd-strips-top-gap: clamp(1.75rem, min(9vh, 5rem), 4.25rem);
   position: relative;
   width: 100%;
@@ -42,8 +42,7 @@
 
 .titleAboveStrips {
   position: fixed;
-  /* Título fuera del bloque de tiras: franja inferior del viewport (las barras llenan desde el header). */
-  top: calc(100dvh - var(--cd-strips-top-gap));
+  top: var(--header-offset);
   left: 0;
   right: 0;
   z-index: 14;
@@ -72,8 +71,8 @@
 
 .stripsContainer {
   position: fixed;
-  /* Sin hueco respecto al área de contenido: primera fila de color bajo el header fijo. */
-  top: var(--header-offset);
+  /* Debajo de la franja del título; alineado al borde superior del bloque de tiras (sin padding extra). */
+  top: calc(var(--header-offset) + var(--cd-strips-top-gap));
   left: 0;
   right: 0;
   z-index: 10;
@@ -165,8 +164,8 @@
 
 .overlayTitle {
   position: fixed;
-  /* Contorno en la misma franja inferior que el H1, por debajo del bloque de tiras. */
-  top: calc(100dvh - var(--cd-strips-top-gap));
+  /* Misma franja superior que el H1 (fuera de las tiras); detrás del texto sólido. */
+  top: var(--header-offset);
   left: 0;
   right: 0;
   height: var(--cd-strips-top-gap);
@@ -187,13 +186,13 @@
 
 .outlineTitle {
   color: transparent;
-  -webkit-text-stroke: 2px white;
-  text-stroke: 2px white;
+  /* Contorno legible sobre el fondo blanco de la franja del título (no sobre las tiras). */
+  -webkit-text-stroke: 2px rgba(10, 12, 18, 0.12);
+  text-stroke: 2px rgba(10, 12, 18, 0.12);
   font-weight: 900;
   letter-spacing: -0.04em;
   line-height: 1;
   text-align: center;
-  /* Escala acotada a la franja bajo el header (antes ocupaba todo el viewport encima de las tiras). */
   font-size: clamp(1.85rem, 5.5vw, 3.25rem);
   white-space: nowrap;
   margin: 0;
