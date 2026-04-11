@@ -511,7 +511,9 @@ export default function HubCylinder() {
               <p
                 className={styles.groupLabel}
                 style={{
-                  color: isLight ? "#F5F2EC" : "#DB5227",
+                  color: isLight
+                    ? "rgba(245,242,236,0.7)"
+                    : "#DB5227",
                   borderTopColor: isLight
                     ? "rgba(245,242,236,0.1)"
                     : "rgba(10,12,18,0.1)",
