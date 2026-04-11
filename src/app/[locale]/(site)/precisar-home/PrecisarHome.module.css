@@ -114,6 +114,18 @@
   );
   z-index: 0;
   pointer-events: none;
+  filter: brightness(1);
+  transition: filter 0.2s ease;
+}
+
+.hero[data-verb-flame-pulse]::after {
+  background: radial-gradient(
+    ellipse min(102%, 84vw) min(78%, 68vh) at var(--verb-flame-x) var(--verb-flame-y),
+    rgba(219, 82, 39, 0.62),
+    rgba(219, 82, 39, 0.2) 38%,
+    transparent 56%
+  );
+  filter: brightness(1.18);
 }
 
 /* Mancha naranja animada (Framer + --verb-flame-* en el header); por encima del fondo, debajo del texto */
@@ -127,6 +139,14 @@
   filter: blur(38px);
   opacity: 0.58;
   pointer-events: none;
+  transition:
+    opacity 0.22s ease,
+    filter 0.22s ease;
+}
+
+.hero[data-verb-flame-pulse] .heroFlameMote {
+  opacity: 0.88;
+  filter: blur(34px) brightness(1.14);
 }
 
 .heroOrb {

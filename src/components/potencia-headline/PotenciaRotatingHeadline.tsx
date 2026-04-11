@@ -4,9 +4,14 @@ import { useLocale, useTranslations } from "next-intl";
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { escapeHtml, useTextScramble } from "@/lib/use-text-scramble";
 import {
+  FLAME_SYNC_TO_VERB_MS,
+  FLAME_VERB_PULSE_MS,
   STAIN_TO_CORNER_MS,
   VERB_CYCLE_GAP_MS,
+  VERB_FLAME_IN_FOLLOW_CSS,
+  VERB_FLAME_SHOWN_DRIFT_CSS,
   VERB_SHOWN_MS,
+  verbFlameToCornerCssDuration,
 } from "./heroVerbCycle";
 import styles from "./PotenciaHeadline.module.css";
 
@@ -61,6 +66,10 @@ export function PotenciaRotatingHeadline({
   const verbRef = useRef<HTMLSpanElement | null>(null);
   /** Evita resetear `mode` en el primer mount (corría con el scramble y podía dejar el ciclo en "in"). */
   const lastLocaleResetRef = useRef<string | null>(null);
+  /** Objetivo % mientras el verbo está fijo (`shown`): vaga por el hero. */
+  const randomFlameRef = useRef({ x: 50, y: 45 });
+  /** Inicio de `mode === "in"` para ventana de sync 0.4s y `--verb-flame-dur`. */
+  const inModeStartedAtRef = useRef(0);
 
   useEffect(() => {
     queueMicrotask(() => {
@@ -107,6 +116,12 @@ export function PotenciaRotatingHeadline({
    */
   const flameToCorner = !reduceMotion && (mode === "stainOut" || mode === "out");
 
+  useLayoutEffect(() => {
+    if (mode === "in" && !reduceMotion) {
+      inModeStartedAtRef.current = performance.now();
+    }
+  }, [mode, reduceMotion]);
+
   const applyFlamePosition = useCallback(() => {
     const container = flameSyncContainerRef?.current;
     if (!container) return;
@@ -116,6 +131,8 @@ export function PotenciaRotatingHeadline({
       const c = flameExitCornerForIndex(index);
       x = c.x;
       y = c.y;
+    } else if (mode === "shown" && !reduceMotion) {
+      ({ x, y } = randomFlameRef.current);
     } else {
       const verb = verbRef.current;
       if (!verb) return;
@@ -132,7 +149,94 @@ export function PotenciaRotatingHeadline({
       container.style.setProperty("--verb-flame-x", `${x}%`);
       container.style.setProperty("--verb-flame-y", `${y}%`);
     }
-  }, [flameSyncContainerRef, flameToCorner, onFlamePercent, index]);
+  }, [flameSyncContainerRef, flameToCorner, onFlamePercent, index, mode, reduceMotion]);
+
+  /** Mantiene `--verb-flame-dur` tras cada render del padre (el inline style lo resetea). */
+  useEffect(() => {
+    const el = flameSyncContainerRef?.current;
+    if (!el || reduceMotion) return;
+    let raf = 0;
+    let lastDur = "";
+    let cancelled = false;
+    const tick = () => {
+      if (cancelled) return;
+      let dur: string;
+      if (flameToCorner) {
+        dur = verbFlameToCornerCssDuration();
+      } else if (mode === "in") {
+        const tIn = performance.now() - inModeStartedAtRef.current;
+        dur = tIn < FLAME_SYNC_TO_VERB_MS ? `${FLAME_SYNC_TO_VERB_MS / 1000}s` : VERB_FLAME_IN_FOLLOW_CSS;
+      } else if (mode === "shown") {
+        dur = VERB_FLAME_SHOWN_DRIFT_CSS;
+      } else {
+        dur = "0.58s";
+      }
+      if (dur !== lastDur) {
+        el.style.setProperty("--verb-flame-dur", dur);
+        lastDur = dur;
+      }
+      raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => {
+      cancelled = true;
+      cancelAnimationFrame(raf);
+    };
+  }, [flameSyncContainerRef, reduceMotion, mode, flameToCorner]);
+
+  /** Durante `shown`, nueva posición aleatoria periódica en el hero. */
+  useEffect(() => {
+    if (reduceMotion || mode !== "shown" || !flameSyncContainerRef?.current) return;
+    const container = flameSyncContainerRef.current;
+    const verb = verbRef.current;
+    if (verb) {
+      const cr = container.getBoundingClientRect();
+      const vr = verb.getBoundingClientRect();
+      if (cr.width > 1 && cr.height > 1) {
+        randomFlameRef.current = {
+          x: ((vr.left + vr.width / 2 - cr.left) / cr.width) * 100,
+          y: ((vr.top + vr.height / 2 - cr.top) / cr.height) * 100,
+        };
+      }
+    }
+    applyFlamePosition();
+
+    let cancelled = false;
+    let timeoutId = 0;
+
+    const pickAndApply = () => {
+      if (cancelled) return;
+      randomFlameRef.current = {
+        x: 14 + Math.random() * 72,
+        y: 16 + Math.random() * 68,
+      };
+      applyFlamePosition();
+      timeoutId = window.setTimeout(pickAndApply, 520 + Math.random() * 480);
+    };
+
+    timeoutId = window.setTimeout(pickAndApply, 380);
+    return () => {
+      cancelled = true;
+      window.clearTimeout(timeoutId);
+    };
+  }, [mode, reduceMotion, flameSyncContainerRef, applyFlamePosition]);
+
+  /** Tras alinear con el verbo, pulso de resplandor en el contenedor hero. */
+  useEffect(() => {
+    const el = flameSyncContainerRef?.current;
+    if (!el || reduceMotion || mode !== "in") return;
+    const tPulseOn = window.setTimeout(() => {
+      el.setAttribute("data-verb-flame-pulse", "");
+    }, FLAME_SYNC_TO_VERB_MS);
+    const tPulseOff = window.setTimeout(() => {
+      el.removeAttribute("data-verb-flame-pulse");
+    }, FLAME_SYNC_TO_VERB_MS + FLAME_VERB_PULSE_MS);
+    return () => {
+      window.clearTimeout(tPulseOn);
+      window.clearTimeout(tPulseOff);
+      el.removeAttribute("data-verb-flame-pulse");
+    };
+  }, [mode, index, reduceMotion, flameSyncContainerRef]);
 
   useLayoutEffect(() => {
     const container = flameSyncContainerRef?.current;

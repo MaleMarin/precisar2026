@@ -3,7 +3,19 @@
 export const STAIN_TO_CORNER_MS = 1900;
 
 /** Tras el scramble, cuánto queda el verbo fijo antes de la salida. */
-export const VERB_SHOWN_MS = 550;
+export const VERB_SHOWN_MS = 1000;
+
+/** Transición de la mancha al reanudar detrás del verbo al cambiar de palabra (CSS `--verb-flame-dur`). */
+export const FLAME_SYNC_TO_VERB_MS = 400;
+
+/** Pulso de resplandor una vez alineada la mancha con el verbo. */
+export const FLAME_VERB_PULSE_MS = 300;
+
+/** Transición suave mientras la mancha vaga en `shown`. */
+export const VERB_FLAME_SHOWN_DRIFT_CSS = "1.05s";
+
+/** Seguimiento fino del verbo durante el scramble (`in`). */
+export const VERB_FLAME_IN_FOLLOW_CSS = "0.055s";
 
 export const VERB_CYCLE_GAP_MS = 220;
 
