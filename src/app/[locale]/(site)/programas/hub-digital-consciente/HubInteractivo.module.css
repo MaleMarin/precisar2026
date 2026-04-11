@@ -1,0 +1,212 @@
+.hubSection {
+  background: #0a0c12;
+  padding: clamp(3rem, 6vw, 5rem) clamp(1.5rem, 5vw, 4rem);
+}
+
+.hubSectionLabel {
+  font-size: 0.625rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(245, 242, 236, 0.4);
+  margin: 0 0 1.5rem;
+}
+
+.hubCarousel {
+  min-height: 340px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: clamp(2rem, 4vw, 3rem);
+  transition: background 0.5s ease;
+}
+
+.hubSlideNum {
+  font-size: 0.625rem;
+  letter-spacing: 0.22em;
+  color: rgba(245, 242, 236, 0.5);
+  text-transform: uppercase;
+  margin: 0 0 0.75rem;
+}
+
+.hubSlideTitle {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: clamp(48px, 7vw, 80px);
+  line-height: 0.92;
+  color: #f5f2ec;
+  margin: 0 0 1.25rem;
+}
+
+.hubSlideDesc {
+  font-family: "Avenir Next", "Avenir", sans-serif;
+  font-size: clamp(14px, 1.5vw, 16px);
+  color: rgba(245, 242, 236, 0.8);
+  line-height: 1.65;
+  max-width: 560px;
+  margin: 0;
+}
+
+.hubCarouselNav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1.5rem;
+}
+
+.hubDots {
+  display: flex;
+  gap: 6px;
+}
+
+.hubDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(245, 242, 236, 0.3);
+  transition: background 0.2s;
+}
+
+.hubDotActive {
+  background: #f5f2ec;
+}
+
+.hubNavBtn {
+  background: rgba(245, 242, 236, 0.15);
+  border: none;
+  color: #f5f2ec;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.hubNavBtn:hover {
+  background: rgba(245, 242, 236, 0.25);
+}
+
+.hubModelosGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+@media (max-width: 768px) {
+  .hubModelosGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.hubModeloCard {
+  background: #1a1e28;
+  padding: 1.5rem;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.hubModeloNivel {
+  font-size: 0.625rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(245, 242, 236, 0.4);
+  margin: 0 0 4px;
+}
+
+.hubModeloNombre {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 36px;
+  color: #f5f2ec;
+  margin: 0;
+}
+
+.hubModeloSubtitulo {
+  font-size: 0.75rem;
+  color: rgba(245, 242, 236, 0.45);
+  margin: 0;
+}
+
+.hubModeloItems {
+  font-size: 0.75rem;
+  color: rgba(245, 242, 236, 0.6);
+  line-height: 1.6;
+  margin: 0 0 0.75rem;
+}
+
+.hubModeloSpecs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 0.75rem;
+}
+
+.hubModeloSpec {
+  background: rgba(245, 242, 236, 0.06);
+  padding: 8px;
+}
+
+.hubModeloSpecLabel {
+  font-size: 0.625rem;
+  color: rgba(245, 242, 236, 0.4);
+  margin: 0 0 2px;
+}
+
+.hubModeloSpecValue {
+  font-size: 0.8125rem;
+  color: #f5f2ec;
+  margin: 0;
+  font-weight: 600;
+}
+
+.hubTabsSection {
+  background: #f5f2ec;
+  padding: clamp(2rem, 4vw, 3rem) clamp(1.5rem, 5vw, 4rem);
+}
+
+.hubTabsNav {
+  display: flex;
+  border-bottom: 1px solid rgba(10, 12, 18, 0.1);
+  margin-bottom: 1.5rem;
+}
+
+.hubTab {
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 0.75rem 1.25rem;
+  font-size: 0.8125rem;
+  cursor: pointer;
+  font-family: "Avenir Next", "Avenir", sans-serif;
+  color: rgba(10, 12, 18, 0.45);
+  transition:
+    color 0.2s,
+    border-color 0.2s;
+  margin-bottom: -1px;
+}
+
+.hubTabActive {
+  border-bottom-color: #db5227;
+  color: #0a0c12;
+  font-weight: 600;
+}
+
+.hubTabContent {
+  font-size: 0.9375rem;
+  color: rgba(10, 12, 18, 0.7);
+  line-height: 1.7;
+  max-width: 600px;
+  animation: hubTabFadeIn 0.3s ease;
+}
+
+@keyframes hubTabFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
