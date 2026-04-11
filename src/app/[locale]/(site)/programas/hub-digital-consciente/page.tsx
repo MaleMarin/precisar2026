@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { FooterContactLink } from "@/components/FooterContactLink";
 import shell from "@/components/programs/ProgramShell.module.css";
-import { PDFS } from "@/lib/site";
-import styles from "./HubDigitalPage.module.css";
 import HubCylinder from "./HubCylinder";
 
 export const metadata: Metadata = {
@@ -50,64 +48,6 @@ export default function Page() {
 
       <section aria-label="Exploración interactiva del Hub Digital Consciente">
         <HubCylinder />
-      </section>
-
-      <section className={`${styles.ediciones} ${shell.padSection}`} aria-labelledby="hub-ediciones">
-        <div className={shell.inner}>
-          <h2 id="hub-ediciones" className={styles.edicionesTitle}>
-            Ediciones temáticas disponibles
-          </h2>
-          <div className={styles.edicionesGrid}>
-            <article className={styles.edicionCard}>
-              <p className={styles.edicionNum}>01</p>
-              <h3 className={styles.edicionCardTitle}>Edición Desinformación</h3>
-              <a
-                className={styles.edicionLink}
-                href={PDFS.hubDesinformacion}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Ver especificaciones completas →
-              </a>
-            </article>
-            <article className={styles.edicionCard}>
-              <p className={styles.edicionNum}>02</p>
-              <h3 className={styles.edicionCardTitle}>Edición IA y Algoritmos</h3>
-              <a
-                className={styles.edicionLink}
-                href={PDFS.hubIaAlgoritmos}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Ver especificaciones completas →
-              </a>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section className={`${styles.como} ${shell.padSection}`} aria-labelledby="hub-como">
-        <div className={shell.inner}>
-          <h2 id="hub-como" className={styles.secTitle}>
-            Cómo desarrollamos cada muestra
-          </h2>
-          <div className={styles.comoGrid}>
-            <div className={styles.comoCol}>
-              <h3 className={styles.comoColTitle}>Colaboración con Expertos</h3>
-              <p className={styles.comoColText}>
-                Nos asociamos con profesionales en diversos campos para asegurar que el contenido sea
-                preciso y relevante.
-              </p>
-            </div>
-            <div className={styles.comoCol}>
-              <h3 className={styles.comoColTitle}>Investigación en Campo</h3>
-              <p className={styles.comoColText}>
-                Realizamos investigaciones directas con la audiencia para entender los desafíos reales
-                y las perspectivas de cada muestra.
-              </p>
-            </div>
-          </div>
-        </div>
       </section>
 
       <section className={shell.cta} aria-labelledby="hub-cta-title">
