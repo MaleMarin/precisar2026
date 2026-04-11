@@ -538,6 +538,12 @@
     -webkit-backdrop-filter: none;
     background: color-mix(in oklab, #fbf7f0 94%, transparent);
   }
+
+  :global(#programas) .miniListGlass {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: color-mix(in oklab, #fbf7f0 94%, transparent);
+  }
 }
 
 /* Saberes: lista más abajo que Programas (desalinea del borde superior del titular) */
@@ -1371,13 +1377,6 @@
   min-height: 0;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
-}
-
-:global(#programas) .miniListGlass {
-  flex: 0 1 auto;
-  min-height: 0;
-  margin-top: clamp(1rem, 2.2vw, 2rem);
   overflow-x: hidden;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
@@ -1385,13 +1384,24 @@
   scrollbar-color: rgba(219, 82, 39, 0.35) transparent;
 }
 
-:global(#programas) .miniListGlass::-webkit-scrollbar {
+:global(#programas) .asideSlot::-webkit-scrollbar {
   width: 4px;
 }
 
-:global(#programas) .miniListGlass::-webkit-scrollbar-thumb {
+:global(#programas) .asideSlot::-webkit-scrollbar-thumb {
   background: rgba(219, 82, 39, 0.45);
   border-radius: 2px;
+}
+
+:global(#programas) .miniListGlass {
+  margin-top: clamp(1rem, 2.2vw, 2rem);
+  background: color-mix(in oklab, #fffcf7 52%, transparent);
+  border: 1px solid color-mix(in oklab, #fff 72%, #1a1208 12%);
+  box-shadow:
+    0 10px 40px color-mix(in oklab, #1a1208 10%, transparent),
+    inset 0 1px 0 color-mix(in oklab, #fff 78%, transparent);
+  backdrop-filter: blur(18px) saturate(1.25);
+  -webkit-backdrop-filter: blur(18px) saturate(1.25);
 }
 
 /* Saberes: misma cadena flex que Programas — la columna derecha hace scroll; si no, Bot Onda queda bajo el recorte del sticky (~100vh). */
