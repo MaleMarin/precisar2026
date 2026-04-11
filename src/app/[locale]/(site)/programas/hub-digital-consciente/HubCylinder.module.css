@@ -116,7 +116,7 @@
   opacity: 0.35;
 }
 
-/* Etiqueta fija sobre el carrusel */
+/* Etiqueta fija sobre el Hub en 360° */
 .topLabel {
   position: absolute;
   top: 20px;
@@ -245,13 +245,16 @@
 .closeBtn {
   background: none;
   font-family: 'Avenir Next', 'Avenir', sans-serif;
-  font-size: 10px;
+  font-size: 11px;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  padding: 8px 18px;
+  padding: 10px 20px;
   cursor: pointer;
   border: 1px solid;
   transition: opacity 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 .closeBtn:hover { opacity: 0.6; }
 .expandCounter {
