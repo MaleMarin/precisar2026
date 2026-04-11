@@ -164,18 +164,19 @@ function HomeConvocaStackPanelContent() {
         </h2>
       </header>
 
-      <div className={styles.convocaStackImpact}>
-        <div className={styles.convocaStackImpactItem}>
-          <span className={styles.convocaStackImpactNum}>{t("metrics.exabytesValue")}</span>
-          <span className={styles.convocaStackImpactCap}>{t("metrics.exabytesLabel")}</span>
+      <div className={styles.convocaStackMetricsIntro}>
+        <div className={styles.convocaStackImpact}>
+          <div className={styles.convocaStackImpactItem}>
+            <span className={styles.convocaStackImpactNum}>{t("metrics.exabytesValue")}</span>
+            <span className={styles.convocaStackImpactCap}>{t("metrics.exabytesLabel")}</span>
+          </div>
+          <div className={styles.convocaStackImpactItem}>
+            <span className={styles.convocaStackImpactNum}>{t("metrics.yearsValue")}</span>
+            <span className={styles.convocaStackImpactCap}>{t("metrics.yearsLabel")}</span>
+          </div>
         </div>
-        <div className={styles.convocaStackImpactItem}>
-          <span className={styles.convocaStackImpactNum}>{t("metrics.yearsValue")}</span>
-          <span className={styles.convocaStackImpactCap}>{t("metrics.yearsLabel")}</span>
-        </div>
+        <p className={styles.convocaStackIntroSlate}>{t("intro")}</p>
       </div>
-
-      <p className={styles.convocaStackIntroSlate}>{t("intro")}</p>
 
       <section className={styles.convocaStackPropuesta} aria-labelledby="convoca-propuesta-lead">
         <div className={styles.convocaStackPropuestaCopy}>
