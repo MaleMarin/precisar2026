@@ -25,7 +25,13 @@ export function flameExitCornerForIndex(i: number): { x: number; y: number } {
 }
 
 /** Tiempo para que la mancha llegue al borde (acorde a seguimiento suave en Explora). */
-const STAIN_TO_CORNER_MS = 2800;
+const STAIN_TO_CORNER_MS = 2200;
+
+/** Cuánto se mantiene el verbo legible antes de la salida hacia el borde. */
+const VERB_SHOWN_MS = 2000;
+
+/** Breve pausa tras la salida antes del siguiente verbo. */
+const VERB_CYCLE_GAP_MS = 280;
 
 export type PotenciaHeadlineSurface = "light" | "dark";
 
@@ -163,7 +169,7 @@ export function PotenciaRotatingHeadline({
       return;
     }
     if (mode === "shown") {
-      const id = window.setTimeout(() => setMode("stainOut"), 2500);
+      const id = window.setTimeout(() => setMode("stainOut"), VERB_SHOWN_MS);
       return () => window.clearTimeout(id);
     }
     if (mode === "stainOut") {
@@ -173,7 +179,7 @@ export function PotenciaRotatingHeadline({
     const id = window.setTimeout(() => {
       setIndex((i) => (i + 1) % verbCount);
       setMode("in");
-    }, 350);
+    }, VERB_CYCLE_GAP_MS);
     return () => window.clearTimeout(id);
   }, [mode, reduceMotion, verbCount, clientReady]);
 
