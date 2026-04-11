@@ -100,16 +100,16 @@ const CONTENT = [
       {
         label: "Posibilidades",
         items: [
-          "01 · Activación previa al evento — Módulos en pasillos antes de actividades programadas.",
-          "02 · Puntos de encuentro temáticos — Estaciones dedicadas a privacidad, IA, desinformación.",
-          "03 · Rutas autoguiadas — Recorrido cronológico con soportes visuales y multimedia.",
-          "04 · Elementos móviles — Tablets, kioscos portátiles o gafas de realidad aumentada.",
-          "05 · Material descargable — Códigos QR con guías e infografías post-evento.",
-          "06 · Salas de reflexión — Áreas cómodas con proyección de videos de discusión.",
-          "07 · Interacción IA en vivo — Chatbots con análisis de perfiles de privacidad.",
-          "08 · Experiencias inmersivas — Videoproyecciones 360° y entornos sonoros.",
-          "09 · Gamificación — Desafíos con insignias digitales o reconocimientos físicos.",
-          "10 · Integración con ponencias — Estaciones vinculadas a conferencias del evento.",
+          "01 · Activación previa al evento — Despliega módulos interactivos en pasillos o vestíbulos para que la audiencia descubra conceptos clave antes de cualquier actividad programada.",
+          "02 · Puntos de encuentro temáticos — Crea estaciones dedicadas a la privacidad, la IA, la desinformación o la ética digital, permitiendo que los visitantes transiten libremente entre ellas.",
+          "03 · Rutas autoguiadas — Diseña un recorrido cronológico o lógico que guíe a las personas por distintos retos y experiencias, cada uno acompañado de soportes visuales y multimedia.",
+          "04 · Elementos móviles — Utiliza tablets, kioscos portátiles o gafas de realidad aumentada para llevar la instalación a espacios reducidos o itinerantes dentro del mismo recinto.",
+          "05 · Material descargable — Ofrece a los visitantes códigos QR que enlacen a guías, infografías y recursos digitales para profundizar después del evento.",
+          "06 · Salas de reflexión — Habilita áreas con mobiliario cómodo donde se proyecten cortos videos de discusión o paneles de expertos, invitando al diálogo espontáneo.",
+          "07 · Interacción IA en vivo — Incluye chatbots o asistentes virtuales que respondan preguntas, generen análisis de perfiles de privacidad y ofrezcan recomendaciones personalizadas.",
+          "08 · Experiencias inmersivas — Incorpora videoproyecciones 360°, realidad virtual y entornos sonoros para sumergir al visitante en escenarios que ilustran riesgos y oportunidades tecnológicas.",
+          "09 · Gamificación — Implementa desafíos y juegos basados en preguntas sobre los temas decididos, recompensando la participación con insignias digitales o reconocimientos físicos.",
+          "10 · Integración con ponencias — Combina las estaciones interactivas con conferencias, de modo que cada ponente pueda referirse a los módulos específicos para ejemplificar sus argumentos.",
         ],
       },
     ],
@@ -527,7 +527,7 @@ export default function HubCylinder() {
                     key={ii}
                     className={styles.groupItem}
                     style={{
-                      color: isLight ? "#F5F2EC" : "#0A0C12",
+                      color: isLight ? "#F5F2EC" : "rgba(10,12,18,0.68)",
                       borderBottomColor: isLight
                         ? "rgba(245,242,236,0.1)"
                         : "rgba(10,12,18,0.1)",
