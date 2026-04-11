@@ -659,7 +659,8 @@
 .saberesBotOndaBlock {
   display: block;
   box-sizing: border-box;
-  padding: clamp(1.05rem, 2.1vw, 1.35rem) clamp(1.15rem, 2.2vw, 1.45rem);
+  /* Mismo padding y cuerpo tipográfico que las filas .miniRow / .miniLabel de la lista superior */
+  padding: clamp(1.3rem, 2.2vw, 1.6rem) clamp(1.35rem, 2.4vw, 1.65rem);
   /* Mismo radio que la MiniList glass de Saberes (14px en las cuatro esquinas). */
   border-radius: 14px;
   border: 1px solid color-mix(in oklab, #fff 18%, transparent);
@@ -678,8 +679,9 @@
 
 .saberesBotOndaTitle {
   margin: 0 0 0.35rem;
-  font-size: 0.95rem;
+  font-size: clamp(0.97rem, 1.05vw, 1.0625rem);
   font-weight: 700;
+  line-height: 1.45;
   letter-spacing: 0.03em;
   color: #fff;
 }
@@ -687,7 +689,7 @@
 .saberesBotOndaTagline {
   margin: 0 0 0.75rem;
   max-width: 36rem;
-  font-size: clamp(0.82rem, 1.22vw, 0.92rem);
+  font-size: clamp(0.97rem, 1.05vw, 1.0625rem);
   font-weight: 500;
   line-height: 1.45;
   color: color-mix(in oklab, #fff 82%, transparent);
@@ -698,8 +700,9 @@
 }
 
 .saberesBotOndaBlock .botOndaLine {
-  font-size: 0.86em;
+  font-size: clamp(0.97rem, 1.05vw, 1.0625rem);
   font-weight: 400;
+  line-height: 1.45;
   color: color-mix(in oklab, #fff 76%, transparent);
 }
 
