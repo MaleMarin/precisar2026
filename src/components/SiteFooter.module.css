@@ -279,19 +279,12 @@
 }
 
 .contactTitle {
-  margin: 0 0 0.35rem;
+  margin: 0 0 1rem;
   font-size: clamp(1.25rem, 2.2vw, 1.5rem);
   font-weight: 500;
   letter-spacing: -0.03em;
   line-height: 1.2;
   color: #fff;
-}
-
-.contactLead {
-  margin: 0 0 1.15rem;
-  font-size: 0.875rem;
-  line-height: 1.45;
-  color: rgba(255, 255, 255, 0.48);
 }
 
 .contactForm {
@@ -483,6 +476,7 @@
   display: flex;
   flex-direction: column;
   gap: 0.65rem;
+  align-items: flex-end;
 }
 
 .privacyLink {
@@ -502,8 +496,10 @@
 
 .legalLicense {
   margin: 0;
+  max-width: 100%;
   font-size: 0.6875rem;
   line-height: 1.6;
+  text-align: right;
   color: rgba(255, 255, 255, 0.4);
 }
 

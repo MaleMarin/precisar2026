@@ -229,7 +229,6 @@ export function SiteFooter() {
 
             <div className={styles.contactColumn}>
               <h2 className={styles.contactTitle}>Contáctanos</h2>
-              <p className={styles.contactLead}>Escribe tu mensaje y te respondemos.</p>
               <form id={FOOTER_CONTACT_ANCHOR_ID} action={footerContactRedirect} className={styles.contactForm}>
                 <div className={styles.field}>
                   <label className={styles.fieldLabel} htmlFor="footer-nombre">
@@ -369,9 +368,6 @@ export function SiteFooter() {
               </a>
             </div>
             <div className={styles.legalMeta}>
-              <Link href="/legal/privacidad-consulta-2026" className={styles.privacyLink}>
-                Política de Privacidad
-              </Link>
               <p className={styles.legalLicense}>
                 {tFooter("ccLicenseBefore", { year })}
                 <a
@@ -384,6 +380,9 @@ export function SiteFooter() {
                 </a>
                 {tFooter("ccLicenseAfter")}
               </p>
+              <Link href="/legal/privacidad-consulta-2026" className={styles.privacyLink}>
+                Política de Privacidad
+              </Link>
             </div>
           </div>
         </div>
