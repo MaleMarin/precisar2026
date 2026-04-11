@@ -181,6 +181,8 @@ export function PotenciaRotatingHeadline({
     reduceMotion || mode !== "out" ? styles.verbShown : styles.verbOut;
 
   const line1Class = surface === "dark" ? styles.line1Dark : styles.line1Light;
+  const line1ListTypo = scale === "precisarHome" ? styles.line1PrecisarList : "";
+  const line1CombinedClass = [line1Class, line1ListTypo].filter(Boolean).join(" ");
   const scaleClass =
     scale === "lab"
       ? styles.scaleLab
@@ -201,7 +203,7 @@ export function PotenciaRotatingHeadline({
 
   return (
     <div className={`${styles.headline} ${scaleClass}`} aria-live="polite">
-      <span className={line1Class}>{line1}</span>
+      <span className={line1CombinedClass}>{line1}</span>
       <span className={styles.line2}>
         <span className={styles.verbSlot}>
           <span key={index} className={`${verbClass} ${styles.verbLine}`}>
