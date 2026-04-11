@@ -28,7 +28,7 @@ export function flameExitCornerForIndex(i: number): { x: number; y: number } {
 const STAIN_TO_CORNER_MS = 2200;
 
 /** Cuánto se mantiene el verbo legible antes de la salida hacia el borde. */
-const VERB_SHOWN_MS = 2000;
+const VERB_SHOWN_MS = 1200;
 
 /** Breve pausa tras la salida antes del siguiente verbo. */
 const VERB_CYCLE_GAP_MS = 280;
