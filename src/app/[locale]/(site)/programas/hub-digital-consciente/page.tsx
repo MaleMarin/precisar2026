@@ -228,11 +228,6 @@ export default function Page() {
             <h2 id="hub-cta-title" className={shell.ctaTitle}>
               Lleva el Hub Digital Consciente a tu espacio.
             </h2>
-            <ol className={shell.ctaSteps}>
-              <li>01 Cuéntanos espacio, público y duración que imaginas para la muestra.</li>
-              <li>02 Escríbenos: cuéntanos tu idea y contexto.</li>
-              <li>03 Co-creemos: juntos afinamos contenidos, montaje y cronograma.</li>
-            </ol>
           </div>
           <div className={shell.ctaRight}>
             <FooterContactLink className={shell.ctaBtn}>Contacto</FooterContactLink>
