@@ -28,8 +28,8 @@ export function HeroFlameMoteTrack({
   const smoothRef = useRef({ x: targetX, y: targetY });
 
   useEffect(() => {
-    /** Ganancia baja = movimiento más fluido (menos “freno” al acercarse al objetivo). */
-    const k = quickBlend ? 0.044 : 0.017;
+    /** Ganancia baja = movimiento más fluido; en `quickBlend` algo más alta para alcanzar el verbo al scramble. */
+    const k = quickBlend ? 0.095 : 0.017;
     let id = 0;
     const loop = () => {
       const t = targetRef.current;

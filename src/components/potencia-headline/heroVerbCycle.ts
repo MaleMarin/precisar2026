@@ -17,6 +17,12 @@ export const VERB_FLAME_SHOWN_DRIFT_CSS = "1.65s";
 /** Seguimiento del verbo durante el scramble (`in`); demasiado corto = saltos bruscos en el gradiente. */
 export const VERB_FLAME_IN_FOLLOW_CSS = "0.52s";
 
+/**
+ * Tras el tramo inicial (`FLAME_SYNC_TO_VERB_MS`), el centro del verbo se mueve cada frame con el scramble;
+ * una duración larga deja la mancha siempre detrás del texto. Casi instantáneo para que coincida con la palabra.
+ */
+export const VERB_FLAME_IN_SCRAMBLE_FOLLOW_CSS = "0.055s";
+
 export const VERB_CYCLE_GAP_MS = 220;
 
 /** `--verb-flame-dur` cuando la mancha va al rincón (sincronizado con `STAIN_TO_CORNER_MS`). */

@@ -8,7 +8,7 @@ import {
   FLAME_VERB_PULSE_MS,
   STAIN_TO_CORNER_MS,
   VERB_CYCLE_GAP_MS,
-  VERB_FLAME_IN_FOLLOW_CSS,
+  VERB_FLAME_IN_SCRAMBLE_FOLLOW_CSS,
   VERB_FLAME_SHOWN_DRIFT_CSS,
   VERB_SHOWN_MS,
   verbFlameToCornerCssDuration,
@@ -165,7 +165,8 @@ export function PotenciaRotatingHeadline({
         dur = verbFlameToCornerCssDuration();
       } else if (mode === "in") {
         const tIn = performance.now() - inModeStartedAtRef.current;
-        dur = tIn < FLAME_SYNC_TO_VERB_MS ? `${FLAME_SYNC_TO_VERB_MS / 1000}s` : VERB_FLAME_IN_FOLLOW_CSS;
+        dur =
+          tIn < FLAME_SYNC_TO_VERB_MS ? `${FLAME_SYNC_TO_VERB_MS / 1000}s` : VERB_FLAME_IN_SCRAMBLE_FOLLOW_CSS;
       } else if (mode === "shown") {
         dur = VERB_FLAME_SHOWN_DRIFT_CSS;
       } else {
