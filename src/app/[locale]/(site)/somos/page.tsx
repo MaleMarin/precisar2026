@@ -45,7 +45,7 @@ export default function SomosPrecisarPage() {
           <div className={styles.heroMain}>
             <p className={styles.heroEyebrow}>■ SOMOS PRECISAR</p>
             <h1 id="somos-hero-title" className={styles.heroTitle}>
-              Una apuesta simple y urgente: potenciar con precisión la cultura digital.
+              Porque entender lo que pasa es el primer paso para participar en ello.
             </h1>
           </div>
           <div className={styles.heroYear}>
