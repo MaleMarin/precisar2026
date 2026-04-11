@@ -564,7 +564,6 @@ export function MotionStackPanels({
     { label: tPrograms("stackLinkCiudades"), href: "/programas/ciudades" },
     { label: tPrograms("stackLinkHub"), href: "/programas/hub-digital-consciente" },
     { label: tPrograms("stackLinkAprender"), href: "/programas/aprender-digital" },
-    { label: tPrograms("stackLinkDocentes"), href: "/programas/docentes" },
     { label: tPrograms("stackLinkPensamientoCritico"), href: "/programas/leer-noticias-era-digital" },
     { label: tPrograms("stackLinkFuncionarios"), href: "/programas/funcionarios-publicos" },
     {

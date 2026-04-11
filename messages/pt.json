@@ -84,7 +84,6 @@
     "stackLinkCiudades": "Cidades Conectadas com Sentido",
     "stackLinkHub": "Hub Digital Consciente, mostras itinerantes",
     "stackLinkAprender": "Aprender Digital: Nunca é Tarde",
-    "stackLinkDocentes": "AMI para docentes",
     "stackLinkPensamientoCritico": "Educação midiática para os docentes usarem na sala de aula",
     "stackLinkFuncionarios": "Curso para Servidores Públicos",
     "stackBotOndaLead": "Bot Onda:",
@@ -106,10 +105,6 @@
       "aprender": {
         "title": "Aprender Digital: Nunca es Tarde",
         "body": "Un programa especialmente creado para personas mayores, con talleres presenciales y en línea que combinan uso práctico de dispositivos, seguridad digital y dinámicas sociales, fortaleciendo su autonomía y conexión con familiares y comunidad."
-      },
-      "docentes": {
-        "title": "Alfabetização mediática e informacional para docentes",
-        "body": "Ofrecemos talleres y recursos didácticos, guías de aula y formación práctica para usar en aula y así mejorar las habilidades de los estudiantes en la evaluación crítica de la información, la producción de contenidos y la participación activa en redes digitales, fomentando un enfoque responsable y ético en el espacio digital."
       }
     }
   },

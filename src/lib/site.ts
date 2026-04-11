@@ -217,7 +217,6 @@ export const NAV_SECONDARY: NavItem[] = [
   { label: "Hub Digital Consciente, muestras itinerantes", href: "/programas/hub-digital-consciente" },
   { label: "Ciudades Conectadas con Sentido", href: "/programas/ciudades" },
   { label: "Aprender Digital: Nunca es Tarde", href: "/programas/aprender-digital" },
-  { label: "Alfabetización Mediática e Informacional para Docentes", href: "/programas/docentes" },
   { label: "Formación pensamiento crítico digital", href: "/programas/pensamiento-critico" },
   { label: "Curso para Servidores Públicos", href: "/programas/funcionarios-publicos" },
   {
@@ -295,7 +294,6 @@ export const FOOTER_COLUMNS: { title: string; links: NavItem[] }[] = [
       { label: "Ciudades Conectadas con Sentido", href: "/programas/ciudades" },
       { label: "Hub Digital Consciente, muestras itinerantes", href: "/programas/hub-digital-consciente" },
       { label: "Aprender Digital: Nunca es Tarde", href: "/programas/aprender-digital" },
-      { label: "Alfabetización Mediática e Informacional para Docentes", href: "/programas/docentes" },
       { label: "Formación en pensamiento crítico digital", href: "/programas/pensamiento-critico" },
       { label: "Curso para Servidores Públicos", href: "/programas/funcionarios-publicos" },
       {

@@ -297,9 +297,6 @@ export default function Page() {
             <Link className={shell.continuaLink} href="/programas/hub-digital-consciente">
               Hub Digital Consciente →
             </Link>
-            <Link className={shell.continuaLink} href="/programas/docentes">
-              Alfabetización Mediática para Docentes →
-            </Link>
             <Link className={shell.continuaLink} href="/programas/funcionarios-publicos">
               Educación Mediática para Funcionarios Públicos →
             </Link>

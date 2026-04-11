@@ -274,9 +274,6 @@ export default function AprenderDigitalPage() {
             <Link href="/programas/hub-digital-consciente" className={shell.continuaLink}>
               Hub Digital Consciente →
             </Link>
-            <Link href="/programas/docentes" className={shell.continuaLink}>
-              Alfabetización Mediática para Docentes →
-            </Link>
             <Link href="/programas/funcionarios-publicos" className={shell.continuaLink}>
               Educación Mediática para Funcionarios Públicos →
             </Link>

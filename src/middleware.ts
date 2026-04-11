@@ -107,6 +107,17 @@ export function middleware(request: NextRequest) {
   const localeSeg = parts[0];
   const afterLocale = parts.slice(1);
 
+  if (afterLocale[0] === "programas" && afterLocale[1] === "docentes") {
+    const url = request.nextUrl.clone();
+    url.pathname = `/${localeSeg}/programas/leer-noticias-era-digital`;
+    return NextResponse.redirect(url, 308);
+  }
+  if (afterLocale[0] === "que-hacemos" && afterLocale[1] === "docentes") {
+    const url = request.nextUrl.clone();
+    url.pathname = `/${localeSeg}/programas/leer-noticias-era-digital`;
+    return NextResponse.redirect(url, 308);
+  }
+
   if (
     PRECISANDO_ARTICLES_UNDER_CONSTRUCTION &&
     afterLocale[0] === "precisando" &&

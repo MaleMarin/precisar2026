@@ -62,7 +62,9 @@ export function legacyRedirects() {
     { source: "/services-3", destination: "/programas/hub-digital-consciente", permanent: true },
     { source: "/ciudades", destination: "/programas/ciudades", permanent: true },
     { source: "/aprenderdigital", destination: "/programas/aprender-digital", permanent: true },
-    { source: "/docentes", destination: "/programas/docentes", permanent: true },
+    { source: "/docentes", destination: "/programas/leer-noticias-era-digital", permanent: true },
+    { source: "/programas/docentes", destination: "/programas/leer-noticias-era-digital", permanent: true },
+    { source: "/que-hacemos/docentes", destination: "/programas/leer-noticias-era-digital", permanent: true },
     {
       source: "/leernoticiasenlaeradigital",
       destination: "/programas/leer-noticias-era-digital",

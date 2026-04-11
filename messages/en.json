@@ -84,7 +84,6 @@
     "stackLinkCiudades": "Cities Connected with Purpose",
     "stackLinkHub": "Hub Digital Consciente, traveling exhibits",
     "stackLinkAprender": "Learn Digital: It’s Never Too Late",
-    "stackLinkDocentes": "Media and Information Literacy for Teachers",
     "stackLinkPensamientoCritico": "Media education for teachers to use in the classroom",
     "stackLinkFuncionarios": "Course for Public Servants",
     "stackBotOndaLead": "Bot Onda:",
@@ -106,10 +105,6 @@
       "aprender": {
         "title": "Learn Digital: It’s Never Too Late",
         "body": "A programme designed especially for older adults, with in-person and online workshops that combine practical device use, digital safety, and social activities—strengthening their autonomy and connection with family and community."
-      },
-      "docentes": {
-        "title": "Media and Information Literacy for Teachers",
-        "body": "We offer workshops and teaching resources, classroom guides, and hands-on training for use in class to help students improve how they critically evaluate information, create content, and take part on digital networks—with a responsible, ethical approach online."
       }
     }
   },

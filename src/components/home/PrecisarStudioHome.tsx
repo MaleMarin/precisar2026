@@ -25,12 +25,6 @@ const WORK_ITEMS: CinematicWorkItem[] = [
     href: "/programas/hub-digital-consciente",
   },
   {
-    id: "docentes",
-    title: "Educación mediática para docentes",
-    tags: ["Aula", "Evaluación crítica"],
-    href: "/programas/docentes",
-  },
-  {
     id: "aprender",
     title: "Aprender digital: nunca es tarde",
     tags: ["Mayores", "Dispositivos"],

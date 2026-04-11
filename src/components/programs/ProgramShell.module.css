@@ -13,10 +13,6 @@
   --program-hero-from: #3f3a42;
 }
 
-.page[data-program="docentes"] {
-  --program-hero-from: #db5227;
-}
-
 .page[data-program="aprender"] {
   --program-hero-from: #023661;
 }
