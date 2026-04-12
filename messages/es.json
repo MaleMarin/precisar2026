@@ -32,6 +32,16 @@
       "hub-digital-consciente": "Hub Digital Consciente"
     }
   },
+  "saberesBreadcrumbs": {
+    "aria": "Migas de pan",
+    "home": "Inicio",
+    "saberes": "Saberes",
+    "slugs": {
+      "recorrido": "Recorrido",
+      "recursos": "Recursos",
+      "una-pregunta-al-dia": "Una pregunta al día"
+    }
+  },
   "footer": {
     "socialEyebrow": "Redes sociales",
     "socialX": "Precisar en X (se abre en una pestaña nueva)",

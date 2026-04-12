@@ -32,6 +32,16 @@
       "hub-digital-consciente": "Conscious Digital Hub"
     }
   },
+  "saberesBreadcrumbs": {
+    "aria": "Breadcrumb",
+    "home": "Home",
+    "saberes": "Resources",
+    "slugs": {
+      "recorrido": "Journey",
+      "recursos": "Downloads",
+      "una-pregunta-al-dia": "A question a day"
+    }
+  },
   "footer": {
     "socialEyebrow": "Social",
     "socialX": "Precisar on X (opens in a new tab)",

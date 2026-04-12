@@ -32,6 +32,16 @@
       "hub-digital-consciente": "Hub Digital Consciente"
     }
   },
+  "saberesBreadcrumbs": {
+    "aria": "Navegação estrutural",
+    "home": "Início",
+    "saberes": "Saberes",
+    "slugs": {
+      "recorrido": "Percurso",
+      "recursos": "Recursos",
+      "una-pregunta-al-dia": "Uma pergunta por dia"
+    }
+  },
   "footer": {
     "socialEyebrow": "Redes sociais",
     "socialX": "Precisar no X (abre numa nova aba)",
