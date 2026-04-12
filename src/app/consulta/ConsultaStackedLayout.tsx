@@ -21,15 +21,50 @@ export function ConsultaStackedLayout() {
   const mainBg = isIntro || isComplete ? "#1A0706" : (BLOCKS[activeBlock]?.bg ?? "#1A0706");
 
   return (
-    <div style={{ width: "100%", maxWidth: 720, margin: "0 auto", paddingTop: "clamp(2rem,4vw,3rem)", paddingBottom: "clamp(4rem,8vw,6rem)" }}>
-      <div style={{ display: "flex", flexDirection: "column" as const }}>
+    <div style={{
+      width: "100%",
+      maxWidth: isIntro ? "min(960px, 100%)" : 720,
+      margin: "0 auto",
+      paddingTop: "clamp(2rem,4vw,3rem)",
+      paddingBottom: "clamp(4rem,8vw,6rem)",
+      display: "grid",
+      gridTemplateColumns: isIntro ? "minmax(0,1fr) minmax(0,1fr)" : "1fr",
+      gap: "clamp(2rem,5vw,4rem)",
+      alignItems: "flex-start",
+    }}>
+      {isIntro && (
+        <div style={{ display: "flex", flexDirection: "column" as const, gap: "1.5rem", paddingTop: "1rem", minWidth: 0 }}>
+          <p style={{ margin: 0, fontSize: 10, fontWeight: 700, letterSpacing: "0.25em", textTransform: "uppercase" as const, color: "rgba(247,70,3,0.8)" }}>
+            Precisar · Consulta ciudadana 2026
+          </p>
+          <h1 style={{ margin: 0, fontSize: "clamp(3rem,6vw,5.5rem)", fontWeight: 800, lineHeight: 0.95, letterSpacing: "-0.045em", color: "#ffffff" }}>
+            ¿Cómo te<br />informas<br />hoy?
+          </h1>
+          <p style={{ margin: 0, fontSize: "1rem", lineHeight: 1.65, color: "rgba(255,255,255,0.6)", maxWidth: "38rem" }}>
+            Tu experiencia cambia cómo nos informamos todos. 4 bloques, 12 preguntas sobre cómo recibes, evalúas y compartes información.
+          </p>
+          <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap" as const }}>
+            {["Anónima", "12 preguntas", "Menos de un minuto"].map((tag) => (
+              <span key={tag} style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase" as const, color: "rgba(255,255,255,0.4)", padding: "4px 12px", border: "1px solid rgba(255,255,255,0.12)", borderRadius: 999 }}>{tag}</span>
+            ))}
+          </div>
+          <div style={{ display: "flex", flexDirection: "column" as const, gap: "0.75rem", alignItems: "flex-start" }}>
+            <ConsultaStartButton />
+            <a href="/legal/privacidad-consulta-2026" style={{ fontSize: 10, color: "rgba(255,255,255,0.25)", textDecoration: "none", letterSpacing: "0.08em", textTransform: "uppercase" as const }}>
+              Política de privacidad →
+            </a>
+          </div>
+        </div>
+      )}
+
+      <div style={{ display: "flex", flexDirection: "column" as const, minWidth: 0, gridColumn: isIntro ? undefined : "1 / -1" }}>
 
         {/* Archivo principal */}
         <div style={{
           borderRadius: 28,
           background: mainBg,
           padding: "2.5rem 2.5rem 2.5rem",
-          minHeight: "clamp(480px,70vh,680px)",
+          minHeight: isIntro ? "clamp(320px,50vh,520px)" : "clamp(480px,70vh,680px)",
           position: "relative" as const,
           zIndex: 10,
           boxShadow: "0 40px 80px rgba(0,0,0,0.5)",
@@ -38,32 +73,6 @@ export function ConsultaStackedLayout() {
           flexDirection: "column" as const,
           transition: "background 0.5s ease",
         }}>
-
-          {/* Hero: portada */}
-          {isIntro && (
-            <div style={{ display: "flex", flexDirection: "column" as const, gap: "1.5rem", flex: 1 }}>
-              <p style={{ margin: 0, fontSize: 10, fontWeight: 700, letterSpacing: "0.25em", textTransform: "uppercase" as const, color: "rgba(247,70,3,0.8)" }}>
-                Precisar · Consulta ciudadana 2026
-              </p>
-              <h1 style={{ margin: 0, fontSize: "clamp(3rem,6vw,5.5rem)", fontWeight: 800, lineHeight: 0.95, letterSpacing: "-0.045em", color: "#ffffff" }}>
-                ¿Cómo te<br />informas<br />hoy?
-              </h1>
-              <p style={{ margin: 0, fontSize: "1rem", lineHeight: 1.65, color: "rgba(255,255,255,0.6)", maxWidth: "38rem" }}>
-                Tu experiencia cambia cómo nos informamos todos. 4 bloques, 12 preguntas sobre cómo recibes, evalúas y compartes información.
-              </p>
-              <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap" as const }}>
-                {["Anónima", "12 preguntas", "Menos de un minuto"].map((tag) => (
-                  <span key={tag} style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase" as const, color: "rgba(255,255,255,0.4)", padding: "4px 12px", border: "1px solid rgba(255,255,255,0.12)", borderRadius: 999 }}>{tag}</span>
-                ))}
-              </div>
-              <div style={{ marginTop: "auto", display: "flex", flexDirection: "column" as const, gap: "0.75rem", alignItems: "flex-start" }}>
-                <ConsultaStartButton />
-                <a href="/legal/privacidad-consulta-2026" style={{ fontSize: 10, color: "rgba(255,255,255,0.25)", textDecoration: "none", letterSpacing: "0.08em", textTransform: "uppercase" as const }}>
-                  Política de privacidad →
-                </a>
-              </div>
-            </div>
-          )}
 
           {/* Bloque activo con wizard */}
           {!isIntro && !isComplete && activeBlock >= 0 && BLOCKS[activeBlock] && (
