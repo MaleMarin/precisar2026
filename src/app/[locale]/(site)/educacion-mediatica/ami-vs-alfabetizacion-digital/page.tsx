@@ -47,11 +47,11 @@ const EJERCICIOS = [
 type ColId = "ami" | "digital";
 
 export default function AmiVsDigitalPage() {
-  const [dropped, setDropped] = useState<Partial<Record<number, ColId>>>({});
+  const [dropped, setDropped] = useState<Record<number, ColId | null>>({});
   const [checked, setChecked] = useState(false);
   const [dragging, setDragging] = useState<number | null>(null);
 
-  const pending = EJERCICIOS.filter((e) => dropped[e.id] === undefined);
+  const pending = EJERCICIOS.filter((e) => !dropped[e.id]);
   const inCol = (col: ColId) => EJERCICIOS.filter((e) => dropped[e.id] === col);
   const score = EJERCICIOS.filter((e) => dropped[e.id] === e.respuesta).length;
 
@@ -183,12 +183,7 @@ export default function AmiVsDigitalPage() {
 
         <div className={styles.pool}>
           {pending.map((item) => (
-            <div
-              key={item.id}
-              className={styles.dragItem}
-              draggable
-              onDragStart={() => setDragging(item.id)}
-            >
+            <div key={item.id} className={styles.dragItem} draggable onDragStart={() => setDragging(item.id)}>
               {item.texto}
             </div>
           ))}
