@@ -1,6 +1,8 @@
 import type { ReactNode } from "react";
-import { FOOTER_MEDIA } from "@/lib/site";
 import styles from "./ConsultaShell.module.css";
+
+/** Wordmark en `public/`; ruta estable para la barra de marca en /consulta. */
+const CONSULTA_BRAND_WORDMARK_SRC = "/precisar-footer-wordmark.png";
 
 type ConsultaPageShellProps = {
   children: ReactNode;
@@ -20,11 +22,12 @@ export function ConsultaPageShell({ children, variant = "default" }: ConsultaPag
           <a className={styles.consultaBrandLink} href="/" title="Precisar — inicio">
             <img
               className={styles.consultaBrandLogo}
-              src={FOOTER_MEDIA.headerLogoBlack}
+              src={CONSULTA_BRAND_WORDMARK_SRC}
               alt="Precisar"
-              width={220}
-              height={56}
+              width={160}
+              height={28}
               decoding="async"
+              style={{ height: 28, width: "auto", objectFit: "contain" }}
             />
           </a>
         </div>
