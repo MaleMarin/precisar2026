@@ -42,6 +42,19 @@
       "una-pregunta-al-dia": "Uma pergunta por dia"
     }
   },
+  "mediaticaBreadcrumbs": {
+    "aria": "Navegação estrutural",
+    "home": "Início",
+    "mediatica": "Educação midiática",
+    "slugs": {
+      "comunicacion": "Comunicação",
+      "educacion": "Educação",
+      "tecnologia": "Tecnologia",
+      "cultura": "Cultura",
+      "propuesta-politica-alfabetizacion": "Proposta política de alfabetização",
+      "ami-vs-alfabetizacion-digital": "AMI vs alfabetização digital"
+    }
+  },
   "footer": {
     "socialEyebrow": "Redes sociais",
     "socialX": "Precisar no X (abre numa nova aba)",

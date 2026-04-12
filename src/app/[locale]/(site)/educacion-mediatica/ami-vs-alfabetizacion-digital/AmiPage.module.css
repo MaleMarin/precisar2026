@@ -3,6 +3,10 @@
   background: #0a0c12;
   padding:
     clamp(4rem, 8vw, 7rem) clamp(2rem, 6vw, 5rem) clamp(3rem, 6vw, 5rem);
+  text-align: left;
+  max-width: 90rem;
+  margin: 0 auto;
+  box-sizing: border-box;
 }
 
 .kicker {
@@ -24,20 +28,31 @@
 }
 
 .heroTitle {
-  font-family: "Bebas Neue", sans-serif;
-  font-size: clamp(48px, 8vw, 96px);
-  line-height: 0.9;
+  font-family: var(--font-display, system-ui, sans-serif);
+  font-weight: 800;
+  font-size: clamp(1.95rem, 5.2vw, 4.65rem);
+  line-height: 1.02;
+  letter-spacing: -0.035em;
   color: #f5f2ec;
   margin: 0 0 1.5rem;
+  max-width: min(56rem, 100%);
+  text-align: left;
+}
+
+@media (min-width: 768px) {
+  .heroTitle {
+    font-size: clamp(2.5rem, 6vw, 4.85rem);
+  }
 }
 
 .heroBajada {
-  font-family: "Avenir Next", "Avenir", sans-serif;
-  font-size: clamp(14px, 1.4vw, 18px);
-  line-height: 1.75;
-  color: rgba(245, 242, 236, 0.65);
+  font-family: "Avenir Next", "Avenir", var(--font-sans-family), system-ui, sans-serif;
+  font-size: 1.1875rem;
+  line-height: 1.65;
+  color: rgba(245, 242, 236, 0.72);
   max-width: 640px;
   margin: 0;
+  text-align: left;
 }
 
 /* DOS COLUMNAS */
@@ -65,32 +80,34 @@
 }
 
 .colTitulo {
-  font-family: "Bebas Neue", sans-serif;
-  font-size: 20px;
-  letter-spacing: 0.03em;
+  font-family: var(--font-display, system-ui, sans-serif);
+  font-weight: 800;
+  font-size: clamp(1.1rem, 2vw, 1.35rem);
+  letter-spacing: -0.03em;
   color: #db5227;
   margin: 0 0 8px;
 }
 
 .colTituloD {
-  font-family: "Bebas Neue", sans-serif;
-  font-size: 20px;
-  letter-spacing: 0.03em;
+  font-family: var(--font-display, system-ui, sans-serif);
+  font-weight: 800;
+  font-size: clamp(1.1rem, 2vw, 1.35rem);
+  letter-spacing: -0.03em;
   color: #023661;
   margin: 0 0 8px;
 }
 
 .colSub {
-  font-family: "Avenir Next", "Avenir", sans-serif;
-  font-size: 13px;
+  font-family: "Avenir Next", "Avenir", var(--font-sans-family), system-ui, sans-serif;
+  font-size: 1.1875rem;
   color: rgba(245, 242, 236, 0.55);
   margin: 0 0 1.5rem;
   line-height: 1.5;
 }
 
 .colSubD {
-  font-family: "Avenir Next", "Avenir", sans-serif;
-  font-size: 13px;
+  font-family: "Avenir Next", "Avenir", var(--font-sans-family), system-ui, sans-serif;
+  font-size: 1.1875rem;
   color: rgba(10, 12, 18, 0.5);
   margin: 0 0 1.5rem;
   line-height: 1.5;
@@ -114,8 +131,8 @@
   gap: 8px;
   padding: 8px 0;
   border-bottom: 1px solid rgba(245, 242, 236, 0.08);
-  font-family: "Avenir Next", "Avenir", sans-serif;
-  font-size: 14px;
+  font-family: "Avenir Next", "Avenir", var(--font-sans-family), system-ui, sans-serif;
+  font-size: 1.1875rem;
   color: rgba(245, 242, 236, 0.8);
   line-height: 1.55;
 }
@@ -126,8 +143,8 @@
   gap: 8px;
   padding: 8px 0;
   border-bottom: 1px solid rgba(10, 12, 18, 0.08);
-  font-family: "Avenir Next", "Avenir", sans-serif;
-  font-size: 14px;
+  font-family: "Avenir Next", "Avenir", var(--font-sans-family), system-ui, sans-serif;
+  font-size: 1.1875rem;
   color: rgba(10, 12, 18, 0.72);
   line-height: 1.55;
 }
@@ -193,11 +210,14 @@
 }
 
 .secTitulo {
-  font-family: "Bebas Neue", sans-serif;
-  font-size: clamp(40px, 6vw, 72px);
-  line-height: 0.9;
+  font-family: var(--font-display, system-ui, sans-serif);
+  font-weight: 800;
+  font-size: clamp(1.75rem, 4vw, 3rem);
+  line-height: 1.05;
+  letter-spacing: -0.035em;
   color: #0a0c12;
   margin: 0 0 2.5rem;
+  text-align: left;
 }
 
 .tabla {
@@ -251,11 +271,14 @@
 }
 
 .secTituloLight {
-  font-family: "Bebas Neue", sans-serif;
-  font-size: clamp(40px, 6vw, 72px);
-  line-height: 0.9;
+  font-family: var(--font-display, system-ui, sans-serif);
+  font-weight: 800;
+  font-size: clamp(1.75rem, 4vw, 3rem);
+  line-height: 1.05;
+  letter-spacing: -0.035em;
   color: #f5f2ec;
   margin: 0 0 1rem;
+  text-align: left;
 }
 
 .tip {
@@ -329,19 +352,21 @@
 }
 
 .dropLabel {
-  font-family: "Bebas Neue", sans-serif;
-  font-size: 22px;
+  font-family: var(--font-display, system-ui, sans-serif);
+  font-weight: 800;
+  font-size: clamp(1.15rem, 2vw, 1.5rem);
   color: #db5227;
   margin: 0 0 12px;
-  letter-spacing: 0.05em;
+  letter-spacing: -0.03em;
 }
 
 .dropLabelD {
-  font-family: "Bebas Neue", sans-serif;
-  font-size: 22px;
+  font-family: var(--font-display, system-ui, sans-serif);
+  font-weight: 800;
+  font-size: clamp(1.15rem, 2vw, 1.5rem);
   color: rgba(245, 242, 236, 0.6);
   margin: 0 0 12px;
-  letter-spacing: 0.05em;
+  letter-spacing: -0.03em;
 }
 
 .dropHint {
@@ -401,8 +426,9 @@
 }
 
 .score {
-  font-family: "Bebas Neue", sans-serif;
-  font-size: 28px;
+  font-family: var(--font-display, system-ui, sans-serif);
+  font-weight: 800;
+  font-size: clamp(1.5rem, 3vw, 2rem);
   color: #db5227;
   margin: 0;
 }
@@ -435,8 +461,10 @@
 }
 
 .razonTitulo {
-  font-family: "Bebas Neue", sans-serif;
-  font-size: 22px;
+  font-family: var(--font-display, system-ui, sans-serif);
+  font-weight: 800;
+  font-size: clamp(1.1rem, 2vw, 1.35rem);
+  letter-spacing: -0.03em;
   color: #0a0c12;
   margin: 0 0 8px;
 }

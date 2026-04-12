@@ -42,6 +42,19 @@
       "una-pregunta-al-dia": "Una pregunta al día"
     }
   },
+  "mediaticaBreadcrumbs": {
+    "aria": "Migas de pan",
+    "home": "Inicio",
+    "mediatica": "Educación mediática",
+    "slugs": {
+      "comunicacion": "Comunicación",
+      "educacion": "Educación",
+      "tecnologia": "Tecnología",
+      "cultura": "Cultura",
+      "propuesta-politica-alfabetizacion": "Propuesta política de alfabetización",
+      "ami-vs-alfabetizacion-digital": "AMI vs alfabetización digital"
+    }
+  },
   "footer": {
     "socialEyebrow": "Redes sociales",
     "socialX": "Precisar en X (se abre en una pestaña nueva)",

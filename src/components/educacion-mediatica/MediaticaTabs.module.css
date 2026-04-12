@@ -12,21 +12,23 @@
 .tabsInner {
   max-width: 860px;
   margin: 0 auto;
+  text-align: left;
 }
 
 .tabsSectionTitle {
   margin: 0 0 32px;
   font-family: var(--font-display), system-ui, sans-serif;
-  font-size: 24px;
-  font-weight: 700;
-  line-height: 1.25;
-  letter-spacing: -0.02em;
+  font-size: clamp(1.65rem, 3.5vw, 2.5rem);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.035em;
   color: var(--brand-void, #0a0c12);
+  text-align: left;
 }
 
 .tabsSectionTitleLong {
-  font-size: 20px;
-  line-height: 1.35;
+  font-size: clamp(1.4rem, 3vw, 2.1rem);
+  line-height: 1.12;
 }
 
 .tabsBar {
@@ -114,8 +116,9 @@
 
 .tabBodyText {
   margin: 0;
-  font-size: 15px;
-  line-height: 1.75;
+  font-family: "Avenir Next", "Avenir", var(--font-sans-family), system-ui, sans-serif;
+  font-size: 1.1875rem;
+  line-height: 1.65;
   color: var(--brand-charcoal, #3f3a42);
 }
 

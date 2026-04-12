@@ -4,13 +4,16 @@
   max-width: 42rem;
   margin: 0 auto;
   padding: 0 0 4rem;
+  text-align: left;
 }
 
 .lead {
-  font-size: clamp(1.05rem, 2.2vw, 1.2rem);
+  font-family: "Avenir Next", "Avenir", var(--font-sans-family), system-ui, sans-serif;
+  font-size: 1.1875rem;
   line-height: 1.65;
   color: var(--muted);
   margin: 0 0 1.75rem;
+  text-align: left;
 }
 
 .pdfDownloadWrap {
@@ -19,12 +22,14 @@
 
 /* react-markdown */
 .markdown :global(h2) {
-  font-size: clamp(1.15rem, 2.5vw, 1.35rem);
-  font-weight: 600;
-  letter-spacing: -0.02em;
+  font-family: var(--font-display, system-ui, sans-serif);
+  font-size: clamp(1.35rem, 2.8vw, 1.85rem);
+  font-weight: 800;
+  letter-spacing: -0.035em;
   color: var(--fg);
   margin: 2.5rem 0 1rem;
-  line-height: 1.25;
+  line-height: 1.12;
+  text-align: left;
 }
 
 .markdown :global(h2:first-child) {
@@ -32,11 +37,14 @@
 }
 
 .markdown :global(h3) {
-  font-size: 1.05rem;
-  font-weight: 600;
+  font-family: var(--font-display, system-ui, sans-serif);
+  font-size: clamp(1.1rem, 2vw, 1.35rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
   color: var(--fg);
   margin: 1.75rem 0 0.65rem;
-  line-height: 1.3;
+  line-height: 1.2;
+  text-align: left;
 }
 
 .markdown :global(h4) {
@@ -50,7 +58,9 @@
 
 .markdown :global(p) {
   margin: 0 0 1rem;
-  line-height: 1.7;
+  font-family: "Avenir Next", "Avenir", var(--font-sans-family), system-ui, sans-serif;
+  font-size: 1.1875rem;
+  line-height: 1.65;
   color: var(--fg);
 }
 
@@ -58,6 +68,8 @@
 .markdown :global(ol) {
   margin: 0.5rem 0 1.25rem;
   padding-left: 1.35rem;
+  font-family: "Avenir Next", "Avenir", var(--font-sans-family), system-ui, sans-serif;
+  font-size: 1.1875rem;
   line-height: 1.65;
   color: var(--fg);
 }

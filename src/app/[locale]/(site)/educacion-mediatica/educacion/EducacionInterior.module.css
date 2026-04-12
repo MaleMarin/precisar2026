@@ -6,9 +6,18 @@
 }
 
 .hero {
+  --mediatica-title-size: clamp(1.95rem, 5.2vw, 4.65rem);
+  --mediatica-title-maxw: 42rem;
   background: var(--brand-navy);
   color: #fff;
   padding: clamp(3rem, 8vw, 5.5rem) var(--gutter, 1.25rem);
+}
+
+@media (min-width: 768px) {
+  .hero {
+    --mediatica-title-size: clamp(2.5rem, 6vw, 4.85rem);
+    --mediatica-title-maxw: 56rem;
+  }
 }
 
 .heroGrid {
@@ -17,6 +26,7 @@
   align-items: start;
   max-width: 90rem;
   margin: 0 auto;
+  text-align: left;
 }
 
 .heroGrid > * {
@@ -32,30 +42,28 @@
 
 .heroTitle {
   margin: 0;
-  font-family: var(--font-display);
+  max-width: min(var(--mediatica-title-maxw), 100%);
+  font-family: var(--font-display, system-ui, sans-serif);
   font-weight: 800;
   line-height: 1.02;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.035em;
   color: #fff;
   hyphens: none;
   overflow-wrap: normal;
   word-break: normal;
-  font-size: clamp(32px, 8.5vw, 80px);
-}
-
-@media (min-width: 1024px) {
-  .heroTitle {
-    font-size: clamp(26px, 3.4vw + 0.5rem, 56px);
-  }
+  font-size: var(--mediatica-title-size);
+  text-align: left;
 }
 
 .heroIntro {
   margin: 0;
-  font-size: 18px;
+  font-family: "Avenir Next", "Avenir", var(--font-sans-family), system-ui, sans-serif;
+  font-size: 1.1875rem;
   font-weight: 400;
-  line-height: 1.6;
+  line-height: 1.65;
   color: rgba(255, 255, 255, 0.85);
   max-width: 36rem;
+  text-align: left;
 }
 
 .bodySection {
@@ -72,21 +80,24 @@
 .bodyInner {
   max-width: 860px;
   margin: 0 auto;
+  text-align: left;
 }
 
 .bodySubhead {
   margin: 0 0 24px;
-  font-family: var(--font-display);
-  font-size: 22px;
-  font-weight: 700;
-  line-height: 1.35;
-  letter-spacing: -0.02em;
+  font-family: var(--font-display, system-ui, sans-serif);
+  font-size: clamp(1.35rem, 2.4vw, 1.85rem);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.035em;
   color: var(--brand-void, #0a0c12);
+  text-align: left;
 }
 
 .bodyText {
   margin: 0 0 1.5rem;
-  font-size: 1.0625rem;
+  font-family: "Avenir Next", "Avenir", var(--font-sans-family), system-ui, sans-serif;
+  font-size: 1.1875rem;
   line-height: 1.65;
   color: var(--brand-void, #0a0c12);
 }
@@ -97,7 +108,8 @@
 
 .bodyListIntro {
   margin: 0 0 0.5rem;
-  font-size: 1.0625rem;
+  font-family: "Avenir Next", "Avenir", var(--font-sans-family), system-ui, sans-serif;
+  font-size: 1.1875rem;
   line-height: 1.65;
   color: var(--brand-void, #0a0c12);
 }
@@ -105,7 +117,8 @@
 .bodyList {
   margin: 0 0 1.5rem;
   padding-left: 1.25rem;
-  font-size: 1.0625rem;
+  font-family: "Avenir Next", "Avenir", var(--font-sans-family), system-ui, sans-serif;
+  font-size: 1.1875rem;
   line-height: 1.65;
   color: var(--brand-void, #0a0c12);
 }
@@ -120,7 +133,8 @@
 
 .bodyClosing {
   margin: 1.5rem 0 0;
-  font-size: 1.0625rem;
+  font-family: "Avenir Next", "Avenir", var(--font-sans-family), system-ui, sans-serif;
+  font-size: 1.1875rem;
   line-height: 1.65;
   font-weight: 700;
   color: var(--brand-void, #0a0c12);

@@ -42,6 +42,19 @@
       "una-pregunta-al-dia": "A question a day"
     }
   },
+  "mediaticaBreadcrumbs": {
+    "aria": "Breadcrumb",
+    "home": "Home",
+    "mediatica": "Media literacy",
+    "slugs": {
+      "comunicacion": "Communication",
+      "educacion": "Education",
+      "tecnologia": "Technology",
+      "cultura": "Culture",
+      "propuesta-politica-alfabetizacion": "Policy proposal on literacy",
+      "ami-vs-alfabetizacion-digital": "MLI vs digital literacy"
+    }
+  },
   "footer": {
     "socialEyebrow": "Social",
     "socialX": "Precisar on X (opens in a new tab)",

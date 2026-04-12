@@ -1,14 +1,6 @@
-import { Bebas_Neue } from "next/font/google";
 import type { Metadata } from "next";
 import { FooterContactLink } from "@/components/FooterContactLink";
 import shell from "@/components/programs/ProgramShell.module.css";
-
-const bebas = Bebas_Neue({
-  weight: "400",
-  subsets: ["latin"],
-  variable: "--ami-bebas",
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   title: "Agenda AMI-Chile · Propuesta política de alfabetización",
@@ -57,10 +49,15 @@ export default function PropuestaPoliticaAlfabetizacionPage() {
           color: var(--ami-void);
           background: var(--ami-cream);
         }
-        .agendaAmiPage :where(h1, h2, h3, .amiStatNum, .amiPhaseTitle) {
-          font-family: var(--ami-bebas), "Bebas Neue", sans-serif;
-          font-weight: 400;
-          letter-spacing: 0.02em;
+        .agendaAmiPage :where(.amiStatNum, .amiPhaseTitle) {
+          font-family: var(--font-display), system-ui, sans-serif;
+          font-weight: 800;
+          letter-spacing: -0.03em;
+        }
+        .agendaAmiPage :where(h3) {
+          font-family: var(--font-display), system-ui, sans-serif;
+          font-weight: 700;
+          letter-spacing: -0.03em;
         }
         .agendaAmiStatGrid {
           display: grid;
@@ -72,8 +69,8 @@ export default function PropuestaPoliticaAlfabetizacionPage() {
         }
         .amiStatNum {
           margin: 0;
-          font-size: clamp(2.5rem, 5vw, 3.75rem);
-          line-height: 1;
+          font-size: clamp(2.25rem, 4.5vw, 3.25rem);
+          line-height: 1.02;
           color: var(--ami-cream);
         }
         .amiStatLabel {
@@ -373,9 +370,9 @@ export default function PropuestaPoliticaAlfabetizacionPage() {
           margin: 1.25rem 0 0;
           max-width: 46rem;
           font-family: "Avenir Next", "Avenir", var(--font-sans-family), sans-serif;
-          font-size: clamp(14px, 1.4vw, 17px);
-          line-height: 1.75;
-          color: rgba(245, 242, 236, 0.65);
+          font-size: 1.1875rem;
+          line-height: 1.65;
+          color: rgba(245, 242, 236, 0.72);
         }
         .agendaAmiQuote {
           margin: 0 0 clamp(2rem, 4vw, 3rem);
@@ -391,7 +388,7 @@ export default function PropuestaPoliticaAlfabetizacionPage() {
       `}</style>
 
       <article
-        className={`agendaAmiPage ${shell.page} ${bebas.variable}`}
+        className={`agendaAmiPage ${shell.page}`}
         data-program="ami-chile"
         style={{ ["--program-hero-from" as string]: "#0a0c12" }}
       >
