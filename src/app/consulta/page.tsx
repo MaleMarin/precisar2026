@@ -1,6 +1,5 @@
 import { ConsultaFlowProvider } from "@/components/consulta/ConsultaFlowContext";
 import { ConsultaHero } from "@/components/consulta/ConsultaHero";
-import { ConsultaIntro } from "@/components/consulta/ConsultaIntro";
 import { ConsultaLiveMapProvider } from "@/components/consulta/ConsultaLiveMapProvider";
 import { ConsultaPageShell } from "@/components/consulta/ConsultaPageShell";
 import { ConsultaViewportCenter } from "@/components/consulta/ConsultaViewportCenter";
@@ -33,52 +32,23 @@ export default function ConsultaPage() {
                 Política de privacidad →
               </a>
             </div>
+
             <ConsultaHero />
+
             <div className={shell.contentSheet} data-consulta-sheet>
-              <section className={intro.canvas} aria-label="Transparencia y confianza">
+              <section className={intro.canvas} aria-label="Privacidad y datos">
                 <div className={intro.sideStack}>
-                  <article className={intro.sheetCard}>
-                    <h2 className={intro.title}>¿Por qué te preguntamos?</h2>
-                    <p className={intro.body}>
-                      Queremos entender cómo llega la información a tu día a día: qué te ayuda, qué te confunde y qué
-                      necesitas para decidir con más claridad. No buscamos respuestas correctas, sino experiencias
-                      reales.
-                    </p>
-                  </article>
-
-                  <article className={intro.sheetCard}>
-                    <h2 className={intro.title}>Quién está detrás</h2>
-                    <p className={intro.body}>
-                      Esta consulta es una iniciativa de Precisar, organización sin fines de lucro dedicada a la cultura
-                      digital crítica en Chile y México.
-                    </p>
-                  </article>
-
                   <article className={intro.sheetCard}>
                     <h2 className={intro.title}>Qué pasa con tus datos</h2>
                     <p className={intro.body}>
-                      No guardamos datos personales. No hay nombre, email ni teléfono. Solo nos interesa el patrón
-                      colectivo para diseñar mejores herramientas de educación mediática.
+                      No guardamos datos personales. No hay nombre, email ni teléfono. Solo nos
+                      interesa el patrón colectivo para diseñar mejores herramientas de educación
+                      mediática.
                     </p>
                   </article>
-
-                  <div className={intro.sheetCardCompact}>
-                    <div className={intro.tagRow} role="list" aria-label="Datos de la consulta">
-                      <span className={intro.tagBlue} role="listitem">
-                        Anónima
-                      </span>
-                      <span className={intro.tagCoral} role="listitem">
-                        12 preguntas
-                      </span>
-                      <span className={intro.tagBlue} role="listitem">
-                        Menos de un minuto
-                      </span>
-                    </div>
-                  </div>
                 </div>
               </section>
 
-              <ConsultaIntro />
               <ConsultaWizardSlot />
             </div>
           </ConsultaViewportCenter>
