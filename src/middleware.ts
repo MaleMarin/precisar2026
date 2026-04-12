@@ -1,3 +1,4 @@
+import createMiddleware from "next-intl/middleware";
 import { NextResponse, type NextRequest } from "next/server";
 import { articleBySlug } from "@/data/articles";
 import { PRECISANDO_SLUG_ALIASES } from "@/data/slug-aliases";
@@ -5,7 +6,7 @@ import { routing } from "@/i18n/routing";
 import { matchLegacyRedirect } from "@/lib/legacy-redirects";
 import { PRECISANDO_ARTICLES_UNDER_CONSTRUCTION } from "@/lib/precisando-access";
 
-const LOCALE_SET = new Set(routing.locales.map((l) => l.toLowerCase()));
+const intlMiddleware = createMiddleware(routing);
 
 /** Rutas en la raíz de `app/` que no usan el segmento `[locale]`. */
 const SKIP_LOCALE_PREFIX_SEGMENTS = new Set([
@@ -53,20 +54,38 @@ function firstPathSegment(pathname: string): string | undefined {
 }
 
 function hasLocalePrefix(pathname: string): boolean {
-  const first = firstPathSegment(pathname)?.toLowerCase();
-  return first != null && LOCALE_SET.has(first);
+  const first = firstPathSegment(pathname);
+  if (!first) return false;
+  return routing.locales.some((l) => l.toLowerCase() === first.toLowerCase());
 }
 
-function redirectHomePrecisando(request: NextRequest, localeSeg: string) {
+/** Primer segmento es un código de locale → se devuelve ese locale y el resto del path. */
+function parseLocalePath(pathname: string): { locale: string; segments: string[] } {
+  const parts = pathname.split("/").filter(Boolean);
+  if (parts.length === 0) return { locale: routing.defaultLocale, segments: [] };
+  const first = parts[0]!;
+  const canonical = routing.locales.find((l) => l.toLowerCase() === first.toLowerCase());
+  if (canonical) {
+    return { locale: canonical, segments: parts.slice(1) };
+  }
+  return { locale: routing.defaultLocale, segments: parts };
+}
+
+/** Path interno (p. ej. `/programas/foo`) con prefijo solo si el locale no es el por defecto. */
+function withLocalePath(locale: string, path: string): string {
+  const normalized = path.startsWith("/") ? path : `/${path}`;
+  if (locale === routing.defaultLocale) return normalized || "/";
+  return `/${locale}${normalized === "/" ? "" : normalized}`;
+}
+
+function redirectHomePrecisando(request: NextRequest, locale: string) {
   const url = request.nextUrl.clone();
-  url.pathname = `/${localeSeg}`;
+  url.pathname = locale === routing.defaultLocale ? "/" : `/${locale}`;
   url.hash = "precisando";
   return NextResponse.redirect(url, 307);
 }
 
 export function middleware(request: NextRequest) {
-  // No forzar www ↔ apex aquí: si coincide con la opción "Dominio principal" de Vercel
-  // en el otro sentido, el navegador entra en ERR_TOO_MANY_REDIRECTS.
   const pathname = request.nextUrl.pathname;
   if (pathname.includes(".")) return NextResponse.next();
 
@@ -77,7 +96,7 @@ export function middleware(request: NextRequest) {
 
   const numeric = pathname.match(/^\/(\d+)$/);
   if (numeric) {
-    const n = Number.parseInt(numeric[1], 10);
+    const n = Number.parseInt(numeric[1]!, 10);
     if (n >= 1 && n <= 25) {
       const url = request.nextUrl.clone();
       url.pathname = `/aqui-no-pasa/modulos/${n}`;
@@ -92,29 +111,25 @@ export function middleware(request: NextRequest) {
         return NextResponse.redirect(legacy.destination, legacy.permanent ? 308 : 307);
       }
       const target = request.nextUrl.clone();
-      const destPath = legacy.destination === "/" ? `/${routing.defaultLocale}` : `/${routing.defaultLocale}${legacy.destination}`;
+      const destPath =
+        legacy.destination === "/" ? "/" : legacy.destination.startsWith("/")
+          ? legacy.destination
+          : `/${legacy.destination}`;
       target.pathname = destPath;
       return NextResponse.redirect(target, legacy.permanent ? 308 : 307);
     }
-
-    const url = request.nextUrl.clone();
-    const suffix = pathname === "/" ? "" : pathname;
-    url.pathname = `/${routing.defaultLocale}${suffix}`;
-    return NextResponse.redirect(url, 308);
   }
 
-  const parts = pathname.split("/").filter(Boolean);
-  const localeSeg = parts[0];
-  const afterLocale = parts.slice(1);
+  const { locale: pathLocale, segments: afterLocale } = parseLocalePath(pathname);
 
   if (afterLocale[0] === "programas" && afterLocale[1] === "docentes") {
     const url = request.nextUrl.clone();
-    url.pathname = `/${localeSeg}/programas/leer-noticias-era-digital`;
+    url.pathname = withLocalePath(pathLocale, "/programas/leer-noticias-era-digital");
     return NextResponse.redirect(url, 308);
   }
   if (afterLocale[0] === "que-hacemos" && afterLocale[1] === "docentes") {
     const url = request.nextUrl.clone();
-    url.pathname = `/${localeSeg}/programas/leer-noticias-era-digital`;
+    url.pathname = withLocalePath(pathLocale, "/programas/leer-noticias-era-digital");
     return NextResponse.redirect(url, 308);
   }
 
@@ -123,35 +138,35 @@ export function middleware(request: NextRequest) {
     afterLocale[0] === "precisando" &&
     afterLocale.length === 2
   ) {
-    const slugSeg = decodePathSegment(afterLocale[1]);
+    const slugSeg = decodePathSegment(afterLocale[1]!);
     if (articleBySlug(slugSeg)) {
-      return redirectHomePrecisando(request, localeSeg);
+      return redirectHomePrecisando(request, pathLocale);
     }
   }
 
   if (afterLocale.length === 1) {
-    const decoded = decodePathSegment(afterLocale[0]);
+    const decoded = decodePathSegment(afterLocale[0]!);
     const aliasTarget = PRECISANDO_SLUG_ALIASES[decoded];
     if (aliasTarget) {
       if (PRECISANDO_ARTICLES_UNDER_CONSTRUCTION) {
-        return redirectHomePrecisando(request, localeSeg);
+        return redirectHomePrecisando(request, pathLocale);
       }
       const url = request.nextUrl.clone();
-      url.pathname = `/${localeSeg}/precisando/${encodeURI(aliasTarget)}`;
+      url.pathname = withLocalePath(pathLocale, `/precisando/${encodeURI(aliasTarget)}`);
       return NextResponse.redirect(url, 308);
     }
     const postFromRoot = !RESERVED_ROOT_SEGMENTS.has(decoded) ? articleBySlug(decoded) : undefined;
     if (postFromRoot) {
       if (PRECISANDO_ARTICLES_UNDER_CONSTRUCTION) {
-        return redirectHomePrecisando(request, localeSeg);
+        return redirectHomePrecisando(request, pathLocale);
       }
       const url = request.nextUrl.clone();
-      url.pathname = `/${localeSeg}/precisando/${encodeURI(postFromRoot.slug)}`;
+      url.pathname = withLocalePath(pathLocale, `/precisando/${encodeURI(postFromRoot.slug)}`);
       return NextResponse.redirect(url, 308);
     }
   }
 
-  return NextResponse.next();
+  return intlMiddleware(request);
 }
 
 export const config = {
