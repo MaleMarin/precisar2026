@@ -16,17 +16,17 @@ export default function ConsultaPage() {
       <ConsultaPageShell variant="liveMap">
         <ConsultaFlowProvider>
           <ConsultaViewportCenter>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "clamp(2rem, 5vw, 4rem)", alignItems: "center", minHeight: "80vh", width: "100%" }}>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "clamp(2rem, 5vw, 4rem)", alignItems: "center", minHeight: "80vh", width: "100%", background: "#0A0C12", borderRadius: 24, padding: "clamp(2.5rem, 5vw, 4rem)", margin: "0 calc(-1 * clamp(1rem, 4vw, 2.5rem))" }}>
 
               {/* Columna izquierda */}
               <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
                 <p style={{ margin: 0, fontSize: 10, fontWeight: 700, letterSpacing: "0.25em", textTransform: "uppercase" as const, color: "rgba(221,2,0,0.8)" }}>
                   Precisar · Consulta ciudadana 2026
                 </p>
-                <h1 style={{ margin: 0, fontSize: "clamp(2.8rem, 5.5vw, 5rem)", fontWeight: 800, lineHeight: 1.0, letterSpacing: "-0.045em", color: "#ffffff" }}>
+                <h1 style={{ margin: 0, fontSize: "clamp(2.8rem, 5.5vw, 5rem)", fontWeight: 800, lineHeight: 1.0, letterSpacing: "-0.045em", color: "#ffffff", textShadow: "0 2px 40px rgba(221,2,0,0.3)" }}>
                   ¿Cómo te<br />informas<br />hoy?
                 </h1>
-                <p style={{ margin: 0, fontSize: "1rem", lineHeight: 1.65, color: "rgba(255,255,255,0.62)", maxWidth: "32rem" }}>
+                <p style={{ margin: 0, fontSize: "1rem", lineHeight: 1.65, color: "rgba(255,255,255,0.78)", maxWidth: "32rem" }}>
                   Tu experiencia cambia cómo nos informamos todos. Queremos entender qué formatos te ayudan, qué tono te genera confianza y qué necesitas para decidir con más criterio.
                 </p>
                 <div style={{ display: "flex", gap: "0.65rem", flexWrap: "wrap" as const }}>
@@ -49,19 +49,19 @@ export default function ConsultaPage() {
                 <div style={{ position: "absolute" as const, inset: 0, background: "radial-gradient(circle at 50% 40%, rgba(221,2,0,0.4), transparent 65%)", pointerEvents: "none" as const, zIndex: 0 }} />
 
                 {/* Capa 1 */}
-                <div style={{ position: "absolute" as const, top: 0, left: "2%", right: "2%", height: 520, borderRadius: 40, background: "rgba(221,2,0,0.30)", backdropFilter: "blur(18px)", transform: "scale(0.94)", transformOrigin: "top center", zIndex: 1, boxShadow: "0 30px 80px rgba(221,2,0,0.18)" }} />
+                <div style={{ position: "absolute" as const, top: 0, left: "2%", right: "2%", height: 520, borderRadius: 40, background: "rgba(221,2,0,0.30)", backdropFilter: "blur(18px)", transform: "scale(0.94)", transformOrigin: "top center", zIndex: 1, boxShadow: "0 30px 80px rgba(221,2,0,0.18)", transition: "transform 0.35s ease, box-shadow 0.35s ease" }} />
 
                 {/* Capa 2 */}
-                <div style={{ position: "absolute" as const, top: 50, left: "1%", right: "1%", height: 520, borderRadius: 40, background: "rgba(221,2,0,0.55)", backdropFilter: "blur(14px)", transform: "scale(0.96)", transformOrigin: "top center", zIndex: 2, boxShadow: "0 30px 80px rgba(221,2,0,0.22)" }} />
+                <div style={{ position: "absolute" as const, top: 50, left: "1%", right: "1%", height: 520, borderRadius: 40, background: "rgba(221,2,0,0.55)", backdropFilter: "blur(14px)", transform: "scale(0.96)", transformOrigin: "top center", zIndex: 2, boxShadow: "0 30px 80px rgba(221,2,0,0.22)", transition: "transform 0.35s ease, box-shadow 0.35s ease" }} />
 
                 {/* Capa 3 — rojo sólido */}
-                <div style={{ position: "absolute" as const, top: 100, left: 0, right: 0, height: 520, borderRadius: 40, background: "#DD0200", transform: "scale(0.98)", transformOrigin: "top center", zIndex: 3, boxShadow: "0 30px 80px rgba(221,2,0,0.35)", padding: "2rem 2rem 0", overflow: "hidden" as const }}>
+                <div style={{ position: "absolute" as const, top: 100, left: 0, right: 0, height: 520, borderRadius: 40, background: "#DD0200", transform: "scale(0.98)", transformOrigin: "top center", zIndex: 3, boxShadow: "0 30px 80px rgba(221,2,0,0.35)", padding: "2rem 2rem 0", overflow: "hidden" as const, transition: "transform 0.35s ease, box-shadow 0.35s ease" }}>
                   <p style={{ margin: 0, fontSize: 10, fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase" as const, color: "rgba(255,255,255,0.5)", marginBottom: "0.5rem" }}>03 · Cómo procesas lo que llega</p>
                   <p style={{ margin: 0, fontSize: "1.15rem", fontWeight: 800, color: "#fff", letterSpacing: "-0.03em", lineHeight: 1.2 }}>Qué haces cuando dudas, qué formatos te sirven.</p>
                 </div>
 
                 {/* Capa 4 — blanca */}
-                <div style={{ position: "absolute" as const, top: 200, left: 0, right: 0, height: 280, borderRadius: 38, background: "#F5F2EC", zIndex: 4, boxShadow: "0 25px 60px rgba(0,0,0,0.35)", padding: "1.75rem 2rem", overflow: "hidden" as const }}>
+                <div style={{ position: "absolute" as const, top: 200, left: 0, right: 0, height: 280, borderRadius: 38, background: "#F5F2EC", zIndex: 4, boxShadow: "0 25px 60px rgba(0,0,0,0.35)", padding: "1.75rem 2rem", overflow: "hidden" as const, transition: "transform 0.35s ease, box-shadow 0.35s ease", cursor: "pointer" }}>
                   <p style={{ margin: 0, fontSize: 10, fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase" as const, color: "rgba(10,12,18,0.4)", marginBottom: "0.5rem" }}>01 · Cómo te informas</p>
                   <h3 style={{ margin: "0 0 0.65rem", fontSize: "1.35rem", fontWeight: 800, color: "#0A0C12", letterSpacing: "-0.03em", lineHeight: 1.15 }}>Canales, razones y temas que sigues para entender lo que pasa.</h3>
                   <div style={{ display: "flex", flexDirection: "column" as const, gap: "0.3rem", marginTop: "0.75rem" }}>
@@ -74,7 +74,7 @@ export default function ConsultaPage() {
                 </div>
 
                 {/* Capa 5 — negra */}
-                <div style={{ position: "absolute" as const, top: 390, left: 0, right: 0, height: 280, borderRadius: 38, background: "#1A0706", zIndex: 5, boxShadow: "0 40px 90px rgba(0,0,0,0.6)", padding: "1.75rem 2rem", border: "1px solid rgba(221,2,0,0.2)" }}>
+                <div style={{ position: "absolute" as const, top: 390, left: 0, right: 0, height: 280, borderRadius: 38, background: "#1A0706", zIndex: 5, boxShadow: "0 40px 90px rgba(0,0,0,0.6)", padding: "1.75rem 2rem", border: "1px solid rgba(221,2,0,0.2)", transition: "transform 0.35s ease, box-shadow 0.35s ease", cursor: "pointer" }}>
                   <p style={{ margin: 0, fontSize: 10, fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase" as const, color: "rgba(221,2,0,0.7)", marginBottom: "0.5rem" }}>02 · 04 · Confianza · IA y contexto</p>
                   <h3 style={{ margin: "0 0 0.65rem", fontSize: "1.35rem", fontWeight: 800, color: "#fff", letterSpacing: "-0.03em", lineHeight: 1.15 }}>Qué te preocupa, cómo ves la IA y cuál sería tu experiencia ideal.</h3>
                   <div style={{ display: "flex", flexDirection: "column" as const, gap: "0.3rem", marginTop: "0.75rem" }}>
