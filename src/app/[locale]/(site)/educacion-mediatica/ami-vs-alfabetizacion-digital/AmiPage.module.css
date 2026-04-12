@@ -1,74 +1,108 @@
-.page {
-  background: #F5F2EC;
-  min-height: 100vh;
-}
-
+/* HERO */
 .hero {
-  background: #0A0C12;
-  padding: clamp(4rem,8vw,7rem)
-    clamp(2rem,6vw,5rem)
-    clamp(3rem,6vw,5rem);
+  background: #0a0c12;
+  padding:
+    clamp(4rem, 8vw, 7rem) clamp(2rem, 6vw, 5rem) clamp(3rem, 6vw, 5rem);
 }
 
 .kicker {
-  font-family: 'Avenir Next','Avenir',sans-serif;
+  font-family: "Avenir Next", "Avenir", sans-serif;
   font-size: 11px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: #DB5227;
+  color: #db5227;
   margin: 0 0 1rem;
 }
 
-.titulo {
-  font-family: 'Bebas Neue',sans-serif;
-  font-size: clamp(56px, 9vw, 112px);
-  font-weight: 400;
-  line-height: 0.88;
-  color: #F5F2EC;
+.kickerLight {
+  font-family: "Avenir Next", "Avenir", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #db5227;
+  margin: 0 0 1rem;
+}
+
+.heroTitle {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: clamp(48px, 8vw, 96px);
+  line-height: 0.9;
+  color: #f5f2ec;
   margin: 0 0 1.5rem;
 }
 
-.bajada {
-  font-family: 'Avenir Next','Avenir',sans-serif;
-  font-size: clamp(14px,1.4vw,17px);
+.heroBajada {
+  font-family: "Avenir Next", "Avenir", sans-serif;
+  font-size: clamp(14px, 1.4vw, 18px);
   line-height: 1.75;
-  color: rgba(245,242,236,0.65);
+  color: rgba(245, 242, 236, 0.65);
   max-width: 640px;
   margin: 0;
 }
 
-.dosColumnas {
+/* DOS COLUMNAS */
+.dosCol {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1px;
-  background: rgba(10,12,18,0.1);
+  background: rgba(10, 12, 18, 0.1);
 }
 
 @media (max-width: 768px) {
-  .dosColumnas { grid-template-columns: 1fr; }
+  .dosCol {
+    grid-template-columns: 1fr;
+  }
 }
 
-.columna {
-  padding: clamp(2rem,4vw,3.5rem);
+.colAmi {
+  background: #023661;
+  padding: clamp(2rem, 4vw, 3.5rem);
 }
 
-.colKicker {
-  font-family: 'Bebas Neue',sans-serif;
-  font-size: clamp(20px, 2.5vw, 28px);
-  font-weight: 400;
-  line-height: 1;
-  letter-spacing: 0.02em;
+.colDigital {
+  background: #f5f2ec;
+  padding: clamp(2rem, 4vw, 3.5rem);
+}
+
+.colTitulo {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 20px;
+  letter-spacing: 0.03em;
+  color: #db5227;
   margin: 0 0 8px;
 }
 
-.colSubtitulo {
-  font-family: 'Avenir Next','Avenir',sans-serif;
-  font-size: clamp(14px, 1.4vw, 17px);
-  line-height: 1.75;
+.colTituloD {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 20px;
+  letter-spacing: 0.03em;
+  color: #023661;
+  margin: 0 0 8px;
+}
+
+.colSub {
+  font-family: "Avenir Next", "Avenir", sans-serif;
+  font-size: 13px;
+  color: rgba(245, 242, 236, 0.55);
+  margin: 0 0 1.5rem;
+  line-height: 1.5;
+}
+
+.colSubD {
+  font-family: "Avenir Next", "Avenir", sans-serif;
+  font-size: 13px;
+  color: rgba(10, 12, 18, 0.5);
+  margin: 0 0 1.5rem;
+  line-height: 1.5;
+}
+
+.colList {
+  list-style: none;
+  padding: 0;
   margin: 0 0 1.5rem;
 }
 
-.colItems {
+.colListD {
   list-style: none;
   padding: 0;
   margin: 0 0 1.5rem;
@@ -79,131 +113,195 @@
   align-items: flex-start;
   gap: 8px;
   padding: 8px 0;
-  border-bottom: 1px solid;
-  font-family: 'Avenir Next','Avenir',sans-serif;
-  font-size: clamp(13px, 1.2vw, 15px);
+  border-bottom: 1px solid rgba(245, 242, 236, 0.08);
+  font-family: "Avenir Next", "Avenir", sans-serif;
+  font-size: 14px;
+  color: rgba(245, 242, 236, 0.8);
   line-height: 1.55;
 }
 
-.colEjemplos {
+.colItemD {
   display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  align-items: center;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(10, 12, 18, 0.08);
+  font-family: "Avenir Next", "Avenir", sans-serif;
+  font-size: 14px;
+  color: rgba(10, 12, 18, 0.72);
+  line-height: 1.55;
 }
 
-.colEjemploLabel {
-  font-family: 'Avenir Next','Avenir',sans-serif;
+.arrow {
+  color: #db5227;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.arrowD {
+  color: #db5227;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.ejemplosLabel {
+  font-family: "Avenir Next", "Avenir", sans-serif;
   font-size: 9px;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  margin: 0 0 6px;
-  width: 100%;
+  color: rgba(245, 242, 236, 0.3);
+  margin: 0 0 8px;
 }
 
-.tag {
-  font-family: 'Avenir Next','Avenir',sans-serif;
+.ejemplosLabelD {
+  font-family: "Avenir Next", "Avenir", sans-serif;
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(10, 12, 18, 0.3);
+  margin: 0 0 8px;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tagAmi {
+  font-family: "Avenir Next", "Avenir", sans-serif;
   font-size: 11px;
   padding: 4px 10px;
-  border-radius: 2px;
+  background: rgba(219, 82, 39, 0.15);
+  color: #db5227;
+  border: 1px solid rgba(219, 82, 39, 0.3);
 }
 
-.tablaSection {
-  background: #F5F2EC;
-  padding: clamp(3rem,6vw,5rem) clamp(2rem,6vw,4rem);
-}
-
-.sectionKicker {
-  font-family: 'Avenir Next','Avenir',sans-serif;
+.tagDigital {
+  font-family: "Avenir Next", "Avenir", sans-serif;
   font-size: 11px;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: #DB5227;
-  margin: 0 0 1rem;
+  padding: 4px 10px;
+  background: rgba(2, 54, 97, 0.08);
+  color: #023661;
+  border: 1px solid rgba(2, 54, 97, 0.2);
 }
 
-.sectionTitulo {
-  font-family: 'Bebas Neue', sans-serif;
-  font-weight: 400;
+/* TABLA */
+.tablaSection {
+  background: #f5f2ec;
+  padding: clamp(3rem, 6vw, 5rem) clamp(2rem, 6vw, 4rem);
+}
+
+.secTitulo {
+  font-family: "Bebas Neue", sans-serif;
   font-size: clamp(40px, 6vw, 72px);
   line-height: 0.9;
-  color: #0A0C12;
+  color: #0a0c12;
   margin: 0 0 2.5rem;
 }
 
 .tabla {
-  border: 1px solid rgba(10,12,18,0.1);
-  max-width: 1000px;
+  max-width: 960px;
+  border: 1px solid rgba(10, 12, 18, 0.1);
 }
 
-.tablaHeader {
+.tablaHead {
   display: grid;
   grid-template-columns: 180px 1fr 1fr;
-  background: #0A0C12;
+  background: #0a0c12;
 }
 
 .tablaFila {
   display: grid;
   grid-template-columns: 180px 1fr 1fr;
-  border-top: 1px solid rgba(10,12,18,0.08);
+  border-top: 1px solid rgba(10, 12, 18, 0.08);
 }
 
-.tablaCelda {
+.headCelda {
   padding: 14px 20px;
-  font-family: 'Avenir Next','Avenir',sans-serif;
-  font-size: clamp(13px, 1.2vw, 15px);
-  line-height: 1.55;
-  color: rgba(245,242,236,0.7);
-  border-right: 1px solid rgba(10,12,18,0.08);
+  font-family: "Avenir Next", "Avenir", sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-right: 1px solid rgba(245, 242, 236, 0.06);
 }
 
-.tablaFila .tablaCelda {
-  color: rgba(10,12,18,0.65);
-}
-
-.ejercicioSection {
-  background: #0A0C12;
-  padding: clamp(3rem,6vw,5rem) clamp(2rem,6vw,4rem);
-}
-
-.ejercicioTip {
-  font-family: 'Avenir Next','Avenir',sans-serif;
+.celdaDim {
+  padding: 14px 20px;
+  font-family: "Avenir Next", "Avenir", sans-serif;
   font-size: 13px;
-  color: rgba(245,242,236,0.4);
+  font-weight: 600;
+  color: #0a0c12;
+  border-right: 1px solid rgba(10, 12, 18, 0.08);
+}
+
+.celda {
+  padding: 14px 20px;
+  font-family: "Avenir Next", "Avenir", sans-serif;
+  font-size: 13px;
+  color: rgba(10, 12, 18, 0.65);
+  line-height: 1.55;
+  border-right: 1px solid rgba(10, 12, 18, 0.06);
+}
+
+/* EJERCICIO */
+.ejercicioSection {
+  background: #0a0c12;
+  padding: clamp(3rem, 6vw, 5rem) clamp(2rem, 6vw, 4rem);
+}
+
+.secTituloLight {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: clamp(40px, 6vw, 72px);
+  line-height: 0.9;
+  color: #f5f2ec;
+  margin: 0 0 1rem;
+}
+
+.tip {
+  font-family: "Avenir Next", "Avenir", sans-serif;
+  font-size: 13px;
+  color: rgba(245, 242, 236, 0.35);
+  font-style: italic;
   margin: 0 0 2rem;
   max-width: 560px;
-  font-style: italic;
 }
 
-.itemsPool {
+.pool {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
   margin-bottom: 2rem;
-  min-height: 48px;
+  min-height: 52px;
   padding: 16px;
-  border: 1px dashed rgba(245,242,236,0.15);
-  border-radius: 4px;
+  border: 1px dashed rgba(245, 242, 236, 0.12);
+}
+
+.poolEmpty {
+  font-family: "Avenir Next", "Avenir", sans-serif;
+  font-size: 13px;
+  color: rgba(245, 242, 236, 0.3);
+  margin: 0;
+  font-style: italic;
 }
 
 .dragItem {
-  background: rgba(245,242,236,0.08);
-  border: 1px solid rgba(245,242,236,0.15);
-  color: #F5F2EC;
-  font-family: 'Avenir Next','Avenir',sans-serif;
+  background: rgba(245, 242, 236, 0.08);
+  border: 1px solid rgba(245, 242, 236, 0.15);
+  color: #f5f2ec;
+  font-family: "Avenir Next", "Avenir", sans-serif;
   font-size: 13px;
   padding: 8px 14px;
   cursor: grab;
-  border-radius: 2px;
-  transition: background 0.2s;
   user-select: none;
+  transition: background 0.2s;
 }
 
 .dragItem:hover {
-  background: rgba(245,242,236,0.14);
+  background: rgba(245, 242, 236, 0.14);
 }
 
-.dropZonas {
+.dropGrid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 16px;
@@ -211,43 +309,60 @@
 }
 
 @media (max-width: 640px) {
-  .dropZonas { grid-template-columns: 1fr; }
+  .dropGrid {
+    grid-template-columns: 1fr;
+  }
 }
 
-.dropZona {
-  min-height: 200px;
-  border: 2px dashed;
-  border-radius: 4px;
+.dropAmi {
+  min-height: 220px;
+  border: 2px dashed rgba(219, 82, 39, 0.4);
   padding: 20px;
-  transition: all 0.2s;
+  background: rgba(219, 82, 39, 0.05);
 }
 
-.dropZonaLabel {
-  font-family: 'Bebas Neue',sans-serif;
-  font-size: 20px;
-  letter-spacing: 0.05em;
+.dropDigital {
+  min-height: 220px;
+  border: 2px dashed rgba(2, 54, 97, 0.5);
+  padding: 20px;
+  background: rgba(2, 54, 97, 0.1);
+}
+
+.dropLabel {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 22px;
+  color: #db5227;
   margin: 0 0 12px;
+  letter-spacing: 0.05em;
 }
 
-.dropPlaceholder {
-  font-family: 'Avenir Next','Avenir',sans-serif;
+.dropLabelD {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 22px;
+  color: rgba(245, 242, 236, 0.6);
+  margin: 0 0 12px;
+  letter-spacing: 0.05em;
+}
+
+.dropHint {
+  font-family: "Avenir Next", "Avenir", sans-serif;
   font-size: 12px;
-  color: rgba(245,242,236,0.2);
+  color: rgba(245, 242, 236, 0.2);
   margin: 0;
 }
 
 .droppedItem {
-  font-family: 'Avenir Next','Avenir',sans-serif;
+  font-family: "Avenir Next", "Avenir", sans-serif;
   font-size: 13px;
-  color: #F5F2EC;
+  color: #f5f2ec;
   padding: 8px 12px;
   border: 1px solid;
-  border-radius: 2px;
   margin-bottom: 6px;
   transition: all 0.2s;
+  line-height: 1.4;
 }
 
-.ejercicioControles {
+.controles {
   display: flex;
   align-items: center;
   gap: 12px;
@@ -255,10 +370,10 @@
 }
 
 .btnComprobar {
-  background: #DB5227;
+  background: #db5227;
   border: none;
-  color: #F5F2EC;
-  font-family: 'Avenir Next','Avenir',sans-serif;
+  color: #f5f2ec;
+  font-family: "Avenir Next", "Avenir", sans-serif;
   font-size: 11px;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -268,15 +383,15 @@
 }
 
 .btnComprobar:disabled {
-  opacity: 0.4;
+  opacity: 0.35;
   cursor: not-allowed;
 }
 
 .btnReiniciar {
   background: none;
-  border: 1px solid rgba(245,242,236,0.2);
-  color: rgba(245,242,236,0.5);
-  font-family: 'Avenir Next','Avenir',sans-serif;
+  border: 1px solid rgba(245, 242, 236, 0.2);
+  color: rgba(245, 242, 236, 0.5);
+  font-family: "Avenir Next", "Avenir", sans-serif;
   font-size: 11px;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -286,48 +401,50 @@
 }
 
 .score {
-  font-family: 'Bebas Neue',sans-serif;
-  font-size: 24px;
-  color: #DB5227;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 28px;
+  color: #db5227;
   margin: 0;
 }
 
-.porQueSection {
-  background: #F5F2EC;
-  padding: clamp(3rem,6vw,5rem) clamp(2rem,6vw,4rem);
+/* RAZONES */
+.razonesSection {
+  background: #f5f2ec;
+  padding: clamp(3rem, 6vw, 5rem) clamp(2rem, 6vw, 4rem);
 }
 
 .razonesGrid {
   display: grid;
-  grid-template-columns: repeat(3,1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 1px;
-  background: rgba(10,12,18,0.08);
+  background: rgba(10, 12, 18, 0.08);
   max-width: 960px;
+  margin-top: 2.5rem;
 }
 
 @media (max-width: 768px) {
-  .razonesGrid { grid-template-columns: 1fr; }
+  .razonesGrid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .razonCard {
-  background: #F5F2EC;
+  background: #f5f2ec;
   padding: 2rem;
-  border-left: 3px solid #DB5227;
+  border-left: 3px solid #db5227;
 }
 
 .razonTitulo {
-  font-family: 'Bebas Neue',sans-serif;
-  font-size: clamp(20px, 2.5vw, 28px);
-  font-weight: 400;
-  line-height: 1;
-  color: #0A0C12;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 22px;
+  color: #0a0c12;
   margin: 0 0 8px;
 }
 
 .razonDesc {
-  font-family: 'Avenir Next','Avenir',sans-serif;
-  font-size: clamp(14px, 1.4vw, 17px);
-  color: rgba(10,12,18,0.6);
-  line-height: 1.75;
+  font-family: "Avenir Next", "Avenir", sans-serif;
+  font-size: 14px;
+  color: rgba(10, 12, 18, 0.6);
+  line-height: 1.65;
   margin: 0;
 }

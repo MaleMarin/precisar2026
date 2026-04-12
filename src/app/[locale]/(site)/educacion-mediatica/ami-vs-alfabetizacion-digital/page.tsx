@@ -1,6 +1,7 @@
-"use client"
-import { useState } from "react"
-import styles from "./AmiPage.module.css"
+"use client";
+
+import { useState } from "react";
+import styles from "./AmiPage.module.css";
 
 const TABLA = [
   {
@@ -28,217 +29,141 @@ const TABLA = [
     ami: "Pensamiento crítico y ciudadanía informada.",
     digital: "Autonomía técnica y seguridad operativa.",
   },
-]
+];
 
 const EJERCICIOS = [
-  { id: 1, texto: "Usar una herramienta de verificación de imágenes (OSINT)", respuesta: "ami" },
-  { id: 2, texto: "Crear una videollamada con agenda y enlace", respuesta: "digital" },
-  { id: 3, texto: "Compartir un documento en la nube con permisos correctos", respuesta: "digital" },
-  { id: 4, texto: "Hacer una copia de seguridad automática", respuesta: "digital" },
-  { id: 5, texto: "Citar correctamente y respetar licencias de autor", respuesta: "ami" },
-  { id: 6, texto: "Eliminar malware y actualizar el antivirus", respuesta: "digital" },
-  { id: 7, texto: "Explicar cómo un algoritmo de recomendación sesga tu feed", respuesta: "ami" },
-  { id: 8, texto: "Configurar autenticación en dos pasos (2FA)", respuesta: "digital" },
-  { id: 9, texto: "Reconocer publicidad nativa en un portal", respuesta: "ami" },
-  { id: 10, texto: "Contrastar una noticia con tres fuentes independientes", respuesta: "ami" },
-]
+  { id: 1, texto: "Usar una herramienta de verificación de imágenes (OSINT)", respuesta: "ami" as const },
+  { id: 2, texto: "Crear una videollamada con agenda y enlace", respuesta: "digital" as const },
+  { id: 3, texto: "Compartir un documento en la nube con permisos correctos", respuesta: "digital" as const },
+  { id: 4, texto: "Hacer una copia de seguridad automática", respuesta: "digital" as const },
+  { id: 5, texto: "Citar correctamente y respetar licencias de autor", respuesta: "ami" as const },
+  { id: 6, texto: "Eliminar malware y actualizar el antivirus", respuesta: "digital" as const },
+  { id: 7, texto: "Explicar cómo un algoritmo sesga tu feed", respuesta: "ami" as const },
+  { id: 8, texto: "Configurar autenticación en dos pasos (2FA)", respuesta: "digital" as const },
+  { id: 9, texto: "Reconocer publicidad nativa en un portal", respuesta: "ami" as const },
+  { id: 10, texto: "Contrastar una noticia con tres fuentes independientes", respuesta: "ami" as const },
+];
 
-type EjercicioItem = typeof EJERCICIOS[0]
-type ColumnId = "ami" | "digital" | null
+type ColId = "ami" | "digital";
 
 export default function AmiVsDigitalPage() {
-  const [dragging, setDragging] = useState<EjercicioItem | null>(null)
-  const [dropped, setDropped] = useState<Record<number, ColumnId>>({})
-  const [checked, setChecked] = useState(false)
+  const [dropped, setDropped] = useState<Partial<Record<number, ColId>>>({});
+  const [checked, setChecked] = useState(false);
+  const [dragging, setDragging] = useState<number | null>(null);
 
-  const handleDragStart = (item: EjercicioItem) => {
-    setDragging(item)
-  }
+  const pending = EJERCICIOS.filter((e) => dropped[e.id] === undefined);
+  const inCol = (col: ColId) => EJERCICIOS.filter((e) => dropped[e.id] === col);
+  const score = EJERCICIOS.filter((e) => dropped[e.id] === e.respuesta).length;
 
-  const handleDrop = (col: ColumnId) => {
-    if (!dragging) return
-    setDropped(prev => ({ ...prev, [dragging.id]: col }))
-    setDragging(null)
-    setChecked(false)
-  }
+  const handleDrop = (col: ColId) => {
+    if (dragging === null) return;
+    setDropped((p) => ({ ...p, [dragging]: col }));
+    setDragging(null);
+    setChecked(false);
+  };
 
   const handleReset = () => {
-    setDropped({})
-    setChecked(false)
-  }
-
-  const getItemsInColumn = (col: ColumnId) =>
-    EJERCICIOS.filter(e => dropped[e.id] === col)
-
-  const getPending = () =>
-    EJERCICIOS.filter(e => !dropped[e.id])
-
-  const getScore = () =>
-    EJERCICIOS.filter(e => dropped[e.id] === e.respuesta).length
+    setDropped({});
+    setChecked(false);
+  };
 
   return (
-    <main className={styles.page}>
-
+    <main>
       {/* HERO */}
       <section className={styles.hero}>
-        <p className={styles.kicker}>
-          Educación Mediática · AMI
-        </p>
-        <h1 className={styles.titulo}>
-          ¿En qué se diferencian AMI<br />
-          y la Alfabetización Digital?
+        <p className={styles.kicker}>Educación Mediática · AMI</p>
+        <h1 className={styles.heroTitle}>
+          ¿En qué se diferencian
+          <br />
+          AMI y la Alfabetización Digital?
         </h1>
-        <p className={styles.bajada}>
-          AMI se centra en comprender, analizar y usar 
-          críticamente los medios y la información 
-          (fuentes, sesgos, verificación, derechos). 
-          La Alfabetización Digital prioriza las habilidades 
-          técnicas para usar herramientas y servicios 
-          tecnológicos con seguridad y eficacia.
+        <p className={styles.heroBajada}>
+          AMI se centra en comprender, analizar y usar críticamente los medios y la información. La Alfabetización
+          Digital prioriza las habilidades técnicas para usar herramientas y servicios tecnológicos con seguridad y
+          eficacia.
         </p>
       </section>
 
       {/* DOS COLUMNAS */}
-      <section className={styles.dosColumnas}>
-        <div className={styles.columna} 
-          style={{ background: "#023661" }}>
-          <p className={styles.colKicker}
-            style={{ color: "#DB5227" }}>
-            AMI · Alfabetización Mediática e Informacional
-          </p>
-          <p className={styles.colSubtitulo}
-            style={{ color: "rgba(245,242,236,0.6)" }}>
-            Capacidades críticas sobre medios, mensajes y fuentes.
-          </p>
-          <ul className={styles.colItems}>
+      <section className={styles.dosCol}>
+        <div className={styles.colAmi}>
+          <p className={styles.colTitulo}>AMI · Alfabetización Mediática e Informacional</p>
+          <p className={styles.colSub}>Capacidades críticas sobre medios, mensajes y fuentes.</p>
+          <ul className={styles.colList}>
             {[
               "Analizar cómo se construye una noticia y distinguir opinión de hecho.",
               "Evaluar la credibilidad de una fuente y detectar publicidad nativa.",
               "Verificar con varias fuentes y entender sesgos/algoritmos.",
               "Derechos: acceso, autoría, privacidad, libertad de expresión, uso justo.",
             ].map((item, i) => (
-              <li key={i} className={styles.colItem}
-                style={{ 
-                  color: "rgba(245,242,236,0.8)",
-                  borderBottomColor: "rgba(245,242,236,0.08)" 
-                }}>
-                <span style={{ color: "#DB5227" }}>→</span>
+              <li key={i} className={styles.colItem}>
+                <span className={styles.arrow}>→</span>
                 {item}
               </li>
             ))}
           </ul>
-          <div className={styles.colEjemplos}>
-            <p className={styles.colEjemploLabel}
-              style={{ color: "rgba(245,242,236,0.35)" }}>
-              Ejemplos prácticos
-            </p>
-            {[
-              "Detectar deepfakes en campaña",
-              "Identificar titulares clickbait",
-              "Comprobar autoría y fecha",
-            ].map((e, i) => (
-              <span key={i} className={styles.tag}
-                style={{ 
-                  background: "rgba(219,82,39,0.15)",
-                  color: "#DB5227",
-                  border: "1px solid rgba(219,82,39,0.3)" 
-                }}>
-                {e}
-              </span>
-            ))}
+          <p className={styles.ejemplosLabel}>Ejemplos prácticos</p>
+          <div className={styles.tags}>
+            {["Detectar deepfakes en campaña", "Identificar titulares clickbait", "Comprobar autoría y fecha"].map(
+              (e, i) => (
+                <span key={i} className={styles.tagAmi}>
+                  {e}
+                </span>
+              ),
+            )}
           </div>
         </div>
 
-        <div className={styles.columna} 
-          style={{ background: "#F5F2EC" }}>
-          <p className={styles.colKicker}
-            style={{ color: "#023661" }}>
-            Alfabetización Digital
-          </p>
-          <p className={styles.colSubtitulo}
-            style={{ color: "rgba(10,12,18,0.55)" }}>
-            Habilidades técnicas y operativas con dispositivos y apps.
-          </p>
-          <ul className={styles.colItems}>
+        <div className={styles.colDigital}>
+          <p className={styles.colTituloD}>Alfabetización Digital</p>
+          <p className={styles.colSubD}>Habilidades técnicas y operativas con dispositivos y apps.</p>
+          <ul className={styles.colListD}>
             {[
               "Usar correo, videollamadas, hojas de cálculo, gestores de archivos.",
               "Configurar seguridad: contraseñas, 2FA, copias de seguridad.",
               "Administrar privacidad y permisos en redes y móviles.",
               "Resolver problemas básicos de software/hardware.",
             ].map((item, i) => (
-              <li key={i} className={styles.colItem}
-                style={{ 
-                  color: "rgba(10,12,18,0.72)",
-                  borderBottomColor: "rgba(10,12,18,0.08)" 
-                }}>
-                <span style={{ color: "#DB5227" }}>→</span>
+              <li key={i} className={styles.colItemD}>
+                <span className={styles.arrowD}>→</span>
                 {item}
               </li>
             ))}
           </ul>
-          <div className={styles.colEjemplos}>
-            <p className={styles.colEjemploLabel}
-              style={{ color: "rgba(10,12,18,0.35)" }}>
-              Ejemplos prácticos
-            </p>
-            {[
-              "Activar 2FA en tus cuentas",
-              "Compartir un Drive con permisos",
-              "Limpiar malware del PC",
-            ].map((e, i) => (
-              <span key={i} className={styles.tag}
-                style={{ 
-                  background: "rgba(2,54,97,0.08)",
-                  color: "#023661",
-                  border: "1px solid rgba(2,54,97,0.2)" 
-                }}>
-                {e}
-              </span>
-            ))}
+          <p className={styles.ejemplosLabelD}>Ejemplos prácticos</p>
+          <div className={styles.tags}>
+            {["Activar 2FA en tus cuentas", "Compartir un Drive con permisos", "Limpiar malware del PC"].map(
+              (e, i) => (
+                <span key={i} className={styles.tagDigital}>
+                  {e}
+                </span>
+              ),
+            )}
           </div>
         </div>
       </section>
 
-      {/* TABLA COMPARATIVA */}
+      {/* TABLA */}
       <section className={styles.tablaSection}>
-        <p className={styles.sectionKicker}>
-          Tabla comparativa
-        </p>
-        <h2 className={styles.sectionTitulo}>
-          Dimensión a dimensión
-        </h2>
+        <p className={styles.kicker}>Tabla comparativa</p>
+        <h2 className={styles.secTitulo}>Dimensión a dimensión</h2>
         <div className={styles.tabla}>
-          <div className={styles.tablaHeader}>
-            <div className={styles.tablaCelda}
-              style={{ color: "rgba(245,242,236,0.5)" }}>
+          <div className={styles.tablaHead}>
+            <div className={styles.headCelda} style={{ color: "rgba(245,242,236,0.5)" }}>
               Dimensión
             </div>
-            <div className={styles.tablaCelda}
-              style={{ color: "#DB5227" }}>
+            <div className={styles.headCelda} style={{ color: "#DB5227" }}>
               AMI
             </div>
-            <div className={styles.tablaCelda}
-              style={{ color: "rgba(245,242,236,0.55)" }}>
+            <div className={styles.headCelda} style={{ color: "rgba(245,242,236,0.6)" }}>
               Alfabetización Digital
             </div>
           </div>
-          {TABLA.map((fila, i) => (
+          {TABLA.map((f, i) => (
             <div key={i} className={styles.tablaFila}>
-              <div className={styles.tablaCelda}
-                style={{ 
-                  fontWeight: 600,
-                  color: "#0A0C12" 
-                }}>
-                {fila.dimension}
-              </div>
-              <div className={styles.tablaCelda}
-                style={{ color: "rgba(10,12,18,0.65)" }}>
-                {fila.ami}
-              </div>
-              <div className={styles.tablaCelda}
-                style={{ color: "rgba(10,12,18,0.65)" }}>
-                {fila.digital}
-              </div>
+              <div className={styles.celdaDim}>{f.dimension}</div>
+              <div className={styles.celda}>{f.ami}</div>
+              <div className={styles.celda}>{f.digital}</div>
             </div>
           ))}
         </div>
@@ -246,91 +171,60 @@ export default function AmiVsDigitalPage() {
 
       {/* EJERCICIO INTERACTIVO */}
       <section className={styles.ejercicioSection}>
-        <p className={styles.sectionKicker}
-          style={{ color: "#DB5227" }}>
-          Prueba rápida
-        </p>
-        <h2 className={styles.sectionTitulo}
-          style={{ color: "#F5F2EC" }}>
-          Arrastra cada ejemplo<br />a su columna
+        <p className={styles.kickerLight}>Prueba rápida</p>
+        <h2 className={styles.secTituloLight}>
+          Arrastra cada ejemplo
+          <br />a su columna
         </h2>
-        <p className={styles.ejercicioTip}>
-          Tip: si dudas, pregúntate si el ejemplo te pide 
-          pensar sobre la información (AMI) o 
-          operar herramientas con seguridad (Digital).
+        <p className={styles.tip}>
+          Si dudas, pregúntate: ¿el ejemplo te pide pensar sobre la información (AMI) o usar herramientas con seguridad
+          (Digital)?
         </p>
 
-        {/* Items pendientes */}
-        <div className={styles.itemsPool}>
-          {getPending().map(item => (
+        <div className={styles.pool}>
+          {pending.map((item) => (
             <div
               key={item.id}
               className={styles.dragItem}
               draggable
-              onDragStart={() => handleDragStart(item)}
+              onDragStart={() => setDragging(item.id)}
             >
               {item.texto}
             </div>
           ))}
+          {pending.length === 0 && <p className={styles.poolEmpty}>Todos los ejemplos han sido asignados ✓</p>}
         </div>
 
-        {/* Zonas de drop */}
-        <div className={styles.dropZonas}>
-          {(["ami", "digital"] as ColumnId[]).map(col => (
+        <div className={styles.dropGrid}>
+          {(["ami", "digital"] as ColId[]).map((col) => (
             <div
               key={col}
-              className={styles.dropZona}
-              style={{
-                background: col === "ami" 
-                  ? "rgba(219,82,39,0.1)" 
-                  : "rgba(2,54,97,0.2)",
-                borderColor: col === "ami"
-                  ? "rgba(219,82,39,0.3)"
-                  : "rgba(2,54,97,0.4)",
-              }}
-              onDragOver={e => e.preventDefault()}
+              className={col === "ami" ? styles.dropAmi : styles.dropDigital}
+              onDragOver={(e) => e.preventDefault()}
               onDrop={() => handleDrop(col)}
             >
-              <p className={styles.dropZonaLabel}
-                style={{ 
-                  color: col === "ami" 
-                    ? "#DB5227" 
-                    : "rgba(245,242,236,0.6)" 
-                }}>
-                {col === "ami" 
-                  ? "AMI" 
-                  : "Alfabetización Digital"}
+              <p className={col === "ami" ? styles.dropLabel : styles.dropLabelD}>
+                {col === "ami" ? "AMI" : "Alfabetización Digital"}
               </p>
-              {getItemsInColumn(col).length === 0 && (
-                <p className={styles.dropPlaceholder}>
-                  Suelta aquí →
-                </p>
-              )}
-              {getItemsInColumn(col).map(item => (
+              {inCol(col).length === 0 && <p className={styles.dropHint}>Suelta aquí →</p>}
+              {inCol(col).map((item) => (
                 <div
                   key={item.id}
                   className={styles.droppedItem}
                   style={{
                     background: checked
                       ? item.respuesta === col
-                        ? "rgba(34,197,94,0.15)"
-                        : "rgba(239,68,68,0.15)"
+                        ? "rgba(34,197,94,0.2)"
+                        : "rgba(239,68,68,0.2)"
                       : "rgba(245,242,236,0.08)",
                     borderColor: checked
                       ? item.respuesta === col
-                        ? "rgba(34,197,94,0.4)"
-                        : "rgba(239,68,68,0.4)"
-                      : "rgba(245,242,236,0.12)",
+                        ? "rgba(34,197,94,0.5)"
+                        : "rgba(239,68,68,0.5)"
+                      : "rgba(245,242,236,0.15)",
                   }}
                 >
-                  {checked && (
-                    <span style={{ 
-                      marginRight: "6px",
-                      fontSize: "12px" 
-                    }}>
-                      {item.respuesta === col ? "✓" : "✗"}
-                    </span>
-                  )}
+                  {checked && <span style={{ marginRight: 6 }}>{item.respuesta === col ? "✓" : "✗"}</span>}
                   {item.texto}
                 </div>
               ))}
@@ -338,40 +232,25 @@ export default function AmiVsDigitalPage() {
           ))}
         </div>
 
-        {/* Controles */}
-        <div className={styles.ejercicioControles}>
-          <button
-            type="button"
-            className={styles.btnComprobar}
-            onClick={() => setChecked(true)}
-            disabled={getPending().length > 0}
-          >
+        <div className={styles.controles}>
+          <button type="button" className={styles.btnComprobar} onClick={() => setChecked(true)} disabled={pending.length > 0}>
             Comprobar
           </button>
-          <button
-            type="button"
-            className={styles.btnReiniciar}
-            onClick={handleReset}
-          >
+          <button type="button" className={styles.btnReiniciar} onClick={handleReset}>
             Reiniciar
           </button>
           {checked && (
             <p className={styles.score}>
-              {getScore()} / {EJERCICIOS.length} correctos
+              {score} / {EJERCICIOS.length} correctos
             </p>
           )}
         </div>
       </section>
 
       {/* POR QUÉ IMPORTA */}
-      <section className={styles.porQueSection}>
-        <p className={styles.sectionKicker}>
-          ¿Por qué importa distinguirlas?
-        </p>
-        <h2 className={styles.sectionTitulo}
-          style={{ color: "#0A0C12" }}>
-          Tres razones clave
-        </h2>
+      <section className={styles.razonesSection}>
+        <p className={styles.kicker}>¿Por qué importa distinguirlas?</p>
+        <h2 className={styles.secTitulo}>Tres razones clave</h2>
         <div className={styles.razonesGrid}>
           {[
             {
@@ -384,7 +263,7 @@ export default function AmiVsDigitalPage() {
             },
             {
               titulo: "Ciudadanía",
-              desc: "Reducir desinformación requiere AMI; reducir fraudes y pérdidas de datos requiere Alfabetización Digital.",
+              desc: "Reducir desinformación requiere AMI; reducir fraudes requiere Alfabetización Digital.",
             },
           ].map((r, i) => (
             <div key={i} className={styles.razonCard}>
@@ -394,7 +273,6 @@ export default function AmiVsDigitalPage() {
           ))}
         </div>
       </section>
-
     </main>
-  )
+  );
 }
