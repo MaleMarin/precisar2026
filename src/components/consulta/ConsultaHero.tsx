@@ -1,4 +1,6 @@
+import Image from "next/image";
 import { ConsultaStartButton } from "./ConsultaStartButton";
+import { FOOTER_MEDIA } from "@/lib/site";
 import styles from "./ConsultaHero.module.css";
 
 export function ConsultaHero() {
@@ -40,10 +42,30 @@ export function ConsultaHero() {
               <div className={styles.ctaZone} data-consulta-module="cta">
                 <ConsultaStartButton />
               </div>
-              <p className={styles.contextText} style={{ marginTop: "0.35rem", maxWidth: "16rem" }}>
-                Una iniciativa de Precisar, organización sin fines de lucro dedicada a la cultura digital crítica en
-                Chile y México.
-              </p>
+              <div style={{ display: "flex", flexDirection: "column", gap: "0.65rem", alignItems: "flex-end" }}>
+                <Image
+                  src={FOOTER_MEDIA.headerLogoBlack}
+                  alt="Precisar"
+                  width={120}
+                  height={30}
+                  style={{ filter: "brightness(0) invert(1)", opacity: 0.7, objectFit: "contain" }}
+                />
+                <p className={styles.contextText} style={{ maxWidth: "16rem", textAlign: "right" }}>
+                  Una iniciativa de Precisar, organización sin fines de lucro dedicada a la cultura digital crítica en
+                  Chile y México.
+                </p>
+                <a
+                  href="/legal/privacidad-consulta-2026"
+                  style={{
+                    fontSize: 11,
+                    color: "rgba(255,255,255,0.4)",
+                    textDecoration: "none",
+                    letterSpacing: "0.02em",
+                  }}
+                >
+                  Política de privacidad →
+                </a>
+              </div>
             </div>
           </div>
         </div>
