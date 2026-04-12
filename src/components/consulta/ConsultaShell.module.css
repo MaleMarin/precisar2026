@@ -151,7 +151,7 @@
 }
 
 .consultaRoot[data-live-map="true"] .contentSheet {
-  background: rgba(15, 20, 23, 0.82);
+  background: rgba(15, 20, 23, 0.55);
   border: 1px solid rgba(83, 230, 212, 0.22);
   box-shadow:
     0 24px 48px rgba(0, 0, 0, 0.5),
