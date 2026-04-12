@@ -1544,3 +1544,23 @@
     0 36px 120px rgba(0, 0, 0, 0.2),
     0 12px 40px rgba(0, 0, 0, 0.12);
 }
+
+.amiBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #db5227;
+  color: #f5f2ec;
+  font-family: "Avenir Next", "Avenir", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 12px 24px;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+  margin-top: 2rem;
+}
+
+.amiBtn:hover {
+  opacity: 0.85;
+}

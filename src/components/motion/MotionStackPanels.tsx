@@ -294,6 +294,8 @@ type StackPanelProps = {
   icon?: ComponentType<{ className?: string }>;
   id?: string;
   children?: ReactNode;
+  /** Contenido opcional bajo la bajada del bloque principal (columna izquierda). */
+  mainFooter?: ReactNode;
   reduceMotion?: boolean;
   /** Contenido editorial a ancho completo (primer panel “Qué nos convoca”). */
   editorialContent?: ReactNode;
@@ -312,6 +314,7 @@ function StackPanel({
   icon: Icon,
   id,
   children,
+  mainFooter,
   reduceMotion = false,
   editorialContent,
   editorialHeight = "tall",
@@ -557,6 +560,9 @@ function StackPanel({
                 <motion.p className={stackBodyClass} variants={mainItemVariants}>
                   {body}
                 </motion.p>
+                {mainFooter ? (
+                  <motion.div variants={mainItemVariants}>{mainFooter}</motion.div>
+                ) : null}
               </div>
             </motion.div>
 
@@ -687,6 +693,14 @@ export function MotionStackPanels({
       headline: tEducacionMediatica("stackHeadline"),
       body: tEducacionMediatica("stackBody"),
       icon: undefined,
+      mainFooter: (
+        <Link
+          href="/educacion-mediatica/propuesta-politica-alfabetizacion"
+          className={styles.amiBtn}
+        >
+          Educación Mediática para Chile →
+        </Link>
+      ),
       child: <MiniList reduceMotion={reduceMotion} glass items={educacionMediaticaLinks} />,
     },
     {
@@ -720,6 +734,7 @@ export function MotionStackPanels({
             reduceMotion={reduceMotion}
             editorialContent={"editorialContent" in panel ? panel.editorialContent : undefined}
             editorialHeight={"editorialHeight" in panel ? panel.editorialHeight : "tall"}
+            mainFooter={"mainFooter" in panel ? panel.mainFooter : undefined}
           >
             {"child" in panel ? panel.child : undefined}
           </StackPanel>
