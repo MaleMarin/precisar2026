@@ -1,0 +1,40 @@
+.nav {
+  background: #0a0c12;
+  border-bottom: 1px solid rgba(245, 242, 236, 0.08);
+  padding: 0.65rem var(--gutter);
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 0.5rem;
+  max-width: 90rem;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+  font-family: "Avenir Next", "Avenir", var(--font-sans), system-ui, sans-serif;
+  font-size: 12px;
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+}
+
+.link {
+  color: rgba(245, 242, 236, 0.72);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.link:hover {
+  color: #db5227;
+}
+
+.sep {
+  color: rgba(245, 242, 236, 0.28);
+  user-select: none;
+}
+
+.current {
+  color: rgba(245, 242, 236, 0.95);
+  font-weight: 500;
+}

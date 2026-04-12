@@ -19,12 +19,12 @@
 
 .territorioStatNum {
   margin: 0;
-  font-family: var(--font-display);
+  font-family: var(--font-program-heading);
   font-size: clamp(60px, 10vw, 120px);
   font-weight: 800;
   line-height: 1;
   color: #db5227;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.05em;
 }
 
 .territorioStatLabel {
@@ -175,12 +175,13 @@
 
 .impactoTitle {
   margin: 0 0 48px;
-  font-family: var(--font-display);
+  font-family: var(--font-program-heading);
   font-size: clamp(28px, 4vw, 44px);
-  font-weight: 700;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.05em;
   color: #0a0c12;
+  text-transform: none;
 }
 
 .impactoGrid {
@@ -256,12 +257,13 @@
 
 .propuestasTitle {
   margin: 0 0 8px;
-  font-family: var(--font-display);
+  font-family: var(--font-program-heading);
   font-size: clamp(28px, 4vw, 44px);
-  font-weight: 700;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.05em;
   color: #0a0c12;
+  text-transform: none;
 }
 
 .propuestasSub {

@@ -103,12 +103,13 @@
 
 .tabPanelTitle {
   margin: 0 0 1rem;
-  font-family: var(--font-display), system-ui, sans-serif;
+  font-family: var(--font-program-heading);
   font-size: clamp(20px, 2.5vw, 28px);
-  font-weight: 400;
-  line-height: 1;
-  letter-spacing: -0.02em;
+  font-weight: 800;
+  line-height: 1.06;
+  letter-spacing: -0.045em;
   color: #fff;
+  text-transform: none;
 }
 
 .tabBodyText {

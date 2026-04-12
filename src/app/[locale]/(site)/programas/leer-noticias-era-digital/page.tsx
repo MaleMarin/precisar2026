@@ -141,13 +141,7 @@ export default function DocentesPage() {
         }}>
           Nuestros objetivos
         </p>
-        <h2 style={{
-          fontFamily: "'Bebas Neue',sans-serif",
-          fontSize: "clamp(40px,6vw,72px)",
-          lineHeight: 0.9,
-          color: "#0A0C12",
-          margin: "0 0 3rem",
-        }}>
+        <h2 className={shell.programSectionTitle} style={{ color: "#0A0C12", margin: "0 0 3rem" }}>
           Lo que queremos<br />lograr contigo
         </h2>
         <div style={{
@@ -162,12 +156,7 @@ export default function DocentesPage() {
               padding: "2rem",
               borderLeft: "3px solid #DB5227",
             }}>
-              <p style={{
-                fontFamily: "'Bebas Neue',sans-serif",
-                fontSize: "clamp(20px,2.5vw,28px)",
-                color: "#0A0C12",
-                margin: "0 0 10px",
-              }}>
+              <p className={shell.programCardTitle} style={{ color: "#0A0C12", margin: "0 0 10px" }}>
                 {obj.titulo}
               </p>
               <p style={{
@@ -199,13 +188,7 @@ export default function DocentesPage() {
         }}>
           Beneficios para tu comunidad escolar
         </p>
-        <h2 style={{
-          fontFamily: "'Bebas Neue',sans-serif",
-          fontSize: "clamp(40px,6vw,72px)",
-          lineHeight: 0.9,
-          color: "#F5F2EC",
-          margin: "0 0 0.75rem",
-        }}>
+        <h2 className={shell.programSectionTitle} style={{ color: "#F5F2EC", margin: "0 0 0.75rem" }}>
           Potencia la formación docente<br />y transforma la experiencia educativa
         </h2>
         <p style={{
@@ -230,12 +213,7 @@ export default function DocentesPage() {
               background: "#023661",
               padding: "2rem",
             }}>
-              <p style={{
-                fontFamily: "'Bebas Neue',sans-serif",
-                fontSize: "clamp(20px,2.5vw,28px)",
-                color: "#F5F2EC",
-                margin: "0 0 10px",
-              }}>
+              <p className={shell.programCardTitle} style={{ color: "#F5F2EC", margin: "0 0 10px" }}>
                 {b.titulo}
               </p>
               <p style={{
@@ -267,13 +245,7 @@ export default function DocentesPage() {
         }}>
           Nuestra metodología
         </p>
-        <h2 style={{
-          fontFamily: "'Bebas Neue',sans-serif",
-          fontSize: "clamp(40px,6vw,72px)",
-          lineHeight: 0.9,
-          color: "#F5F2EC",
-          margin: "0 0 3rem",
-        }}>
+        <h2 className={shell.programSectionTitle} style={{ color: "#F5F2EC", margin: "0 0 3rem" }}>
           Cómo aprendemos<br />juntos
         </h2>
         <div style={{
@@ -288,12 +260,7 @@ export default function DocentesPage() {
               padding: "2rem",
               borderLeft: "3px solid #DB5227",
             }}>
-              <p style={{
-                fontFamily: "'Bebas Neue',sans-serif",
-                fontSize: "clamp(20px,2.5vw,28px)",
-                color: "#0A0C12",
-                margin: "0 0 10px",
-              }}>
+              <p className={shell.programCardTitle} style={{ color: "#0A0C12", margin: "0 0 10px" }}>
                 {met.titulo}
               </p>
               <p style={{
@@ -325,13 +292,7 @@ export default function DocentesPage() {
         }}>
           Módulos formativos
         </p>
-        <h2 style={{
-          fontFamily: "'Bebas Neue',sans-serif",
-          fontSize: "clamp(40px,6vw,72px)",
-          lineHeight: 0.9,
-          color: "#F5F2EC",
-          margin: "0 0 0.75rem",
-        }}>
+        <h2 className={shell.programSectionTitle} style={{ color: "#F5F2EC", margin: "0 0 0.75rem" }}>
           Un camino estructurado<br />para el aprendizaje digital
         </h2>
         <p style={{
@@ -370,13 +331,7 @@ export default function DocentesPage() {
                 }}>
                   Módulo {String(i + 1).padStart(2, "0")}
                 </p>
-                <p style={{
-                  fontFamily: "'Bebas Neue',sans-serif",
-                  fontSize: "clamp(20px,2.5vw,28px)",
-                  color: "#F5F2EC",
-                  margin: 0,
-                  lineHeight: 1,
-                }}>
+                <p className={shell.programCardTitle} style={{ color: "#F5F2EC", margin: 0 }}>
                   {mod.label}
                 </p>
               </div>
@@ -399,13 +354,7 @@ export default function DocentesPage() {
         background: "#DB5227",
         padding: "clamp(3rem,6vw,5rem) clamp(2rem,6vw,4rem)",
       }}>
-        <h2 style={{
-          fontFamily: "'Bebas Neue',sans-serif",
-          fontSize: "clamp(40px,6vw,72px)",
-          lineHeight: 0.9,
-          color: "#F5F2EC",
-          margin: "0 0 1.5rem",
-        }}>
+        <h2 className={shell.programSectionTitle} style={{ color: "#F5F2EC", margin: "0 0 1.5rem" }}>
           Lleva la educación mediática<br />a tu escuela
         </h2>
         <p style={{

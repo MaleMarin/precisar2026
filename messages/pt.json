@@ -19,6 +19,19 @@
     "botOndaBeta": "BETA",
     "botOndaAria": "Abrir o chat Bot ONDA (beta) numa nova aba"
   },
+  "programBreadcrumbs": {
+    "aria": "Navegação estrutural",
+    "home": "Início",
+    "programas": "Programas",
+    "slugs": {
+      "ciudades": "Cidades Conectadas",
+      "aprender-digital": "Aprender Digital",
+      "leer-noticias-era-digital": "Ler notícias na era digital",
+      "funcionarios-publicos": "Funcionários públicos",
+      "pensamiento-critico": "Pensamento crítico digital",
+      "hub-digital-consciente": "Hub Digital Consciente"
+    }
+  },
   "footer": {
     "socialEyebrow": "Redes sociais",
     "socialX": "Precisar no X (abre numa nova aba)",

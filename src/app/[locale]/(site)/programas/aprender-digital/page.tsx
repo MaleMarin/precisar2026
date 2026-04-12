@@ -91,14 +91,6 @@ function IconImpacto({ index }: { index: number }) {
   );
 }
 
-const cardTitleBebas: CSSProperties = {
-  fontFamily: "'Bebas Neue', sans-serif",
-  fontSize: "clamp(20px, 2.5vw, 28px)",
-  lineHeight: 1,
-  color: "#0A0C12",
-  margin: "0 0 10px",
-};
-
 const cardBody: CSSProperties = {
   fontFamily: "'Avenir Next', 'Avenir', sans-serif",
   fontSize: "clamp(14px, 1.4vw, 17px)",
@@ -150,15 +142,7 @@ export default function AprenderDigitalPage() {
         >
           Nuestros objetivos
         </p>
-        <h2
-          style={{
-            fontFamily: "'Bebas Neue', sans-serif",
-            fontSize: "clamp(40px, 6vw, 72px)",
-            lineHeight: 0.9,
-            color: "#0A0C12",
-            margin: "0 0 0.75rem",
-          }}
-        >
+        <h2 className={shell.programSectionTitle} style={{ color: "#0A0C12", margin: "0 0 0.75rem" }}>
           Capacitamos para una vida
           <br />
           digital plena y segura
@@ -189,7 +173,9 @@ export default function AprenderDigitalPage() {
               <div style={{ marginBottom: "1rem" }}>
                 <IconModulo color={mod.color} />
               </div>
-              <p style={cardTitleBebas}>{mod.titulo}</p>
+              <p className={shell.programCardTitle} style={{ color: "#0A0C12", margin: "0 0 10px" }}>
+                {mod.titulo}
+              </p>
               <p style={cardBody}>{mod.desc}</p>
             </div>
           ))}
@@ -236,15 +222,7 @@ export default function AprenderDigitalPage() {
         >
           Impacto en la comunidad
         </p>
-        <h2
-          style={{
-            fontFamily: "'Bebas Neue', sans-serif",
-            fontSize: "clamp(40px, 6vw, 72px)",
-            lineHeight: 0.9,
-            color: "#0A0C12",
-            margin: "0 0 0.75rem",
-          }}
-        >
+        <h2 className={shell.programSectionTitle} style={{ color: "#0A0C12", margin: "0 0 0.75rem" }}>
           Más allá de las habilidades
           <br />
           individuales
@@ -275,7 +253,9 @@ export default function AprenderDigitalPage() {
               <div style={{ marginBottom: "1rem" }}>
                 <IconImpacto index={i} />
               </div>
-              <p style={cardTitleBebas}>{imp.titulo}</p>
+              <p className={shell.programCardTitle} style={{ color: "#0A0C12", margin: "0 0 10px" }}>
+                {imp.titulo}
+              </p>
               <p style={cardBody}>{imp.desc}</p>
             </div>
           ))}
@@ -295,15 +275,7 @@ export default function AprenderDigitalPage() {
         >
           Nuestra metodología
         </p>
-        <h2
-          style={{
-            fontFamily: "'Bebas Neue', sans-serif",
-            fontSize: "clamp(40px, 6vw, 72px)",
-            lineHeight: 0.9,
-            color: "#F5F2EC",
-            margin: "0 0 3rem",
-          }}
-        >
+        <h2 className={shell.programSectionTitle} style={{ color: "#F5F2EC", margin: "0 0 3rem" }}>
           Aprendemos juntos,
           <br />a tu ritmo
         </h2>
@@ -325,7 +297,9 @@ export default function AprenderDigitalPage() {
                 borderRadius: 4,
               }}
             >
-              <p style={cardTitleBebas}>{met.titulo}</p>
+              <p className={shell.programCardTitle} style={{ color: "#0A0C12", margin: "0 0 10px" }}>
+                {met.titulo}
+              </p>
               <p style={cardBody}>{met.desc}</p>
             </div>
           ))}
@@ -333,15 +307,7 @@ export default function AprenderDigitalPage() {
       </section>
 
       <section style={{ background: "#023661", ...sectionPad }}>
-        <h2
-          style={{
-            fontFamily: "'Bebas Neue', sans-serif",
-            fontSize: "clamp(40px, 6vw, 72px)",
-            lineHeight: 0.9,
-            color: "#F5F2EC",
-            margin: "0 0 1.5rem",
-          }}
-        >
+        <h2 className={shell.programSectionTitle} style={{ color: "#F5F2EC", margin: "0 0 1.5rem" }}>
           Lleva Aprender Digital
           <br />a tu comunidad
         </h2>

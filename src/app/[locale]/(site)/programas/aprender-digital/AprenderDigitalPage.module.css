@@ -6,12 +6,13 @@
 }
 
 .heroTitleBlock {
-  max-width: 800px;
+  max-width: min(42rem, 96%);
+  margin-inline-start: auto;
 }
 
 .heroTitle {
   margin: 0;
-  font-family: var(--font-display);
+  font-family: var(--font-program-heading);
   font-size: clamp(40px, 6vw, 80px);
   font-weight: 800;
   line-height: 1;
@@ -29,7 +30,7 @@
 
 .heroStatBig {
   margin: 0;
-  font-family: var(--font-display);
+  font-family: var(--font-program-heading);
   font-size: clamp(60px, 10vw, 120px);
   font-weight: 800;
   line-height: 0.95;
@@ -91,7 +92,7 @@
 /* ─── Crema: título de sección + tarjetas numeradas ─── */
 .creamTitle {
   margin: 0 0 48px;
-  font-family: var(--font-display);
+  font-family: var(--font-program-heading);
   font-size: clamp(28px, 4vw, 44px);
   font-weight: 700;
   line-height: 1.15;
@@ -128,7 +129,7 @@
 
 .cardNum {
   margin: 0 0 12px;
-  font-family: var(--font-display);
+  font-family: var(--font-program-heading);
   font-size: 32px;
   font-weight: 800;
   color: #db5227;
@@ -213,7 +214,7 @@
 /* ─── Módulos: títulos en fondo oscuro ─── */
 .modulosTitle {
   margin: 0 0 16px;
-  font-family: var(--font-display);
+  font-family: var(--font-program-heading);
   font-size: clamp(28px, 4vw, 44px);
   font-weight: 800;
   line-height: 1.15;
@@ -232,12 +233,14 @@
 /* ─── CTA título (ajuste tamaño spec) ─── */
 .ctaTitleTight {
   margin: 0;
-  font-family: var(--font-serif-display), "Cormorant Garamond", Georgia, serif;
-  font-style: italic;
-  font-size: clamp(28px, 4vw, 48px);
-  font-weight: 500;
-  line-height: 1.1;
+  font-family: var(--font-program-heading);
+  font-style: normal;
+  font-size: clamp(1.75rem, 4.5vw, 3.25rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.05em;
   color: #fff;
+  text-transform: none;
 }
 
 /* ─── Continúa ─── */

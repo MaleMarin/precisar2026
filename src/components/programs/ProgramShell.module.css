@@ -61,7 +61,8 @@
   position: relative;
   min-height: 80vh;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
+  justify-content: center;
   padding: 80px 48px;
   background: linear-gradient(135deg, var(--program-hero-from) 0%, #0a0c12 55%, #0a0c12 100%);
   color: #fff;
@@ -74,10 +75,17 @@
   width: 100%;
   max-width: 90rem;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
 }
 
 .heroEyebrow {
   margin: 0 0 1.25rem;
+  align-self: flex-end;
+  max-width: 100%;
+  text-align: right;
   font-family: "Avenir Next", "Avenir", var(--font-sans), system-ui, sans-serif;
   font-size: 11px;
   font-weight: 400;
@@ -88,18 +96,22 @@
 
 .heroTitle {
   margin: 0;
-  max-width: 860px;
-  font-family: var(--font-display);
-  font-size: clamp(56px, 9vw, 112px);
-  font-weight: 400;
-  line-height: 0.88;
-  letter-spacing: -0.02em;
+  margin-inline-start: auto;
+  max-width: min(42rem, 96%);
+  font-family: var(--font-program-heading);
+  font-size: clamp(2.35rem, 6vw, 4.65rem);
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: -0.055em;
   color: #fff;
+  text-transform: none;
 }
 
 .heroSub {
   margin: 1.25rem 0 0;
-  max-width: 560px;
+  margin-left: auto;
+  max-width: min(36rem, 96%);
+  text-align: right;
   font-family: "Avenir Next", "Avenir", var(--font-sans), system-ui, sans-serif;
   font-size: clamp(14px, 1.4vw, 17px);
   line-height: 1.75;
@@ -108,21 +120,21 @@
 
 .heroStat {
   position: absolute;
-  right: 48px;
-  bottom: 80px;
-  text-align: right;
+  left: 48px;
+  bottom: clamp(3rem, 8vh, 5rem);
+  text-align: left;
   pointer-events: none;
   z-index: 0;
 }
 
 .heroStatBig {
   margin: 0;
-  font-family: var(--font-display);
+  font-family: var(--font-program-heading);
   font-size: clamp(80px, 12vw, 140px);
-  font-weight: 400;
+  font-weight: 800;
   line-height: 0.95;
   color: rgba(219, 82, 39, 0.15);
-  letter-spacing: -0.04em;
+  letter-spacing: -0.055em;
 }
 
 .heroStatLabel {
@@ -136,7 +148,7 @@
 
 @media (max-width: 900px) {
   .hero {
-    align-items: flex-start;
+    align-items: center;
     min-height: min(80vh, 720px);
     padding: clamp(3rem, 8vw, 5rem) clamp(1.25rem, 4vw, 2.75rem) clamp(2.5rem, 6vw, 4rem);
   }
@@ -144,6 +156,7 @@
   .heroStat {
     position: static;
     margin-top: 2rem;
+    align-self: flex-start;
     text-align: left;
     pointer-events: auto;
   }
@@ -172,12 +185,13 @@
 
 .statWord {
   margin: 0;
-  font-family: var(--font-display);
+  font-family: var(--font-program-heading);
   font-size: clamp(60px, 10vw, 100px);
-  font-weight: 400;
+  font-weight: 800;
   line-height: 1;
   color: #db5227;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.05em;
+  text-transform: none;
 }
 
 .statSub {
@@ -212,12 +226,13 @@
 
 .secTitleLight {
   margin: 0 0 16px;
-  font-family: var(--font-display);
-  font-size: clamp(40px, 6vw, 72px);
-  font-weight: 400;
-  line-height: 0.9;
-  letter-spacing: -0.02em;
+  font-family: var(--font-program-heading);
+  font-size: clamp(1.75rem, 4.5vw, 3.25rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.05em;
   color: #fff;
+  text-transform: none;
 }
 
 .secTitleLightSpaced {
@@ -235,12 +250,13 @@
 
 .secTitleDark {
   margin: 0 0 16px;
-  font-family: var(--font-display);
-  font-size: clamp(40px, 6vw, 72px);
-  font-weight: 400;
-  line-height: 0.9;
-  letter-spacing: -0.02em;
+  font-family: var(--font-program-heading);
+  font-size: clamp(1.75rem, 4.5vw, 3.25rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.05em;
   color: #0a0c12;
+  text-transform: none;
 }
 
 .secTitleDarkSpaced {
@@ -296,12 +312,14 @@
 
 .ctaTitle {
   margin: 0;
-  font-family: var(--font-display);
+  font-family: var(--font-program-heading);
   font-style: normal;
-  font-size: clamp(40px, 6vw, 72px);
-  font-weight: 400;
-  line-height: 0.9;
+  font-size: clamp(1.75rem, 4.5vw, 3.25rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.05em;
   color: #fff;
+  text-transform: none;
 }
 
 .ctaText {
@@ -429,4 +447,25 @@
 
 .modularCanvas {
   min-width: 0;
+}
+
+/* Titulares de sección/tarjeta (misma línea que el hero; cuerpo sigue en Avenir vía estilos inline o .bodyText). */
+.programSectionTitle {
+  margin: 0 0 1rem;
+  font-family: var(--font-program-heading);
+  font-size: clamp(1.65rem, 3.5vw, 2.65rem);
+  font-weight: 800;
+  line-height: 1.06;
+  letter-spacing: -0.05em;
+  text-transform: none;
+}
+
+.programCardTitle {
+  margin: 0;
+  font-family: var(--font-program-heading);
+  font-size: clamp(1.2rem, 2.2vw, 1.55rem);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.045em;
+  text-transform: none;
 }

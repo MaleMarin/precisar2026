@@ -1,7 +1,8 @@
 /* Pensamiento Crítico Digital — shell en ProgramShell.module.css */
 
 .heroTitleBlock {
-  max-width: 800px;
+  max-width: min(42rem, 96%);
+  margin-inline-start: auto;
 }
 
 .statSubLg {
@@ -14,22 +15,25 @@
 
 .modalidadesTitle {
   margin: 0 0 48px;
-  font-family: var(--font-display);
-  font-size: clamp(40px, 6vw, 72px);
-  font-weight: 400;
-  line-height: 0.9;
-  letter-spacing: -0.02em;
+  font-family: var(--font-program-heading);
+  font-size: clamp(1.75rem, 4.5vw, 3.25rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.05em;
   color: #fff;
+  text-transform: none;
 }
 
 .ctaTitleTight {
   margin: 0;
-  font-family: var(--font-display);
+  font-family: var(--font-program-heading);
   font-style: normal;
-  font-size: clamp(40px, 6vw, 72px);
-  font-weight: 400;
-  line-height: 0.9;
+  font-size: clamp(1.75rem, 4.5vw, 3.25rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.05em;
   color: #fff;
+  text-transform: none;
 }
 
 .ctaStepsPlain {
@@ -52,12 +56,13 @@
 
 .beneficiosTitle {
   margin: 0 0 48px;
-  font-family: var(--font-display);
-  font-size: clamp(40px, 6vw, 72px);
-  font-weight: 400;
-  line-height: 0.9;
-  letter-spacing: -0.02em;
+  font-family: var(--font-program-heading);
+  font-size: clamp(1.75rem, 4.5vw, 3.25rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.05em;
   color: #0a0c12;
+  text-transform: none;
 }
 
 .modalRow {
@@ -86,20 +91,23 @@
 
 .modalNum {
   margin: 0;
-  font-family: var(--font-display);
+  font-family: var(--font-program-heading);
   font-size: clamp(36px, 5vw, 52px);
-  font-weight: 400;
+  font-weight: 800;
   color: #db5227;
   line-height: 1;
+  letter-spacing: -0.05em;
 }
 
 .modalCardTitle {
   margin: 12px 0 0;
-  font-family: var(--font-display);
+  font-family: var(--font-program-heading);
   font-size: clamp(20px, 2.5vw, 28px);
-  font-weight: 400;
-  line-height: 1;
+  font-weight: 800;
+  line-height: 1.06;
+  letter-spacing: -0.045em;
   color: #fff;
+  text-transform: none;
 }
 
 .modalCardText {
@@ -122,12 +130,13 @@
 
 .workshopTitle {
   margin: 0 0 8px;
-  font-family: var(--font-display);
-  font-size: clamp(40px, 6vw, 72px);
-  font-weight: 400;
-  line-height: 0.9;
-  letter-spacing: -0.02em;
+  font-family: var(--font-program-heading);
+  font-size: clamp(1.75rem, 4.5vw, 3.25rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.05em;
   color: #0a0c12;
+  text-transform: none;
 }
 
 .workshopTitleLight {
@@ -240,20 +249,22 @@
 
 .modNum {
   margin: 0 0 6px;
-  font-family: var(--font-display);
+  font-family: "Avenir Next", "Avenir", var(--font-sans), system-ui, sans-serif;
   font-size: 14px;
-  font-weight: 400;
+  font-weight: 700;
   color: #db5227;
   letter-spacing: 0.02em;
 }
 
 .modTitle {
   margin: 0 0 0.5rem;
-  font-family: var(--font-display);
+  font-family: var(--font-program-heading);
   font-size: clamp(20px, 2.5vw, 28px);
-  font-weight: 400;
-  line-height: 1;
+  font-weight: 800;
+  line-height: 1.06;
+  letter-spacing: -0.045em;
   color: #0a0c12;
+  text-transform: none;
 }
 
 .modTitleLight {
@@ -332,20 +343,23 @@
 
 .benefNum {
   margin: 0 0 12px;
-  font-family: var(--font-display);
+  font-family: var(--font-program-heading);
   font-size: 32px;
-  font-weight: 400;
+  font-weight: 800;
   color: #db5227;
   line-height: 1;
+  letter-spacing: -0.04em;
 }
 
 .benefTitle {
   margin: 0 0 0.65rem;
-  font-family: var(--font-display);
+  font-family: var(--font-program-heading);
   font-size: clamp(20px, 2.5vw, 28px);
-  font-weight: 400;
-  line-height: 1;
+  font-weight: 800;
+  line-height: 1.06;
+  letter-spacing: -0.045em;
   color: #0a0c12;
+  text-transform: none;
 }
 
 .benefDesc {

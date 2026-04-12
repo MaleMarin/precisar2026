@@ -109,11 +109,11 @@
 
 .panelTitle {
   margin: 0 0 1rem;
-  font-family: var(--font-display), system-ui, sans-serif;
+  font-family: var(--font-program-heading);
   font-size: clamp(1.05rem, 2.5vw, 1.25rem);
-  font-weight: 700;
+  font-weight: 800;
   line-height: 1.35;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.045em;
   color: #0a0c12;
 }
 

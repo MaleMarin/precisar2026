@@ -29,20 +29,23 @@
 
 .benefNum {
   margin: 0 0 12px;
-  font-family: var(--font-display);
+  font-family: var(--font-program-heading);
   font-size: 32px;
-  font-weight: 400;
+  font-weight: 800;
   color: #db5227;
   line-height: 1;
+  letter-spacing: -0.04em;
 }
 
 .benefTitle {
   margin: 0 0 0.65rem;
-  font-family: var(--font-display);
+  font-family: var(--font-program-heading);
   font-size: clamp(20px, 2.5vw, 28px);
-  font-weight: 400;
-  line-height: 1;
+  font-weight: 800;
+  line-height: 1.06;
+  letter-spacing: -0.045em;
   color: #0a0c12;
+  text-transform: none;
 }
 
 .benefDesc {
@@ -92,11 +95,13 @@
 
 .pasoTitle {
   margin: 0 0 0.65rem;
-  font-family: var(--font-display);
+  font-family: var(--font-program-heading);
   font-size: clamp(20px, 2.5vw, 28px);
-  font-weight: 400;
-  line-height: 1;
+  font-weight: 800;
+  line-height: 1.06;
+  letter-spacing: -0.045em;
   color: #fff;
+  text-transform: none;
 }
 
 .pasoText {

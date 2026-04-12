@@ -168,15 +168,7 @@ export default function CiudadesPage() {
                 padding: "1.5rem",
               }}
             >
-              <p
-                style={{
-                  fontFamily: "'Bebas Neue',sans-serif",
-                  fontSize: "clamp(20px,2.5vw,28px)",
-                  lineHeight: 1,
-                  color: "#0A0C12",
-                  margin: "0 0 8px",
-                }}
-              >
+              <p className={shell.programCardTitle} style={{ color: "#0A0C12", margin: "0 0 8px" }}>
                 {item.titulo}
               </p>
               <p
@@ -219,15 +211,7 @@ export default function CiudadesPage() {
                 borderLeft: "3px solid #DB5227",
               }}
             >
-              <p
-                style={{
-                  fontFamily: "'Bebas Neue',sans-serif",
-                  fontSize: "clamp(20px,2.5vw,28px)",
-                  lineHeight: 1,
-                  color: "#0A0C12",
-                  margin: "0 0 4px",
-                }}
-              >
+              <p className={shell.programCardTitle} style={{ color: "#0A0C12", margin: "0 0 4px" }}>
                 {item.titulo}
               </p>
               <p
@@ -265,15 +249,7 @@ export default function CiudadesPage() {
         >
           Lo que cambia en tu municipio
         </p>
-        <h2
-          style={{
-            fontFamily: "'Bebas Neue',sans-serif",
-            fontSize: "clamp(40px,6vw,72px)",
-            lineHeight: 0.9,
-            color: "#F5F2EC",
-            margin: "0 0 3rem",
-          }}
-        >
+        <h2 className={shell.programSectionTitle} style={{ color: "#F5F2EC", margin: "0 0 3rem" }}>
           Impacto en
           <br />
           el municipio
@@ -295,15 +271,7 @@ export default function CiudadesPage() {
                 borderBottom: "1px solid rgba(245,242,236,0.08)",
               }}
             >
-              <p
-                style={{
-                  fontFamily: "'Bebas Neue',sans-serif",
-                  fontSize: "clamp(20px,2.5vw,28px)",
-                  lineHeight: 1,
-                  color: "#F5F2EC",
-                  margin: "0 0 10px",
-                }}
-              >
+              <p className={shell.programCardTitle} style={{ color: "#F5F2EC", margin: "0 0 10px" }}>
                 {imp.titulo}
               </p>
               <p
@@ -341,15 +309,7 @@ export default function CiudadesPage() {
         >
           Nuestras propuestas formativas
         </p>
-        <h2
-          style={{
-            fontFamily: "'Bebas Neue',sans-serif",
-            fontSize: "clamp(40px,6vw,72px)",
-            lineHeight: 0.9,
-            color: "#F5F2EC",
-            margin: "0 0 3rem",
-          }}
-        >
+        <h2 className={shell.programSectionTitle} style={{ color: "#F5F2EC", margin: "0 0 3rem" }}>
           Programas modulares
           <br />y flexibles
         </h2>
@@ -381,15 +341,7 @@ export default function CiudadesPage() {
               >
                 {taller.label}
               </p>
-              <h3
-                style={{
-                  fontFamily: "'Bebas Neue',sans-serif",
-                  fontSize: "clamp(20px,2.5vw,28px)",
-                  color: "#F5F2EC",
-                  margin: "0 0 12px",
-                  lineHeight: 1,
-                }}
-              >
+              <h3 className={shell.programCardTitle} style={{ color: "#F5F2EC", margin: "0 0 12px" }}>
                 {taller.titulo}
               </h3>
               <p
@@ -462,15 +414,7 @@ export default function CiudadesPage() {
           padding: "clamp(3rem,6vw,5rem) clamp(2rem,6vw,4rem)",
         }}
       >
-        <h2
-          style={{
-            fontFamily: "'Bebas Neue',sans-serif",
-            fontSize: "clamp(40px,6vw,72px)",
-            lineHeight: 0.9,
-            color: "#F5F2EC",
-            margin: "0 0 1.5rem",
-          }}
-        >
+        <h2 className={shell.programSectionTitle} style={{ color: "#F5F2EC", margin: "0 0 1.5rem" }}>
           Lleva la cultura digital
           <br />a tu municipio
         </h2>
