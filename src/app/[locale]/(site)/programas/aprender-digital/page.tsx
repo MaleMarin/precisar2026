@@ -93,9 +93,9 @@ function IconImpacto({ index }: { index: number }) {
 
 const cardBody: CSSProperties = {
   fontFamily: "'Avenir Next', 'Avenir', sans-serif",
-  fontSize: "clamp(14px, 1.4vw, 17px)",
-  lineHeight: 1.75,
-  color: "rgba(10,12,18,0.6)",
+  fontSize: "1.1875rem",
+  lineHeight: 1.65,
+  color: "color-mix(in oklab, #0a0a0a 72%, transparent)",
   margin: 0,
 };
 

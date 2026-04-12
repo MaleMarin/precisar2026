@@ -6,13 +6,12 @@
 }
 
 .heroTitleBlock {
-  max-width: min(42rem, 96%);
-  margin-inline-start: auto;
+  max-width: var(--program-title-maxw, 56rem);
 }
 
 .heroTitle {
   margin: 0;
-  font-family: var(--font-program-heading);
+  font-family: var(--font-display, system-ui, sans-serif);
   font-size: clamp(40px, 6vw, 80px);
   font-weight: 800;
   line-height: 1;
@@ -30,7 +29,7 @@
 
 .heroStatBig {
   margin: 0;
-  font-family: var(--font-program-heading);
+  font-family: var(--font-display, system-ui, sans-serif);
   font-size: clamp(60px, 10vw, 120px);
   font-weight: 800;
   line-height: 0.95;
@@ -92,11 +91,12 @@
 /* ─── Crema: título de sección + tarjetas numeradas ─── */
 .creamTitle {
   margin: 0 0 48px;
-  font-family: var(--font-program-heading);
-  font-size: clamp(28px, 4vw, 44px);
-  font-weight: 700;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
+  max-width: var(--program-title-maxw, 56rem);
+  font-family: var(--font-display, system-ui, sans-serif);
+  font-size: var(--program-title-size, clamp(1.95rem, 5.2vw, 4.65rem));
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: -0.035em;
   color: #0a0c12;
 }
 
@@ -129,7 +129,7 @@
 
 .cardNum {
   margin: 0 0 12px;
-  font-family: var(--font-program-heading);
+  font-family: var(--font-display, system-ui, sans-serif);
   font-size: 32px;
   font-weight: 800;
   color: #db5227;
@@ -146,18 +146,20 @@
 
 .cardDesc {
   margin: 0;
-  font-size: 14px;
+  font-family: "Avenir Next", "Avenir", var(--font-sans), system-ui, sans-serif;
+  font-size: 1.1875rem;
   line-height: 1.65;
-  color: #76828e;
+  color: color-mix(in oklab, #0a0a0a 72%, transparent);
 }
 
 /* ─── Impacto comunidad (oscuro) ─── */
 .impactoSub {
   margin: 0 0 48px;
-  font-size: 16px;
-  line-height: 1.55;
-  color: rgba(255, 255, 255, 0.5);
-  max-width: 42rem;
+  font-family: "Avenir Next", "Avenir", var(--font-sans), system-ui, sans-serif;
+  font-size: 1.1875rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 40rem;
 }
 
 .impactoGrid {
@@ -206,39 +208,43 @@
 
 .impactoCardDesc {
   margin: 0;
-  font-size: 13px;
-  line-height: 1.55;
-  color: rgba(255, 255, 255, 0.5);
+  font-family: "Avenir Next", "Avenir", var(--font-sans), system-ui, sans-serif;
+  font-size: 1.1875rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.85);
 }
 
 /* ─── Módulos: títulos en fondo oscuro ─── */
 .modulosTitle {
   margin: 0 0 16px;
-  font-family: var(--font-program-heading);
-  font-size: clamp(28px, 4vw, 44px);
+  max-width: var(--program-title-maxw, 56rem);
+  font-family: var(--font-display, system-ui, sans-serif);
+  font-size: var(--program-title-size, clamp(1.95rem, 5.2vw, 4.65rem));
   font-weight: 800;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
+  line-height: 1.02;
+  letter-spacing: -0.035em;
   color: #fff;
 }
 
 .modulosSub {
   margin: 0 0 48px;
-  font-size: 16px;
-  line-height: 1.55;
-  color: rgba(255, 255, 255, 0.5);
-  max-width: 42rem;
+  font-family: "Avenir Next", "Avenir", var(--font-sans), system-ui, sans-serif;
+  font-size: 1.1875rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 40rem;
 }
 
 /* ─── CTA título (ajuste tamaño spec) ─── */
 .ctaTitleTight {
   margin: 0;
-  font-family: var(--font-program-heading);
+  max-width: var(--program-title-maxw, 56rem);
+  font-family: var(--font-display, system-ui, sans-serif);
   font-style: normal;
-  font-size: clamp(1.75rem, 4.5vw, 3.25rem);
+  font-size: var(--program-title-size, clamp(1.95rem, 5.2vw, 4.65rem));
   font-weight: 800;
-  line-height: 1.05;
-  letter-spacing: -0.05em;
+  line-height: 1.02;
+  letter-spacing: -0.035em;
   color: #fff;
   text-transform: none;
 }

@@ -87,7 +87,7 @@
   filter: brightness(1.06);
 }
 .cardNum {
-  font-family: var(--font-program-heading);
+  font-family: var(--font-display, system-ui, sans-serif);
   font-size: 56px;
   font-weight: 800;
   line-height: 1;
@@ -97,7 +97,7 @@
   letter-spacing: -0.05em;
 }
 .cardTitle {
-  font-family: var(--font-program-heading);
+  font-family: var(--font-display, system-ui, sans-serif);
   font-size: clamp(1.35rem, 2.8vw, 2.25rem);
   font-weight: 800;
   line-height: 1.06;
@@ -137,7 +137,7 @@
   gap: 6px;
 }
 .topTitle {
-  font-family: var(--font-program-heading);
+  font-family: var(--font-display, system-ui, sans-serif);
   font-size: clamp(22px, 4vw, 32px);
   font-weight: 800;
   line-height: 1.05;
@@ -279,20 +279,22 @@
   opacity: 1;
 }
 .expandTitle {
-  font-family: var(--font-program-heading);
-  font-size: clamp(2.35rem, 6vw, 4.65rem);
+  font-family: var(--font-display, system-ui, sans-serif);
+  font-size: var(--program-title-size, clamp(1.95rem, 5.2vw, 4.65rem));
   font-weight: 800;
   line-height: 1.02;
-  letter-spacing: -0.055em;
+  letter-spacing: -0.035em;
   margin: 0 0 1.5rem;
+  max-width: var(--program-title-maxw, 56rem);
   text-transform: none;
 }
 .expandBody {
-  font-family: 'Avenir Next', 'Avenir', sans-serif;
-  font-size: clamp(16px, 1.6vw, 20px);
-  line-height: 1.75;
+  font-family: 'Avenir Next', 'Avenir', var(--font-sans), sans-serif;
+  font-size: 1.1875rem;
+  line-height: 1.65;
   margin: 0 0 2rem;
-  max-width: 600px;
+  max-width: 40rem;
+  color: rgba(255, 255, 255, 0.85);
 }
 .groupLabel {
   font-family: 'Avenir Next', 'Avenir', sans-serif;

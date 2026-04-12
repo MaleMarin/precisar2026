@@ -19,12 +19,12 @@
 
 .territorioStatNum {
   margin: 0;
-  font-family: var(--font-program-heading);
+  font-family: var(--font-display, system-ui, sans-serif);
   font-size: clamp(60px, 10vw, 120px);
   font-weight: 800;
   line-height: 1;
   color: #db5227;
-  letter-spacing: -0.05em;
+  letter-spacing: -0.035em;
 }
 
 .territorioStatLabel {
@@ -175,11 +175,12 @@
 
 .impactoTitle {
   margin: 0 0 48px;
-  font-family: var(--font-program-heading);
-  font-size: clamp(28px, 4vw, 44px);
+  max-width: var(--program-title-maxw, 56rem);
+  font-family: var(--font-display, system-ui, sans-serif);
+  font-size: var(--program-title-size, clamp(1.95rem, 5.2vw, 4.65rem));
   font-weight: 800;
-  line-height: 1.08;
-  letter-spacing: -0.05em;
+  line-height: 1.02;
+  letter-spacing: -0.035em;
   color: #0a0c12;
   text-transform: none;
 }
@@ -226,16 +227,20 @@
 
 .impactoCardTitle {
   margin: 0;
-  font-size: 15px;
-  font-weight: 700;
+  font-family: var(--font-display, system-ui, sans-serif);
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
   color: #0a0c12;
 }
 
 .impactoCardDesc {
   margin: 8px 0 0;
-  font-size: 13px;
-  line-height: 1.5;
-  color: #76828e;
+  font-family: "Avenir Next", "Avenir", var(--font-sans), system-ui, sans-serif;
+  font-size: 1.1875rem;
+  line-height: 1.65;
+  color: color-mix(in oklab, #0a0a0a 72%, transparent);
 }
 
 /* ─── Propuestas formativas (tabs) ─── */
@@ -257,20 +262,22 @@
 
 .propuestasTitle {
   margin: 0 0 8px;
-  font-family: var(--font-program-heading);
-  font-size: clamp(28px, 4vw, 44px);
+  max-width: var(--program-title-maxw, 56rem);
+  font-family: var(--font-display, system-ui, sans-serif);
+  font-size: var(--program-title-size, clamp(1.95rem, 5.2vw, 4.65rem));
   font-weight: 800;
-  line-height: 1.08;
-  letter-spacing: -0.05em;
+  line-height: 1.02;
+  letter-spacing: -0.035em;
   color: #0a0c12;
   text-transform: none;
 }
 
 .propuestasSub {
   margin: 0 0 48px;
-  font-size: 16px;
-  line-height: 1.55;
-  color: #76828e;
+  font-family: "Avenir Next", "Avenir", var(--font-sans), system-ui, sans-serif;
+  font-size: 1.1875rem;
+  line-height: 1.65;
+  color: color-mix(in oklab, #0a0a0a 72%, transparent);
   max-width: 40rem;
 }
 

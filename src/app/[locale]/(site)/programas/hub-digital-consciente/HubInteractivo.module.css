@@ -29,22 +29,23 @@
 }
 
 .hubSlideTitle {
-  font-family: var(--font-program-heading);
-  font-size: clamp(2.25rem, 5.5vw, 3.75rem);
+  font-family: var(--font-display, system-ui, sans-serif);
+  font-size: var(--program-title-size, clamp(1.95rem, 5.2vw, 4.65rem));
   font-weight: 800;
-  line-height: 1.04;
-  letter-spacing: -0.05em;
+  line-height: 1.02;
+  letter-spacing: -0.035em;
   color: #f5f2ec;
   margin: 0 0 1.25rem;
+  max-width: var(--program-title-maxw, 56rem);
   text-transform: none;
 }
 
 .hubSlideDesc {
-  font-family: "Avenir Next", "Avenir", sans-serif;
-  font-size: clamp(14px, 1.5vw, 16px);
-  color: rgba(245, 242, 236, 0.8);
+  font-family: "Avenir Next", "Avenir", var(--font-sans), sans-serif;
+  font-size: 1.1875rem;
+  color: rgba(255, 255, 255, 0.85);
   line-height: 1.65;
-  max-width: 560px;
+  max-width: 40rem;
   margin: 0;
 }
 
@@ -118,11 +119,11 @@
 }
 
 .hubModeloNombre {
-  font-family: var(--font-program-heading);
+  font-family: var(--font-display, system-ui, sans-serif);
   font-size: clamp(1.5rem, 3vw, 2.25rem);
   font-weight: 800;
   line-height: 1.05;
-  letter-spacing: -0.045em;
+  letter-spacing: -0.035em;
   color: #f5f2ec;
   margin: 0;
   text-transform: none;

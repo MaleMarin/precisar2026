@@ -110,17 +110,18 @@
 
 .tabPanelTitle {
   margin: 0 0 1rem;
-  font-family: var(--font-program-heading);
+  font-family: var(--font-display, system-ui, sans-serif);
   font-size: 1.125rem;
   font-weight: 800;
   line-height: 1.35;
-  letter-spacing: -0.045em;
+  letter-spacing: -0.035em;
   color: #0a0c12;
 }
 
 .tabBodyText {
   margin: 0;
-  font-size: 15px;
-  line-height: 1.75;
-  color: #3f3a42;
+  font-family: "Avenir Next", "Avenir", var(--font-sans), system-ui, sans-serif;
+  font-size: 1.1875rem;
+  line-height: 1.65;
+  color: color-mix(in oklab, #0a0a0a 72%, transparent);
 }

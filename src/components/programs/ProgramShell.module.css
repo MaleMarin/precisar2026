@@ -5,8 +5,18 @@
 
 .page {
   --program-hero-from: #023661;
+  /* Misma escala que titulares de sesión en home (MotionStackPanels .stackPanelLeftTitle). */
+  --program-title-size: clamp(1.95rem, 5.2vw, 4.65rem);
+  --program-title-maxw: 42rem;
   padding: 0;
   margin: 0;
+}
+
+@media (min-width: 768px) {
+  .page {
+    --program-title-size: clamp(2.5rem, 6vw, 4.85rem);
+    --program-title-maxw: 56rem;
+  }
 }
 
 .page[data-program="hub"] {
@@ -61,7 +71,7 @@
   position: relative;
   min-height: 80vh;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
   padding: 80px 48px;
   background: linear-gradient(135deg, var(--program-hero-from) 0%, #0a0c12 55%, #0a0c12 100%);
@@ -77,15 +87,15 @@
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
-  text-align: right;
+  align-items: flex-start;
+  text-align: left;
 }
 
 .heroEyebrow {
   margin: 0 0 1.25rem;
-  align-self: flex-end;
+  align-self: flex-start;
   max-width: 100%;
-  text-align: right;
+  text-align: left;
   font-family: "Avenir Next", "Avenir", var(--font-sans), system-ui, sans-serif;
   font-size: 11px;
   font-weight: 400;
@@ -96,45 +106,44 @@
 
 .heroTitle {
   margin: 0;
-  margin-inline-start: auto;
-  max-width: min(42rem, 96%);
-  font-family: var(--font-program-heading);
-  font-size: clamp(2.35rem, 6vw, 4.65rem);
+  max-width: min(var(--program-title-maxw), 100%);
+  font-family: var(--font-display, system-ui, sans-serif);
+  font-size: var(--program-title-size);
   font-weight: 800;
   line-height: 1.02;
-  letter-spacing: -0.055em;
+  letter-spacing: -0.035em;
   color: #fff;
   text-transform: none;
 }
 
 .heroSub {
   margin: 1.25rem 0 0;
-  margin-left: auto;
-  max-width: min(36rem, 96%);
-  text-align: right;
+  max-width: 40rem;
+  text-align: left;
   font-family: "Avenir Next", "Avenir", var(--font-sans), system-ui, sans-serif;
-  font-size: clamp(14px, 1.4vw, 17px);
-  line-height: 1.75;
-  color: rgba(245, 242, 236, 0.65);
+  font-size: 1.1875rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.85);
 }
 
 .heroStat {
   position: absolute;
-  left: 48px;
-  bottom: clamp(3rem, 8vh, 5rem);
-  text-align: left;
+  right: 48px;
+  bottom: 80px;
+  left: auto;
+  text-align: right;
   pointer-events: none;
   z-index: 0;
 }
 
 .heroStatBig {
   margin: 0;
-  font-family: var(--font-program-heading);
+  font-family: var(--font-display, system-ui, sans-serif);
   font-size: clamp(80px, 12vw, 140px);
   font-weight: 800;
   line-height: 0.95;
   color: rgba(219, 82, 39, 0.15);
-  letter-spacing: -0.055em;
+  letter-spacing: -0.035em;
 }
 
 .heroStatLabel {
@@ -148,7 +157,7 @@
 
 @media (max-width: 900px) {
   .hero {
-    align-items: center;
+    align-items: flex-end;
     min-height: min(80vh, 720px);
     padding: clamp(3rem, 8vw, 5rem) clamp(1.25rem, 4vw, 2.75rem) clamp(2.5rem, 6vw, 4rem);
   }
@@ -156,8 +165,8 @@
   .heroStat {
     position: static;
     margin-top: 2rem;
-    align-self: flex-start;
-    text-align: left;
+    align-self: flex-end;
+    text-align: right;
     pointer-events: auto;
   }
 
@@ -185,29 +194,29 @@
 
 .statWord {
   margin: 0;
-  font-family: var(--font-program-heading);
+  font-family: var(--font-display, system-ui, sans-serif);
   font-size: clamp(60px, 10vw, 100px);
   font-weight: 800;
   line-height: 1;
   color: #db5227;
-  letter-spacing: -0.05em;
+  letter-spacing: -0.035em;
   text-transform: none;
 }
 
 .statSub {
   margin: 8px 0 0;
   font-family: "Avenir Next", "Avenir", var(--font-sans), system-ui, sans-serif;
-  font-size: clamp(14px, 1.4vw, 17px);
-  line-height: 1.75;
-  color: rgba(10, 12, 18, 0.6);
+  font-size: 1.1875rem;
+  line-height: 1.65;
+  color: color-mix(in oklab, #0a0a0a 72%, transparent);
 }
 
 .bodyText {
   margin: 0;
   font-family: "Avenir Next", "Avenir", var(--font-sans), system-ui, sans-serif;
-  font-size: clamp(14px, 1.4vw, 17px);
-  line-height: 1.75;
-  color: rgba(10, 12, 18, 0.6);
+  font-size: 1.1875rem;
+  line-height: 1.65;
+  color: color-mix(in oklab, #0a0a0a 72%, transparent);
 }
 
 .bodyText + .bodyText {
@@ -226,11 +235,12 @@
 
 .secTitleLight {
   margin: 0 0 16px;
-  font-family: var(--font-program-heading);
-  font-size: clamp(1.75rem, 4.5vw, 3.25rem);
+  max-width: var(--program-title-maxw);
+  font-family: var(--font-display, system-ui, sans-serif);
+  font-size: var(--program-title-size);
   font-weight: 800;
-  line-height: 1.05;
-  letter-spacing: -0.05em;
+  line-height: 1.02;
+  letter-spacing: -0.035em;
   color: #fff;
   text-transform: none;
 }
@@ -242,19 +252,20 @@
 .secSubMuted {
   margin: 0 0 48px;
   font-family: "Avenir Next", "Avenir", var(--font-sans), system-ui, sans-serif;
-  font-size: clamp(14px, 1.4vw, 17px);
-  line-height: 1.75;
-  color: rgba(245, 242, 236, 0.65);
+  font-size: 1.1875rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.85);
   max-width: 40rem;
 }
 
 .secTitleDark {
   margin: 0 0 16px;
-  font-family: var(--font-program-heading);
-  font-size: clamp(1.75rem, 4.5vw, 3.25rem);
+  max-width: var(--program-title-maxw);
+  font-family: var(--font-display, system-ui, sans-serif);
+  font-size: var(--program-title-size);
   font-weight: 800;
-  line-height: 1.05;
-  letter-spacing: -0.05em;
+  line-height: 1.02;
+  letter-spacing: -0.035em;
   color: #0a0c12;
   text-transform: none;
 }
@@ -266,10 +277,10 @@
 .secSubtitle {
   margin: 0 0 48px;
   font-family: "Avenir Next", "Avenir", var(--font-sans), system-ui, sans-serif;
-  font-size: clamp(14px, 1.4vw, 17px);
-  line-height: 1.75;
-  color: rgba(10, 12, 18, 0.6);
-  max-width: 42rem;
+  font-size: 1.1875rem;
+  line-height: 1.65;
+  color: color-mix(in oklab, #0a0a0a 72%, transparent);
+  max-width: 40rem;
 }
 
 /* ─── CTA naranja ─── */
@@ -312,12 +323,13 @@
 
 .ctaTitle {
   margin: 0;
-  font-family: var(--font-program-heading);
+  max-width: var(--program-title-maxw);
+  font-family: var(--font-display, system-ui, sans-serif);
   font-style: normal;
-  font-size: clamp(1.75rem, 4.5vw, 3.25rem);
+  font-size: var(--program-title-size);
   font-weight: 800;
-  line-height: 1.05;
-  letter-spacing: -0.05em;
+  line-height: 1.02;
+  letter-spacing: -0.035em;
   color: #fff;
   text-transform: none;
 }
@@ -325,9 +337,9 @@
 .ctaText {
   margin: 0 0 24px;
   font-family: "Avenir Next", "Avenir", var(--font-sans), system-ui, sans-serif;
-  font-size: clamp(14px, 1.4vw, 17px);
-  line-height: 1.75;
-  color: rgba(245, 242, 236, 0.65);
+  font-size: 1.1875rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.85);
 }
 
 .ctaSteps {
@@ -338,9 +350,9 @@
 
 .ctaSteps li {
   font-family: "Avenir Next", "Avenir", var(--font-sans), system-ui, sans-serif;
-  font-size: clamp(13px, 1.2vw, 15px);
-  line-height: 1.55;
-  color: rgba(245, 242, 236, 0.65);
+  font-size: 1.1875rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.85);
 }
 
 .ctaRight {
@@ -359,9 +371,9 @@
 .ctaAside {
   margin: 0 0 24px;
   font-family: "Avenir Next", "Avenir", var(--font-sans), system-ui, sans-serif;
-  font-size: clamp(14px, 1.4vw, 17px);
-  line-height: 1.75;
-  color: rgba(245, 242, 236, 0.65);
+  font-size: 1.1875rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.85);
   max-width: 28rem;
 }
 
@@ -427,7 +439,8 @@
 
 .continuaLink {
   font-family: "Avenir Next", "Avenir", var(--font-sans), system-ui, sans-serif;
-  font-size: clamp(14px, 1.4vw, 17px);
+  font-size: 1.1875rem;
+  line-height: 1.65;
   font-weight: 500;
   color: #db5227;
   text-decoration: none;
@@ -449,23 +462,24 @@
   min-width: 0;
 }
 
-/* Titulares de sección/tarjeta (misma línea que el hero; cuerpo sigue en Avenir vía estilos inline o .bodyText). */
+/* Titulares de sección/tarjeta: Syne como titulares de sesión en home. */
 .programSectionTitle {
   margin: 0 0 1rem;
-  font-family: var(--font-program-heading);
-  font-size: clamp(1.65rem, 3.5vw, 2.65rem);
+  max-width: var(--program-title-maxw);
+  font-family: var(--font-display, system-ui, sans-serif);
+  font-size: var(--program-title-size);
   font-weight: 800;
-  line-height: 1.06;
-  letter-spacing: -0.05em;
+  line-height: 1.02;
+  letter-spacing: -0.035em;
   text-transform: none;
 }
 
 .programCardTitle {
   margin: 0;
-  font-family: var(--font-program-heading);
-  font-size: clamp(1.2rem, 2.2vw, 1.55rem);
+  font-family: var(--font-display, system-ui, sans-serif);
+  font-size: clamp(1.15rem, 2.1vw, 1.5rem);
   font-weight: 800;
-  line-height: 1.08;
-  letter-spacing: -0.045em;
+  line-height: 1.12;
+  letter-spacing: -0.03em;
   text-transform: none;
 }
