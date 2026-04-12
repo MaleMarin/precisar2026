@@ -93,7 +93,7 @@ export default function QueHacemosFormacionPage() {
       <BeneficiosOrg />
       <CtaBlock
         headline="Cada organización tiene necesidades distintas. Conversamos, ajustamos y ejecutamos. Sin propuestas genéricas."
-        buttonLabel="Coordinar una presentación →"
+        buttonLabel="Contáctanos"
       />
     </main>
   );

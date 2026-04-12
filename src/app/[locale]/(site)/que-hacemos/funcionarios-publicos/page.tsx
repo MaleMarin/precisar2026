@@ -18,7 +18,7 @@ export default function QueHacemosFuncionariosPage() {
       <CtaBlock
         headline="Consideramos esta capacitación una inversión estratégica en la resiliencia de la administración pública."
         description="Adaptamos el programa a las necesidades específicas de tu institución. Propuesta formal con inversión y logística incluidas."
-        buttonLabel="Solicitar propuesta →"
+        buttonLabel="Contáctanos"
       />
     </main>
   );

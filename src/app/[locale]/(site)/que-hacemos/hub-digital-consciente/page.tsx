@@ -22,7 +22,7 @@ export default function QueHacemosHubPage() {
       <CtaBlock
         headline="Tu próximo evento puede provocar una conversación necesaria."
         description="Trabajamos con municipios, universidades, organizaciones sociales y empresas."
-        buttonLabel="Conversemos →"
+        buttonLabel="Contáctanos"
       />
     </main>
   );

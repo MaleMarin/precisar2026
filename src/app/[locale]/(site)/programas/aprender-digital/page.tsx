@@ -342,7 +342,7 @@ export default function AprenderDigitalPage() {
             transition: "opacity 0.2s ease",
           }}
         >
-          Contáctanos para más información →
+          Contáctanos
         </a>
       </section>
     </main>

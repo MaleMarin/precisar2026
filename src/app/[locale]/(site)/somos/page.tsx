@@ -169,7 +169,7 @@ export default function SomosPrecisarPage() {
             <p className={styles.ctaBody}>
               Escríbenos y cuéntanos tu idea, tu institución o tu comunidad. Diseñamos propuestas a medida.
             </p>
-            <FooterContactLink className={styles.ctaBtn}>Contacto</FooterContactLink>
+            <FooterContactLink className={styles.ctaBtn}>Contáctanos</FooterContactLink>
           </div>
         </div>
       </section>

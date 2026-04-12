@@ -21,7 +21,7 @@ export default function QueHacemosCiudadesPage() {
       <ImpactoGrid />
       <CtaBlock
         headline="Modular, flexible y 100% adaptable a las prioridades de tu municipio."
-        buttonLabel="Diseñemos juntos →"
+        buttonLabel="Contáctanos"
       />
     </main>
   );
