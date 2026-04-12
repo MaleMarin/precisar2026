@@ -38,19 +38,23 @@ export function ConsultaStackedLayout() {
                 height: 90,
                 display: "flex",
                 alignItems: "center",
-                gap: "1rem",
+                justifyContent: "space-between",
                 padding: "0 2.5rem",
                 position: "relative" as const,
-                zIndex: total - fromBottom,
-                marginBottom: fromBottom === 0 ? 0 : -44,
+                zIndex: fromBottom + 1,
+                marginTop: ri === 0 ? 0 : -62,
                 transform: `scaleX(${scaleX})`,
-                transformOrigin: "bottom center",
-                boxShadow: "0 -8px 24px rgba(0,0,0,0.2)",
-                border: "1px solid rgba(255,255,255,0.06)",
+                transformOrigin: "center bottom",
                 opacity,
+                boxShadow: `0 -6px 28px rgba(0,0,0,${0.18 + fromBottom * 0.08})`,
+                border: "1px solid rgba(255,255,255,0.07)",
+                transition: "all 0.5s cubic-bezier(0.4,0,0.2,1)",
               }}>
-                <span style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase" as const, color: "rgba(255,255,255,0.45)", flexShrink: 0 }}>{block.n}</span>
-                <span style={{ fontSize: "0.9375rem", fontWeight: 800, color: "rgba(255,255,255,0.8)", letterSpacing: "-0.025em" }}>{block.title}</span>
+                <div style={{ display: "flex", flexDirection: "column" as const, gap: "0.15rem" }}>
+                  <span style={{ fontSize: 9, fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase" as const, color: "rgba(255,255,255,0.45)" }}>{block.n}</span>
+                  <span style={{ fontSize: "clamp(1rem,2vw,1.25rem)", fontWeight: 800, color: "rgba(255,255,255,0.9)", letterSpacing: "-0.03em", lineHeight: 1 }}>{block.title}</span>
+                </div>
+                <span style={{ fontSize: 9, letterSpacing: "0.18em", textTransform: "uppercase" as const, color: "rgba(255,255,255,0.3)", fontWeight: 600 }}>pendiente →</span>
               </div>
             );
           })}
@@ -61,7 +65,7 @@ export function ConsultaStackedLayout() {
       <div style={{
         background: mainBg,
         borderRadius: mainRadius,
-        minHeight: "clamp(520px,76vh,760px)",
+        minHeight: "clamp(520px,75vh,760px)",
         padding: "2.5rem",
         position: "relative" as const,
         zIndex: 10,
@@ -72,13 +76,12 @@ export function ConsultaStackedLayout() {
         transition: "background 0.5s ease, border-radius 0.4s ease",
       }}>
 
-        {/* PORTADA */}
         {isIntro && (
           <div style={{ display: "flex", flexDirection: "column" as const, gap: "1.5rem", flex: 1 }}>
             <p style={{ margin: 0, fontSize: 10, fontWeight: 700, letterSpacing: "0.25em", textTransform: "uppercase" as const, color: "rgba(247,70,3,0.85)" }}>
               Precisar · Consulta ciudadana 2026
             </p>
-            <h1 style={{ margin: 0, fontSize: "clamp(3.2rem,6.5vw,5.5rem)", fontWeight: 800, lineHeight: 0.93, letterSpacing: "-0.045em", color: "#ffffff" }}>
+            <h1 style={{ margin: 0, fontSize: "clamp(3rem,6.5vw,5.5rem)", fontWeight: 800, lineHeight: 0.93, letterSpacing: "-0.045em", color: "#ffffff" }}>
               ¿Cómo te<br />informas<br />hoy?
             </h1>
             <p style={{ margin: 0, fontSize: "1rem", lineHeight: 1.65, color: "rgba(255,255,255,0.6)", maxWidth: "36rem" }}>
@@ -98,7 +101,6 @@ export function ConsultaStackedLayout() {
           </div>
         )}
 
-        {/* BLOQUE ACTIVO + WIZARD */}
         {!isIntro && !isComplete && activeBlock >= 0 && (
           <>
             <div style={{ marginBottom: "1.25rem" }}>
@@ -109,12 +111,17 @@ export function ConsultaStackedLayout() {
                 {BLOCKS[activeBlock].title}
               </h2>
             </div>
-            <ConsultaWizard />
+            <div data-consulta-stacked="true">
+              <ConsultaWizard />
+            </div>
           </>
         )}
 
-        {/* COMPLETO */}
-        {isComplete && <ConsultaWizard />}
+        {isComplete && (
+          <div data-consulta-stacked="true">
+            <ConsultaWizard />
+          </div>
+        )}
       </div>
     </div>
   );
