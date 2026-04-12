@@ -380,9 +380,17 @@ export function SiteFooter() {
                 </a>
                 {tFooter("ccLicenseAfter")}
               </p>
-              <Link href="/legal/privacidad-consulta-2026" className={styles.privacyLink}>
-                Política de Privacidad
-              </Link>
+              <nav aria-label="Legal" style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
+                <Link href="/legal/privacidad" className={styles.privacyLink}>
+                  Política de Privacidad
+                </Link>
+                <Link href="/legal/privacidad-consulta-2026" className={styles.privacyLink}>
+                  Privacidad · Consulta 2026
+                </Link>
+                <Link href="/legal/privacidad-bot-onda" className={styles.privacyLink}>
+                  Privacidad · Bot Onda
+                </Link>
+              </nav>
             </div>
           </div>
         </div>
