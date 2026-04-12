@@ -408,7 +408,13 @@ export default function HubCylinder() {
                 </span>
                 <h3
                   className={styles.cardTitle}
-                  style={{ color: s.tc }}
+                  style={{
+                    color: s.tc,
+                    display: "-webkit-box",
+                    WebkitLineClamp: 3,
+                    WebkitBoxOrient: "vertical" as const,
+                    overflow: "hidden",
+                  }}
                 >
                   {s.title.split("\n").map((l, j) => (
                     <span key={j}>
