@@ -50,13 +50,51 @@ export function matchLegacyRedirect(pathname: string): {
 }
 
 /**
- * Redirects 308 desde rutas antiguas (Wix). Sin patrones comodín genéricos que puedan
- * colisionar con rutas nuevas (`/blog`, `/post`, etc.).
+ * Redirects 301 desde rutas antiguas (Wix) y rutas duplicadas internas.
  *
- * Tabla resumida en la entrega Fase 4B (respuesta del asistente).
+ * Reglas de canonicalización:
+ *   /que-hacemos/*  → /programas/*        (canónica: /programas)
+ *   /marco/*        → /educacion-mediatica/* (canónica: /educacion-mediatica)
+ *   /educaciónmediática → /educacion-mediatica
+ *   /saberes/una-pregunta-al-dia → /unapreguntaaldia
  */
 export function legacyRedirects() {
   return [
+    // ─── Rutas duplicadas — canonicalización ──────────────────────────────────
+
+    // /que-hacemos/* → /programas/*
+    { source: "/que-hacemos", destination: "/programas", permanent: true },
+    { source: "/que-hacemos/ciudades", destination: "/programas/ciudades", permanent: true },
+    { source: "/que-hacemos/hub-digital-consciente", destination: "/programas/hub-digital-consciente", permanent: true },
+    { source: "/que-hacemos/aprender-digital", destination: "/programas/aprender-digital", permanent: true },
+    { source: "/que-hacemos/funcionarios-publicos", destination: "/programas/funcionarios-publicos", permanent: true },
+    { source: "/que-hacemos/formacion-pensamiento-critico", destination: "/programas/pensamiento-critico", permanent: true },
+
+    // /marco/* → /educacion-mediatica/*
+    { source: "/marco/comunicacion", destination: "/educacion-mediatica/comunicacion", permanent: true },
+    { source: "/marco/educacion", destination: "/educacion-mediatica/educacion", permanent: true },
+    { source: "/marco/tecnologia", destination: "/educacion-mediatica/tecnologia", permanent: true },
+    { source: "/marco/cultura", destination: "/educacion-mediatica/cultura", permanent: true },
+
+    // /educaciónmediática (con tilde) → /educacion-mediatica
+    { source: "/educaci%C3%B3nmedi%C3%A1tica", destination: "/educacion-mediatica", permanent: true },
+    { source: "/educaciónmediática", destination: "/educacion-mediatica", permanent: true },
+    {
+      source: "/educaci%C3%B3nmedi%C3%A1tica/propuesta-politica-alfabetizacion",
+      destination: "/educacion-mediatica/propuesta-politica-alfabetizacion",
+      permanent: true,
+    },
+    {
+      source: "/educaciónmediática/propuesta-politica-alfabetizacion",
+      destination: "/educacion-mediatica/propuesta-politica-alfabetizacion",
+      permanent: true,
+    },
+
+    // /saberes/una-pregunta-al-dia → /unapreguntaaldia (canónica: la corta, que usa el nav)
+    { source: "/saberes/una-pregunta-al-dia", destination: "/unapreguntaaldia", permanent: true },
+
+    // ─── Wix legacy ───────────────────────────────────────────────────────────
+
     { source: "/somosprecisar", destination: "/somos", permanent: true },
     { source: "/hubdigitaconsciente", destination: "/programas/hub-digital-consciente", permanent: true },
     { source: "/services-3", destination: "/programas/hub-digital-consciente", permanent: true },
@@ -65,41 +103,18 @@ export function legacyRedirects() {
     { source: "/docentes", destination: "/programas/leer-noticias-era-digital", permanent: true },
     { source: "/programas/docentes", destination: "/programas/leer-noticias-era-digital", permanent: true },
     { source: "/que-hacemos/docentes", destination: "/programas/leer-noticias-era-digital", permanent: true },
-    {
-      source: "/leernoticiasenlaeradigital",
-      destination: "/programas/leer-noticias-era-digital",
-      permanent: true,
-    },
-    {
-      source: "/funcionariospublicos",
-      destination: "/programas/funcionarios-publicos",
-      permanent: true,
-    },
+    { source: "/leernoticiasenlaeradigital", destination: "/programas/leer-noticias-era-digital", permanent: true },
+    { source: "/funcionariospublicos", destination: "/programas/funcionarios-publicos", permanent: true },
     { source: "/curso-desinformación", destination: "/aqui-no-pasa", permanent: true },
-    {
-      source: "/cursos/aqui-no-pasa/:n",
-      destination: "/aqui-no-pasa/modulos/:n",
-      permanent: true,
-    },
-    { source: "/comunicación", destination: "/marco/comunicacion", permanent: true },
-    { source: "/educación", destination: "/marco/educacion", permanent: true },
-    { source: "/tecnologia", destination: "/marco/tecnologia", permanent: true },
-    { source: "/cultura", destination: "/marco/cultura", permanent: true },
-    {
-      source: "/privacidad2026",
-      destination: "/legal/privacidad-consulta-2026",
-      permanent: true,
-    },
-    {
-      source: "/política-de-privacidad-bot-onda",
-      destination: "/legal/privacidad-bot-onda",
-      permanent: true,
-    },
-    {
-      source: "/sentidos-digitales",
-      destination: "/experiencias/sentidos-digitales",
-      permanent: true,
-    },
+    { source: "/cursos/aqui-no-pasa/:n", destination: "/aqui-no-pasa/modulos/:n", permanent: true },
+    // /comunicación y /educación apuntaban a /marco/* — ahora van directo a /educacion-mediatica/*
+    { source: "/comunicación", destination: "/educacion-mediatica/comunicacion", permanent: true },
+    { source: "/educación", destination: "/educacion-mediatica/educacion", permanent: true },
+    { source: "/tecnologia", destination: "/educacion-mediatica/tecnologia", permanent: true },
+    { source: "/cultura", destination: "/educacion-mediatica/cultura", permanent: true },
+    { source: "/privacidad2026", destination: "/legal/privacidad-consulta-2026", permanent: true },
+    { source: "/política-de-privacidad-bot-onda", destination: "/legal/privacidad-bot-onda", permanent: true },
+    { source: "/sentidos-digitales", destination: "/experiencias/sentidos-digitales", permanent: true },
     { source: "/sentido-digital-del-tacto", destination: "/experiencias/sentidos-digitales/tacto", permanent: true },
     { source: "/sentido-digital-del-olfato", destination: "/experiencias/sentidos-digitales/olfato", permanent: true },
     { source: "/sentido-digital-visión", destination: "/experiencias/sentidos-digitales/vision", permanent: true },
@@ -107,16 +122,14 @@ export function legacyRedirects() {
     { source: "/sentido-digital-del-equilibrio", destination: "/experiencias/sentidos-digitales/equilibrio", permanent: true },
     { source: "/sentido-digital-oído", destination: "/experiencias/sentidos-digitales/oido", permanent: true },
     { source: "/autotalleres", destination: "/programas", permanent: true },
-    { source: "/onda", destination: "https://onda2026.vercel.app/chat", permanent: true },
+    // /onda → Bot Onda en dominio propio
+    { source: "/onda", destination: "https://onda.precisar.net/chat", permanent: true },
     { source: "/coming-soon-01", destination: "/", permanent: true },
-    { source: "/comunicaci%C3%B3n", destination: "/marco/comunicacion", permanent: true },
-    { source: "/educaci%C3%B3n", destination: "/marco/educacion", permanent: true },
+    // Variantes URL-encoded
+    { source: "/comunicaci%C3%B3n", destination: "/educacion-mediatica/comunicacion", permanent: true },
+    { source: "/educaci%C3%B3n", destination: "/educacion-mediatica/educacion", permanent: true },
     { source: "/pol%C3%ADtica-de-privacidad-bot-onda", destination: "/legal/privacidad-bot-onda", permanent: true },
-    {
-      source: "/curso-desinformaci%C3%B3n",
-      destination: "/aqui-no-pasa",
-      permanent: true,
-    },
+    { source: "/curso-desinformaci%C3%B3n", destination: "/aqui-no-pasa", permanent: true },
     /** La instalación inmersiva vive en `/`; `/cinematic` queda como alias temporal. */
     { source: "/cinematic", destination: "/", permanent: false },
   ];
