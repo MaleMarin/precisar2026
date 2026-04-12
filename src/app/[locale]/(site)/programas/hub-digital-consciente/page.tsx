@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { FooterContactLink } from "@/components/FooterContactLink";
 import shell from "@/components/programs/ProgramShell.module.css";
 import HubCylinder from "./HubCylinder";
 
@@ -51,15 +50,10 @@ export default function Page() {
       </section>
 
       <section className={shell.cta} aria-labelledby="hub-cta-title">
-        <div className={shell.ctaInner}>
-          <div>
-            <h2 id="hub-cta-title" className={shell.ctaTitle}>
-              Lleva el Hub Digital Consciente a tu espacio.
-            </h2>
-          </div>
-          <div className={shell.ctaRight}>
-            <FooterContactLink className={shell.ctaBtn}>Contacto</FooterContactLink>
-          </div>
+        <div className={shell.ctaInner} style={{ gridTemplateColumns: "1fr" }}>
+          <h2 id="hub-cta-title" className={shell.ctaTitle}>
+            Lleva el Hub Digital Consciente a tu espacio.
+          </h2>
         </div>
       </section>
     </main>

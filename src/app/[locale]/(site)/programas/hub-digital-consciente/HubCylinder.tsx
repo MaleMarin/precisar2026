@@ -165,22 +165,15 @@ const CONTENT = [
     bg: "#023661", tc: "#F5F2EC",
   },
   {
-    kicker: "06 · Contacto",
+    kicker: "06 · Proceso",
     title: "Lleva el Hub\na tu espacio",
     sub: "Diseñamos a medida.",
-    body: "Cuéntanos tu espacio, público y duración. Diseñamos una propuesta a medida para tu evento o municipio.",
+    body: "Definimos contigo espacio, público y duración, y armamos una propuesta alineada a tu evento o territorio.",
     groups: [
-      {
-        label: "Cómo desarrollamos cada muestra",
-        items: [
-          "Colaboración con Expertos — Nos asociamos con profesionales en diversos campos para asegurar que el contenido sea preciso y relevante.",
-          "Investigación en Campo — Realizamos investigaciones directas con la audiencia para entender los desafíos reales y las perspectivas de cada muestra.",
-        ],
-      },
       {
         label: "El proceso",
         items: [
-          "01 · Cuéntanos tu espacio, público y duración imaginados para la muestra.",
+          "01 · Definimos espacio, público y duración imaginados para la muestra.",
           "02 · Diseñamos la propuesta a medida de tu comunidad y objetivos.",
           "03 · Co-creamos juntos el montaje, contenidos y cronograma.",
         ],
@@ -706,7 +699,7 @@ export default function HubCylinder() {
         ))}
 
         <div className="hub-print-section">
-          <h2>Contacto y redes</h2>
+          <h2>Redes y web</h2>
           <p>Web: precisar.net</p>
           <p>X / Twitter: x.com/precisar_</p>
           <p>Instagram: instagram.com/_precisar</p>
