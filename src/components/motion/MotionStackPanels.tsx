@@ -696,20 +696,17 @@ export function MotionStackPanels({
       headline: tEducacionMediatica("stackHeadline"),
       body: tEducacionMediatica("stackBody"),
       icon: undefined,
-      mainFooter: (
-        <Link
-          href="/educacion-mediatica/propuesta-politica-alfabetizacion"
-          className={styles.amiBtn}
-        >
-          Educación Mediática para Chile →
-        </Link>
-      ),
       child: (
         <>
           <MiniList reduceMotion={reduceMotion} glass items={educacionMediaticaLinks} />
-          <Link href="/educacion-mediatica/ami-vs-alfabetizacion-digital" className={styles.amiBtn}>
-            AMI vs Alfabetización Digital →
-          </Link>
+          <div className={styles.amiBtnStack}>
+            <Link href="/educacion-mediatica/propuesta-politica-alfabetizacion" className={styles.amiBtn}>
+              Educación Mediática para Chile →
+            </Link>
+            <Link href="/educacion-mediatica/ami-vs-alfabetizacion-digital" className={styles.amiBtn}>
+              AMI vs Alfabetización Digital →
+            </Link>
+          </div>
         </>
       ),
     },
@@ -744,7 +741,6 @@ export function MotionStackPanels({
             reduceMotion={reduceMotion}
             editorialContent={"editorialContent" in panel ? panel.editorialContent : undefined}
             editorialHeight={"editorialHeight" in panel ? panel.editorialHeight : "tall"}
-            mainFooter={"mainFooter" in panel ? panel.mainFooter : undefined}
           >
             {"child" in panel ? panel.child : undefined}
           </StackPanel>

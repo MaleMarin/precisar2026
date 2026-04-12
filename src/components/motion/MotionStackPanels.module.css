@@ -1458,6 +1458,27 @@
   -webkit-backdrop-filter: blur(18px) saturate(1.25);
 }
 
+/* Educación mediática: lista + dos CTAs naranjas apilados a la derecha (sin space-between). */
+:global(#educacion-mediatica) .colAside {
+  justify-content: flex-start;
+}
+
+.amiBtnStack {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 1.25rem;
+  align-self: stretch;
+}
+
+.amiBtnStack .amiBtn {
+  margin-top: 0;
+  width: 100%;
+  box-sizing: border-box;
+  justify-content: center;
+}
+
 /* Saberes: misma cadena flex que Programas — la columna derecha hace scroll; si no, Bot Onda queda bajo el recorte del sticky (~100vh). */
 :global(#saberes) .stickyPanel {
   display: flex;
