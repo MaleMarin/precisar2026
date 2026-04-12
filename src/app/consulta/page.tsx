@@ -5,7 +5,7 @@ import { ConsultaPageShell } from "@/components/consulta/ConsultaPageShell";
 import { ConsultaViewportCenter } from "@/components/consulta/ConsultaViewportCenter";
 import { ConsultaWizardSlot } from "./ConsultaWizardSlot";
 
-export const metadata = {
+export const metadata: import("next").Metadata = {
   title: "¿Cómo te informas hoy? — Precisar",
   description: "Consulta ciudadana anónima de Precisar: 12 preguntas sobre cómo recibes, evalúas y compartes información.",
 };
