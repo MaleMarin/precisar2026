@@ -98,12 +98,12 @@ const MODULOS = [
 
 export default function DocentesPage() {
   return (
-    <main className={shell.page}>
+    <main className={shell.page} data-program="leer-noticias">
 
       {/* HERO */}
       <section className={shell.hero}>
         <div className={shell.heroInner}>
-          <p className={shell.heroKicker}>
+          <p className={shell.heroEyebrow}>
             Programas · Docentes
           </p>
           <h1 className={shell.heroTitle}>
@@ -164,7 +164,7 @@ export default function DocentesPage() {
             }}>
               <p style={{
                 fontFamily: "'Bebas Neue',sans-serif",
-                fontSize: "22px",
+                fontSize: "clamp(20px,2.5vw,28px)",
                 color: "#0A0C12",
                 margin: "0 0 10px",
               }}>
@@ -172,9 +172,9 @@ export default function DocentesPage() {
               </p>
               <p style={{
                 fontFamily: "'Avenir Next','Avenir',sans-serif",
-                fontSize: "14px",
+                fontSize: "clamp(14px,1.4vw,17px)",
                 color: "rgba(10,12,18,0.6)",
-                lineHeight: 1.65,
+                lineHeight: 1.75,
                 margin: 0,
               }}>
                 {obj.desc}
@@ -211,8 +211,8 @@ export default function DocentesPage() {
         <p style={{
           fontFamily: "'Avenir Next','Avenir',sans-serif",
           fontSize: "clamp(14px,1.4vw,17px)",
-          color: "rgba(245,242,236,0.6)",
-          lineHeight: 1.7,
+          color: "rgba(245,242,236,0.65)",
+          lineHeight: 1.75,
           margin: "0 0 3rem",
           maxWidth: 640,
         }}>
@@ -232,7 +232,7 @@ export default function DocentesPage() {
             }}>
               <p style={{
                 fontFamily: "'Bebas Neue',sans-serif",
-                fontSize: "22px",
+                fontSize: "clamp(20px,2.5vw,28px)",
                 color: "#F5F2EC",
                 margin: "0 0 10px",
               }}>
@@ -240,9 +240,9 @@ export default function DocentesPage() {
               </p>
               <p style={{
                 fontFamily: "'Avenir Next','Avenir',sans-serif",
-                fontSize: "14px",
-                color: "rgba(245,242,236,0.6)",
-                lineHeight: 1.65,
+                fontSize: "clamp(14px,1.4vw,17px)",
+                color: "rgba(245,242,236,0.65)",
+                lineHeight: 1.75,
                 margin: 0,
               }}>
                 {b.desc}
@@ -278,17 +278,19 @@ export default function DocentesPage() {
         </h2>
         <div style={{
           display: "grid",
-          gridTemplateColumns: "repeat(2,1fr)",
-          gap: "16px",
+          gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 280px), 1fr))",
+          gap: "1px",
+          background: "rgba(245,242,236,0.08)",
         }}>
           {METODOLOGIA.map((met, i) => (
             <div key={i} style={{
               background: "#F5F2EC",
               padding: "2rem",
+              borderLeft: "3px solid #DB5227",
             }}>
               <p style={{
                 fontFamily: "'Bebas Neue',sans-serif",
-                fontSize: "22px",
+                fontSize: "clamp(20px,2.5vw,28px)",
                 color: "#0A0C12",
                 margin: "0 0 10px",
               }}>
@@ -296,9 +298,9 @@ export default function DocentesPage() {
               </p>
               <p style={{
                 fontFamily: "'Avenir Next','Avenir',sans-serif",
-                fontSize: "14px",
+                fontSize: "clamp(14px,1.4vw,17px)",
                 color: "rgba(10,12,18,0.6)",
-                lineHeight: 1.65,
+                lineHeight: 1.75,
                 margin: 0,
               }}>
                 {met.desc}
@@ -336,7 +338,7 @@ export default function DocentesPage() {
           fontFamily: "'Avenir Next','Avenir',sans-serif",
           fontSize: "clamp(14px,1.4vw,17px)",
           color: "rgba(245,242,236,0.55)",
-          lineHeight: 1.7,
+          lineHeight: 1.75,
           margin: "0 0 3rem",
           maxWidth: 560,
         }}>
@@ -360,8 +362,8 @@ export default function DocentesPage() {
               <div>
                 <p style={{
                   fontFamily: "'Avenir Next','Avenir',sans-serif",
-                  fontSize: "10px",
-                  letterSpacing: "0.18em",
+                  fontSize: "11px",
+                  letterSpacing: "0.22em",
                   textTransform: "uppercase",
                   color: "#DB5227",
                   margin: "0 0 6px",
@@ -370,19 +372,19 @@ export default function DocentesPage() {
                 </p>
                 <p style={{
                   fontFamily: "'Bebas Neue',sans-serif",
-                  fontSize: "20px",
+                  fontSize: "clamp(20px,2.5vw,28px)",
                   color: "#F5F2EC",
                   margin: 0,
-                  lineHeight: 1.1,
+                  lineHeight: 1,
                 }}>
                   {mod.label}
                 </p>
               </div>
               <p style={{
                 fontFamily: "'Avenir Next','Avenir',sans-serif",
-                fontSize: "14px",
+                fontSize: "clamp(14px,1.4vw,17px)",
                 color: "rgba(245,242,236,0.65)",
-                lineHeight: 1.7,
+                lineHeight: 1.75,
                 margin: 0,
               }}>
                 {mod.desc}
@@ -408,9 +410,9 @@ export default function DocentesPage() {
         </h2>
         <p style={{
           fontFamily: "'Avenir Next','Avenir',sans-serif",
-          fontSize: "clamp(15px,1.5vw,18px)",
-          color: "rgba(245,242,236,0.85)",
-          lineHeight: 1.7,
+          fontSize: "clamp(14px,1.4vw,17px)",
+          color: "rgba(245,242,236,0.65)",
+          lineHeight: 1.75,
           maxWidth: 560,
           margin: "0 0 2.5rem",
         }}>

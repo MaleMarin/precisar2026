@@ -78,9 +78,9 @@
 
 .heroEyebrow {
   margin: 0 0 1.25rem;
-  font-family: var(--font-mono);
-  font-size: clamp(12px, 1.15vw, 14px);
-  font-weight: 600;
+  font-family: "Avenir Next", "Avenir", var(--font-sans), system-ui, sans-serif;
+  font-size: 11px;
+  font-weight: 400;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: #db5227;
@@ -90,19 +90,20 @@
   margin: 0;
   max-width: 860px;
   font-family: var(--font-display);
-  font-size: clamp(44px, 6.5vw, 88px);
-  font-weight: 800;
-  line-height: 1;
-  letter-spacing: -0.03em;
+  font-size: clamp(56px, 9vw, 112px);
+  font-weight: 400;
+  line-height: 0.88;
+  letter-spacing: -0.02em;
   color: #fff;
 }
 
 .heroSub {
   margin: 1.25rem 0 0;
   max-width: 560px;
-  font-size: 18px;
-  line-height: 1.5;
-  color: rgba(255, 255, 255, 0.68);
+  font-family: "Avenir Next", "Avenir", var(--font-sans), system-ui, sans-serif;
+  font-size: clamp(14px, 1.4vw, 17px);
+  line-height: 1.75;
+  color: rgba(245, 242, 236, 0.65);
 }
 
 .heroStat {
@@ -118,7 +119,7 @@
   margin: 0;
   font-family: var(--font-display);
   font-size: clamp(80px, 12vw, 140px);
-  font-weight: 800;
+  font-weight: 400;
   line-height: 0.95;
   color: rgba(219, 82, 39, 0.15);
   letter-spacing: -0.04em;
@@ -126,10 +127,10 @@
 
 .heroStatLabel {
   margin: 0.35rem 0 0;
-  font-family: var(--font-sans);
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: #fff;
+  font-family: "Avenir Next", "Avenir", var(--font-sans), system-ui, sans-serif;
+  font-size: clamp(13px, 1.2vw, 15px);
+  font-weight: 400;
+  color: rgba(245, 242, 236, 0.65);
   letter-spacing: 0.02em;
 }
 
@@ -152,9 +153,9 @@
   }
 }
 
-/* ─── Bloque tipo “qué es” (blanco) ─── */
+/* ─── Bloque tipo “qué es” (crema) ─── */
 .queEs {
-  background: #fff;
+  background: #f5f2ec;
 }
 
 .queEsGrid {
@@ -173,7 +174,7 @@
   margin: 0;
   font-family: var(--font-display);
   font-size: clamp(60px, 10vw, 100px);
-  font-weight: 800;
+  font-weight: 400;
   line-height: 1;
   color: #db5227;
   letter-spacing: -0.03em;
@@ -181,16 +182,18 @@
 
 .statSub {
   margin: 8px 0 0;
-  font-size: 18px;
-  line-height: 1.45;
-  color: #76828e;
+  font-family: "Avenir Next", "Avenir", var(--font-sans), system-ui, sans-serif;
+  font-size: clamp(14px, 1.4vw, 17px);
+  line-height: 1.75;
+  color: rgba(10, 12, 18, 0.6);
 }
 
 .bodyText {
   margin: 0;
-  font-size: 16px;
+  font-family: "Avenir Next", "Avenir", var(--font-sans), system-ui, sans-serif;
+  font-size: clamp(14px, 1.4vw, 17px);
   line-height: 1.75;
-  color: #3d3a37;
+  color: rgba(10, 12, 18, 0.6);
 }
 
 .bodyText + .bodyText {
@@ -210,9 +213,9 @@
 .secTitleLight {
   margin: 0 0 16px;
   font-family: var(--font-display);
-  font-size: clamp(30px, 4.4vw, 48px);
-  font-weight: 800;
-  line-height: 1.15;
+  font-size: clamp(40px, 6vw, 72px);
+  font-weight: 400;
+  line-height: 0.9;
   letter-spacing: -0.02em;
   color: #fff;
 }
@@ -223,18 +226,19 @@
 
 .secSubMuted {
   margin: 0 0 48px;
-  font-size: 16px;
-  line-height: 1.55;
-  color: rgba(255, 255, 255, 0.5);
+  font-family: "Avenir Next", "Avenir", var(--font-sans), system-ui, sans-serif;
+  font-size: clamp(14px, 1.4vw, 17px);
+  line-height: 1.75;
+  color: rgba(245, 242, 236, 0.65);
   max-width: 40rem;
 }
 
 .secTitleDark {
   margin: 0 0 16px;
   font-family: var(--font-display);
-  font-size: clamp(30px, 4.4vw, 48px);
-  font-weight: 700;
-  line-height: 1.15;
+  font-size: clamp(40px, 6vw, 72px);
+  font-weight: 400;
+  line-height: 0.9;
   letter-spacing: -0.02em;
   color: #0a0c12;
 }
@@ -245,9 +249,10 @@
 
 .secSubtitle {
   margin: 0 0 48px;
-  font-size: 16px;
-  line-height: 1.55;
-  color: #76828e;
+  font-family: "Avenir Next", "Avenir", var(--font-sans), system-ui, sans-serif;
+  font-size: clamp(14px, 1.4vw, 17px);
+  line-height: 1.75;
+  color: rgba(10, 12, 18, 0.6);
   max-width: 42rem;
 }
 
@@ -291,19 +296,20 @@
 
 .ctaTitle {
   margin: 0;
-  font-family: var(--font-serif-display), "Cormorant Garamond", Georgia, serif;
-  font-style: italic;
-  font-size: clamp(30px, 4.2vw, 52px);
-  font-weight: 500;
-  line-height: 1.1;
+  font-family: var(--font-display);
+  font-style: normal;
+  font-size: clamp(40px, 6vw, 72px);
+  font-weight: 400;
+  line-height: 0.9;
   color: #fff;
 }
 
 .ctaText {
   margin: 0 0 24px;
-  font-size: 15px;
-  line-height: 1.65;
-  color: rgba(255, 255, 255, 0.75);
+  font-family: "Avenir Next", "Avenir", var(--font-sans), system-ui, sans-serif;
+  font-size: clamp(14px, 1.4vw, 17px);
+  line-height: 1.75;
+  color: rgba(245, 242, 236, 0.65);
 }
 
 .ctaSteps {
@@ -313,9 +319,10 @@
 }
 
 .ctaSteps li {
-  font-size: 14px;
-  line-height: 2;
-  color: rgba(255, 255, 255, 0.8);
+  font-family: "Avenir Next", "Avenir", var(--font-sans), system-ui, sans-serif;
+  font-size: clamp(13px, 1.2vw, 15px);
+  line-height: 1.55;
+  color: rgba(245, 242, 236, 0.65);
 }
 
 .ctaRight {
@@ -333,9 +340,10 @@
 
 .ctaAside {
   margin: 0 0 24px;
-  font-size: 15px;
-  line-height: 1.65;
-  color: rgba(255, 255, 255, 0.75);
+  font-family: "Avenir Next", "Avenir", var(--font-sans), system-ui, sans-serif;
+  font-size: clamp(14px, 1.4vw, 17px);
+  line-height: 1.75;
+  color: rgba(245, 242, 236, 0.65);
   max-width: 28rem;
 }
 
@@ -349,11 +357,12 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: #fff;
-  color: #db5227;
-  font-weight: 700;
-  font-size: 12px;
-  letter-spacing: 2px;
+  background: #f5f2ec;
+  color: #0a0c12;
+  font-family: "Avenir Next", "Avenir", var(--font-sans), system-ui, sans-serif;
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
   padding: 14px 28px;
   border-radius: 3px;
@@ -384,12 +393,12 @@
 
 .continuaEyebrow {
   margin: 0 0 20px;
-  font-family: var(--font-mono);
-  font-size: clamp(12px, 1.15vw, 14px);
-  font-weight: 600;
+  font-family: "Avenir Next", "Avenir", var(--font-sans), system-ui, sans-serif;
+  font-size: 11px;
+  font-weight: 400;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: #76828e;
+  color: #db5227;
 }
 
 .continuaLinks {
@@ -399,8 +408,9 @@
 }
 
 .continuaLink {
-  font-size: 14px;
-  font-weight: 700;
+  font-family: "Avenir Next", "Avenir", var(--font-sans), system-ui, sans-serif;
+  font-size: clamp(14px, 1.4vw, 17px);
+  font-weight: 500;
   color: #db5227;
   text-decoration: none;
   transition: opacity 0.15s ease;

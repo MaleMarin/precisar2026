@@ -29,7 +29,7 @@
   display: flex;
   align-items: flex-end;
   box-sizing: border-box;
-  background: linear-gradient(135deg, #023661 0%, #0a0c12 100%);
+  background: #0a0c12;
 }
 
 .heroInner {
@@ -51,9 +51,10 @@
 
 .heroEyebrow {
   margin: 0 0 1rem;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 3px;
+  font-family: "Avenir Next", "Avenir", var(--font-sans), system-ui, sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   color: #db5227;
 }
@@ -70,8 +71,9 @@
 
 .heroYearBig {
   display: block;
+  font-family: var(--font-display);
   font-size: clamp(80px, 12vw, 140px);
-  font-weight: 800;
+  font-weight: 400;
   line-height: 0.9;
   color: rgba(219, 82, 39, 0.15);
   letter-spacing: -0.04em;
@@ -79,17 +81,17 @@
 
 .heroYearCap {
   margin: 0.35rem 0 0;
-  font-size: 0.75rem;
-  font-weight: 500;
+  font-family: "Avenir Next", "Avenir", var(--font-sans), system-ui, sans-serif;
+  font-size: clamp(13px, 1.2vw, 15px);
+  font-weight: 400;
   letter-spacing: 0.06em;
   text-transform: lowercase;
-  color: #ffffff;
-  opacity: 0.85;
+  color: rgba(245, 242, 236, 0.65);
 }
 
 /* ─── Quiénes somos ─── */
 .who {
-  background: #ffffff;
+  background: #f5f2ec;
 }
 
 .whoGrid {
@@ -108,32 +110,36 @@
 
 .whoStatBig {
   margin: 0;
+  font-family: var(--font-display);
   font-size: clamp(60px, 10vw, 100px);
-  font-weight: 800;
+  font-weight: 400;
   line-height: 1;
   color: #db5227;
 }
 
 .whoStatWord {
   margin: 0.15rem 0 0;
+  font-family: var(--font-display);
   font-size: clamp(1.5rem, 3vw, 2rem);
-  font-weight: 800;
+  font-weight: 400;
   color: #db5227;
   line-height: 1.1;
 }
 
 .whoStatSub {
   margin: 0.5rem 0 0;
-  font-size: 14px;
-  line-height: 1.45;
-  color: #76828e;
+  font-family: "Avenir Next", "Avenir", var(--font-sans), system-ui, sans-serif;
+  font-size: clamp(14px, 1.4vw, 17px);
+  line-height: 1.75;
+  color: rgba(10, 12, 18, 0.6);
 }
 
 .whoBody {
   margin: 0;
-  font-size: 16px;
+  font-family: "Avenir Next", "Avenir", var(--font-sans), system-ui, sans-serif;
+  font-size: clamp(14px, 1.4vw, 17px);
   line-height: 1.75;
-  color: #3d3a37;
+  color: rgba(10, 12, 18, 0.6);
 }
 
 .whoBody p {
@@ -156,12 +162,12 @@
 
 .drivesQuote {
   margin: 0 0 48px;
-  font-family: ui-serif, Georgia, "Times New Roman", serif;
-  font-style: italic;
-  font-size: clamp(24px, 3.5vw, 42px);
-  font-weight: 500;
-  line-height: 1.3;
-  color: #ffffff;
+  font-family: "Avenir Next", "Avenir", var(--font-sans), system-ui, sans-serif;
+  font-style: normal;
+  font-size: clamp(14px, 1.4vw, 17px);
+  font-weight: 400;
+  line-height: 1.75;
+  color: rgba(245, 242, 236, 0.65);
   max-width: 760px;
 }
 
@@ -184,18 +190,20 @@
 
 .drivesColTitle {
   margin: 0 0 0.65rem;
+  font-family: "Avenir Next", "Avenir", var(--font-sans), system-ui, sans-serif;
   font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 0.2em;
+  font-weight: 400;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   color: #db5227;
 }
 
 .drivesColText {
   margin: 0;
-  font-size: 15px;
-  line-height: 1.65;
-  color: rgba(255, 255, 255, 0.82);
+  font-family: "Avenir Next", "Avenir", var(--font-sans), system-ui, sans-serif;
+  font-size: clamp(14px, 1.4vw, 17px);
+  line-height: 1.75;
+  color: rgba(245, 242, 236, 0.65);
 }
 
 /* ─── Lo que hacemos ─── */
@@ -210,9 +218,10 @@
 
 .workTitle {
   margin: 0 0 48px;
-  font-size: clamp(28px, 4vw, 44px);
-  font-weight: 800;
-  line-height: 1.15;
+  font-family: var(--font-display);
+  font-size: clamp(40px, 6vw, 72px);
+  font-weight: 400;
+  line-height: 0.9;
   color: #ffffff;
   letter-spacing: -0.02em;
 }
@@ -243,25 +252,30 @@
 
 .workNum {
   margin: 0 0 0.75rem;
-  font-size: 13px;
-  font-weight: 800;
-  letter-spacing: 0.12em;
+  font-family: "Avenir Next", "Avenir", var(--font-sans), system-ui, sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
   color: #db5227;
 }
 
 .workCardTitle {
   margin: 0 0 0.65rem;
-  font-size: 1.125rem;
-  font-weight: 700;
+  font-family: var(--font-display);
+  font-size: clamp(20px, 2.5vw, 28px);
+  font-weight: 400;
+  line-height: 1;
   color: #ffffff;
   letter-spacing: -0.02em;
 }
 
 .workCardText {
   margin: 0;
-  font-size: 14px;
-  line-height: 1.65;
-  color: rgba(255, 255, 255, 0.72);
+  font-family: "Avenir Next", "Avenir", var(--font-sans), system-ui, sans-serif;
+  font-size: clamp(14px, 1.4vw, 17px);
+  line-height: 1.75;
+  color: rgba(245, 242, 236, 0.65);
 }
 
 /* ─── Cierre ─── */
@@ -276,9 +290,10 @@
 
 .closingLine {
   margin: 0;
-  font-size: clamp(32px, 5vw, 64px);
-  font-weight: 700;
-  line-height: 1.08;
+  font-family: var(--font-display);
+  font-size: clamp(40px, 6vw, 72px);
+  font-weight: 400;
+  line-height: 0.9;
   color: #ffffff;
   text-align: left;
   max-width: 760px;
@@ -320,30 +335,32 @@
 
 .ctaHeadline {
   margin: 0;
-  font-family: ui-serif, Georgia, "Times New Roman", serif;
-  font-style: italic;
-  font-size: clamp(28px, 4vw, 48px);
-  font-weight: 500;
-  line-height: 1.1;
+  font-family: var(--font-display);
+  font-style: normal;
+  font-size: clamp(40px, 6vw, 72px);
+  font-weight: 400;
+  line-height: 0.9;
   color: #ffffff;
 }
 
 .ctaBody {
   margin: 0 0 24px;
-  font-size: 15px;
-  line-height: 1.65;
-  color: rgba(255, 255, 255, 0.75);
+  font-family: "Avenir Next", "Avenir", var(--font-sans), system-ui, sans-serif;
+  font-size: clamp(14px, 1.4vw, 17px);
+  line-height: 1.75;
+  color: rgba(245, 242, 236, 0.65);
 }
 
 .ctaBtn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: #ffffff;
-  color: #db5227;
-  font-weight: 700;
-  font-size: 12px;
-  letter-spacing: 2px;
+  background: #f5f2ec;
+  color: #0a0c12;
+  font-family: "Avenir Next", "Avenir", var(--font-sans), system-ui, sans-serif;
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
   text-decoration: none;
   padding: 14px 28px;
@@ -386,11 +403,12 @@
 
 .nextEyebrow {
   margin: 0 0 1.25rem;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 3px;
+  font-family: "Avenir Next", "Avenir", var(--font-sans), system-ui, sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: #76828e;
+  color: #db5227;
 }
 
 .nextLinks {
@@ -401,8 +419,9 @@
 }
 
 .nextLink {
-  font-size: 14px;
-  font-weight: 700;
+  font-family: "Avenir Next", "Avenir", var(--font-sans), system-ui, sans-serif;
+  font-size: clamp(14px, 1.4vw, 17px);
+  font-weight: 500;
   color: #db5227;
   text-decoration: none;
   transition: opacity 0.2s ease;

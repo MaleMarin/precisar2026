@@ -116,9 +116,9 @@ export default function CiudadesPage() {
           <p
             style={{
               fontFamily: "'Avenir Next','Avenir',sans-serif",
-              fontSize: "clamp(16px,1.6vw,20px)",
+              fontSize: "clamp(14px,1.4vw,17px)",
               lineHeight: 1.75,
-              color: "rgba(10,12,18,0.75)",
+              color: "rgba(10,12,18,0.6)",
               marginBottom: "2rem",
             }}
           >
@@ -131,7 +131,7 @@ export default function CiudadesPage() {
             style={{
               fontFamily: "'Avenir Next','Avenir',sans-serif",
               fontSize: "clamp(14px,1.4vw,17px)",
-              lineHeight: 1.7,
+              lineHeight: 1.75,
               color: "rgba(10,12,18,0.6)",
             }}
           >
@@ -171,7 +171,8 @@ export default function CiudadesPage() {
               <p
                 style={{
                   fontFamily: "'Bebas Neue',sans-serif",
-                  fontSize: "22px",
+                  fontSize: "clamp(20px,2.5vw,28px)",
+                  lineHeight: 1,
                   color: "#0A0C12",
                   margin: "0 0 8px",
                 }}
@@ -181,9 +182,9 @@ export default function CiudadesPage() {
               <p
                 style={{
                   fontFamily: "'Avenir Next','Avenir',sans-serif",
-                  fontSize: "14px",
+                  fontSize: "clamp(14px,1.4vw,17px)",
                   color: "rgba(10,12,18,0.6)",
-                  lineHeight: 1.6,
+                  lineHeight: 1.75,
                   margin: 0,
                 }}
               >
@@ -220,9 +221,9 @@ export default function CiudadesPage() {
             >
               <p
                 style={{
-                  fontFamily: "'Avenir Next','Avenir',sans-serif",
-                  fontSize: "13px",
-                  fontWeight: 600,
+                  fontFamily: "'Bebas Neue',sans-serif",
+                  fontSize: "clamp(20px,2.5vw,28px)",
+                  lineHeight: 1,
                   color: "#0A0C12",
                   margin: "0 0 4px",
                 }}
@@ -232,8 +233,9 @@ export default function CiudadesPage() {
               <p
                 style={{
                   fontFamily: "'Avenir Next','Avenir',sans-serif",
-                  fontSize: "12px",
-                  color: "rgba(10,12,18,0.55)",
+                  fontSize: "clamp(13px,1.2vw,15px)",
+                  lineHeight: 1.55,
+                  color: "rgba(10,12,18,0.6)",
                   margin: 0,
                 }}
               >
@@ -296,7 +298,8 @@ export default function CiudadesPage() {
               <p
                 style={{
                   fontFamily: "'Bebas Neue',sans-serif",
-                  fontSize: "20px",
+                  fontSize: "clamp(20px,2.5vw,28px)",
+                  lineHeight: 1,
                   color: "#F5F2EC",
                   margin: "0 0 10px",
                 }}
@@ -306,9 +309,9 @@ export default function CiudadesPage() {
               <p
                 style={{
                   fontFamily: "'Avenir Next','Avenir',sans-serif",
-                  fontSize: "13px",
-                  color: "rgba(245,242,236,0.6)",
-                  lineHeight: 1.65,
+                  fontSize: "clamp(14px,1.4vw,17px)",
+                  color: "rgba(245,242,236,0.65)",
+                  lineHeight: 1.75,
                   margin: 0,
                 }}
               >
@@ -369,8 +372,8 @@ export default function CiudadesPage() {
               <p
                 style={{
                   fontFamily: "'Avenir Next','Avenir',sans-serif",
-                  fontSize: "10px",
-                  letterSpacing: "0.18em",
+                  fontSize: "11px",
+                  letterSpacing: "0.22em",
                   textTransform: "uppercase",
                   color: "#DB5227",
                   margin: "0 0 8px",
@@ -381,7 +384,7 @@ export default function CiudadesPage() {
               <h3
                 style={{
                   fontFamily: "'Bebas Neue',sans-serif",
-                  fontSize: "clamp(24px,3vw,36px)",
+                  fontSize: "clamp(20px,2.5vw,28px)",
                   color: "#F5F2EC",
                   margin: "0 0 12px",
                   lineHeight: 1,
@@ -392,9 +395,9 @@ export default function CiudadesPage() {
               <p
                 style={{
                   fontFamily: "'Avenir Next','Avenir',sans-serif",
-                  fontSize: "14px",
+                  fontSize: "clamp(14px,1.4vw,17px)",
                   color: "rgba(245,242,236,0.65)",
-                  lineHeight: 1.7,
+                  lineHeight: 1.75,
                   margin: "0 0 1.5rem",
                 }}
               >
@@ -424,8 +427,9 @@ export default function CiudadesPage() {
                     key={j}
                     style={{
                       fontFamily: "'Avenir Next','Avenir',sans-serif",
-                      fontSize: "13px",
-                      color: "rgba(245,242,236,0.7)",
+                      fontSize: "clamp(13px,1.2vw,15px)",
+                      lineHeight: 1.55,
+                      color: "rgba(245,242,236,0.65)",
                       padding: "6px 0",
                       borderBottom: "1px solid rgba(245,242,236,0.06)",
                       display: "flex",
@@ -473,9 +477,9 @@ export default function CiudadesPage() {
         <p
           style={{
             fontFamily: "'Avenir Next','Avenir',sans-serif",
-            fontSize: "clamp(15px,1.5vw,18px)",
-            color: "rgba(245,242,236,0.85)",
-            lineHeight: 1.7,
+            fontSize: "clamp(14px,1.4vw,17px)",
+            color: "rgba(245,242,236,0.65)",
+            lineHeight: 1.75,
             maxWidth: 560,
             margin: "0 0 2.5rem",
           }}

@@ -104,15 +104,16 @@ export default function PropuestaPoliticaAlfabetizacionPage() {
         }
         .agendaAmiColCard h3 {
           margin: 0 0 0.35rem;
-          font-size: clamp(1.5rem, 2.2vw, 2rem);
-          line-height: 1.1;
+          font-size: clamp(20px, 2.5vw, 28px);
+          font-weight: 400;
+          line-height: 1;
           color: var(--ami-navy);
         }
         .agendaAmiColSub {
           margin: 0 0 1rem;
           font-size: 0.9375rem;
           line-height: 1.5;
-          color: #3f3a42;
+          color: rgba(10, 12, 18, 0.6);
         }
         .agendaAmiList {
           margin: 0;
@@ -131,7 +132,7 @@ export default function PropuestaPoliticaAlfabetizacionPage() {
         .agendaAmiExamples p {
           margin: 0 0 0.5rem;
           font-size: 0.8125rem;
-          font-weight: 700;
+          font-weight: 500;
           letter-spacing: 0.08em;
           text-transform: uppercase;
           color: var(--ami-navy);
@@ -165,7 +166,7 @@ export default function PropuestaPoliticaAlfabetizacionPage() {
           background: var(--ami-navy);
           color: var(--ami-cream);
           font-family: "Avenir Next", "Avenir", var(--font-sans-family), sans-serif;
-          font-weight: 700;
+          font-weight: 600;
           font-size: 0.8125rem;
           letter-spacing: 0.06em;
           text-transform: uppercase;
@@ -359,9 +360,10 @@ export default function PropuestaPoliticaAlfabetizacionPage() {
           padding: 14px 28px;
           background: var(--ami-flame);
           color: var(--ami-cream);
-          font-size: 12px;
-          font-weight: 700;
-          letter-spacing: 0.14em;
+          font-family: "Avenir Next", "Avenir", var(--font-sans-family), sans-serif;
+          font-size: 11px;
+          font-weight: 500;
+          letter-spacing: 0.15em;
           text-transform: uppercase;
           text-decoration: none;
           transition: opacity 0.2s ease;
@@ -370,19 +372,21 @@ export default function PropuestaPoliticaAlfabetizacionPage() {
         .agendaAmiHeroSub {
           margin: 1.25rem 0 0;
           max-width: 46rem;
-          font-size: clamp(1rem, 1.35vw, 1.125rem);
-          line-height: 1.6;
-          color: rgba(245, 242, 236, 0.82);
+          font-family: "Avenir Next", "Avenir", var(--font-sans-family), sans-serif;
+          font-size: clamp(14px, 1.4vw, 17px);
+          line-height: 1.75;
+          color: rgba(245, 242, 236, 0.65);
         }
         .agendaAmiQuote {
           margin: 0 0 clamp(2rem, 4vw, 3rem);
           padding: clamp(1.25rem, 3vw, 2rem);
           border-left: 4px solid var(--ami-flame);
           background: rgba(245, 242, 236, 0.06);
-          font-size: clamp(1.05rem, 1.6vw, 1.2rem);
-          line-height: 1.55;
-          font-style: italic;
-          color: rgba(245, 242, 236, 0.92);
+          font-family: "Avenir Next", "Avenir", var(--font-sans-family), sans-serif;
+          font-size: clamp(14px, 1.4vw, 17px);
+          line-height: 1.75;
+          font-style: normal;
+          color: rgba(245, 242, 236, 0.65);
         }
       `}</style>
 

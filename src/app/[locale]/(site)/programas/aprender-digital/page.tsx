@@ -101,8 +101,8 @@ const cardTitleBebas: CSSProperties = {
 
 const cardBody: CSSProperties = {
   fontFamily: "'Avenir Next', 'Avenir', sans-serif",
-  fontSize: "clamp(13px, 1.2vw, 15px)",
-  lineHeight: 1.55,
+  fontSize: "clamp(14px, 1.4vw, 17px)",
+  lineHeight: 1.75,
   color: "rgba(10,12,18,0.6)",
   margin: 0,
 };

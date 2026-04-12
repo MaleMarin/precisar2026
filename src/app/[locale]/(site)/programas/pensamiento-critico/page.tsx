@@ -83,15 +83,15 @@ export default function Page() {
     <article className={shell.page} data-program="pensamiento">
       <header className={shell.hero} aria-labelledby="pc-hero-title">
         <div className={shell.heroInner}>
-          <p className={`${shell.heroEyebrow} ${styles.heroEyebrowTight}`}>
+          <p className={shell.heroEyebrow}>
             ■ PENSAMIENTO CRÍTICO DIGITAL · PROGRAMA 05
           </p>
-          <h1 id="pc-hero-title" className={`${styles.heroTitle} ${styles.heroTitleBlock}`}>
+          <h1 id="pc-hero-title" className={`${shell.heroTitle} ${styles.heroTitleBlock}`}>
             Consumidores críticos y competentes
             <br />
             en el ecosistema digital.
           </h1>
-          <p className={styles.heroSubTight}>
+          <p className={shell.heroSub}>
             Herramientas para identificar, analizar y verificar la información que circula en el mundo digital.
           </p>
         </div>
