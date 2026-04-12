@@ -11,57 +11,43 @@ const BLOCKS = [
   { n: "04", title: "IA, tu visión y tu contexto", bg: "#1A0706" },
 ] as const;
 
-const wizardOverride: React.CSSProperties = {
-  "--cq-royal": "#ffffff",
-  "--cq-mint": "rgba(255,255,255,0.65)",
-  "--cq-selected": "rgba(255,255,255,0.2)",
-  "--cq-focus-ring": "rgba(255,255,255,0.5)",
-  "--sheet-heading": "#ffffff",
-  "--sheet-body": "rgba(255,255,255,0.88)",
-  "--sheet-kicker": "rgba(255,255,255,0.55)",
-} as React.CSSProperties;
-
 export function ConsultaStackedLayout() {
   const { phase, questionIndex } = useConsultaFlow();
   const activeBlock = phase === "active" ? Math.min(Math.floor(questionIndex / 3), 3) : -1;
   const isIntro = phase === "awaiting_entry";
   const isComplete = phase === "complete";
-
-  const futureBlocks = isIntro
-    ? [...BLOCKS]
-    : activeBlock >= 0
-    ? [...BLOCKS].slice(activeBlock + 1)
-    : [];
-
-  const mainBg = isIntro
-    ? "#1A0706"
-    : isComplete
-    ? "#1A0706"
-    : BLOCKS[activeBlock]?.bg ?? "#1A0706";
+  const futureBlocks = isIntro ? [...BLOCKS] : activeBlock >= 0 ? [...BLOCKS].slice(activeBlock + 1) : [];
+  const mainBg = isIntro ? "#1A0706" : isComplete ? "#1A0706" : BLOCKS[activeBlock]?.bg ?? "#1A0706";
+  const mainRadius = futureBlocks.length > 0 ? "0 0 24px 24px" : "24px";
 
   return (
-    <div style={{ width: "100%", maxWidth: 680, margin: "0 auto", paddingTop: "clamp(1rem,3vw,2rem)", paddingBottom: "clamp(4rem,8vw,6rem)" }}>
+    <div style={{ width: "100%", maxWidth: 680, margin: "0 auto", paddingTop: "clamp(1rem,2vw,1.5rem)", paddingBottom: "clamp(4rem,8vw,6rem)" }}>
 
-      {/* Próximos archivos — asoman desde ARRIBA */}
+      {/* Cards pendientes apiladas ARRIBA — de atrás hacia adelante */}
       {futureBlocks.length > 0 && (
-        <div style={{ position: "relative" as const, zIndex: 20 }}>
+        <div style={{ position: "relative" as const }}>
           {[...futureBlocks].reverse().map((block, ri) => {
-            const i = futureBlocks.length - 1 - ri;
+            const fromBottom = ri;
+            const total = futureBlocks.length;
+            const scaleX = 0.88 + fromBottom * (0.12 / total);
+            const opacity = 0.45 + fromBottom * (0.4 / total);
             return (
               <div key={block.n} style={{
                 background: block.bg,
                 borderRadius: "20px 20px 0 0",
-                height: 60,
+                height: 90,
                 display: "flex",
                 alignItems: "center",
                 gap: "1rem",
                 padding: "0 2.5rem",
                 position: "relative" as const,
-                zIndex: ri + 1,
-                marginBottom: i === 0 ? 0 : -44,
+                zIndex: total - fromBottom,
+                marginBottom: fromBottom === 0 ? 0 : -44,
+                transform: `scaleX(${scaleX})`,
+                transformOrigin: "bottom center",
                 boxShadow: "0 -8px 24px rgba(0,0,0,0.2)",
                 border: "1px solid rgba(255,255,255,0.06)",
-                opacity: 0.6 + ri * 0.13,
+                opacity,
               }}>
                 <span style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase" as const, color: "rgba(255,255,255,0.45)", flexShrink: 0 }}>{block.n}</span>
                 <span style={{ fontSize: "0.9375rem", fontWeight: 800, color: "rgba(255,255,255,0.8)", letterSpacing: "-0.025em" }}>{block.title}</span>
@@ -74,7 +60,7 @@ export function ConsultaStackedLayout() {
       {/* Archivo principal */}
       <div style={{
         background: mainBg,
-        borderRadius: futureBlocks.length > 0 ? "0 0 24px 24px" : 24,
+        borderRadius: mainRadius,
         minHeight: "clamp(520px,76vh,760px)",
         padding: "2.5rem",
         position: "relative" as const,
@@ -112,7 +98,7 @@ export function ConsultaStackedLayout() {
           </div>
         )}
 
-        {/* BLOQUE ACTIVO + WIZARD sin colores azul/verde */}
+        {/* BLOQUE ACTIVO + WIZARD */}
         {!isIntro && !isComplete && activeBlock >= 0 && (
           <>
             <div style={{ marginBottom: "1.25rem" }}>
@@ -123,18 +109,12 @@ export function ConsultaStackedLayout() {
                 {BLOCKS[activeBlock].title}
               </h2>
             </div>
-            <div style={wizardOverride}>
-              <ConsultaWizard />
-            </div>
+            <ConsultaWizard />
           </>
         )}
 
         {/* COMPLETO */}
-        {isComplete && (
-          <div style={wizardOverride}>
-            <ConsultaWizard />
-          </div>
-        )}
+        {isComplete && <ConsultaWizard />}
       </div>
     </div>
   );
