@@ -40,6 +40,35 @@ export function SaberesBreadcrumbs() {
   const pathname = stripLeadingLocale(raw).replace(/\/$/, "") || "/";
   const parts = pathname.split("/").filter(Boolean);
 
+  /* Ruta canónica corta (nav Saberes), misma sección que /saberes/una-pregunta-al-dia */
+  if (parts[0] === "unapreguntaaldia") {
+    return (
+      <nav className={styles.nav} aria-label={t("aria")}>
+        <ol className={styles.list}>
+          <li>
+            <Link href="/" className={styles.link}>
+              {t("home")}
+            </Link>
+          </li>
+          <li className={styles.sep} aria-hidden>
+            /
+          </li>
+          <li>
+            <Link href="/saberes" className={styles.link}>
+              {t("saberes")}
+            </Link>
+          </li>
+          <li className={styles.sep} aria-hidden>
+            /
+          </li>
+          <li className={styles.current} aria-current="page">
+            {t("slugs.una-pregunta-al-dia")}
+          </li>
+        </ol>
+      </nav>
+    );
+  }
+
   const idx = parts.indexOf("saberes");
   if (idx === -1) return null;
 
