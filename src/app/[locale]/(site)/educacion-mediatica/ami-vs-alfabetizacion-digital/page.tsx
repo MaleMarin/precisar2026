@@ -209,13 +209,16 @@ export default function AmiVsDigitalPage() {
         </h2>
         <div className={styles.tabla}>
           <div className={styles.tablaHeader}>
-            <div className={styles.tablaCelda}>Dimensión</div>
+            <div className={styles.tablaCelda}
+              style={{ color: "rgba(245,242,236,0.5)" }}>
+              Dimensión
+            </div>
             <div className={styles.tablaCelda}
               style={{ color: "#DB5227" }}>
               AMI
             </div>
             <div className={styles.tablaCelda}
-              style={{ color: "#023661" }}>
+              style={{ color: "rgba(245,242,236,0.55)" }}>
               Alfabetización Digital
             </div>
           </div>
