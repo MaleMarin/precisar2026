@@ -1,5 +1,4 @@
 "use client";
-
 import { createContext, useLayoutEffect, useState, type ReactNode } from "react";
 import type Lenis from "lenis";
 import styles from "./SmoothScrollProvider.module.css";
@@ -52,7 +51,6 @@ export function SmoothScrollProvider({ children }: { children: ReactNode }) {
 
       lenisInstance.on("scroll", ScrollTrigger.update);
       gsap.ticker.lagSmoothing(500, 33);
-
       queueMicrotask(() => setLenis(lenisInstance));
     }
 
