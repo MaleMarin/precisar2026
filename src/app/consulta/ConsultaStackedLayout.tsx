@@ -115,7 +115,7 @@ export function ConsultaStackedLayout() {
                 transition: "all 0.55s cubic-bezier(0.4, 0, 0.2, 1)",
                 border: "1px solid rgba(255,255,255,0.05)",
               }}>
-                <p style={{ margin: "0 0 0.3rem", fontSize: 10, fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase" as const, color: block.fg === "#0A0C12" ? "rgba(10,12,18,0.4)" : "rgba(255,255,255,0.4)" }}>
+                <p style={{ margin: "0 0 0.3rem", fontSize: 10, fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase" as const, color: "rgba(255,255,255,0.4)" }}>
                   {block.n} · {isIntro ? "bloque" : "pendiente"}
                 </p>
                 <h3 style={{ margin: 0, fontSize: "1.05rem", fontWeight: 800, color: block.fg, letterSpacing: "-0.025em", lineHeight: 1.1 }}>
@@ -123,12 +123,12 @@ export function ConsultaStackedLayout() {
                 </h3>
                 {isIntro && (
                   <>
-                    <p style={{ margin: "0.4rem 0 0", fontSize: "0.8125rem", color: block.fg === "#0A0C12" ? "rgba(10,12,18,0.5)" : "rgba(255,255,255,0.5)", lineHeight: 1.5 }}>
+                    <p style={{ margin: "0.4rem 0 0", fontSize: "0.8125rem", color: "rgba(255,255,255,0.5)", lineHeight: 1.5 }}>
                       {block.sub}
                     </p>
                     <div style={{ display: "flex", flexDirection: "column" as const, gap: "0.25rem", marginTop: "0.6rem" }}>
                       {block.qs.map((q) => (
-                        <p key={q} style={{ margin: 0, fontSize: "0.75rem", color: block.fg === "#0A0C12" ? "rgba(10,12,18,0.4)" : "rgba(255,255,255,0.3)", paddingLeft: "0.85rem", position: "relative" as const, lineHeight: 1.4 }}>
+                        <p key={q} style={{ margin: 0, fontSize: "0.75rem", color: "rgba(255,255,255,0.3)", paddingLeft: "0.85rem", position: "relative" as const, lineHeight: 1.4 }}>
                           <span style={{ position: "absolute" as const, left: 0, color: block.accent }}>—</span>{q}
                         </p>
                       ))}
@@ -151,7 +151,7 @@ export function ConsultaStackedLayout() {
             transition: "background 0.5s ease",
           }}>
             <div style={{ marginBottom: "1.25rem" }}>
-              <p style={{ margin: "0 0 0.35rem", fontSize: 10, fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase" as const, color: currentBlock.fg === "#0A0C12" ? "rgba(10,12,18,0.4)" : "rgba(255,255,255,0.4)" }}>
+              <p style={{ margin: "0 0 0.35rem", fontSize: 10, fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase" as const, color: "rgba(255,255,255,0.4)" }}>
                 {currentBlock.n} · respondiendo
               </p>
               <h2 style={{ margin: 0, fontSize: "clamp(1.35rem, 2.5vw, 1.75rem)", fontWeight: 800, color: currentBlock.fg, letterSpacing: "-0.03em", lineHeight: 1.1 }}>
