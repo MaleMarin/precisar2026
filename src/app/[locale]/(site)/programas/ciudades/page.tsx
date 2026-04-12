@@ -1,188 +1,508 @@
 import type { Metadata } from "next";
-import { FooterContactLink } from "@/components/FooterContactLink";
-import { Link } from "@/i18n/navigation";
 import shell from "@/components/programs/ProgramShell.module.css";
-import { PDFS } from "@/lib/site";
-import { CiudadesPropuestasTabs } from "./CiudadesPropuestasTabs";
-import styles from "./CiudadesPage.module.css";
 
 export const metadata: Metadata = {
-  title: "Ciudades Conectadas con Sentido",
+  title: "Ciudades Conectadas · Precisar",
   description:
-    "Formación en cultura digital para municipios: talleres AMI/UNESCO, IA, bienestar digital, privacidad y desinformación.",
+    "Formación en Cultura Digital para la Ciudadanía. Programas modulares para municipios.",
 };
 
-const TEMAS = [
+const IMPACTOS = [
   {
-    title: "Inteligencia Artificial",
-    desc: "Desmitificando el futuro y sus implicaciones.",
+    titulo: "Ciudadanía activa y crítica",
+    desc: "Desarrolla en la ciudadanía aptitudes de pensamiento analítico para cuestionar mensajes, detectar discursos de odio y desinformación, y participar en procesos de decisión local con argumentos basados en fuentes fiables.",
   },
   {
-    title: "Bienestar Digital",
-    desc: "Hábitos saludables en el uso de la tecnología.",
+    titulo: "Mayor seguridad digital",
+    desc: "Fortalece la resiliencia comunitaria frente a fraudes y amenazas en línea mediante la enseñanza de buenas prácticas de protección de datos, privacidad y uso ético de la tecnología.",
   },
   {
-    title: "Privacidad y Seguridad en Línea",
-    desc: "Protegiendo identidad y datos.",
+    titulo: "Alfabetización en IA y algoritmos",
+    desc: "Promueve la comprensión de cómo funcionan los sistemas automatizados y sus sesgos, capacitando a los ciudadanos para evaluar críticamente el contenido filtrado o generado por IA.",
   },
   {
-    title: "Estrategias contra la Desinformación",
-    desc: "Criterio para navegar la información.",
+    titulo: "Bienestar digital",
+    desc: "Incorpora hábitos saludables de uso tecnológico y fomenta espacios de aprendizaje permanente que reducen la brecha digital y mejoran la inclusión social.",
   },
-] as const;
+  {
+    titulo: "Gobernanza local transparente",
+    desc: "Capacita a equipos municipales en la integración de Educación Mediática y Digital en políticas y servicios urbanos, generando espacios de rendición de cuentas y comunicación abierta.",
+  },
+  {
+    titulo: "Conexión y participación comunitaria",
+    desc: "Facilita el despliegue de iniciativas en plazas, centros de salud, transporte y otros espacios urbanos, creando una red de información accesible para todos los habitantes.",
+  },
+];
 
-const IMPACTO = [
+const TALLERES = [
   {
-    title: "Ciudadanía activa y crítica",
-    desc: "Pensamiento analítico, desinformación, participación local informada.",
+    id: "ia",
+    label: "IA",
+    titulo: "Inteligencia Artificial y su impacto",
+    desc: "Este taller presenta los fundamentos de la IA, explorando qué es, cómo funciona y su impacto en las personas. Los participantes adquirirán habilidades cruciales y estrategias prácticas para abordar los desafíos que presenta la IA. Ideal para públicos de todas las edades y niveles de conocimiento.",
+    sesiones: [
+      "Desmitificando la IA: qué es, cómo funciona y sus impactos en las personas.",
+      "Vivir con algoritmos: qué son los algoritmos y su relación con la IA y el aprendizaje automático.",
+      "Desafíos de la IA y estrategias prácticas 1: Magnificación del sesgo.",
+      "Desafíos de la IA y estrategias prácticas 2: Acoso en línea.",
+    ],
   },
   {
-    title: "Mayor seguridad digital",
-    desc: "Fraudes, privacidad, uso ético.",
+    id: "desinformacion",
+    label: "Desinformación",
+    titulo: "Desinformación: Hechos vs. sentimientos sobre la información",
+    desc: "Taller práctico para desarrollar el criterio necesario para navegar en un ecosistema de información complejo, distinguir hechos de opiniones, y detectar noticias falsas y manipulación informativa.",
+    sesiones: [
+      "Qué es la desinformación y por qué importa.",
+      "Cómo detectar noticias falsas y verificar fuentes.",
+      "Algoritmos y burbujas de información.",
+      "Estrategias prácticas para la vida cotidiana.",
+    ],
   },
   {
-    title: "Alfabetización en IA y algoritmos",
-    desc: "Sesgos y contenido generado por IA.",
+    id: "fraudes",
+    label: "Fraudes",
+    titulo: "Prevención de Fraudes y Estafas en Línea",
+    desc: "Herramientas prácticas para reconocer y evitar fraudes digitales, proteger datos personales y actuar frente a situaciones de riesgo en línea.",
+    sesiones: [
+      "Tipos de fraudes digitales más comunes.",
+      "Phishing, smishing y suplantación de identidad.",
+      "Cómo proteger tus datos y contraseñas.",
+      "Qué hacer si fuiste víctima de un fraude.",
+    ],
   },
   {
-    title: "Bienestar digital",
-    desc: "Hábitos saludables e inclusión.",
+    id: "bienestar",
+    label: "Bienestar",
+    titulo: "Bienestar Digital y Salud Tecnológica",
+    desc: "Este taller fomenta hábitos saludables en el uso de la tecnología, abordando el bienestar emocional, la gestión del tiempo en pantalla y la construcción de una relación equilibrada con los dispositivos.",
+    sesiones: [
+      "Impacto del uso de tecnología en la salud mental.",
+      "Gestión del tiempo de pantalla y adicción digital.",
+      "Construcción de hábitos digitales saludables.",
+      "Bienestar digital en familia y comunidad.",
+    ],
   },
-  {
-    title: "Gobernanza local transparente",
-    desc: "AMI en políticas y servicios.",
-  },
-  {
-    title: "Conexión y participación comunitaria",
-    desc: "Iniciativas en espacios urbanos.",
-  },
-] as const;
+];
 
-export default function CiudadesProgramaPage() {
+export default function CiudadesPage() {
   return (
-    <article className={shell.page} data-program="ciudades">
-      <header className={shell.hero}>
+    <main className={shell.page}>
+      {/* HERO */}
+      <section className={shell.hero}>
         <div className={shell.heroInner}>
-          <p className={shell.heroEyebrow}>■ CIUDADES · PROGRAMA 01</p>
-          <h1 className={shell.heroTitle}>Formación en Cultura Digital para la Ciudadanía</h1>
-        </div>
-      </header>
-
-      <section
-        className={`${shell.padSection} ${styles.territorio}`}
-        aria-labelledby="ciudades-territorio-heading"
-      >
-        <div className={`${shell.inner} ${styles.territorioGrid}`}>
-          <div>
-            <h2 id="ciudades-territorio-heading" className={shell.visuallyHidden}>
-              Territorio e impacto
-            </h2>
-            <p className={styles.territorioStatNum}>100%</p>
-            <p className={styles.territorioStatLabel}>personalizable para cada municipio</p>
-          </div>
-          <div>
-            <p className={styles.territorioText}>
-              Ponemos a disposición de los municipios una oferta formativa diseñada para capacitar a la
-              comunidad con las habilidades críticas esenciales en la era digital.
-            </p>
-            <p className={styles.territorioText}>
-              Nuestro trabajo en las ciudades se inspira directamente en el marco de las{" "}
-              <a
-                href={PDFS.ciudadesAmiUnesco}
-                className={styles.territorioLink}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Ciudades AMI (Alfabetización Mediática e Informacional) de la UNESCO
-              </a>
-              , adaptando sus principios para fomentar ecosistemas de información locales más críticos y
-              resilientes.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section className={styles.propuesta} aria-labelledby="ciudades-propuesta-heading">
-        <div className={styles.propuestaInner}>
-          <h2 id="ciudades-propuesta-heading" className={styles.propuestaLead}>
-            Experiencias dinámicas para que cada participante comprenda, use y gestione los medios digitales
-            con autonomía.
-          </h2>
-
-          <div className={styles.propuestaCols}>
-            <div className={styles.propuestaCol}>
-              <h3 className={styles.propuestaColTitle}>Impacto Directo en la Ciudadanía</h3>
-              <p className={styles.propuestaColText}>
-                Talleres y actividades para vecinos de todas las edades.
-              </p>
-            </div>
-            <div className={styles.propuestaCol}>
-              <h3 className={styles.propuestaColTitle}>Capacitación de Formadores</h3>
-              <p className={styles.propuestaColText}>
-                Estrategias que multiplican el impacto con educadores, bibliotecarios, equipos municipales y
-                organizaciones comunitarias.
-              </p>
-            </div>
-          </div>
-
-          <div className={styles.propuestaGrid}>
-            {TEMAS.map((t) => (
-              <div key={t.title} className={styles.propuestaCard}>
-                <div className={styles.propuestaCardMark} aria-hidden>
-                  ■
-                </div>
-                <p className={styles.propuestaCardTitle}>{t.title}</p>
-                <p className={styles.propuestaCardDesc}>{t.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className={styles.impacto} aria-labelledby="ciudades-impacto-heading">
-        <div className={styles.impactoInner}>
-          <h2 id="ciudades-impacto-heading" className={styles.impactoTitle}>
-            Lo que cambia en tu municipio
-          </h2>
-          <div className={styles.impactoGrid}>
-            {IMPACTO.map((item) => (
-              <div key={item.title} className={styles.impactoCard}>
-                <div className={styles.impactoCardMark} aria-hidden>
-                  ■
-                </div>
-                <h3 className={styles.impactoCardTitle}>{item.title}</h3>
-                <p className={styles.impactoCardDesc}>{item.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className={styles.propuestasFormativas} aria-labelledby="ciudades-propuestas-heading">
-        <div className={styles.propuestasInner}>
-          <h2 id="ciudades-propuestas-heading" className={styles.propuestasTitle}>
-            Nuestras Propuestas Formativas
-          </h2>
-          <p className={styles.propuestasSub}>
-            Programas modulares y flexibles, diseñados a la medida de tu comunidad.
+          <p className={shell.heroEyebrow}>Programas · Ciudades Conectadas</p>
+          <h1 className={shell.heroTitle}>
+            Formación en Cultura Digital
+            <br />
+            para la Ciudadanía
+          </h1>
+          <p className={shell.heroSub}>
+            Ponemos a disposición de los municipios una oferta formativa diseñada para capacitar a la
+            comunidad con las habilidades críticas esenciales en la era digital.
           </p>
-          <CiudadesPropuestasTabs />
         </div>
       </section>
 
-      <section className={shell.cta} aria-labelledby="ciudades-cta-heading">
-        <div className={`${shell.ctaInner} ${shell.ctaInnerCiudades}`}>
-          <h2 id="ciudades-cta-heading" className={shell.ctaTitle}>
-            Lleva la cultura digital a tu municipio.
-          </h2>
-          <div>
-            <p className={shell.ctaText}>
-              Contáctanos para diseñar una propuesta a medida de tu comunidad.
-            </p>
-            <FooterContactLink className={shell.ctaBtn}>Contacto</FooterContactLink>
-          </div>
+      {/* INTRO */}
+      <section
+        className={shell.inner}
+        style={{
+          background: "#F5F2EC",
+          padding: "clamp(3rem,6vw,5rem) clamp(2rem,6vw,4rem)",
+        }}
+      >
+        <div style={{ maxWidth: 720 }}>
+          <p
+            style={{
+              fontFamily: "'Avenir Next','Avenir',sans-serif",
+              fontSize: "clamp(16px,1.6vw,20px)",
+              lineHeight: 1.75,
+              color: "rgba(10,12,18,0.75)",
+              marginBottom: "2rem",
+            }}
+          >
+            Nuestro trabajo en las ciudades se inspira directamente en el marco de las{" "}
+            <strong>Ciudades AMI (Alfabetización Mediática e Informacional) de la UNESCO</strong>,
+            adaptando sus principios para fomentar ecosistemas de información locales más críticos y
+            resilientes.
+          </p>
+          <p
+            style={{
+              fontFamily: "'Avenir Next','Avenir',sans-serif",
+              fontSize: "clamp(14px,1.4vw,17px)",
+              lineHeight: 1.7,
+              color: "rgba(10,12,18,0.6)",
+            }}
+          >
+            Experiencias dinámicas para que cada participante comprenda, use y gestione los medios
+            digitales con autonomía.
+          </p>
+        </div>
+
+        {/* Dos columnas flexibilidad */}
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "1fr 1fr",
+            gap: "1px",
+            background: "rgba(10,12,18,0.1)",
+            marginTop: "3rem",
+            maxWidth: 720,
+          }}
+        >
+          {[
+            {
+              titulo: "Impacto Directo en la Ciudadanía",
+              desc: "Talleres y actividades para vecinos de todas las edades.",
+            },
+            {
+              titulo: "Capacitación de Formadores",
+              desc: "Estrategias que multiplican el impacto con educadores, bibliotecarios, equipos municipales y organizaciones comunitarias.",
+            },
+          ].map((item, i) => (
+            <div
+              key={i}
+              style={{
+                background: "#F5F2EC",
+                padding: "1.5rem",
+              }}
+            >
+              <p
+                style={{
+                  fontFamily: "'Bebas Neue',sans-serif",
+                  fontSize: "22px",
+                  color: "#0A0C12",
+                  margin: "0 0 8px",
+                }}
+              >
+                {item.titulo}
+              </p>
+              <p
+                style={{
+                  fontFamily: "'Avenir Next','Avenir',sans-serif",
+                  fontSize: "14px",
+                  color: "rgba(10,12,18,0.6)",
+                  lineHeight: 1.6,
+                  margin: 0,
+                }}
+              >
+                {item.desc}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        {/* 4 contenidos */}
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(2,1fr)",
+            gap: "1px",
+            background: "rgba(10,12,18,0.1)",
+            marginTop: "1px",
+            maxWidth: 720,
+          }}
+        >
+          {[
+            { titulo: "Inteligencia Artificial", desc: "Desmitificando el futuro y sus implicaciones." },
+            { titulo: "Bienestar Digital", desc: "Hábitos saludables en el uso de la tecnología." },
+            { titulo: "Privacidad y Seguridad en Línea", desc: "Protegiendo identidad y datos." },
+            { titulo: "Estrategias contra la Desinformación", desc: "Criterio para navegar la información." },
+          ].map((item, i) => (
+            <div
+              key={i}
+              style={{
+                background: "#F5F2EC",
+                padding: "1.25rem 1.5rem",
+                borderLeft: "3px solid #DB5227",
+              }}
+            >
+              <p
+                style={{
+                  fontFamily: "'Avenir Next','Avenir',sans-serif",
+                  fontSize: "13px",
+                  fontWeight: 600,
+                  color: "#0A0C12",
+                  margin: "0 0 4px",
+                }}
+              >
+                {item.titulo}
+              </p>
+              <p
+                style={{
+                  fontFamily: "'Avenir Next','Avenir',sans-serif",
+                  fontSize: "12px",
+                  color: "rgba(10,12,18,0.55)",
+                  margin: 0,
+                }}
+              >
+                {item.desc}
+              </p>
+            </div>
+          ))}
         </div>
       </section>
-    </article>
+
+      {/* IMPACTOS */}
+      <section
+        style={{
+          background: "#023661",
+          padding: "clamp(3rem,6vw,5rem) clamp(2rem,6vw,4rem)",
+        }}
+      >
+        <p
+          style={{
+            fontFamily: "'Avenir Next','Avenir',sans-serif",
+            fontSize: "11px",
+            letterSpacing: "0.22em",
+            textTransform: "uppercase",
+            color: "#DB5227",
+            margin: "0 0 1.5rem",
+          }}
+        >
+          Lo que cambia en tu municipio
+        </p>
+        <h2
+          style={{
+            fontFamily: "'Bebas Neue',sans-serif",
+            fontSize: "clamp(40px,6vw,72px)",
+            lineHeight: 0.9,
+            color: "#F5F2EC",
+            margin: "0 0 3rem",
+          }}
+        >
+          Impacto en
+          <br />
+          el municipio
+        </h2>
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(3,1fr)",
+            gap: "1px",
+            background: "rgba(245,242,236,0.08)",
+          }}
+        >
+          {IMPACTOS.map((imp, i) => (
+            <div
+              key={i}
+              style={{
+                background: "#023661",
+                padding: "2rem",
+                borderBottom: "1px solid rgba(245,242,236,0.08)",
+              }}
+            >
+              <p
+                style={{
+                  fontFamily: "'Bebas Neue',sans-serif",
+                  fontSize: "20px",
+                  color: "#F5F2EC",
+                  margin: "0 0 10px",
+                }}
+              >
+                {imp.titulo}
+              </p>
+              <p
+                style={{
+                  fontFamily: "'Avenir Next','Avenir',sans-serif",
+                  fontSize: "13px",
+                  color: "rgba(245,242,236,0.6)",
+                  lineHeight: 1.65,
+                  margin: 0,
+                }}
+              >
+                {imp.desc}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* TALLERES */}
+      <section
+        style={{
+          background: "#0A0C12",
+          padding: "clamp(3rem,6vw,5rem) clamp(2rem,6vw,4rem)",
+        }}
+      >
+        <p
+          style={{
+            fontFamily: "'Avenir Next','Avenir',sans-serif",
+            fontSize: "11px",
+            letterSpacing: "0.22em",
+            textTransform: "uppercase",
+            color: "#DB5227",
+            margin: "0 0 1.5rem",
+          }}
+        >
+          Nuestras propuestas formativas
+        </p>
+        <h2
+          style={{
+            fontFamily: "'Bebas Neue',sans-serif",
+            fontSize: "clamp(40px,6vw,72px)",
+            lineHeight: 0.9,
+            color: "#F5F2EC",
+            margin: "0 0 3rem",
+          }}
+        >
+          Programas modulares
+          <br />y flexibles
+        </h2>
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(2,1fr)",
+            gap: "1px",
+            background: "rgba(245,242,236,0.08)",
+          }}
+        >
+          {TALLERES.map((taller) => (
+            <div
+              key={taller.id}
+              style={{
+                background: "#0A0C12",
+                padding: "2rem",
+              }}
+            >
+              <p
+                style={{
+                  fontFamily: "'Avenir Next','Avenir',sans-serif",
+                  fontSize: "10px",
+                  letterSpacing: "0.18em",
+                  textTransform: "uppercase",
+                  color: "#DB5227",
+                  margin: "0 0 8px",
+                }}
+              >
+                {taller.label}
+              </p>
+              <h3
+                style={{
+                  fontFamily: "'Bebas Neue',sans-serif",
+                  fontSize: "clamp(24px,3vw,36px)",
+                  color: "#F5F2EC",
+                  margin: "0 0 12px",
+                  lineHeight: 1,
+                }}
+              >
+                {taller.titulo}
+              </h3>
+              <p
+                style={{
+                  fontFamily: "'Avenir Next','Avenir',sans-serif",
+                  fontSize: "14px",
+                  color: "rgba(245,242,236,0.65)",
+                  lineHeight: 1.7,
+                  margin: "0 0 1.5rem",
+                }}
+              >
+                {taller.desc}
+              </p>
+              <p
+                style={{
+                  fontFamily: "'Avenir Next','Avenir',sans-serif",
+                  fontSize: "10px",
+                  letterSpacing: "0.15em",
+                  textTransform: "uppercase",
+                  color: "rgba(245,242,236,0.35)",
+                  margin: "0 0 8px",
+                }}
+              >
+                Sesiones incluidas
+              </p>
+              <ul
+                style={{
+                  listStyle: "none",
+                  padding: 0,
+                  margin: 0,
+                }}
+              >
+                {taller.sesiones.map((s, j) => (
+                  <li
+                    key={j}
+                    style={{
+                      fontFamily: "'Avenir Next','Avenir',sans-serif",
+                      fontSize: "13px",
+                      color: "rgba(245,242,236,0.7)",
+                      padding: "6px 0",
+                      borderBottom: "1px solid rgba(245,242,236,0.06)",
+                      display: "flex",
+                      gap: "8px",
+                      alignItems: "flex-start",
+                    }}
+                  >
+                    <span
+                      style={{
+                        color: "#DB5227",
+                        flexShrink: 0,
+                        marginTop: "2px",
+                      }}
+                    >
+                      →
+                    </span>
+                    {s}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section
+        style={{
+          background: "#DB5227",
+          padding: "clamp(3rem,6vw,5rem) clamp(2rem,6vw,4rem)",
+        }}
+      >
+        <h2
+          style={{
+            fontFamily: "'Bebas Neue',sans-serif",
+            fontSize: "clamp(40px,6vw,72px)",
+            lineHeight: 0.9,
+            color: "#F5F2EC",
+            margin: "0 0 1.5rem",
+          }}
+        >
+          Lleva la cultura digital
+          <br />a tu municipio
+        </h2>
+        <p
+          style={{
+            fontFamily: "'Avenir Next','Avenir',sans-serif",
+            fontSize: "clamp(15px,1.5vw,18px)",
+            color: "rgba(245,242,236,0.85)",
+            lineHeight: 1.7,
+            maxWidth: 560,
+            margin: "0 0 2.5rem",
+          }}
+        >
+          Contáctanos para diseñar una propuesta a medida de tu comunidad.
+        </p>
+
+        <a
+          href="#contacto"
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: "8px",
+            background: "#F5F2EC",
+            color: "#0A0C12",
+            fontFamily: "'Avenir Next','Avenir',sans-serif",
+            fontSize: "11px",
+            letterSpacing: "0.15em",
+            textTransform: "uppercase",
+            padding: "14px 28px",
+            textDecoration: "none",
+            transition: "opacity 0.2s ease",
+          }}
+        >
+          Contáctanos →
+        </a>
+      </section>
+    </main>
   );
 }
