@@ -1073,3 +1073,13 @@ h1, h2, h3, h4, h5, h6 {
 p, a, button, label, input, textarea, select, li, span, td, th, caption {
   font-family: "Avenir Next", "Avenir", var(--font-sans-family), system-ui, sans-serif;
 }
+
+/* Consulta stacked — neutraliza colores azul/verde del wizard */
+.consultaRoot[data-live-map="true"] [data-consulta-stacked] #consulta-flujo {
+  --sheet-heading: rgba(10, 12, 18, 0.9);
+  --sheet-body: rgba(10, 12, 18, 0.88);
+  --sheet-kicker: rgba(10, 12, 18, 0.55);
+  --cq-royal: rgba(10, 12, 18, 0.85);
+  --cq-mint: rgba(10, 12, 18, 0.6);
+  color: rgba(10, 12, 18, 0.9);
+}
