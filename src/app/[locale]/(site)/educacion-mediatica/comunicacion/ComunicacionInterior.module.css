@@ -37,7 +37,7 @@
 
 @media (min-width: 1024px) {
   .heroGrid {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
     gap: clamp(2rem, 5vw, 4rem);
   }
 }
@@ -51,11 +51,10 @@
   letter-spacing: -0.035em;
   color: #fff;
   hyphens: none;
-  overflow-wrap: break-word;
-  word-break: break-word;
-  font-size: var(--mediatica-title-size) !important;
+  overflow-wrap: normal;
+  word-break: normal;
+  font-size: clamp(2rem, 5.2vw, 4.65rem);
   text-align: left;
-  overflow: hidden;
 }
 
 .heroIntro {
