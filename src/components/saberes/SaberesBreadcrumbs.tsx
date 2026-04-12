@@ -14,6 +14,15 @@ function isSaberesSlug(s: string): s is SaberesSlug {
   return (SABERES_SLUGS as readonly string[]).includes(s);
 }
 
+/** Etiqueta legible si aparece un slug nuevo sin clave en mensajes. */
+function fallbackSlugLabel(slug: string): string {
+  return slug
+    .split("-")
+    .filter(Boolean)
+    .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+    .join(" ");
+}
+
 function stripLeadingLocale(pathname: string): string {
   const parts = pathname.split("/").filter(Boolean);
   if (parts.length === 0) return "/";
@@ -35,11 +44,32 @@ export function SaberesBreadcrumbs() {
   if (idx === -1) return null;
 
   const after = parts.slice(idx + 1);
-  if (after.length === 0) return null;
+
+  /* Índice Saberes: Inicio / Saberes */
+  if (after.length === 0) {
+    return (
+      <nav className={styles.nav} aria-label={t("aria")}>
+        <ol className={styles.list}>
+          <li>
+            <Link href="/" className={styles.link}>
+              {t("home")}
+            </Link>
+          </li>
+          <li className={styles.sep} aria-hidden>
+            /
+          </li>
+          <li className={styles.current} aria-current="page">
+            {t("saberes")}
+          </li>
+        </ol>
+      </nav>
+    );
+  }
 
   const slug = after[0]!;
-  if (!isSaberesSlug(slug)) return null;
+  const leafLabel = isSaberesSlug(slug) ? t(`slugs.${slug}`) : fallbackSlugLabel(slug);
 
+  /* Subpágina: Inicio / Saberes / … */
   return (
     <nav className={styles.nav} aria-label={t("aria")}>
       <ol className={styles.list}>
@@ -52,7 +82,7 @@ export function SaberesBreadcrumbs() {
           /
         </li>
         <li>
-          <Link href="/#saberes" className={styles.link}>
+          <Link href="/saberes" className={styles.link}>
             {t("saberes")}
           </Link>
         </li>
@@ -60,7 +90,7 @@ export function SaberesBreadcrumbs() {
           /
         </li>
         <li className={styles.current} aria-current="page">
-          {t(`slugs.${slug}`)}
+          {leafLabel}
         </li>
       </ol>
     </nav>
