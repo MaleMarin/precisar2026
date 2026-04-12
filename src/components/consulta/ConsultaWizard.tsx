@@ -33,6 +33,7 @@ export function ConsultaWizard() {
   const { pulseOnAnswer, pulseOnSelect } = useConsultaLivePulse();
 
   const [softError, setSoftError] = useState<string | null>(null);
+  const [privacyAccepted, setPrivacyAccepted] = useState(false);
 
   const step = phase === "active" ? getStepDefinition(questionIndex) : undefined;
 
@@ -53,6 +54,12 @@ export function ConsultaWizard() {
   }, [questionIndex, phase]);
 
   useEffect(() => {
+    if (step?.kind !== "demographics") {
+      setPrivacyAccepted(false);
+    }
+  }, [questionIndex, step?.kind]);
+
+  useEffect(() => {
     if (phase === "complete") {
       document.getElementById("consulta-completion-title")?.focus();
       return;
@@ -63,14 +70,20 @@ export function ConsultaWizard() {
     document.getElementById(STEP_HEADING_ID)?.focus();
   }, [questionIndex, phase]);
 
+  const isDemographicsStep = step?.kind === "demographics";
+
   const onPrimary = useCallback(() => {
+    if (isDemographicsStep && !privacyAccepted) {
+      setSoftError("Marca la casilla verde para confirmar que leíste la política de privacidad. Así podemos enviar tus respuestas.");
+      return;
+    }
     const r = advance();
     if (!r.ok) {
       setSoftError(r.error);
       return;
     }
     pulseOnAnswer();
-  }, [advance, pulseOnAnswer]);
+  }, [advance, pulseOnAnswer, isDemographicsStep, privacyAccepted]);
 
   const prog = phase === "active" ? progressCurrent({ questionIndex }) : null;
 
@@ -133,13 +146,48 @@ export function ConsultaWizard() {
           />
         ) : null}
 
+        {isDemographicsStep ? (
+          <div className={st.privacyConsentWrap}>
+            <div className={st.privacyRow}>
+              <input
+                id="consulta-privacy-consent"
+                className={st.privacyCheckbox}
+                type="checkbox"
+                checked={privacyAccepted}
+                onChange={(e) => {
+                  setPrivacyAccepted(e.target.checked);
+                  if (e.target.checked) setSoftError(null);
+                }}
+              />
+              <label className={st.privacyLabel} htmlFor="consulta-privacy-consent">
+                Confirmo que leí la{" "}
+                <a
+                  className={st.privacyLink}
+                  href="/legal/privacidad-consulta-2026"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  política de privacidad
+                </a>{" "}
+                de esta consulta ciudadana.
+              </label>
+            </div>
+          </div>
+        ) : null}
+
         <div className={st.navChrome}>
           <div className={st.navLightDock}>
             <div className={st.navRow}>
               <button type="button" className={st.navGhost} onClick={back} disabled={!canBack}>
                 Volver
               </button>
-              <button type="button" className={st.navPrimary} onClick={onPrimary}>
+              <button
+                type="button"
+                className={st.navPrimary}
+                onClick={onPrimary}
+                disabled={isDemographicsStep && !privacyAccepted}
+              >
                 <div className={st.navPrimarySolid}>
                   <div className={st.navPrimarySolidInner}>
                     {isLastQuestion ? "Terminar" : "Continuar"}

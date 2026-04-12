@@ -184,6 +184,52 @@
   color: #0a0c12;
 }
 
+/* Consentimiento privacidad (último paso antes de enviar). */
+.privacyConsentWrap {
+  margin-top: clamp(1rem, 2.5vw, 1.35rem);
+  padding: 0.9rem 1rem 1rem;
+  border-radius: 16px;
+  border: 1px solid rgba(96, 69, 244, 0.22);
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+}
+
+.privacyRow {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+}
+
+.privacyCheckbox {
+  width: 1.35rem;
+  height: 1.35rem;
+  margin-top: 0.12rem;
+  flex-shrink: 0;
+  cursor: pointer;
+  accent-color: #16a34a;
+  border-radius: 4px;
+}
+
+.privacyLabel {
+  margin: 0;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.45;
+  color: #0f1417;
+  cursor: pointer;
+}
+
+.privacyLink {
+  color: #6045f4;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.privacyLink:hover {
+  color: #4b35c4;
+}
+
 .navChrome {
   margin-top: clamp(1.25rem, 3.5vw, 1.65rem);
   padding-top: 0;

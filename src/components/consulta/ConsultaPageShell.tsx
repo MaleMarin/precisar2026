@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { FOOTER_MEDIA } from "@/lib/site";
 import styles from "./ConsultaShell.module.css";
 
 type ConsultaPageShellProps = {
@@ -14,7 +15,21 @@ export function ConsultaPageShell({ children, variant = "default" }: ConsultaPag
       data-consulta-page
       data-live-map={variant === "liveMap" ? "true" : undefined}
     >
-      <main className={styles.main}>{children}</main>
+      <main className={styles.main}>
+        <div className={styles.consultaBrandBar}>
+          <a className={styles.consultaBrandLink} href="/" title="Precisar — inicio">
+            <img
+              className={styles.consultaBrandLogo}
+              src={FOOTER_MEDIA.headerLogoBlack}
+              alt="Precisar"
+              width={220}
+              height={56}
+              decoding="async"
+            />
+          </a>
+        </div>
+        {children}
+      </main>
     </div>
   );
 }
