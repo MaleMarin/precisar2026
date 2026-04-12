@@ -143,6 +143,13 @@
       }
     }
   },
+  "homeParticipa": {
+    "stackKicker": "06 · Participa",
+    "stackHeadline": "¿Cómo te informas hoy?",
+    "stackTagline": "Tu experiencia cambia cómo nos informamos todos.",
+    "stackBody": "Queremos entender cómo recibes la información hoy y cómo te gustaría recibirla: qué formatos te ayudan, qué tono te genera confianza, qué te falta para entender mejor, acceder con más facilidad y compartir con más criterio. Tus respuestas llegan directamente a medios, instituciones y tomadores de decisiones para que mejoren la manera en que informan.",
+    "ctaLabel": "Responder ahora →"
+  },
   "homeEducacionMediatica": {
     "stackKicker": "05 · EDUCACIÓN MEDIÁTICA",
     "stackHeadline": "Entender los medios es una habilidad que se aprende.",

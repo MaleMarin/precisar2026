@@ -16,20 +16,22 @@ export function ConsultaHero() {
               </div>
 
               <div className={styles.leadZone} data-consulta-module="lead">
-                <p className={styles.leadText}>Menos ruido, más criterio.</p>
+                <p className={styles.leadText}>Tu experiencia cambia cómo nos informamos todos.</p>
               </div>
 
               <div className={styles.contextZone} data-consulta-module="context">
                 <p className={styles.contextText}>
-                  Entre titulares, audios, redes y mensajes, todos nos informamos y tomamos decisiones cada día.
-                  Queremos entender cómo lo haces tú.
+                  Queremos entender cómo recibes la información hoy y cómo te gustaría recibirla: qué formatos te
+                  ayudan, qué tono te genera confianza, qué te falta para entender mejor, acceder con más facilidad y
+                  compartir con más criterio. Tus respuestas llegan directamente a medios, instituciones y tomadores de
+                  decisiones para que mejoren la manera en que informan.
                 </p>
                 <p className={styles.contextTriad}>
-                  No es una prueba.
+                  Anónima
                   <br />
-                  Es anónima.
+                  12 preguntas
                   <br />
-                  Y toma menos de un minuto.
+                  Menos de un minuto
                 </p>
               </div>
             </div>
@@ -38,6 +40,10 @@ export function ConsultaHero() {
               <div className={styles.ctaZone} data-consulta-module="cta">
                 <ConsultaStartButton />
               </div>
+              <p className={styles.contextText} style={{ marginTop: "0.35rem", maxWidth: "16rem" }}>
+                Una iniciativa de Precisar, organización sin fines de lucro dedicada a la cultura digital crítica en
+                Chile y México.
+              </p>
             </div>
           </div>
         </div>

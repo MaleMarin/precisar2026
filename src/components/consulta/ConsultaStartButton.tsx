@@ -16,7 +16,7 @@ export function ConsultaStartButton() {
 
   return (
     <button type="button" className={styles.ctaPrimary} onClick={onClick}>
-      Comenzar
+      Responder ahora →
     </button>
   );
 }

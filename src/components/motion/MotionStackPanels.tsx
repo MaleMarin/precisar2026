@@ -249,37 +249,24 @@ function HomeConvocaStackPanelContent() {
 
 /** Panel Participa (#participa): consulta ciudadana antes del footer del sitio. */
 function ParticipaStackPanelContent() {
+  const t = useTranslations("homeParticipa");
   return (
     <div className={styles.participaStackRoot}>
       <div className={styles.participaStackMain}>
         <header className={styles.participaStackHeader}>
-          <p className={`${styles.kicker} ${styles.kickerOnAccent}`}>06 · Participa</p>
+          <p className={`${styles.kicker} ${styles.kickerOnAccent}`}>{t("stackKicker")}</p>
           <h2 className={styles.displayTitle} id="stack-participa-heading">
-            ¿Cómo te informas hoy?
+            {t("stackHeadline")}
           </h2>
-          <p className={`${styles.body} ${styles.bodyOnAccent} ${styles.participaTagline}`}>
-            Menos ruido, más criterio.
-          </p>
+          <p className={`${styles.body} ${styles.bodyOnAccent} ${styles.participaTagline}`}>{t("stackTagline")}</p>
         </header>
         <div className={styles.participaStackCopy}>
-          <p className={`${styles.body} ${styles.bodyOnAccent} ${styles.participaCopyFirst}`}>
-            Entre titulares, audios, redes y mensajes, todos nos informamos y tomamos decisiones cada día.
-            Queremos entender cómo lo haces tú.
-          </p>
-          <p
-            className={`${styles.body} ${styles.bodyOnAccent} ${styles.participaCopyFollow} ${styles.participaEmphasis}`}
-          >
-            No es una prueba.
-            <br />
-            Es anónima.
-            <br />
-            Y toma menos de un minuto.
-          </p>
+          <p className={`${styles.body} ${styles.bodyOnAccent} ${styles.participaCopyFirst}`}>{t("stackBody")}</p>
         </div>
       </div>
       <div className={styles.participaStackAside}>
         <NextLink href="/consulta" className={styles.participaStackCta}>
-          Responder ahora
+          {t("ctaLabel")}
         </NextLink>
       </div>
     </div>

@@ -71,7 +71,7 @@ export default function ConsultaPage() {
                         12 preguntas
                       </span>
                       <span className={intro.tagBlue} role="listitem">
-                        Menos de 1 minuto
+                        Menos de un minuto
                       </span>
                     </div>
                   </div>
