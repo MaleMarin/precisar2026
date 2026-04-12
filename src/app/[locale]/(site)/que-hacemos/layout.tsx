@@ -1,5 +1,6 @@
 import { Bebas_Neue, Instrument_Serif, Syne } from "next/font/google";
 import type { ReactNode } from "react";
+import { ProgramBreadcrumbs } from "@/components/programs/ProgramBreadcrumbs";
 
 const bebas = Bebas_Neue({
   subsets: ["latin"],
@@ -30,6 +31,7 @@ export default function QueHacemosLayout({ children }: { children: ReactNode }) 
         minHeight: "100%",
       }}
     >
+      <ProgramBreadcrumbs />
       {children}
     </div>
   );
