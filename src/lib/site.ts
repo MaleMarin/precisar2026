@@ -83,7 +83,7 @@ export function homeHeroHasVideo(): boolean {
 }
 
 export const EXTERNAL = {
-  botOnda: process.env.NEXT_PUBLIC_BOT_ONDA_URL ?? "https://onda2026.vercel.app/chat",
+  botOnda: "https://onda.precisar.net/chat",
   consultaCiudadana: "https://encuesta-informacion.web.app/consulta-2026/",
   /** Redes en pie y enlaces compartidos. */
   xTwitter: "https://x.com/precisar_",
