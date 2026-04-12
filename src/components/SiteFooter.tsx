@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useCallback, useState, type FormEvent } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
@@ -168,13 +169,12 @@ export function SiteFooter() {
       <div className={styles.footerBrandZone}>
         <div className={styles.brandStrip}>
           <Link href="/" className={styles.brandLogoLink}>
-            <img
+            <Image
               src={FOOTER_MEDIA.footerBrandStrip}
               alt="Precisar"
               width={1920}
               height={1080}
               className={styles.brandLogo}
-              decoding="async"
             />
           </Link>
         </div>
@@ -355,12 +355,11 @@ export function SiteFooter() {
                 className={styles.legalOndaInline}
                 aria-label={tNav("botOndaAria")}
               >
-                <img
+                <Image
                   src={FOOTER_MEDIA.navOndaMark}
                   alt=""
                   width={72}
                   height={72}
-                  decoding="async"
                   className={styles.legalOndaMark}
                 />
                 <span className={styles.legalOndaText}>{tNav("botOnda")}</span>

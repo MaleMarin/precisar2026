@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import { Fragment, useCallback, useEffect, useState } from "react";
 import { Link, usePathname } from "@/i18n/navigation";
@@ -150,14 +151,13 @@ export function SiteHeader() {
             className={`${styles.navBarOuter} relative flex min-h-[5rem] items-center py-2 md:min-h-[7.75rem] md:py-2.5 lg:min-h-0 lg:py-3 ${styles.navBarRow}`}
           >
             <Link href="/" className={styles.navBarLogoLink} onClick={() => setOpen(false)}>
-              <img
+              <Image
                 src={FOOTER_MEDIA.headerLogoBlack}
                 alt="Precisar"
                 className={logoClass}
                 width={550}
                 height={138}
-                decoding="async"
-                fetchPriority="high"
+                priority
               />
             </Link>
             <nav className={`hidden lg:flex ${styles.navDesktop}`} aria-label={tNav("main")}>
@@ -205,12 +205,11 @@ export function SiteHeader() {
                 aria-label={tNav("botOndaAria")}
               >
                 <span className={styles.navOndaWithBeta}>
-                  <img
+                  <Image
                     src={FOOTER_MEDIA.navOndaMark}
                     alt=""
                     width={72}
                     height={72}
-                    decoding="async"
                     className={`${styles.navOndaIcon} ${styles.navOndaMarkImg}`}
                   />
                   <span className={styles.navOndaNavBadge}>{tNav("botOndaNavBadge")}</span>
@@ -237,12 +236,11 @@ export function SiteHeader() {
                 aria-label={tNav("botOndaAria")}
               >
                 <span className={styles.navOndaWithBeta}>
-                  <img
+                  <Image
                     src={FOOTER_MEDIA.navOndaMark}
                     alt=""
                     width={72}
                     height={72}
-                    decoding="async"
                     className={`${styles.navOndaIcon} ${styles.navOndaMarkImg}`}
                   />
                   <span className={styles.navOndaNavBadge}>{tNav("botOndaNavBadge")}</span>
@@ -308,12 +306,11 @@ export function SiteHeader() {
                 className={styles.navOndaMobile}
                 onClick={() => setOpen(false)}
               >
-                <img
+                <Image
                   src={FOOTER_MEDIA.navOndaMark}
                   alt=""
                   width={88}
                   height={88}
-                  decoding="async"
                   className={styles.navOndaMobileIcon}
                 />
                 <span className={styles.navOndaMobileLabel}>{tNav("botOndaNavBadge")}</span>
