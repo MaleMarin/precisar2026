@@ -1064,3 +1064,12 @@ body {
 .precisar-hero-legacy {
   /* Ancla para export Wix; el resto del sitio armoniza con --hero-bg */
 }
+
+/* ─── Tipografía global — regla única para todo el sitio ─── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display, system-ui, sans-serif);
+}
+
+p, a, button, label, input, textarea, select, li, span, td, th, caption {
+  font-family: "Avenir Next", "Avenir", var(--font-sans-family), system-ui, sans-serif;
+}
