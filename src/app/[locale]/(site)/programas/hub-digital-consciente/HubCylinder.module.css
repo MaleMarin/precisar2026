@@ -75,7 +75,7 @@
   margin-left: -140px;
   margin-top: -170px;
   border-radius: 16px;
-  padding: 24px;
+  padding: 24px 20px;
   cursor: pointer;
   display: flex;
   flex-direction: column;
@@ -99,7 +99,7 @@
 }
 .cardTitle {
   font-family: var(--font-display, system-ui, sans-serif);
-  font-size: clamp(22px, 2.8vw, 30px);
+  font-size: clamp(16px, 2.2vw, 24px);
   font-weight: 800;
   line-height: 1.05;
   letter-spacing: -0.03em;
@@ -107,6 +107,10 @@
   word-break: normal;
   overflow-wrap: normal;
   hyphens: none;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
 }
 .cardSub {
   font-family: 'Avenir Next', 'Avenir', sans-serif;
