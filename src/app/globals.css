@@ -1083,3 +1083,18 @@ p, a, button, label, input, textarea, select, li, span, td, th, caption {
   --cq-mint: rgba(10, 12, 18, 0.6);
   color: rgba(10, 12, 18, 0.9);
 }
+
+/* ── Consulta stacked: neutraliza colores azul/morado/verde del wizard ── */
+[data-consulta-stacked] {
+  --cq-royal: #0A0C12;
+  --cq-mint: #0A0C12;
+  --cq-selected: rgba(10,12,18,0.14);
+  --cq-focus-ring: rgba(10,12,18,0.35);
+  --cq-mock-blue: #0A0C12;
+  --cq-mock-coral: #0A0C12;
+  --cq-ink-on-light: #0A0C12;
+  --cq-ink-on-light-muted: rgba(10,12,18,0.62);
+  --sheet-heading: #0A0C12;
+  --sheet-kicker: rgba(10,12,18,0.55);
+  --sheet-body: rgba(10,12,18,0.88);
+}
