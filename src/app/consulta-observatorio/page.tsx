@@ -1,22 +1,15 @@
 import type { Metadata } from "next";
 import { ConsultaObservatorioLive } from "@/components/consulta-observatorio/ConsultaObservatorioLive";
-import { SITE } from "@/lib/site";
-
-const canonical = `${SITE.url}/consulta-observatorio`;
 
 export const metadata: Metadata = {
-  title: "Consulta Viva · Observatorio en vivo",
+  title: "Observatorio de la consulta — Precisar",
   description:
-    "Visualización en tiempo real de las respuestas de la consulta «¿Cómo te informas hoy?» en América Latina. Responde en /consulta.",
-  alternates: { canonical },
+    "Panel en vivo del observatorio de Precisar: seguimiento de respuestas de la consulta ciudadana «¿Cómo te informas hoy?» actualizadas en tiempo real.",
   openGraph: {
-    title: "Consulta Viva · Observatorio en vivo · Precisar",
+    title: "Observatorio de la consulta — Precisar",
     description:
-      "Señales en vivo por país. La consulta paso a paso está en precisar.net/consulta.",
-    url: canonical,
-    siteName: SITE.name,
-    locale: "es_CL",
-    type: "website",
+      "Seguimiento en tiempo real de la consulta ciudadana de Precisar sobre hábitos informativos en Chile y México.",
+    url: "https://precisar.net/consulta-observatorio",
   },
 };
 
