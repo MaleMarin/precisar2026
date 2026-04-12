@@ -51,8 +51,8 @@
   letter-spacing: -0.035em;
   color: #fff;
   hyphens: none;
-  overflow-wrap: normal;
-  word-break: normal;
+  overflow-wrap: break-word;
+  word-break: break-word;
   font-size: var(--mediatica-title-size) !important;
   text-align: left;
   overflow: hidden;
