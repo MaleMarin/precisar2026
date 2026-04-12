@@ -1,4 +1,3 @@
-"use client";
 import type * as React from "react";
 import { ConsultaFlowProvider } from "@/components/consulta/ConsultaFlowContext";
 import { ConsultaLiveMapProvider } from "@/components/consulta/ConsultaLiveMapProvider";
