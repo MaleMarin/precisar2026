@@ -704,7 +704,14 @@ export function MotionStackPanels({
           Educación Mediática para Chile →
         </Link>
       ),
-      child: <MiniList reduceMotion={reduceMotion} glass items={educacionMediaticaLinks} />,
+      child: (
+        <>
+          <MiniList reduceMotion={reduceMotion} glass items={educacionMediaticaLinks} />
+          <Link href="/educacion-mediatica/ami-vs-alfabetizacion-digital" className={styles.amiBtn}>
+            AMI vs Alfabetización Digital →
+          </Link>
+        </>
+      ),
     },
     {
       id: "participa",

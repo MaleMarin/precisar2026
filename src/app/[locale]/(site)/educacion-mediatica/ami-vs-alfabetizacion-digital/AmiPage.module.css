@@ -1,0 +1,327 @@
+.page {
+  background: #F5F2EC;
+  min-height: 100vh;
+}
+
+.hero {
+  background: #0A0C12;
+  padding: clamp(4rem,8vw,7rem)
+    clamp(2rem,6vw,5rem)
+    clamp(3rem,6vw,5rem);
+}
+
+.kicker {
+  font-family: 'Avenir Next','Avenir',sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #DB5227;
+  margin: 0 0 1rem;
+}
+
+.titulo {
+  font-family: 'Bebas Neue',sans-serif;
+  font-size: clamp(48px,8vw,100px);
+  line-height: 0.9;
+  color: #F5F2EC;
+  margin: 0 0 1.5rem;
+}
+
+.bajada {
+  font-family: 'Avenir Next','Avenir',sans-serif;
+  font-size: clamp(14px,1.4vw,18px);
+  line-height: 1.75;
+  color: rgba(245,242,236,0.65);
+  max-width: 640px;
+  margin: 0;
+}
+
+.dosColumnas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: rgba(10,12,18,0.1);
+}
+
+@media (max-width: 768px) {
+  .dosColumnas { grid-template-columns: 1fr; }
+}
+
+.columna {
+  padding: clamp(2rem,4vw,3.5rem);
+}
+
+.colKicker {
+  font-family: 'Bebas Neue',sans-serif;
+  font-size: 18px;
+  letter-spacing: 0.05em;
+  margin: 0 0 8px;
+}
+
+.colSubtitulo {
+  font-family: 'Avenir Next','Avenir',sans-serif;
+  font-size: 13px;
+  line-height: 1.6;
+  margin: 0 0 1.5rem;
+}
+
+.colItems {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem;
+}
+
+.colItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 8px 0;
+  border-bottom: 1px solid;
+  font-family: 'Avenir Next','Avenir',sans-serif;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.colEjemplos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+}
+
+.colEjemploLabel {
+  font-family: 'Avenir Next','Avenir',sans-serif;
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin: 0 0 6px;
+  width: 100%;
+}
+
+.tag {
+  font-family: 'Avenir Next','Avenir',sans-serif;
+  font-size: 11px;
+  padding: 4px 10px;
+  border-radius: 2px;
+}
+
+.tablaSection {
+  background: #F5F2EC;
+  padding: clamp(3rem,6vw,5rem) clamp(2rem,6vw,4rem);
+}
+
+.sectionKicker {
+  font-family: 'Avenir Next','Avenir',sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #DB5227;
+  margin: 0 0 1rem;
+}
+
+.sectionTitulo {
+  font-family: 'Bebas Neue',sans-serif;
+  font-size: clamp(36px,5vw,64px);
+  line-height: 0.92;
+  color: #0A0C12;
+  margin: 0 0 2.5rem;
+}
+
+.tabla {
+  border: 1px solid rgba(10,12,18,0.1);
+  max-width: 1000px;
+}
+
+.tablaHeader {
+  display: grid;
+  grid-template-columns: 180px 1fr 1fr;
+  background: #0A0C12;
+}
+
+.tablaFila {
+  display: grid;
+  grid-template-columns: 180px 1fr 1fr;
+  border-top: 1px solid rgba(10,12,18,0.08);
+}
+
+.tablaCelda {
+  padding: 14px 20px;
+  font-family: 'Avenir Next','Avenir',sans-serif;
+  font-size: 13px;
+  line-height: 1.55;
+  color: rgba(245,242,236,0.7);
+  border-right: 1px solid rgba(10,12,18,0.08);
+}
+
+.tablaFila .tablaCelda {
+  color: rgba(10,12,18,0.65);
+}
+
+.ejercicioSection {
+  background: #0A0C12;
+  padding: clamp(3rem,6vw,5rem) clamp(2rem,6vw,4rem);
+}
+
+.ejercicioTip {
+  font-family: 'Avenir Next','Avenir',sans-serif;
+  font-size: 13px;
+  color: rgba(245,242,236,0.4);
+  margin: 0 0 2rem;
+  max-width: 560px;
+  font-style: italic;
+}
+
+.itemsPool {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 2rem;
+  min-height: 48px;
+  padding: 16px;
+  border: 1px dashed rgba(245,242,236,0.15);
+  border-radius: 4px;
+}
+
+.dragItem {
+  background: rgba(245,242,236,0.08);
+  border: 1px solid rgba(245,242,236,0.15);
+  color: #F5F2EC;
+  font-family: 'Avenir Next','Avenir',sans-serif;
+  font-size: 13px;
+  padding: 8px 14px;
+  cursor: grab;
+  border-radius: 2px;
+  transition: background 0.2s;
+  user-select: none;
+}
+
+.dragItem:hover {
+  background: rgba(245,242,236,0.14);
+}
+
+.dropZonas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 640px) {
+  .dropZonas { grid-template-columns: 1fr; }
+}
+
+.dropZona {
+  min-height: 200px;
+  border: 2px dashed;
+  border-radius: 4px;
+  padding: 20px;
+  transition: all 0.2s;
+}
+
+.dropZonaLabel {
+  font-family: 'Bebas Neue',sans-serif;
+  font-size: 20px;
+  letter-spacing: 0.05em;
+  margin: 0 0 12px;
+}
+
+.dropPlaceholder {
+  font-family: 'Avenir Next','Avenir',sans-serif;
+  font-size: 12px;
+  color: rgba(245,242,236,0.2);
+  margin: 0;
+}
+
+.droppedItem {
+  font-family: 'Avenir Next','Avenir',sans-serif;
+  font-size: 13px;
+  color: #F5F2EC;
+  padding: 8px 12px;
+  border: 1px solid;
+  border-radius: 2px;
+  margin-bottom: 6px;
+  transition: all 0.2s;
+}
+
+.ejercicioControles {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.btnComprobar {
+  background: #DB5227;
+  border: none;
+  color: #F5F2EC;
+  font-family: 'Avenir Next','Avenir',sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 12px 24px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.btnComprobar:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.btnReiniciar {
+  background: none;
+  border: 1px solid rgba(245,242,236,0.2);
+  color: rgba(245,242,236,0.5);
+  font-family: 'Avenir Next','Avenir',sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 12px 24px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.score {
+  font-family: 'Bebas Neue',sans-serif;
+  font-size: 24px;
+  color: #DB5227;
+  margin: 0;
+}
+
+.porQueSection {
+  background: #F5F2EC;
+  padding: clamp(3rem,6vw,5rem) clamp(2rem,6vw,4rem);
+}
+
+.razonesGrid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 1px;
+  background: rgba(10,12,18,0.08);
+  max-width: 960px;
+}
+
+@media (max-width: 768px) {
+  .razonesGrid { grid-template-columns: 1fr; }
+}
+
+.razonCard {
+  background: #F5F2EC;
+  padding: 2rem;
+  border-left: 3px solid #DB5227;
+}
+
+.razonTitulo {
+  font-family: 'Bebas Neue',sans-serif;
+  font-size: 22px;
+  color: #0A0C12;
+  margin: 0 0 8px;
+}
+
+.razonDesc {
+  font-family: 'Avenir Next','Avenir',sans-serif;
+  font-size: 14px;
+  color: rgba(10,12,18,0.6);
+  line-height: 1.65;
+  margin: 0;
+}
