@@ -9,25 +9,25 @@ const BLOCKS = [
     n: "01",
     title: "Cómo te informas",
     sub: "Canales, razones y temas que sigues para entender lo que pasa.",
-    bg: "#F5F2EC",
-    fg: "#0A0C12",
-    accent: "#DD0200",
+    bg: "#F74603",
+    fg: "#F5F2EC",
+    accent: "#F5F2EC",
     qs: ["¿Por dónde te informas?", "¿Por qué esos canales?", "¿Qué temas sigues?"],
   },
   {
     n: "02",
     title: "Confianza e información",
     sub: "Qué te preocupa y qué te ayudaría a sentir más seguridad.",
-    bg: "#55100D",
+    bg: "#DD0200",
     fg: "#F5F2EC",
-    accent: "#F74603",
+    accent: "#F5F2EC",
     qs: ["¿Qué te preocupa más?", "¿Qué te daría seguridad?", "¿Cuánta confianza tienes?"],
   },
   {
     n: "03",
     title: "Cómo procesas lo que llega",
     sub: "Qué haces cuando dudas, qué formatos te sirven.",
-    bg: "#DD0200",
+    bg: "#55100D",
     fg: "#F5F2EC",
     accent: "#F5F2EC",
     qs: ["¿Qué haces si dudas?", "¿Qué formato te ayuda?", "¿Necesitas adaptaciones?"],
@@ -38,7 +38,7 @@ const BLOCKS = [
     sub: "IA, tu experiencia informativa ideal y datos básicos.",
     bg: "#1A0706",
     fg: "#F5F2EC",
-    accent: "#F74603",
+    accent: "#F5F2EC",
     qs: ["¿Qué quieres saber sobre IA?", "Tu experiencia ideal", "Datos básicos (opcionales)"],
   },
 ] as const;
@@ -95,35 +95,7 @@ export function ConsultaStackedLayout() {
 
       <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
 
-        {currentBlock && (
-          <div style={{
-            borderRadius: 36,
-            background: currentBlock.bg,
-            padding: "2rem 2rem 0",
-            position: "relative" as const,
-            zIndex: 10,
-            boxShadow: "0 40px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.06)",
-            transition: "background 0.5s ease",
-          }}>
-            <div style={{ marginBottom: "1.25rem" }}>
-              <p style={{ margin: "0 0 0.35rem", fontSize: 10, fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase" as const, color: currentBlock.fg === "#0A0C12" ? "rgba(10,12,18,0.4)" : "rgba(255,255,255,0.4)" }}>
-                {currentBlock.n} · respondiendo
-              </p>
-              <h2 style={{ margin: 0, fontSize: "clamp(1.35rem, 2.5vw, 1.75rem)", fontWeight: 800, color: currentBlock.fg, letterSpacing: "-0.03em", lineHeight: 1.1 }}>
-                {currentBlock.title}
-              </h2>
-            </div>
-            <ConsultaWizard />
-          </div>
-        )}
-
-        {isComplete && (
-          <div style={{ borderRadius: 36, background: "#1A0706", padding: "2rem 2rem 0", border: "1px solid rgba(247,70,3,0.3)", boxShadow: "0 40px 80px rgba(0,0,0,0.5)" }}>
-            <ConsultaWizard />
-          </div>
-        )}
-
-        <div style={{ position: "relative" as const, marginTop: isIntro ? 0 : -24 }}>
+        <div style={{ position: "relative" as const, marginBottom: isIntro ? 0 : -24 }}>
           {futureBlocks.map((block, i) => {
             const overlapPx = isIntro ? 72 : 52;
             const scaleVal = 1 - i * 0.022;
@@ -133,9 +105,9 @@ export function ConsultaStackedLayout() {
                 borderRadius: 32,
                 background: block.bg,
                 padding: "1.5rem 1.75rem",
-                marginTop: i === 0 ? 0 : -overlapPx,
+                marginBottom: i === 0 ? 0 : -overlapPx,
                 transform: `scale(${scaleVal})`,
-                transformOrigin: "bottom center",
+                transformOrigin: "top center",
                 zIndex: futureBlocks.length - i,
                 position: "relative" as const,
                 opacity: Math.max(opacityVal, 0.15),
@@ -167,6 +139,35 @@ export function ConsultaStackedLayout() {
             );
           })}
         </div>
+
+        {currentBlock && (
+          <div style={{
+            borderRadius: 36,
+            background: currentBlock.bg,
+            padding: "2rem 2rem 0",
+            position: "relative" as const,
+            zIndex: 10,
+            boxShadow: "0 40px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.06)",
+            transition: "background 0.5s ease",
+          }}>
+            <div style={{ marginBottom: "1.25rem" }}>
+              <p style={{ margin: "0 0 0.35rem", fontSize: 10, fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase" as const, color: currentBlock.fg === "#0A0C12" ? "rgba(10,12,18,0.4)" : "rgba(255,255,255,0.4)" }}>
+                {currentBlock.n} · respondiendo
+              </p>
+              <h2 style={{ margin: 0, fontSize: "clamp(1.35rem, 2.5vw, 1.75rem)", fontWeight: 800, color: currentBlock.fg, letterSpacing: "-0.03em", lineHeight: 1.1 }}>
+                {currentBlock.title}
+              </h2>
+            </div>
+            <ConsultaWizard />
+          </div>
+        )}
+
+        {isComplete && (
+          <div style={{ borderRadius: 36, background: "#1A0706", padding: "2rem 2rem 0", border: "1px solid rgba(247,70,3,0.3)", boxShadow: "0 40px 80px rgba(0,0,0,0.5)" }}>
+            <ConsultaWizard />
+          </div>
+        )}
+
       </div>
     </div>
   );
