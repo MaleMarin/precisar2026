@@ -27,6 +27,7 @@
   max-width: 90rem;
   margin: 0 auto;
   text-align: left;
+  overflow: hidden;
 }
 
 /* Evita que el min-content del título ensanche la celda y se pinte encima de la columna derecha */
@@ -52,8 +53,9 @@
   hyphens: none;
   overflow-wrap: normal;
   word-break: normal;
-  font-size: var(--mediatica-title-size);
+  font-size: var(--mediatica-title-size) !important;
   text-align: left;
+  overflow: hidden;
 }
 
 .heroIntro {
