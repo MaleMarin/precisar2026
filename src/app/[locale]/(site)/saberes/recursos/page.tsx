@@ -70,7 +70,7 @@ export default function RecursosPage() {
           descargar
         </h1>
         <p className={styles.bajada}>
-          Guías, materiales y recursos de educación mediática e informacional de Precisar. Todos de libre descarga y uso bajo licencia Creative Commons CC BY 4.0.
+          Guías, materiales y recursos de educación mediática e informacional de Precisar.
         </p>
       </div>
       <div className={styles.grid}>
