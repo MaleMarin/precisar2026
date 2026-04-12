@@ -30,16 +30,6 @@ export default function Page() {
             En el frente, la pregunta del día. En el reverso, algo para ir más lejos: una idea, un pequeño
             desafío, otra manera de mirar lo que haces todos los días con una pantalla.
           </p>
-          <p className="font-medium text-[var(--fg)]">No hay respuestas correctas. Solo las tuyas.</p>
-        </div>
-
-        <div className="space-y-4">
-          <h2 className="!mt-2 text-xl font-semibold tracking-tight text-[var(--fg)]">Cómo usarlo</h2>
-          <p>
-            Pasa el mouse o toca la tarjeta para ver el reverso. Desliza hasta el final para descargar el
-            recurso completo en PDF, para compartirlo en tu clase, tu trabajo, tu familia o con quien quieras
-            empezar una conversación.
-          </p>
         </div>
       </div>
 
