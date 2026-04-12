@@ -219,7 +219,12 @@ export default function HubCylinder() {
     }
     velYRef.current = 0
     const idx = ((i % N) + N) % N
-    targetRot.current = -(idx / N) * 360
+    const dest = -(idx / N) * 360
+    const current = rotRef.current
+    let diff = dest - current
+    while (diff > 180) diff -= 360
+    while (diff < -180) diff += 360
+    targetRot.current = current + diff
     setCurrent(idx)
   }, [])
 
@@ -231,10 +236,9 @@ export default function HubCylinder() {
     return () => window.clearTimeout(t)
   }, [])
 
-  // Animación suave (lerp bajo hasta isReady, luego más ágil) + inercia post-drag
+  // Inercia post-drag + lerp adaptativo (velocidad por RAF, sin transition CSS en el carrusel)
   useEffect(() => {
     const animate = () => {
-      const lerp = isReady ? 0.015 : 0.01
       if (
         !isDrag.current &&
         !isExpandedRef.current &&
@@ -243,7 +247,11 @@ export default function HubCylinder() {
         targetRot.current += velYRef.current
         velYRef.current *= 0.88
       }
-      rotRef.current += (targetRot.current - rotRef.current) * lerp
+      const distance = Math.abs(targetRot.current - rotRef.current)
+      const lerpFactor =
+        distance > 30 ? 0.06 : distance > 5 ? 0.04 : 0.025
+      rotRef.current +=
+        (targetRot.current - rotRef.current) * lerpFactor
       setRotation(rotRef.current)
       animRef.current = requestAnimationFrame(animate)
     }
@@ -251,7 +259,7 @@ export default function HubCylinder() {
     return () => {
       if (animRef.current !== undefined) cancelAnimationFrame(animRef.current)
     }
-  }, [isReady])
+  }, [])
 
   const snapCarouselToNearest = useCallback(() => {
     const k = Math.round(-targetRot.current / stepDeg)
@@ -375,7 +383,10 @@ export default function HubCylinder() {
       <div className={styles.scene}>
         <div
           className={styles.carousel}
-          style={{ transform: `rotateY(${rotation}deg)` }}
+          style={{
+            transform: `rotateY(${rotation}deg)`,
+            willChange: "transform",
+          }}
         >
           {CONTENT.map((s, i) => {
             const angle = (i / N) * 360
