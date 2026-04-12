@@ -11,27 +11,88 @@ const BLOCKS = [
   { n: "04", title: "IA, tu visión y tu contexto", bg: "#1A0706" },
 ] as const;
 
+const wizardOverride: React.CSSProperties = {
+  "--cq-royal": "#ffffff",
+  "--cq-mint": "rgba(255,255,255,0.65)",
+  "--cq-selected": "rgba(255,255,255,0.2)",
+  "--cq-focus-ring": "rgba(255,255,255,0.5)",
+  "--sheet-heading": "#ffffff",
+  "--sheet-body": "rgba(255,255,255,0.88)",
+  "--sheet-kicker": "rgba(255,255,255,0.55)",
+} as React.CSSProperties;
+
 export function ConsultaStackedLayout() {
   const { phase, questionIndex } = useConsultaFlow();
   const activeBlock = phase === "active" ? Math.min(Math.floor(questionIndex / 3), 3) : -1;
   const isIntro = phase === "awaiting_entry";
   const isComplete = phase === "complete";
-  const futureBlocks = activeBlock >= 0 ? [...BLOCKS].slice(activeBlock + 1) : [];
-  const currentBg = activeBlock >= 0 ? BLOCKS[activeBlock].bg : "#1A0706";
+
+  const futureBlocks = isIntro
+    ? [...BLOCKS]
+    : activeBlock >= 0
+    ? [...BLOCKS].slice(activeBlock + 1)
+    : [];
+
+  const mainBg = isIntro
+    ? "#1A0706"
+    : isComplete
+    ? "#1A0706"
+    : BLOCKS[activeBlock]?.bg ?? "#1A0706";
 
   return (
-    <div style={{ width: "100%", maxWidth: 680, margin: "0 auto", paddingTop: "clamp(2rem,4vw,3rem)", paddingBottom: "clamp(4rem,8vw,6rem)" }}>
+    <div style={{ width: "100%", maxWidth: 680, margin: "0 auto", paddingTop: "clamp(1rem,3vw,2rem)", paddingBottom: "clamp(4rem,8vw,6rem)" }}>
 
-      {/* Archivo principal — toda la info */}
-      <div style={{ borderRadius: 28, background: isIntro ? "#1A0706" : currentBg, minHeight: "clamp(500px,72vh,700px)", padding: "2.5rem", position: "relative" as const, zIndex: 10, boxShadow: "0 40px 80px rgba(0,0,0,0.5)", border: "1px solid rgba(255,255,255,0.08)", display: "flex", flexDirection: "column" as const, transition: "background 0.5s ease" }}>
+      {/* Próximos archivos — asoman desde ARRIBA */}
+      {futureBlocks.length > 0 && (
+        <div style={{ position: "relative" as const, zIndex: 20 }}>
+          {[...futureBlocks].reverse().map((block, ri) => {
+            const i = futureBlocks.length - 1 - ri;
+            return (
+              <div key={block.n} style={{
+                background: block.bg,
+                borderRadius: "20px 20px 0 0",
+                height: 60,
+                display: "flex",
+                alignItems: "center",
+                gap: "1rem",
+                padding: "0 2.5rem",
+                position: "relative" as const,
+                zIndex: ri + 1,
+                marginBottom: i === 0 ? 0 : -44,
+                boxShadow: "0 -8px 24px rgba(0,0,0,0.2)",
+                border: "1px solid rgba(255,255,255,0.06)",
+                opacity: 0.6 + ri * 0.13,
+              }}>
+                <span style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase" as const, color: "rgba(255,255,255,0.45)", flexShrink: 0 }}>{block.n}</span>
+                <span style={{ fontSize: "0.9375rem", fontWeight: 800, color: "rgba(255,255,255,0.8)", letterSpacing: "-0.025em" }}>{block.title}</span>
+              </div>
+            );
+          })}
+        </div>
+      )}
 
-        {/* INTRO */}
+      {/* Archivo principal */}
+      <div style={{
+        background: mainBg,
+        borderRadius: futureBlocks.length > 0 ? "0 0 24px 24px" : 24,
+        minHeight: "clamp(520px,76vh,760px)",
+        padding: "2.5rem",
+        position: "relative" as const,
+        zIndex: 10,
+        boxShadow: "0 40px 80px rgba(0,0,0,0.55)",
+        border: "1px solid rgba(255,255,255,0.07)",
+        display: "flex",
+        flexDirection: "column" as const,
+        transition: "background 0.5s ease, border-radius 0.4s ease",
+      }}>
+
+        {/* PORTADA */}
         {isIntro && (
           <div style={{ display: "flex", flexDirection: "column" as const, gap: "1.5rem", flex: 1 }}>
             <p style={{ margin: 0, fontSize: 10, fontWeight: 700, letterSpacing: "0.25em", textTransform: "uppercase" as const, color: "rgba(247,70,3,0.85)" }}>
               Precisar · Consulta ciudadana 2026
             </p>
-            <h1 style={{ margin: 0, fontSize: "clamp(3rem,6vw,5.5rem)", fontWeight: 800, lineHeight: 0.95, letterSpacing: "-0.045em", color: "#ffffff" }}>
+            <h1 style={{ margin: 0, fontSize: "clamp(3.2rem,6.5vw,5.5rem)", fontWeight: 800, lineHeight: 0.93, letterSpacing: "-0.045em", color: "#ffffff" }}>
               ¿Cómo te<br />informas<br />hoy?
             </h1>
             <p style={{ margin: 0, fontSize: "1rem", lineHeight: 1.65, color: "rgba(255,255,255,0.6)", maxWidth: "36rem" }}>
@@ -44,12 +105,14 @@ export function ConsultaStackedLayout() {
             </div>
             <div style={{ marginTop: "auto", display: "flex", flexDirection: "column" as const, gap: "0.75rem", alignItems: "flex-start" }}>
               <ConsultaStartButton />
-              <a href="/legal/privacidad-consulta-2026" style={{ fontSize: 10, color: "rgba(255,255,255,0.25)", textDecoration: "none", letterSpacing: "0.08em", textTransform: "uppercase" as const }}>Política de privacidad →</a>
+              <a href="/legal/privacidad-consulta-2026" style={{ fontSize: 10, color: "rgba(255,255,255,0.25)", textDecoration: "none", letterSpacing: "0.08em", textTransform: "uppercase" as const }}>
+                Política de privacidad →
+              </a>
             </div>
           </div>
         )}
 
-        {/* BLOQUE ACTIVO */}
+        {/* BLOQUE ACTIVO + WIZARD sin colores azul/verde */}
         {!isIntro && !isComplete && activeBlock >= 0 && (
           <>
             <div style={{ marginBottom: "1.25rem" }}>
@@ -60,30 +123,19 @@ export function ConsultaStackedLayout() {
                 {BLOCKS[activeBlock].title}
               </h2>
             </div>
-            <ConsultaWizard />
+            <div style={wizardOverride}>
+              <ConsultaWizard />
+            </div>
           </>
         )}
 
         {/* COMPLETO */}
-        {isComplete && <ConsultaWizard />}
+        {isComplete && (
+          <div style={wizardOverride}>
+            <ConsultaWizard />
+          </div>
+        )}
       </div>
-
-      {/* Pestañas intro — 4 bloques asoman abajo */}
-      {isIntro && BLOCKS.map((block, i) => (
-        <div key={block.n} style={{ borderRadius: "0 0 20px 20px", background: block.bg, height: 64, marginTop: i === 0 ? -36 : -40, zIndex: 9 - i, position: "relative" as const, display: "flex", alignItems: "center", gap: "1rem", padding: "0 2.5rem", boxShadow: `0 ${14 + i * 6}px ${30 + i * 6}px rgba(0,0,0,${0.25 + i * 0.06})`, border: "1px solid rgba(255,255,255,0.06)", opacity: 1 - i * 0.05 }}>
-          <span style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase" as const, color: "rgba(255,255,255,0.45)", flexShrink: 0 }}>{block.n}</span>
-          <span style={{ fontSize: "0.9375rem", fontWeight: 800, color: "rgba(255,255,255,0.75)", letterSpacing: "-0.025em" }}>{block.title}</span>
-        </div>
-      ))}
-
-      {/* Pestañas wizard — bloques pendientes asoman abajo */}
-      {!isIntro && !isComplete && futureBlocks.map((block, i) => (
-        <div key={block.n} style={{ borderRadius: "0 0 20px 20px", background: block.bg, height: 64, marginTop: i === 0 ? -36 : -40, zIndex: 9 - i, position: "relative" as const, display: "flex", alignItems: "center", gap: "1rem", padding: "0 2.5rem", boxShadow: `0 ${14 + i * 6}px ${30 + i * 6}px rgba(0,0,0,${0.25 + i * 0.06})`, border: "1px solid rgba(255,255,255,0.06)", opacity: 1 - i * 0.08, transition: "all 0.5s cubic-bezier(0.4,0,0.2,1)" }}>
-          <span style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase" as const, color: "rgba(255,255,255,0.45)", flexShrink: 0 }}>{block.n}</span>
-          <span style={{ fontSize: "0.9375rem", fontWeight: 800, color: "rgba(255,255,255,0.75)", letterSpacing: "-0.025em" }}>{block.title}</span>
-        </div>
-      ))}
-
     </div>
   );
 }
