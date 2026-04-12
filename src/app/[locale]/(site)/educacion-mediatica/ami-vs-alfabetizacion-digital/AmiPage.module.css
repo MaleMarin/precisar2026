@@ -1,11 +1,9 @@
 /* HERO */
 .hero {
   background: #0a0c12;
-  padding:
-    clamp(4rem, 8vw, 7rem) clamp(2rem, 6vw, 5rem) clamp(3rem, 6vw, 5rem);
+  padding: clamp(4rem, 8vw, 7rem) clamp(2rem, 6vw, 5rem) clamp(3rem, 6vw, 5rem);
   text-align: left;
-  max-width: 90rem;
-  margin: 0 auto;
+  width: 100%;
   box-sizing: border-box;
 }
 
@@ -30,12 +28,12 @@
 .heroTitle {
   font-family: var(--font-display, system-ui, sans-serif);
   font-weight: 800;
-  font-size: clamp(1.95rem, 5.2vw, 4.65rem);
-  line-height: 1.02;
+  font-size: clamp(1.95rem, 4vw, 3.5rem);
+  line-height: 1.05;
   letter-spacing: -0.035em;
   color: #f5f2ec;
   margin: 0 0 1.5rem;
-  max-width: min(56rem, 100%);
+  max-width: min(48rem, 100%);
   text-align: left;
 }
 
