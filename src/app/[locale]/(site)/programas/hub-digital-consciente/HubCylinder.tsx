@@ -622,28 +622,6 @@ export default function HubCylinder() {
           {expandedIdx === 5 && (
             <div className={styles.actionBtns}>
               <HubDownloadButton />
-              <a
-                href="#contacto"
-                className={styles.contactBtn}
-                style={{
-                  borderColor: isLight
-                    ? "rgba(245,242,236,0.3)"
-                    : "rgba(10,12,18,0.25)",
-                  color: isLight
-                    ? "rgba(245,242,236,0.7)"
-                    : "rgba(10,12,18,0.7)",
-                }}
-                onClick={(e) => {
-                  e.preventDefault()
-                  closeExpand()
-                  setTimeout(() => {
-                    const el = document.getElementById("contacto")
-                    if (el) el.scrollIntoView({ behavior: "smooth" })
-                  }, 300)
-                }}
-              >
-                Contáctanos →
-              </a>
             </div>
           )}
 
