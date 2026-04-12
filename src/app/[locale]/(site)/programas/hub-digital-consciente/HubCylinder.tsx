@@ -201,6 +201,7 @@ export default function HubCylinder() {
   const velYRef = useRef(0)
   const lastDeltaRef = useRef(0)
   const snapTimerRef = useRef<number | null>(null)
+  const hubFocusedRef = useRef(false)
 
   const R = 480
   const stepDeg = 360 / N
@@ -318,6 +319,7 @@ export default function HubCylinder() {
     }
     velYRef.current = 0
     isDrag.current = true
+    hubFocusedRef.current = true
     pointerLastX.current = e.clientX
   }
 
@@ -334,6 +336,7 @@ export default function HubCylinder() {
 
   const handleWheel = (e: WheelEvent<HTMLDivElement>) => {
     if (isExpanded) return
+    if (!hubFocusedRef.current) return
     e.preventDefault()
     if (e.deltaY > 0) next()
     else prev()
