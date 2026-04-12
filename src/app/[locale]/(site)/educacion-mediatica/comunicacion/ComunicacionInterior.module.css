@@ -126,3 +126,8 @@
 .bodyList li:last-child {
   margin-bottom: 0;
 }
+
+/* Cancela el padding-top de .prec-page para que el hero toque las migas de pan */
+.hero {
+  margin-top: calc(-1 * clamp(3rem, 6vw, 5rem));
+}
