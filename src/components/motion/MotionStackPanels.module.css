@@ -738,6 +738,8 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  flex-shrink: 0;
+  align-self: flex-start;
   background: none;
   border: 1px solid rgba(245, 242, 236, 0.3);
   color: rgba(245, 242, 236, 0.8);
@@ -748,7 +750,7 @@
   padding: 11px 22px;
   text-decoration: none;
   transition: all 0.2s ease;
-  margin-top: 1.5rem;
+  margin-top: clamp(0.75rem, 2vw, 1.25rem);
 }
 
 .recursosBtn:hover {
@@ -1475,6 +1477,14 @@
 
 :global(#saberes) .grid {
   min-height: 0;
+  /* Reserva inferior: el motion `contentY` llega a -72px y el panel tiene overflow:hidden. */
+  padding-bottom: calc(2.5rem + 88px);
+}
+
+@media (min-width: 1024px) {
+  :global(#saberes) .grid.gridSaberes {
+    padding-bottom: calc(4rem + 88px);
+  }
 }
 
 :global(#saberes) .colMain {

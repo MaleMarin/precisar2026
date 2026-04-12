@@ -151,6 +151,9 @@ function HomeSaberesAside({ reduceMotion, items }: { reduceMotion: boolean; item
   return (
     <div className={styles.saberesAsideStack}>
       <MiniList dark glass glassExtraMargin reduceMotion={reduceMotion} items={items} />
+      <Link href="/saberes/recursos" className={styles.recursosBtn}>
+        Material para descargar →
+      </Link>
       <div className={styles.saberesBotOndaDivider} aria-hidden />
       <a
         href={EXTERNAL.botOnda}
@@ -172,9 +175,6 @@ function HomeSaberesAside({ reduceMotion, items }: { reduceMotion: boolean; item
           </span>
         </span>
       </a>
-      <Link href="/saberes/recursos" className={styles.recursosBtn}>
-        Material para descargar →
-      </Link>
     </div>
   );
 }
