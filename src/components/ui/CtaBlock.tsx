@@ -44,10 +44,11 @@ export function CtaBlock({
       >
         <p
           style={{
-            fontFamily: "var(--font-bebas), sans-serif",
+            fontFamily: "var(--font-display)",
+            fontWeight: 800,
             fontSize: "clamp(1.35rem, 3vw, 1.75rem)",
-            lineHeight: 1.15,
-            letterSpacing: "0.02em",
+            lineHeight: 1.12,
+            letterSpacing: "-0.035em",
             marginBottom: description ? "0.75rem" : "1.25rem",
           }}
         >

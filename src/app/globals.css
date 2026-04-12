@@ -46,6 +46,18 @@
   --band-ink: var(--brand-navy);
   --band-ink-fg: #f2f5f8;
   --home-gap: clamp(3.5rem, 12vw, 8rem);
+  /* Titular tipo sesiones home (MotionStackPanels / ProgramShell); usable en cualquier página interna. */
+  --stack-panel-title-maxw: 42rem;
+  --stack-panel-title-size: clamp(1.95rem, 5.2vw, 4.65rem);
+  /* Cuerpo editorial (stack home .body); Avenir si está instalado, si no DM Sans. */
+  --font-body: "Avenir Next", "Avenir", var(--font-sans-family), system-ui, sans-serif;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --stack-panel-title-maxw: 56rem;
+    --stack-panel-title-size: clamp(2.5rem, 6vw, 4.85rem);
+  }
 }
 
 @theme inline {
@@ -83,9 +95,7 @@ body {
   max-width: 100%;
   background: var(--bg);
   color: var(--fg);
-  /* Usar --font-sans-family (inyectada en <html> por next/font), no --font-sans del @theme:
-     si no, en body a veces cae solo en system-ui y casi no se nota el cambio de fuente. */
-  font-family: var(--font-sans-family), system-ui, sans-serif;
+  font-family: var(--font-body);
 }
 
 /* Fase 6 · foco visible (WCAG) sin anular estilos de componentes que ya lo definen */
@@ -133,8 +143,9 @@ body {
 
 /* Landings programa · primer párrafo solo si no hay módulos 5.3 */
 .prec-program-canvas:not(.prec-program-canvas--modular) > p:first-of-type {
-  font-size: 1.125rem;
-  line-height: 1.72;
+  font-family: var(--font-body);
+  font-size: 1.1875rem;
+  line-height: 1.65;
   color: var(--muted);
   max-width: 38rem;
   padding-left: 1rem;
@@ -597,9 +608,22 @@ body {
 
 .prec-title-xl {
   font-family: var(--font-display);
-  font-weight: 500;
-  letter-spacing: -0.03em;
-  line-height: 1.08;
+  font-weight: 800;
+  font-size: var(--stack-panel-title-size);
+  max-width: min(var(--stack-panel-title-maxw), 100%);
+  letter-spacing: -0.035em;
+  line-height: 1.02;
+}
+
+/* Cabeceras de artículo: medida de lectura más estrecha que el titular full-stack. */
+.prec-title-xl--article {
+  max-width: min(22ch, 100%);
+}
+
+@media (min-width: 768px) {
+  .prec-title-xl--article {
+    max-width: min(30ch, 100%);
+  }
 }
 
 .prec-page {
@@ -781,8 +805,9 @@ body {
 
 /* Prosa editorial */
 .prose-precisar {
-  font-size: 1.0625rem;
-  line-height: 1.68;
+  font-family: var(--font-body);
+  font-size: 1.1875rem;
+  line-height: 1.65;
   color: var(--fg);
 }
 
@@ -798,9 +823,10 @@ body {
   padding-top: 1.5rem;
   border-top: 1px solid var(--border);
   font-family: var(--font-display);
-  font-size: 1.35rem;
-  font-weight: 500;
-  letter-spacing: -0.02em;
+  font-size: clamp(1.35rem, 2.8vw, 1.85rem);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.08;
   max-width: var(--max-wide);
 }
 
@@ -813,12 +839,13 @@ body {
 .prose-precisar h3 {
   margin-top: 1.75rem;
   margin-bottom: 0.65rem;
-  font-family: var(--font-mono);
-  font-size: 0.6875rem;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--muted);
+  font-family: var(--font-display);
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.12;
+  text-transform: none;
+  color: var(--fg);
   max-width: var(--max-wide);
 }
 
@@ -871,9 +898,11 @@ body {
   padding: 1.35rem 0 1.1rem;
   border-top: 2px solid var(--fg);
   border-bottom: 1px solid var(--border);
-  font-size: clamp(1.2rem, 2.5vw, 1.45rem);
-  font-weight: 600;
-  letter-spacing: -0.03em;
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 2.8vw, 1.85rem);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.08;
   max-width: 44rem;
   color: var(--ink);
 }
@@ -884,6 +913,9 @@ body {
 
 .prose-precisar.prose-precisar--program h3 {
   margin-top: 2.25rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.03em;
   color: var(--accent);
 }
 
@@ -1008,8 +1040,8 @@ body {
 
 /* Artículo: columna de lectura */
 .prose-precisar.prose-precisar--article {
-  font-size: 1.125rem;
-  line-height: 1.72;
+  font-size: 1.1875rem;
+  line-height: 1.65;
 }
 
 .prose-precisar.prose-precisar--article p {

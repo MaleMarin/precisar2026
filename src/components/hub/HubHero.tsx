@@ -7,16 +7,21 @@ export function HubHero() {
       <h1
         className="mt-4 max-w-4xl"
         style={{
-          fontFamily: "var(--font-bebas), sans-serif",
-          fontSize: "clamp(2.5rem, 6vw, 3.5rem)",
-          lineHeight: 1.05,
-          letterSpacing: "0.02em",
+          fontFamily: "var(--font-display)",
+          fontWeight: 800,
+          fontSize: "var(--stack-panel-title-size)",
+          maxWidth: "min(var(--stack-panel-title-maxw), 100%)",
+          lineHeight: 1.02,
+          letterSpacing: "-0.035em",
           whiteSpace: "pre-line",
         }}
       >
         La cultura digital{"\n"}entra por la puerta.
       </h1>
-      <p className="mt-6 max-w-3xl" style={{ color: "#A0A0A0", fontSize: 16, lineHeight: 1.65 }}>
+      <p
+        className="mt-6 max-w-3xl"
+        style={{ color: "#A0A0A0", fontFamily: "var(--font-body)", fontSize: 16, lineHeight: 1.65 }}
+      >
         Una experiencia itinerante que lleva desinformación, algoritmos, privacidad e inteligencia artificial a plazas,
         municipios, bibliotecas, auditorios y eventos. Sin clase, sin sermón. Con conversación real.
       </p>
@@ -25,7 +30,7 @@ export function HubHero() {
         style={{
           borderLeft: "3px solid #DB5227",
           color: "#A0A0A0",
-          fontFamily: "var(--font-serif), Georgia, serif",
+          fontFamily: "var(--font-body)",
           fontSize: "1.05rem",
           lineHeight: 1.6,
         }}

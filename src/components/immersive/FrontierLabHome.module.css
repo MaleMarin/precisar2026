@@ -12,8 +12,7 @@
   --a-gold-dim: color-mix(in oklab, var(--a-gold) 45%, var(--a-bg));
   --a-line: color-mix(in oklab, var(--a-fg) 9%, transparent);
   --a-glass: color-mix(in oklab, var(--a-fg) 4%, transparent);
-  --serif: var(--font-serif-display), "Cormorant Garamond", Georgia, serif;
-  --sans: var(--font-sans-family), system-ui, sans-serif;
+  --sans: var(--font-body);
   --mono: var(--font-mono-family), ui-monospace, monospace;
   background: var(--a-bg);
   color: var(--a-fg);
@@ -112,11 +111,11 @@
 }
 
 .brand {
-  font-family: var(--serif);
+  font-family: var(--font-display);
   font-size: 1.35rem;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  font-style: italic;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  font-style: normal;
   color: var(--a-fg);
   text-decoration: none;
 }
@@ -216,11 +215,11 @@ main.main {
 
 .heroTitle {
   margin: 0;
-  font-family: var(--serif);
-  font-weight: 500;
+  font-family: var(--font-display);
+  font-weight: 800;
   font-size: clamp(2.8rem, 11vw, 7.25rem);
   line-height: 0.98;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.035em;
   color: var(--a-fg);
 }
 
@@ -271,7 +270,7 @@ main.main {
 }
 
 .vine {
-  font-family: var(--serif);
+  font-family: var(--font-body);
   font-size: clamp(1.5rem, 3.5vw, 2.25rem);
   font-style: italic;
   font-weight: 500;
@@ -385,19 +384,21 @@ main.main {
 
 .statementText {
   margin: 0;
-  font-family: var(--serif);
-  font-weight: 500;
+  font-family: var(--font-display);
+  font-weight: 800;
   font-size: clamp(2rem, 7.5vw, 5.5rem);
-  line-height: 1.05;
-  letter-spacing: -0.02em;
+  line-height: 1.02;
+  letter-spacing: -0.035em;
   color: var(--a-fg);
-  font-style: italic;
+  font-style: normal;
 }
 
 .statementMark {
-  font-family: var(--serif);
+  font-family: var(--font-display);
+  font-weight: 800;
   font-size: clamp(4rem, 18vw, 10rem);
   line-height: 0.5;
+  letter-spacing: -0.04em;
   color: color-mix(in oklab, var(--a-gold) 35%, transparent);
   margin-bottom: 0.15em;
 }
@@ -425,11 +426,11 @@ main.main {
 
 .sectionTitle {
   margin: 0;
-  font-family: var(--serif);
-  font-weight: 500;
+  font-family: var(--font-display);
+  font-weight: 800;
   font-size: clamp(2rem, 5.5vw, 3.75rem);
   line-height: 1.08;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.035em;
   color: var(--a-fg);
 }
 
@@ -484,10 +485,10 @@ main.main {
 
 .galleryCardTitle {
   margin: 0;
-  font-family: var(--serif);
+  font-family: var(--font-display);
   font-size: 1.45rem;
-  font-weight: 600;
-  letter-spacing: -0.01em;
+  font-weight: 800;
+  letter-spacing: -0.03em;
   color: var(--a-fg);
 }
 
@@ -535,9 +536,10 @@ main.main {
 }
 
 .horizontalSlideNum {
-  font-family: var(--serif);
+  font-family: var(--font-display);
   font-size: clamp(4rem, 12vw, 7rem);
-  font-weight: 500;
+  font-weight: 800;
+  letter-spacing: -0.04em;
   line-height: 0.85;
   color: color-mix(in oklab, var(--a-gold) 55%, var(--a-bg));
   opacity: 0.85;
@@ -545,10 +547,11 @@ main.main {
 
 .horizontalSlideTitle {
   margin: 1.5rem 0 0;
-  font-family: var(--serif);
+  font-family: var(--font-display);
   font-size: clamp(1.5rem, 3.5vw, 2.25rem);
-  font-weight: 500;
-  line-height: 1.15;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.12;
   color: var(--a-fg);
 }
 
@@ -597,7 +600,7 @@ main.main {
   margin: 2.5rem 0 0;
   padding-left: 1.5rem;
   border-left: 2px solid var(--a-gold);
-  font-family: var(--serif);
+  font-family: var(--font-body);
   font-size: clamp(1.35rem, 3.5vw, 2rem);
   font-style: italic;
   line-height: 1.45;
@@ -614,11 +617,12 @@ main.main {
 
 .colophonTitle {
   margin: 0;
-  font-family: var(--serif);
-  font-weight: 500;
+  font-family: var(--font-display);
+  font-weight: 800;
   font-size: clamp(2.25rem, 7vw, 4.25rem);
-  font-style: italic;
-  letter-spacing: -0.02em;
+  font-style: normal;
+  letter-spacing: -0.035em;
+  line-height: 1.02;
   color: var(--a-fg);
 }
 

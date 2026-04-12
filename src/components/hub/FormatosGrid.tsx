@@ -22,7 +22,15 @@ function FormatCard({ tier, tierStyle, title, specs, includes, featured }: Forma
       <span className="inline-block w-fit rounded px-2 py-1 text-[10px] font-semibold uppercase tracking-wider" style={tierStyle}>
         {tier}
       </span>
-      <h3 className="mt-3 text-lg font-semibold" style={{ fontFamily: "var(--font-bebas), sans-serif" }}>
+      <h3
+        className="mt-3 text-lg font-semibold"
+        style={{
+          fontFamily: "var(--font-display)",
+          fontWeight: 800,
+          letterSpacing: "-0.03em",
+          lineHeight: 1.1,
+        }}
+      >
         {title}
       </h3>
       <div className="mt-4 space-y-2">
@@ -63,7 +71,12 @@ export function FormatosGrid() {
       <Kicker>■ ELIGE TU FORMATO</Kicker>
       <h2
         className="mt-3 text-xl sm:text-2xl"
-        style={{ fontFamily: "var(--font-bebas), sans-serif", letterSpacing: "0.04em" }}
+        style={{
+          fontFamily: "var(--font-display)",
+          fontWeight: 800,
+          letterSpacing: "-0.035em",
+          lineHeight: 1.1,
+        }}
       >
         Formatos
       </h2>

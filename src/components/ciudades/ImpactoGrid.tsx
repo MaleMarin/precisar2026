@@ -33,7 +33,12 @@ export function ImpactoGrid() {
       <Kicker>■ IMPACTO EN EL MUNICIPIO</Kicker>
       <h2
         className="mt-3 text-xl sm:text-2xl"
-        style={{ fontFamily: "var(--font-bebas), sans-serif", letterSpacing: "0.04em" }}
+        style={{
+          fontFamily: "var(--font-display)",
+          fontWeight: 800,
+          letterSpacing: "-0.035em",
+          lineHeight: 1.1,
+        }}
       >
         Impacto
       </h2>

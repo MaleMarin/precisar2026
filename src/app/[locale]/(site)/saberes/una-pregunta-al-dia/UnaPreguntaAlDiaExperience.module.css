@@ -348,11 +348,12 @@
 
 .downloadTitle {
   margin: 0;
-  font-family: Georgia, "Times New Roman", Times, serif;
+  font-family: var(--font-display);
   font-size: clamp(28px, 4vw, 44px);
-  font-weight: 500;
+  font-weight: 800;
+  letter-spacing: -0.035em;
   color: var(--up-cream);
-  line-height: 1.1;
+  line-height: 1.02;
 }
 
 .downloadDesc {

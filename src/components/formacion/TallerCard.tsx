@@ -29,8 +29,10 @@ export function TallerCard({ label, title, hook, description, outcomes, modulos 
       <h2
         className="mt-3 max-w-3xl"
         style={{
-          fontFamily: "var(--font-bebas), sans-serif",
+          fontFamily: "var(--font-display)",
+          fontWeight: 800,
           fontSize: "clamp(1.85rem, 4vw, 2.5rem)",
+          letterSpacing: "-0.035em",
           lineHeight: 1.08,
           whiteSpace: "pre-line",
         }}

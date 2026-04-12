@@ -47,9 +47,7 @@ export function PageShell({
             <span className="prec-page-head__marker" aria-hidden />
             <div className="prec-page-head__text">
               {kicker ? <p className="prec-kicker prec-kicker--accent">{kicker}</p> : null}
-              <h1 className="prec-title-xl mt-3 max-w-4xl text-[clamp(1.85rem,4vw,2.65rem)] leading-[1.08] tracking-[-0.035em] md:mt-4">
-                {title}
-              </h1>
+              <h1 className="prec-title-xl mt-3 md:mt-4">{title}</h1>
               <p className="mt-3 max-w-2xl text-base leading-relaxed text-[var(--muted)]">
                 {indexIntro ?? "Publicación editorial de Precisar."}
               </p>
@@ -59,9 +57,7 @@ export function PageShell({
           <header className="prec-page-head prec-page-head--article mb-12 md:mb-16">
             <div className="border-l-[3px] border-[var(--accent)] pl-6 md:pl-9">
               {kicker ? <p className="prec-kicker prec-kicker--accent">{kicker}</p> : null}
-              <h1 className="prec-title-xl mt-4 max-w-[22ch] text-[clamp(1.85rem,4.2vw,2.95rem)] leading-[1.05] tracking-[-0.038em] md:max-w-[30ch]">
-                {title}
-              </h1>
+              <h1 className="prec-title-xl prec-title-xl--article mt-4">{title}</h1>
             </div>
           </header>
         ) : (
@@ -69,7 +65,7 @@ export function PageShell({
             <span className="prec-page-head__marker" aria-hidden />
             <div className="prec-page-head__text">
               {kicker ? <p className="prec-kicker">{kicker}</p> : null}
-              <h1 className="prec-title-xl mt-3 max-w-4xl text-3xl md:text-[2.35rem]">{title}</h1>
+              <h1 className="prec-title-xl mt-3">{title}</h1>
               {headerLead ? (
                 <p className="mt-4 max-w-2xl text-base leading-relaxed text-[var(--muted)] md:text-lg">
                   {headerLead}

@@ -7,10 +7,12 @@ export function CiudadesHero() {
       <h1
         className="mt-4 max-w-4xl"
         style={{
-          fontFamily: "var(--font-bebas), sans-serif",
-          fontSize: "clamp(2.5rem, 6vw, 3.5rem)",
-          lineHeight: 1.05,
-          letterSpacing: "0.02em",
+          fontFamily: "var(--font-display)",
+          fontWeight: 800,
+          fontSize: "var(--stack-panel-title-size)",
+          maxWidth: "min(var(--stack-panel-title-maxw), 100%)",
+          lineHeight: 1.02,
+          letterSpacing: "-0.035em",
           whiteSpace: "pre-line",
         }}
       >
