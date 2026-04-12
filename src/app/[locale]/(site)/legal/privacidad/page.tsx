@@ -7,6 +7,9 @@ export const metadata = {
 };
 
 export default function Page() {
+  const contactEmail = SITE.contactEmail as string;
+  const privacyEmail = SITE.privacyEmail as string;
+
   return (
     <LegalPageTemplate title="Política de privacidad" kicker={`Sitio web · ${SITE.url.replace(/^https:\/\//, "")}`}>
       <p className="text-sm text-[var(--muted)]">Última actualización: 12 de abril de 2026</p>
@@ -22,12 +25,12 @@ export default function Page() {
       <p>
         El responsable del sitio y del tratamiento de los datos descritos aquí es la organización detrás
         de {SITE.name}. Para consultas sobre privacidad puedes escribir a{" "}
-        <a href={`mailto:${SITE.contactEmail}`}>{SITE.contactEmail}</a>
-        {SITE.privacyEmail !== SITE.contactEmail ? (
+        <a href={`mailto:${contactEmail}`}>{contactEmail}</a>
+        {privacyEmail !== contactEmail ? (
           <>
             {" "}
             o, para asuntos sensibles de datos personales, a{" "}
-            <a href={`mailto:${SITE.privacyEmail}`}>{SITE.privacyEmail}</a>
+            <a href={`mailto:${privacyEmail}`}>{privacyEmail}</a>
           </>
         ) : null}
         .
