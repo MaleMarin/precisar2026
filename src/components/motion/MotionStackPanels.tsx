@@ -172,6 +172,9 @@ function HomeSaberesAside({ reduceMotion, items }: { reduceMotion: boolean; item
           </span>
         </span>
       </a>
+      <Link href="/saberes/recursos" className={styles.recursosBtn}>
+        Material para descargar →
+      </Link>
     </div>
   );
 }
