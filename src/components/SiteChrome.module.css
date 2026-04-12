@@ -20,3 +20,8 @@
   min-width: 0;
   min-height: 0;
 }
+
+/* Cultura digital: el main no debe crecer con el flex del chrome; si no, queda una franja del --bg entre el panel y el footer. */
+.mainCulturaDigital {
+  flex: 0 0 auto;
+}

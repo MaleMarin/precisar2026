@@ -8,11 +8,20 @@ import styles from "./SiteChrome.module.css";
 export function SiteChrome({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const isStudioHome = pathname === "/cinematic" || pathname === "/atelier";
+  const isCulturaDigital = pathname.includes("/culturadigital");
 
   return (
     <div className={styles.chrome}>
       {!isStudioHome ? <SiteHeader /> : null}
-      <main className={isStudioHome ? styles.mainHome : styles.mainDefault}>{children}</main>
+      <main
+        className={
+          isStudioHome
+            ? styles.mainHome
+            : [styles.mainDefault, isCulturaDigital ? styles.mainCulturaDigital : ""].filter(Boolean).join(" ")
+        }
+      >
+        {children}
+      </main>
       <SiteFooter />
     </div>
   );
