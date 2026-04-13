@@ -3,7 +3,6 @@ import { ConsultaFlowProvider } from "@/components/consulta/ConsultaFlowContext"
 import { ConsultaLiveMapProvider } from "@/components/consulta/ConsultaLiveMapProvider";
 import { ConsultaPageShell } from "@/components/consulta/ConsultaPageShell";
 import { ConsultaViewportCenter } from "@/components/consulta/ConsultaViewportCenter";
-import { SiteFooter } from "@/components/SiteFooter";
 import { ConsultaStackedLayout } from "./ConsultaStackedLayout";
 
 export const metadata: Metadata = {
@@ -28,7 +27,6 @@ export default function ConsultaPage() {
           </ConsultaViewportCenter>
         </ConsultaFlowProvider>
       </ConsultaPageShell>
-      <SiteFooter />
     </ConsultaLiveMapProvider>
   );
 }

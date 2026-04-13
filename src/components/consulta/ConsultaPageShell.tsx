@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { SiteFooter } from "@/components/SiteFooter";
 import styles from "./ConsultaShell.module.css";
 
 /** Wordmark en `public/`; ruta estable para la barra de marca en /consulta. */
@@ -33,6 +34,7 @@ export function ConsultaPageShell({ children, variant = "default" }: ConsultaPag
         </div>
         {children}
       </main>
+      <SiteFooter />
     </div>
   );
 }
