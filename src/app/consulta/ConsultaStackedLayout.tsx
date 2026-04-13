@@ -21,30 +21,30 @@ export function ConsultaStackedLayout() {
 
   return (
     <>
+      {/* Header con logo */}
       <div style={{
         width: "100%",
         display: "flex",
-        justifyContent: "space-between",
+        justifyContent: "flex-start",
         alignItems: "center",
-        padding: "1rem clamp(1rem,3vw,2rem)",
-        position: "sticky" as const,
-        top: 0,
-        zIndex: 100,
+        padding: "1.25rem clamp(1rem,4vw,3rem)",
       }}>
         <a href="https://precisar.net" style={{ display: "block", lineHeight: 0 }}>
           <img
             src="/logo-precisar/logo-precisar.png"
             alt="Precisar"
             style={{
-              height: "clamp(28px,4vw,36px)",
+              height: "clamp(28px,3.5vw,38px)",
               width: "auto",
               filter: "brightness(0) invert(1)",
-              opacity: 0.9,
+              opacity: 0.85,
             }}
           />
         </a>
       </div>
-      <div style={{ width: "100%", maxWidth: 820, margin: "0 auto", paddingTop: "clamp(1rem,2vw,1.5rem)", paddingBottom: "clamp(4rem,8vw,6rem)" }}>
+
+      {/* Contenido principal */}
+      <div style={{ width: "100%", maxWidth: 820, margin: "0 auto", paddingLeft: "clamp(1rem,3vw,2rem)", paddingRight: "clamp(1rem,3vw,2rem)", paddingBottom: "clamp(2rem,4vw,3rem)" }}>
 
       <style dangerouslySetInnerHTML={{ __html: `
         [data-consulta-stacked] #consulta-flujo [class*="prompt"] { color: #0a0c12 !important; }
@@ -139,33 +139,35 @@ export function ConsultaStackedLayout() {
           </div>
         )}
       </div>
-    </div>
-    <footer style={{
-      width: "100%",
-      padding: "2rem clamp(1rem,3vw,2rem)",
-      display: "flex",
-      flexDirection: "column" as const,
-      alignItems: "center",
-      gap: "0.75rem",
-      borderTop: "1px solid rgba(255,255,255,0.08)",
-      marginTop: "2rem",
-    }}>
-      <a href="https://precisar.net" style={{ display: "block", lineHeight: 0 }}>
-        <img
-          src="/precisar-footer-wordmark.png"
-          alt="Precisar"
-          style={{
-            height: 28,
-            width: "auto",
-            filter: "brightness(0) invert(1)",
-            opacity: 0.45,
-          }}
-        />
-      </a>
-      <p style={{ margin: 0, fontSize: 10, letterSpacing: "0.12em", color: "rgba(255,255,255,0.25)", textAlign: "center" as const }}>
-        Hecho con criterio en Chile 🇨🇱 y México 🇲🇽
-      </p>
-    </footer>
+      </div>
+
+      {/* Footer */}
+      <footer style={{
+        width: "100%",
+        padding: "2rem clamp(1rem,4vw,3rem)",
+        display: "flex",
+        flexDirection: "column" as const,
+        alignItems: "center",
+        gap: "0.65rem",
+        borderTop: "1px solid rgba(255,255,255,0.08)",
+        marginTop: "1rem",
+      }}>
+        <a href="https://precisar.net" style={{ display: "block", lineHeight: 0 }}>
+          <img
+            src="/precisar-footer-wordmark.png"
+            alt="Precisar"
+            style={{
+              height: 24,
+              width: "auto",
+              filter: "brightness(0) invert(1)",
+              opacity: 0.4,
+            }}
+          />
+        </a>
+        <p style={{ margin: 0, fontSize: 10, letterSpacing: "0.12em", color: "rgba(255,255,255,0.22)", textAlign: "center" as const }}>
+          Hecho con criterio en Chile 🇨🇱 y México 🇲🇽
+        </p>
+      </footer>
     </>
   );
 }
