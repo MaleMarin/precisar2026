@@ -20,7 +20,31 @@ export function ConsultaStackedLayout() {
   const currentBlock = activeBlock >= 0 ? BLOCKS[activeBlock] : null;
 
   return (
-    <div style={{ width: "100%", maxWidth: 820, margin: "0 auto", paddingTop: "clamp(1rem,2vw,1.5rem)", paddingBottom: "clamp(4rem,8vw,6rem)" }}>
+    <>
+      <div style={{
+        width: "100%",
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+        padding: "1rem clamp(1rem,3vw,2rem)",
+        position: "sticky" as const,
+        top: 0,
+        zIndex: 100,
+      }}>
+        <a href="https://precisar.net" style={{ display: "block", lineHeight: 0 }}>
+          <img
+            src="/logo-precisar/logo-precisar.png"
+            alt="Precisar"
+            style={{
+              height: "clamp(28px,4vw,36px)",
+              width: "auto",
+              filter: "brightness(0) invert(1)",
+              opacity: 0.9,
+            }}
+          />
+        </a>
+      </div>
+      <div style={{ width: "100%", maxWidth: 820, margin: "0 auto", paddingTop: "clamp(1rem,2vw,1.5rem)", paddingBottom: "clamp(4rem,8vw,6rem)" }}>
 
       <style dangerouslySetInnerHTML={{ __html: `
         [data-consulta-stacked] #consulta-flujo [class*="prompt"] { color: #0a0c12 !important; }
@@ -116,5 +140,32 @@ export function ConsultaStackedLayout() {
         )}
       </div>
     </div>
+    <footer style={{
+      width: "100%",
+      padding: "2rem clamp(1rem,3vw,2rem)",
+      display: "flex",
+      flexDirection: "column" as const,
+      alignItems: "center",
+      gap: "0.75rem",
+      borderTop: "1px solid rgba(255,255,255,0.08)",
+      marginTop: "2rem",
+    }}>
+      <a href="https://precisar.net" style={{ display: "block", lineHeight: 0 }}>
+        <img
+          src="/precisar-footer-wordmark.png"
+          alt="Precisar"
+          style={{
+            height: 28,
+            width: "auto",
+            filter: "brightness(0) invert(1)",
+            opacity: 0.45,
+          }}
+        />
+      </a>
+      <p style={{ margin: 0, fontSize: 10, letterSpacing: "0.12em", color: "rgba(255,255,255,0.25)", textAlign: "center" as const }}>
+        Hecho con criterio en Chile 🇨🇱 y México 🇲🇽
+      </p>
+    </footer>
+    </>
   );
 }
