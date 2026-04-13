@@ -82,10 +82,11 @@ export function ConsultaStackedLayout() {
                   background: block.bg,
                   padding: "0.45rem 1.25rem 0.65rem",
                   borderRadius: "10px 10px 0 0",
-                  marginLeft: `${fromFront * 140}px`,
+                  marginLeft: `${fromFront * 80}px`,
                   border: "1px solid rgba(255,255,255,0.1)",
                   borderBottom: "none",
-                  minWidth: 160,
+                  minWidth: 0,
+                  width: `calc(100% - ${fromFront * 80}px)`,
                 }}>
                   <span style={{ fontSize: 9, fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase" as const, color: "rgba(255,255,255,0.5)" }}>{block.n}</span>
                   <span style={{ fontSize: "0.8125rem", fontWeight: 700, color: "#ffffff", letterSpacing: "-0.02em", whiteSpace: "nowrap" as const }}>{block.title}</span>
