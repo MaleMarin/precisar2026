@@ -5,10 +5,10 @@ import { ConsultaStartButton } from "@/components/consulta/ConsultaStartButton";
 import { useConsultaFlow } from "@/components/consulta/ConsultaFlowContext";
 
 const BLOCKS = [
-  { n: "01", title: "Cómo te informas", bg: "#ffffff", fg: "#0A0C12" },
-  { n: "02", title: "Confianza e información", bg: "#F74603", fg: "#ffffff" },
+  { n: "01", title: "Cómo te informas",          bg: "#ffffff", fg: "#0A0C12" },
+  { n: "02", title: "Confianza e información",    bg: "#F74603", fg: "#ffffff" },
   { n: "03", title: "Cómo procesas lo que llega", bg: "#DD0200", fg: "#ffffff" },
-  { n: "04", title: "Tu contexto", bg: "#1A0706", fg: "#ffffff" },
+  { n: "04", title: "Tu contexto",                bg: "#1A0706", fg: "#ffffff" },
 ] as const;
 
 export function ConsultaStackedLayout() {
@@ -23,65 +23,34 @@ export function ConsultaStackedLayout() {
     <div style={{ width: "100%", maxWidth: 680, margin: "0 auto", paddingTop: "clamp(1rem,2vw,1.5rem)", paddingBottom: "clamp(4rem,8vw,6rem)" }}>
 
       <style dangerouslySetInnerHTML={{ __html: `
-        [data-consulta-stacked] #consulta-flujo [class*="prompt"],
-        [data-consulta-stacked] #consulta-flujo [class*="stepHead"] [class*="prompt"] {
-          color: #0a0c12 !important;
-        }
-        [data-consulta-stacked] #consulta-flujo [class*="eyebrow"],
-        [data-consulta-stacked] #consulta-flujo [class*="stepHead"] [class*="eyebrow"] {
-          color: rgba(10,12,18,0.5) !important;
-        }
-        [data-consulta-stacked] #consulta-flujo [class*="helper"] {
-          color: rgba(10,12,18,0.72) !important;
-        }
-        [data-consulta-stacked] #consulta-flujo [class*="capHint"] {
-          color: rgba(10,12,18,0.5) !important;
-        }
-        [data-consulta-stacked] #consulta-flujo [class*="navPrimarySolidInner"] {
-          background: #0a0c12 !important;
-          box-shadow: 0 10px 30px rgba(0,0,0,0.3) !important;
-        }
-        [data-consulta-stacked] #consulta-flujo [class*="fill"] {
-          background: linear-gradient(90deg, #1A0706, #DD0200) !important;
-        }
-        [data-consulta-stacked] #consulta-flujo [class*="segmentDone"],
-        [data-consulta-stacked] #consulta-flujo [class*="segmentCurrent"] {
-          background: #0a0c12 !important;
-        }
-        [data-consulta-stacked] #consulta-flujo [class*="navLightDock"] {
-          background: rgba(255,255,255,0.96) !important;
-          border: 1px solid rgba(0,0,0,0.06) !important;
-        }
-        [data-consulta-stacked] #consulta-flujo [class*="navGhost"] {
-          color: rgba(10,12,18,0.5) !important;
-        }
+        [data-consulta-stacked] #consulta-flujo [class*="prompt"] { color: #0a0c12 !important; }
+        [data-consulta-stacked] #consulta-flujo [class*="eyebrow"] { color: rgba(10,12,18,0.5) !important; }
+        [data-consulta-stacked] #consulta-flujo [class*="helper"] { color: rgba(10,12,18,0.72) !important; }
+        [data-consulta-stacked] #consulta-flujo [class*="navPrimarySolidInner"] { background: #0a0c12 !important; }
+        [data-consulta-stacked] #consulta-flujo [class*="fill"] { background: linear-gradient(90deg,#1A0706,#DD0200) !important; }
+        [data-consulta-stacked] #consulta-flujo [class*="segmentDone"],[data-consulta-stacked] #consulta-flujo [class*="segmentCurrent"] { background: #0a0c12 !important; }
+        [data-consulta-stacked] #consulta-flujo [class*="navLightDock"] { background: rgba(255,255,255,0.96) !important; border: 1px solid rgba(0,0,0,0.06) !important; }
+        [data-consulta-stacked] #consulta-flujo [class*="navGhost"] { color: rgba(10,12,18,0.5) !important; }
       ` }} />
 
-      {/* Tabs tipo carpeta — arriba */}
+      {/* Tabs tipo carpeta */}
       {futureBlocks.length > 0 && (
-        <div style={{ position: "relative" as const, display: "flex", flexDirection: "column" as const }}>
+        <div style={{ display: "flex", flexDirection: "column" as const }}>
           {[...futureBlocks].reverse().map((block, ri) => {
             const fromFront = futureBlocks.length - 1 - ri;
-            const bgOpacity = 1;
             return (
-              <div key={block.n} style={{
-                position: "relative" as const,
-                zIndex: ri + 1,
-                marginLeft: 0,
-                width: "100%",
-                marginBottom: ri < futureBlocks.length - 1 ? -6 : 0,
-              }}>
+              <div key={block.n} style={{ marginBottom: ri < futureBlocks.length - 1 ? -6 : 0, zIndex: ri + 1, position: "relative" as const }}>
                 <div style={{
                   background: block.bg,
-                  opacity: bgOpacity,
                   borderRadius: "14px 14px 0 0",
-                  padding: "0.6rem 1.5rem 0.8rem",
+                  padding: "0.65rem 1.5rem 0.85rem",
+                  marginLeft: `${fromFront * 56}px`,
                   border: "1px solid rgba(255,255,255,0.08)",
                   borderBottom: "none",
-                  marginLeft: `${fromFront * 56}px`,
+                  boxShadow: "0 -4px 16px rgba(0,0,0,0.15)",
                 }}>
                   <span style={{ fontSize: 9, fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase" as const, color: block.fg === "#ffffff" ? "rgba(255,255,255,0.5)" : "rgba(10,12,18,0.4)", display: "block", marginBottom: "0.15rem" }}>{block.n}</span>
-                  <span style={{ fontSize: "0.9375rem", fontWeight: 800, color: block.fg, letterSpacing: "-0.025em", lineHeight: 1, display: "block" }}>{block.title}</span>
+                  <span style={{ fontSize: "1rem", fontWeight: 800, color: block.fg, letterSpacing: "-0.025em", lineHeight: 1, display: "block" }}>{block.title}</span>
                 </div>
               </div>
             );
@@ -95,8 +64,8 @@ export function ConsultaStackedLayout() {
         borderRadius: futureBlocks.length > 0 ? "0 0 24px 24px" : "24px",
         minHeight: "clamp(520px,74vh,740px)",
         padding: "2.5rem",
-        position: "relative" as const,
         zIndex: 10,
+        position: "relative" as const,
         boxShadow: "0 40px 80px rgba(0,0,0,0.55)",
         border: "1px solid rgba(255,255,255,0.07)",
         display: "flex",
