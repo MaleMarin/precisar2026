@@ -35,7 +35,7 @@ export function ConsultaStackedLayout() {
               <div key={block.n} style={{
                 background: block.bg,
                 borderRadius: "20px 20px 0 0",
-                height: 72,
+                height: 80,
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "space-between",
@@ -52,7 +52,7 @@ export function ConsultaStackedLayout() {
               }}>
                 <div style={{ display: "flex", flexDirection: "column" as const, gap: "0.15rem" }}>
                   <span style={{ fontSize: 9, fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase" as const, color: "rgba(255,255,255,0.45)" }}>{block.n}</span>
-                  <span style={{ fontSize: "clamp(1rem,2vw,1.25rem)", fontWeight: 800, color: "rgba(255,255,255,0.9)", letterSpacing: "-0.03em", lineHeight: 1 }}>{block.title}</span>
+                  <span style={{ fontSize: "clamp(1.1rem,2.2vw,1.35rem)", fontWeight: 800, color: "rgba(255,255,255,0.9)", letterSpacing: "-0.03em", lineHeight: 1 }}>{block.title}</span>
                 </div>
                 <span style={{ fontSize: 9, letterSpacing: "0.18em", textTransform: "uppercase" as const, color: "rgba(255,255,255,0.3)", fontWeight: 600 }}>pendiente →</span>
               </div>
