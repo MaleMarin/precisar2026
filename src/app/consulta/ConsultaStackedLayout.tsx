@@ -141,30 +141,24 @@ export function ConsultaStackedLayout() {
       </div>
       </div>
 
-      {/* Footer */}
       <footer style={{
         width: "100%",
-        padding: "2rem clamp(1rem,4vw,3rem)",
+        padding: "2.5rem clamp(1rem,3vw,2rem) 3rem",
         display: "flex",
         flexDirection: "column" as const,
         alignItems: "center",
-        gap: "0.65rem",
+        gap: "0.5rem",
+        marginTop: "3rem",
         borderTop: "1px solid rgba(255,255,255,0.08)",
-        marginTop: "1rem",
       }}>
-        <a href="https://precisar.net" style={{ display: "block", lineHeight: 0 }}>
+        <a href="https://precisar.net" style={{ lineHeight: 0 }}>
           <img
             src="/precisar-footer-wordmark.png"
             alt="Precisar"
-            style={{
-              height: 24,
-              width: "auto",
-              filter: "brightness(0) invert(1)",
-              opacity: 0.4,
-            }}
+            style={{ height: 22, width: "auto", filter: "brightness(0) invert(1)", opacity: 0.55 }}
           />
         </a>
-        <p style={{ margin: 0, fontSize: 10, letterSpacing: "0.12em", color: "rgba(255,255,255,0.22)", textAlign: "center" as const }}>
+        <p style={{ margin: 0, fontSize: 10, letterSpacing: "0.12em", color: "rgba(255,255,255,0.3)", textAlign: "center" as const }}>
           Hecho con criterio en Chile 🇨🇱 y México 🇲🇽
         </p>
       </footer>

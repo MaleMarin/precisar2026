@@ -33,20 +33,6 @@ export function ConsultaPageShell({ children, variant = "default" }: ConsultaPag
         </div>
         {children}
       </main>
-      <footer style={{ textAlign: "center", padding: "2rem 1rem 3rem", borderTop: "1px solid rgba(255,255,255,0.06)", marginTop: "2rem" }}>
-        <a href="https://precisar.net" style={{ display: "inline-block", lineHeight: 0 }}>
-          <img
-            src="/precisar-footer-wordmark.png"
-            alt="Precisar"
-            width={160}
-            height={28}
-            style={{ height: 24, width: "auto", filter: "brightness(0) invert(1)", opacity: 0.65 }}
-          />
-        </a>
-        <p style={{ margin: "0.5rem 0 0", fontSize: 10, letterSpacing: "0.12em", color: "rgba(255,255,255,0.45)" }}>
-          Hecho con criterio en Chile 🇨🇱 y México 🇲🇽
-        </p>
-      </footer>
     </div>
   );
 }
