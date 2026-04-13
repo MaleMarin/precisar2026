@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useState, type ReactNode } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { useConsultaLivePulse } from "./ConsultaLiveMapProvider";
 import { useConsultaFlow } from "./ConsultaFlowContext";
 import { ConsultaCompletion } from "./ConsultaCompletion";
@@ -34,6 +34,8 @@ export function ConsultaWizard() {
 
   const [softError, setSoftError] = useState<string | null>(null);
   const [privacyAccepted, setPrivacyAccepted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const submitLockRef = useRef(false);
 
   const step = phase === "active" ? getStepDefinition(questionIndex) : undefined;
 
@@ -72,17 +74,25 @@ export function ConsultaWizard() {
 
   const isDemographicsStep = step?.kind === "demographics";
 
-  const onPrimary = useCallback(() => {
+  const onPrimary = useCallback(async () => {
     if (isDemographicsStep && !privacyAccepted) {
       setSoftError("Marca la casilla verde para confirmar que leíste la política de privacidad. Así podemos enviar tus respuestas.");
       return;
     }
-    const r = advance();
-    if (!r.ok) {
-      setSoftError(r.error);
-      return;
+    if (submitLockRef.current) return;
+    submitLockRef.current = true;
+    setIsSubmitting(true);
+    try {
+      const r = await advance();
+      if (!r.ok) {
+        setSoftError(r.error);
+        return;
+      }
+      pulseOnAnswer();
+    } finally {
+      submitLockRef.current = false;
+      setIsSubmitting(false);
     }
-    pulseOnAnswer();
   }, [advance, pulseOnAnswer, isDemographicsStep, privacyAccepted]);
 
   const prog = phase === "active" ? progressCurrent({ questionIndex }) : null;
@@ -185,12 +195,14 @@ export function ConsultaWizard() {
               <button
                 type="button"
                 className={st.navPrimary}
-                onClick={onPrimary}
-                disabled={isDemographicsStep && !privacyAccepted}
+                onClick={() => {
+                  void onPrimary();
+                }}
+                disabled={(isDemographicsStep && !privacyAccepted) || isSubmitting}
               >
                 <div className={st.navPrimarySolid}>
                   <div className={st.navPrimarySolidInner}>
-                    {isLastQuestion ? "Terminar" : "Continuar"}
+                    {isSubmitting && isLastQuestion ? "Guardando…" : isLastQuestion ? "Terminar" : "Continuar"}
                   </div>
                 </div>
               </button>

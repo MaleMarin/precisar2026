@@ -13,6 +13,7 @@ import {
   mergeDemographics,
   validateStep,
 } from "@/lib/consulta/questions";
+import { persistConsultaSubmission } from "@/lib/consulta/persistConsultaSubmission";
 import type {
   ConsultaAnswers,
   ConsultaDemographics,
@@ -31,7 +32,7 @@ export type ConsultaFlowContextValue = {
   setScaleAnswer: (value: number) => void;
   setOpenAnswer: (value: string) => void;
   patchDemographics: (patch: Partial<ConsultaDemographics>) => void;
-  advance: () => AdvanceResult;
+  advance: () => Promise<AdvanceResult>;
   back: () => void;
   restartEntire: () => void;
 };
@@ -76,7 +77,7 @@ export function ConsultaFlowProvider({ children }: { children: ReactNode }) {
     }));
   }, []);
 
-  const advance = useCallback((): AdvanceResult => {
+  const advance = useCallback(async (): Promise<AdvanceResult> => {
     if (phase !== "active") {
       return { ok: false, error: "Algo salió mal. Intenta de nuevo." };
     }
@@ -88,11 +89,23 @@ export function ConsultaFlowProvider({ children }: { children: ReactNode }) {
     if (err) return { ok: false, error: err };
 
     if (questionIndex >= 11) {
-      /*
-       * Envío / persistencia: al completar el flujo, las respuestas agregadas en `answers`
-       * deben persistirse en Firestore (p. ej. `addDoc(collection(db, "consulta_respuestas"), payload)`).
-       * Colección prevista: **consulta_respuestas** (un documento por envío).
-       */
+      try {
+        await persistConsultaSubmission(answers);
+      } catch (e) {
+        console.error("[consulta] Firestore persist failed", e);
+        if (e instanceof Error && e.message === "MISSING_FIREBASE_ENCUESTA_CONFIG") {
+          return {
+            ok: false,
+            error:
+              "Falta la configuración del servicio de respuestas. Si eres quien administra el sitio, revisa las variables de entorno de Firebase.",
+          };
+        }
+        return {
+          ok: false,
+          error:
+            "No pudimos guardar tus respuestas. Revisa tu conexión e inténtalo de nuevo. Si el problema continúa, vuelve más tarde.",
+        };
+      }
       setPhase("complete");
       return { ok: true };
     }
