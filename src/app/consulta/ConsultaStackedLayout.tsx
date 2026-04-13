@@ -105,7 +105,18 @@ export function ConsultaStackedLayout() {
             <h1 style={{ margin: 0, fontSize: "clamp(3rem,6.5vw,5.5rem)", fontWeight: 800, lineHeight: 0.93, letterSpacing: "-0.045em", color: "#ffffff" }}>
               ¿Cómo te<br />informas<br />hoy?
             </h1>
-            <p style={{ margin: 0, fontSize: "clamp(1.1rem,2.2vw,1.35rem)", lineHeight: 1.5, color: "rgba(255,255,255,0.85)", maxWidth: "36rem", fontWeight: 500, letterSpacing: "-0.02em" }}>
+            <p
+              style={{
+                margin: 0,
+                marginTop: "clamp(1.1rem, 3.2vw, 2rem)",
+                fontSize: "clamp(1.28rem, 2.9vw, 1.65rem)",
+                lineHeight: 1.55,
+                color: "rgba(255,255,255,0.88)",
+                maxWidth: "36rem",
+                fontWeight: 500,
+                letterSpacing: "-0.02em",
+              }}
+            >
               Tu experiencia cambia cómo nos informamos todos.
             </p>
             <div style={{ marginTop: "auto", display: "flex", flexDirection: "column" as const, gap: "0.75rem", alignItems: "flex-start" }}>
