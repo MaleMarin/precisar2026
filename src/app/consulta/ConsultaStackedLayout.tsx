@@ -82,7 +82,7 @@ export function ConsultaStackedLayout() {
               ¿Cómo te<br />informas<br />hoy?
             </h1>
             <p style={{ margin: 0, fontSize: "1rem", lineHeight: 1.65, color: "rgba(255,255,255,0.6)", maxWidth: "36rem" }}>
-              Tu experiencia cambia cómo nos informamos todos. 4 bloques, 12 preguntas.
+              Tu experiencia cambia cómo nos informamos todos.
             </p>
             <div style={{ marginTop: "auto", display: "flex", flexDirection: "column" as const, gap: "0.75rem", alignItems: "flex-start" }}>
               <ConsultaStartButton />
