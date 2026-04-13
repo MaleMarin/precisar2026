@@ -8,7 +8,7 @@ const BLOCKS = [
   { n: "01", title: "Cómo te informas", bg: "#ffffff", fg: "#0A0C12" },
   { n: "02", title: "Confianza e información", bg: "#F74603", fg: "#ffffff" },
   { n: "03", title: "Cómo procesas lo que llega", bg: "#DD0200", fg: "#ffffff" },
-  { n: "04", title: "IA, tu visión y tu contexto", bg: "#1A0706", fg: "#ffffff" },
+  { n: "04", title: "Tu contexto", bg: "#1A0706", fg: "#ffffff" },
 ] as const;
 
 export function ConsultaStackedLayout() {
@@ -63,7 +63,7 @@ export function ConsultaStackedLayout() {
           {[...futureBlocks].reverse().map((block, ri) => {
             const fromFront = futureBlocks.length - 1 - ri;
             const tabWidth = `calc(100% - ${fromFront * 64}px)`;
-            const bgOpacity = ri === 0 ? 0.4 : ri === 1 ? 0.6 : ri === 2 ? 0.8 : 1;
+            const bgOpacity = 1;
             return (
               <div key={block.n} style={{
                 position: "relative" as const,
