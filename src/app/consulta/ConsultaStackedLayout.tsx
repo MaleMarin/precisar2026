@@ -22,6 +22,38 @@ export function ConsultaStackedLayout() {
 
   return (
     <div style={{ width: "100%", maxWidth: 680, margin: "0 auto", paddingTop: "clamp(1rem,2vw,1.5rem)", paddingBottom: "clamp(4rem,8vw,6rem)" }}>
+      <style dangerouslySetInnerHTML={{ __html: `
+  [data-consulta-stacked] #consulta-flujo [class*="prompt"] {
+    color: #0a0c12 !important;
+  }
+  [data-consulta-stacked] #consulta-flujo [class*="eyebrow"] {
+    color: rgba(10,12,18,0.5) !important;
+  }
+  [data-consulta-stacked] #consulta-flujo [class*="helper"] {
+    color: rgba(10,12,18,0.72) !important;
+  }
+  [data-consulta-stacked] #consulta-flujo [class*="capHint"] {
+    color: rgba(10,12,18,0.5) !important;
+  }
+  [data-consulta-stacked] #consulta-flujo [class*="navPrimarySolidInner"] {
+    background: #0a0c12 !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3) !important;
+  }
+  [data-consulta-stacked] #consulta-flujo [class*="fill"] {
+    background: linear-gradient(90deg, #1A0706, #55100D) !important;
+  }
+  [data-consulta-stacked] #consulta-flujo [class*="segmentDone"],
+  [data-consulta-stacked] #consulta-flujo [class*="segmentCurrent"] {
+    background: #0a0c12 !important;
+  }
+  [data-consulta-stacked] #consulta-flujo [class*="navLightDock"] {
+    background: rgba(255,255,255,0.96) !important;
+    border: 1px solid rgba(0,0,0,0.06) !important;
+  }
+  [data-consulta-stacked] #consulta-flujo [class*="navGhost"] {
+    color: rgba(10,12,18,0.5) !important;
+  }
+` }} />
 
       {/* Cards pendientes apiladas ARRIBA — de atrás hacia adelante */}
       {futureBlocks.length > 0 && (
