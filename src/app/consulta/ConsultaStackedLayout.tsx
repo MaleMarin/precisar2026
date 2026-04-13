@@ -62,14 +62,13 @@ export function ConsultaStackedLayout() {
         <div style={{ position: "relative" as const, display: "flex", flexDirection: "column" as const }}>
           {[...futureBlocks].reverse().map((block, ri) => {
             const fromFront = futureBlocks.length - 1 - ri;
-            const tabWidth = `calc(100% - ${fromFront * 64}px)`;
             const bgOpacity = 1;
             return (
               <div key={block.n} style={{
                 position: "relative" as const,
                 zIndex: ri + 1,
-                marginLeft: `${fromFront * 64}px`,
-                width: tabWidth,
+                marginLeft: 0,
+                width: "100%",
                 marginBottom: ri < futureBlocks.length - 1 ? -6 : 0,
               }}>
                 <div style={{
@@ -79,6 +78,7 @@ export function ConsultaStackedLayout() {
                   padding: "0.6rem 1.5rem 0.8rem",
                   border: "1px solid rgba(255,255,255,0.08)",
                   borderBottom: "none",
+                  marginLeft: `${fromFront * 56}px`,
                 }}>
                   <span style={{ fontSize: 9, fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase" as const, color: block.fg === "#ffffff" ? "rgba(255,255,255,0.5)" : "rgba(10,12,18,0.4)", display: "block", marginBottom: "0.15rem" }}>{block.n}</span>
                   <span style={{ fontSize: "0.9375rem", fontWeight: 800, color: block.fg, letterSpacing: "-0.025em", lineHeight: 1, display: "block" }}>{block.title}</span>
