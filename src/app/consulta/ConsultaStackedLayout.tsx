@@ -53,6 +53,14 @@ export function ConsultaStackedLayout() {
   [data-consulta-stacked] #consulta-flujo [class*="navGhost"] {
     color: rgba(10,12,18,0.5) !important;
   }
+  [data-consulta-stacked] #consulta-flujo [class*="stepHead"] [class*="prompt"],
+  [data-consulta-stacked] #consulta-flujo [class*="prompt"] {
+    color: #0a0c12 !important;
+  }
+  [data-consulta-stacked] #consulta-flujo [class*="stepHead"] [class*="eyebrow"],
+  [data-consulta-stacked] #consulta-flujo [class*="eyebrow"] {
+    color: rgba(10,12,18,0.5) !important;
+  }
 ` }} />
 
       {/* Cards pendientes apiladas ARRIBA — de atrás hacia adelante */}
@@ -61,20 +69,20 @@ export function ConsultaStackedLayout() {
           {[...futureBlocks].reverse().map((block, ri) => {
             const fromBottom = ri;
             const total = futureBlocks.length;
-            const scaleX = 0.88 + fromBottom * (0.12 / total);
+            const scaleX = 0.82 + fromBottom * (0.18 / total);
             const opacity = 0.45 + fromBottom * (0.4 / total);
             return (
               <div key={block.n} style={{
                 background: block.bg,
                 borderRadius: "20px 20px 0 0",
-                height: 80,
+                height: 110,
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "space-between",
                 padding: "0 2.5rem",
                 position: "relative" as const,
                 zIndex: fromBottom + 1,
-                marginTop: ri === 0 ? 0 : -46,
+                marginTop: ri === 0 ? 0 : -72,
                 transform: `scaleX(${scaleX})`,
                 transformOrigin: "center bottom",
                 opacity,
@@ -84,7 +92,7 @@ export function ConsultaStackedLayout() {
               }}>
                 <div style={{ display: "flex", flexDirection: "column" as const, gap: "0.15rem" }}>
                   <span style={{ fontSize: 9, fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase" as const, color: "rgba(255,255,255,0.45)" }}>{block.n}</span>
-                  <span style={{ fontSize: "clamp(1.1rem,2.2vw,1.35rem)", fontWeight: 800, color: "rgba(255,255,255,0.9)", letterSpacing: "-0.03em", lineHeight: 1 }}>{block.title}</span>
+                  <span style={{ fontSize: "clamp(1.2rem,2.5vw,1.55rem)", fontWeight: 800, color: "rgba(255,255,255,0.9)", letterSpacing: "-0.03em", lineHeight: 1 }}>{block.title}</span>
                 </div>
                 <span style={{ fontSize: 9, letterSpacing: "0.18em", textTransform: "uppercase" as const, color: "rgba(255,255,255,0.3)", fontWeight: 600 }}>pendiente →</span>
               </div>
