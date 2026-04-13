@@ -102,23 +102,30 @@ export function ConsultaStackedLayout() {
             <p style={{ margin: 0, fontSize: 10, fontWeight: 700, letterSpacing: "0.25em", textTransform: "uppercase" as const, color: "rgba(247,70,3,0.85)" }}>
               Precisar · Consulta ciudadana 2026
             </p>
-            <h1 style={{ margin: 0, fontSize: "clamp(3rem,6.5vw,5.5rem)", fontWeight: 800, lineHeight: 0.93, letterSpacing: "-0.045em", color: "#ffffff" }}>
-              ¿Cómo te<br />informas<br />hoy?
-            </h1>
-            <p
+            <div
               style={{
-                margin: 0,
-                marginTop: "clamp(1.1rem, 3.2vw, 2rem)",
-                fontSize: "clamp(1.28rem, 2.9vw, 1.65rem)",
-                lineHeight: 1.55,
-                color: "rgba(255,255,255,0.88)",
-                maxWidth: "36rem",
-                fontWeight: 500,
-                letterSpacing: "-0.02em",
+                display: "flex",
+                flexDirection: "column" as const,
+                gap: "clamp(2rem, 7vw, 4.25rem)",
               }}
             >
-              Tu experiencia cambia cómo nos informamos todos.
-            </p>
+              <h1 style={{ margin: 0, fontSize: "clamp(3rem,6.5vw,5.5rem)", fontWeight: 800, lineHeight: 0.93, letterSpacing: "-0.045em", color: "#ffffff" }}>
+                ¿Cómo te<br />informas<br />hoy?
+              </h1>
+              <p
+                style={{
+                  margin: 0,
+                  fontSize: "clamp(1.38rem, 3.4vw, 1.95rem)",
+                  lineHeight: 1.55,
+                  color: "rgba(255,255,255,0.88)",
+                  maxWidth: "36rem",
+                  fontWeight: 500,
+                  letterSpacing: "-0.02em",
+                }}
+              >
+                Tu experiencia cambia cómo nos informamos todos.
+              </p>
+            </div>
             <div style={{ marginTop: "auto", display: "flex", flexDirection: "column" as const, gap: "0.75rem", alignItems: "flex-start" }}>
               <ConsultaStartButton />
               <a href="/legal/privacidad-consulta-2026" style={{ fontSize: 10, color: "rgba(255,255,255,0.25)", textDecoration: "none", letterSpacing: "0.08em", textTransform: "uppercase" as const }}>
