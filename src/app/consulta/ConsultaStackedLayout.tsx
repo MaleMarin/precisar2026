@@ -64,38 +64,41 @@ export function ConsultaStackedLayout() {
 ` }} />
 
       {futureBlocks.length > 0 && (
-        <div style={{ position: "relative" as const, height: `${futureBlocks.length * 72}px` }}>
+        <div style={{ position: "relative" as const, display: "flex", flexDirection: "column" as const, alignItems: "flex-start", gap: 0 }}>
           {[...futureBlocks].reverse().map((block, ri) => {
-            const fromTop = futureBlocks.length - 1 - ri;
-            const total = futureBlocks.length;
-            const scaleX = 0.78 + ri * (0.22 / Math.max(total - 1, 1));
-            const topPos = fromTop * 72;
+            const fromFront = futureBlocks.length - 1 - ri;
             return (
               <div key={block.n} style={{
-                background: block.bg,
-                borderRadius: "20px 20px 0 0",
-                height: 88,
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "space-between",
-                padding: "0 2.5rem",
-                position: "absolute" as const,
-                top: topPos,
-                left: 0,
-                right: 0,
+                position: "relative" as const,
                 zIndex: ri + 1,
-                transform: `scaleX(${scaleX})`,
-                transformOrigin: "center bottom",
-                opacity: 0.55 + ri * (0.45 / Math.max(total - 1, 1)),
-                boxShadow: `0 -4px 20px rgba(0,0,0,0.2)`,
-                border: "1px solid rgba(255,255,255,0.07)",
-                transition: "all 0.5s cubic-bezier(0.4,0,0.2,1)",
+                marginBottom: ri < futureBlocks.length - 1 ? -4 : 0,
+                alignSelf: "stretch",
               }}>
-                <div style={{ display: "flex", flexDirection: "column" as const, gap: "0.1rem" }}>
-                  <span style={{ fontSize: 9, fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase" as const, color: "rgba(255,255,255,0.45)" }}>{block.n}</span>
-                  <span style={{ fontSize: "clamp(1.1rem,2.2vw,1.4rem)", fontWeight: 800, color: "rgba(255,255,255,0.9)", letterSpacing: "-0.03em", lineHeight: 1 }}>{block.title}</span>
+                {/* Tab label — pestaña tipo carpeta */}
+                <div style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "0.5rem",
+                  background: block.bg,
+                  padding: "0.45rem 1.25rem 0.65rem",
+                  borderRadius: "10px 10px 0 0",
+                  marginLeft: `${fromFront * 140}px`,
+                  border: "1px solid rgba(255,255,255,0.1)",
+                  borderBottom: "none",
+                  minWidth: 160,
+                }}>
+                  <span style={{ fontSize: 9, fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase" as const, color: "rgba(255,255,255,0.5)" }}>{block.n}</span>
+                  <span style={{ fontSize: "0.8125rem", fontWeight: 700, color: "#ffffff", letterSpacing: "-0.02em", whiteSpace: "nowrap" as const }}>{block.title}</span>
                 </div>
-                <span style={{ fontSize: 9, letterSpacing: "0.18em", textTransform: "uppercase" as const, color: "rgba(255,255,255,0.35)", fontWeight: 600, flexShrink: 0 }}>pendiente →</span>
+                {/* Cuerpo de la carpeta */}
+                <div style={{
+                  background: block.bg,
+                  height: 12,
+                  borderRadius: fromFront === 0 ? "0 8px 0 0" : "8px 0 0 0",
+                  border: "1px solid rgba(255,255,255,0.08)",
+                  borderBottom: "none",
+                  opacity: 0.85 + ri * 0.05,
+                }} />
               </div>
             );
           })}
