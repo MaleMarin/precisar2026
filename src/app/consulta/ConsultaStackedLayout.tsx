@@ -63,38 +63,39 @@ export function ConsultaStackedLayout() {
   }
 ` }} />
 
-      {/* Cards pendientes apiladas ARRIBA — de atrás hacia adelante */}
       {futureBlocks.length > 0 && (
-        <div style={{ position: "relative" as const }}>
+        <div style={{ position: "relative" as const, height: `${futureBlocks.length * 72}px` }}>
           {[...futureBlocks].reverse().map((block, ri) => {
-            const fromBottom = ri;
+            const fromTop = futureBlocks.length - 1 - ri;
             const total = futureBlocks.length;
-            const scaleX = 0.82 + fromBottom * (0.18 / total);
-            const opacity = 0.45 + fromBottom * (0.4 / total);
+            const scaleX = 0.78 + ri * (0.22 / Math.max(total - 1, 1));
+            const topPos = fromTop * 72;
             return (
               <div key={block.n} style={{
                 background: block.bg,
                 borderRadius: "20px 20px 0 0",
-                height: 96,
+                height: 88,
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "space-between",
                 padding: "0 2.5rem",
-                position: "relative" as const,
-                zIndex: fromBottom + 1,
-                marginTop: ri === 0 ? 0 : -40,
+                position: "absolute" as const,
+                top: topPos,
+                left: 0,
+                right: 0,
+                zIndex: ri + 1,
                 transform: `scaleX(${scaleX})`,
                 transformOrigin: "center bottom",
-                opacity,
-                boxShadow: `0 -6px 28px rgba(0,0,0,${0.18 + fromBottom * 0.08})`,
+                opacity: 0.55 + ri * (0.45 / Math.max(total - 1, 1)),
+                boxShadow: `0 -4px 20px rgba(0,0,0,0.2)`,
                 border: "1px solid rgba(255,255,255,0.07)",
                 transition: "all 0.5s cubic-bezier(0.4,0,0.2,1)",
               }}>
-                <div style={{ display: "flex", flexDirection: "column" as const, gap: "0.15rem" }}>
+                <div style={{ display: "flex", flexDirection: "column" as const, gap: "0.1rem" }}>
                   <span style={{ fontSize: 9, fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase" as const, color: "rgba(255,255,255,0.45)" }}>{block.n}</span>
-                  <span style={{ fontSize: "clamp(1.2rem,2.5vw,1.55rem)", fontWeight: 800, color: "rgba(255,255,255,0.9)", letterSpacing: "-0.03em", lineHeight: 1 }}>{block.title}</span>
+                  <span style={{ fontSize: "clamp(1.1rem,2.2vw,1.4rem)", fontWeight: 800, color: "rgba(255,255,255,0.9)", letterSpacing: "-0.03em", lineHeight: 1 }}>{block.title}</span>
                 </div>
-                <span style={{ fontSize: 9, letterSpacing: "0.18em", textTransform: "uppercase" as const, color: "rgba(255,255,255,0.3)", fontWeight: 600 }}>pendiente →</span>
+                <span style={{ fontSize: 9, letterSpacing: "0.18em", textTransform: "uppercase" as const, color: "rgba(255,255,255,0.35)", fontWeight: 600, flexShrink: 0 }}>pendiente →</span>
               </div>
             );
           })}
