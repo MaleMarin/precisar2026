@@ -496,50 +496,50 @@
 }
 
 /* ── Consulta stacked: neutraliza azul/morado/verde ── */
-:global([data-consulta-page][data-live-map="true"] [data-consulta-stacked]) #consulta-flujo .eyebrow {
+:global([data-consulta-page][data-live-map="true"]) [data-consulta-stacked] #consulta-flujo .eyebrow {
   color: rgba(10, 12, 18, 0.55) !important;
 }
-:global([data-consulta-page][data-live-map="true"] [data-consulta-stacked]) #consulta-flujo .stepHead .eyebrow {
+:global([data-consulta-page][data-live-map="true"]) [data-consulta-stacked] #consulta-flujo .stepHead .eyebrow {
   color: rgba(10, 12, 18, 0.55) !important;
 }
-:global([data-consulta-page][data-live-map="true"] [data-consulta-stacked]) #consulta-flujo .prompt {
+:global([data-consulta-page][data-live-map="true"]) [data-consulta-stacked] #consulta-flujo .prompt {
   color: #0a0c12 !important;
 }
-:global([data-consulta-page][data-live-map="true"] [data-consulta-stacked]) #consulta-flujo .stepHead .prompt {
+:global([data-consulta-page][data-live-map="true"]) [data-consulta-stacked] #consulta-flujo .stepHead .prompt {
   color: #0a0c12 !important;
 }
-:global([data-consulta-page][data-live-map="true"] [data-consulta-stacked]) #consulta-flujo .helper {
+:global([data-consulta-page][data-live-map="true"]) [data-consulta-stacked] #consulta-flujo .helper {
   color: rgba(10, 12, 18, 0.75) !important;
 }
-:global([data-consulta-page][data-live-map="true"] [data-consulta-stacked]) #consulta-flujo .stepHead .helper {
+:global([data-consulta-page][data-live-map="true"]) [data-consulta-stacked] #consulta-flujo .stepHead .helper {
   color: rgba(10, 12, 18, 0.75) !important;
 }
-:global([data-consulta-page][data-live-map="true"] [data-consulta-stacked]) #consulta-flujo .navPrimarySolidInner {
+:global([data-consulta-page][data-live-map="true"]) [data-consulta-stacked] #consulta-flujo .navPrimarySolidInner {
   background: #0a0c12 !important;
   box-shadow: 0 10px 30px rgba(0,0,0,0.35), 0 4px 10px rgba(0,0,0,0.12) !important;
 }
-:global([data-consulta-page][data-live-map="true"] [data-consulta-stacked]) #consulta-flujo .navLightDock {
+:global([data-consulta-page][data-live-map="true"]) [data-consulta-stacked] #consulta-flujo .navLightDock {
   background: rgba(255,255,255,0.95) !important;
   border: 1px solid rgba(0,0,0,0.06) !important;
   box-shadow: 0 20px 40px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.6) !important;
 }
-:global([data-consulta-page][data-live-map="true"] [data-consulta-stacked]) #consulta-flujo .navGhost {
+:global([data-consulta-page][data-live-map="true"]) [data-consulta-stacked] #consulta-flujo .navGhost {
   color: rgba(10, 12, 18, 0.5) !important;
 }
-:global([data-consulta-page][data-live-map="true"] [data-consulta-stacked]) #consulta-flujo .navGhost:hover:not(:disabled) {
+:global([data-consulta-page][data-live-map="true"]) [data-consulta-stacked] #consulta-flujo .navGhost:hover:not(:disabled) {
   color: #0a0c12 !important;
 }
-:global([data-consulta-page][data-live-map="true"] [data-consulta-stacked]) #consulta-flujo .optionBtn[data-selected="true"] .optionLightCard {
+:global([data-consulta-page][data-live-map="true"]) [data-consulta-stacked] #consulta-flujo .optionBtn[data-selected="true"] .optionLightCard {
   border: 2px solid #0a0c12 !important;
   box-shadow: 0 0 0 4px rgba(10,12,18,0.1), 0 12px 24px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.7) !important;
 }
-:global([data-consulta-page][data-live-map="true"] [data-consulta-stacked]) #consulta-flujo .privacyLink {
+:global([data-consulta-page][data-live-map="true"]) [data-consulta-stacked] #consulta-flujo .privacyLink {
   color: #0a0c12 !important;
 }
-:global([data-consulta-page][data-live-map="true"] [data-consulta-stacked]) #consulta-flujo .privacyCheckbox {
+:global([data-consulta-page][data-live-map="true"]) [data-consulta-stacked] #consulta-flujo .privacyCheckbox {
   accent-color: #0a0c12 !important;
 }
-:global([data-consulta-page][data-live-map="true"] [data-consulta-stacked]) #consulta-flujo .stepPanelInner {
+:global([data-consulta-page][data-live-map="true"]) [data-consulta-stacked] #consulta-flujo .stepPanelInner {
   background: #ffffff !important;
   border: 1px solid rgba(0,0,0,0.04) !important;
   box-shadow: 0 12px 24px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255,255,255,0.7) !important;
