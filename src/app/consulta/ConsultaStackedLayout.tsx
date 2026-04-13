@@ -20,7 +20,7 @@ export function ConsultaStackedLayout() {
   const currentBlock = activeBlock >= 0 ? BLOCKS[activeBlock] : null;
 
   return (
-    <div style={{ width: "100%", maxWidth: 680, margin: "0 auto", paddingTop: "clamp(1rem,2vw,1.5rem)", paddingBottom: "clamp(4rem,8vw,6rem)" }}>
+    <div style={{ width: "100%", maxWidth: 820, margin: "0 auto", paddingTop: "clamp(1rem,2vw,1.5rem)", paddingBottom: "clamp(4rem,8vw,6rem)" }}>
 
       <style dangerouslySetInnerHTML={{ __html: `
         [data-consulta-stacked] #consulta-flujo [class*="prompt"] { color: #0a0c12 !important; }
@@ -84,11 +84,6 @@ export function ConsultaStackedLayout() {
             <p style={{ margin: 0, fontSize: "1rem", lineHeight: 1.65, color: "rgba(255,255,255,0.6)", maxWidth: "36rem" }}>
               Tu experiencia cambia cómo nos informamos todos. 4 bloques, 12 preguntas.
             </p>
-            <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap" as const }}>
-              {["Anónima", "12 preguntas", "Menos de un minuto"].map((tag) => (
-                <span key={tag} style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase" as const, color: "rgba(255,255,255,0.4)", padding: "4px 12px", border: "1px solid rgba(255,255,255,0.12)", borderRadius: 999 }}>{tag}</span>
-              ))}
-            </div>
             <div style={{ marginTop: "auto", display: "flex", flexDirection: "column" as const, gap: "0.75rem", alignItems: "flex-start" }}>
               <ConsultaStartButton />
               <a href="/legal/privacidad-consulta-2026" style={{ fontSize: 10, color: "rgba(255,255,255,0.25)", textDecoration: "none", letterSpacing: "0.08em", textTransform: "uppercase" as const }}>
