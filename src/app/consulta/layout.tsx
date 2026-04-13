@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Space_Grotesk } from "next/font/google";
 import type { ReactNode } from "react";
+import { NextIntlClientProvider } from "next-intl";
+import esMessages from "../../../messages/es.json";
 import { SITE } from "@/lib/site";
 
 const consultaFont = Space_Grotesk({
@@ -28,5 +30,11 @@ export const metadata: Metadata = {
 };
 
 export default function ConsultaLayout({ children }: { children: ReactNode }) {
-  return <div className={consultaFont.variable}>{children}</div>;
+  return (
+    <div className={consultaFont.variable}>
+      <NextIntlClientProvider locale="es" messages={esMessages}>
+        {children}
+      </NextIntlClientProvider>
+    </div>
+  );
 }
