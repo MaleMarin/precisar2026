@@ -28,7 +28,6 @@ export function ConsultaPageShell({ children, variant = "default" }: ConsultaPag
               width={160}
               height={28}
               decoding="async"
-              style={{ height: 32, width: "auto", objectFit: "contain", filter: "brightness(0) invert(1)", opacity: 0.85 }}
             />
           </a>
         </div>

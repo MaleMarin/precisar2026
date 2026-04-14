@@ -21,28 +21,6 @@ export function ConsultaStackedLayout() {
 
   return (
     <>
-      {/* Header con logo */}
-      <div style={{
-        width: "100%",
-        display: "flex",
-        justifyContent: "flex-start",
-        alignItems: "center",
-        padding: "1.25rem clamp(1rem,4vw,3rem)",
-      }}>
-        <a href="https://precisar.net" style={{ display: "block", lineHeight: 0 }}>
-          <img
-            src="/logo-precisar/logo-precisar.png"
-            alt="Precisar"
-            style={{
-              height: "clamp(28px,3.5vw,38px)",
-              width: "auto",
-              filter: "brightness(0) invert(1)",
-              opacity: 0.85,
-            }}
-          />
-        </a>
-      </div>
-
       {/* Contenido principal */}
       <div style={{ width: "100%", maxWidth: 820, margin: "0 auto", paddingLeft: "clamp(1rem,3vw,2rem)", paddingRight: "clamp(1rem,3vw,2rem)", paddingBottom: "clamp(2rem,4vw,3rem)" }}>
 
