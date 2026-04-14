@@ -55,6 +55,72 @@
   opacity: 0.85;
 }
 
+/* Fila: marca grande a la izquierda + columna principal (consulta / pie). */
+.consultaLayoutRow {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+}
+
+.consultaMainStack {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Wordmark editorial grande; oculto en pantallas angostas. */
+.consultaSideMark {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .consultaSideMark {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    flex: 0 0 auto;
+    padding: clamp(1.5rem, 4vh, 3rem) clamp(0.5rem, 1.2vw, 1rem) 1rem clamp(1rem, 2.5vw, 2.25rem);
+  }
+}
+
+.consultaSideMarkLink {
+  display: block;
+  line-height: 0;
+  border-radius: 12px;
+  transition: opacity 0.2s ease;
+}
+
+.consultaSideMarkLink:hover {
+  opacity: 0.88;
+}
+
+.consultaSideMarkLink:focus-visible {
+  outline: 2px solid var(--cq-mint, #53e6d4);
+  outline-offset: 4px;
+}
+
+/* PNG oscuro: en shell carbón se invierte a claro; en consulta con fondo claro queda negro. */
+.consultaSideMarkImg {
+  display: block;
+  height: clamp(9rem, 28vmin, 17rem);
+  width: auto;
+  max-width: min(42vw, 20rem);
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  opacity: 0.9;
+}
+
+.consultaRoot[data-live-map="true"] .consultaSideMarkImg {
+  filter: none;
+  opacity: 0.94;
+}
+
 .main {
   position: relative;
   z-index: 1;
@@ -74,6 +140,12 @@
   align-items: center;
   justify-content: flex-start;
   margin: 0 0 clamp(0.75rem, 2vw, 1.25rem);
+}
+
+@media (min-width: 768px) {
+  .consultaBrandBar {
+    display: none;
+  }
 }
 
 .consultaBrandLink {

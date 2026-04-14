@@ -18,22 +18,38 @@ export function ConsultaPageShell({ children, variant = "default" }: ConsultaPag
       data-consulta-page
       data-live-map={variant === "liveMap" ? "true" : undefined}
     >
-      <main className={styles.main}>
-        <div className={styles.consultaBrandBar}>
-          <a className={styles.consultaBrandLink} href="/" title="Precisar — inicio">
+      <div className={styles.consultaLayoutRow}>
+        <aside className={styles.consultaSideMark} aria-label="Precisar">
+          <a className={styles.consultaSideMarkLink} href="/" title="Precisar — inicio">
             <img
-              className={styles.consultaBrandLogo}
+              className={styles.consultaSideMarkImg}
               src={CONSULTA_BRAND_WORDMARK_SRC}
-              alt="Precisar"
-              width={160}
-              height={28}
+              alt=""
+              width={320}
+              height={120}
               decoding="async"
             />
           </a>
+        </aside>
+        <div className={styles.consultaMainStack}>
+          <main className={styles.main}>
+            <div className={styles.consultaBrandBar}>
+              <a className={styles.consultaBrandLink} href="/" title="Precisar — inicio">
+                <img
+                  className={styles.consultaBrandLogo}
+                  src={CONSULTA_BRAND_WORDMARK_SRC}
+                  alt="Precisar"
+                  width={160}
+                  height={28}
+                  decoding="async"
+                />
+              </a>
+            </div>
+            {children}
+          </main>
+          <SiteFooter />
         </div>
-        {children}
-      </main>
-      <SiteFooter />
+      </div>
     </div>
   );
 }
