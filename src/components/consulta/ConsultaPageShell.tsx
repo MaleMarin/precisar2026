@@ -47,8 +47,10 @@ export function ConsultaPageShell({ children, variant = "default" }: ConsultaPag
             </div>
             {children}
           </main>
-          <SiteFooter />
         </div>
+      </div>
+      <div className={styles.consultaFooterBand}>
+        <SiteFooter />
       </div>
     </div>
   );
