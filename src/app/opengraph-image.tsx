@@ -30,9 +30,6 @@ export default function Image() {
           <span style={{ fontSize: 42, fontWeight: 600, lineHeight: 1.15, letterSpacing: "-0.03em", color: "#0c0c0b" }}>
             {SITE.socialDefault.ogImageLine1}
           </span>
-          <span style={{ fontSize: 22, color: "#5c5b54", lineHeight: 1.4 }}>
-            {SITE.socialDefault.ogImageLine2}
-          </span>
         </div>
         <div style={{ width: 120, height: 4, background: "#b83812" }} />
       </div>

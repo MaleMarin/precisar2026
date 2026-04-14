@@ -13,11 +13,9 @@ export const SITE = {
    */
   socialDefault: {
     title: "Precisar · Potencia el uso de la tecnología",
-    description:
-      "Potencia el uso de la tecnología. Alfabetización mediática, cultura digital y criterio frente a la información.",
-    /** Líneas de la imagen OG estática (`/opengraph-image`). */
+    description: "Potencia el uso de la tecnología.",
+    /** Texto principal de la imagen OG estática (`/opengraph-image`). */
     ogImageLine1: "Potencia el uso de la tecnología.",
-    ogImageLine2: "Alfabetización mediática, cultura digital y criterio frente a la información.",
   },
   /** Origen canónico (apex). Redirigir `www` → apex en middleware. */
   url: "https://precisar.net",
