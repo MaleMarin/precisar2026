@@ -7,6 +7,18 @@ export const FOOTER_CONTACT_ANCHOR_ID = "contacto" as const;
 export const SITE = {
   name: "Precisar",
   tagline: "Lo que circula, lo que importa, lo que hay que entender.",
+  /**
+   * Texto por defecto para compartir (WhatsApp, OG) y `app/layout.tsx` cuando una ruta no define el suyo.
+   * La portada por idioma define título/descripción en `generateMetadata` (namespace `Metadata`).
+   */
+  socialDefault: {
+    title: "Precisar · Potencia el uso de la tecnología",
+    description:
+      "Potencia el uso de la tecnología. Alfabetización mediática, cultura digital y criterio frente a la información.",
+    /** Líneas de la imagen OG estática (`/opengraph-image`). */
+    ogImageLine1: "Potencia el uso de la tecnología.",
+    ogImageLine2: "Alfabetización mediática, cultura digital y criterio frente a la información.",
+  },
   /** Origen canónico (apex). Redirigir `www` → apex en middleware. */
   url: "https://precisar.net",
   contactEmail: "contacto@precisar.net",

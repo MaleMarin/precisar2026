@@ -40,10 +40,10 @@ const glassUi = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: `${SITE.name} · ${SITE.tagline}`,
+    default: SITE.socialDefault.title,
     template: `%s · ${SITE.name}`,
   },
-  description: SITE.tagline,
+  description: SITE.socialDefault.description,
   metadataBase: new URL(SITE.url),
   icons: {
     icon: [{ url: "/favicon.png", type: "image/png", sizes: "512x512" }],
@@ -54,14 +54,14 @@ export const metadata: Metadata = {
     type: "website",
     locale: "es_CL",
     siteName: SITE.name,
-    title: `${SITE.name} · ${SITE.tagline}`,
-    description: SITE.tagline,
+    title: SITE.socialDefault.title,
+    description: SITE.socialDefault.description,
     url: absoluteLocaleUrl("es", "/"),
   },
   twitter: {
     card: "summary_large_image",
-    title: `${SITE.name} · ${SITE.tagline}`,
-    description: SITE.tagline,
+    title: SITE.socialDefault.title,
+    description: SITE.socialDefault.description,
   },
 };
 
