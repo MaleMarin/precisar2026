@@ -15,7 +15,7 @@
   }
 }
 
-/* Móvil: logo | idiomas + Bot Onda + menú. Desktop (lg+): una sola fila — logo | nav | idiomas + Bot Onda. */
+/* Móvil: logo | idiomas + Bot Onda + menú. Desktop (md+): una sola fila — logo | nav | idiomas + Bot Onda. */
 .navBarRow {
   display: flex;
   flex-wrap: nowrap;
@@ -23,9 +23,10 @@
   justify-content: space-between;
   column-gap: clamp(0.75rem, 2vw, 1.5rem);
   row-gap: 0.5rem;
+  min-width: 0;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   .navBarOuter {
     box-sizing: border-box;
     max-height: 108px;
@@ -107,7 +108,7 @@
 }
 
 /* Móvil/tablet: el wordmark no puede comerse casi todo el ancho o ES|PT|EN + menú + Bot Onda quedan fuera. */
-@media (max-width: 1023px) {
+@media (max-width: 767px) {
   .navBarLogo {
     max-width: min(52vw, 300px) !important;
     height: clamp(56px, 13vw, 96px) !important;
@@ -115,7 +116,7 @@
 }
 
 /* Desktop: barra compacta (máx. 64px); wordmark proporcional para una sola fila. */
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   .navBarLogo {
     height: 88px !important;
     max-height: 88px !important;
@@ -149,7 +150,7 @@
   padding-left: clamp(0.5rem, 1.5vw, 1rem);
 }
 
-@media (max-width: 1023px) {
+@media (max-width: 767px) {
   .navBarAside {
     flex: 1 1 auto;
     justify-content: flex-end;
@@ -193,7 +194,7 @@
   white-space: nowrap;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   .navLinkDesktop {
     font-size: 0.9rem;
     letter-spacing: -0.04em;
@@ -228,7 +229,7 @@
   border-left: none;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   .navLocaleGroup {
     margin-left: 0.35rem;
     padding-left: 0.65rem;
@@ -255,7 +256,7 @@
   line-height: 1;
 }
 
-@media (max-width: 1023px) {
+@media (max-width: 767px) {
   .navLocaleSep {
     font-size: 0.5625rem;
     padding: 0 0.12em;
@@ -279,7 +280,7 @@
     transform 0.2s ease;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   .navOndaLink:not(.navOndaLinkMobileBar) {
     display: flex;
   }
@@ -297,7 +298,7 @@
   margin-left: 0;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   .navOndaLinkMobileBar {
     display: none;
   }
@@ -340,7 +341,7 @@
   align-self: center;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   .navOndaIcon {
     width: 28px;
     height: 28px;
@@ -411,7 +412,7 @@
     background-color 0.2s ease;
 }
 
-@media (max-width: 1023px) {
+@media (max-width: 767px) {
   .navLocaleLink {
     font-size: 0.5625rem;
     letter-spacing: 0.1em;
@@ -451,11 +452,11 @@
 }
 
 /*
- * El shell del header (SiteHeader.tsx) combina `lg:border-b-0` con `border-white/10` al hacer scroll en home;
+ * El shell del header (SiteHeader.tsx) combina `md:border-b-0` con `border-white/10` al hacer scroll en home;
  * en desktop reaparece un borde inferior grisáceo bajo la fila del menú. Se anula aquí sin tocar el TSX.
  * Solo aplica a este header: es el único `header.sticky.top-0.z-50` del proyecto.
  */
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   :global(header.sticky.top-0.z-50) > div > div {
     border-bottom-width: 0 !important;
     border-bottom-color: transparent !important;

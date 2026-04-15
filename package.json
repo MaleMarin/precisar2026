@@ -10,6 +10,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint . --max-warnings 0",
+    "playwright:install": "PLAYWRIGHT_BROWSERS_PATH=0 playwright install chromium",
+    "test:e2e": "PLAYWRIGHT_BROWSERS_PATH=0 playwright test",
+    "test:e2e:responsive": "PLAYWRIGHT_BROWSERS_PATH=0 playwright test e2e/responsive-smoke.spec.ts",
     "precisando:rss": "node scripts/build-precisando-md.mjs",
     "precisando:rss:local": "node scripts/build-precisando-md.mjs --local",
     "precisando:audit": "node scripts/audit-precisando-content.mjs",
@@ -31,6 +34,7 @@
     "tone": "^15.1.22"
   },
   "devDependencies": {
+    "@playwright/test": "^1.59.1",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",

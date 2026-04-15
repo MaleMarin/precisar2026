@@ -809,6 +809,7 @@ body {
   font-size: 1.1875rem;
   line-height: 1.65;
   color: var(--fg);
+  overflow-wrap: break-word;
 }
 
 .prose-precisar p {

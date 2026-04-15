@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
-import { Fragment, useCallback, useEffect, useState } from "react";
+import { Fragment, useCallback, useEffect, useRef, useState } from "react";
 import { Link, usePathname } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
 import {
@@ -28,6 +28,7 @@ export function SiteHeader() {
   const isHome = isHomePath(pathname);
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const closeMenuBtnRef = useRef<HTMLButtonElement>(null);
 
   const scrollToHomeSection = useCallback(
     (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -59,6 +60,30 @@ export function SiteHeader() {
       document.body.style.overflow = "";
     };
   }, [open]);
+
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open]);
+
+  useEffect(() => {
+    if (open) {
+      queueMicrotask(() => closeMenuBtnRef.current?.focus());
+    }
+  }, [open]);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 768px)");
+    const onChange = () => {
+      if (mq.matches) setOpen(false);
+    };
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, []);
 
   /**
    * Navegación completa: evita que el cliente se quede con mensajes/RSC del locale anterior
@@ -102,7 +127,7 @@ export function SiteHeader() {
     /* Sin borde sobre el hero: evita la línea gris entre barra y gradiente */
     navOnHero
       ? "border-b-0"
-      : "border-b border-[var(--border)] lg:border-b-0",
+      : "border-b border-[var(--border)] md:border-b-0",
     !isHome && "bg-[var(--bg)]/92 backdrop-blur-xl backdrop-saturate-150",
     /* No transparente puro: si no, se ve el --bg del body (#f0f2f6) y parece “franja blanca” sobre el hero. */
     navOnHero &&
@@ -114,7 +139,7 @@ export function SiteHeader() {
 
   const linkDesktop = [
     styles.navLinkDesktop,
-    "relative z-10 px-0.5 py-2 transition-colors duration-300 lg:px-1",
+    "relative z-10 px-0.5 py-2 transition-colors duration-300 md:px-1",
     navOnHero || navHomeGlass
       ? "text-white/85 hover:text-white"
       : "text-[var(--muted)] hover:text-[var(--fg)]",
@@ -144,11 +169,11 @@ export function SiteHeader() {
     ].join(" ");
 
   return (
-    <header className="sticky top-0 z-50">
-      <div className="relative z-[70]">
+    <header className="sticky top-0 z-50 min-w-0 max-w-full overflow-x-clip">
+      <div className="relative z-[70] min-w-0 max-w-full">
         <div className={shellClass}>
           <div
-            className={`${styles.navBarOuter} relative flex min-h-[5rem] items-center py-2 md:min-h-[7.75rem] md:py-2.5 lg:min-h-0 lg:py-3 ${styles.navBarRow}`}
+            className={`${styles.navBarOuter} relative flex min-h-[5rem] min-w-0 items-center py-2 md:min-h-0 md:py-3 ${styles.navBarRow}`}
           >
             <Link href="/" className={styles.navBarLogoLink} onClick={() => setOpen(false)}>
               <Image
@@ -160,7 +185,7 @@ export function SiteHeader() {
                 priority
               />
             </Link>
-            <nav className={`hidden lg:flex ${styles.navDesktop}`} aria-label={tNav("main")}>
+            <nav className={`hidden md:flex ${styles.navDesktop}`} aria-label={tNav("main")}>
               {NAV_PRIMARY.map((item) => (
                 <Link
                   key={item.href}
@@ -217,8 +242,9 @@ export function SiteHeader() {
               </a>
               <button
                 type="button"
-                className="relative z-[60] flex h-11 w-11 flex-shrink-0 flex-col items-center justify-center gap-1.5 lg:hidden"
+                className="relative z-[60] flex h-11 w-11 flex-shrink-0 flex-col items-center justify-center gap-1.5 md:hidden"
                 aria-expanded={open}
+                aria-controls="site-nav-mobile-panel"
                 aria-label={open ? tNav("closeMenu") : tNav("openMenu")}
                 onClick={() => setOpen((o) => !o)}
               >
@@ -248,15 +274,41 @@ export function SiteHeader() {
               </a>
             </div>
           </div>
+        </div>
+      </div>
 
+      {open ? (
+        <>
           <div
-            className={`absolute left-0 right-0 top-full z-[58] max-h-[min(70vh,calc(100dvh-9rem))] overflow-y-auto border-b-2 border-[var(--fg)] bg-[var(--bg)] shadow-[0_24px_48px_-16px_rgba(12,12,11,0.2)] transition-[transform,opacity,visibility] duration-500 ease-out lg:hidden ${
-              open
-                ? "visible translate-y-0 opacity-100"
-                : "invisible -translate-y-3 opacity-0 pointer-events-none"
-            }`}
+            className="fixed inset-0 z-[999] bg-black/20 md:hidden"
+            aria-hidden="true"
+            onClick={() => setOpen(false)}
+          />
+          <div
+            id="site-nav-mobile-panel"
+            className="fixed top-0 right-0 z-[1000] flex h-dvh w-[min(92vw,380px)] max-w-full flex-col border-l border-[var(--border)] bg-[var(--bg)] shadow-[0_24px_48px_-16px_rgba(12,12,11,0.25)] md:hidden"
+            role="dialog"
+            aria-modal="true"
+            aria-label={tNav("mainMobile")}
           >
-            <nav className="prec-container flex flex-col gap-1 py-8 pb-12" aria-label={tNav("mainMobile")}>
+            <div className="flex shrink-0 items-center justify-end border-b border-[var(--border)] px-4 py-3">
+              <button
+                ref={closeMenuBtnRef}
+                type="button"
+                className="flex h-11 w-11 items-center justify-center rounded-sm text-[var(--fg)] transition-colors hover:bg-[var(--surface)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--fg)]"
+                aria-label={tNav("closeMenu")}
+                onClick={() => setOpen(false)}
+              >
+                <span className="relative block h-5 w-5" aria-hidden>
+                  <span className="absolute left-1/2 top-1/2 block h-px w-5 -translate-x-1/2 -translate-y-1/2 rotate-45 bg-current" />
+                  <span className="absolute left-1/2 top-1/2 block h-px w-5 -translate-x-1/2 -translate-y-1/2 -rotate-45 bg-current" />
+                </span>
+              </button>
+            </div>
+            <nav
+              className="flex min-h-0 flex-1 flex-col gap-1 overflow-y-auto overflow-x-hidden px-4 py-4 pb-10 break-words"
+              aria-label={tNav("main")}
+            >
               {NAV_PRIMARY.map((item, i) => (
                 <Link
                   key={item.href}
@@ -272,7 +324,7 @@ export function SiteHeader() {
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <span
-                    className={`mt-1 block ${item.href === "/#convoca" ? styles.navLinkMobileConvoca : ""}`.trim()}
+                    className={`mt-1 block break-words ${item.href === "/#convoca" ? styles.navLinkMobileConvoca : ""}`.trim()}
                   >
                     {NAV_PRIMARY_I18N_KEY[item.href] ? tNav(NAV_PRIMARY_I18N_KEY[item.href]) : item.label}
                   </span>
@@ -317,15 +369,8 @@ export function SiteHeader() {
               </a>
             </nav>
           </div>
-        </div>
-      </div>
-      <div
-        className={`fixed inset-0 z-[60] bg-[var(--fg)]/45 backdrop-blur-sm transition-opacity duration-300 lg:hidden ${
-          open ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
-        }`}
-        aria-hidden
-        onClick={() => setOpen(false)}
-      />
+        </>
+      ) : null}
     </header>
   );
 }

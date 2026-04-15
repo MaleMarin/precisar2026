@@ -18,8 +18,9 @@
 
 @media (min-width: 90rem) {
   .page {
-    margin: 0 calc(50% - 50vw);
-    width: 100vw;
+    margin: 0;
+    width: 100%;
+    max-width: 100%;
   }
 }
 
