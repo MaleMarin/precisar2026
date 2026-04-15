@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, DM_Sans, IBM_Plex_Mono, Inter, Syne } from "next/font/google";
 import "@/styles/precisar-design-tokens.css";
 import "./globals.css";
@@ -37,6 +37,12 @@ const glassUi = Inter({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
 });
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: [{ media: "(prefers-color-scheme: light)", color: "#f0f2f6" }, { color: "#0a0c12" }],
+};
 
 export const metadata: Metadata = {
   title: {
