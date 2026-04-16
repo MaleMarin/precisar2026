@@ -89,6 +89,8 @@ export const ARTICLES: ArticleMeta[] = [
     pubDate: "2025-10-16",
     excerpt:
       "Hemos desarrollado una consulta ciudadana con una pregunta directa: “¿Cómo te informas hoy?”. El objetivo es convertir la experiencia cotidiana de las personas en insumos concretos para quienes producen y distribuyen información.",
+    coverImage: "/covers/consulta-como-te-informas-hoy.png",
+    coverAlt: "Arte «¿Cómo te informas hoy?» · consulta ciudadana Precisar",
   },
   {
     slug: "migración-y-conflictos-internacionales-dominan-las-tendencias-de-desinformación-en-américa-latina",
