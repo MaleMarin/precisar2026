@@ -40,7 +40,7 @@ export default async function PrecisandoPagina({ params }: Props) {
   }
   const page = Number.parseInt(n, 10);
   if (Number.isNaN(page) || page < 1) notFound();
-  if (page === 1) redirect("/precisando");
+  if (page === 1) redirect(`/${locale}/precisando/explora`);
 
   const sorted = articlesSortedByDate();
   const totalPages = Math.max(1, Math.ceil(sorted.length / PRECISANDO_PAGE_SIZE));
@@ -64,15 +64,15 @@ export default async function PrecisandoPagina({ params }: Props) {
               Mismo ritmo que el índice principal: carril + lista.
             </p>
             <Link
-              href="/precisando"
+              href="/precisando/explora"
               className="prec-btn prec-btn--ghost mt-8 text-[10px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--fg)]"
             >
-              ← Volver al inicio
+              ← Índice Explora
             </Link>
           </>
         }
       >
-        <PrecisandoToolbar backHref="/precisando" backLabel="← Índice" showRss />
+        <PrecisandoToolbar backHref="/precisando/explora" backLabel="← Índice" showRss />
         <PrecisandoArticleList articles={slice} showCategoryInMeta variant="panel" />
         <PrecisandoPagination currentPage={page} totalPages={totalPages} />
       </PrecisandoIndexFrame>

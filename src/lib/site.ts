@@ -248,7 +248,7 @@ export const SABERES_NAV_LINKS: NavItem[] = [
   { label: "Saberes", href: "/saberes" },
 ];
 
-const PRECISANDO_MAIN_FOOTER_HREF = PRECISANDO_ARTICLES_UNDER_CONSTRUCTION ? "/#precisando" : "/precisando";
+const PRECISANDO_MAIN_FOOTER_HREF = PRECISANDO_ARTICLES_UNDER_CONSTRUCTION ? "/#precisando" : "/precisando/explora";
 
 const PRECISANDO_BLOG_FOOTER_LINKS: NavItem[] = PRECISANDO_ARTICLES_UNDER_CONSTRUCTION
   ? [{ label: "Precisando — en construcción", href: "/#precisando" }]
@@ -281,7 +281,7 @@ const PRECISANDO_BLOG_FOOTER_LINKS: NavItem[] = PRECISANDO_ARTICLES_UNDER_CONSTR
         label: "Migración y desinformación en América Latina",
         href: "/precisando/migración-y-conflictos-internacionales-dominan-las-tendencias-de-desinformación-en-américa-latina",
       },
-      { label: "Todos los artículos", href: "/precisando" },
+      { label: "Todos los artículos", href: "/precisando/explora" },
     ];
 
 /**

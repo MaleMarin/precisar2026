@@ -136,7 +136,7 @@ export function PrecisandoPagination({
       {Array.from({ length: totalPages }, (_, i) => i + 1).map((p) => (
         <Link
           key={p}
-          href={p === 1 ? "/precisando" : `/precisando/pagina/${p}`}
+          href={p === 1 ? "/precisando/explora" : `/precisando/pagina/${p}`}
           className={`min-w-[2.5rem] px-3 py-2 text-center font-mono text-[10px] font-medium uppercase tracking-widest transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--fg)] ${
             p === currentPage
               ? "bg-[var(--fg)] text-[var(--bg)]"

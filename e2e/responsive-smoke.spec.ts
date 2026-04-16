@@ -1,7 +1,7 @@
 import { expect, test } from "@playwright/test";
 
 /** Rutas que no redirigen a hash en home; cubren home + internas representativas. */
-const PATHS = ["/", "/somos", "/explora", "/participa", "/contacto"] as const;
+const PATHS = ["/", "/somos", "/precisando/explora", "/participa", "/contacto"] as const;
 
 const VIEWPORTS = [
   { width: 360, height: 800, name: "mobile-360" },

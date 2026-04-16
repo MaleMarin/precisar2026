@@ -68,7 +68,7 @@ export function MotionHomeRails({ articles }: MotionHomeRailsProps) {
             Último en Precisando
           </h2>
           <p className={styles.hint}>Publicaciones recientes · deslizá para ver más</p>
-          <Link href="/precisando" className={styles.indexLink}>
+          <Link href="/precisando/explora" className={styles.indexLink}>
             Ver archivo
           </Link>
         </div>

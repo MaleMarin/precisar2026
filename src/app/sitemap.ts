@@ -29,7 +29,7 @@ const STATIC_PATHS = [
   "/saberes",
   "/saberes/recorrido",
   "/saberes/una-pregunta-al-dia",
-  "/explora",
+  "/precisando/explora",
   "/precisando",
   "/participa",
   "/participa/gracias",

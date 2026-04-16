@@ -166,7 +166,7 @@ export function SaberesRecorridoClient() {
               Una pregunta al día
             </Link>
             <Link
-              href="/precisando"
+              href="/precisando/explora"
               className="border border-[color-mix(in_oklab,var(--bg)_35%,transparent)] px-5 py-3 font-mono text-[10px] uppercase tracking-[0.2em] transition-colors hover:bg-[var(--bg)] hover:text-[var(--fg)]"
             >
               Precisando

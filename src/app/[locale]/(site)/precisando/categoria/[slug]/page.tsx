@@ -57,15 +57,15 @@ export default async function PrecisandoCategoria({ params }: Props) {
               {list.length} {list.length === 1 ? "texto" : "textos"} en esta línea editorial.
             </p>
             <Link
-              href="/precisando"
+              href="/precisando/explora"
               className="prec-btn prec-btn--ghost mt-8 text-[10px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--fg)]"
             >
-              ← Todo Precisando
+              ← Índice Explora
             </Link>
           </>
         }
       >
-        <PrecisandoToolbar backHref="/precisando" backLabel="← Índice" showRss />
+        <PrecisandoToolbar backHref="/precisando/explora" backLabel="← Índice" showRss />
         <PrecisandoArticleList articles={list} showCategoryInMeta={false} variant="panel" />
       </PrecisandoIndexFrame>
     </EditorialIndexTemplate>

@@ -8,6 +8,9 @@ import { ARTICLES, articleBySlug } from "@/data/articles";
 import { categoryToSlug } from "@/lib/category-slug";
 import styles from "@/components/programs/ProgramBreadcrumbs.module.css";
 
+/** Índice completo del blog editorial (tarjetas con todos los artículos). */
+const PRECISANDO_INDEX = "/precisando/explora";
+
 function safeDecode(s: string): string {
   try {
     return decodeURIComponent(s);
@@ -51,6 +54,35 @@ export function PrecisandoBreadcrumbs() {
 
   const seg1 = parts[1];
 
+  if (seg1 === "explora") {
+    if (parts.length > 2) return null;
+    return (
+      <nav className={styles.nav} aria-label={t("aria")}>
+        <ol className={styles.list}>
+          <li>
+            <Link href="/" className={styles.link}>
+              {t("home")}
+            </Link>
+          </li>
+          <li className={styles.sep} aria-hidden>
+            /
+          </li>
+          <li>
+            <Link href={PRECISANDO_INDEX} className={styles.link}>
+              {t("precisando")}
+            </Link>
+          </li>
+          <li className={styles.sep} aria-hidden>
+            /
+          </li>
+          <li className={styles.current} aria-current="page">
+            {t("explora")}
+          </li>
+        </ol>
+      </nav>
+    );
+  }
+
   if (!seg1) {
     return (
       <nav className={styles.nav} aria-label={t("aria")}>
@@ -85,7 +117,7 @@ export function PrecisandoBreadcrumbs() {
             /
           </li>
           <li>
-            <Link href="/explora" className={styles.link}>
+            <Link href={PRECISANDO_INDEX} className={styles.link}>
               {t("precisando")}
             </Link>
           </li>
@@ -117,7 +149,7 @@ export function PrecisandoBreadcrumbs() {
             /
           </li>
           <li>
-            <Link href="/explora" className={styles.link}>
+            <Link href={PRECISANDO_INDEX} className={styles.link}>
               {t("precisando")}
             </Link>
           </li>
@@ -148,7 +180,7 @@ export function PrecisandoBreadcrumbs() {
           /
         </li>
         <li>
-          <Link href="/explora" className={styles.link}>
+          <Link href={PRECISANDO_INDEX} className={styles.link}>
             {t("precisando")}
           </Link>
         </li>

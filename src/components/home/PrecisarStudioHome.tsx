@@ -209,7 +209,7 @@ export function PrecisarStudioHome({ children }: PrecisarStudioHomeProps) {
                   </li>
                 ))}
               </ul>
-              <Link href="/precisando" className={styles.textLink}>
+              <Link href="/precisando/explora" className={styles.textLink}>
                 Ver todo
               </Link>
             </ScrollReveal>
