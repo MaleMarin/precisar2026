@@ -55,6 +55,12 @@
       "ami-vs-alfabetizacion-digital": "MLI vs digital literacy"
     }
   },
+  "precisandoBreadcrumbs": {
+    "aria": "Breadcrumb",
+    "home": "Home",
+    "precisando": "Precisando",
+    "page": "Page {n}"
+  },
   "footer": {
     "socialEyebrow": "Social",
     "socialX": "Precisar on X (opens in a new tab)",

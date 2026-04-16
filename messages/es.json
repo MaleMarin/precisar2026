@@ -55,6 +55,12 @@
       "ami-vs-alfabetizacion-digital": "AMI vs alfabetización digital"
     }
   },
+  "precisandoBreadcrumbs": {
+    "aria": "Migas de pan",
+    "home": "Inicio",
+    "precisando": "Precisando",
+    "page": "Página {n}"
+  },
   "footer": {
     "socialEyebrow": "Redes sociales",
     "socialX": "Precisar en X (se abre en una pestaña nueva)",
