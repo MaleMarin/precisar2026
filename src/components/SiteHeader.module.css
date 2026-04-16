@@ -95,6 +95,13 @@
   opacity: 1;
 }
 
+/* Móvil: el margen negativo global acerca demasiado el wordmark al borde; un toque a la derecha. */
+@media (max-width: 767px) {
+  .navBarLogoLink {
+    margin-left: 0.35rem;
+  }
+}
+
 /* Tamaño por CSS (!important gana preflight). width/height en <img> = proporción intrínseca (~+25% sobre 440×110). */
 .navBarLogo {
   display: block;
