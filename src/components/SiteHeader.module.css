@@ -157,12 +157,14 @@
   }
 }
 
-/* Desktop: ítems en fila; en lg+ el gap y alineación los fija el bloque @media de .navBarRow */
+/*
+ * Desktop: ítems en fila (≥md lo activa Tailwind `md:flex` en SiteHeader.tsx).
+ * No poner `display: flex` aquí: anularía `hidden` y el menú horizontal se vería en móvil.
+ */
 .navDesktop {
   position: relative;
   z-index: 1;
   box-sizing: border-box;
-  display: flex;
   flex-wrap: nowrap;
   flex: 1 1 auto;
   width: 100%;
