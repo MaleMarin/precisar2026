@@ -24,20 +24,33 @@ const EDITORIAL_TAGLINE_ES =
 
 /**
  * Quita la línea de marca duplicada bajo «## Resumen editorial» (Wix / migraciones).
- * Variantes: con o sin «», en cursiva markdown, punto final opcional.
+ * Variantes: «…», cursiva, punto final, cierre » pegado (p. ej. entender.»).
  */
 function stripResumenEditorialTagline(md: string): string {
+  // Quitamos el h2 visible «Resumen editorial» para que solo quede el párrafo de resumen.
+  const withoutHeading = md.replace(/^##\s+Resumen editorial\s*\n+/gim, "");
   const escaped = EDITORIAL_TAGLINE_ES.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-  const core = `${escaped}\\.?`;
+  const core = `${escaped}\\.?»?`;
   const line = new RegExp(
     `^\\s*(?:«\\s*)?${core}(?:\\s*»)?\\s*$`,
     "gim",
   );
-  const italicStar = new RegExp(`^\\s*\\*${core}\\*\\s*$`, "gim");
-  const italicUnd = new RegExp(`^\\s*_${core}_\\s*$`, "gim");
-  let out = md.replace(line, "").replace(italicStar, "").replace(italicUnd, "");
+  const italicStar = new RegExp(
+    `^\\s*\\*(?:«\\s*)?${escaped}\\.?»?\\*(?:\\s*»)?\\s*$`,
+    "gim",
+  );
+  const italicUnd = new RegExp(
+    `^\\s*_(?:«\\s*)?${escaped}\\.?»?_(?:\\s*»)?\\s*$`,
+    "gim",
+  );
+  let out = withoutHeading.replace(line, "").replace(italicStar, "").replace(italicUnd, "");
+  // Cualquier línea que sea solo la frase (con variantes mínimas de puntuación/citas)
+  const loose = new RegExp(
+    `^\\s*(?:«\\s*)?${escaped}[.»\\s]*»?\\s*$`,
+    "gim",
+  );
+  out = out.replace(loose, "");
   out = out.replace(/\n{3,}/g, "\n\n");
-  // «Resumen editorial» quedó sin párrafo: quitar el encabezado huérfano antes del siguiente ## o fin.
   out = out.replace(/^##\s+Resumen editorial\s*\n+(?=##\s)/gm, "");
   return out.trim();
 }
