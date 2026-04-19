@@ -246,7 +246,6 @@ export function PrecisarStudioHome({ children }: PrecisarStudioHomeProps) {
           <div className={styles.footerInner}>
             <div>
               <p className={styles.footerBrand}>{SITE.name}</p>
-              <p className={styles.footerTag}>{SITE.tagline}</p>
             </div>
             <nav className={styles.footerNav} aria-label="Pie">
               <Link href="/programas">Programas</Link>

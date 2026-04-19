@@ -34,7 +34,7 @@ export function PrecisarHeroLegacy() {
 
       <div className={styles.inner}>
         <p className={styles.kicker}>{SITE.name}</p>
-        <h1 className={styles.title}>{SITE.tagline}</h1>
+        <h1 className={styles.title}>Información con criterio</h1>
         {hasVideo ? null : (
           <p className={styles.lead}>
             Añade <code className={styles.code}>public/videos/hero.mp4</code> o define{" "}

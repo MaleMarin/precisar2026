@@ -11,8 +11,8 @@ import { MotionHomeRails } from "./MotionHomeRails";
 import { Marquee } from "./Marquee";
 import { MotionStackPanels } from "./MotionStackPanels";
 
-/** Texto de la franja en movimiento bajo el hero (titular + tagline). */
-const HERO_STRIP_TEXT = `Información con criterio · ${SITE.tagline} · `;
+/** Texto de la franja en movimiento bajo el hero. */
+const HERO_STRIP_TEXT = "Información con criterio · ";
 
 /** En desktop: accesos rápidos en barra fija; en móvil solo logo + menú hamburguesa. */
 const HOME_QUICK_NAV = NAV_PRIMARY;
@@ -83,7 +83,6 @@ export function MotionDemoPage() {
             transition={{ duration: 0.85, ease: HERO_EASE }}
           >
             <h1 className={styles.heroTitle}>Información con criterio</h1>
-            <p className={styles.heroTag}>{SITE.tagline}</p>
             <div className={styles.heroCtas}>
               <Link href="/programas" className={styles.heroCtaPrimary}>
                 Ver programas

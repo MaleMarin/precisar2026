@@ -868,25 +868,6 @@
   direction: ltr;
 }
 
-.footerBrandCol {
-  border-left: 4px solid var(--stack-accent);
-  padding-left: 1.25rem;
-}
-
-@media (min-width: 1024px) {
-  .footerBrandCol {
-    grid-column: span 4;
-  }
-}
-
-.footerBrandTag {
-  margin: 0;
-  max-width: 20rem;
-  font-size: 1.25rem;
-  line-height: 1.5;
-  color: color-mix(in oklab, #0a0a0a 68%, transparent);
-}
-
 .footerCols {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -907,7 +888,7 @@
 
 @media (min-width: 1024px) {
   .footerCols {
-    grid-column: span 8;
+    grid-column: 1 / -1;
   }
 }
 

@@ -737,9 +737,6 @@ export function MotionStackPanels({
           <section className={styles.footerSection} aria-label="Pie de página">
             <div className={styles.footerGrid}>
               <h2 className={styles.footerBrandTitle}>{SITE.name}</h2>
-              <div className={styles.footerBrandCol}>
-                <p className={styles.footerBrandTag}>{SITE.tagline}</p>
-              </div>
               <div className={styles.footerCols}>
                 {footerCols.map((col) => (
                   <div key={col.title}>

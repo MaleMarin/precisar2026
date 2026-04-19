@@ -6,7 +6,6 @@ export const FOOTER_CONTACT_ANCHOR_ID = "contacto" as const;
 
 export const SITE = {
   name: "Precisar",
-  tagline: "Lo que circula, lo que importa, lo que hay que entender.",
   /**
    * Texto por defecto para compartir (WhatsApp, OG) y `app/layout.tsx` cuando una ruta no define el suyo.
    * La portada por idioma define título/descripción en `generateMetadata` (namespace `Metadata`).
