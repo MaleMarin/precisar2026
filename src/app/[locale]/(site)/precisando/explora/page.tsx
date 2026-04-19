@@ -20,11 +20,6 @@ export default function PrecisandoExploraPage() {
         <header className={styles.intro}>
           <p className={styles.kicker}>Precisando · Índice</p>
           <h1 className={styles.title}>Explora</h1>
-          <p className={styles.lede}>
-            La información está por todas partes. Aquí reunimos los artículos de{" "}
-            <strong className="font-medium text-[var(--fg)]">Precisando</strong>: abre cada tarjeta para
-            leer el texto en esta versión del sitio.
-          </p>
         </header>
 
         <ul className={styles.grid}>

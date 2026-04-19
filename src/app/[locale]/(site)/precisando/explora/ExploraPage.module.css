@@ -27,13 +27,6 @@
   color: var(--fg);
 }
 
-.lede {
-  margin: 1rem 0 0;
-  font-size: 1.05rem;
-  line-height: 1.6;
-  color: var(--muted);
-}
-
 .grid {
   display: grid;
   gap: 1.25rem;
