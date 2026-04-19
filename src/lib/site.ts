@@ -258,28 +258,16 @@ const PRECISANDO_BLOG_FOOTER_LINKS: NavItem[] = PRECISANDO_ARTICLES_UNDER_CONSTR
         href: "/precisando/chile-respondio-verdad-incomoda-informe-enero-2026",
       },
       {
-        label: "Escuchar primero, implementar después",
-        href: "/precisando/escuchar-primero-implementar-después-la-metodología-de-precisar-para-construir-ciudades-ami",
-      },
-      {
         label: "Democracia en la era digital y la IA",
         href: "/precisando/democracia-en-la-era-dedigital-y-la-ia-desafíos-y-soluciones",
-      },
-      {
-        label: "Tres desafíos clave para la AMI en América Latina",
-        href: "/precisando/tres-desafíos-clave-para-la-alfabetización-mediática-en-américa-latina-lo-más-destacado-del-día-0-d",
-      },
-      {
-        label: "La misión crítica de la AMI — UNESCO",
-        href: "/precisando/la-misión-crítica-de-la-ami-la-unesco-redefine-su-estrategia-ante-la-era-de-la-ia-generativa",
       },
       {
         label: "¿Cómo te informas hoy? (consulta ciudadana)",
         href: "/precisando/cómo-te-informas-hoy-precisar-lanza-consulta-ciudadana-para-mejorar-el-acceso-a-la-información",
       },
       {
-        label: "Migración y desinformación en América Latina",
-        href: "/precisando/migración-y-conflictos-internacionales-dominan-las-tendencias-de-desinformación-en-américa-latina",
+        label: "A veces cambiar de nombre… (editorial Precisar)",
+        href: "/precisando/a-veces-cambiar-de-nombre-no-es-borrar-el-pasado-sino-precisar-mejor-hacia-dónde-se-quiere-ir",
       },
       { label: "Todos los artículos", href: "/precisando/explora" },
     ];

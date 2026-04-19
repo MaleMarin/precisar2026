@@ -1,8 +1,10 @@
 /**
  * Genera `src/content/precisando/<slug>.md` desde el RSS de Precisar.
  *
- * Por defecto descarga https://www.precisar.net/blog-feed.xml y guarda copia en
- * `_audit/blog-feed.xml`. Con `--local` solo lee ese archivo (sin red).
+ * Por defecto intenta descargar `PRECISAR_RSS_URL` (fallback:
+ * `https://www.precisar.net/blog-feed.xml`). En 2026 ese path en el dominio actual
+ * suele devolver HTML (Next), no el RSS de Wix: para cuerpos completos necesitás un
+ * export `blog-feed.xml` del blog histórico y `--local` leyendo `_audit/blog-feed.xml`.
  *
  * Si un ítem trae <content:encoded> (cuerpo HTML completo), se convierte a Markdown.
  * Si no, se usa <description> (a veces HTML). El umbral `BODY_MIN_LEN` solo afecta el log.
