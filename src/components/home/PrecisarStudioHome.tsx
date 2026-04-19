@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import type { ReactNode } from "react";
-import { ARTICLES } from "@/data/articles";
+import { articlesSortedByDate } from "@/data/articles";
 import { EXTERNAL, NAV_PRIMARY, SITE } from "@/lib/site";
 import { CinematicWorkRail, type CinematicWorkItem } from "./CinematicWorkRail";
 import { FAQAccordion, type FAQItem } from "./FAQAccordion";
@@ -86,7 +86,7 @@ export type PrecisarStudioHomeProps = {
 };
 
 export function PrecisarStudioHome({ children }: PrecisarStudioHomeProps) {
-  const featured = ARTICLES.slice(0, 4);
+  const featured = articlesSortedByDate().slice(0, 4);
 
   return (
     <div className={styles.page}>

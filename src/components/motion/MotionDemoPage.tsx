@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useRef } from "react";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
-import { ARTICLES } from "@/data/articles";
+import { articlesSortedByDate } from "@/data/articles";
 import { NavOverlay } from "@/components/home/NavOverlay";
 import { EXTERNAL, HOME_HERO_MEDIA, NAV_PRIMARY, SITE } from "@/lib/site";
 import styles from "./MotionDemoPage.module.css";
@@ -31,8 +31,9 @@ export function MotionDemoPage() {
   const scrimParallaxY = useTransform(scrollYProgress, [0, 1], [0, reduceMotion ? 0 : 44]);
   const contentParallaxY = useTransform(scrollYProgress, [0, 1], [0, reduceMotion ? 0 : -24]);
 
-  const featured = ARTICLES.slice(0, 4);
-  const railArticles = ARTICLES.slice(0, 6);
+  const sorted = articlesSortedByDate();
+  const featured = sorted.slice(0, 4);
+  const railArticles = sorted.slice(0, 6);
 
   return (
     <div className={styles.page}>
