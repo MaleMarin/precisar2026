@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { ArticleMeta } from "@/data/articles";
+import { articleYearLabel } from "@/lib/article-date";
 import { categoryToSlug } from "@/lib/category-slug";
 import styles from "./PrecisandoEditorialBlocks.module.css";
 
@@ -109,7 +110,7 @@ export function PrecisandoArticleList({
                       <span className="mx-2 text-[var(--border)]">/</span>
                     </>
                   ) : null}
-                  <time dateTime={a.pubDate}>{a.pubDate}</time>
+                  <time dateTime={articleYearLabel(a.pubDate)}>{articleYearLabel(a.pubDate)}</time>
                 </p>
               </div>
             </div>

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { articlesSortedByDate } from "@/data/articles";
+import { articleYearLabel } from "@/lib/article-date";
 import { SITE } from "@/lib/site";
 import styles from "./ExploraPage.module.css";
 
@@ -28,8 +29,8 @@ export default function PrecisandoExploraPage() {
               <Link href={`/precisando/${encodeURI(a.slug)}`} className={styles.card}>
                 <div className={styles.cardMeta}>
                   <span className={styles.cardCat}>{a.category}</span>
-                  <time className={styles.cardDate} dateTime={a.pubDate}>
-                    {a.pubDate}
+                  <time className={styles.cardDate} dateTime={articleYearLabel(a.pubDate)}>
+                    {articleYearLabel(a.pubDate)}
                   </time>
                 </div>
                 <h2 className={styles.cardTitle}>{a.title}</h2>

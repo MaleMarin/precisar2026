@@ -5,6 +5,7 @@ import { ARTICLES, articleBySlug } from "@/data/articles";
 import { PRECISANDO_SLUG_ALIASES } from "@/data/slug-aliases";
 import { loadArticleMarkdown } from "@/lib/load-article-markdown";
 import { PRECISANDO_ARTICLES_UNDER_CONSTRUCTION } from "@/lib/precisando-access";
+import { articleYearLabel } from "@/lib/article-date";
 import { absoluteLocaleUrl, hreflangAlternates, SITE } from "@/lib/site";
 import { ArticleTemplate } from "@/components/templates/PageTemplates";
 
@@ -75,10 +76,10 @@ export default async function PrecisandoArticulo({ params }: Props) {
     <ArticleTemplate title={post.title} kicker={`Precisando · ${post.category}`}>
       <div className="pb-6">
         <time
-          dateTime={post.pubDate}
+          dateTime={articleYearLabel(post.pubDate)}
           className="inline-block font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--muted)]"
         >
-          {post.pubDate}
+          {articleYearLabel(post.pubDate)}
         </time>
       </div>
       {post.coverImage ? (
