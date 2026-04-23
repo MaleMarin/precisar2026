@@ -124,7 +124,6 @@ export const NAV_PRIMARY: NavItem[] = [
   { label: "Qué nos convoca", href: "/#convoca" },
   { label: "Programas", href: "/#programas" },
   { label: "Saberes", href: "/#saberes" },
-  { label: "Bot Onda", href: "/#bot-onda" },
   { label: "Precisando", href: "/#precisando" },
   { label: "Educación mediática", href: "/#educacion-mediatica" },
   { label: "Participa", href: "/#participa" },
@@ -138,7 +137,6 @@ export const NAV_PRIMARY_I18N_KEY: Record<
   | "somos"
   | "programas"
   | "saberes"
-  | "botOnda"
   | "precisando"
   | "educacionMediatica"
   | "participa"
@@ -147,7 +145,6 @@ export const NAV_PRIMARY_I18N_KEY: Record<
   "/somos": "somos",
   "/#programas": "programas",
   "/#saberes": "saberes",
-  "/#bot-onda": "botOnda",
   "/#precisando": "precisando",
   "/#educacion-mediatica": "educacionMediatica",
   "/educacion-mediatica/comunicacion": "educacionMediatica",
