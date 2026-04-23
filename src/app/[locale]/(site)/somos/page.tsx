@@ -20,7 +20,7 @@ const INTRO = [
 const PRINCIPLE = `No trabajamos desde soluciones cerradas. Partimos del contexto, escuchamos cómo viven este problema las personas y diseñamos junto a cada aliado formas de abordarlo con sentido práctico, lenguaje claro y capacidad de implementación.`;
 
 const PROBLEM_PARAS = [
-  "En Chile, el acceso ya no es la única brecha. Aunque la conectividad ha avanzado, persiste una diferencia profunda en la posibilidad real de comprender, evaluar y usar información de manera útil en la vida cotidiana y cívica.",
+  "Hoy en día no es solo el problema de conexión. Aunque la conectividad ha avanzado, persiste una diferencia profunda en la posibilidad real de comprender, evaluar y usar información de manera útil en la vida cotidiana y cívica.",
   "Esa brecha no se limita a noticias o redes sociales. Incluye también información institucional, educativa, práctica y de servicios: la que las personas necesitan para orientarse, resolver problemas, interactuar con instituciones y tomar decisiones informadas.",
   "Cuando esa capacidad falta, aumenta la confusión, se vuelve más difícil distinguir información confiable, se debilita la comunicación entre instituciones y ciudadanía, y se amplían las barreras para participar, comprender y actuar con criterio.",
 ] as const;
