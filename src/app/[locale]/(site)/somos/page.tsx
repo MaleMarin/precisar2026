@@ -150,7 +150,7 @@ export default function SomosPrecisarPage() {
         </div>
       </section>
 
-      <section className={`${styles.band} ${styles.bandVoid}`} aria-label="Principio de trabajo">
+      <section className={`${styles.band} ${styles.bandPaper}`} aria-label="Principio de trabajo">
         <div className={styles.inner}>
           <blockquote className={styles.pullQuote}>
             <span className={styles.pullQuoteMark} aria-hidden>
@@ -181,13 +181,13 @@ export default function SomosPrecisarPage() {
         </div>
       </section>
 
-      <section className={`${styles.band} ${styles.bandSlate}`} aria-labelledby="somos-como">
+      <section className={`${styles.band} ${styles.bandMist}`} aria-labelledby="somos-como">
         <div className={styles.inner}>
           <div className={styles.sectionHead}>
             <span className={styles.sectionIndex} aria-hidden>
               02
             </span>
-            <h2 id="somos-como" className={styles.h2OnDark}>
+            <h2 id="somos-como" className={styles.h2}>
               Cómo trabajamos
             </h2>
           </div>
@@ -198,8 +198,8 @@ export default function SomosPrecisarPage() {
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <div className={styles.timelineBody}>
-                  <h3 className={styles.h3OnDark}>{item.title}</h3>
-                  <p className={styles.paraMuted}>{item.body}</p>
+                  <h3 className={styles.h3}>{item.title}</h3>
+                  <p className={styles.para}>{item.body}</p>
                 </div>
               </li>
             ))}
@@ -228,17 +228,17 @@ export default function SomosPrecisarPage() {
         </div>
       </section>
 
-      <section className={`${styles.band} ${styles.bandVoid}`} aria-labelledby="somos-con">
+      <section className={`${styles.band} ${styles.bandPaper}`} aria-labelledby="somos-con">
         <div className={styles.inner}>
           <div className={styles.sectionHead}>
             <span className={styles.sectionIndexLight} aria-hidden>
               04
             </span>
-            <h2 id="somos-con" className={styles.h2OnDark}>
+            <h2 id="somos-con" className={styles.h2}>
               Con quiénes trabajamos
             </h2>
           </div>
-          <p className={styles.leadMuted}>Podemos colaborar con:</p>
+          <p className={styles.prologue}>Podemos colaborar con:</p>
           <ul className={styles.pillList}>
             {PARTNERS.map((label) => (
               <li key={label}>
@@ -313,7 +313,7 @@ export default function SomosPrecisarPage() {
         </div>
       </section>
 
-      <section className={`${styles.band} ${styles.bandCta}`} aria-labelledby="somos-hablemos">
+      <section className={`${styles.band} ${styles.bandCream}`} aria-labelledby="somos-hablemos">
         <div className={styles.ctaInner}>
           <h2 id="somos-hablemos" className={styles.ctaTitle}>
             Hablemos

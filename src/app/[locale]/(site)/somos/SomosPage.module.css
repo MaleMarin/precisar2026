@@ -7,6 +7,11 @@
   --somos-title: clamp(2rem, 5.5vw, 3.75rem);
   --somos-h2: clamp(1.65rem, 3.2vw, 2.35rem);
   --somos-body: clamp(1.0625rem, 1.2vw, 1.1875rem);
+  --ink: #0a0c12;
+  --paper: #ffffff;
+  --cream: #f5f2ec;
+  --mist: #f3f4f6;
+  --flame: #db5227;
   margin: 0 calc(-1 * var(--gutter, 1.25rem));
   width: calc(100% + 2 * var(--gutter, 1.25rem));
   max-width: none;
@@ -30,23 +35,23 @@
 }
 
 .bandCream {
-  background: #f5f2ec;
-  color: color-mix(in oklab, #0a0a0a 88%, transparent);
+  background: var(--cream);
+  color: color-mix(in oklab, var(--ink) 88%, transparent);
 }
 
-.bandVoid {
-  background: #0a0c12;
-  color: rgba(245, 242, 236, 0.92);
+.bandPaper {
+  background: var(--paper);
+  color: color-mix(in oklab, var(--ink) 88%, transparent);
 }
 
-.bandSlate {
-  background: linear-gradient(165deg, #0f1219 0%, #0a0c12 45%, #12151f 100%);
-  color: rgba(245, 242, 236, 0.9);
+.bandMist {
+  background: linear-gradient(180deg, var(--mist) 0%, #ffffff 100%);
+  color: color-mix(in oklab, var(--ink) 88%, transparent);
 }
 
 .bandAccent {
-  background: #db5227;
-  color: #f5f2ec;
+  background: color-mix(in oklab, var(--flame) 10%, #fff);
+  color: color-mix(in oklab, var(--ink) 90%, transparent);
 }
 
 .inner {
@@ -69,9 +74,9 @@
   box-sizing: border-box;
   padding: var(--somos-y) clamp(1.5rem, 5vw, 3rem) calc(var(--somos-y) * 1.05);
   background:
-    radial-gradient(ellipse 120% 80% at 100% 0%, rgba(219, 82, 39, 0.14), transparent 55%),
-    radial-gradient(ellipse 90% 60% at 0% 100%, rgba(245, 242, 236, 0.06), transparent 50%),
-    #0a0c12;
+    radial-gradient(ellipse 130% 80% at 100% 0%, color-mix(in oklab, var(--flame) 14%, transparent), transparent 55%),
+    radial-gradient(ellipse 120% 80% at 0% 100%, rgba(10, 12, 18, 0.06), transparent 52%),
+    linear-gradient(180deg, #ffffff 0%, var(--cream) 100%);
 }
 
 @media (min-width: 768px) {
@@ -97,7 +102,7 @@
   font-weight: 500;
   letter-spacing: 0.28em;
   text-transform: uppercase;
-  color: #db5227;
+  color: var(--flame);
 }
 
 .heroTitle {
@@ -108,7 +113,7 @@
   font-weight: 800;
   line-height: 1.04;
   letter-spacing: -0.038em;
-  color: #f5f2ec;
+  color: var(--ink);
 }
 
 @media (min-width: 900px) {
@@ -135,7 +140,7 @@
   font-family: "Avenir Next", "Avenir", var(--font-sans-family), system-ui, sans-serif;
   font-size: var(--somos-body);
   line-height: 1.75;
-  color: rgba(245, 242, 236, 0.78);
+  color: color-mix(in oklab, var(--ink) 68%, transparent);
 }
 
 .proseL {
@@ -160,23 +165,32 @@
 /* ─── Cita / principio ─── */
 .pullQuote {
   margin: 0;
-  padding: clamp(2rem, 6vw, 3.5rem) 0 clamp(2rem, 6vw, 3.5rem) clamp(1.5rem, 4vw, 2.5rem);
-  border-left: 3px solid #db5227;
+  padding: clamp(2rem, 6vw, 3.25rem);
+  border-radius: 18px;
+  border: 1px solid color-mix(in oklab, var(--ink) 10%, transparent);
+  background: linear-gradient(
+    180deg,
+    color-mix(in oklab, var(--flame) 6%, #fff) 0%,
+    #fff 100%
+  );
+  box-shadow:
+    0 30px 80px color-mix(in oklab, var(--ink) 7%, transparent),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
   font-family: var(--font-display, system-ui, sans-serif);
   font-size: clamp(1.35rem, 2.8vw, 2rem);
   font-weight: 400;
   line-height: 1.45;
   letter-spacing: -0.02em;
-  color: rgba(245, 242, 236, 0.95);
+  color: color-mix(in oklab, var(--ink) 90%, transparent);
   max-width: min(52rem, 100%);
 }
 
 .pullQuoteMark {
   display: block;
   margin-bottom: 0.75rem;
-  font-size: 2.5rem;
+  font-size: 2.15rem;
   line-height: 1;
-  color: #db5227;
+  color: var(--flame);
   letter-spacing: 0;
 }
 
@@ -196,11 +210,11 @@
   font-weight: 300;
   line-height: 1;
   letter-spacing: -0.04em;
-  color: color-mix(in oklab, #db5227 35%, #0a0a0a);
+  color: color-mix(in oklab, var(--flame) 30%, var(--ink));
 }
 
 .sectionIndexLight {
-  color: rgba(219, 82, 39, 0.35);
+  color: color-mix(in oklab, var(--flame) 35%, transparent);
 }
 
 .h2 {
@@ -210,7 +224,7 @@
   font-weight: 700;
   line-height: 1.12;
   letter-spacing: -0.03em;
-  color: #0a0c12;
+  color: var(--ink);
 }
 
 .h2OnDark {
@@ -220,7 +234,7 @@
   font-weight: 700;
   line-height: 1.12;
   letter-spacing: -0.03em;
-  color: #f5f2ec;
+  color: var(--ink);
 }
 
 .h3 {
@@ -230,7 +244,7 @@
   font-weight: 600;
   line-height: 1.25;
   letter-spacing: -0.02em;
-  color: #0a0c12;
+  color: var(--ink);
 }
 
 .h3OnDark {
@@ -240,7 +254,7 @@
   font-weight: 600;
   line-height: 1.25;
   letter-spacing: -0.02em;
-  color: #f5f2ec;
+  color: var(--ink);
 }
 
 .h2Accent {
@@ -250,7 +264,7 @@
   font-weight: 700;
   line-height: 1.12;
   letter-spacing: -0.03em;
-  color: #fff;
+  color: var(--ink);
 }
 
 .paraOnAccent {
@@ -258,7 +272,7 @@
   font-family: "Avenir Next", "Avenir", var(--font-sans-family), system-ui, sans-serif;
   font-size: var(--somos-body);
   line-height: 1.75;
-  color: rgba(255, 255, 255, 0.94);
+  color: color-mix(in oklab, var(--ink) 86%, transparent);
 }
 
 .paraOnAccent:last-child {
@@ -266,7 +280,7 @@
 }
 
 .proseOnAccent {
-  border-top: 1px solid rgba(255, 255, 255, 0.22);
+  border-top: 1px solid color-mix(in oklab, var(--ink) 14%, transparent);
   padding-top: clamp(1.5rem, 4vw, 2rem);
 }
 
@@ -293,14 +307,14 @@
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.2em;
-  color: #db5227;
+  color: var(--flame);
   padding-top: 0.35rem;
 }
 
 .timelineBody {
   position: relative;
   padding-bottom: clamp(1.5rem, 4vw, 2rem);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid color-mix(in oklab, var(--ink) 10%, transparent);
 }
 
 .timelineItem:last-child .timelineBody {
@@ -349,13 +363,6 @@
 }
 
 /* ─── Pills «Con quiénes» ─── */
-.leadMuted {
-  margin: 0 0 clamp(1.5rem, 4vw, 2rem);
-  font-family: "Avenir Next", "Avenir", var(--font-sans-family), system-ui, sans-serif;
-  font-size: var(--somos-body);
-  color: rgba(245, 242, 236, 0.72);
-}
-
 .pillList {
   margin: 0;
   padding: 0;
@@ -370,20 +377,20 @@
   display: inline-block;
   padding: 0.55rem 1.15rem;
   border-radius: 999px;
-  border: 1px solid rgba(245, 242, 236, 0.22);
-  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid color-mix(in oklab, var(--ink) 12%, transparent);
+  background: color-mix(in oklab, #fff 80%, var(--cream));
   font-family: "Avenir Next", "Avenir", var(--font-sans-family), system-ui, sans-serif;
   font-size: 0.9375rem;
   line-height: 1.45;
-  color: rgba(245, 242, 236, 0.92);
+  color: color-mix(in oklab, var(--ink) 86%, transparent);
   transition:
     border-color 0.2s ease,
     background 0.2s ease;
 }
 
 .pill:hover {
-  border-color: rgba(219, 82, 39, 0.55);
-  background: rgba(219, 82, 39, 0.12);
+  border-color: color-mix(in oklab, var(--flame) 50%, transparent);
+  background: color-mix(in oklab, var(--flame) 10%, #fff);
 }
 
 /* ─── Lista de resultados ─── */
@@ -412,7 +419,7 @@
   height: 8px;
   margin-top: 0.55em;
   border-radius: 50%;
-  background: #db5227;
+  background: var(--flame);
   flex-shrink: 0;
 }
 
@@ -448,7 +455,7 @@
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.18em;
-  color: #db5227;
+  color: var(--flame);
   padding-top: 0.2rem;
 }
 
@@ -457,12 +464,6 @@
 }
 
 /* ─── CTA ─── */
-.bandCta {
-  background: #0a0c12;
-  padding: var(--somos-y) clamp(1.5rem, 5vw, 3rem);
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-}
-
 .ctaInner {
   max-width: var(--somos-inner);
   margin: 0 auto;
@@ -485,7 +486,7 @@
   font-weight: 400;
   line-height: 1;
   letter-spacing: -0.04em;
-  color: #f5f2ec;
+  color: var(--ink);
 }
 
 .ctaCol {
@@ -500,7 +501,7 @@
   font-family: "Avenir Next", "Avenir", var(--font-sans-family), system-ui, sans-serif;
   font-size: var(--somos-body);
   line-height: 1.75;
-  color: rgba(245, 242, 236, 0.82);
+  color: color-mix(in oklab, var(--ink) 72%, transparent);
   max-width: 38rem;
 }
 
@@ -509,8 +510,8 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: #db5227;
-  color: #f5f2ec;
+  background: var(--flame);
+  color: #fff;
   font-family: "Avenir Next", "Avenir", var(--font-sans-family), system-ui, sans-serif;
   font-weight: 600;
   font-size: 11px;
@@ -519,7 +520,7 @@
   text-decoration: none;
   padding: 16px 32px;
   border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid color-mix(in oklab, var(--flame) 60%, #fff);
   transition:
     background 0.2s ease,
     color 0.2s ease,
@@ -527,13 +528,13 @@
 }
 
 .ctaBtn:hover {
-  background: #f5f2ec;
-  color: #0a0c12;
+  background: #fff;
+  color: var(--ink);
   transform: translateY(-2px);
 }
 
 .ctaBtn:focus-visible {
-  outline: 2px solid #db5227;
+  outline: 2px solid var(--flame);
   outline-offset: 3px;
 }
 
