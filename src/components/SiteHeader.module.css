@@ -29,8 +29,8 @@
 @media (min-width: 768px) {
   .navBarOuter {
     box-sizing: border-box;
-    max-height: 108px;
-    min-height: 88px !important;
+    max-height: 128px;
+    min-height: 104px !important;
     padding-top: 0.65rem !important;
     padding-bottom: 0.65rem !important;
     align-items: center;
@@ -38,7 +38,7 @@
 
   .navBarRow {
     display: grid;
-    min-height: 64px;
+    min-height: 76px;
     grid-template-columns: auto minmax(0, 1fr) auto;
     grid-template-areas: "logo nav aside";
     column-gap: clamp(0.75rem, 1.5vw, 1.25rem);
@@ -125,25 +125,25 @@
 /* Desktop: barra compacta (máx. 64px); wordmark proporcional para una sola fila. */
 @media (min-width: 768px) {
   .navBarLogo {
-    height: 88px !important;
-    max-height: 88px !important;
-    max-width: min(560px, 50vw) !important;
+    height: 104px !important;
+    max-height: 104px !important;
+    max-width: min(640px, 52vw) !important;
   }
 }
 
 @media (min-width: 1440px) {
   .navBarLogo {
-    max-width: min(240px, 24vw) !important;
-    height: 88px !important;
-    max-height: 88px !important;
+    max-width: min(360px, 30vw) !important;
+    height: 108px !important;
+    max-height: 108px !important;
   }
 }
 
 @media (min-width: 1680px) {
   .navBarLogo {
-    max-width: min(260px, 22vw) !important;
-    height: 92px !important;
-    max-height: 92px !important;
+    max-width: min(420px, 28vw) !important;
+    height: 112px !important;
+    max-height: 112px !important;
   }
 }
 
