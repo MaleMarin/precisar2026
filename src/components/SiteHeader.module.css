@@ -1,17 +1,18 @@
-/* Misma anchura máxima que .prec-container, con menos padding a la izquierda para acercar el logo al borde */
+/* Header: usar ancho completo en home (sin encierro). */
 .navBarOuter {
   box-sizing: border-box;
   margin-left: auto;
   margin-right: auto;
   width: 100%;
-  max-width: var(--max);
-  padding-right: var(--gutter);
-  padding-left: max(0.125rem, min(0.55rem, 0.8vw));
+  max-width: 100%;
+  padding-right: clamp(1rem, 3vw, 3rem);
+  padding-left: clamp(1rem, 3vw, 3rem);
 }
 
 @media (min-width: 768px) {
   .navBarOuter {
-    padding-left: clamp(0.2rem, 1vw, 0.75rem);
+    padding-left: clamp(1.25rem, 3.2vw, 3.5rem);
+    padding-right: clamp(1.25rem, 3.2vw, 3.5rem);
   }
 }
 
@@ -41,7 +42,7 @@
     min-height: 76px;
     grid-template-columns: auto minmax(0, 1fr) auto;
     grid-template-areas: "logo nav aside";
-    column-gap: clamp(0.75rem, 1.5vw, 1.25rem);
+    column-gap: clamp(1rem, 2vw, 2rem);
     row-gap: 0;
     align-items: center;
     justify-content: initial;
@@ -88,7 +89,7 @@
   text-decoration: none;
   opacity: 0.96;
   transition: opacity 0.2s ease;
-  margin-left: -0.5rem;
+  margin-left: 0;
 }
 
 .navBarLogoLink:hover {
@@ -98,7 +99,7 @@
 /* Móvil: el margen negativo global acerca demasiado el wordmark al borde; un toque a la derecha. */
 @media (max-width: 767px) {
   .navBarLogoLink {
-    margin-left: 0.35rem;
+    margin-left: 0;
   }
 }
 
