@@ -178,7 +178,7 @@
   min-width: 0;
   align-items: center;
   justify-content: space-between;
-  column-gap: clamp(0.35rem, 1.1vw, 1rem);
+  column-gap: clamp(0.85rem, 2vw, 1.6rem);
   overflow: visible;
   padding-right: 0;
   padding-bottom: 0;
@@ -195,18 +195,19 @@
 .navLinkDesktop {
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: clamp(0.5rem, calc(0.3vw + 0.4rem), 0.8rem);
-  letter-spacing: -0.045em;
+  font-size: clamp(0.9rem, 0.9vw, 1.05rem);
+  letter-spacing: -0.02em;
   line-height: 1.15;
   text-transform: none;
   font-variant: normal;
   white-space: nowrap;
+  padding: 0.35rem 0.25rem;
 }
 
 @media (min-width: 768px) {
   .navLinkDesktop {
-    font-size: 0.9rem;
-    letter-spacing: -0.04em;
+    font-size: 1.02rem;
+    letter-spacing: -0.02em;
   }
 }
 
