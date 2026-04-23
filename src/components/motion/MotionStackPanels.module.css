@@ -665,73 +665,12 @@
   color: var(--brand-void, #0a0c12);
 }
 
-/* Saberes — columna derecha: lista + divisor + Bot Onda */
+/* Saberes — columna derecha: lista + CTA recursos */
 .saberesAsideStack {
   display: flex;
   width: 100%;
   flex-direction: column;
   gap: clamp(0.85rem, 2vw, 1.35rem);
-}
-
-.saberesBotOndaDivider {
-  height: 1px;
-  flex-shrink: 0;
-  background: color-mix(in oklab, #fff 16%, transparent);
-}
-
-.saberesBotOndaBlock {
-  display: block;
-  box-sizing: border-box;
-  /* Mismo padding y cuerpo tipográfico que las filas .miniRow / .miniLabel de la lista superior */
-  padding: clamp(1.3rem, 2.2vw, 1.6rem) clamp(1.35rem, 2.4vw, 1.65rem);
-  /* Mismo radio que la MiniList glass de Saberes (14px en las cuatro esquinas). */
-  border-radius: 14px;
-  border: 1px solid color-mix(in oklab, #fff 18%, transparent);
-  background: color-mix(in oklab, #fff 5%, transparent);
-  text-decoration: none;
-  color: inherit;
-  transition:
-    background 0.2s ease,
-    box-shadow 0.25s ease;
-}
-
-.saberesBotOndaBlock:hover {
-  background: color-mix(in oklab, #fff 9%, transparent);
-  box-shadow: -4px 0 0 0 color-mix(in oklab, #fff 55%, transparent);
-}
-
-.saberesBotOndaTitle {
-  margin: 0 0 0.35rem;
-  font-size: clamp(0.97rem, 1.05vw, 1.0625rem);
-  font-weight: 700;
-  line-height: 1.45;
-  letter-spacing: 0.03em;
-  color: #fff;
-}
-
-.saberesBotOndaTagline {
-  margin: 0 0 0.75rem;
-  max-width: 36rem;
-  font-size: clamp(0.97rem, 1.05vw, 1.0625rem);
-  font-weight: 500;
-  line-height: 1.45;
-  color: color-mix(in oklab, #fff 82%, transparent);
-}
-
-.saberesBotOndaPersonas {
-  gap: 0.4rem;
-}
-
-.saberesBotOndaBlock .botOndaLine {
-  font-size: clamp(0.97rem, 1.05vw, 1.0625rem);
-  font-weight: 400;
-  line-height: 1.45;
-  color: color-mix(in oklab, #fff 76%, transparent);
-}
-
-.saberesBotOndaBlock .botOndaLine strong {
-  font-weight: 700;
-  color: #fff;
 }
 
 .recursosBtn {
@@ -1460,7 +1399,7 @@
   justify-content: center;
 }
 
-/* Saberes: misma cadena flex que Programas — la columna derecha hace scroll; si no, Bot Onda queda bajo el recorte del sticky (~100vh). */
+/* Saberes: misma cadena flex que Programas — la columna derecha hace scroll bajo el sticky (~100vh). */
 :global(#saberes) .stickyPanel {
   display: flex;
   flex-direction: column;
@@ -1535,6 +1474,138 @@
   background: color-mix(in oklab, #fff 8%, transparent);
   border: 1px solid color-mix(in oklab, #fff 18%, transparent);
   border-radius: 14px;
+}
+
+/* Bot Onda — sesión propia (#bot-onda): misma cadena flex/scroll que Saberes en columna derecha */
+:global(#bot-onda) .stickyPanel {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+:global(#bot-onda) .panelDepthEnter {
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+:global(#bot-onda) .panelDepthEnter .grid {
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+:global(#bot-onda) .grid {
+  min-height: 0;
+  padding-bottom: calc(2.5rem + 88px);
+}
+
+@media (min-width: 1024px) {
+  :global(#bot-onda) .grid.gridSaberes {
+    padding-bottom: calc(4rem + 88px);
+  }
+}
+
+:global(#bot-onda) .colMain {
+  min-height: 0;
+}
+
+:global(#bot-onda) .colAside {
+  justify-content: flex-start;
+  min-height: 0;
+}
+
+:global(#bot-onda) .asideSlot {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.botOndaHomeAside {
+  display: flex;
+  width: 100%;
+  flex: 1 1 auto;
+  min-height: 0;
+  flex-direction: column;
+  gap: clamp(0.85rem, 2vw, 1.35rem);
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(219, 82, 39, 0.35) transparent;
+}
+
+.botOndaHomeAside::-webkit-scrollbar {
+  width: 4px;
+}
+
+.botOndaHomeAside::-webkit-scrollbar-thumb {
+  background: rgba(219, 82, 39, 0.45);
+  border-radius: 2px;
+}
+
+.botOndaHomeLightBlock {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  padding: clamp(1.3rem, 2.2vw, 1.6rem) clamp(1.35rem, 2.4vw, 1.65rem);
+  border-radius: 14px;
+  border: 1px solid color-mix(in oklab, #fff 72%, #1a1208 12%);
+  background: color-mix(in oklab, #fffcf7 52%, transparent);
+  text-decoration: none;
+  color: inherit;
+  box-shadow:
+    0 10px 40px color-mix(in oklab, #1a1208 10%, transparent),
+    inset 0 1px 0 color-mix(in oklab, #fff 78%, transparent);
+  backdrop-filter: blur(18px) saturate(1.25);
+  -webkit-backdrop-filter: blur(18px) saturate(1.25);
+  transition:
+    background 0.2s ease,
+    box-shadow 0.25s ease;
+}
+
+.botOndaHomeLightBlock:hover {
+  background: color-mix(in oklab, #fffcf7 68%, transparent);
+  box-shadow:
+    0 14px 48px color-mix(in oklab, #1a1208 12%, transparent),
+    inset 0 1px 0 color-mix(in oklab, #fff 78%, transparent);
+}
+
+.botOndaHomeLightPersonas {
+  gap: 0.4rem;
+}
+
+.botOndaHomeLightBlock .botOndaLine {
+  font-size: clamp(0.97rem, 1.05vw, 1.0625rem);
+  line-height: 1.45;
+  color: color-mix(in oklab, #1a1814 62%, transparent);
+}
+
+.botOndaHomeLightBlock .botOndaLine strong {
+  color: var(--brand-void, #0a0c12);
+}
+
+.botOndaHomeLightCta {
+  display: block;
+  margin-top: 1rem;
+  font-family: "Avenir Next", "Avenir", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--brand-flame, #db5227);
+}
+
+.botOndaHomeLightBlock:hover .botOndaHomeLightCta {
+  text-decoration: underline;
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .botOndaHomeLightBlock {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: #fffcf7;
+  }
 }
 
 :global(#programas) .miniLabel {

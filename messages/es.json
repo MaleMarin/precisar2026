@@ -148,14 +148,14 @@
     }
   },
   "homeParticipa": {
-    "stackKicker": "06 · Participa",
+    "stackKicker": "07 · Participa",
     "stackHeadline": "¿Cómo te informas hoy?",
     "stackTagline": "Tu experiencia cambia cómo nos informamos todos.",
     "stackBody": "Queremos entender cómo recibes la información hoy y cómo te gustaría recibirla: qué formatos te ayudan, qué tono te genera confianza, qué te falta para entender mejor, acceder con más facilidad y compartir con más criterio. Tus respuestas llegan directamente a medios, instituciones y tomadores de decisiones para que mejoren la manera en que informan.",
     "ctaLabel": "Responder ahora →"
   },
   "homeEducacionMediatica": {
-    "stackKicker": "05 · EDUCACIÓN MEDIÁTICA",
+    "stackKicker": "06 · EDUCACIÓN MEDIÁTICA",
     "stackHeadline": "Comprender la información también es una habilidad que se aprende.",
     "stackBody": "Cuatro dimensiones para leer el mundo digital\ncon más criterio, más conciencia y más autonomía.",
     "linkComunicacion": "Comunicación",
@@ -164,7 +164,7 @@
     "linkCultura": "Cultura"
   },
   "homePrecisando": {
-    "stackKicker": "Sitio nuevo · 04 · Precisando",
+    "stackKicker": "Sitio nuevo · 05 · Precisando",
     "stackHeadline": "Cómo circula la información y qué efectos produce.",
     "stackBody": "Precisando es la editorial de Precisar: un espacio de artículos y debates para leer el entorno digital con más contexto, criterio y profundidad. Explora publicaciones recientes y sus categorías.",
     "stackUnderConstruction": "En construcción. Pronto publicaremos las notas aquí."
@@ -172,9 +172,13 @@
   "homeSaberes": {
     "stackKicker": "03 · Saberes",
     "stackHeadline": "Saber no es acumular datos. Es saber qué hacer con ellos.",
-    "stackBody": "Conocimiento abierto sobre cultura digital.",
-    "stackBotOndaTitle": "Bot Onda",
-    "stackBotOndaTagline": "La información no se detiene. Nosotros te ayudamos a hacerlo."
+    "stackBody": "Conocimiento abierto sobre cultura digital."
+  },
+  "homeBotOnda": {
+    "stackKicker": "04 · Bot Onda",
+    "stackHeadline": "La información no se detiene. Nosotros te ayudamos a hacerlo.",
+    "stackBody": "Onda en Mano, Onda Civita y Onda Profes: tres conversaciones en el chat para orientarte sin sustituir tu juicio.\nServicio en beta.",
+    "ctaOpenChat": "Abrir el chat →"
   },
   "mediaticaEjes": {
     "ariaBreadcrumb": "Migas de pan",

@@ -148,14 +148,14 @@
     }
   },
   "homeParticipa": {
-    "stackKicker": "06 · Take part",
+    "stackKicker": "07 · Take part",
     "stackHeadline": "How do you get informed today?",
     "stackTagline": "Your experience changes how all of us get informed.",
     "stackBody": "We want to understand how you receive information today and how you would like to receive it: which formats help you, which tone builds trust, and what you need to understand better, access more easily, and share with more judgment. Your answers go straight to media outlets, institutions, and decision-makers so they can improve how they inform the public.",
     "ctaLabel": "Respond now →"
   },
   "homeEducacionMediatica": {
-    "stackKicker": "05 · MEDIA EDUCATION",
+    "stackKicker": "06 · MEDIA EDUCATION",
     "stackHeadline": "Understanding information is also a skill you learn.",
     "stackBody": "Four dimensions for reading the digital world\nwith more judgment, more awareness, and more autonomy.",
     "linkComunicacion": "Communication",
@@ -164,7 +164,7 @@
     "linkCultura": "Culture"
   },
   "homePrecisando": {
-    "stackKicker": "New site · 04 · Precisando",
+    "stackKicker": "New site · 05 · Precisando",
     "stackHeadline": "How information circulates—and what effects it produces.",
     "stackBody": "Precisando is Precisar’s editorial: articles and debate to read the digital environment with more context, judgment, and depth. Explore recent posts and categories.",
     "stackUnderConstruction": "Under construction. Articles will be published here soon."
@@ -172,9 +172,13 @@
   "homeSaberes": {
     "stackKicker": "03 · Saberes",
     "stackHeadline": "Knowing isn’t hoarding data. It’s knowing what to do with it.",
-    "stackBody": "Three collections of open resources—to reflect and broaden perspectives.",
-    "stackBotOndaTitle": "Bot Onda",
-    "stackBotOndaTagline": "Information doesn’t stop. We help you slow down and make sense of it."
+    "stackBody": "Three collections of open resources—to reflect and broaden perspectives."
+  },
+  "homeBotOnda": {
+    "stackKicker": "04 · Bot Onda",
+    "stackHeadline": "Information doesn’t stop. We help you slow down and make sense of it.",
+    "stackBody": "Onda en Mano, Onda Civita, and Onda Profes: three chat spaces to guide you without replacing your judgment.\nService in beta.",
+    "ctaOpenChat": "Open the chat →"
   },
   "mediaticaEjes": {
     "ariaBreadcrumb": "Breadcrumb",

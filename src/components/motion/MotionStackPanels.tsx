@@ -143,27 +143,32 @@ function MiniList({
   );
 }
 
-/** Columna Saberes: lista de recursos + Bot Onda (título, frase, tres ondas). */
+/** Columna Saberes: lista de recursos + CTA recursos. */
 function HomeSaberesAside({ reduceMotion, items }: { reduceMotion: boolean; items: MiniListItem[] }) {
-  const tSaberes = useTranslations("homeSaberes");
-  const tPrograms = useTranslations("homePrograms");
-
   return (
     <div className={styles.saberesAsideStack}>
       <MiniList dark glass glassExtraMargin reduceMotion={reduceMotion} items={items} />
       <Link href="/saberes/recursos" className={styles.recursosBtn}>
         Material para descargar →
       </Link>
-      <div className={styles.saberesBotOndaDivider} aria-hidden />
+    </div>
+  );
+}
+
+/** Sesión Bot Onda en portada: tarjeta con las tres ondas y enlace al chat. */
+function HomeBotOndaAside() {
+  const tBot = useTranslations("homeBotOnda");
+  const tPrograms = useTranslations("homePrograms");
+
+  return (
+    <div className={styles.botOndaHomeAside}>
       <a
         href={EXTERNAL.botOnda}
         target="_blank"
         rel="noopener noreferrer"
-        className={styles.saberesBotOndaBlock}
+        className={styles.botOndaHomeLightBlock}
       >
-        <p className={styles.saberesBotOndaTitle}>{tSaberes("stackBotOndaTitle")}</p>
-        <p className={styles.saberesBotOndaTagline}>{tSaberes("stackBotOndaTagline")}</p>
-        <span className={`${styles.botOndaStack} ${styles.saberesBotOndaPersonas}`}>
+        <span className={`${styles.botOndaStack} ${styles.botOndaHomeLightPersonas}`}>
           <span className={styles.botOndaLine}>
             <strong>{tPrograms("stackBotOndaManoName")}</strong> — {tPrograms("stackBotOndaManoDesc")}
           </span>
@@ -174,6 +179,7 @@ function HomeSaberesAside({ reduceMotion, items }: { reduceMotion: boolean; item
             <strong>{tPrograms("stackBotOndaProfesName")}</strong> — {tPrograms("stackBotOndaProfesDesc")}
           </span>
         </span>
+        <span className={styles.botOndaHomeLightCta}>{tBot("ctaOpenChat")}</span>
       </a>
     </div>
   );
@@ -446,7 +452,7 @@ function StackPanel({
     .filter(Boolean)
     .join(" ");
 
-  const isTwoColIntroLayout = id === "saberes" || id === "educacion-mediatica";
+  const isTwoColIntroLayout = id === "saberes" || id === "educacion-mediatica" || id === "bot-onda";
   const gridClass = isTwoColIntroLayout ? `${styles.grid} ${styles.gridSaberes}` : styles.grid;
   const colMainClass = [styles.colMain, isTwoColIntroLayout ? styles.colMainSaberes : ""]
     .filter(Boolean)
@@ -457,7 +463,9 @@ function StackPanel({
   /** Misma tipografía en la columna izquierda que Precisando / Programas (titular display + bajada .body). */
   const stackTitleClass = styles.displayTitle;
   const stackBodyClass =
-    id === "educacion-mediatica" ? `${bodyClass} ${styles.saberesBodyPreline}`.trim() : bodyClass;
+    id === "educacion-mediatica" || id === "bot-onda"
+      ? `${bodyClass} ${styles.saberesBodyPreline}`.trim()
+      : bodyClass;
 
   const glowDrift = !reduceMotion ? styles.panelGlowDrift : "";
 
@@ -590,6 +598,7 @@ export function MotionStackPanels({
   const tPrograms = useTranslations("homePrograms");
   const tPrecisando = useTranslations("homePrecisando");
   const tSaberes = useTranslations("homeSaberes");
+  const tBotOnda = useTranslations("homeBotOnda");
   const tEducacionMediatica = useTranslations("homeEducacionMediatica");
   const programLinks: MiniListItem[] = [
     { label: tPrograms("stackLinkCiudades"), href: "/programas/ciudades", multiline: true },
@@ -662,6 +671,16 @@ export function MotionStackPanels({
       body: tSaberes("stackBody"),
       icon: undefined,
       child: <HomeSaberesAside reduceMotion={reduceMotion} items={saberesLinks} />,
+    },
+    {
+      id: "bot-onda",
+      theme: "light" as const,
+      kicker: tBotOnda("stackKicker"),
+      label: undefined,
+      headline: tBotOnda("stackHeadline"),
+      body: tBotOnda("stackBody"),
+      icon: undefined,
+      child: <HomeBotOndaAside />,
     },
     {
       id: "precisando",
