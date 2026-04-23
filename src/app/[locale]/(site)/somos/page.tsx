@@ -9,6 +9,98 @@ function ogLocaleTag(locale: string): string {
   return "es_CL";
 }
 
+const META_DESC =
+  "Fortalecemos capacidades para comprender, evaluar y usar información con más criterio. Co-diseño con municipios, educación, sociedad civil y servicios públicos en Chile.";
+
+const INTRO = [
+  "En Precisar trabajamos con organizaciones que quieren fortalecer la relación de las personas con la información y promover un uso más consciente, útil y constructivo de la tecnología.",
+  "Colaboramos con municipios, comunidades educativas, organizaciones de la sociedad civil, servicios públicos, medios y redes territoriales para traducir un problema complejo —la desigual capacidad de comprender, evaluar y usar información— en herramientas, metodologías y recursos concretos, adaptados a contextos reales.",
+] as const;
+
+const PRINCIPLE = `No trabajamos desde soluciones cerradas. Partimos del contexto, escuchamos cómo viven este problema las personas y diseñamos junto a cada aliado formas de abordarlo con sentido práctico, lenguaje claro y capacidad de implementación.`;
+
+const PROBLEM_PARAS = [
+  "En Chile, el acceso ya no es la única brecha. Aunque la conectividad ha avanzado, persiste una diferencia profunda en la posibilidad real de comprender, evaluar y usar información de manera útil en la vida cotidiana y cívica.",
+  "Esa brecha no se limita a noticias o redes sociales. Incluye también información institucional, educativa, práctica y de servicios: la que las personas necesitan para orientarse, resolver problemas, interactuar con instituciones y tomar decisiones informadas.",
+  "Cuando esa capacidad falta, aumenta la confusión, se vuelve más difícil distinguir información confiable, se debilita la comunicación entre instituciones y ciudadanía, y se amplían las barreras para participar, comprender y actuar con criterio.",
+] as const;
+
+const HOW_WE_WORK = [
+  {
+    title: "Co-diseñamos con el contexto",
+    body: "No aplicamos fórmulas únicas. Adaptamos metodologías, herramientas y recursos a las necesidades, lenguajes y capacidades de cada organización y de las comunidades con las que trabaja.",
+  },
+  {
+    title: "Traducimos evidencia en acción",
+    body: "Producimos y organizamos evidencia útil para comprender cómo se informan las personas, qué barreras enfrentan y qué herramientas pueden ser más efectivas para acompañarlas.",
+  },
+  {
+    title: "Probamos en terreno",
+    body: "Diseñamos e implementamos experiencias en contextos reales, con públicos concretos y condiciones diversas, para aprender, ajustar y dejar modelos replicables.",
+  },
+  {
+    title: "Transferimos capacidades",
+    body: "Buscamos que las organizaciones puedan apropiarse de metodologías, recursos y herramientas, integrándolos en sus propias prácticas más allá de una intervención puntual.",
+  },
+  {
+    title: "Combinamos claridad, tecnología y sentido público",
+    body: "Desarrollamos herramientas abiertas, contenidos accesibles y experiencias aplicadas que permitan comprender mejor cómo circula la información y cómo usar la tecnología de forma más consciente y provechosa.",
+  },
+] as const;
+
+const TOGETHER = [
+  {
+    title: "Diagnóstico y escucha",
+    body: "Procesos para comprender cómo se informan distintos públicos, qué dificultades enfrentan y qué tipo de apoyo necesitan.",
+  },
+  {
+    title: "Metodologías para territorios e instituciones",
+    body: "Diseño e implementación de modelos de trabajo para municipios, escuelas, organizaciones y servicios públicos.",
+  },
+  {
+    title: "Recursos y herramientas abiertas",
+    body: "Guías, actividades, materiales explicativos, experiencias participativas y herramientas conversacionales adaptadas a diferentes públicos y etapas de vida.",
+  },
+  {
+    title: "Acompañamiento para adopción institucional",
+    body: "Apoyo a equipos y organizaciones para incorporar esta agenda desde sus propios roles, capacidades y objetivos.",
+  },
+  {
+    title: "Evidencia para decisiones",
+    body: "Sistematización de aprendizajes y generación de insumos útiles para mejorar prácticas, programas y formas de comunicación.",
+  },
+] as const;
+
+const PARTNERS = [
+  "Municipios y gobiernos locales",
+  "Establecimientos y comunidades educativas",
+  "Organizaciones de la sociedad civil",
+  "Servicios públicos",
+  "Medios y proyectos de comunicación",
+  "Fundaciones y redes territoriales",
+  "Equipos que trabajan con personas mayores, juventudes o comunidades específicas",
+] as const;
+
+const OUTCOMES = [
+  "Mejores herramientas para comprender cómo se relacionan sus públicos con la información",
+  "Recursos utilizables y adaptables a su realidad",
+  "Metodologías probadas en contextos reales",
+  "Capacidades para sostener este trabajo en el tiempo",
+  "Una mejor conexión entre evidencia, comunicación y acción",
+] as const;
+
+const COLLAB_PARAS = [
+  "Creemos que las herramientas funcionan mejor cuando nacen del uso real, del contexto local y de la experiencia de las personas.",
+  "Por eso, en Precisar entendemos la colaboración como un proceso de construcción conjunta. Aportamos evidencia, diseño metodológico, experiencia pedagógica y desarrollo de herramientas; nuestros aliados aportan conocimiento territorial, llegada a comunidades, legitimidad local y capacidad de implementación. Esa combinación permite construir respuestas más pertinentes, más claras y más sostenibles.",
+] as const;
+
+const WHY_FOUR = [
+  "Evidencia útil para entender cómo se informan las personas y qué necesitan.",
+  "Metodologías aplicadas para traducir esa evidencia en intervención concreta.",
+  "Recursos accesibles diseñados para distintos públicos y contextos.",
+  "Acompañamiento institucional para que las capacidades queden instaladas.",
+] as const;
+
 export async function generateMetadata({
   params,
 }: {
@@ -18,16 +110,14 @@ export async function generateMetadata({
   const canonical = absoluteLocaleUrl(locale, "/somos");
   return {
     title: "Somos Precisar",
-    description:
-      "Organización sin fines de lucro desde 2021: cultura digital, alfabetización mediática, herramientas y programas en Chile y México.",
+    description: META_DESC,
     alternates: {
       canonical,
       languages: hreflangAlternates("/somos"),
     },
     openGraph: {
       title: "Somos Precisar",
-      description:
-        "Potenciar con precisión la cultura digital. Herramientas, experiencias y programas para una democracia digital informada.",
+      description: META_DESC,
       url: canonical,
       siteName: SITE.name,
       locale: ogLocaleTag(locale),
@@ -39,137 +129,202 @@ export async function generateMetadata({
 export default function SomosPrecisarPage() {
   return (
     <article className={styles.page}>
-      <section className={`${styles.hero} ${styles.sectionPad}`} aria-labelledby="somos-hero-title">
+      <header className={styles.hero} aria-labelledby="somos-title">
         <div className={styles.heroInner}>
-          <div className={styles.heroMain}>
-            <p className={styles.heroEyebrow}>■ SOMOS PRECISAR</p>
-            <h1 id="somos-hero-title" className={styles.heroTitle}>
-              Porque entender lo que pasa es el primer paso para participar en ello.
-            </h1>
+          <p className={styles.kicker}>Somos Precisar</p>
+          <h1 id="somos-title" className={styles.heroTitle}>
+            Fortalecemos capacidades para comprender, evaluar y usar información con más criterio
+          </h1>
+        </div>
+      </header>
+
+      <section className={`${styles.band} ${styles.bandCream}`} aria-label="Introducción">
+        <div className={styles.inner}>
+          <div className={styles.proseL}>
+            {INTRO.map((p, i) => (
+              <p key={i} className={styles.para}>
+                {p}
+              </p>
+            ))}
           </div>
-          <div className={styles.heroYear}>
-            <span className={styles.heroYearBig} aria-hidden>
-              2021
+        </div>
+      </section>
+
+      <section className={`${styles.band} ${styles.bandVoid}`} aria-label="Principio de trabajo">
+        <div className={styles.inner}>
+          <blockquote className={styles.pullQuote}>
+            <span className={styles.pullQuoteMark} aria-hidden>
+              ·
             </span>
-            <p className={styles.heroYearCap}>desde cuando trabajamos</p>
+            {PRINCIPLE}
+          </blockquote>
+        </div>
+      </section>
+
+      <section className={`${styles.band} ${styles.bandCream}`} aria-labelledby="somos-problema">
+        <div className={styles.inner}>
+          <div className={styles.sectionHead}>
+            <span className={styles.sectionIndex} aria-hidden>
+              01
+            </span>
+            <h2 id="somos-problema" className={styles.h2}>
+              Qué problema abordamos
+            </h2>
+          </div>
+          <div className={styles.proseM}>
+            {PROBLEM_PARAS.map((p, i) => (
+              <p key={i} className={styles.para}>
+                {p}
+              </p>
+            ))}
           </div>
         </div>
       </section>
 
-      <section className={`${styles.who} ${styles.sectionPad}`} aria-label="Quiénes somos">
-        <div className={styles.whoGrid}>
-          <div>
-            <p className={styles.whoStatBig}>100%</p>
-            <p className={styles.whoStatWord}>acción.</p>
-            <p className={styles.whoStatSub}>Criterio ciudadano. Confianza informativa.</p>
+      <section className={`${styles.band} ${styles.bandSlate}`} aria-labelledby="somos-como">
+        <div className={styles.inner}>
+          <div className={styles.sectionHead}>
+            <span className={styles.sectionIndex} aria-hidden>
+              02
+            </span>
+            <h2 id="somos-como" className={styles.h2OnDark}>
+              Cómo trabajamos
+            </h2>
           </div>
-          <div className={styles.whoBody}>
-            <p>
-              Somos una organización sin fines de lucro nacida en Chile, construyendo desde 2021 una red de aprendizaje y
-              acción digital que ya llega a México y sigue creciendo.
-            </p>
-            <p>
-              Creamos herramientas, experiencias interactivas y programas formativos para que personas de todas las
-              edades puedan desenvolverse con confianza en el entorno digital: entender cómo circula la información,
-              cómo operan los algoritmos, cómo proteger su privacidad y cómo participar activamente en los debates
-              públicos de hoy.
-            </p>
-          </div>
+          <ol className={styles.timeline}>
+            {HOW_WE_WORK.map((item, i) => (
+              <li key={item.title} className={styles.timelineItem}>
+                <span className={styles.timelineNum} aria-hidden>
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <div className={styles.timelineBody}>
+                  <h3 className={styles.h3OnDark}>{item.title}</h3>
+                  <p className={styles.paraMuted}>{item.body}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
         </div>
       </section>
 
-      <section className={`${styles.drives} ${styles.sectionPad}`} aria-labelledby="somos-drives-quote">
-        <div className={styles.drivesInner}>
-          <p id="somos-drives-quote" className={styles.drivesQuote}>
-            Combinamos tecnología, comunicación y participación ciudadana para fortalecer la democracia digital y la
-            convivencia informada.
+      <section className={`${styles.band} ${styles.bandCream}`} aria-labelledby="somos-juntos">
+        <div className={styles.inner}>
+          <div className={styles.sectionHead}>
+            <span className={styles.sectionIndex} aria-hidden>
+              03
+            </span>
+            <h2 id="somos-juntos" className={styles.h2}>
+              Qué podemos hacer juntos
+            </h2>
+          </div>
+          <ul className={styles.cardGrid}>
+            {TOGETHER.map((item) => (
+              <li key={item.title} className={styles.softCard}>
+                <h3 className={styles.h3}>{item.title}</h3>
+                <p className={styles.para}>{item.body}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section className={`${styles.band} ${styles.bandVoid}`} aria-labelledby="somos-con">
+        <div className={styles.inner}>
+          <div className={styles.sectionHead}>
+            <span className={styles.sectionIndexLight} aria-hidden>
+              04
+            </span>
+            <h2 id="somos-con" className={styles.h2OnDark}>
+              Con quiénes trabajamos
+            </h2>
+          </div>
+          <p className={styles.leadMuted}>Podemos colaborar con:</p>
+          <ul className={styles.pillList}>
+            {PARTNERS.map((label) => (
+              <li key={label}>
+                <span className={styles.pill}>{label}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section className={`${styles.band} ${styles.bandCream}`} aria-labelledby="somos-instalado">
+        <div className={styles.inner}>
+          <div className={styles.sectionHead}>
+            <span className={styles.sectionIndex} aria-hidden>
+              05
+            </span>
+            <h2 id="somos-instalado" className={styles.h2}>
+              Lo que buscamos dejar instalado
+            </h2>
+          </div>
+          <p className={styles.prologue}>
+            Nuestro objetivo no es solo ejecutar actividades. Buscamos que cada organización con la que trabajamos pueda
+            quedar con:
           </p>
-          <div className={styles.drivesGrid}>
-            <div className={styles.drivesCol}>
-              <h3 className={styles.drivesColTitle}>Tecnología</h3>
-              <p className={styles.drivesColText}>
-                Herramientas y plataformas digitales que hacen accesible el aprendizaje crítico para cualquier persona,
-                en cualquier contexto.
-              </p>
-            </div>
-            <div className={styles.drivesCol}>
-              <h3 className={styles.drivesColTitle}>Comunicación</h3>
-              <p className={styles.drivesColText}>
-                Contenidos, recursos y experiencias que traducen la complejidad del ecosistema digital en lenguaje
-                comprensible y accionable.
-              </p>
-            </div>
-            <div className={styles.drivesCol}>
-              <h3 className={styles.drivesColTitle}>Participación ciudadana</h3>
-              <p className={styles.drivesColText}>
-                Programas que fortalecen la autonomía, el criterio y la capacidad de las personas para participar con
-                fundamento en los debates públicos de hoy.
-              </p>
-            </div>
-          </div>
+          <ul className={styles.outcomeList}>
+            {OUTCOMES.map((line) => (
+              <li key={line} className={styles.outcomeItem}>
+                <span className={styles.outcomeDot} aria-hidden />
+                <span>{line}</span>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
-      <section className={`${styles.work} ${styles.sectionPad}`} aria-labelledby="somos-work-title">
-        <div className={styles.workInner}>
-          <h2 id="somos-work-title" className={styles.workTitle}>
-            Lo que hacemos
+      <section className={`${styles.band} ${styles.bandAccent}`} aria-labelledby="somos-enfoque">
+        <div className={styles.innerNarrow}>
+          <h2 id="somos-enfoque" className={styles.h2Accent}>
+            Nuestro enfoque de colaboración
           </h2>
-          <div className={styles.workGrid}>
-            <div className={styles.workCard}>
-              <p className={styles.workNum}>01</p>
-              <h3 className={styles.workCardTitle}>Programas formativos</h3>
-              <p className={styles.workCardText}>
-                Talleres, cursos y experiencias para ciudadanos, docentes, adultos mayores y funcionarios públicos en
-                Chile y México.
+          <div className={styles.proseOnAccent}>
+            {COLLAB_PARAS.map((p, i) => (
+              <p key={i} className={styles.paraOnAccent}>
+                {p}
               </p>
-            </div>
-            <div className={styles.workCard}>
-              <p className={styles.workNum}>02</p>
-              <h3 className={styles.workCardTitle}>Herramientas digitales</h3>
-              <p className={styles.workCardText}>
-                Bot Onda, plataformas interactivas y recursos abiertos para fortalecer el criterio ciudadano en el
-                ecosistema digital.
-              </p>
-            </div>
-            <div className={styles.workCard}>
-              <p className={styles.workNum}>03</p>
-              <h3 className={styles.workCardTitle}>Muestras físicas</h3>
-              <p className={styles.workCardText}>
-                Instalaciones itinerantes de cultura digital para municipios, eventos y espacios públicos en tres
-                formatos: Pixel, Vector y Holo.
-              </p>
-            </div>
-            <div className={styles.workCard}>
-              <p className={styles.workNum}>04</p>
-              <h3 className={styles.workCardTitle}>Investigación y política pública</h3>
-              <p className={styles.workCardText}>
-                Consultas ciudadanas, informes y propuestas para tomadores de decisión sobre alfabetización mediática e
-                informacional.
-              </p>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
-      <section className={`${styles.closing} ${styles.sectionPad}`} aria-label="Mensaje de cierre">
-        <div className={styles.closingInner}>
-          <p className={styles.closingLine}>
-            Potenciar con <span className={styles.closingAccent}>precisión</span> la cultura digital.
-          </p>
+      <section className={`${styles.band} ${styles.bandCream}`} aria-labelledby="somos-porque">
+        <div className={styles.inner}>
+          <div className={styles.sectionHead}>
+            <span className={styles.sectionIndex} aria-hidden>
+              06
+            </span>
+            <h2 id="somos-porque" className={styles.h2}>
+              Por qué trabajar con Precisar
+            </h2>
+          </div>
+          <p className={styles.prologue}>Porque combinamos cuatro capacidades que no suelen aparecer juntas:</p>
+          <ul className={styles.fourGrid}>
+            {WHY_FOUR.map((line, i) => (
+              <li key={line} className={styles.fourCell}>
+                <span className={styles.fourNum} aria-hidden>
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <p className={styles.para}>{line}</p>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
-      <section className={`${styles.cta} ${styles.ctaPad}`} aria-labelledby="somos-cta-heading">
+      <section className={`${styles.band} ${styles.bandCta}`} aria-labelledby="somos-hablemos">
         <div className={styles.ctaInner}>
-          <h2 id="somos-cta-heading" className={styles.ctaHeadline}>
-            ¿Trabajamos juntos?
+          <h2 id="somos-hablemos" className={styles.ctaTitle}>
+            Hablemos
           </h2>
-          <div>
+          <div className={styles.ctaCol}>
             <p className={styles.ctaBody}>
-              Escríbenos y cuéntanos tu idea, tu institución o tu comunidad. Diseñamos propuestas a medida.
+              Si tu organización quiere desarrollar herramientas, metodologías o experiencias para fortalecer la
+              relación de las personas con la información y promover un uso más consciente, útil y constructivo de la
+              tecnología, nos interesa conversar.
             </p>
-            <FooterContactLink className={styles.ctaBtn}>Contáctanos</FooterContactLink>
+            <FooterContactLink className={styles.ctaBtn}>Escríbenos</FooterContactLink>
           </div>
         </div>
       </section>

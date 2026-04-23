@@ -1,384 +1,525 @@
-/* Somos Precisar — landing editorial alineada a marca (void / navy / flame / charcoal) */
+/* Somos Precisar — editorial amplia, alternancia de bandas y mucho aire */
 
 .page {
-  /* Misma escala que titulares de sesión en home (ProgramShell / MotionStackPanels). */
-  --program-title-size: clamp(1.95rem, 5.2vw, 4.65rem);
-  --program-title-maxw: 42rem;
+  --somos-y: clamp(4.5rem, 14vw, 10rem);
+  --somos-y-tight: clamp(3rem, 8vw, 6rem);
+  --somos-inner: min(100%, 76rem);
+  --somos-title: clamp(2rem, 5.5vw, 3.75rem);
+  --somos-h2: clamp(1.65rem, 3.2vw, 2.35rem);
+  --somos-body: clamp(1.0625rem, 1.2vw, 1.1875rem);
   margin: 0 calc(-1 * var(--gutter, 1.25rem));
   width: calc(100% + 2 * var(--gutter, 1.25rem));
   max-width: none;
-}
-
-@media (min-width: 768px) {
-  .page {
-    --program-title-size: clamp(2.5rem, 6vw, 4.85rem);
-    --program-title-maxw: 56rem;
-  }
 }
 
 @media (min-width: 90rem) {
   .page {
     margin: 0;
     width: 100%;
-    max-width: 100%;
   }
 }
 
-.sectionPad {
-  padding: clamp(3rem, 8vh, 5rem) clamp(1.5rem, 5vw, 3rem);
+.band {
+  padding: var(--somos-y) clamp(1.5rem, 5vw, 3rem);
 }
 
 @media (min-width: 768px) {
-  .sectionPad {
-    padding: 80px 48px;
+  .band {
+    padding: var(--somos-y) clamp(2rem, 6vw, 4rem);
   }
+}
+
+.bandCream {
+  background: #f5f2ec;
+  color: color-mix(in oklab, #0a0a0a 88%, transparent);
+}
+
+.bandVoid {
+  background: #0a0c12;
+  color: rgba(245, 242, 236, 0.92);
+}
+
+.bandSlate {
+  background: linear-gradient(165deg, #0f1219 0%, #0a0c12 45%, #12151f 100%);
+  color: rgba(245, 242, 236, 0.9);
+}
+
+.bandAccent {
+  background: #db5227;
+  color: #f5f2ec;
+}
+
+.inner {
+  width: 100%;
+  max-width: var(--somos-inner);
+  margin: 0 auto;
+}
+
+.innerNarrow {
+  width: 100%;
+  max-width: min(42rem, 100%);
+  margin: 0 auto;
 }
 
 /* ─── Hero ─── */
 .hero {
-  min-height: 80vh;
+  min-height: min(88vh, 52rem);
   display: flex;
   align-items: flex-end;
   box-sizing: border-box;
-  background: #0a0c12;
+  padding: var(--somos-y) clamp(1.5rem, 5vw, 3rem) calc(var(--somos-y) * 1.05);
+  background:
+    radial-gradient(ellipse 120% 80% at 100% 0%, rgba(219, 82, 39, 0.14), transparent 55%),
+    radial-gradient(ellipse 90% 60% at 0% 100%, rgba(245, 242, 236, 0.06), transparent 50%),
+    #0a0c12;
+}
+
+@media (min-width: 768px) {
+  .hero {
+    padding-left: clamp(2rem, 6vw, 4rem);
+    padding-right: clamp(2rem, 6vw, 4rem);
+  }
 }
 
 .heroInner {
   width: 100%;
-  max-width: min(100%, var(--max, 76rem));
+  max-width: var(--somos-inner);
   margin: 0 auto;
   display: flex;
-  flex-wrap: wrap;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: clamp(1.5rem, 4vw, 2.5rem);
+  flex-direction: column;
+  gap: clamp(1.75rem, 4vw, 2.75rem);
 }
 
-.heroMain {
-  flex: 1 1 min(0, 52rem);
-  min-width: 0;
-  padding-bottom: 0.25rem;
-  text-align: left;
-}
-
-.heroEyebrow {
-  margin: 0 0 1rem;
+.kicker {
+  margin: 0;
   font-family: "Avenir Next", "Avenir", var(--font-sans-family), system-ui, sans-serif;
   font-size: 11px;
-  font-weight: 400;
-  letter-spacing: 0.22em;
+  font-weight: 500;
+  letter-spacing: 0.28em;
   text-transform: uppercase;
   color: #db5227;
 }
 
 .heroTitle {
-  composes: heroTitle from "../../../../components/programs/ProgramShell.module.css";
+  margin: 0;
+  max-width: 22ch;
+  font-family: var(--font-display, system-ui, sans-serif);
+  font-size: var(--somos-title);
+  font-weight: 800;
+  line-height: 1.04;
+  letter-spacing: -0.038em;
   color: #f5f2ec;
 }
 
-.heroYear {
-  flex: 0 0 auto;
-  text-align: right;
-  align-self: flex-end;
-}
-
-.heroYearBig {
-  display: block;
-  font-family: var(--font-display);
-  font-size: clamp(80px, 12vw, 140px);
-  font-weight: 400;
-  line-height: 0.9;
-  color: rgba(219, 82, 39, 0.15);
-  letter-spacing: -0.04em;
-}
-
-.heroYearCap {
-  margin: 0.35rem 0 0;
-  font-family: "Avenir Next", "Avenir", var(--font-sans-family), system-ui, sans-serif;
-  font-size: 1.1875rem;
-  font-weight: 400;
-  line-height: 1.65;
-  letter-spacing: 0.06em;
-  text-transform: lowercase;
-  color: rgba(245, 242, 236, 0.72);
-}
-
-/* ─── Quiénes somos ─── */
-.who {
-  background: #f5f2ec;
-}
-
-.whoGrid {
-  display: grid;
-  gap: clamp(2rem, 5vw, 3.5rem);
-  max-width: min(100%, var(--max, 76rem));
-  margin: 0 auto;
-  align-items: start;
-}
-
 @media (min-width: 900px) {
-  .whoGrid {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+  .heroTitle {
+    max-width: 26ch;
   }
 }
 
-.whoStatBig {
-  margin: 0;
-  font-family: var(--font-display);
-  font-size: clamp(60px, 10vw, 100px);
-  font-weight: 400;
-  line-height: 1;
-  color: #db5227;
-}
-
-.whoStatWord {
-  margin: 0.15rem 0 0;
-  font-family: var(--font-display);
-  font-size: clamp(1.5rem, 3vw, 2rem);
-  font-weight: 400;
-  color: #db5227;
-  line-height: 1.1;
-}
-
-.whoStatSub {
-  margin: 0.5rem 0 0;
+/* ─── Tipografía compartida ─── */
+.para {
+  margin: 0 0 clamp(1.25rem, 3vw, 1.75rem);
   font-family: "Avenir Next", "Avenir", var(--font-sans-family), system-ui, sans-serif;
-  font-size: 1.1875rem;
-  line-height: 1.65;
-  color: color-mix(in oklab, #0a0a0a 72%, transparent);
+  font-size: var(--somos-body);
+  line-height: 1.75;
+  color: inherit;
 }
 
-.whoBody {
-  margin: 0;
-  font-family: "Avenir Next", "Avenir", var(--font-sans-family), system-ui, sans-serif;
-  font-size: 1.1875rem;
-  line-height: 1.65;
-  color: color-mix(in oklab, #0a0a0a 72%, transparent);
-}
-
-.whoBody p {
-  margin: 0 0 1rem;
-}
-
-.whoBody p:last-child {
+.para:last-child {
   margin-bottom: 0;
 }
 
-/* ─── Lo que nos mueve ─── */
-.drives {
-  background: #0a0c12;
+.paraMuted {
+  margin: 0;
+  font-family: "Avenir Next", "Avenir", var(--font-sans-family), system-ui, sans-serif;
+  font-size: var(--somos-body);
+  line-height: 1.75;
+  color: rgba(245, 242, 236, 0.78);
 }
 
-.drivesInner {
-  max-width: min(100%, var(--max, 76rem));
+.proseL {
+  max-width: min(48rem, 100%);
   margin: 0 auto;
 }
 
-.drivesQuote {
-  margin: 0 0 48px;
-  font-family: "Avenir Next", "Avenir", var(--font-sans-family), system-ui, sans-serif;
-  font-style: normal;
-  font-size: 1.1875rem;
-  font-weight: 400;
-  line-height: 1.65;
-  color: rgba(255, 255, 255, 0.85);
-  max-width: 760px;
+.proseM {
+  max-width: min(40rem, 100%);
+  margin: 0;
+  padding-top: clamp(1.5rem, 4vw, 2.5rem);
 }
 
-.drivesGrid {
+.prologue {
+  margin: 0 0 clamp(2rem, 5vw, 3rem);
+  font-family: "Avenir Next", "Avenir", var(--font-sans-family), system-ui, sans-serif;
+  font-size: var(--somos-body);
+  line-height: 1.75;
+  max-width: min(40rem, 100%);
+}
+
+/* ─── Cita / principio ─── */
+.pullQuote {
+  margin: 0;
+  padding: clamp(2rem, 6vw, 3.5rem) 0 clamp(2rem, 6vw, 3.5rem) clamp(1.5rem, 4vw, 2.5rem);
+  border-left: 3px solid #db5227;
+  font-family: var(--font-display, system-ui, sans-serif);
+  font-size: clamp(1.35rem, 2.8vw, 2rem);
+  font-weight: 400;
+  line-height: 1.45;
+  letter-spacing: -0.02em;
+  color: rgba(245, 242, 236, 0.95);
+  max-width: min(52rem, 100%);
+}
+
+.pullQuoteMark {
+  display: block;
+  margin-bottom: 0.75rem;
+  font-size: 2.5rem;
+  line-height: 1;
+  color: #db5227;
+  letter-spacing: 0;
+}
+
+/* ─── Cabeceras de sección ─── */
+.sectionHead {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: baseline;
+  gap: clamp(1rem, 3vw, 1.75rem);
+  margin-bottom: clamp(0.25rem, 1vw, 0.5rem);
+}
+
+.sectionIndex,
+.sectionIndexLight {
+  font-family: "Avenir Next", "Avenir", var(--font-sans-family), monospace;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: color-mix(in oklab, #db5227 35%, #0a0a0a);
+}
+
+.sectionIndexLight {
+  color: rgba(219, 82, 39, 0.35);
+}
+
+.h2 {
+  margin: 0;
+  font-family: var(--font-display, system-ui, sans-serif);
+  font-size: var(--somos-h2);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+  color: #0a0c12;
+}
+
+.h2OnDark {
+  margin: 0;
+  font-family: var(--font-display, system-ui, sans-serif);
+  font-size: var(--somos-h2);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+  color: #f5f2ec;
+}
+
+.h3 {
+  margin: 0 0 0.65rem;
+  font-family: var(--font-display, system-ui, sans-serif);
+  font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  color: #0a0c12;
+}
+
+.h3OnDark {
+  margin: 0 0 0.75rem;
+  font-family: var(--font-display, system-ui, sans-serif);
+  font-size: clamp(1.05rem, 1.9vw, 1.3rem);
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  color: #f5f2ec;
+}
+
+.h2Accent {
+  margin: 0 0 clamp(1.75rem, 4vw, 2.5rem);
+  font-family: var(--font-display, system-ui, sans-serif);
+  font-size: var(--somos-h2);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+  color: #fff;
+}
+
+.paraOnAccent {
+  margin: 0 0 clamp(1.25rem, 3vw, 1.5rem);
+  font-family: "Avenir Next", "Avenir", var(--font-sans-family), system-ui, sans-serif;
+  font-size: var(--somos-body);
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.94);
+}
+
+.paraOnAccent:last-child {
+  margin-bottom: 0;
+}
+
+.proseOnAccent {
+  border-top: 1px solid rgba(255, 255, 255, 0.22);
+  padding-top: clamp(1.5rem, 4vw, 2rem);
+}
+
+/* ─── Timeline «Cómo trabajamos» ─── */
+.timeline {
+  margin: clamp(2.5rem, 7vw, 4rem) 0 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2.5rem, 7vw, 4.25rem);
+  max-width: min(48rem, 100%);
+}
+
+.timelineItem {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: clamp(1rem, 3vw, 1.75rem);
+  align-items: start;
+}
+
+.timelineNum {
+  font-family: "Avenir Next", "Avenir", var(--font-sans-family), system-ui, sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  color: #db5227;
+  padding-top: 0.35rem;
+}
+
+.timelineBody {
+  position: relative;
+  padding-bottom: clamp(1.5rem, 4vw, 2rem);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.timelineItem:last-child .timelineBody {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+/* ─── Tarjetas «Qué podemos hacer juntos» ─── */
+.cardGrid {
+  margin: clamp(2.5rem, 7vw, 4rem) 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: clamp(1.5rem, 4vw, 2rem);
+}
+
+@media (min-width: 768px) {
+  .cardGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.softCard {
+  margin: 0;
+  padding: clamp(1.75rem, 4vw, 2.25rem);
+  border-radius: 16px;
+  background: #fff;
+  border: 1px solid color-mix(in oklab, #0a0c12 8%, transparent);
+  box-shadow: 0 20px 50px color-mix(in oklab, #0a0c12 6%, transparent);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.softCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 28px 60px color-mix(in oklab, #0a0c12 9%, transparent);
+}
+
+@media (min-width: 768px) {
+  .softCard:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    max-width: min(36rem, 100%);
+    justify-self: center;
+  }
+}
+
+/* ─── Pills «Con quiénes» ─── */
+.leadMuted {
+  margin: 0 0 clamp(1.5rem, 4vw, 2rem);
+  font-family: "Avenir Next", "Avenir", var(--font-sans-family), system-ui, sans-serif;
+  font-size: var(--somos-body);
+  color: rgba(245, 242, 236, 0.72);
+}
+
+.pillList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1rem;
+  max-width: min(52rem, 100%);
+}
+
+.pill {
+  display: inline-block;
+  padding: 0.55rem 1.15rem;
+  border-radius: 999px;
+  border: 1px solid rgba(245, 242, 236, 0.22);
+  background: rgba(255, 255, 255, 0.04);
+  font-family: "Avenir Next", "Avenir", var(--font-sans-family), system-ui, sans-serif;
+  font-size: 0.9375rem;
+  line-height: 1.45;
+  color: rgba(245, 242, 236, 0.92);
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.pill:hover {
+  border-color: rgba(219, 82, 39, 0.55);
+  background: rgba(219, 82, 39, 0.12);
+}
+
+/* ─── Lista de resultados ─── */
+.outcomeList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.25rem, 3vw, 1.65rem);
+  max-width: min(44rem, 100%);
+}
+
+.outcomeItem {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem;
+  align-items: start;
+  font-family: "Avenir Next", "Avenir", var(--font-sans-family), system-ui, sans-serif;
+  font-size: var(--somos-body);
+  line-height: 1.65;
+}
+
+.outcomeDot {
+  width: 8px;
+  height: 8px;
+  margin-top: 0.55em;
+  border-radius: 50%;
+  background: #db5227;
+  flex-shrink: 0;
+}
+
+/* ─── Cuatro capacidades ─── */
+.fourGrid {
+  margin: clamp(2rem, 5vw, 3rem) 0 0;
+  padding: 0;
+  list-style: none;
   display: grid;
   gap: clamp(1.75rem, 4vw, 2.5rem);
 }
 
 @media (min-width: 768px) {
-  .drivesGrid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-}
-
-.drivesCol {
-  margin: 0;
-  padding-left: 20px;
-  border-left: 2px solid #db5227;
-}
-
-.drivesColTitle {
-  margin: 0 0 0.65rem;
-  font-family: "Avenir Next", "Avenir", var(--font-sans-family), system-ui, sans-serif;
-  font-size: 11px;
-  font-weight: 400;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: #db5227;
-}
-
-.drivesColText {
-  margin: 0;
-  font-family: "Avenir Next", "Avenir", var(--font-sans-family), system-ui, sans-serif;
-  font-size: 1.1875rem;
-  line-height: 1.65;
-  color: rgba(255, 255, 255, 0.85);
-}
-
-/* ─── Lo que hacemos ─── */
-.work {
-  background: #0a0c12;
-}
-
-.workInner {
-  max-width: min(100%, var(--max, 76rem));
-  margin: 0 auto;
-}
-
-.workTitle {
-  margin: 0 0 48px;
-  font-family: var(--font-display);
-  font-size: clamp(40px, 6vw, 72px);
-  font-weight: 400;
-  line-height: 0.9;
-  color: #ffffff;
-  letter-spacing: -0.02em;
-}
-
-.workGrid {
-  display: grid;
-  gap: 1.25rem;
-  grid-template-columns: 1fr;
-}
-
-@media (min-width: 768px) {
-  .workGrid {
+  .fourGrid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
-.workCard {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 12px;
-  padding: 28px;
-  transition: border-color 0.2s ease;
+.fourCell {
+  margin: 0;
+  padding: clamp(1.5rem, 3.5vw, 2rem);
+  border-radius: 14px;
+  border: 1px dashed color-mix(in oklab, #0a0c12 14%, transparent);
+  background: color-mix(in oklab, #fff 55%, #f5f2ec);
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem;
+  align-items: start;
 }
 
-.workCard:hover {
-  border-color: rgba(219, 82, 39, 0.4);
-}
-
-.workNum {
-  margin: 0 0 0.75rem;
+.fourNum {
   font-family: "Avenir Next", "Avenir", var(--font-sans-family), system-ui, sans-serif;
   font-size: 11px;
-  font-weight: 400;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.18em;
   color: #db5227;
+  padding-top: 0.2rem;
 }
 
-.workCardTitle {
-  margin: 0 0 0.65rem;
-  font-family: var(--font-display);
-  font-size: clamp(20px, 2.5vw, 28px);
-  font-weight: 400;
-  line-height: 1;
-  color: #ffffff;
-  letter-spacing: -0.02em;
-}
-
-.workCardText {
+.fourCell .para {
   margin: 0;
-  font-family: "Avenir Next", "Avenir", var(--font-sans-family), system-ui, sans-serif;
-  font-size: 1.1875rem;
-  line-height: 1.65;
-  color: rgba(255, 255, 255, 0.85);
-}
-
-/* ─── Cierre ─── */
-.closing {
-  background: #0a0c12;
-}
-
-.closingInner {
-  max-width: min(100%, var(--max, 76rem));
-  margin: 0 auto;
-}
-
-.closingLine {
-  margin: 0;
-  font-family: var(--font-display);
-  font-size: clamp(40px, 6vw, 72px);
-  font-weight: 400;
-  line-height: 0.9;
-  color: #ffffff;
-  text-align: left;
-  max-width: 760px;
-  letter-spacing: -0.03em;
-}
-
-.closingAccent {
-  color: #db5227;
 }
 
 /* ─── CTA ─── */
-.cta {
-  background: #db5227;
+.bandCta {
+  background: #0a0c12;
+  padding: var(--somos-y) clamp(1.5rem, 5vw, 3rem);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .ctaInner {
-  max-width: min(100%, var(--max, 76rem));
+  max-width: var(--somos-inner);
   margin: 0 auto;
   display: grid;
-  gap: clamp(1.5rem, 4vw, 2.5rem);
-  align-items: center;
+  gap: clamp(2rem, 6vw, 3.5rem);
+  align-items: start;
 }
 
 @media (min-width: 768px) {
   .ctaInner {
-    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    align-items: end;
   }
 }
 
-.ctaPad {
-  padding: clamp(2.5rem, 6vh, 3.75rem) clamp(1.5rem, 5vw, 3rem);
-}
-
-@media (min-width: 768px) {
-  .ctaPad {
-    padding: 60px 48px;
-  }
-}
-
-.ctaHeadline {
+.ctaTitle {
   margin: 0;
-  font-family: var(--font-display);
-  font-style: normal;
-  font-size: clamp(40px, 6vw, 72px);
+  font-family: var(--font-display, system-ui, sans-serif);
+  font-size: clamp(2.5rem, 7vw, 4.5rem);
   font-weight: 400;
-  line-height: 0.9;
-  color: #ffffff;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: #f5f2ec;
+}
+
+.ctaCol {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.5rem, 4vw, 2rem);
+  padding-bottom: 0.15rem;
 }
 
 .ctaBody {
-  margin: 0 0 24px;
+  margin: 0;
   font-family: "Avenir Next", "Avenir", var(--font-sans-family), system-ui, sans-serif;
-  font-size: 1.1875rem;
-  line-height: 1.65;
-  color: rgba(245, 242, 236, 0.85);
+  font-size: var(--somos-body);
+  line-height: 1.75;
+  color: rgba(245, 242, 236, 0.82);
+  max-width: 38rem;
 }
 
 .ctaBtn {
+  align-self: flex-start;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: #f5f2ec;
-  color: #0a0c12;
+  background: #db5227;
+  color: #f5f2ec;
   font-family: "Avenir Next", "Avenir", var(--font-sans-family), system-ui, sans-serif;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 11px;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   text-decoration: none;
-  padding: 14px 28px;
-  border-radius: 3px;
+  padding: 16px 32px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
   transition:
     background 0.2s ease,
     color 0.2s ease,
@@ -386,68 +527,22 @@
 }
 
 .ctaBtn:hover {
-  background: #0a0c12;
-  color: #ffffff;
+  background: #f5f2ec;
+  color: #0a0c12;
+  transform: translateY(-2px);
 }
 
 .ctaBtn:focus-visible {
-  outline: 2px solid #ffffff;
-  outline-offset: 3px;
-}
-
-/* ─── Continúa ─── */
-.next {
-  background: #f5f2ec;
-}
-
-.nextInner {
-  max-width: min(100%, var(--max, 76rem));
-  margin: 0 auto;
-}
-
-.nextPad {
-  padding: clamp(2rem, 5vh, 2.5rem) clamp(1.5rem, 5vw, 3rem);
-}
-
-@media (min-width: 768px) {
-  .nextPad {
-    padding: 40px 48px;
-  }
-}
-
-.nextEyebrow {
-  margin: 0 0 1.25rem;
-  font-family: "Avenir Next", "Avenir", var(--font-sans-family), system-ui, sans-serif;
-  font-size: 11px;
-  font-weight: 400;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: #db5227;
-}
-
-.nextLinks {
-  display: flex;
-  flex-direction: column;
-  gap: 0.85rem;
-  align-items: flex-start;
-}
-
-.nextLink {
-  font-family: "Avenir Next", "Avenir", var(--font-sans-family), system-ui, sans-serif;
-  font-size: 1.1875rem;
-  font-weight: 500;
-  line-height: 1.65;
-  color: #db5227;
-  text-decoration: none;
-  transition: opacity 0.2s ease;
-}
-
-.nextLink:hover {
-  opacity: 0.85;
-}
-
-.nextLink:focus-visible {
   outline: 2px solid #db5227;
   outline-offset: 3px;
-  border-radius: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .softCard:hover {
+    transform: none;
+  }
+
+  .ctaBtn:hover {
+    transform: none;
+  }
 }
