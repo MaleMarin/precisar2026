@@ -178,6 +178,9 @@ function HomeBotOndaAside() {
           <span className={styles.botOndaLine}>
             <strong>{tPrograms("stackBotOndaProfesName")}</strong> — {tPrograms("stackBotOndaProfesDesc")}
           </span>
+          <span className={styles.botOndaLine}>
+            <strong>{tPrograms("stackBotOndaEscuchaName")}</strong> — {tPrograms("stackBotOndaEscuchaDesc")}
+          </span>
         </span>
         <span className={styles.botOndaHomeLightCta}>{tBot("ctaOpenChat")}</span>
       </a>

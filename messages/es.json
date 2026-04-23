@@ -127,11 +127,13 @@
     "stackLinkFuncionarios": "Curso para Servidores Públicos — Formación práctica en habilidades digitales para quienes trabajan en el Estado.",
     "stackBotOndaLead": "Bot Onda:",
     "stackBotOndaManoName": "Onda en Mano",
-    "stackBotOndaManoDesc": "Para lo que te llega al día: mensajes, cadenas, links dudosos, audios. Te ayuda a entender qué es confiable, qué señales mirar y cómo usar la IA con criterio — sin hacer las cosas por ti.",
+    "stackBotOndaManoDesc": "Para mensajes, cadenas, links dudosos y audios. Te ayuda a mirar señales, entender qué es confiable y usar IA con criterio.",
     "stackBotOndaCivitaName": "Onda Civita",
-    "stackBotOndaCivitaDesc": "Para entender el mundo público: el Estado, las leyes, la economía, el medio ambiente, la historia reciente. Lenguaje claro y apartidario, datos y marcos.",
+    "stackBotOndaCivitaDesc": "Para entender el mundo público: Estado, leyes, economía, medio ambiente e historia reciente. Lenguaje claro, contexto y datos.",
     "stackBotOndaProfesName": "Onda Profes",
-    "stackBotOndaProfesDesc": "Para docentes y equipos educativos: cómo diseñar actividades donde la IA sea herramienta y no atajo, buenas prácticas, rúbricas y transparencia con el alumnado. Apoya a quien enseña.",
+    "stackBotOndaProfesDesc": "Para docentes y equipos educativos: actividades, buenas prácticas, rúbricas y uso transparente de IA en el aula.",
+    "stackBotOndaEscuchaName": "Nueva función: escucha comunitaria",
+    "stackBotOndaEscuchaDesc": "Onda no solo responde. También puede recoger dudas, experiencias y señales reales de quienes usan el chat, para que el equipo las revise y entienda mejor qué está faltando explicar.",
     "tiles": {
       "ciudades": {
         "title": "Ciudades Conectadas con Sentido",

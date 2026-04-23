@@ -127,11 +127,13 @@
     "stackLinkFuncionarios": "Course for public servants — Practical digital skills training for people who work in government.",
     "stackBotOndaLead": "Bot Onda:",
     "stackBotOndaManoName": "Onda en Mano",
-    "stackBotOndaManoDesc": "For what hits you every day: messages, chains, iffy links, voice notes. It helps you see what's reliable, what signals to check, and how to use AI with judgment — without doing the work for you.",
+    "stackBotOndaManoDesc": "For messages, chains, iffy links, and voice notes. It helps you read signals, understand what’s reliable, and use AI with judgment.",
     "stackBotOndaCivitaName": "Onda Civita",
-    "stackBotOndaCivitaDesc": "For making sense of the public sphere: the state, laws, the economy, the environment, recent history. Clear, non-partisan language, data, and framing.",
+    "stackBotOndaCivitaDesc": "For making sense of the public sphere: the state, laws, the economy, the environment, and recent history. Clear language, context, and data.",
     "stackBotOndaProfesName": "Onda Profes",
-    "stackBotOndaProfesDesc": "For teachers and education teams: how to design activities where AI is a tool, not a shortcut; good practice, rubrics, and transparency with students. Supports those who teach.",
+    "stackBotOndaProfesDesc": "For teachers and education teams: activities, good practice, rubrics, and transparent use of AI in the classroom.",
+    "stackBotOndaEscuchaName": "New feature: community listening",
+    "stackBotOndaEscuchaDesc": "Onda doesn’t just answer. It can also gather questions, experiences, and real signals from people who use the chat, so the team can review them and better understand what’s missing from the explanations.",
     "tiles": {
       "ciudades": {
         "title": "Cities Connected with Purpose",
