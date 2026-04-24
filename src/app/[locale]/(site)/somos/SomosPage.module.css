@@ -12,9 +12,14 @@
   --cream: #f5f2ec;
   --mist: #f3f4f6;
   --flame: #db5227;
+  --panel-border: color-mix(in oklab, #ffffff 26%, transparent);
   margin: 0 calc(-1 * var(--gutter, 1.25rem));
   width: calc(100% + 2 * var(--gutter, 1.25rem));
   max-width: none;
+  background:
+    radial-gradient(120% 60% at 100% 0%, rgba(219, 82, 39, 0.16), transparent 55%),
+    radial-gradient(100% 50% at 0% 100%, rgba(16, 25, 45, 0.45), transparent 62%),
+    linear-gradient(180deg, #071126 0%, #091a34 32%, #0a0c12 100%);
 }
 
 @media (min-width: 90rem) {
@@ -25,33 +30,38 @@
 }
 
 .band {
-  padding: var(--somos-y) clamp(1.5rem, 5vw, 3rem);
+  padding: clamp(1.25rem, 3.5vw, 2.25rem) clamp(1rem, 4vw, 3rem);
 }
 
 @media (min-width: 768px) {
   .band {
-    padding: var(--somos-y) clamp(2rem, 6vw, 4rem);
+    padding: clamp(1.5rem, 3.5vw, 2.5rem) clamp(1.5rem, 5vw, 4rem);
   }
 }
 
 .bandCream {
-  background: var(--cream);
   color: color-mix(in oklab, var(--ink) 88%, transparent);
+  --panel-bg:
+    linear-gradient(
+      180deg,
+      color-mix(in oklab, var(--cream) 93%, #fff) 0%,
+      color-mix(in oklab, #ffffff 97%, var(--cream)) 100%
+    );
 }
 
 .bandPaper {
-  background: var(--paper);
   color: color-mix(in oklab, var(--ink) 88%, transparent);
+  --panel-bg: linear-gradient(180deg, #ffffff 0%, color-mix(in oklab, #fff 94%, #f5f6fa) 100%);
 }
 
 .bandMist {
-  background: linear-gradient(180deg, var(--mist) 0%, #ffffff 100%);
   color: color-mix(in oklab, var(--ink) 88%, transparent);
+  --panel-bg: linear-gradient(180deg, var(--mist) 0%, #ffffff 100%);
 }
 
 .bandAccent {
-  background: color-mix(in oklab, var(--flame) 10%, #fff);
   color: color-mix(in oklab, var(--ink) 90%, transparent);
+  --panel-bg: linear-gradient(180deg, color-mix(in oklab, var(--flame) 12%, #fff) 0%, #fff 100%);
 }
 
 .inner {
@@ -66,6 +76,29 @@
   margin: 0 auto;
 }
 
+.band .inner,
+.band .innerNarrow,
+.band .ctaInner {
+  position: relative;
+  background: var(--panel-bg, #fff);
+  border: 1px solid color-mix(in oklab, #0a0c12 10%, transparent);
+  border-radius: clamp(1rem, 2.2vw, 1.5rem);
+  padding: clamp(1.4rem, 3.8vw, 2.8rem);
+  box-shadow:
+    0 28px 70px color-mix(in oklab, #000 18%, transparent),
+    inset 0 1px 0 rgba(255, 255, 255, 0.75);
+}
+
+@media (min-width: 1024px) {
+  .band .inner,
+  .band .innerNarrow,
+  .band .ctaInner {
+    min-height: min(72vh, 46rem);
+    display: grid;
+    align-content: center;
+  }
+}
+
 /* ─── Hero ─── */
 .hero {
   min-height: min(88vh, 52rem);
@@ -77,6 +110,7 @@
     radial-gradient(ellipse 130% 80% at 100% 0%, color-mix(in oklab, var(--flame) 14%, transparent), transparent 55%),
     radial-gradient(ellipse 120% 80% at 0% 100%, rgba(10, 12, 18, 0.06), transparent 52%),
     linear-gradient(180deg, #ffffff 0%, var(--cream) 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 @media (min-width: 768px) {
