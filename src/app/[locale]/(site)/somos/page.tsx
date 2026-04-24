@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { FooterContactLink } from "@/components/FooterContactLink";
 import { absoluteLocaleUrl, hreflangAlternates, SITE } from "@/lib/site";
+import { SomosMotionSection } from "./_components/SomosMotionSection";
 import styles from "./SomosPage.module.css";
 
 function ogLocaleTag(locale: string): string {
@@ -140,7 +141,7 @@ export default function SomosPrecisarPage() {
       </header>
 
       <section className={`${styles.band} ${styles.bandCream}`} aria-label="Introducción">
-        <div className={styles.inner}>
+        <SomosMotionSection className={styles.inner}>
           <div className={styles.proseL}>
             {INTRO.map((p, i) => (
               <p key={i} className={styles.para}>
@@ -148,22 +149,22 @@ export default function SomosPrecisarPage() {
               </p>
             ))}
           </div>
-        </div>
+        </SomosMotionSection>
       </section>
 
       <section className={`${styles.band} ${styles.bandPaper}`} aria-label="Principio de trabajo">
-        <div className={styles.inner}>
+        <SomosMotionSection className={styles.inner}>
           <blockquote className={styles.pullQuote}>
             <span className={styles.pullQuoteMark} aria-hidden>
               ·
             </span>
             {PRINCIPLE}
           </blockquote>
-        </div>
+        </SomosMotionSection>
       </section>
 
       <section className={`${styles.band} ${styles.bandCream}`} aria-labelledby="somos-problema">
-        <div className={styles.inner}>
+        <SomosMotionSection className={styles.inner}>
           <div className={styles.sectionHead}>
             <span className={styles.sectionIndex} aria-hidden>
               01
@@ -179,11 +180,11 @@ export default function SomosPrecisarPage() {
               </p>
             ))}
           </div>
-        </div>
+        </SomosMotionSection>
       </section>
 
       <section className={`${styles.band} ${styles.bandMist}`} aria-labelledby="somos-como">
-        <div className={styles.inner}>
+        <SomosMotionSection className={styles.inner}>
           <div className={styles.sectionHead}>
             <span className={styles.sectionIndex} aria-hidden>
               02
@@ -205,11 +206,11 @@ export default function SomosPrecisarPage() {
               </li>
             ))}
           </ol>
-        </div>
+        </SomosMotionSection>
       </section>
 
       <section className={`${styles.band} ${styles.bandCream}`} aria-labelledby="somos-juntos">
-        <div className={styles.inner}>
+        <SomosMotionSection className={styles.inner}>
           <div className={styles.sectionHead}>
             <span className={styles.sectionIndex} aria-hidden>
               03
@@ -226,11 +227,11 @@ export default function SomosPrecisarPage() {
               </li>
             ))}
           </ul>
-        </div>
+        </SomosMotionSection>
       </section>
 
       <section className={`${styles.band} ${styles.bandPaper}`} aria-labelledby="somos-con">
-        <div className={styles.inner}>
+        <SomosMotionSection className={styles.inner}>
           <div className={styles.sectionHead}>
             <span className={styles.sectionIndexLight} aria-hidden>
               04
@@ -247,11 +248,11 @@ export default function SomosPrecisarPage() {
               </li>
             ))}
           </ul>
-        </div>
+        </SomosMotionSection>
       </section>
 
       <section className={`${styles.band} ${styles.bandCream}`} aria-labelledby="somos-instalado">
-        <div className={styles.inner}>
+        <SomosMotionSection className={styles.inner}>
           <div className={styles.sectionHead}>
             <span className={styles.sectionIndex} aria-hidden>
               05
@@ -272,11 +273,11 @@ export default function SomosPrecisarPage() {
               </li>
             ))}
           </ul>
-        </div>
+        </SomosMotionSection>
       </section>
 
       <section className={`${styles.band} ${styles.bandAccent}`} aria-labelledby="somos-enfoque">
-        <div className={styles.innerNarrow}>
+        <SomosMotionSection className={styles.innerNarrow}>
           <h2 id="somos-enfoque" className={styles.h2Accent}>
             Nuestro enfoque de colaboración
           </h2>
@@ -287,11 +288,11 @@ export default function SomosPrecisarPage() {
               </p>
             ))}
           </div>
-        </div>
+        </SomosMotionSection>
       </section>
 
       <section className={`${styles.band} ${styles.bandCream}`} aria-labelledby="somos-porque">
-        <div className={styles.inner}>
+        <SomosMotionSection className={styles.inner}>
           <div className={styles.sectionHead}>
             <span className={styles.sectionIndex} aria-hidden>
               06
@@ -311,11 +312,11 @@ export default function SomosPrecisarPage() {
               </li>
             ))}
           </ul>
-        </div>
+        </SomosMotionSection>
       </section>
 
       <section className={`${styles.band} ${styles.bandCream}`} aria-labelledby="somos-hablemos">
-        <div className={styles.ctaInner}>
+        <SomosMotionSection className={styles.ctaInner}>
           <h2 id="somos-hablemos" className={styles.ctaTitle}>
             Hablemos
           </h2>
@@ -327,7 +328,7 @@ export default function SomosPrecisarPage() {
             </p>
             <FooterContactLink className={styles.ctaBtn}>Escríbenos</FooterContactLink>
           </div>
-        </div>
+        </SomosMotionSection>
       </section>
     </article>
   );
