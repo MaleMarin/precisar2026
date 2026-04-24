@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion, useScroll, useSpring, useTransform } from "framer-motion";
-import { useMemo, useRef, type ReactNode } from "react";
+import { useLayoutEffect, useMemo, useRef, type ReactNode } from "react";
 import styles from "../SomosPage.module.css";
 
 export type SomosStackTheme = "light" | "mist" | "accent" | "dark";
@@ -22,13 +22,41 @@ export type SomosStackSectionProps = {
  * sección alta + panel sticky que escala, sube y se inclina al apilarse.
  */
 export function SomosStackSection({ children, index, total, theme, ...aria }: SomosStackSectionProps) {
-  const ref = useRef<HTMLElement | null>(null);
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const measureRef = useRef<HTMLDivElement | null>(null);
   const reduceMotion = useReducedMotion() ?? false;
 
   const { scrollYProgress } = useScroll({
-    target: ref,
+    target: sectionRef,
     offset: ["start start", "end start"],
   });
+
+  /** Altura de sección acorde al contenido + “colchón” de scroll para el stack (evita cajas vacías tipo 100vh). */
+  useLayoutEffect(() => {
+    const section = sectionRef.current;
+    const measure = measureRef.current;
+    if (!section || !measure) return;
+
+    const update = () => {
+      const vh = window.visualViewport?.height ?? window.innerHeight;
+      const contentH = measure.offsetHeight;
+      const slack = Math.min(Math.max(vh * 0.36, 160), vh * 0.48);
+      section.style.minHeight = `${Math.max(contentH + slack, vh * 0.82)}px`;
+    };
+
+    update();
+    const raf = requestAnimationFrame(() => update());
+    const ro = new ResizeObserver(() => {
+      queueMicrotask(update);
+    });
+    ro.observe(measure);
+    window.addEventListener("resize", update);
+    return () => {
+      cancelAnimationFrame(raf);
+      ro.disconnect();
+      window.removeEventListener("resize", update);
+    };
+  }, []);
 
   const progress = useSpring(scrollYProgress, {
     stiffness: reduceMotion ? 10_000 : 72,
@@ -71,7 +99,7 @@ export function SomosStackSection({ children, index, total, theme, ...aria }: So
     y,
     borderRadius,
     rotateX,
-    transformOrigin: "50% 88%",
+    transformOrigin: "50% 98%",
     top: `${index * stackTopGap}px`,
     zIndex: total - index,
   };
@@ -117,13 +145,20 @@ export function SomosStackSection({ children, index, total, theme, ...aria }: So
   ].join(" ");
 
   return (
-    <section ref={ref} className={styles.somosPanelSection} {...aria}>
-      <motion.div style={panelMotionStyle} className={stickyClass}>
+    <section
+      ref={sectionRef}
+      className={styles.somosPanelSection}
+      data-somos-parity={index % 2 === 0 ? "even" : "odd"}
+      {...aria}
+    >
+      <motion.div style={panelMotionStyle} className={`${stickyClass} ${styles.somosStickyFit}`}>
         <motion.div {...panelDepthEnterProps}>
           <div className={glowClass} aria-hidden />
           <motion.div style={{ scaleX: lineScale }} className={lineClass} aria-hidden />
           <motion.div style={reduceMotion ? undefined : { y: contentY }} className={styles.somosPanelScroll}>
-            {children}
+            <div ref={measureRef} className={styles.somosMeasureWrap}>
+              {children}
+            </div>
           </motion.div>
         </motion.div>
       </motion.div>

@@ -134,6 +134,7 @@ export default function SomosPrecisarPage() {
   return (
     <article className={styles.page}>
       <header className={styles.hero} aria-labelledby="somos-title">
+        <div className={styles.heroBackdrop} aria-hidden />
         <div className={styles.heroInner}>
           <p className={styles.kicker}>Somos Precisar</p>
           <h1 id="somos-title" className={styles.heroTitle}>
