@@ -1,31 +1,22 @@
-/* Somos Precisar — editorial amplia, alternancia de bandas y mucho aire */
+/* Somos Precisar — lectura larga: bandas claras, acento controlado, sin “stack” de portada */
 
 .page {
   --somos-y: clamp(4.5rem, 14vw, 10rem);
-  --somos-y-tight: clamp(3rem, 8vw, 6rem);
   --somos-inner: min(100%, 76rem);
   --somos-title: clamp(2rem, 5.5vw, 3.75rem);
   --somos-h2: clamp(1.65rem, 3.2vw, 2.35rem);
   --somos-body: clamp(1.0625rem, 1.2vw, 1.1875rem);
   --ink: #0a0c12;
-  --paper: #ffffff;
   --cream: #f5f2ec;
-  --mist: #f3f4f6;
+  --mist: #eef1f4;
   --flame: #db5227;
   --navy: #023661;
-  /* Base cálida + toques marca (más color, sin fondo “apagado”) */
-  --somos-stack-page: #e9e2d6;
-  --somos-stack-light: #efe8dc;
-  --somos-stack-blush: #f4ebe4;
   margin: 0 calc(-1 * var(--gutter, 1.25rem));
   width: calc(100% + 2 * var(--gutter, 1.25rem));
   max-width: none;
   overflow-x: hidden;
-  background:
-    radial-gradient(ellipse 120% 90% at 100% -15%, color-mix(in oklab, var(--flame) 22%, transparent), transparent 52%),
-    radial-gradient(ellipse 90% 70% at 0% 105%, color-mix(in oklab, var(--navy) 28%, transparent), transparent 58%),
-    linear-gradient(180deg, #efe6dc 0%, var(--somos-stack-page) 42%, #e4ddd2 100%);
-  color: color-mix(in oklab, var(--ink) 88%, transparent);
+  background: #faf8f5;
+  color: color-mix(in oklab, var(--ink) 90%, transparent);
 }
 
 @media (min-width: 90rem) {
@@ -35,211 +26,59 @@
   }
 }
 
-/* ─── Stack tipo home: sección scroll + panel sticky ─── */
-.somosPanelSection {
-  position: relative;
-  min-height: 88svh;
-  scroll-margin-top: 2.75rem;
-  perspective: 1200px;
-  perspective-origin: 50% 36%;
-  transform-style: preserve-3d;
+/* ─── Bandas (flujo vertical editorial) ─── */
+.band {
+  padding: clamp(2.75rem, 7vw, 4.25rem) clamp(1.25rem, 4vw, 2.5rem);
+  scroll-margin-top: 2.5rem;
 }
 
-.somosSticky {
-  position: sticky;
-  left: 0;
-  top: 0;
-  width: calc(100% - 8px);
-  max-width: min(90rem, calc(100% - 8px));
-  margin-left: auto;
-  margin-right: auto;
-  overflow: hidden;
-  border: 1px solid color-mix(in oklab, #000 10%, transparent);
-  box-shadow:
-    0 36px 120px rgba(0, 0, 0, 0.2),
-    0 12px 40px rgba(0, 0, 0, 0.12);
-  transform-origin: center top;
-  transform-style: preserve-3d;
-  will-change: transform;
+.bandCream {
+  background: var(--cream);
 }
 
-/* Panel a la altura del contenido (hasta un tope de viewport); el scroll lo da la sección padre. */
-.somosStickyFit {
-  height: auto;
-  max-height: calc(100dvh - 10px);
+.bandPaper {
+  background: #fff;
 }
 
-.somosStickyLight {
-  border-color: color-mix(in oklab, #000 10%, transparent);
-  background:
-    linear-gradient(145deg, color-mix(in oklab, #fff 82%, var(--flame) 18%) 0%, transparent 42%),
-    linear-gradient(220deg, color-mix(in oklab, #fff 90%, var(--navy) 10%) 0%, transparent 48%),
-    var(--somos-stack-light);
-  color: var(--ink);
+.bandMist {
+  background: linear-gradient(180deg, var(--mist) 0%, #faf9f7 100%);
 }
 
-.somosPanelSection[data-somos-parity="odd"] .somosStickyLight {
-  background:
-    linear-gradient(160deg, color-mix(in oklab, var(--somos-stack-blush) 92%, var(--flame) 8%) 0%, transparent 50%),
-    linear-gradient(235deg, color-mix(in oklab, #fff 88%, var(--navy) 12%) 0%, transparent 45%),
-    var(--somos-stack-blush);
-}
-
-.somosStickyMist {
-  border-color: color-mix(in oklab, #000 10%, transparent);
-  background:
-    linear-gradient(180deg, color-mix(in oklab, #dbe8f5 55%, #f0ebe4) 0%, #f6f1ea 55%, var(--somos-stack-light) 100%);
-  color: var(--ink);
-}
-
-.somosStickyAccent {
-  border-color: #000;
-  background: var(--flame);
+.bandNavy {
+  background: linear-gradient(165deg, color-mix(in oklab, var(--navy) 96%, #000) 0%, var(--navy) 100%);
   color: #fff;
 }
 
-.somosStickyDark {
-  border-color: #000;
-  background:
-    radial-gradient(ellipse 90% 80% at 100% 0%, color-mix(in oklab, var(--flame) 35%, transparent), transparent 55%),
-    radial-gradient(ellipse 70% 60% at 0% 100%, color-mix(in oklab, var(--navy) 45%, transparent), transparent 50%),
-    var(--ink);
+.bandVoid {
+  background: var(--ink);
   color: #fff;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.somosDepth {
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: auto;
-  min-height: 0;
-  overflow: hidden;
-  transform-style: preserve-3d;
-  transform-origin: 50% 45%;
-}
-
-.somosPanelScroll {
-  position: relative;
-  flex: 0 0 auto;
-  min-height: 0;
-  max-height: calc(100dvh - 10px);
-  overflow-x: hidden;
-  overflow-y: auto;
-  padding: clamp(1rem, 2.5vw, 1.65rem) clamp(1rem, 3.5vw, 2.25rem);
-}
-
-.somosMeasureWrap {
-  min-width: 0;
-}
-
-.somosScrollInner {
+.inner {
   width: 100%;
   max-width: var(--somos-inner);
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
 }
 
-.somosScrollInnerNarrow {
+.innerNarrow {
   width: 100%;
   max-width: min(42rem, 100%);
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.somosPanelGlow {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-}
-
-.somosGlowDrift {
-  animation: somosGlowDrift 14s ease-in-out infinite;
-}
-
-@keyframes somosGlowDrift {
-  0%,
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-
-  50% {
-    opacity: 0.9;
-    transform: scale(1.025);
-  }
-}
-
-.somosGlowLight {
-  background:
-    radial-gradient(circle at top right, color-mix(in oklab, var(--flame) 12%, transparent), transparent 30%),
-    linear-gradient(to bottom, transparent, color-mix(in oklab, #000 3%, transparent));
-}
-
-.somosGlowAccent {
-  background:
-    radial-gradient(circle at top right, color-mix(in oklab, #fff 22%, transparent), transparent 28%),
-    linear-gradient(to bottom, transparent, color-mix(in oklab, #000 8%, transparent));
-}
-
-.somosGlowDark {
-  background:
-    radial-gradient(circle at 88% 12%, color-mix(in oklab, var(--flame) 22%, transparent), transparent 32%),
-    linear-gradient(to bottom, transparent, color-mix(in oklab, #fff 6%, transparent));
-}
-
-.somosTopLine {
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: 4px;
-  width: 100%;
-  transform-origin: left center;
-}
-
-.somosLineLight {
-  background: var(--flame);
-}
-
-.somosLineOnDark {
-  background: color-mix(in oklab, #fff 60%, transparent);
+  margin: 0 auto;
 }
 
 /* ─── Hero ─── */
 .hero {
-  position: relative;
-  isolation: isolate;
-  min-height: min(88vh, 52rem);
+  min-height: min(82vh, 48rem);
   display: flex;
   align-items: flex-end;
   box-sizing: border-box;
-  padding: var(--somos-y) clamp(1.5rem, 5vw, 3rem) calc(var(--somos-y) * 1.05);
+  padding: var(--somos-y) clamp(1.5rem, 5vw, 3rem) calc(var(--somos-y) * 0.95);
   background:
-    radial-gradient(ellipse 120% 90% at 92% 8%, color-mix(in oklab, var(--flame) 28%, transparent), transparent 50%),
-    radial-gradient(ellipse 100% 80% at 4% 92%, color-mix(in oklab, var(--navy) 22%, transparent), transparent 55%),
-    linear-gradient(165deg, #fff 0%, var(--cream) 55%, color-mix(in oklab, var(--somos-stack-page) 88%, #fff) 100%);
-  border-bottom: 1px solid color-mix(in oklab, var(--ink) 8%, transparent);
-  overflow: hidden;
-}
-
-.heroBackdrop {
-  position: absolute;
-  inset: -12% -8% auto -8%;
-  height: 72%;
-  pointer-events: none;
-  z-index: 0;
-  opacity: 0.95;
-  background:
-    radial-gradient(circle at 18% 40%, color-mix(in oklab, var(--flame) 24%, transparent), transparent 38%),
-    radial-gradient(circle at 78% 28%, color-mix(in oklab, var(--navy) 20%, transparent), transparent 40%),
-    conic-gradient(
-      from 200deg at 50% 120%,
-      color-mix(in oklab, var(--flame) 12%, transparent),
-      transparent 28%,
-      color-mix(in oklab, var(--navy) 14%, transparent),
-      transparent 62%
-    );
-  filter: blur(0.5px);
+    radial-gradient(ellipse 100% 70% at 92% 0%, color-mix(in oklab, var(--flame) 18%, transparent), transparent 52%),
+    radial-gradient(ellipse 80% 60% at 0% 100%, color-mix(in oklab, var(--navy) 14%, transparent), transparent 50%),
+    linear-gradient(180deg, #fff 0%, var(--cream) 100%);
+  border-bottom: 1px solid color-mix(in oklab, var(--ink) 7%, transparent);
 }
 
 @media (min-width: 768px) {
@@ -250,14 +89,12 @@
 }
 
 .heroInner {
-  position: relative;
-  z-index: 1;
   width: 100%;
   max-width: var(--somos-inner);
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: clamp(1.75rem, 4vw, 2.75rem);
+  gap: clamp(1.5rem, 3.5vw, 2.25rem);
 }
 
 .kicker {
@@ -316,11 +153,11 @@
 .proseM {
   max-width: min(40rem, 100%);
   margin: 0;
-  padding-top: clamp(0.75rem, 2vw, 1.35rem);
+  padding-top: clamp(1.1rem, 2.8vw, 1.75rem);
 }
 
 .prologue {
-  margin: 0 0 clamp(1.15rem, 3vw, 1.75rem);
+  margin: 0 0 clamp(1.35rem, 3.5vw, 2rem);
   font-family: "Avenir Next", "Avenir", var(--font-sans-family), system-ui, sans-serif;
   font-size: var(--somos-body);
   line-height: 1.75;
@@ -330,14 +167,10 @@
 /* ─── Cita / principio ─── */
 .pullQuote {
   margin: 0;
-  padding: clamp(1.35rem, 4vw, 2.25rem);
-  border-radius: 18px;
-  border: 1px solid color-mix(in oklab, var(--ink) 10%, transparent);
-  background: linear-gradient(
-    180deg,
-    color-mix(in oklab, var(--flame) 6%, #fff) 0%,
-    #fff 100%
-  );
+  padding: clamp(1.75rem, 4vw, 2.5rem);
+  border-radius: 16px;
+  border: 1px solid color-mix(in oklab, var(--ink) 8%, transparent);
+  background: #fff;
   box-shadow:
     0 30px 80px color-mix(in oklab, var(--ink) 7%, transparent),
     inset 0 1px 0 rgba(255, 255, 255, 0.8);
@@ -364,8 +197,8 @@
   display: grid;
   grid-template-columns: auto 1fr;
   align-items: baseline;
-  gap: clamp(0.65rem, 2vw, 1.25rem);
-  margin-bottom: 0.15rem;
+  gap: clamp(0.85rem, 2.2vw, 1.35rem);
+  margin-bottom: 0.25rem;
 }
 
 .sectionIndex,
@@ -375,15 +208,11 @@
   font-weight: 300;
   line-height: 1;
   letter-spacing: -0.04em;
-  background: linear-gradient(135deg, var(--flame) 0%, color-mix(in oklab, var(--navy) 55%, var(--flame)) 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: var(--flame);
+  color: color-mix(in oklab, var(--navy) 35%, var(--flame));
 }
 
 .sectionIndexLight {
-  opacity: 0.92;
+  color: color-mix(in oklab, var(--flame) 42%, var(--navy));
 }
 
 .h2 {
@@ -427,7 +256,7 @@
 }
 
 .h2Accent {
-  margin: 0 0 clamp(1rem, 2.5vw, 1.5rem);
+  margin: 0 0 clamp(1.25rem, 3vw, 1.85rem);
   font-family: var(--font-display, system-ui, sans-serif);
   font-size: var(--somos-h2);
   font-weight: 700;
@@ -450,17 +279,17 @@
 
 .proseOnAccent {
   border-top: 1px solid color-mix(in oklab, var(--ink) 14%, transparent);
-  padding-top: clamp(0.85rem, 2.5vw, 1.35rem);
+  padding-top: clamp(1.1rem, 3vw, 1.65rem);
 }
 
 /* ─── Timeline «Cómo trabajamos» ─── */
 .timeline {
-  margin: clamp(1.1rem, 3vw, 1.75rem) 0 0;
+  margin: clamp(1.75rem, 4vw, 2.5rem) 0 0;
   padding: 0;
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: clamp(1.25rem, 3.5vw, 2rem);
+  gap: clamp(1.5rem, 4vw, 2.35rem);
   max-width: min(48rem, 100%);
 }
 
@@ -482,7 +311,7 @@
 
 .timelineBody {
   position: relative;
-  padding-bottom: clamp(1rem, 2.5vw, 1.35rem);
+  padding-bottom: clamp(1.25rem, 3vw, 1.65rem);
   border-bottom: 1px solid color-mix(in oklab, var(--ink) 10%, transparent);
 }
 
@@ -493,11 +322,11 @@
 
 /* ─── Tarjetas «Qué podemos hacer juntos» ─── */
 .cardGrid {
-  margin: clamp(1.1rem, 3vw, 1.85rem) 0 0;
+  margin: clamp(1.75rem, 4vw, 2.5rem) 0 0;
   padding: 0;
   list-style: none;
   display: grid;
-  gap: clamp(1rem, 2.5vw, 1.35rem);
+  gap: clamp(1.25rem, 3vw, 1.65rem);
 }
 
 @media (min-width: 768px) {
@@ -508,11 +337,11 @@
 
 .softCard {
   margin: 0;
-  padding: clamp(1.15rem, 2.8vw, 1.65rem);
+  padding: clamp(1.35rem, 3.2vw, 1.85rem);
   border-radius: 14px;
-  background: color-mix(in oklab, #fff 94%, var(--navy) 6%);
-  border: 1px solid color-mix(in oklab, var(--navy) 18%, #fff);
-  box-shadow: 0 16px 40px color-mix(in oklab, #0a0c12 5%, transparent);
+  background: #fff;
+  border: 1px solid color-mix(in oklab, var(--ink) 8%, transparent);
+  box-shadow: 0 12px 36px color-mix(in oklab, #0a0c12 5%, transparent);
   transition:
     transform 0.25s ease,
     box-shadow 0.25s ease;
@@ -594,11 +423,11 @@
 
 /* ─── Cuatro capacidades ─── */
 .fourGrid {
-  margin: clamp(1rem, 2.8vw, 1.65rem) 0 0;
+  margin: clamp(1.5rem, 3.5vw, 2.25rem) 0 0;
   padding: 0;
   list-style: none;
   display: grid;
-  gap: clamp(1.1rem, 2.8vw, 1.65rem);
+  gap: clamp(1.25rem, 3vw, 1.85rem);
 }
 
 @media (min-width: 768px) {
@@ -707,32 +536,32 @@
   outline-offset: 3px;
 }
 
-/* Paneles oscuros / acento: tipografía alineada con portada */
-.somosStickyAccent .h2Accent {
+/* Bloque colaboración (navy) y CTA (void) */
+.bandNavy .h2Accent {
   color: #fff;
 }
 
-.somosStickyAccent .paraOnAccent {
-  color: rgba(255, 255, 255, 0.92);
+.bandNavy .paraOnAccent {
+  color: rgba(255, 255, 255, 0.9);
 }
 
-.somosStickyAccent .proseOnAccent {
-  border-top-color: rgba(255, 255, 255, 0.28);
+.bandNavy .proseOnAccent {
+  border-top-color: rgba(255, 255, 255, 0.22);
 }
 
-.somosStickyDark .ctaTitle {
+.bandVoid .ctaTitle {
   color: #fff;
 }
 
-.somosStickyDark .ctaBody {
+.bandVoid .ctaBody {
   color: rgba(255, 255, 255, 0.78);
 }
 
-.somosStickyDark .ctaBtn {
+.bandVoid .ctaBtn {
   border-color: rgba(255, 255, 255, 0.35);
 }
 
-.somosStickyDark .ctaBtn:hover {
+.bandVoid .ctaBtn:hover {
   background: #fff;
   color: var(--ink);
   border-color: #fff;
@@ -745,9 +574,5 @@
 
   .ctaBtn:hover {
     transform: none;
-  }
-
-  .somosGlowDrift {
-    animation: none;
   }
 }

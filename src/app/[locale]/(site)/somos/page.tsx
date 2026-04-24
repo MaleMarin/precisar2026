@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
 import { FooterContactLink } from "@/components/FooterContactLink";
 import { absoluteLocaleUrl, hreflangAlternates, SITE } from "@/lib/site";
-import { SomosStackSection } from "./_components/SomosStackSection";
+import { SomosReveal } from "./_components/SomosReveal";
 import styles from "./SomosPage.module.css";
-
-const SOMOS_STACK_TOTAL = 10;
 
 function ogLocaleTag(locale: string): string {
   if (locale === "pt") return "pt_BR";
@@ -134,7 +132,6 @@ export default function SomosPrecisarPage() {
   return (
     <article className={styles.page}>
       <header className={styles.hero} aria-labelledby="somos-title">
-        <div className={styles.heroBackdrop} aria-hidden />
         <div className={styles.heroInner}>
           <p className={styles.kicker}>Somos Precisar</p>
           <h1 id="somos-title" className={styles.heroTitle}>
@@ -143,201 +140,216 @@ export default function SomosPrecisarPage() {
         </div>
       </header>
 
-      <SomosStackSection
-        index={0}
-        total={SOMOS_STACK_TOTAL}
-        theme="light"
-        aria-label="Introducción"
-      >
-        <div className={styles.somosScrollInner}>
-          <div className={styles.proseL}>
-            {INTRO.map((p, i) => (
-              <p key={i} className={styles.para}>
-                {p}
-              </p>
-            ))}
+      <section className={`${styles.band} ${styles.bandCream}`} aria-label="Introducción">
+        <SomosReveal>
+          <div className={styles.inner}>
+            <div className={styles.proseL}>
+              {INTRO.map((p, i) => (
+                <p key={i} className={styles.para}>
+                  {p}
+                </p>
+              ))}
+            </div>
           </div>
-        </div>
-      </SomosStackSection>
+        </SomosReveal>
+      </section>
 
-      <SomosStackSection index={1} total={SOMOS_STACK_TOTAL} theme="light" aria-label="Principio de trabajo">
-        <div className={styles.somosScrollInner}>
-          <blockquote className={styles.pullQuote}>
-            <span className={styles.pullQuoteMark} aria-hidden>
-              ·
-            </span>
-            {PRINCIPLE}
-          </blockquote>
-        </div>
-      </SomosStackSection>
+      <section className={`${styles.band} ${styles.bandPaper}`} aria-label="Principio de trabajo">
+        <SomosReveal>
+          <div className={styles.inner}>
+            <blockquote className={styles.pullQuote}>
+              <span className={styles.pullQuoteMark} aria-hidden>
+                ·
+              </span>
+              {PRINCIPLE}
+            </blockquote>
+          </div>
+        </SomosReveal>
+      </section>
 
-      <SomosStackSection index={2} total={SOMOS_STACK_TOTAL} theme="light" aria-labelledby="somos-problema">
-        <div className={styles.somosScrollInner}>
-          <div className={styles.sectionHead}>
-            <span className={styles.sectionIndex} aria-hidden>
-              01
-            </span>
-            <h2 id="somos-problema" className={styles.h2}>
-              Qué problema abordamos
-            </h2>
+      <section className={`${styles.band} ${styles.bandCream}`} aria-labelledby="somos-problema">
+        <SomosReveal>
+          <div className={styles.inner}>
+            <div className={styles.sectionHead}>
+              <span className={styles.sectionIndex} aria-hidden>
+                01
+              </span>
+              <h2 id="somos-problema" className={styles.h2}>
+                Qué problema abordamos
+              </h2>
+            </div>
+            <div className={styles.proseM}>
+              {PROBLEM_PARAS.map((p, i) => (
+                <p key={i} className={styles.para}>
+                  {p}
+                </p>
+              ))}
+            </div>
           </div>
-          <div className={styles.proseM}>
-            {PROBLEM_PARAS.map((p, i) => (
-              <p key={i} className={styles.para}>
-                {p}
-              </p>
-            ))}
-          </div>
-        </div>
-      </SomosStackSection>
+        </SomosReveal>
+      </section>
 
-      <SomosStackSection index={3} total={SOMOS_STACK_TOTAL} theme="mist" aria-labelledby="somos-como">
-        <div className={styles.somosScrollInner}>
-          <div className={styles.sectionHead}>
-            <span className={styles.sectionIndex} aria-hidden>
-              02
-            </span>
-            <h2 id="somos-como" className={styles.h2}>
-              Cómo trabajamos
-            </h2>
+      <section className={`${styles.band} ${styles.bandMist}`} aria-labelledby="somos-como">
+        <SomosReveal>
+          <div className={styles.inner}>
+            <div className={styles.sectionHead}>
+              <span className={styles.sectionIndex} aria-hidden>
+                02
+              </span>
+              <h2 id="somos-como" className={styles.h2}>
+                Cómo trabajamos
+              </h2>
+            </div>
+            <ol className={styles.timeline}>
+              {HOW_WE_WORK.map((item, i) => (
+                <li key={item.title} className={styles.timelineItem}>
+                  <span className={styles.timelineNum} aria-hidden>
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <div className={styles.timelineBody}>
+                    <h3 className={styles.h3}>{item.title}</h3>
+                    <p className={styles.para}>{item.body}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
           </div>
-          <ol className={styles.timeline}>
-            {HOW_WE_WORK.map((item, i) => (
-              <li key={item.title} className={styles.timelineItem}>
-                <span className={styles.timelineNum} aria-hidden>
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <div className={styles.timelineBody}>
+        </SomosReveal>
+      </section>
+
+      <section className={`${styles.band} ${styles.bandPaper}`} aria-labelledby="somos-juntos">
+        <SomosReveal>
+          <div className={styles.inner}>
+            <div className={styles.sectionHead}>
+              <span className={styles.sectionIndex} aria-hidden>
+                03
+              </span>
+              <h2 id="somos-juntos" className={styles.h2}>
+                Qué podemos hacer juntos
+              </h2>
+            </div>
+            <ul className={styles.cardGrid}>
+              {TOGETHER.map((item) => (
+                <li key={item.title} className={styles.softCard}>
                   <h3 className={styles.h3}>{item.title}</h3>
                   <p className={styles.para}>{item.body}</p>
-                </div>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </SomosStackSection>
-
-      <SomosStackSection index={4} total={SOMOS_STACK_TOTAL} theme="light" aria-labelledby="somos-juntos">
-        <div className={styles.somosScrollInner}>
-          <div className={styles.sectionHead}>
-            <span className={styles.sectionIndex} aria-hidden>
-              03
-            </span>
-            <h2 id="somos-juntos" className={styles.h2}>
-              Qué podemos hacer juntos
-            </h2>
+                </li>
+              ))}
+            </ul>
           </div>
-          <ul className={styles.cardGrid}>
-            {TOGETHER.map((item) => (
-              <li key={item.title} className={styles.softCard}>
-                <h3 className={styles.h3}>{item.title}</h3>
-                <p className={styles.para}>{item.body}</p>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </SomosStackSection>
+        </SomosReveal>
+      </section>
 
-      <SomosStackSection index={5} total={SOMOS_STACK_TOTAL} theme="light" aria-labelledby="somos-con">
-        <div className={styles.somosScrollInner}>
-          <div className={styles.sectionHead}>
-            <span className={styles.sectionIndexLight} aria-hidden>
-              04
-            </span>
-            <h2 id="somos-con" className={styles.h2}>
-              Con quiénes trabajamos
-            </h2>
+      <section className={`${styles.band} ${styles.bandCream}`} aria-labelledby="somos-con">
+        <SomosReveal>
+          <div className={styles.inner}>
+            <div className={styles.sectionHead}>
+              <span className={styles.sectionIndexLight} aria-hidden>
+                04
+              </span>
+              <h2 id="somos-con" className={styles.h2}>
+                Con quiénes trabajamos
+              </h2>
+            </div>
+            <p className={styles.prologue}>Podemos colaborar con:</p>
+            <ul className={styles.pillList}>
+              {PARTNERS.map((label) => (
+                <li key={label}>
+                  <span className={styles.pill}>{label}</span>
+                </li>
+              ))}
+            </ul>
           </div>
-          <p className={styles.prologue}>Podemos colaborar con:</p>
-          <ul className={styles.pillList}>
-            {PARTNERS.map((label) => (
-              <li key={label}>
-                <span className={styles.pill}>{label}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </SomosStackSection>
+        </SomosReveal>
+      </section>
 
-      <SomosStackSection index={6} total={SOMOS_STACK_TOTAL} theme="light" aria-labelledby="somos-instalado">
-        <div className={styles.somosScrollInner}>
-          <div className={styles.sectionHead}>
-            <span className={styles.sectionIndex} aria-hidden>
-              05
-            </span>
-            <h2 id="somos-instalado" className={styles.h2}>
-              Lo que buscamos dejar instalado
-            </h2>
-          </div>
-          <p className={styles.prologue}>
-            Nuestro objetivo no es solo ejecutar actividades. Buscamos que cada organización con la que trabajamos pueda
-            quedar con:
-          </p>
-          <ul className={styles.outcomeList}>
-            {OUTCOMES.map((line) => (
-              <li key={line} className={styles.outcomeItem}>
-                <span className={styles.outcomeDot} aria-hidden />
-                <span>{line}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </SomosStackSection>
-
-      <SomosStackSection index={7} total={SOMOS_STACK_TOTAL} theme="accent" aria-labelledby="somos-enfoque">
-        <div className={styles.somosScrollInnerNarrow}>
-          <h2 id="somos-enfoque" className={styles.h2Accent}>
-            Nuestro enfoque de colaboración
-          </h2>
-          <div className={styles.proseOnAccent}>
-            {COLLAB_PARAS.map((p, i) => (
-              <p key={i} className={styles.paraOnAccent}>
-                {p}
-              </p>
-            ))}
-          </div>
-        </div>
-      </SomosStackSection>
-
-      <SomosStackSection index={8} total={SOMOS_STACK_TOTAL} theme="light" aria-labelledby="somos-porque">
-        <div className={styles.somosScrollInner}>
-          <div className={styles.sectionHead}>
-            <span className={styles.sectionIndex} aria-hidden>
-              06
-            </span>
-            <h2 id="somos-porque" className={styles.h2}>
-              Por qué trabajar con Precisar
-            </h2>
-          </div>
-          <p className={styles.prologue}>Porque combinamos cuatro capacidades que no suelen aparecer juntas:</p>
-          <ul className={styles.fourGrid}>
-            {WHY_FOUR.map((line, i) => (
-              <li key={line} className={styles.fourCell}>
-                <span className={styles.fourNum} aria-hidden>
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <p className={styles.para}>{line}</p>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </SomosStackSection>
-
-      <SomosStackSection index={9} total={SOMOS_STACK_TOTAL} theme="dark" aria-labelledby="somos-hablemos">
-        <div className={styles.ctaInner}>
-          <h2 id="somos-hablemos" className={styles.ctaTitle}>
-            Hablemos
-          </h2>
-          <div className={styles.ctaCol}>
-            <p className={styles.ctaBody}>
-              Si tu organización quiere desarrollar herramientas, metodologías o experiencias para fortalecer la
-              relación de las personas con la información y promover un uso más consciente, útil y constructivo de la
-              tecnología, nos interesa conversar.
+      <section className={`${styles.band} ${styles.bandPaper}`} aria-labelledby="somos-instalado">
+        <SomosReveal>
+          <div className={styles.inner}>
+            <div className={styles.sectionHead}>
+              <span className={styles.sectionIndex} aria-hidden>
+                05
+              </span>
+              <h2 id="somos-instalado" className={styles.h2}>
+                Lo que buscamos dejar instalado
+              </h2>
+            </div>
+            <p className={styles.prologue}>
+              Nuestro objetivo no es solo ejecutar actividades. Buscamos que cada organización con la que trabajamos
+              pueda quedar con:
             </p>
-            <FooterContactLink className={styles.ctaBtn}>Escríbenos</FooterContactLink>
+            <ul className={styles.outcomeList}>
+              {OUTCOMES.map((line) => (
+                <li key={line} className={styles.outcomeItem}>
+                  <span className={styles.outcomeDot} aria-hidden />
+                  <span>{line}</span>
+                </li>
+              ))}
+            </ul>
           </div>
-        </div>
-      </SomosStackSection>
+        </SomosReveal>
+      </section>
+
+      <section className={`${styles.band} ${styles.bandNavy}`} aria-labelledby="somos-enfoque">
+        <SomosReveal>
+          <div className={styles.innerNarrow}>
+            <h2 id="somos-enfoque" className={styles.h2Accent}>
+              Nuestro enfoque de colaboración
+            </h2>
+            <div className={styles.proseOnAccent}>
+              {COLLAB_PARAS.map((p, i) => (
+                <p key={i} className={styles.paraOnAccent}>
+                  {p}
+                </p>
+              ))}
+            </div>
+          </div>
+        </SomosReveal>
+      </section>
+
+      <section className={`${styles.band} ${styles.bandCream}`} aria-labelledby="somos-porque">
+        <SomosReveal>
+          <div className={styles.inner}>
+            <div className={styles.sectionHead}>
+              <span className={styles.sectionIndex} aria-hidden>
+                06
+              </span>
+              <h2 id="somos-porque" className={styles.h2}>
+                Por qué trabajar con Precisar
+              </h2>
+            </div>
+            <p className={styles.prologue}>Porque combinamos cuatro capacidades que no suelen aparecer juntas:</p>
+            <ul className={styles.fourGrid}>
+              {WHY_FOUR.map((line, i) => (
+                <li key={line} className={styles.fourCell}>
+                  <span className={styles.fourNum} aria-hidden>
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <p className={styles.para}>{line}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </SomosReveal>
+      </section>
+
+      <section className={`${styles.band} ${styles.bandVoid}`} aria-labelledby="somos-hablemos">
+        <SomosReveal>
+          <div className={styles.ctaInner}>
+            <h2 id="somos-hablemos" className={styles.ctaTitle}>
+              Hablemos
+            </h2>
+            <div className={styles.ctaCol}>
+              <p className={styles.ctaBody}>
+                Si tu organización quiere desarrollar herramientas, metodologías o experiencias para fortalecer la
+                relación de las personas con la información y promover un uso más consciente, útil y constructivo de la
+                tecnología, nos interesa conversar.
+              </p>
+              <FooterContactLink className={styles.ctaBtn}>Escríbenos</FooterContactLink>
+            </div>
+          </div>
+        </SomosReveal>
+      </section>
     </article>
   );
 }
