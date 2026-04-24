@@ -17,6 +17,8 @@
   overflow-x: hidden;
   background: #faf8f5;
   color: color-mix(in oklab, var(--ink) 90%, transparent);
+  /* Aire antes del SiteFooter (mismo tono oscuro que fundía con «Hablemos»). */
+  padding-bottom: clamp(2.25rem, 5.5vw, 4.75rem);
 }
 
 @media (min-width: 90rem) {
@@ -53,6 +55,10 @@
   background: var(--ink);
   color: #fff;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
+  /* Separa del bloque claro anterior y del pie: franja con fondo #faf8f5 del .page */
+  margin-top: clamp(1.75rem, 4.5vw, 3rem);
+  padding-top: clamp(3rem, 7.5vw, 4.75rem);
+  padding-bottom: clamp(3.25rem, 8vw, 5rem);
 }
 
 .inner {
