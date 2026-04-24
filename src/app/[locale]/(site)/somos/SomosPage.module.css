@@ -12,14 +12,15 @@
   --cream: #f5f2ec;
   --mist: #f3f4f6;
   --flame: #db5227;
-  --panel-border: color-mix(in oklab, #ffffff 26%, transparent);
+  /* Misma base cálida que el stack de portada */
+  --somos-stack-page: #e9e2d6;
+  --somos-stack-light: #efe8dc;
   margin: 0 calc(-1 * var(--gutter, 1.25rem));
   width: calc(100% + 2 * var(--gutter, 1.25rem));
   max-width: none;
-  background:
-    radial-gradient(120% 60% at 100% 0%, rgba(219, 82, 39, 0.16), transparent 55%),
-    radial-gradient(100% 50% at 0% 100%, rgba(16, 25, 45, 0.45), transparent 62%),
-    linear-gradient(180deg, #071126 0%, #091a34 32%, #0a0c12 100%);
+  overflow-x: hidden;
+  background: var(--somos-stack-page);
+  color: color-mix(in oklab, var(--ink) 88%, transparent);
 }
 
 @media (min-width: 90rem) {
@@ -29,74 +30,151 @@
   }
 }
 
-.band {
-  padding: clamp(1.25rem, 3.5vw, 2.25rem) clamp(1rem, 4vw, 3rem);
+/* ─── Stack tipo home: sección scroll + panel sticky ─── */
+.somosPanelSection {
+  position: relative;
+  height: 105vh;
+  scroll-margin-top: 2.75rem;
+  perspective: 1200px;
+  perspective-origin: 50% 36%;
+  transform-style: preserve-3d;
 }
 
-@media (min-width: 768px) {
-  .band {
-    padding: clamp(1.5rem, 3.5vw, 2.5rem) clamp(1.5rem, 5vw, 4rem);
-  }
+.somosSticky {
+  position: sticky;
+  left: 0;
+  top: 0;
+  height: calc(100vh - 8px);
+  width: calc(100% - 8px);
+  max-width: min(90rem, calc(100% - 8px));
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+  border: 1px solid color-mix(in oklab, #000 10%, transparent);
+  box-shadow:
+    0 36px 120px rgba(0, 0, 0, 0.2),
+    0 12px 40px rgba(0, 0, 0, 0.12);
+  transform-origin: center top;
+  transform-style: preserve-3d;
+  will-change: transform;
 }
 
-.bandCream {
-  color: color-mix(in oklab, var(--ink) 88%, transparent);
-  --panel-bg:
-    linear-gradient(
-      180deg,
-      color-mix(in oklab, var(--cream) 93%, #fff) 0%,
-      color-mix(in oklab, #ffffff 97%, var(--cream)) 100%
-    );
+.somosStickyLight {
+  border-color: color-mix(in oklab, #000 10%, transparent);
+  background: var(--somos-stack-light);
+  color: var(--ink);
 }
 
-.bandPaper {
-  color: color-mix(in oklab, var(--ink) 88%, transparent);
-  --panel-bg: linear-gradient(180deg, #ffffff 0%, color-mix(in oklab, #fff 94%, #f5f6fa) 100%);
+.somosStickyMist {
+  border-color: color-mix(in oklab, #000 10%, transparent);
+  background: linear-gradient(180deg, #ebe6de 0%, #f6f1ea 52%, var(--somos-stack-light) 100%);
+  color: var(--ink);
 }
 
-.bandMist {
-  color: color-mix(in oklab, var(--ink) 88%, transparent);
-  --panel-bg: linear-gradient(180deg, var(--mist) 0%, #ffffff 100%);
+.somosStickyAccent {
+  border-color: #000;
+  background: var(--flame);
+  color: #fff;
 }
 
-.bandAccent {
-  color: color-mix(in oklab, var(--ink) 90%, transparent);
-  --panel-bg: linear-gradient(180deg, color-mix(in oklab, var(--flame) 12%, #fff) 0%, #fff 100%);
+.somosStickyDark {
+  border-color: #000;
+  background: var(--ink);
+  color: #fff;
 }
 
-.inner {
+.somosDepth {
+  box-sizing: border-box;
+  display: flex;
+  min-height: 0;
+  flex: 1 1 auto;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  transform-origin: 50% 45%;
+}
+
+.somosPanelScroll {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: clamp(1.5rem, 4vw, 2.75rem) clamp(1.25rem, 5vw, 3rem);
+}
+
+.somosScrollInner {
   width: 100%;
   max-width: var(--somos-inner);
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.innerNarrow {
+.somosScrollInnerNarrow {
   width: 100%;
   max-width: min(42rem, 100%);
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.band .inner,
-.band .innerNarrow,
-.band .ctaInner {
-  position: relative;
-  background: var(--panel-bg, #fff);
-  border: 1px solid color-mix(in oklab, #0a0c12 10%, transparent);
-  border-radius: clamp(1rem, 2.2vw, 1.5rem);
-  padding: clamp(1.4rem, 3.8vw, 2.8rem);
-  box-shadow:
-    0 28px 70px color-mix(in oklab, #000 18%, transparent),
-    inset 0 1px 0 rgba(255, 255, 255, 0.75);
+.somosPanelGlow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
 }
 
-@media (min-width: 1024px) {
-  .band .inner,
-  .band .innerNarrow,
-  .band .ctaInner {
-    min-height: min(72vh, 46rem);
-    display: grid;
-    align-content: center;
+.somosGlowDrift {
+  animation: somosGlowDrift 14s ease-in-out infinite;
+}
+
+@keyframes somosGlowDrift {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
   }
+
+  50% {
+    opacity: 0.9;
+    transform: scale(1.025);
+  }
+}
+
+.somosGlowLight {
+  background:
+    radial-gradient(circle at top right, color-mix(in oklab, var(--flame) 12%, transparent), transparent 30%),
+    linear-gradient(to bottom, transparent, color-mix(in oklab, #000 3%, transparent));
+}
+
+.somosGlowAccent {
+  background:
+    radial-gradient(circle at top right, color-mix(in oklab, #fff 22%, transparent), transparent 28%),
+    linear-gradient(to bottom, transparent, color-mix(in oklab, #000 8%, transparent));
+}
+
+.somosGlowDark {
+  background:
+    radial-gradient(circle at 88% 12%, color-mix(in oklab, var(--flame) 22%, transparent), transparent 32%),
+    linear-gradient(to bottom, transparent, color-mix(in oklab, #fff 6%, transparent));
+}
+
+.somosTopLine {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 4px;
+  width: 100%;
+  transform-origin: left center;
+}
+
+.somosLineLight {
+  background: var(--flame);
+}
+
+.somosLineOnDark {
+  background: color-mix(in oklab, #fff 60%, transparent);
 }
 
 /* ─── Hero ─── */
@@ -110,7 +188,7 @@
     radial-gradient(ellipse 130% 80% at 100% 0%, color-mix(in oklab, var(--flame) 14%, transparent), transparent 55%),
     radial-gradient(ellipse 120% 80% at 0% 100%, rgba(10, 12, 18, 0.06), transparent 52%),
     linear-gradient(180deg, #ffffff 0%, var(--cream) 100%);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  border-bottom: 1px solid color-mix(in oklab, var(--ink) 8%, transparent);
 }
 
 @media (min-width: 768px) {
@@ -572,6 +650,37 @@
   outline-offset: 3px;
 }
 
+/* Paneles oscuros / acento: tipografía alineada con portada */
+.somosStickyAccent .h2Accent {
+  color: #fff;
+}
+
+.somosStickyAccent .paraOnAccent {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.somosStickyAccent .proseOnAccent {
+  border-top-color: rgba(255, 255, 255, 0.28);
+}
+
+.somosStickyDark .ctaTitle {
+  color: #fff;
+}
+
+.somosStickyDark .ctaBody {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.somosStickyDark .ctaBtn {
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+.somosStickyDark .ctaBtn:hover {
+  background: #fff;
+  color: var(--ink);
+  border-color: #fff;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .softCard:hover {
     transform: none;
@@ -579,5 +688,9 @@
 
   .ctaBtn:hover {
     transform: none;
+  }
+
+  .somosGlowDrift {
+    animation: none;
   }
 }
