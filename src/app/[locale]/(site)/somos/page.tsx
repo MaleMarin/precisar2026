@@ -11,7 +11,7 @@ function ogLocaleTag(locale: string): string {
 }
 
 const META_DESC =
-  "Fortalecemos capacidades para comprender, evaluar y usar información con más criterio. Co-diseño con municipios, educación, sociedad civil y servicios públicos en Chile.";
+  "Fortalecemos capacidades para comprender, evaluar y usar información con más criterio y sentido. Co-diseño con municipios, educación, sociedad civil y servicios públicos en Chile.";
 
 const INTRO = [
   "En Precisar trabajamos con organizaciones que quieren fortalecer la relación de las personas con la información y promover un uso más consciente, útil y constructivo de la tecnología.",
@@ -135,7 +135,7 @@ export default function SomosPrecisarPage() {
         <div className={styles.heroInner}>
           <p className={styles.kicker}>Somos Precisar</p>
           <h1 id="somos-title" className={styles.heroTitle}>
-            Fortalecemos capacidades para comprender, evaluar y usar información con más criterio
+            Fortalecemos capacidades para comprender, evaluar y usar información con más criterio y sentido
           </h1>
         </div>
       </header>
