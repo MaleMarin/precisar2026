@@ -255,7 +255,7 @@ const PRECISANDO_BLOG_FOOTER_LINKS: NavItem[] = PRECISANDO_ARTICLES_UNDER_CONSTR
   : [
       {
         label: "Chile respondió: informe «¿Cómo te informas hoy?» (enero 2026)",
-        href: "/precisando/chile-respondio-verdad-incomoda-informe-enero-2026",
+        href: "/precisando/informarse-en-chile-hoy-menos-ruido-mas-criterio",
       },
       {
         label: "Democracia en la era digital y la IA",

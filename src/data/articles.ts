@@ -30,7 +30,7 @@ export const INFORME_CHILE_ENERO_2026_PDF =
 export const ARTICLES: ArticleMeta[] = [
   {
     catalogOrder: 1,
-    slug: "chile-respondio-verdad-incomoda-informe-enero-2026",
+    slug: "informarse-en-chile-hoy-menos-ruido-mas-criterio",
     title: "Informarse en Chile hoy: menos ruido, más criterio.",
     category: "Informes",
     pubDate: "2026-01-31",
