@@ -248,12 +248,7 @@ export default function DocentesPage() {
         <h2 className={shell.programSectionTitle} style={{ color: "#F5F2EC", margin: "0 0 3rem" }}>
           Cómo aprendemos<br />juntos
         </h2>
-        <div style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 320px), 1fr))",
-          gap: "1px",
-          background: "rgba(245,242,236,0.08)",
-        }}>
+        <div className={shell.methodologyGrid}>
           {METODOLOGIA.map((met, i) => (
             <div key={i} style={{
               background: "#F5F2EC",
