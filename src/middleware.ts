@@ -124,12 +124,17 @@ export function middleware(request: NextRequest) {
 
   if (afterLocale[0] === "programas" && afterLocale[1] === "docentes") {
     const url = request.nextUrl.clone();
-    url.pathname = withLocalePath(pathLocale, "/programas/leer-noticias-era-digital");
+    url.pathname = withLocalePath(pathLocale, "/programas/educacion-mediatica-digital-para-docentes");
+    return NextResponse.redirect(url, 308);
+  }
+  if (afterLocale[0] === "programas" && afterLocale[1] === "leer-noticias-era-digital") {
+    const url = request.nextUrl.clone();
+    url.pathname = withLocalePath(pathLocale, "/programas/educacion-mediatica-digital-para-docentes");
     return NextResponse.redirect(url, 308);
   }
   if (afterLocale[0] === "que-hacemos" && afterLocale[1] === "docentes") {
     const url = request.nextUrl.clone();
-    url.pathname = withLocalePath(pathLocale, "/programas/leer-noticias-era-digital");
+    url.pathname = withLocalePath(pathLocale, "/programas/educacion-mediatica-digital-para-docentes");
     return NextResponse.redirect(url, 308);
   }
 

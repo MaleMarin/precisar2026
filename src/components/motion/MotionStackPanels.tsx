@@ -609,7 +609,7 @@ export function MotionStackPanels({
     { label: tPrograms("stackLinkAprender"), href: "/programas/aprender-digital", multiline: true },
     {
       label: tPrograms("stackLinkPensamientoCritico"),
-      href: "/programas/leer-noticias-era-digital",
+      href: "/programas/educacion-mediatica-digital-para-docentes",
       multiline: true,
     },
     { label: tPrograms("stackLinkFuncionarios"), href: "/programas/funcionarios-publicos", multiline: true },

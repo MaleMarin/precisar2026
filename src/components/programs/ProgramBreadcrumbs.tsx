@@ -10,7 +10,7 @@ import styles from "./ProgramBreadcrumbs.module.css";
 const PROGRAMAS_SLUGS = [
   "ciudades",
   "aprender-digital",
-  "leer-noticias-era-digital",
+  "educacion-mediatica-digital-para-docentes",
   "funcionarios-publicos",
   "pensamiento-critico",
   "hub-digital-consciente",

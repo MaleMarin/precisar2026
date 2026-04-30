@@ -259,6 +259,7 @@ export default function DocentesPage() {
               background: "#F5F2EC",
               padding: "2rem",
               borderLeft: "3px solid #DB5227",
+              minWidth: 0,
             }}>
               <p className={shell.programCardTitle} style={{ color: "#0A0C12", margin: "0 0 10px" }}>
                 {met.titulo}
@@ -269,6 +270,10 @@ export default function DocentesPage() {
                 color: "rgba(10,12,18,0.6)",
                 lineHeight: 1.75,
                 margin: 0,
+                maxWidth: "100%",
+                overflowWrap: "anywhere",
+                wordBreak: "break-word",
+                hyphens: "auto",
               }}>
                 {met.desc}
               </p>

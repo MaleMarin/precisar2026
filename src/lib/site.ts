@@ -231,7 +231,7 @@ export const NAV_SECONDARY: NavItem[] = [
   { label: "Curso para Servidores Públicos", href: "/programas/funcionarios-publicos" },
   {
     label: "Educación mediática para que los docentes la usen dentro de la sala de aula",
-    href: "/programas/leer-noticias-era-digital",
+    href: "/programas/educacion-mediatica-digital-para-docentes",
   },
   {
     label: "Bot Onda: Onda en Mano, Onda Civita y Onda Profes",
@@ -296,7 +296,7 @@ export const FOOTER_COLUMNS: { title: string; links: NavItem[] }[] = [
       { label: "Curso para Servidores Públicos", href: "/programas/funcionarios-publicos" },
       {
         label: "Educación mediática para que los docentes la usen dentro de la sala de aula",
-        href: "/programas/leer-noticias-era-digital",
+        href: "/programas/educacion-mediatica-digital-para-docentes",
       },
       {
         label: "Bot Onda: Onda en Mano, Onda Civita y Onda Profes",
