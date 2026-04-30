@@ -24,7 +24,7 @@ export default function Page() {
         <div className={shell.inner}>
           <div className={shell.queEsGrid}>
             <div>
-              <p className={shell.statWord}>Muestras interactivas e itinerantes.</p>
+              <p className={shell.statWord}>Itinerantes.</p>
               <p className={shell.statSub}>Diseñada para cualquier espacio.</p>
             </div>
             <div>

@@ -18,7 +18,7 @@ const CONTENT = [
   {
     kicker: "01 · Introducción",
     title: "Cultura digital\nque viaja",
-    sub: "Muestras interactivas e itinerantes. Para cualquier espacio.",
+    sub: "Itinerantes. Para cualquier espacio.",
     body: "En el Hub Digital Consciente nos sumergimos en la cultura digital a través de muestras interactivas y temáticas. Cada una es portátil y está diseñada para explorar cómo los medios y la tecnología influyen en nuestra sociedad, llevando el conocimiento directamente a eventos, municipios, espacios públicos y más.",
     groups: [
       {
