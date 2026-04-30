@@ -186,6 +186,10 @@
   align-items: start;
 }
 
+.queEsGrid > * {
+  min-width: 0;
+}
+
 @media (min-width: 900px) {
   .queEsGrid {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
@@ -201,6 +205,9 @@
   color: #db5227;
   letter-spacing: -0.035em;
   text-transform: none;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .statSub {
