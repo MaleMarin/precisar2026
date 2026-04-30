@@ -250,7 +250,7 @@ export default function DocentesPage() {
         </h2>
         <div style={{
           display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 280px), 1fr))",
+          gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 320px), 1fr))",
           gap: "1px",
           background: "rgba(245,242,236,0.08)",
         }}>
@@ -271,9 +271,9 @@ export default function DocentesPage() {
                 lineHeight: 1.75,
                 margin: 0,
                 maxWidth: "100%",
-                overflowWrap: "anywhere",
-                wordBreak: "break-word",
-                hyphens: "auto",
+                overflowWrap: "break-word",
+                wordBreak: "normal",
+                hyphens: "manual",
               }}>
                 {met.desc}
               </p>
