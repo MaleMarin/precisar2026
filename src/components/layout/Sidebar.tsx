@@ -95,19 +95,6 @@ export function Sidebar() {
           )
         })}
       </nav>
-
-      <div
-        style={{
-          padding: '18px 20px',
-          borderTop: '1px solid #E0DDD6',
-          fontFamily: 'var(--font-ui)',
-          fontSize: '0.68rem',
-          color: inkMuted,
-          letterSpacing: '0.05em',
-        }}
-      >
-        CC BY 4.0 · Precisar
-      </div>
     </aside>
   )
 }
