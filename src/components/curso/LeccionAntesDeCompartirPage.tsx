@@ -350,7 +350,7 @@ export function LeccionAntesDeCompartirPage({ slug }: Props) {
               Estas frases mezclan datos reales con interpretaciones no verificadas.
             </p>
             <p className="mt-3 text-sm text-[#7B766E]">
-              Interactua con al menos 2 frases (hover o tap) para habilitar el siguiente paso.
+              Interactúa con al menos dos frases (cursor o pulsación táctil) para habilitar el siguiente paso.
             </p>
           </section>
         ) : null}
@@ -398,7 +398,7 @@ export function LeccionAntesDeCompartirPage({ slug }: Props) {
               LO VIRAL NO EQUIVALE A LO VERDADERO.
             </p>
             <p className="mt-3 text-sm text-[#7B766E]">
-              Desplazate hasta el final de la pagina para habilitar siguiente.
+              Desplázate hasta el final de la página para habilitar el siguiente paso.
             </p>
           </section>
         ) : null}

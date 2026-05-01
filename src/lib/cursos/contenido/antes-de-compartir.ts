@@ -180,23 +180,26 @@ export const ANTES_DE_COMPARTIR: CursoContenido = {
           {
             id: 'no-compartir',
             texto: 'No compartir todavía',
-            orientacion: 'Buena opción para evitar amplificar ruido mientras verificás mejor la información.',
+            orientacion:
+              'Buena opción para evitar amplificar ruido mientras verificas mejor la información.',
           },
           {
             id: 'verificar',
             texto: 'Verificar más',
-            orientacion: 'Sumá buscar fuente primaria, tiempo y contexto para separar dato de interpretación.',
+            orientacion:
+              'Añade a tu revisión buscar fuente primaria, dar tiempo al contexto y separar lo que es dato de lo que es interpretación.',
           },
           {
             id: 'compartir-contexto',
             texto: 'Compartir con contexto',
             orientacion:
-              'Si compartís, incluí lo que está confirmado y lo que no para reducir malentendidos.',
+              'Si compartes, incluye lo que está confirmado y lo que no para reducir malentendidos.',
           },
           {
             id: 'responder',
             texto: 'Responder sin amplificar',
-            orientacion: 'Respondé en privado o con enfoque didáctico, evitando repetir el mito de forma textual.',
+            orientacion:
+              'Responde en privado o con enfoque didáctico, evitando repetir el mito de forma textual.',
           },
         ],
       },
@@ -206,7 +209,7 @@ export const ANTES_DE_COMPARTIR: CursoContenido = {
       numero: 7,
       tipo: 'texto_libre',
       label: 'PASO 7 DE 8 · RESPONDER',
-      orientacion: 'Escribí aunque sea una oración.',
+      orientacion: 'Escribe aunque sea una oración.',
       titulo: 'Responder sin hacer eco',
       storageKey: 'adc-texto-responder',
       contenido: {
@@ -216,7 +219,7 @@ export const ANTES_DE_COMPARTIR: CursoContenido = {
         ejemplo:
           'La cápsula amerizó según el procedimiento previsto (Verdad). Circularon mensajes que sugerían ocultamiento por una pausa de comunicación (Mito breve). Esa pausa está contemplada por seguridad y no implica una falla crítica (Verdad reforzada).',
         pregunta: '¿Cómo le explicarías esto a alguien de tu entorno?',
-        placeholder: 'Escribí una o dos oraciones...',
+        placeholder: 'Escribe una o dos oraciones...',
         minCaracteres: 20,
       },
     },
@@ -225,7 +228,7 @@ export const ANTES_DE_COMPARTIR: CursoContenido = {
       numero: 8,
       tipo: 'decision_final',
       label: 'PASO 8 DE 8 · CIERRE',
-      orientacion: 'Completá los campos — no hay respuestas incorrectas.',
+      orientacion: 'Completa los campos — no hay respuestas incorrectas.',
       titulo: 'Tu decisión final',
       storageKey: 'adc-decision-final',
       contenido: {

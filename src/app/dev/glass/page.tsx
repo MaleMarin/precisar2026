@@ -108,7 +108,7 @@ export default function DevGlassPreviewPage() {
           <GlassInput
             name="demo-input"
             label="Etiqueta de campo"
-            placeholder="Escribí algo breve para probar foco y placa…"
+            placeholder="Escribe algo breve para probar foco y placa…"
             hint="Hint secundario en tono apagado."
             autoComplete="off"
           />

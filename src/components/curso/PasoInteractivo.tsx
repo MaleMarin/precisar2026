@@ -330,7 +330,7 @@ function AnalisisSeñales({
       </div>
       <p className="mt-6 text-base leading-[1.75] font-[var(--font-ui)]">{contenido.cierre}</p>
       <p className="mt-3 text-sm text-[#7B766E]">
-        Interactuá con al menos 2 frases (cursor o tap) para habilitar el siguiente paso.
+        Interactúa con al menos dos frases (cursor o pulsación táctil) para habilitar el siguiente paso.
       </p>
     </div>
   )
@@ -429,7 +429,9 @@ function ExplicacionTarjetas({
           {contenido.dato_destacado}
         </p>
       ) : null}
-      <p className="mt-3 text-sm text-[#7B766E]">Desplazate hasta el final de la página para habilitar siguiente.</p>
+      <p className="mt-3 text-sm text-[#7B766E]">
+        Desplázate hasta el final de la página para habilitar el siguiente paso.
+      </p>
     </div>
   )
 }
