@@ -1,7 +1,9 @@
 #!/usr/bin/env node
 /**
- * Genera docs/textos-paginas-internas-es.md: solo títulos (##) y texto,
- * un bloque por página. Regenerar: node scripts/export-textos-paginas.mjs
+ * Genera documento descargable UTF-8:
+ *   public/downloads/precisar-textos-paginas-es.txt  (abrir /descargar desde el sitio)
+ * y copia en Markdown: docs/textos-paginas-internas-es.md
+ * Regenerar: node scripts/export-textos-paginas.mjs
  */
 import fs from "fs";
 import path from "path";
@@ -132,16 +134,15 @@ const pages = [
   ...EXTRA.filter((p) => fs.existsSync(p)),
 ].sort((a, b) => siteUrlPath(a).localeCompare(siteUrlPath(b), "es"));
 
-const lines = [];
+/** @type {{ title: string; body: string }[]} */
+const sections = [];
 
-lines.push("## Textos compartidos (navegación, inicio, pie)");
-lines.push("");
-lines.push(
-  stringsFromMessagesJson(fs.readFileSync(path.join(ROOT, "messages/es.json"), "utf8"))
+sections.push({
+  title: "Textos compartidos (navegación, inicio, pie)",
+  body: stringsFromMessagesJson(fs.readFileSync(path.join(ROOT, "messages/es.json"), "utf8"))
     .map((s) => mdEscape(s).trim())
     .join("\n\n"),
-);
-lines.push("");
+});
 
 for (const abs of pages) {
   const urlPath = siteUrlPath(abs);
@@ -150,24 +151,61 @@ for (const abs of pages) {
   const metaDesc = extractMetaField(src, "description");
   const displayTitle = metaTitleRaw ? cleanMetaTitle(metaTitleRaw) : slugToFallbackTitle(urlPath);
 
-  lines.push(`## ${displayTitle}`);
-  lines.push("");
-
   const strs = extractStrings(src);
   const parts = [];
   if (metaDesc) parts.push(mdEscape(metaDesc).trim());
   for (const s of strs) parts.push(mdEscape(s).trim());
 
-  if (parts.length === 0) {
-    lines.push("(Sin texto extraído en este archivo.)");
-  } else {
-    lines.push(parts.join("\n\n"));
-  }
-  lines.push("");
+  const body =
+    parts.length === 0 ? "(Sin texto extraído en este archivo.)" : parts.join("\n\n");
+
+  sections.push({ title: displayTitle, body });
 }
 
-const outPath = path.join(ROOT, "docs", "textos-paginas-internas-es.md");
-fs.mkdirSync(path.dirname(outPath), { recursive: true });
-fs.writeFileSync(outPath, lines.join("\n"), "utf8");
-console.log("Escrito:", outPath);
+const dateStr = new Date().toISOString().slice(0, 10);
+
+function toDownloadTxt(items) {
+  const sep = "=".repeat(76);
+  const lines = [
+    "PRECISAR · TEXTOS DEL SITIO (ESPAÑOL)",
+    "",
+    "Documento para descarga. Codificación: UTF-8.",
+    `Versión generada: ${dateStr}.`,
+    "",
+  ];
+  for (const { title, body } of items) {
+    lines.push(sep);
+    lines.push(title);
+    lines.push(sep);
+    lines.push("");
+    lines.push(body.trimEnd());
+    lines.push("");
+    lines.push("");
+  }
+  return lines.join("\n");
+}
+
+function toMarkdown(items) {
+  const lines = [];
+  for (const { title, body } of items) {
+    lines.push(`## ${title}`);
+    lines.push("");
+    lines.push(body.trimEnd());
+    lines.push("");
+  }
+  return lines.join("\n");
+}
+
+const publicPath = path.join(ROOT, "public", "downloads", "precisar-textos-paginas-es.txt");
+const docsPath = path.join(ROOT, "docs", "textos-paginas-internas-es.md");
+
+fs.mkdirSync(path.dirname(publicPath), { recursive: true });
+fs.mkdirSync(path.dirname(docsPath), { recursive: true });
+
+fs.writeFileSync(publicPath, toDownloadTxt(sections), "utf8");
+fs.writeFileSync(docsPath, toMarkdown(sections), "utf8");
+
+console.log("Descarga (sitio):", path.relative(ROOT, publicPath));
+console.log("Copia markdown:", path.relative(ROOT, docsPath));
+console.log("URL en producción: /downloads/precisar-textos-paginas-es.txt");
 console.log("Páginas:", pages.length);
