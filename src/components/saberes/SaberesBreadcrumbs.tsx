@@ -40,6 +40,11 @@ export function SaberesBreadcrumbs() {
   const pathname = stripLeadingLocale(raw).replace(/\/$/, "") || "/";
   const parts = pathname.split("/").filter(Boolean);
 
+  /* Clic: el hero va sólo con la grilla de mosaicos, sin breadcrumbs encima */
+  if (pathname === "/saberes/clic") {
+    return null;
+  }
+
   /* Ruta canónica corta (nav Saberes), misma sección que /saberes/una-pregunta-al-dia */
   if (parts[0] === "unapreguntaaldia") {
     return (
