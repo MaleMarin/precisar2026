@@ -19,7 +19,7 @@ export function PlataformaLayout({
 
   return (
     <div
-      className={`flex flex-col overflow-x-hidden bg-[var(--fondo)] ${isDoc ? 'min-w-0 w-full shrink-0' : 'min-h-0 min-w-0 flex-1'}`}
+      className={`flex flex-col overflow-x-hidden bg-[var(--fondo)] ${isDoc ? 'min-h-[100dvh] min-w-0 w-full shrink-0' : 'min-h-0 min-w-0 flex-1'}`}
     >
       <Sidebar />
       <main
