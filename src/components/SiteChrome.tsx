@@ -29,7 +29,7 @@ export function SiteChrome({ children }: { children: React.ReactNode }) {
           children
         )}
       </main>
-      {!isSaberesClic ? <SiteFooter /> : null}
+      <SiteFooter />
     </div>
   );
 }
