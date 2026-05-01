@@ -51,6 +51,8 @@
   --stack-panel-title-size: clamp(1.95rem, 5.2vw, 4.65rem);
   /* Cuerpo editorial (stack home .body); Avenir si está instalado, si no DM Sans. */
   --font-body: "Avenir Next", "Avenir", var(--font-sans-family), system-ui, sans-serif;
+  /* UI tipo quiz / formularios: DM Sans por defecto. */
+  --font-ui: var(--font-sans-family), system-ui, sans-serif;
 }
 
 @media (min-width: 768px) {

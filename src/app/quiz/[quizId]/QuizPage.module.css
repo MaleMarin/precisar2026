@@ -1,0 +1,23 @@
+/* Solo responsive: layout pedido usa estilos en línea en page.tsx */
+.quizTwoCol {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 64px;
+  align-items: start;
+}
+
+.quizSticky {
+  position: sticky;
+  top: 72px;
+}
+
+@media (max-width: 900px) {
+  .quizTwoCol {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .quizSticky {
+    position: static;
+  }
+}
