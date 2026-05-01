@@ -17,11 +17,14 @@ const SKIP_LOCALE_PREFIX_SEGMENTS = new Set([
   "consulta",
   "consulta-viva",
   "consulta-observatorio",
+  /** Resultado quiz / mapa de señales (`app/quiz/[quizId]`). */
+  "quiz",
 ]);
 
 const RESERVED_ROOT_SEGMENTS = new Set(
   [
     "api",
+    "quiz",
     "programas",
     "somos",
     "participa",
