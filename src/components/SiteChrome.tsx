@@ -13,14 +13,20 @@ export function SiteChrome({ children }: { children: React.ReactNode }) {
   const isHome = pathname === "/" || pathname === "";
   const usePageInner = !isStudioHome && !isHome && !isSaberesClic;
 
+  const chromeCls = [styles.chrome, isSaberesClic ? styles.chromeSaberesClicScroll : ""]
+    .filter(Boolean)
+    .join(" ");
+
   return (
-    <div className={styles.chrome}>
+    <div className={chromeCls}>
       {!isStudioHome && !isSaberesClic ? <SiteHeader /> : null}
       <main
         className={
-          isStudioHome || isSaberesClic
+          isStudioHome
             ? styles.mainHome
-            : [styles.mainDefault, isCulturaDigital ? styles.mainCulturaDigital : ""].filter(Boolean).join(" ")
+            : isSaberesClic
+              ? styles.mainSaberesClicFlow
+              : [styles.mainDefault, isCulturaDigital ? styles.mainCulturaDigital : ""].filter(Boolean).join(" ")
         }
       >
         {usePageInner ? (

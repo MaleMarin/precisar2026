@@ -11,5 +11,7 @@ export default function SaberesClicLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <PlataformaLayout>{children}</PlataformaLayout>;
+  return (
+    <PlataformaLayout scrollMode="document">{children}</PlataformaLayout>
+  );
 }
