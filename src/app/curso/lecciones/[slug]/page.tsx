@@ -1,19 +1,29 @@
 import { notFound } from 'next/navigation'
-import { LeccionAntesDeCompartirPage } from '@/components/curso/LeccionAntesDeCompartirPage'
-import { LECCIONES_ADC } from '@/lib/cursos/leccionesAntesDeCompartir'
+
+import { LeccionPage } from '@/components/curso/LeccionPage'
+import {
+  encontrarCursoYPasoPorSlug,
+  listarTodosLosPasosSlug,
+} from '@/lib/cursos'
 
 type Props = {
   params: Promise<{ slug: string }>
 }
 
 export function generateStaticParams() {
-  return LECCIONES_ADC.map(item => ({ slug: item.slug }))
+  return listarTodosLosPasosSlug().map(slug => ({ slug }))
 }
 
-export default async function LeccionPage({ params }: Props) {
+export default async function LeccionSlugPage({ params }: Props) {
   const { slug } = await params
-  const existe = LECCIONES_ADC.some(item => item.slug === slug)
-  if (!existe) notFound()
+  const hit = encontrarCursoYPasoPorSlug(slug)
+  if (!hit) notFound()
 
-  return <LeccionAntesDeCompartirPage slug={slug} />
+  return (
+    <LeccionPage
+      curso={hit.curso}
+      pasoActual={hit.paso}
+      pasoIndex={hit.pasoIndex}
+    />
+  )
 }

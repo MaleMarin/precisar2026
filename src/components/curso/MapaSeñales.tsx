@@ -6,10 +6,13 @@ import {
   calcularMapa,
   nivelAPuntos,
   type NivelSeñal,
+  type Señal as SeñalMapaTipo,
 } from '@/lib/cursos/mapaSeñales'
 
 type Props = {
-  courseId: string
+  courseId?: string
+  /** Si se omite se usa el mapa por defecto de Antes de Compartir */
+  señalesLista?: SeñalMapaTipo[]
   color: string
   recorrido: {
     paso1: string
@@ -26,7 +29,12 @@ const ETIQUETA: Record<NivelSeñal, string> = {
   explorando: 'Explorando',
 }
 
-export function MapaSeñales({ color, recorrido, onDescargar }: Props) {
+export function MapaSeñales({
+  color,
+  recorrido,
+  señalesLista = SEÑALES_ANTES_DE_COMPARTIR,
+  onDescargar,
+}: Props) {
   const mapaCalc = useMemo(() => {
     const tooltipsVistos =
       typeof window === 'undefined'
@@ -103,10 +111,10 @@ export function MapaSeñales({ color, recorrido, onDescargar }: Props) {
         </span>
       </div>
 
-      {SEÑALES_ANTES_DE_COMPARTIR.map((señal, i) => {
+      {señalesLista.map((señal, i) => {
         const nivel = mapaCalc[señal.id] || 'explorando'
         const puntos = nivelAPuntos(nivel)
-        const isLast = i === SEÑALES_ANTES_DE_COMPARTIR.length - 1
+        const isLast = i === señalesLista.length - 1
 
         return (
           <div
