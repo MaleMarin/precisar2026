@@ -58,15 +58,13 @@ export default function SaberesClicPage() {
   return (
     <div
       style={{
-        position: "fixed",
-        top: 0,
-        left: "180px",
-        right: 0,
-        bottom: 0,
+        width: "100%",
+        minHeight: "100dvh",
         display: "grid",
         gridTemplateColumns: "repeat(4, 1fr)",
         gridTemplateRows: "repeat(2, 1fr)",
         gap: 0,
+        backgroundColor: "#F5F2EC",
       }}
     >
       {CURSOS.map((curso) => (
@@ -82,6 +80,7 @@ export default function SaberesClicPage() {
             textDecoration: "none",
             position: "relative",
             overflow: "hidden",
+            minHeight: "50dvh",
           }}
           onMouseEnter={(e) => {
             (e.currentTarget as HTMLElement).style.filter = "brightness(1.1)";
