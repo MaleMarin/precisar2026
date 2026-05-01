@@ -2,20 +2,16 @@
 
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react'
-import { createPortal } from 'react-dom'
+import { useCallback, useEffect, useRef, useState } from 'react'
 
 import type { CursoContenido, Paso } from '@/lib/cursos/tipos'
 import { COLORES_CURSO } from '@/lib/cursos/colores'
 import { tooltipStorageKey } from '@/lib/cursos'
 import { BarraPasos } from '@/components/curso/BarraPasos'
+import gridStyles from '@/components/curso/leccionPasosGrid.module.css'
 import { PasoInteractivo } from '@/components/curso/PasoInteractivo'
-import {
-  FRASES_PERSONAJE,
-  PersonajeGuia,
-  estadoGuiaPorNumeroPaso,
-  type EstadoPersonaje,
-} from '@/components/curso/PersonajeGuia'
+import { PersonajeContextual } from '@/components/curso/PersonajeContextual'
+import { estadoGuiaPorNumeroPaso, type EstadoPersonaje } from '@/components/curso/PersonajeGuia'
 import {
   FRASE_DECISION_FINAL_GUIA,
   guiaPorLongitudTextoLibre,
@@ -41,20 +37,17 @@ export function LeccionPage({ curso, pasoActual, pasoIndex }: Props) {
   const siguientePaso = curso.pasos[pasoIndex + 1]
   const tpKey = tooltipStorageKey(curso.storagePrefix)
 
+  const estadoBase: EstadoPersonaje =
+    pasoActual.contenido.tipo === 'decision_final' ? 'aprueba' : estadoGuiaPorNumeroPaso(pasoActual.numero)
+
   const [canNext, setCanNext] = useState(false)
   const [, setInteracciones] = useState<Record<string, unknown>>({})
-  const [estadoPersonaje, setEstadoPersonaje] = useState<EstadoPersonaje>(() =>
-    pasoActual.contenido.tipo === 'decision_final' ? 'aprueba' : estadoGuiaPorNumeroPaso(pasoActual.numero)
-  )
+  const [estadoOverride, setEstadoOverride] = useState<EstadoPersonaje | null>(null)
+  const [eventoPersonaje, setEventoPersonaje] = useState<EstadoPersonaje | null>(null)
   const [fraseGloboPersonaje, setFraseGloboPersonaje] = useState<string | null>(() =>
     pasoActual.contenido.tipo === 'decision_final' ? FRASE_DECISION_FINAL_GUIA : null
   )
   const celebrateTimerRef = useRef<number | null>(null)
-  const [personajeEnBody, setPersonajeEnBody] = useState(false)
-
-  useLayoutEffect(() => {
-    setPersonajeEnBody(true)
-  }, [])
 
   const completoSlugKey = useCallback((slug: string) => `${curso.storagePrefix}-completo-${slug}`, [curso.storagePrefix])
 
@@ -77,13 +70,10 @@ export function LeccionPage({ curso, pasoActual, pasoIndex }: Props) {
   }, [pasoIndex, curso.pasos, completoSlugKey])
 
   useEffect(() => {
-    if (pasoActual.contenido.tipo === 'decision_final') {
-      setEstadoPersonaje('aprueba')
-      setFraseGloboPersonaje(FRASE_DECISION_FINAL_GUIA)
-    } else {
-      setEstadoPersonaje(estadoGuiaPorNumeroPaso(pasoActual.numero))
-      setFraseGloboPersonaje(null)
-    }
+    setEstadoOverride(null)
+    setEventoPersonaje(null)
+    if (pasoActual.contenido.tipo === 'decision_final') setFraseGloboPersonaje(FRASE_DECISION_FINAL_GUIA)
+    else setFraseGloboPersonaje(null)
   }, [pasoActual.slug, pasoActual.numero, pasoActual.contenido.tipo])
 
   useEffect(() => {
@@ -157,7 +147,7 @@ export function LeccionPage({ curso, pasoActual, pasoIndex }: Props) {
   const onGuiaMoment = useCallback(
     (m: GuiaMoment) => {
       if (pasoActual.contenido.tipo === 'decision_final') return
-      setEstadoPersonaje(m.estado)
+      setEstadoOverride(m.estado)
       setFraseGloboPersonaje(m.frase)
     },
     [pasoActual.contenido.tipo]
@@ -168,22 +158,23 @@ export function LeccionPage({ curso, pasoActual, pasoIndex }: Props) {
       if (pasoActual.contenido.tipo !== 'texto_libre') return
       const t = s.trim()
       if (t.length === 0) {
-        setEstadoPersonaje(estadoGuiaPorNumeroPaso(pasoActual.numero))
+        setEstadoOverride(null)
         setFraseGloboPersonaje(null)
         return
       }
       const moment = guiaPorLongitudTextoLibre(t.length)
-      setEstadoPersonaje(moment.estado)
+      setEstadoOverride(moment.estado)
       setFraseGloboPersonaje(moment.frase)
     },
-    [pasoActual.contenido.tipo, pasoActual.numero]
+    [pasoActual.contenido.tipo]
   )
 
   const handleSiguiente = () => {
     if (!canNext || pasoActual.contenido.tipo === 'decision_final') return
     if (!siguientePaso) return
+    setEventoPersonaje('celebra')
+    setEstadoOverride(null)
     setFraseGloboPersonaje(null)
-    setEstadoPersonaje('celebra')
     if (celebrateTimerRef.current !== null) clearTimeout(celebrateTimerRef.current)
     celebrateTimerRef.current = window.setTimeout(() => {
       if (typeof window !== 'undefined') window.localStorage.setItem(completoSlugKey(pasoActual.slug), '1')
@@ -213,82 +204,59 @@ export function LeccionPage({ curso, pasoActual, pasoIndex }: Props) {
         </div>
       </header>
 
-      <main className="mx-auto max-w-[680px] px-6 pb-20 pt-[116px]">
-        {prevWarning ? (
-          <div className="mb-6 rounded-md border border-[#E8E4DC] bg-white px-4 py-3 font-[var(--font-ui)] text-sm text-[#666]">
-            Aviso: no se detecta el paso anterior como completado en este dispositivo.
-          </div>
-        ) : null}
+      <main className="pt-[116px]">
+        <div className={gridStyles.root}>
+          <div className={gridStyles.meta}>
+            {prevWarning ? (
+              <div className="mb-6 rounded-md border border-[#E8E4DC] bg-white px-4 py-3 font-[var(--font-ui)] text-sm text-[#666]">
+                Aviso: no se detecta el paso anterior como completado en este dispositivo.
+              </div>
+            ) : null}
 
-        <div className="mb-6 font-[var(--font-ui)] text-[10px] uppercase tracking-[0.14em] text-[#999]">{pasoActual.label}</div>
-        <p className="mb-6 font-[var(--font-ui)] text-[0.85rem] text-[#666]">{pasoActual.orientacion}</p>
+            <div className="mb-6 font-[var(--font-ui)] text-[10px] uppercase tracking-[0.14em] text-[#999]">{pasoActual.label}</div>
+            <p className="mb-6 font-[var(--font-ui)] text-[0.85rem] text-[#666]">{pasoActual.orientacion}</p>
 
-        <h1
-          className="font-[var(--font-display)] uppercase leading-[0.95] tracking-[0.03em]"
-          style={{
-            fontSize: pasoActual.contenido.tipo === 'bienvenida' ? 'clamp(3rem,6vw,5rem)' : 'clamp(2rem, 5vw, 3.5rem)',
-            color,
-            marginBottom: '2rem',
-          }}
-        >
-          {tituloPagina}
-        </h1>
-        {pasoActual.contenido.tipo === 'bienvenida' ? (
-          <p className="mt-2 font-[var(--font-ui)] text-2xl text-[#5C5750]">{curso.subtitulo}</p>
-        ) : null}
-
-        <div className={pasoActual.contenido.tipo === 'bienvenida' ? 'mt-8' : 'mt-0'}>
-          <PasoInteractivo
-            paso={pasoActual}
-            curso={curso}
-            contenido={pasoActual.contenido}
-            color={color}
-            tooltipStorageKey={tpKey}
-            onScrollCompleto={handleScrollPanico}
-            onAnalisisSuficiente={handleAnalisisSuficiente}
-            onInteraccion={handleInteraccion}
-            onGuiaMoment={onGuiaMoment}
-            onAvanceTextoLibre={onAvanceTextoLibre}
-          />
-        </div>
-      </main>
-
-      {personajeEnBody
-        ? createPortal(
-            <div
-              aria-hidden
+            <h1
+              className="font-[var(--font-display)] uppercase leading-[0.95] tracking-[0.03em]"
               style={{
-                position: 'fixed',
-                bottom: 24,
-                left: 24,
-                zIndex: 40,
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                gap: 8,
-                pointerEvents: 'none',
+                fontSize: pasoActual.contenido.tipo === 'bienvenida' ? 'clamp(3rem,6vw,5rem)' : 'clamp(2rem, 5vw, 3.5rem)',
+                color,
+                marginBottom: '2rem',
               }}
             >
-              <PersonajeGuia color={color} estado={estadoPersonaje} size={100} />
-              <div
-                style={{
-                  backgroundColor: '#FFFFFF',
-                  border: '0.5px solid rgba(0,0,0,0.08)',
-                  borderRadius: '12px 12px 12px 0',
-                  padding: '8px 12px',
-                  fontFamily: 'var(--font-ui)',
-                  fontSize: '0.78rem',
-                  color: '#333',
-                  maxWidth: 160,
-                  lineHeight: 1.4,
-                }}
-              >
-                {fraseGloboPersonaje ?? FRASES_PERSONAJE[estadoPersonaje]}
-              </div>
-            </div>,
-            document.body
-          )
-        : null}
+              {tituloPagina}
+            </h1>
+            {pasoActual.contenido.tipo === 'bienvenida' ? (
+              <p className="mt-2 font-[var(--font-ui)] text-2xl text-[#5C5750]">{curso.subtitulo}</p>
+            ) : null}
+          </div>
+
+          <div className={gridStyles.guia}>
+            <PersonajeContextual
+              color={color}
+              estadoBase={estadoBase}
+              estadoOverride={estadoOverride}
+              evento={eventoPersonaje}
+              frase={fraseGloboPersonaje}
+            />
+          </div>
+
+          <div className={`${gridStyles.body} ${pasoActual.contenido.tipo === 'bienvenida' ? 'mt-8' : 'mt-0'}`}>
+            <PasoInteractivo
+              paso={pasoActual}
+              curso={curso}
+              contenido={pasoActual.contenido}
+              color={color}
+              tooltipStorageKey={tpKey}
+              onScrollCompleto={handleScrollPanico}
+              onAnalisisSuficiente={handleAnalisisSuficiente}
+              onInteraccion={handleInteraccion}
+              onGuiaMoment={onGuiaMoment}
+              onAvanceTextoLibre={onAvanceTextoLibre}
+            />
+          </div>
+        </div>
+      </main>
 
       {muestraStickySiguiente ? (
         <button

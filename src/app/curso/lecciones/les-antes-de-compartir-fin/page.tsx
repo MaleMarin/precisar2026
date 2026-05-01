@@ -1,20 +1,14 @@
 'use client'
 
 import Link from 'next/link'
-import { useEffect, useLayoutEffect, useState } from 'react'
-import { createPortal } from 'react-dom'
-import { FRASES_PERSONAJE, PersonajeGuia } from '@/components/curso/PersonajeGuia'
+import { useEffect, useState } from 'react'
+import { PersonajeContextual } from '@/components/curso/PersonajeContextual'
 import { COLORES_CURSO } from '@/lib/cursos/colores'
 
 const color = COLORES_CURSO['antes-de-compartir']
 
 export default function FinAntesDeCompartir() {
   const [respuestaInicial, setRespuestaInicial] = useState('')
-  const [personajeEnBody, setPersonajeEnBody] = useState(false)
-
-  useLayoutEffect(() => {
-    setPersonajeEnBody(true)
-  }, [])
 
   useEffect(() => {
     const r = localStorage.getItem('adc-paso1-respuesta')
@@ -77,6 +71,8 @@ export default function FinAntesDeCompartir() {
       >
         Antes de Compartir
       </p>
+
+      <PersonajeContextual color={color} estadoBase="despide" estadoOverride={null} evento={null} frase={null} />
 
       {respuestaInicial && (
         <div
@@ -173,42 +169,6 @@ export default function FinAntesDeCompartir() {
         </Link>
       </div>
     </main>
-    {personajeEnBody
-      ? createPortal(
-          <div
-            aria-hidden
-            style={{
-              position: 'fixed',
-              bottom: 24,
-              left: 24,
-              zIndex: 40,
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              gap: 8,
-              pointerEvents: 'none',
-            }}
-          >
-            <PersonajeGuia color={color} estado="despide" size={100} />
-            <div
-              style={{
-                backgroundColor: '#FFFFFF',
-                border: '0.5px solid rgba(0,0,0,0.08)',
-                borderRadius: '12px 12px 12px 0',
-                padding: '8px 12px',
-                fontFamily: 'var(--font-ui)',
-                fontSize: '0.78rem',
-                color: '#333',
-                maxWidth: 160,
-                lineHeight: 1.4,
-              }}
-            >
-              {FRASES_PERSONAJE.despide}
-            </div>
-          </div>,
-          document.body
-        )
-      : null}
     </>
   )
 }

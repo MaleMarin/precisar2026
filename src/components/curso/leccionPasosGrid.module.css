@@ -1,0 +1,49 @@
+/* Layout paso + guía; en mobile guía bajo meta, antes del ejercicio. */
+.root {
+  display: grid;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 48px 24px 120px;
+  gap: 40px;
+  align-items: start;
+}
+
+@media (max-width: 699px) {
+  .root {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "meta"
+      "guia"
+      "body";
+  }
+}
+
+@media (min-width: 700px) {
+  .root {
+    grid-template-columns: 1fr 140px;
+    grid-template-areas:
+      "meta guia"
+      "body guia";
+  }
+
+  .guia {
+    position: sticky;
+    top: 80px;
+    align-self: start;
+  }
+}
+
+.meta {
+  grid-area: meta;
+}
+
+.body {
+  grid-area: body;
+}
+
+.guia {
+  grid-area: guia;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}

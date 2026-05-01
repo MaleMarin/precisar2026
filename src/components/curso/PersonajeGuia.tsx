@@ -139,18 +139,22 @@ function dibujarOjosArcoFeliz(cx: CanvasRenderingContext2D, ex1: number, ex2: nu
 }
 
 function dibujarOjosSorpresa(cx: CanvasRenderingContext2D, color: string, ex1: number, ex2: number, ey: number) {
-  for (const ex of [ex1, ex2]) {
+  const ojos = [
+    { ex: ex1, dir: 1 as const },
+    { ex: ex2, dir: -1 as const },
+  ]
+  for (const { ex, dir } of ojos) {
     cx.fillStyle = '#ffffff'
     cx.beginPath()
     cx.arc(ex, ey, 14, 0, PI * 2)
     cx.fill()
     cx.fillStyle = color
     cx.beginPath()
-    cx.arc(ex + 1, ey + 1, 8, 0, PI * 2)
+    cx.arc(ex + dir * 1, ey + 2, 6, 0, PI * 2)
     cx.fill()
     cx.fillStyle = '#ffffff'
     cx.beginPath()
-    cx.arc(ex - 2, ey - 3, 3.5, 0, PI * 2)
+    cx.arc(ex - dir * 1, ey - 1, 3, 0, PI * 2)
     cx.fill()
   }
 }
