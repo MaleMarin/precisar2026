@@ -26,7 +26,9 @@ export function PlataformaLayout({
         className={[
           'ml-[180px] box-border flex min-w-0 flex-col',
           'w-[calc(100vw-180px)] max-w-[calc(100vw-180px)] overflow-x-hidden',
-          isDoc ? 'shrink-0 overflow-y-visible' : 'min-h-0 flex-1 overflow-y-auto',
+          isDoc
+            ? 'min-h-0 min-w-0 flex-1 overflow-y-visible bg-[#f5f2ec]'
+            : 'min-h-0 flex-1 overflow-y-auto',
         ].join(' ')}
       >
         {children}

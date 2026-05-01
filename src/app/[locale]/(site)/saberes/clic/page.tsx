@@ -66,28 +66,30 @@ const CURSOS = [
 
 export default function SaberesClicPage() {
   return (
-    <div className={clicGrid.grid}>
-      {CURSOS.map((curso) => (
-        <Link
-          key={curso.id}
-          href={`/cursos/${curso.id}`}
-          className={clicGrid.tile}
-          {...(curso.darkText ? { "data-accent": "warm" } : {})}
-          style={{
-            backgroundColor: COLORES_CURSO[curso.id] || "#888",
-          }}
-          onMouseEnter={(e) => {
-            (e.currentTarget as HTMLElement).style.filter = "brightness(1.08)";
-          }}
-          onMouseLeave={(e) => {
-            (e.currentTarget as HTMLElement).style.filter = "brightness(1)";
-          }}
-        >
-          <div className={clicGrid.num}>{curso.num}</div>
-          <div className={clicGrid.titulo}>{curso.titulo.toUpperCase()}</div>
-          <p className={clicGrid.bajada}>{curso.bajada}</p>
-        </Link>
-      ))}
+    <div className={clicGrid.hero}>
+      <div className={clicGrid.grid}>
+        {CURSOS.map((curso) => (
+          <Link
+            key={curso.id}
+            href={`/cursos/${curso.id}`}
+            className={clicGrid.tile}
+            {...(curso.darkText ? { "data-accent": "warm" } : {})}
+            style={{
+              backgroundColor: COLORES_CURSO[curso.id] || "#888",
+            }}
+            onMouseEnter={(e) => {
+              (e.currentTarget as HTMLElement).style.filter = "brightness(1.08)";
+            }}
+            onMouseLeave={(e) => {
+              (e.currentTarget as HTMLElement).style.filter = "brightness(1)";
+            }}
+          >
+            <div className={clicGrid.num}>{curso.num}</div>
+            <div className={clicGrid.titulo}>{curso.titulo.toUpperCase()}</div>
+            <p className={clicGrid.bajada}>{curso.bajada}</p>
+          </Link>
+        ))}
+      </div>
     </div>
   );
 }
