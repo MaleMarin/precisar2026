@@ -19,12 +19,23 @@ const SKIP_LOCALE_PREFIX_SEGMENTS = new Set([
   "consulta-observatorio",
   /** Resultado quiz / mapa de señales (`app/quiz/[quizId]`). */
   "quiz",
+  /** Clic: plataforma de cursos (`app/(plataforma)/*`). */
+  "inicio",
+  "cursos",
+  "curso",
+  "perfil",
+  "certificados",
 ]);
 
 const RESERVED_ROOT_SEGMENTS = new Set(
   [
     "api",
     "quiz",
+    "inicio",
+    "cursos",
+    "curso",
+    "perfil",
+    "certificados",
     "programas",
     "somos",
     "participa",

@@ -1,340 +1,473 @@
-"use client";
+'use client'
 
-import Link from "next/link";
-import { useParams } from "next/navigation";
-import { useMemo } from "react";
-import { calcularMapa, type MapaResultado } from "@/lib/quiz/mapaSeñales";
-import quizStyles from "./QuizPage.module.css";
+import Link from 'next/link'
+import { useEffect, useMemo, useState } from 'react'
+import { useParams } from 'next/navigation'
+import { COLORES_CURSO } from '@/lib/cursos/colores'
+import {
+  SEÑALES_ANTES_DE_COMPARTIR,
+  calcularMapa,
+  nivelAPuntos,
+  type NivelSeñal,
+} from '@/lib/cursos/mapaSeñales'
+import { toPng } from 'html-to-image'
 
-const BRAND_BAR_LOGO_SRC = "/logo-precisar/logo-precisar.png";
-
-const MAIN_BG = "#F5F2EC";
-const DOT_EMPTY = "#E0DDD6";
-const SEPARATOR_LINE = "rgba(0,0,0,0.08)";
-const TEXT_MUTED = "#999";
-const TEXT_BODY = "#666";
-const TEXT_DARK = "#1A1A1A";
-
-const labelMicroCaps: React.CSSProperties = {
-  fontFamily: "var(--font-ui)",
-  fontSize: "10px",
-  fontWeight: 700,
-  letterSpacing: "0.18em",
-  color: TEXT_MUTED,
-  textTransform: "uppercase",
-};
-
-const syneMuted11: React.CSSProperties = {
-  fontFamily: "var(--font-display)",
-  fontSize: "11px",
-  color: TEXT_MUTED,
-};
-
-const syneBody85: React.CSSProperties = {
-  fontFamily: "var(--font-display)",
-  fontSize: "0.85rem",
-  color: TEXT_DARK,
-  lineHeight: 1.5,
-};
-
-function DotsRow({
-  filled,
-  total,
-  courseColor,
-}: {
-  filled: number;
-  total: number;
-  courseColor: string;
-}) {
-  return (
-    <div style={{ display: "flex", gap: "5px", flexShrink: 0, marginTop: "4px" }}>
-      {Array.from({ length: total }, (_, i) => (
-        <span
-          key={i}
-          aria-hidden
-          style={{
-            width: "11px",
-            height: "11px",
-            borderRadius: "50%",
-            backgroundColor: i < filled ? courseColor : DOT_EMPTY,
-          }}
-        />
-      ))}
-    </div>
-  );
+const ETIQUETA_NIVEL: Record<NivelSeñal, string> = {
+  fuerte: 'Fuerte',
+  desarrollando: 'Desarrollando',
+  explorando: 'Explorando',
 }
 
-function buildDownloadText(data: MapaResultado, quizId: string): string {
-  const lines = [
-    "PRECISAR — MAPA DE SEÑALES",
-    "",
-    `Curso: ${data.nombreCurso}`,
-    `Módulo / id: ${quizId}`,
-    `Fecha: ${data.fechaTexto}`,
-    "",
-    "TU RECORRIDO",
-    `- Al inicio elegiste: ${data.recorrido.alInicioElegiste}`,
-    `- Lo que sentiste: ${data.recorrido.loQueSentiste}`,
-    `- Tu decisión final: ${data.recorrido.tuDecisionFinal}`,
-    `- Lo que te llevas: ${data.recorrido.loQueTeLlevas}`,
-    "",
-    "SEÑALES",
-    ...data.senales.map(
-      (s) =>
-        `- ${s.nombre} (${s.nivelLabel} · ${s.nivelDots}/${5})\n  ${s.descripcion}`,
-    ),
-    "",
-    data.marca,
-  ];
-  return lines.join("\n");
+function nombreCursoDesdeQuizId(quizId: string): string {
+  return quizId.replaceAll('-', ' ')
 }
 
-function downloadMapa(quizId: string, data: MapaResultado) {
-  const blob = new Blob([buildDownloadText(data, quizId)], {
-    type: "text/plain;charset=utf-8",
-  });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = `precisar-mapa-${quizId.slice(0, 48)}.txt`;
-  a.rel = "nofollow";
-  a.click();
-  URL.revokeObjectURL(url);
+function sinGuionesConComas(texto: string): string {
+  return texto.replaceAll('—', ',').replaceAll(' - ', ', ')
 }
 
-export default function QuizResultPage() {
-  const params = useParams<{ quizId: string }>();
-  const quizId = typeof params?.quizId === "string" ? params.quizId : "";
+export default function MapaPage() {
+  const params = useParams()
+  const quizId = params.quizId as string
+  const color = COLORES_CURSO[quizId] || '#1A1A1A'
+  const nombreCurso = nombreCursoDesdeQuizId(quizId)
 
-  const data = useMemo(() => calcularMapa(quizId), [quizId]);
+  const [recorrido, setRecorrido] = useState({
+    paso1: '',
+    emocion: '',
+    decisionFinal: '',
+    textoLlevar: '',
+  })
+  const [descargando, setDescargando] = useState(false)
 
-  const legendEjemploLlenos = 3;
+  useEffect(() => {
+    setRecorrido({
+      paso1: localStorage.getItem('adc-paso1-respuesta') || '',
+      emocion: localStorage.getItem('adc-emocion') || '',
+      decisionFinal: localStorage.getItem('adc-decision-final') || '',
+      textoLlevar: localStorage.getItem('adc-texto-llevar') || '',
+    })
+  }, [])
+
+  const mapaCalc = useMemo(() => {
+    const tooltipsVistos =
+      typeof window === 'undefined'
+        ? 0
+        : parseInt(window.localStorage.getItem('adc-tooltips-vistos') || '0', 10)
+    const kitRespuestas =
+      typeof window === 'undefined'
+        ? []
+        : JSON.parse(window.localStorage.getItem('adc-kit-respuestas') || '[]')
+    const decisionAccion =
+      typeof window === 'undefined' ? '' : window.localStorage.getItem('adc-decision-accion') || ''
+    const textoResponder =
+      typeof window === 'undefined' ? '' : window.localStorage.getItem('adc-texto-responder') || ''
+
+    return calcularMapa({
+      paso1: recorrido.paso1,
+      emocion: recorrido.emocion,
+      tooltipsVistos,
+      kitRespuestas,
+      decisionAccion,
+      textoResponder,
+      decisionFinal: recorrido.decisionFinal,
+    })
+  }, [recorrido])
+
+  const handleDescargar = async () => {
+    setDescargando(true)
+    try {
+      const el = document.getElementById('mapa-señales-card')
+      if (!el) return
+      const dataUrl = await toPng(el, {
+        cacheBust: true,
+        pixelRatio: 2,
+      })
+      const link = document.createElement('a')
+      link.download = `clic-mapa-${quizId}.png`
+      link.href = dataUrl
+      link.click()
+    } catch (e) {
+      console.error(e)
+    } finally {
+      setDescargando(false)
+    }
+  }
 
   return (
-    <main style={{ backgroundColor: MAIN_BG, minHeight: "100vh" }}>
-      {/* Barra superior (misma marca que /consulta) */}
-      <header
+    <main
+      style={{
+        backgroundColor: '#F5F2EC',
+        minHeight: '100vh',
+      }}
+    >
+      <div
         style={{
-          position: "sticky",
+          position: 'sticky',
           top: 0,
-          zIndex: 30,
-          height: "72px",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "flex-start",
-          padding: "0 48px",
-          backgroundColor: MAIN_BG,
-          borderBottom: `0.5px solid ${SEPARATOR_LINE}`,
-          boxSizing: "border-box",
+          backgroundColor: '#FFFFFF',
+          borderBottom: '0.5px solid rgba(0,0,0,0.08)',
+          padding: '0 32px',
+          height: '56px',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          zIndex: 10,
         }}
       >
-        <a href="/es" title="Precisar — inicio" style={{ display: "block", lineHeight: 0 }}>
-          <img
-            src={BRAND_BAR_LOGO_SRC}
-            alt="Precisar"
-            width={160}
-            height={28}
-            decoding="async"
-            style={{ height: "clamp(26px, 4vw, 32px)", width: "auto", maxWidth: "min(220px, 52vw)" }}
-          />
-        </a>
-      </header>
+        <Link
+          href="/inicio"
+          style={{
+            fontFamily: 'var(--font-ui)',
+            fontSize: '0.8rem',
+            color: '#999',
+            textDecoration: 'none',
+          }}
+        >
+          ← Volver a cursos
+        </Link>
+        <div
+          style={{
+            fontFamily: 'var(--font-ui)',
+            fontSize: '0.72rem',
+            fontWeight: 700,
+            letterSpacing: '0.15em',
+            color: '#999',
+            textTransform: 'uppercase',
+          }}
+        >
+          TU MAPA DE SEÑALES
+        </div>
+        <div style={{ width: '80px' }} />
+      </div>
 
-      <div style={{ maxWidth: "1100px", margin: "0 auto", padding: "56px 48px 80px" }}>
-        <div className={`${quizStyles.quizTwoCol}`}>
-          {/* Columna izquierda */}
-          <div className={quizStyles.quizSticky}>
-            <p style={{ ...labelMicroCaps, marginBottom: "12px", marginTop: 0 }}>{data.nombreCurso}</p>
-
-            <h1
-              style={{
-                fontFamily: "var(--font-display)",
-                fontSize: "clamp(2.5rem, 5vw, 4rem)",
-                color: data.colorCurso,
-                lineHeight: 1,
-                letterSpacing: "0.02em",
-                margin: "0 0 16px",
-                whiteSpace: "pre-line",
-              }}
-            >
-              {"COMPLETASTE\nEL MÓDULO"}
-            </h1>
-
-            <p
-              style={{
-                fontFamily: "var(--font-ui)",
-                fontSize: "0.9rem",
-                color: TEXT_BODY,
-                lineHeight: 1.7,
-                margin: "0 0 32px",
-                whiteSpace: "pre-line",
-                maxWidth: "280px",
-              }}
-            >
-              {
-                "Este mapa muestra las señales que activaste. No hay correcto ni incorrecto — hay un punto de partida."
-              }
-            </p>
-
-            <div
-              role="presentation"
-              style={{
-                width: "40px",
-                height: "2px",
-                backgroundColor: data.colorCurso,
-                marginBottom: "32px",
-              }}
-            />
-
-            <p style={{ ...labelMicroCaps, marginBottom: "16px", marginTop: 0 }}>TU RECORRIDO</p>
-
-            {(
-              [
-                ["Al inicio elegiste", data.recorrido.alInicioElegiste],
-                ["Lo que sentiste", data.recorrido.loQueSentiste],
-                ["Tu decisión final", data.recorrido.tuDecisionFinal],
-                ["Lo que te llevas", data.recorrido.loQueTeLlevas],
-              ] as const
-            ).map(([lab, val]) => (
-              <div
-                key={lab}
-                style={{
-                  padding: "12px 0",
-                  borderBottom: `0.5px solid ${SEPARATOR_LINE}`,
-                }}
-              >
-                <div style={syneMuted11}>{lab}</div>
-                <div style={{ ...syneBody85, marginTop: "4px" }}>{val}</div>
-              </div>
-            ))}
-
-            <div style={{ marginTop: "24px", display: "flex", justifyContent: "space-between", gap: "16px" }}>
-              <span style={syneMuted11}>{data.fechaTexto}</span>
-              <span style={syneMuted11}>{data.marca}</span>
-            </div>
-
-            <button
-              type="button"
-              style={{
-                marginTop: "24px",
-                width: "100%",
-                backgroundColor: data.colorCurso,
-                color: "#FFFFFF",
-                fontFamily: "var(--font-display)",
-                fontSize: "1.1rem",
-                letterSpacing: "0.08em",
-                padding: "14px 24px",
-                border: "none",
-                cursor: "pointer",
-                textTransform: "uppercase",
-              }}
-              onClick={() => downloadMapa(quizId || "quiz", data)}
-            >
-              Descargar
-            </button>
-
+      <div
+        style={{
+          maxWidth: '1100px',
+          margin: '0 auto',
+          padding: '56px 48px 80px',
+        }}
+      >
+        <div
+            id="mapa-señales-card"
+          style={{
+            display: 'grid',
+              gridTemplateColumns: '320px 1fr',
+              gap: '64px',
+            alignItems: 'start',
+          }}
+        >
             <section
               style={{
-                marginTop: "16px",
-                backgroundColor: "#FFFFFF",
-                border: `0.5px solid ${SEPARATOR_LINE}`,
-                borderRadius: "8px",
-                padding: "20px",
+                position: 'sticky',
+                top: '72px',
               }}
             >
-              <p style={{ ...labelMicroCaps, marginBottom: "8px", marginTop: 0 }}>{data.siguientePaso.label}</p>
+              <div
+                style={{
+                  fontFamily: 'var(--font-ui)',
+                  fontSize: '10px',
+                  fontWeight: 700,
+                  letterSpacing: '0.18em',
+                  textTransform: 'uppercase',
+                  color: '#999',
+                  marginBottom: '12px',
+                }}
+              >
+                {nombreCurso}
+              </div>
+              <h1
+                style={{
+                  fontFamily: 'var(--font-display)',
+                  fontSize: 'clamp(2.9rem,5.4vw,4.5rem)',
+                  color,
+                  lineHeight: 1,
+                  letterSpacing: '0.02em',
+                  marginBottom: '16px',
+                  whiteSpace: 'pre-line',
+                }}
+              >
+                {'COMPLETASTE\nEL MÓDULO'}
+              </h1>
               <p
                 style={{
-                  fontFamily: "var(--font-display)",
-                  fontSize: "0.85rem",
-                  color: "#333",
-                  lineHeight: 1.6,
-                  margin: "0 0 10px",
+                  fontFamily: 'var(--font-ui)',
+                  fontSize: '1rem',
+                  color: '#666',
+                  lineHeight: 1.75,
+                  marginBottom: '32px',
                 }}
               >
-                {data.siguientePaso.texto}
+                Este mapa muestra las señales que activaste. No hay correcto ni incorrecto, hay un punto de
+                partida.
               </p>
-              <Link
-                href={data.siguientePaso.href}
-                prefetch={false}
+              <div
                 style={{
-                  color: data.colorCurso,
+                  width: '40px',
+                  height: '2px',
+                  backgroundColor: color,
+                  marginBottom: '32px',
+                }}
+              />
+              <div
+                style={{
+                  fontFamily: 'var(--font-ui)',
+                  fontSize: '11px',
                   fontWeight: 700,
-                  fontFamily: "var(--font-display)",
-                  fontSize: "0.85rem",
-                  textDecoration: "none",
+                  letterSpacing: '0.18em',
+                  textTransform: 'uppercase',
+                  color: '#999',
+                  marginBottom: '16px',
                 }}
               >
-                {data.siguientePaso.linkTexto}
-              </Link>
-            </section>
-          </div>
+                TU RECORRIDO
+              </div>
 
-          {/* Columna derecha */}
-          <div>
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "12px",
-                marginBottom: "28px",
-                flexWrap: "wrap",
-              }}
-            >
-              <span style={{ fontFamily: "var(--font-display)", fontSize: "0.75rem", color: TEXT_MUTED }}>
-                Cada punto = una decisión que tomaste
-              </span>
-              <DotsRow filled={legendEjemploLlenos} total={5} courseColor={data.colorCurso} />
-              <span style={{ fontFamily: "var(--font-display)", fontSize: "0.75rem", color: TEXT_MUTED }}>
-                más = más desarrollada
-              </span>
-            </div>
+              {[
+                { label: 'Al inicio elegiste', valor: recorrido.paso1 },
+                { label: 'Lo que sentiste', valor: recorrido.emocion },
+                { label: 'Tu decisión final', valor: recorrido.decisionFinal },
+                { label: 'Lo que te llevas', valor: recorrido.textoLlevar },
+              ]
+                .filter(row => row.valor)
+                .map(row => (
+                  <div
+                    key={row.label}
+                    style={{
+                      padding: '12px 0',
+                      borderBottom: '0.5px solid rgba(0,0,0,0.08)',
+                    }}
+                  >
+                    <div
+                      style={{
+                        fontFamily: 'var(--font-ui)',
+                        fontSize: '12px',
+                        color: '#999',
+                      }}
+                    >
+                      {row.label}
+                    </div>
+                    <div
+                      style={{
+                        fontFamily: 'var(--font-ui)',
+                        fontSize: '0.95rem',
+                        color: '#1A1A1A',
+                        lineHeight: 1.55,
+                        marginTop: '4px',
+                      }}
+                    >
+                      {row.valor}
+                    </div>
+                  </div>
+                ))}
 
-            <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
-              {data.senales.map((s) => (
-                <article
-                  key={s.nombre}
+              <div
+                style={{
+                  marginTop: '24px',
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  fontFamily: 'var(--font-ui)',
+                  fontSize: '12px',
+                  color: '#999',
+                }}
+              >
+                <span>
+                  {new Date().toLocaleDateString('es-CL', {
+                    day: 'numeric',
+                    month: 'long',
+                    year: 'numeric',
+                  })}
+                </span>
+                <span>Clic · Precisar</span>
+              </div>
+
+              <button
+                onClick={descargando ? undefined : handleDescargar}
+                style={{
+                  marginTop: '24px',
+                  width: '100%',
+                  backgroundColor: color,
+                  color: '#FFFFFF',
+                  fontFamily: 'var(--font-display)',
+                  fontSize: '1.2rem',
+                  letterSpacing: '0.08em',
+                  padding: '14px 24px',
+                  border: 'none',
+                  cursor: descargando ? 'default' : 'pointer',
+                }}
+              >
+                {descargando ? 'DESCARGANDO...' : 'DESCARGAR'}
+              </button>
+
+              <div
+                style={{
+                  marginTop: '16px',
+                  backgroundColor: '#FFFFFF',
+                  border: '0.5px solid rgba(0,0,0,0.08)',
+                  borderRadius: '8px',
+                  padding: '20px',
+                }}
+              >
+                <div
                   style={{
-                    padding: "20px 0",
-                    borderBottom: `0.5px solid ${SEPARATOR_LINE}`,
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "flex-start",
-                    gap: "24px",
+                    fontFamily: 'var(--font-ui)',
+                    fontSize: '10px',
+                    color: '#999',
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.18em',
+                    marginBottom: '8px',
                   }}
                 >
-                  <div style={{ minWidth: 0 }}>
-                    <h2
+                  Siguiente paso sugerido
+                </div>
+                <p
+                  style={{
+                    fontFamily: 'var(--font-ui)',
+                    fontSize: '0.95rem',
+                    color: '#333',
+                    lineHeight: 1.65,
+                    marginBottom: '10px',
+                  }}
+                >
+                  Basado en tu mapa, el siguiente módulo que más te puede aportar es ¿Quién habló?, sobre IA y
+                  voz clonada.
+                </p>
+                <Link
+                  href="/cursos/quien-hablo"
+                  style={{
+                    color,
+                    fontFamily: 'var(--font-ui)',
+                    fontSize: '0.95rem',
+                    fontWeight: 700,
+                    textDecoration: 'none',
+                  }}
+                >
+                  IR A ESE MÓDULO →
+                </Link>
+              </div>
+            </section>
+
+            <section style={{ flex: 1 }}>
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '12px',
+                  marginBottom: '28px',
+                  flexWrap: 'wrap',
+                }}
+              >
+                <span
+                  style={{
+                    fontFamily: 'var(--font-ui)',
+                    fontSize: '0.9rem',
+                    color: '#999',
+                  }}
+                >
+                  Cada punto = una decisión que tomaste
+                </span>
+                <div style={{ display: 'flex', gap: '5px' }}>
+                  {[1, 2, 3, 4, 5].map(n => (
+                    <div
+                      key={n}
                       style={{
-                        fontFamily: "var(--font-display)",
-                        fontSize: "1.4rem",
-                        letterSpacing: "0.02em",
-                        color: TEXT_DARK,
-                        margin: "0 0 4px",
-                        fontWeight: 600,
+                        width: '11px',
+                        height: '11px',
+                        borderRadius: '50%',
+                        backgroundColor: n <= 3 ? color : '#E0DDD6',
+                      }}
+                    />
+                  ))}
+                </div>
+                <span
+                  style={{
+                    fontFamily: 'var(--font-ui)',
+                    fontSize: '0.9rem',
+                    color: '#999',
+                  }}
+                >
+                  más = más desarrollada
+                </span>
+              </div>
+
+              <div
+                style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '0',
+                }}
+              >
+                {SEÑALES_ANTES_DE_COMPARTIR.map(señal => {
+                  const nivel = mapaCalc[señal.id] || 'explorando'
+                  const puntos = nivelAPuntos(nivel)
+
+                  return (
+                    <div
+                      key={señal.id}
+                      style={{
+                        padding: '20px 0',
+                        borderBottom: '0.5px solid rgba(0,0,0,0.08)',
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        alignItems: 'flex-start',
+                        gap: '24px',
                       }}
                     >
-                      {s.nombre}
-                    </h2>
-                    <p
-                      style={{
-                        fontFamily: "var(--font-ui)",
-                        fontSize: "0.82rem",
-                        color: TEXT_MUTED,
-                        lineHeight: 1.5,
-                        margin: 0,
-                      }}
-                    >
-                      {s.nivelLabel} · {s.descripcion}
-                    </p>
-                  </div>
-                  <DotsRow filled={s.nivelDots} total={5} courseColor={data.colorCurso} />
-                </article>
-              ))}
-            </div>
+                      <div>
+                        <div
+                          style={{
+                            fontFamily: 'var(--font-display)',
+                            fontSize: '1.62rem',
+                            letterSpacing: '0.02em',
+                            color: '#1A1A1A',
+                            marginBottom: '4px',
+                          }}
+                        >
+                          {señal.nombre}
+                        </div>
+                        <div
+                          style={{
+                            fontFamily: 'var(--font-ui)',
+                            fontSize: '0.95rem',
+                            color: '#999',
+                            lineHeight: 1.6,
+                          }}
+                        >
+                          {ETIQUETA_NIVEL[nivel]},{' '}
+                          {nivel === 'fuerte'
+                            ? sinGuionesConComas(señal.descripcion_fuerte)
+                            : nivel === 'desarrollando'
+                              ? sinGuionesConComas(señal.descripcion_desarrollando)
+                              : sinGuionesConComas(señal.descripcion_explorando)}
+                        </div>
+                      </div>
+                      <div
+                        style={{
+                          display: 'flex',
+                          gap: '5px',
+                          flexShrink: 0,
+                          marginTop: '4px',
+                        }}
+                      >
+                        {[1, 2, 3, 4, 5].map(n => (
+                          <div
+                            key={n}
+                            style={{
+                              width: '11px',
+                              height: '11px',
+                              borderRadius: '50%',
+                              backgroundColor: n <= puntos ? color : '#E0DDD6',
+                            }}
+                          />
+                        ))}
+                      </div>
+                    </div>
+                  )
+                })}
+              </div>
+            </section>
           </div>
         </div>
-      </div>
     </main>
-  );
+  )
 }
