@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
- * Genera un documento exportable con textos literales por página (es),
- * con títulos claros: ruta URL, archivo y título de metadata si existe.
+ * Genera docs/textos-paginas-internas-es.md: solo títulos (##) y texto,
+ * un bloque por página. Regenerar: node scripts/export-textos-paginas.mjs
  */
 import fs from "fs";
 import path from "path";
@@ -64,6 +64,7 @@ function cleanMetaTitle(t) {
 
 function looksLikeNoise(t) {
   if (t.length < 12) return true;
+  if (/^\.\.?\/[^\\\s]+\.(css|tsx?|jsx?|json|svg)(\s|$)/i.test(t)) return true;
   if (/\b(clamp\(|sans-serif|vw\)|rem\)|'Avenir|"Avenir)/i.test(t)) return true;
   if (t.includes("@/") || /^next(\/|$)/.test(t)) return true;
   if (["_blank", "noreferrer"].includes(t)) return true;
@@ -114,68 +115,53 @@ function mdEscape(s) {
   return s.replace(/\r\n/g, "\n").replace(/\n{3,}/g, "\n\n");
 }
 
+/** Solo valores string de messages/es.json, en orden de aparición. */
+function stringsFromMessagesJson(raw) {
+  const out = [];
+  function walk(node) {
+    if (typeof node === "string") out.push(node);
+    else if (Array.isArray(node)) node.forEach(walk);
+    else if (node && typeof node === "object") Object.values(node).forEach(walk);
+  }
+  walk(JSON.parse(raw));
+  return out;
+}
+
 const pages = [
   ...walkPageTsx(SITE),
   ...EXTRA.filter((p) => fs.existsSync(p)),
 ].sort((a, b) => siteUrlPath(a).localeCompare(siteUrlPath(b), "es"));
 
 const lines = [];
-lines.push("# Textos del sitio Precisar (exportación)");
+
+lines.push("## Textos compartidos (navegación, inicio, pie)");
 lines.push("");
 lines.push(
-  "Documento generado para revisión editorial. Los textos se extraen de literales en cada `page.tsx` (no incluye solo componentes importados, CMS ni datos dinámicos).",
+  stringsFromMessagesJson(fs.readFileSync(path.join(ROOT, "messages/es.json"), "utf8"))
+    .map((s) => mdEscape(s).trim())
+    .join("\n\n"),
 );
-lines.push("");
-lines.push("**Regenerar:** en la raíz del repo, ejecutar `node scripts/export-textos-paginas.mjs`.");
-lines.push("");
-lines.push(`_Generado: ${new Date().toISOString().slice(0, 10)}._`);
-lines.push("");
-
-lines.push("---");
-lines.push("");
-lines.push("## Textos compartidos (i18n) — `messages/es.json`");
-lines.push("");
-lines.push("Aplican a navegación, secciones del inicio, migas de pan, pie, etc.");
-lines.push("");
-lines.push("```json");
-lines.push(mdEscape(fs.readFileSync(path.join(ROOT, "messages/es.json"), "utf8").trim()));
-lines.push("```");
 lines.push("");
 
 for (const abs of pages) {
-  const rel = path.relative(ROOT, abs);
   const urlPath = siteUrlPath(abs);
   const src = fs.readFileSync(abs, "utf8");
   const metaTitleRaw = extractMetaField(src, "title");
   const metaDesc = extractMetaField(src, "description");
   const displayTitle = metaTitleRaw ? cleanMetaTitle(metaTitleRaw) : slugToFallbackTitle(urlPath);
 
-  lines.push("---");
-  lines.push("");
-  lines.push(`## Página: ${displayTitle}`);
-  lines.push("");
-  if (urlPath === "(inicio)") {
-    lines.push(`- **Ruta pública:** \`/{locale}\` (inicio; el locale es \`es\`, \`en\` o \`pt\`)`);
-  } else {
-    lines.push(`- **Ruta pública:** \`/{locale}/${urlPath}\``);
-  }
-  lines.push(`- **Archivo:** \`${rel}\``);
-  if (metaTitleRaw) lines.push(`- **Metadata title (original):** ${metaTitleRaw}`);
-  if (metaDesc) {
-    lines.push(`- **Metadata description:** ${metaDesc}`);
-  }
+  lines.push(`## ${displayTitle}`);
   lines.push("");
 
   const strs = extractStrings(src);
-  lines.push("### Textos detectados en el archivo");
-  lines.push("");
-  if (strs.length === 0) {
-    lines.push("_No se detectaron cadenas largas en este archivo (el contenido puede vivir en componentes hijos)._");
+  const parts = [];
+  if (metaDesc) parts.push(mdEscape(metaDesc).trim());
+  for (const s of strs) parts.push(mdEscape(s).trim());
+
+  if (parts.length === 0) {
+    lines.push("(Sin texto extraído en este archivo.)");
   } else {
-    for (const s of strs) {
-      const oneLine = mdEscape(s).replace(/\n/g, " ");
-      lines.push(`- ${oneLine}`);
-    }
+    lines.push(parts.join("\n\n"));
   }
   lines.push("");
 }
