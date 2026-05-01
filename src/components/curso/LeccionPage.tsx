@@ -16,6 +16,11 @@ import {
   estadoGuiaPorNumeroPaso,
   type EstadoPersonaje,
 } from '@/components/curso/PersonajeGuia'
+import {
+  FRASE_DECISION_FINAL_GUIA,
+  guiaPorLongitudTextoLibre,
+  type GuiaMoment,
+} from '@/components/curso/personajeGuiaReglas'
 
 type Props = {
   curso: CursoContenido
@@ -39,7 +44,10 @@ export function LeccionPage({ curso, pasoActual, pasoIndex }: Props) {
   const [canNext, setCanNext] = useState(false)
   const [, setInteracciones] = useState<Record<string, unknown>>({})
   const [estadoPersonaje, setEstadoPersonaje] = useState<EstadoPersonaje>(() =>
-    estadoGuiaPorNumeroPaso(pasoActual.numero)
+    pasoActual.contenido.tipo === 'decision_final' ? 'aprueba' : estadoGuiaPorNumeroPaso(pasoActual.numero)
+  )
+  const [fraseGloboPersonaje, setFraseGloboPersonaje] = useState<string | null>(() =>
+    pasoActual.contenido.tipo === 'decision_final' ? FRASE_DECISION_FINAL_GUIA : null
   )
   const celebrateTimerRef = useRef<number | null>(null)
   const [personajeEnBody, setPersonajeEnBody] = useState(false)
@@ -69,8 +77,14 @@ export function LeccionPage({ curso, pasoActual, pasoIndex }: Props) {
   }, [pasoIndex, curso.pasos, completoSlugKey])
 
   useEffect(() => {
-    setEstadoPersonaje(estadoGuiaPorNumeroPaso(pasoActual.numero))
-  }, [pasoActual.slug, pasoActual.numero])
+    if (pasoActual.contenido.tipo === 'decision_final') {
+      setEstadoPersonaje('aprueba')
+      setFraseGloboPersonaje(FRASE_DECISION_FINAL_GUIA)
+    } else {
+      setEstadoPersonaje(estadoGuiaPorNumeroPaso(pasoActual.numero))
+      setFraseGloboPersonaje(null)
+    }
+  }, [pasoActual.slug, pasoActual.numero, pasoActual.contenido.tipo])
 
   useEffect(() => {
     return () => {
@@ -140,17 +154,35 @@ export function LeccionPage({ curso, pasoActual, pasoIndex }: Props) {
 
   const handleScrollPanico = useCallback(() => setCanNext(true), [])
 
-  const celebrarDosSegundosAntesQuiz = useCallback(() => {
-    setEstadoPersonaje('celebra')
-    return new Promise<void>((resolve) => {
-      if (celebrateTimerRef.current !== null) clearTimeout(celebrateTimerRef.current)
-      celebrateTimerRef.current = window.setTimeout(() => resolve(), 2000)
-    })
-  }, [])
+  const onGuiaMoment = useCallback(
+    (m: GuiaMoment) => {
+      if (pasoActual.contenido.tipo === 'decision_final') return
+      setEstadoPersonaje(m.estado)
+      setFraseGloboPersonaje(m.frase)
+    },
+    [pasoActual.contenido.tipo]
+  )
+
+  const onAvanceTextoLibre = useCallback(
+    (s: string) => {
+      if (pasoActual.contenido.tipo !== 'texto_libre') return
+      const t = s.trim()
+      if (t.length === 0) {
+        setEstadoPersonaje(estadoGuiaPorNumeroPaso(pasoActual.numero))
+        setFraseGloboPersonaje(null)
+        return
+      }
+      const moment = guiaPorLongitudTextoLibre(t.length)
+      setEstadoPersonaje(moment.estado)
+      setFraseGloboPersonaje(moment.frase)
+    },
+    [pasoActual.contenido.tipo, pasoActual.numero]
+  )
 
   const handleSiguiente = () => {
     if (!canNext || pasoActual.contenido.tipo === 'decision_final') return
     if (!siguientePaso) return
+    setFraseGloboPersonaje(null)
     setEstadoPersonaje('celebra')
     if (celebrateTimerRef.current !== null) clearTimeout(celebrateTimerRef.current)
     celebrateTimerRef.current = window.setTimeout(() => {
@@ -215,7 +247,8 @@ export function LeccionPage({ curso, pasoActual, pasoIndex }: Props) {
             onScrollCompleto={handleScrollPanico}
             onAnalisisSuficiente={handleAnalisisSuficiente}
             onInteraccion={handleInteraccion}
-            onAntesQuiz={celebrarDosSegundosAntesQuiz}
+            onGuiaMoment={onGuiaMoment}
+            onAvanceTextoLibre={onAvanceTextoLibre}
           />
         </div>
       </main>
@@ -250,7 +283,7 @@ export function LeccionPage({ curso, pasoActual, pasoIndex }: Props) {
                   lineHeight: 1.4,
                 }}
               >
-                {FRASES_PERSONAJE[estadoPersonaje]}
+                {fraseGloboPersonaje ?? FRASES_PERSONAJE[estadoPersonaje]}
               </div>
             </div>,
             document.body

@@ -3,6 +3,12 @@
 import { useRouter } from 'next/navigation'
 import { useCallback, useEffect, useMemo, useRef, useState, type Dispatch, type SetStateAction } from 'react'
 import type { CursoContenido, Paso, PasoContenido } from '@/lib/cursos/tipos'
+import {
+  guiaPorEmocion,
+  guiaPorIdCasoConOpciones,
+  guiaPorOpcionKit,
+  type GuiaMoment,
+} from '@/components/curso/personajeGuiaReglas'
 
 export type PasoInteractivoProps = {
   paso: Paso
@@ -13,8 +19,10 @@ export type PasoInteractivoProps = {
   onInteraccion: (key: string, valor: unknown) => void
   onScrollCompleto: () => void
   onAnalisisSuficiente: () => void
-  /** Espera antes de navegar al quiz (celebración del guía animado). */
-  onAntesQuiz?: () => Promise<void>
+  /** Reacción contextual del guía (sin usar «celebra» salvo siguiente paso en la página madre). */
+  onGuiaMoment?: (m: GuiaMoment) => void
+  /** Cambios continuos del texto libre (caracteres, para escucha/aprueba sin juicio). */
+  onAvanceTextoLibre?: (textoCompleto: string) => void
 }
 
 export function PasoInteractivo({
@@ -26,7 +34,8 @@ export function PasoInteractivo({
   onInteraccion,
   onScrollCompleto,
   onAnalisisSuficiente,
-  onAntesQuiz,
+  onGuiaMoment,
+  onAvanceTextoLibre,
 }: PasoInteractivoProps) {
   switch (contenido.tipo) {
     case 'bienvenida':
@@ -37,6 +46,7 @@ export function PasoInteractivo({
           contenido={contenido}
           color={color}
           storageKey={paso.storageKey}
+          onGuiaMoment={onGuiaMoment}
           onSeleccion={v => onInteraccion('opcion', v)}
         />
       )
@@ -46,6 +56,7 @@ export function PasoInteractivo({
           contenido={contenido}
           color={color}
           storageKey={paso.storageKey}
+          onGuiaMoment={onGuiaMoment}
           onSeleccion={v => onInteraccion('emocion', v)}
         />
       )
@@ -63,7 +74,13 @@ export function PasoInteractivo({
       return <ExplicacionTarjetas contenido={contenido} onScrollCompleto={onScrollCompleto} />
     case 'kit_preguntas':
       return (
-        <KitPreguntas contenido={contenido} color={color} lsAggregateKey={paso.storageKey ?? ''} onCompleto={() => onInteraccion('kit', true)} />
+        <KitPreguntas
+          contenido={contenido}
+          color={color}
+          lsAggregateKey={paso.storageKey ?? ''}
+          onGuiaMoment={onGuiaMoment}
+          onCompleto={() => onInteraccion('kit', true)}
+        />
       )
     case 'decision_accion':
       return (
@@ -76,17 +93,16 @@ export function PasoInteractivo({
       )
     case 'texto_libre':
       return (
-        <TextoLibre contenido={contenido} storageKey={paso.storageKey} onTexto={(v: string) => onInteraccion('texto', v)} />
+        <TextoLibre
+          contenido={contenido}
+          storageKey={paso.storageKey}
+          onAvance={onAvanceTextoLibre}
+          onTexto={(v: string) => onInteraccion('texto', v)}
+        />
       )
     case 'decision_final':
       return (
-        <DecisionFinalPaso
-          contenido={contenido}
-          color={color}
-          pasoDecisionStorageKey={paso.storageKey}
-          curso={curso}
-          onAntesQuiz={onAntesQuiz}
-        />
+        <DecisionFinalPaso contenido={contenido} color={color} pasoDecisionStorageKey={paso.storageKey} curso={curso} />
       )
     default:
       return null
@@ -119,26 +135,38 @@ function CasoConOpciones({
   contenido,
   color,
   storageKey,
+  onGuiaMoment,
   onSeleccion,
 }: {
   contenido: Extract<PasoContenido, { tipo: 'caso_con_opciones' }>
   color: string
   storageKey?: string
+  onGuiaMoment?: (m: GuiaMoment) => void
   onSeleccion: (textoOpcion: string) => void
 }) {
   const [sel, setSel] = useState('')
+  const onSelRef = useRef(onSeleccion)
+  const onGuiaRef = useRef(onGuiaMoment)
+  useEffect(() => {
+    onSelRef.current = onSeleccion
+  }, [onSeleccion])
+  useEffect(() => {
+    onGuiaRef.current = onGuiaMoment
+  }, [onGuiaMoment])
 
   useEffect(() => {
     const k = storageKey
     if (!k || typeof window === 'undefined') return
     const s = window.localStorage.getItem(k)
-    if (s) {
-      queueMicrotask(() => setSel(s))
-      queueMicrotask(() => {
-        onSeleccion(s)
-      })
-    }
-  }, [storageKey])
+    if (!s) return
+    queueMicrotask(() => {
+      setSel(s)
+      const op = contenido.opciones.find(o => o.texto === s)
+      const m = op ? guiaPorIdCasoConOpciones(op.id) : undefined
+      if (m) onGuiaRef.current?.(m)
+      onSelRef.current(s)
+    })
+  }, [storageKey, contenido.opciones])
 
   return (
     <div>
@@ -164,6 +192,8 @@ function CasoConOpciones({
             onClick={() => {
               setSel(op.texto)
               if (storageKey && typeof window !== 'undefined') window.localStorage.setItem(storageKey, op.texto)
+              const m = guiaPorIdCasoConOpciones(op.id)
+              if (m) onGuiaMoment?.(m)
               onSeleccion(op.texto)
             }}
             className="w-full rounded-md bg-white px-5 py-4 text-left font-[var(--font-ui)] text-[0.95rem] text-[#333] transition hover:bg-[#FAFAF8]"
@@ -184,26 +214,38 @@ function SelectorEmocion({
   contenido,
   color,
   storageKey,
+  onGuiaMoment,
   onSeleccion,
 }: {
   contenido: Extract<PasoContenido, { tipo: 'selector_emocion' }>
   color: string
   storageKey?: string
+  onGuiaMoment?: (m: GuiaMoment) => void
   onSeleccion: (label: string) => void
 }) {
   const [emo, setEmo] = useState('')
+  const onSelRef = useRef(onSeleccion)
+  const onGuiaRef = useRef(onGuiaMoment)
+  useEffect(() => {
+    onSelRef.current = onSeleccion
+  }, [onSeleccion])
+  useEffect(() => {
+    onGuiaRef.current = onGuiaMoment
+  }, [onGuiaMoment])
 
   useEffect(() => {
     const k = storageKey
     if (!k || typeof window === 'undefined') return
     const s = window.localStorage.getItem(k)
-    if (s) {
-      queueMicrotask(() => setEmo(s))
-      queueMicrotask(() => {
-        onSeleccion(s)
-      })
-    }
-  }, [storageKey])
+    if (!s) return
+    queueMicrotask(() => {
+      setEmo(s)
+      const hit = contenido.emociones.find(e => e.label === s)
+      const gm = hit ? guiaPorEmocion(hit) : undefined
+      if (gm) onGuiaRef.current?.(gm)
+      onSelRef.current(s)
+    })
+  }, [storageKey, contenido.emociones])
 
   const selected = contenido.emociones.find(e => e.label === emo)
 
@@ -218,6 +260,8 @@ function SelectorEmocion({
             onClick={() => {
               setEmo(item.label)
               if (storageKey && typeof window !== 'undefined') window.localStorage.setItem(storageKey, item.label)
+              const gm = guiaPorEmocion(item)
+              if (gm) onGuiaMoment?.(gm)
               onSeleccion(item.label)
             }}
             className="w-full rounded-md bg-white px-5 py-4 text-left font-[var(--font-ui)] text-[0.95rem] text-[#333] transition hover:bg-[#FAFAF8]"
@@ -444,19 +488,25 @@ function KitPreguntas({
   contenido,
   color,
   lsAggregateKey,
+  onGuiaMoment,
   onCompleto,
 }: {
   contenido: Extract<PasoContenido, { tipo: 'kit_preguntas' }>
   color: string
   lsAggregateKey: string
+  onGuiaMoment?: (m: GuiaMoment) => void
   onCompleto: () => void
 }) {
   const [kitRespuestas, setKitRespuestas] = useState<Record<number, string>>({})
   const KIT_OPS = ['CLARO', 'DUDOSO', 'FALTA INFORMACIÓN'] as const
   const onCompletoRef = useRef(onCompleto)
+  const onGuiaMomentRef = useRef(onGuiaMoment)
   useEffect(() => {
     onCompletoRef.current = onCompleto
   }, [onCompleto])
+  useEffect(() => {
+    onGuiaMomentRef.current = onGuiaMoment
+  }, [onGuiaMoment])
 
   useEffect(() => {
     if (typeof window === 'undefined' || !lsAggregateKey) return
@@ -464,14 +514,17 @@ function KitPreguntas({
       const raw = window.localStorage.getItem(lsAggregateKey)
       if (!raw) return
       const arr = JSON.parse(raw) as string[]
-      if (!Array.isArray(arr) || arr.length !== contenido.preguntas.length) return
+      if (!Array.isArray(arr) || arr.length === 0) return
       const rec: Record<number, string> = {}
       arr.forEach((v, i) => {
-        rec[i + 1] = v
+        if (v) rec[i + 1] = v
       })
       queueMicrotask(() => {
         setKitRespuestas(rec)
-        onCompletoRef.current?.()
+        if (arr.length === contenido.preguntas.length) onCompletoRef.current?.()
+        const tail = [...arr].reverse().find(v => typeof v === 'string' && v.length > 0)
+        const g = tail ? guiaPorOpcionKit(tail) : undefined
+        if (g) onGuiaMomentRef.current?.(g)
       })
     } catch {
       /* noop */
@@ -506,6 +559,8 @@ function KitPreguntas({
                     key={op}
                     type="button"
                     onClick={() => {
+                      const g = guiaPorOpcionKit(op)
+                      if (g) onGuiaMoment?.(g)
                       setKitRespuestas(prev => {
                         const next = { ...prev, [idxq]: op }
                         syncLs(next)
@@ -603,25 +658,34 @@ function DecisionAccion({
 function TextoLibre({
   contenido,
   storageKey,
+  onAvance,
   onTexto,
 }: {
   contenido: Extract<PasoContenido, { tipo: 'texto_libre' }>
   storageKey?: string
+  onAvance?: (t: string) => void
   onTexto: (t: string) => void
 }) {
   const [val, setVal] = useState('')
+  const onAvanceRef = useRef(onAvance)
+  const onTextoRef = useRef(onTexto)
+  useEffect(() => {
+    onAvanceRef.current = onAvance
+  }, [onAvance])
+  useEffect(() => {
+    onTextoRef.current = onTexto
+  }, [onTexto])
 
   useEffect(() => {
     const k = storageKey
     if (!k || typeof window === 'undefined') return
     const s = window.localStorage.getItem(k)
-    if (s) {
-      queueMicrotask(() => setVal(s))
-      if (s.trim().length >= contenido.minCaracteres)
-        queueMicrotask(() => {
-          onTexto(s)
-        })
-    }
+    if (!s) return
+    queueMicrotask(() => {
+      setVal(s)
+      onAvanceRef.current?.(s)
+      if (s.trim().length >= contenido.minCaracteres) onTextoRef.current(s)
+    })
   }, [contenido.minCaracteres, storageKey])
 
   const ok = val.trim().length >= contenido.minCaracteres
@@ -641,6 +705,7 @@ function TextoLibre({
           const next = e.target.value
           setVal(next)
           if (storageKey && typeof window !== 'undefined') window.localStorage.setItem(storageKey, next)
+          onAvance?.(next)
           if (next.trim().length >= contenido.minCaracteres) onTexto(next)
         }}
         placeholder={contenido.placeholder}
@@ -657,13 +722,11 @@ function DecisionFinalPaso({
   color,
   pasoDecisionStorageKey,
   curso,
-  onAntesQuiz,
 }: {
   contenido: Extract<PasoContenido, { tipo: 'decision_final' }>
   color: string
   pasoDecisionStorageKey?: string
   curso: CursoContenido
-  onAntesQuiz?: () => Promise<void>
 }) {
   const router = useRouter()
   const paso1Key = curso.pasos.find(p => p.tipo === 'caso_con_opciones')?.storageKey ?? `${curso.storagePrefix}-paso1-respuesta`
@@ -677,10 +740,9 @@ function DecisionFinalPaso({
     if (r) queueMicrotask(() => setPaso1(r))
   }, [contenido.campos, paso1Key])
 
-  const completar = async () => {
+  const completar = () => {
     window.localStorage.setItem(`${curso.storagePrefix}-texto-llevar`, reflexiones[3] || '')
     if (pasoDecisionStorageKey) window.localStorage.setItem(pasoDecisionStorageKey, reflexiones[0] || '')
-    if (onAntesQuiz) await onAntesQuiz()
     router.push(curso.rutaQuiz)
   }
 
