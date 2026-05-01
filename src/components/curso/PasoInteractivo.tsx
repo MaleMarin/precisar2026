@@ -13,6 +13,8 @@ export type PasoInteractivoProps = {
   onInteraccion: (key: string, valor: unknown) => void
   onScrollCompleto: () => void
   onAnalisisSuficiente: () => void
+  /** Espera antes de navegar al quiz (celebración del guía animado). */
+  onAntesQuiz?: () => Promise<void>
 }
 
 export function PasoInteractivo({
@@ -24,6 +26,7 @@ export function PasoInteractivo({
   onInteraccion,
   onScrollCompleto,
   onAnalisisSuficiente,
+  onAntesQuiz,
 }: PasoInteractivoProps) {
   switch (contenido.tipo) {
     case 'bienvenida':
@@ -82,6 +85,7 @@ export function PasoInteractivo({
           color={color}
           pasoDecisionStorageKey={paso.storageKey}
           curso={curso}
+          onAntesQuiz={onAntesQuiz}
         />
       )
     default:
@@ -653,11 +657,13 @@ function DecisionFinalPaso({
   color,
   pasoDecisionStorageKey,
   curso,
+  onAntesQuiz,
 }: {
   contenido: Extract<PasoContenido, { tipo: 'decision_final' }>
   color: string
   pasoDecisionStorageKey?: string
   curso: CursoContenido
+  onAntesQuiz?: () => Promise<void>
 }) {
   const router = useRouter()
   const paso1Key = curso.pasos.find(p => p.tipo === 'caso_con_opciones')?.storageKey ?? `${curso.storagePrefix}-paso1-respuesta`
@@ -671,9 +677,10 @@ function DecisionFinalPaso({
     if (r) queueMicrotask(() => setPaso1(r))
   }, [contenido.campos, paso1Key])
 
-  const completar = () => {
+  const completar = async () => {
     window.localStorage.setItem(`${curso.storagePrefix}-texto-llevar`, reflexiones[3] || '')
     if (pasoDecisionStorageKey) window.localStorage.setItem(pasoDecisionStorageKey, reflexiones[0] || '')
+    if (onAntesQuiz) await onAntesQuiz()
     router.push(curso.rutaQuiz)
   }
 

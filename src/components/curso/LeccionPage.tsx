@@ -2,13 +2,19 @@
 
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 
 import type { CursoContenido, Paso } from '@/lib/cursos/tipos'
 import { COLORES_CURSO } from '@/lib/cursos/colores'
 import { tooltipStorageKey } from '@/lib/cursos'
 import { BarraPasos } from '@/components/curso/BarraPasos'
 import { PasoInteractivo } from '@/components/curso/PasoInteractivo'
+import {
+  FRASES_PERSONAJE,
+  PersonajeGuia,
+  estadoGuiaPorNumeroPaso,
+  type EstadoPersonaje,
+} from '@/components/curso/PersonajeGuia'
 
 type Props = {
   curso: CursoContenido
@@ -31,6 +37,10 @@ export function LeccionPage({ curso, pasoActual, pasoIndex }: Props) {
 
   const [canNext, setCanNext] = useState(false)
   const [, setInteracciones] = useState<Record<string, unknown>>({})
+  const [estadoPersonaje, setEstadoPersonaje] = useState<EstadoPersonaje>(() =>
+    estadoGuiaPorNumeroPaso(pasoActual.numero)
+  )
+  const celebrateTimerRef = useRef<number | null>(null)
 
   const completoSlugKey = useCallback((slug: string) => `${curso.storagePrefix}-completo-${slug}`, [curso.storagePrefix])
 
@@ -51,6 +61,19 @@ export function LeccionPage({ curso, pasoActual, pasoIndex }: Props) {
     const done = typeof window !== 'undefined' && window.localStorage.getItem(key) === '1'
     queueMicrotask(() => setPrevWarning(!done))
   }, [pasoIndex, curso.pasos, completoSlugKey])
+
+  useEffect(() => {
+    setEstadoPersonaje(estadoGuiaPorNumeroPaso(pasoActual.numero))
+  }, [pasoActual.slug, pasoActual.numero])
+
+  useEffect(() => {
+    return () => {
+      if (celebrateTimerRef.current !== null) {
+        clearTimeout(celebrateTimerRef.current)
+        celebrateTimerRef.current = null
+      }
+    }
+  }, [])
 
   useEffect(() => {
     const c = pasoActual.contenido
@@ -111,11 +134,23 @@ export function LeccionPage({ curso, pasoActual, pasoIndex }: Props) {
 
   const handleScrollPanico = useCallback(() => setCanNext(true), [])
 
+  const celebrarDosSegundosAntesQuiz = useCallback(() => {
+    setEstadoPersonaje('celebra')
+    return new Promise<void>((resolve) => {
+      if (celebrateTimerRef.current !== null) clearTimeout(celebrateTimerRef.current)
+      celebrateTimerRef.current = window.setTimeout(() => resolve(), 2000)
+    })
+  }, [])
+
   const handleSiguiente = () => {
     if (!canNext || pasoActual.contenido.tipo === 'decision_final') return
     if (!siguientePaso) return
-    if (typeof window !== 'undefined') window.localStorage.setItem(completoSlugKey(pasoActual.slug), '1')
-    router.push(`/curso/lecciones/${siguientePaso.slug}`)
+    setEstadoPersonaje('celebra')
+    if (celebrateTimerRef.current !== null) clearTimeout(celebrateTimerRef.current)
+    celebrateTimerRef.current = window.setTimeout(() => {
+      if (typeof window !== 'undefined') window.localStorage.setItem(completoSlugKey(pasoActual.slug), '1')
+      router.push(`/curso/lecciones/${siguientePaso.slug}`)
+    }, 2000)
   }
 
   const tituloPagina = pasoActual.contenido.tipo === 'bienvenida' ? pasoActual.titulo : pasoActual.titulo.toUpperCase()
@@ -174,9 +209,42 @@ export function LeccionPage({ curso, pasoActual, pasoIndex }: Props) {
             onScrollCompleto={handleScrollPanico}
             onAnalisisSuficiente={handleAnalisisSuficiente}
             onInteraccion={handleInteraccion}
+            onAntesQuiz={celebrarDosSegundosAntesQuiz}
           />
         </div>
       </main>
+
+      <div
+        aria-hidden
+        style={{
+          position: 'fixed',
+          bottom: 24,
+          left: 24,
+          zIndex: 15,
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          gap: 8,
+          pointerEvents: 'none',
+        }}
+      >
+        <PersonajeGuia color={color} estado={estadoPersonaje} size={100} />
+        <div
+          style={{
+            backgroundColor: '#FFFFFF',
+            border: '0.5px solid rgba(0,0,0,0.08)',
+            borderRadius: '12px 12px 12px 0',
+            padding: '8px 12px',
+            fontFamily: 'var(--font-ui)',
+            fontSize: '0.78rem',
+            color: '#333',
+            maxWidth: 160,
+            lineHeight: 1.4,
+          }}
+        >
+          {FRASES_PERSONAJE[estadoPersonaje]}
+        </div>
+      </div>
 
       {muestraStickySiguiente ? (
         <button

@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
+import { FRASES_PERSONAJE, PersonajeGuia } from '@/components/curso/PersonajeGuia'
 import { COLORES_CURSO } from '@/lib/cursos/colores'
 
 const color = COLORES_CURSO['antes-de-compartir']
@@ -15,6 +16,7 @@ export default function FinAntesDeCompartir() {
   }, [])
 
   return (
+    <>
     <main
       style={{
         backgroundColor: color,
@@ -165,5 +167,37 @@ export default function FinAntesDeCompartir() {
         </Link>
       </div>
     </main>
+    <div
+      aria-hidden
+      style={{
+        position: 'fixed',
+        bottom: 24,
+        left: 24,
+        zIndex: 15,
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        gap: 8,
+        pointerEvents: 'none',
+      }}
+    >
+      <PersonajeGuia color={color} estado="despide" size={100} />
+      <div
+        style={{
+          backgroundColor: '#FFFFFF',
+          border: '0.5px solid rgba(0,0,0,0.08)',
+          borderRadius: '12px 12px 12px 0',
+          padding: '8px 12px',
+          fontFamily: 'var(--font-ui)',
+          fontSize: '0.78rem',
+          color: '#333',
+          maxWidth: 160,
+          lineHeight: 1.4,
+        }}
+      >
+        {FRASES_PERSONAJE.despide}
+      </div>
+    </div>
+    </>
   )
 }

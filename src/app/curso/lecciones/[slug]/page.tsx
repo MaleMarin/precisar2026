@@ -21,6 +21,7 @@ export default async function LeccionSlugPage({ params }: Props) {
 
   return (
     <LeccionPage
+      key={slug}
       curso={hit.curso}
       pasoActual={hit.paso}
       pasoIndex={hit.pasoIndex}
