@@ -116,7 +116,7 @@ export default function MapaPage() {
         }}
       >
         <Link
-          href="/inicio"
+          href="/saberes/clic"
           style={{
             fontFamily: 'var(--font-ui)',
             fontSize: '0.8rem',

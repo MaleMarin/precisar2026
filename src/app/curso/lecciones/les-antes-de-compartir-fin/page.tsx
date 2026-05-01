@@ -148,7 +148,7 @@ export default function FinAntesDeCompartir() {
         </Link>
 
         <Link
-          href="/inicio"
+          href="/saberes/clic"
           style={{
             display: 'block',
             fontFamily: 'var(--font-ui)',

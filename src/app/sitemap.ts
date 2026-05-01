@@ -27,6 +27,7 @@ const STATIC_PATHS = [
   "/programas/funcionarios-publicos",
   "/programas/educacion-mediatica-digital-para-docentes",
   "/saberes",
+  "/saberes/clic",
   "/saberes/recorrido",
   "/saberes/una-pregunta-al-dia",
   "/precisando/explora",

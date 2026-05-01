@@ -246,7 +246,7 @@ export const SABERES_NAV_LINKS: NavItem[] = [
   { label: "Sentidos digitales", href: "/experiencias/sentidos-digitales" },
   { label: "Cultura digital", href: "/culturadigital" },
   /** Clic: microcursos y mapa de señales (app integrada, rutas sin prefijo /es). */
-  { label: "Clic", href: "/inicio" },
+  { label: "Clic", href: "/saberes/clic" },
   { label: "Saberes", href: "/saberes" },
 ];
 
@@ -325,7 +325,7 @@ export const FOOTER_COLUMNS: { title: string; links: NavItem[] }[] = [
       { label: "Una pregunta al día", href: "/unapreguntaaldia" },
       { label: "Sentidos digitales", href: "/experiencias/sentidos-digitales" },
       { label: "Cultura digital", href: "/culturadigital" },
-      { label: "Clic", href: "/inicio" },
+      { label: "Clic", href: "/saberes/clic" },
       { label: "Saberes", href: "/saberes" },
     ],
   },

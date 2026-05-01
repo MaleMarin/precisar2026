@@ -199,7 +199,7 @@ export default function CursoPage() {
         }}
       >
         <Link
-          href="/inicio"
+          href="/saberes/clic"
           style={{
             color: 'rgba(255,255,255,0.5)',
             textDecoration: 'none',
@@ -410,7 +410,7 @@ export default function CursoPage() {
           </Link>
 
           <Link
-            href="/inicio"
+            href="/saberes/clic"
             style={{
               fontFamily: 'var(--font-ui)',
               fontSize: '10px',

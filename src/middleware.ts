@@ -19,8 +19,7 @@ const SKIP_LOCALE_PREFIX_SEGMENTS = new Set([
   "consulta-observatorio",
   /** Resultado quiz / mapa de señales (`app/quiz/[quizId]`). */
   "quiz",
-  /** Clic: plataforma de cursos (`app/(plataforma)/*`). */
-  "inicio",
+  /** Clic: plataforma de cursos (`app/(plataforma)/*`, entrada en `/saberes/clic`). */
   "cursos",
   "curso",
   "perfil",
@@ -31,7 +30,6 @@ const RESERVED_ROOT_SEGMENTS = new Set(
   [
     "api",
     "quiz",
-    "inicio",
     "cursos",
     "curso",
     "perfil",
@@ -102,6 +100,13 @@ function redirectHomePrecisando(request: NextRequest, locale: string) {
 export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
   if (pathname.includes(".")) return NextResponse.next();
+
+  /** Clic pasó de `/inicio` a `/saberes/clic`. */
+  if (pathname === "/inicio") {
+    const url = request.nextUrl.clone();
+    url.pathname = "/saberes/clic";
+    return NextResponse.redirect(url, 308);
+  }
 
   const head = firstPathSegment(pathname);
   if (head && SKIP_LOCALE_PREFIX_SEGMENTS.has(head)) {

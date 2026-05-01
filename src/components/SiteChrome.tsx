@@ -8,16 +8,17 @@ import styles from "./SiteChrome.module.css";
 export function SiteChrome({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const isStudioHome = pathname === "/cinematic" || pathname === "/atelier";
+  const isSaberesClic = pathname.includes("/saberes/clic");
   const isCulturaDigital = pathname.includes("/culturadigital");
   const isHome = pathname === "/" || pathname === "";
-  const usePageInner = !isStudioHome && !isHome;
+  const usePageInner = !isStudioHome && !isHome && !isSaberesClic;
 
   return (
     <div className={styles.chrome}>
-      {!isStudioHome ? <SiteHeader /> : null}
+      {!isStudioHome && !isSaberesClic ? <SiteHeader /> : null}
       <main
         className={
-          isStudioHome
+          isStudioHome || isSaberesClic
             ? styles.mainHome
             : [styles.mainDefault, isCulturaDigital ? styles.mainCulturaDigital : ""].filter(Boolean).join(" ")
         }
@@ -28,7 +29,7 @@ export function SiteChrome({ children }: { children: React.ReactNode }) {
           children
         )}
       </main>
-      <SiteFooter />
+      {!isSaberesClic ? <SiteFooter /> : null}
     </div>
   );
 }
