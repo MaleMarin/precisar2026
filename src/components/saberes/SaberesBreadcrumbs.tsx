@@ -6,7 +6,7 @@ import { Link } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
 import styles from "@/components/programs/ProgramBreadcrumbs.module.css";
 
-const SABERES_SLUGS = ["recorrido", "recursos", "una-pregunta-al-dia"] as const;
+const SABERES_SLUGS = ["recorrido", "recursos", "una-pregunta-al-dia", "clic"] as const;
 
 type SaberesSlug = (typeof SABERES_SLUGS)[number];
 

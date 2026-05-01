@@ -4,7 +4,9 @@ import { SaberesBreadcrumbs } from "@/components/saberes/SaberesBreadcrumbs";
 export default function SaberesLayout({ children }: { children: ReactNode }) {
   return (
     <>
-      <SaberesBreadcrumbs />
+      <div className="w-full shrink-0">
+        <SaberesBreadcrumbs />
+      </div>
       {children}
     </>
   );

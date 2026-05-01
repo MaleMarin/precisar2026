@@ -36,7 +36,8 @@
     "slugs": {
       "recorrido": "Percurso",
       "recursos": "Recursos",
-      "una-pregunta-al-dia": "Uma pergunta por dia"
+      "una-pregunta-al-dia": "Uma pergunta por dia",
+      "clic": "Clic"
     }
   },
   "mediaticaBreadcrumbs": {
