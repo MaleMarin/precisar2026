@@ -185,7 +185,7 @@ export function LeccionPage({ curso, pasoActual, pasoIndex }: Props) {
   const tituloPagina = pasoActual.contenido.tipo === 'bienvenida' ? pasoActual.titulo : pasoActual.titulo.toUpperCase()
 
   return (
-    <div className="min-h-screen bg-[#F5F2EC] pb-32 text-[#333]">
+    <div className="relative z-[2] min-h-[100dvh] w-full shrink-0 bg-[#F5F2EC] pb-32 text-[#333]">
       <header className="fixed inset-x-0 top-0 z-30 bg-white shadow-[0_1px_0_rgba(0,0,0,0.06)]">
         <div className="flex h-14 items-center justify-between gap-3 px-4 md:px-6">
           <Link href={`/cursos/${curso.id}`} className="font-[var(--font-ui)] text-sm font-semibold text-[#444] no-underline">
@@ -204,7 +204,7 @@ export function LeccionPage({ curso, pasoActual, pasoIndex }: Props) {
         </div>
       </header>
 
-      <main className="pt-[116px]">
+      <main className="relative z-[2] w-full min-w-0 pt-[116px]">
         <div className={gridStyles.root}>
           <div className={gridStyles.meta}>
             {prevWarning ? (

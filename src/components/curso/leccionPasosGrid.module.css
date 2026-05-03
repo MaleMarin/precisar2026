@@ -1,4 +1,4 @@
-/* Layout paso + guía; en mobile guía bajo meta, antes del ejercicio. */
+/* Mobile-first: siempre hay áreas definidas; desde 700px segunda columna + sticky guía. */
 .root {
   display: grid;
   max-width: 900px;
@@ -6,16 +6,11 @@
   padding: 48px 24px 120px;
   gap: 40px;
   align-items: start;
-}
-
-@media (max-width: 699px) {
-  .root {
-    grid-template-columns: 1fr;
-    grid-template-areas:
-      "meta"
-      "guia"
-      "body";
-  }
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "meta"
+    "guia"
+    "body";
 }
 
 @media (min-width: 700px) {
