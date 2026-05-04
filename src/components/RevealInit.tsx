@@ -5,6 +5,6 @@ import { useRevealAnimations } from "@/hooks/useRevealAnimations";
 
 export function RevealInit() {
   const pathname = usePathname();
-  useRevealAnimations(pathname);
+  useRevealAnimations(pathname ?? "");
   return null;
 }

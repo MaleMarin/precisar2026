@@ -85,6 +85,8 @@ function scheduleScrollTriggerRefresh(): void {
 export function useRevealAnimations(routeKey: string): void {
   useLayoutEffect(() => {
     if (typeof window === "undefined" || prefersReducedMotion()) return;
+    /** Clic / lecciones: sin ScrollTrigger sobre el documento (evita conflictos con scroll nativo y layout). */
+    if (!routeKey || routeKey.startsWith("/curso")) return;
 
     let ctx: gsap.Context | undefined;
     const scroller = document.documentElement;
