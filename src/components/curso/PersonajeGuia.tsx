@@ -82,7 +82,7 @@ export function PersonajeGuia({ color, estado, size = 120 }: Props) {
     }
   }, [color, size])
 
-  const h = Math.round(size * 1.06)
+  const h = Math.round(size * 1.15)
   return <canvas ref={canvasRef} width={size} height={h} style={{ display: 'block' }} />
 }
 

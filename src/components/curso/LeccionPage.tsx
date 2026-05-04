@@ -8,7 +8,6 @@ import type { CursoContenido, Paso } from '@/lib/cursos/tipos'
 import { COLORES_CURSO } from '@/lib/cursos/colores'
 import { tooltipStorageKey } from '@/lib/cursos'
 import { BarraPasos } from '@/components/curso/BarraPasos'
-import gridStyles from '@/components/curso/leccionPasosGrid.module.css'
 import { PasoInteractivo } from '@/components/curso/PasoInteractivo'
 import { PersonajeContextual } from '@/components/curso/PersonajeContextual'
 import { estadoGuiaPorNumeroPaso, type EstadoPersonaje } from '@/components/curso/PersonajeGuia'
@@ -183,6 +182,10 @@ export function LeccionPage({ curso, pasoActual, pasoIndex }: Props) {
   }
 
   const tituloPagina = pasoActual.contenido.tipo === 'bienvenida' ? pasoActual.titulo : pasoActual.titulo.toUpperCase()
+  const personajeEnBloqueOpciones = ['caso_con_opciones', 'selector_emocion', 'decision_accion'].includes(
+    pasoActual.contenido.tipo
+  )
+  const personajeBajoTitulo = ['bienvenida', 'explicacion_tarjetas'].includes(pasoActual.contenido.tipo)
 
   return (
     <div className="relative z-[2] min-h-[100dvh] w-full shrink-0 bg-[#F5F2EC] pb-32 text-[#333]">
@@ -205,8 +208,14 @@ export function LeccionPage({ curso, pasoActual, pasoIndex }: Props) {
       </header>
 
       <main className="relative z-[2] w-full min-w-0 pt-[116px]">
-        <div className={gridStyles.root}>
-          <div className={gridStyles.meta}>
+        <div
+          style={{
+            maxWidth: '680px',
+            margin: '0 auto',
+            padding: '48px 24px 120px',
+          }}
+        >
+          <div>
             {prevWarning ? (
               <div className="mb-6 rounded-md border border-[#E8E4DC] bg-white px-4 py-3 font-[var(--font-ui)] text-sm text-[#666]">
                 Aviso: no se detecta el paso anterior como completado en este dispositivo.
@@ -231,29 +240,64 @@ export function LeccionPage({ curso, pasoActual, pasoIndex }: Props) {
             ) : null}
           </div>
 
-          <div className={gridStyles.guia}>
-            <PersonajeContextual
-              color={color}
-              estadoBase={estadoBase}
-              estadoOverride={estadoOverride}
-              evento={eventoPersonaje}
-              frase={fraseGloboPersonaje}
-            />
-          </div>
+          {personajeBajoTitulo ? (
+            <div style={{ display: 'flex', justifyContent: 'center', margin: '0 0 32px 0' }}>
+              <PersonajeContextual
+                color={color}
+                estadoBase={estadoBase}
+                estadoOverride={estadoOverride}
+                evento={eventoPersonaje}
+                frase={fraseGloboPersonaje}
+              />
+            </div>
+          ) : null}
 
-          <div className={`${gridStyles.body} ${pasoActual.contenido.tipo === 'bienvenida' ? 'mt-8' : 'mt-0'}`}>
-            <PasoInteractivo
-              paso={pasoActual}
-              curso={curso}
-              contenido={pasoActual.contenido}
-              color={color}
-              tooltipStorageKey={tpKey}
-              onScrollCompleto={handleScrollPanico}
-              onAnalisisSuficiente={handleAnalisisSuficiente}
-              onInteraccion={handleInteraccion}
-              onGuiaMoment={onGuiaMoment}
-              onAvanceTextoLibre={onAvanceTextoLibre}
-            />
+          <div className={pasoActual.contenido.tipo === 'bienvenida' ? 'mt-8' : 'mt-0'}>
+            {personajeEnBloqueOpciones ? (
+              <div style={{ position: 'relative', paddingRight: '140px' }}>
+                <PasoInteractivo
+                  paso={pasoActual}
+                  curso={curso}
+                  contenido={pasoActual.contenido}
+                  color={color}
+                  tooltipStorageKey={tpKey}
+                  onScrollCompleto={handleScrollPanico}
+                  onAnalisisSuficiente={handleAnalisisSuficiente}
+                  onInteraccion={handleInteraccion}
+                  onGuiaMoment={onGuiaMoment}
+                  onAvanceTextoLibre={onAvanceTextoLibre}
+                />
+                <div
+                  style={{
+                    position: 'absolute',
+                    top: '-8px',
+                    right: 0,
+                    width: 120,
+                  }}
+                >
+                  <PersonajeContextual
+                    color={color}
+                    estadoBase={estadoBase}
+                    estadoOverride={estadoOverride}
+                    evento={eventoPersonaje}
+                    frase={fraseGloboPersonaje}
+                  />
+                </div>
+              </div>
+            ) : (
+              <PasoInteractivo
+                paso={pasoActual}
+                curso={curso}
+                contenido={pasoActual.contenido}
+                color={color}
+                tooltipStorageKey={tpKey}
+                onScrollCompleto={handleScrollPanico}
+                onAnalisisSuficiente={handleAnalisisSuficiente}
+                onInteraccion={handleInteraccion}
+                onGuiaMoment={onGuiaMoment}
+                onAvanceTextoLibre={onAvanceTextoLibre}
+              />
+            )}
           </div>
         </div>
       </main>

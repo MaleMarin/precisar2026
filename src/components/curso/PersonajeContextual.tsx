@@ -29,6 +29,7 @@ export function PersonajeContextual({
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
+        paddingTop: '16px',
         gap: 8,
         pointerEvents: 'none',
       }}
