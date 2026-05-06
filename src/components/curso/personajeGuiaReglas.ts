@@ -12,9 +12,10 @@ function normKey(s: string) {
     .trim()
 }
 
-/** Caso reflexivo / impulsivo / pasivo (ids A/B/C/D en Antes de compartir). */
-export function guiaPorIdCasoConOpciones(id: string): GuiaMoment | null {
-  const u = id.toUpperCase()
+/** Caso reflexivo / impulsivo / pasivo (por id A/B/C/D o por opción marcada como recomendada). */
+export function guiaPorIdCasoConOpciones(op: { id: string; esRecomendada?: boolean }): GuiaMoment | null {
+  if (op.esRecomendada) return { estado: 'aprueba', frase: '¡Eso es criterio!' }
+  const u = op.id.toUpperCase()
   if (u === 'C') return { estado: 'aprueba', frase: '¡Eso es criterio!' }
   if (u === 'A' || u === 'D') return { estado: 'sorpresa', frase: '¿Lo revisarías antes de compartir?' }
   if (u === 'B') return { estado: 'escucha', frase: 'Esperar también es válido.' }

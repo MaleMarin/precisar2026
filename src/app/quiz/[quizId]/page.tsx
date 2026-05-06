@@ -3,10 +3,10 @@
 import Link from 'next/link'
 import { useEffect, useMemo, useState } from 'react'
 import { useParams } from 'next/navigation'
+import { obtenerCursoPorId } from '@/lib/cursos'
 import { COLORES_CURSO } from '@/lib/cursos/colores'
 import {
-  SEÑALES_ANTES_DE_COMPARTIR,
-  calcularMapa,
+  calcularMapaPorQuizId,
   nivelAPuntos,
   type NivelSeñal,
 } from '@/lib/cursos/mapaSeñales'
@@ -18,10 +18,6 @@ const ETIQUETA_NIVEL: Record<NivelSeñal, string> = {
   explorando: 'Explorando',
 }
 
-function nombreCursoDesdeQuizId(quizId: string): string {
-  return quizId.replaceAll('-', ' ')
-}
-
 function sinGuionesConComas(texto: string): string {
   return texto.replaceAll('—', ',').replaceAll(' - ', ', ')
 }
@@ -29,8 +25,10 @@ function sinGuionesConComas(texto: string): string {
 export default function MapaPage() {
   const params = useParams()
   const quizId = params.quizId as string
+  const curso = obtenerCursoPorId(quizId)
   const color = COLORES_CURSO[quizId] || '#1A1A1A'
-  const nombreCurso = nombreCursoDesdeQuizId(quizId)
+  const nombreCurso = curso?.titulo ?? quizId.replaceAll('-', ' ')
+  const pref = curso?.storagePrefix ?? 'adc'
 
   const [recorrido, setRecorrido] = useState({
     paso1: '',
@@ -41,29 +39,35 @@ export default function MapaPage() {
   const [descargando, setDescargando] = useState(false)
 
   useEffect(() => {
+    if (typeof window === 'undefined' || !curso) return
+    const p = curso.storagePrefix
     setRecorrido({
-      paso1: localStorage.getItem('adc-paso1-respuesta') || '',
-      emocion: localStorage.getItem('adc-emocion') || '',
-      decisionFinal: localStorage.getItem('adc-decision-final') || '',
-      textoLlevar: localStorage.getItem('adc-texto-llevar') || '',
+      paso1: localStorage.getItem(`${p}-paso1-respuesta`) || '',
+      emocion: localStorage.getItem(`${p}-emocion`) || '',
+      decisionFinal: localStorage.getItem(`${p}-decision-final`) || '',
+      textoLlevar: localStorage.getItem(`${p}-texto-llevar`) || '',
     })
-  }, [])
+  }, [curso, quizId])
 
   const mapaCalc = useMemo(() => {
-    const tooltipsVistos =
-      typeof window === 'undefined'
-        ? 0
-        : parseInt(window.localStorage.getItem('adc-tooltips-vistos') || '0', 10)
-    const kitRespuestas =
-      typeof window === 'undefined'
-        ? []
-        : JSON.parse(window.localStorage.getItem('adc-kit-respuestas') || '[]')
-    const decisionAccion =
-      typeof window === 'undefined' ? '' : window.localStorage.getItem('adc-decision-accion') || ''
-    const textoResponder =
-      typeof window === 'undefined' ? '' : window.localStorage.getItem('adc-texto-responder') || ''
+    if (typeof window === 'undefined' || !curso) {
+      return {} as Record<string, NivelSeñal>
+    }
+    const tooltipsVistos = parseInt(
+      window.localStorage.getItem(`${pref}-tooltips-vistos`) || '0',
+      10
+    )
+    const kitRaw = window.localStorage.getItem(`${pref}-kit-respuestas`) || '[]'
+    let kitRespuestas: string[] = []
+    try {
+      kitRespuestas = JSON.parse(kitRaw) as string[]
+    } catch {
+      kitRespuestas = []
+    }
+    const decisionAccion = window.localStorage.getItem(`${pref}-decision-accion`) || ''
+    const textoResponder = window.localStorage.getItem(`${pref}-texto-responder`) || ''
 
-    return calcularMapa({
+    return calcularMapaPorQuizId(quizId, {
       paso1: recorrido.paso1,
       emocion: recorrido.emocion,
       tooltipsVistos,
@@ -72,7 +76,20 @@ export default function MapaPage() {
       textoResponder,
       decisionFinal: recorrido.decisionFinal,
     })
-  }, [recorrido])
+  }, [recorrido, quizId, curso, pref])
+
+  if (!curso) {
+    return (
+      <main style={{ backgroundColor: '#F5F2EC', minHeight: '100vh', padding: '48px' }}>
+        <p style={{ fontFamily: 'var(--font-ui)' }}>No hay mapa de señales para este curso.</p>
+        <Link href="/saberes/clic" style={{ fontFamily: 'var(--font-ui)', color: '#1A1A1A' }}>
+          ← Volver a cursos
+        </Link>
+      </main>
+    )
+  }
+
+  const señalesLista = curso.señales
 
   const handleDescargar = async () => {
     setDescargando(true)
@@ -329,11 +346,12 @@ export default function MapaPage() {
                     marginBottom: '10px',
                   }}
                 >
-                  Basado en tu mapa, el siguiente módulo que más te puede aportar es ¿Quién habló?, sobre IA y
-                  voz clonada.
+                  {quizId === 'antes-de-compartir'
+                    ? 'Basado en tu mapa, el siguiente módulo que más te puede aportar es ¿Quién habló?, sobre IA y voz clonada.'
+                    : 'Podés seguir con otro módulo de Clic cuando quieras — cada uno aporta una capa nueva de criterio.'}
                 </p>
                 <Link
-                  href="/cursos/quien-hablo"
+                  href={quizId === 'antes-de-compartir' ? '/cursos/quien-hablo' : '/saberes/clic'}
                   style={{
                     color,
                     fontFamily: 'var(--font-ui)',
@@ -342,7 +360,7 @@ export default function MapaPage() {
                     textDecoration: 'none',
                   }}
                 >
-                  IR A ESE MÓDULO →
+                  {quizId === 'antes-de-compartir' ? 'IR A ESE MÓDULO →' : 'VER MÁS MÓDULOS →'}
                 </Link>
               </div>
             </section>
@@ -397,7 +415,7 @@ export default function MapaPage() {
                   gap: '0',
                 }}
               >
-                {SEÑALES_ANTES_DE_COMPARTIR.map(señal => {
+                {señalesLista.map(señal => {
                   const nivel = mapaCalc[señal.id] || 'explorando'
                   const puntos = nivelAPuntos(nivel)
 

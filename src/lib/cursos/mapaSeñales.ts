@@ -53,43 +53,152 @@ export const SEÑALES_ANTES_DE_COMPARTIR: Señal[] = [
   },
 ]
 
-function normalizarPaso1(paso1: string): 'A' | 'B' | 'C' | 'D' | '' {
-  const limpio = (paso1 || '').trim()
-  if (['A', 'B', 'C', 'D'].includes(limpio)) return limpio as 'A' | 'B' | 'C' | 'D'
-  if (limpio.startsWith('La comparto')) return 'A'
-  if (limpio.startsWith('Espero')) return 'B'
-  if (limpio.startsWith('Reviso')) return 'C'
-  if (limpio.startsWith('Asumo')) return 'D'
-  return ''
+type ClaveMapaInterna = 'pausar' | 'emocion' | 'fuente' | 'evidencia' | 'amplificar' | 'criterio'
+
+const CLAVES_MAPA_INTERNO: ClaveMapaInterna[] = [
+  'pausar',
+  'emocion',
+  'fuente',
+  'evidencia',
+  'amplificar',
+  'criterio',
+]
+
+/** Algunos cursos usan otros ids en datos; el mapa interno se proyecta al listado del curso. */
+const PROYECCION_IDS_POR_CURSO: Record<string, Partial<Record<ClaveMapaInterna, string>>> = {
+  'quien-hablo': {
+    fuente: 'senales',
+    evidencia: 'verificar',
+    amplificar: 'criterio',
+    criterio: 'explicar',
+  },
 }
 
-export function calcularMapa(respuestas: {
-  paso1: string
-  emocion: string
-  tooltipsVistos: number
-  kitRespuestas: string[]
-  decisionAccion: string
-  textoResponder: string
-  decisionFinal: string
-}): Record<string, NivelSeñal> {
-  const mapa: Record<string, NivelSeñal> = {}
-  const paso1Norm = normalizarPaso1(respuestas.paso1)
+const EM_OC_FUERTE: Record<string, string[]> = {
+  'antes-de-compartir': ['Curiosidad', 'Desconfianza'],
+  'quien-hablo': ['Duda', 'Desconfianza'],
+  'el-que-mas-grita': ['Curiosidad', 'Desconfianza'],
+  'salud-sin-panico': ['Empatía', 'Confusión'],
+  'grupo-de-profes': ['Duda', 'Responsabilidad'],
+  'mis-datos-mi-decision': ['Curiosidad', 'Calma'],
+  'clima-sin-catastrofe': ['Curiosidad', 'Esperanza'],
+  'cuentame-sin-asustarme': ['Ternura', 'Preocupación'],
+}
 
-  if (paso1Norm === 'C') {
-    mapa.pausar = 'fuerte'
-  } else if (paso1Norm === 'B') {
-    mapa.pausar = 'desarrollando'
-  } else {
-    mapa.pausar = 'explorando'
+const PASO1_FUERTE_SUB: Record<string, string[]> = {
+  'antes-de-compartir': ['Reviso qué parte está confirmada'],
+  'quien-hablo': ['Llamo al número que tengo guardado'],
+  'el-que-mas-grita': ['ventana privada', 'otro dispositivo'],
+  'salud-sin-panico': ['centro de salud', 'ir hoy'],
+  'grupo-de-profes': ['Coordino con convivencia'],
+  'mis-datos-mi-decision': ['Reviso permisos del micrófono'],
+  'clima-sin-catastrofe': ['Busco mediciones serias'],
+  'cuentame-sin-asustarme': ['verificar en la página del banco'],
+}
+
+const PASO1_DESARROLLO_SUB: Record<string, string[]> = {
+  'antes-de-compartir': ['Espero para ver si se aclara'],
+  'quien-hablo': ['Le pido más información'],
+  'el-que-mas-grita': ['Asumo que una de las dos'],
+  'salud-sin-panico': ['No digo nada'],
+  'grupo-de-profes': ['Publico que la IA a veces se equivoca'],
+  'mis-datos-mi-decision': ['Ignoro el tema'],
+  'clima-sin-catastrofe': ['No digo nada'],
+  'cuentame-sin-asustarme': ['Le cuelgo'],
+}
+
+function nivelPaso1PorCurso(quizId: string, paso1: string): NivelSeñal {
+  if (quizId === 'antes-de-compartir') {
+    const limpio = (paso1 || '').trim()
+    if (['A', 'B', 'C', 'D'].includes(limpio)) {
+      if (limpio === 'C') return 'fuerte'
+      if (limpio === 'B') return 'desarrollando'
+      return 'explorando'
+    }
+    if (limpio.startsWith('La comparto')) return 'explorando'
+    if (limpio.startsWith('Espero')) return 'desarrollando'
+    if (limpio.startsWith('Reviso')) return 'fuerte'
+    if (limpio.startsWith('Asumo')) return 'explorando'
+    return 'explorando'
   }
 
-  if (['Curiosidad', 'Desconfianza'].includes(respuestas.emocion)) {
-    mapa.emocion = 'fuerte'
-  } else if (respuestas.emocion) {
-    mapa.emocion = 'desarrollando'
-  } else {
-    mapa.emocion = 'explorando'
+  const t = (paso1 || '').trim()
+  if (!t) return 'explorando'
+  const fu = PASO1_FUERTE_SUB[quizId] || []
+  if (fu.some(s => t.includes(s))) return 'fuerte'
+  const des = PASO1_DESARROLLO_SUB[quizId] || []
+  if (des.some(s => t.includes(s))) return 'desarrollando'
+  return 'explorando'
+}
+
+function nivelEmocionPorCurso(quizId: string, emocion: string): NivelSeñal {
+  const label = (emocion || '').trim()
+  if (!label) return 'explorando'
+  const fuertes = EM_OC_FUERTE[quizId] || []
+  if (fuertes.includes(label)) return 'fuerte'
+  return 'desarrollando'
+}
+
+const DECISION_AMPLI: Record<string, { fuerte: string[]; desarrollando: string[] }> = {
+  'antes-de-compartir': {
+    fuerte: ['Responder sin amplificar', 'No compartir todavía'],
+    desarrollando: ['Verificar más'],
+  },
+  'quien-hablo': {
+    fuerte: ['Llamar directamente', 'Verificar por otro canal', 'Reportar el número'],
+    desarrollando: ['No actuar por 10 minutos'],
+  },
+  'el-que-mas-grita': {
+    fuerte: ['ventana privada', 'oficial', 'segunda fuente', 'Comparar con otra persona'],
+    desarrollando: ['No sacar conclusiones'],
+  },
+  'salud-sin-panico': {
+    fuerte: ['Acompañar a consultar', 'línea oficial', 'privado con información', 'pedir tiempo'],
+    desarrollando: ['No debatir en cadena'],
+  },
+  'grupo-de-profes': {
+    fuerte: ['fuentes primarias', 'protocolo institucional', 'equipo directivo', 'Comunicación breve'],
+    desarrollando: ['familias con enfoque'],
+  },
+  'mis-datos-mi-decision': {
+    fuerte: ['apagar permisos', 'limitación de anuncios', 'denuncia', 'evidencia de abuso'],
+    desarrollando: ['Explicar en familia'],
+  },
+  'clima-sin-catastrofe': {
+    fuerte: ['enlace breve', 'fuente salió', 'en privado a quien'],
+    desarrollando: ['No alimentar la polémica'],
+  },
+  'cuentame-sin-asustarme': {
+    fuerte: ['Llamar juntos', 'app oficial', 'Frenar la cadena'],
+    desarrollando: ['Ir mañana a una sucursal'],
+  },
+}
+
+function nivelDecisionPorCurso(quizId: string, decisionAccion: string): NivelSeñal {
+  const t = (decisionAccion || '').trim()
+  if (!t) return 'explorando'
+  const r = DECISION_AMPLI[quizId]
+  if (!r) return 'explorando'
+  if (r.fuerte.some(s => t.includes(s))) return 'fuerte'
+  if (r.desarrollando.some(s => t.includes(s))) return 'desarrollando'
+  return 'explorando'
+}
+
+function mapaInternoDesdeRespuestas(
+  quizId: string,
+  respuestas: {
+    paso1: string
+    emocion: string
+    tooltipsVistos: number
+    kitRespuestas: string[]
+    decisionAccion: string
+    textoResponder: string
+    decisionFinal: string
   }
+): Record<ClaveMapaInterna, NivelSeñal> {
+  const mapa = {} as Record<ClaveMapaInterna, NivelSeñal>
+  mapa.pausar = nivelPaso1PorCurso(quizId, respuestas.paso1)
+  mapa.emocion = nivelEmocionPorCurso(quizId, respuestas.emocion)
 
   if (respuestas.tooltipsVistos >= 3) {
     mapa.fuente = 'fuerte'
@@ -108,16 +217,7 @@ export function calcularMapa(respuestas: {
     mapa.evidencia = 'explorando'
   }
 
-  if (
-    respuestas.decisionAccion === 'Responder sin amplificar' ||
-    respuestas.decisionAccion === 'No compartir todavía'
-  ) {
-    mapa.amplificar = 'fuerte'
-  } else if (respuestas.decisionAccion === 'Verificar más') {
-    mapa.amplificar = 'desarrollando'
-  } else {
-    mapa.amplificar = 'explorando'
-  }
+  mapa.amplificar = nivelDecisionPorCurso(quizId, respuestas.decisionAccion)
 
   const largoTexto = respuestas.textoResponder?.length || 0
   if (largoTexto > 80) {
@@ -129,6 +229,47 @@ export function calcularMapa(respuestas: {
   }
 
   return mapa
+}
+
+function proyectarMapaAIdsCurso(
+  quizId: string,
+  interno: Record<ClaveMapaInterna, NivelSeñal>
+): Record<string, NivelSeñal> {
+  const tabla = PROYECCION_IDS_POR_CURSO[quizId]
+  const out: Record<string, NivelSeñal> = {}
+  for (const k of CLAVES_MAPA_INTERNO) {
+    const destino = (tabla && tabla[k]) || k
+    out[destino] = interno[k]
+  }
+  return out
+}
+
+export function calcularMapaPorQuizId(
+  quizId: string,
+  respuestas: {
+    paso1: string
+    emocion: string
+    tooltipsVistos: number
+    kitRespuestas: string[]
+    decisionAccion: string
+    textoResponder: string
+    decisionFinal: string
+  }
+): Record<string, NivelSeñal> {
+  const interno = mapaInternoDesdeRespuestas(quizId, respuestas)
+  return proyectarMapaAIdsCurso(quizId, interno)
+}
+
+export function calcularMapa(respuestas: {
+  paso1: string
+  emocion: string
+  tooltipsVistos: number
+  kitRespuestas: string[]
+  decisionAccion: string
+  textoResponder: string
+  decisionFinal: string
+}): Record<string, NivelSeñal> {
+  return calcularMapaPorQuizId('antes-de-compartir', respuestas)
 }
 
 export function nivelAPuntos(nivel: NivelSeñal): number {

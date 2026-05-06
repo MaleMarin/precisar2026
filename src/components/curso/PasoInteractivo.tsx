@@ -162,7 +162,7 @@ function CasoConOpciones({
     queueMicrotask(() => {
       setSel(s)
       const op = contenido.opciones.find(o => o.texto === s)
-      const m = op ? guiaPorIdCasoConOpciones(op.id) : undefined
+      const m = op ? guiaPorIdCasoConOpciones(op) : undefined
       if (m) onGuiaRef.current?.(m)
       onSelRef.current(s)
     })
@@ -192,7 +192,7 @@ function CasoConOpciones({
             onClick={() => {
               setSel(op.texto)
               if (storageKey && typeof window !== 'undefined') window.localStorage.setItem(storageKey, op.texto)
-              const m = guiaPorIdCasoConOpciones(op.id)
+              const m = guiaPorIdCasoConOpciones(op)
               if (m) onGuiaMoment?.(m)
               onSeleccion(op.texto)
             }}
