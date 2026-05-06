@@ -1,159 +1,17 @@
-'use client'
-
 import Link from 'next/link'
-import { useParams } from 'next/navigation'
+import { obtenerCursoPorId } from '@/lib/cursos'
 import { COLORES_CURSO } from '@/lib/cursos/colores'
 
-const CURSOS_DATA: Record<
-  string,
-  {
-    titulo: string
-    subtitulo: string
-    descripcion: string
-    duracion: string
-    pasos: number
-    objetivos: string[]
-    caso: string
-    nivel: string
-  }
-> = {
-  'antes-de-compartir': {
-    titulo: 'Antes de Compartir',
-    subtitulo: 'Lo que pasa entre que ves algo y lo reenvías.',
-    descripcion:
-      'Un recorrido práctico de 90 minutos. Trabajas un solo caso real desde el principio hasta el final: ves una publicación ambigua, identificas qué te hizo reaccionar, aprendes a observar señales, aplicas el Kit de Pausa y tomas una decisión fundamentada.',
-    duracion: '90 minutos',
-    pasos: 8,
-    nivel: 'Basico - sin conocimientos previos',
-    caso: 'Una publicacion viral sobre el amerizaje de Artemis II que dice que "algo no cuadra".',
-    objetivos: [
-      'Reconocer qué emoción te activa antes de reaccionar',
-      'Identificar señales que fabrican urgencia y pánico',
-      'Aplicar el Kit de Pausa antes de compartir',
-      'Tomar una decisión fundamentada con evidencia disponible',
-    ],
-  },
-  'quien-hablo': {
-    titulo: 'Quien hablo?',
-    subtitulo: 'Lo que pasa cuando la IA suena como alguien que conoces.',
-    descripcion:
-      'Te llega un audio de WhatsApp con la voz de tu mama pidiendo dinero urgente. Como sabes si es ella? Este modulo explica como funciona la IA que clona voces y que hacer antes de actuar.',
-    duracion: '90 minutos',
-    pasos: 8,
-    nivel: 'Basico - sin conocimientos previos',
-    caso: 'Audio de WhatsApp que suena exactamente como un familiar - pidiendo dinero con urgencia.',
-    objetivos: [
-      'Entender como la IA puede clonar una voz humana',
-      'Reconocer senales auditivas de voz sintetica',
-      'Aplicar el Kit de Verificacion antes de actuar',
-      'Saber que hacer si recibes un audio sospechoso',
-    ],
-  },
-  'el-que-mas-grita': {
-    titulo: 'El que mas grita',
-    subtitulo: 'Como los algoritmos deciden lo que ves - y que puedes hacer.',
-    descripcion:
-      'Dos vecinas del mismo barrio buscan lo mismo en sus telefonos y ven resultados completamente distintos. Este modulo explica por que - y que puedes hacer al respecto.',
-    duracion: '90 minutos',
-    pasos: 8,
-    nivel: 'Basico - sin conocimientos previos',
-    caso: 'Elena y Rosa, mismo barrio, mismo telefono, resultados completamente distintos.',
-    objetivos: [
-      'Entender como funciona un algoritmo de recomendacion',
-      'Distinguir burbuja de filtro de camara de eco',
-      'Reconocer cuando el contenido busca indignacion',
-      'Aplicar 3 acciones concretas para diversificar lo que ves',
-    ],
-  },
-  'salud-sin-panico': {
-    titulo: 'Salud sin panico',
-    subtitulo: 'Como evaluar informacion de salud antes de creer o compartir.',
-    descripcion:
-      'Un audio de WhatsApp dice que el limon con bicarbonato cura la infeccion de orina. Tu abuela ya lo esta tomando. Que haces?',
-    duracion: '90 minutos',
-    pasos: 8,
-    nivel: 'Basico - sin conocimientos previos',
-    caso: 'Audio familiar: limon con bicarbonato como cura para infeccion urinaria.',
-    objetivos: [
-      'Distinguir informacion de salud verificable de remedio sin evidencia',
-      'Identificar senales de desinformacion medica en WhatsApp',
-      'Aplicar el Kit de Verificacion de Salud',
-      'Tener conversaciones empaticas sobre remedios sin evidencia',
-    ],
-  },
-  'grupo-de-profes': {
-    titulo: 'Lo que llega al grupo de profes',
-    subtitulo: 'Desinformacion en el aula - como responder sin perder el criterio.',
-    descripcion:
-      'Un estudiante llega al aula diciendo que ChatGPT le dijo que el Holocausto fue exagerado. El resto de la clase ya esta buscando en sus celulares.',
-    duracion: '90 minutos',
-    pasos: 8,
-    nivel: 'Intermedio - para docentes',
-    caso: 'Estudiante con ChatGPT en el aula - desinformacion historica en tiempo real.',
-    objetivos: [
-      'Responder a desinformacion en el aula sin atacar al estudiante',
-      'Disenar actividades que construyan criterio',
-      'Hablar de IA con estudiantes de forma honesta',
-      'Gestionar el grupo cuando aparece contenido sensible',
-    ],
-  },
-  'mis-datos-mi-decision': {
-    titulo: 'Mis datos, mi decision',
-    subtitulo: 'Lo que saben de ti las aplicaciones que usas - y que puedes controlar.',
-    descripcion:
-      'Estabas hablando en voz alta sobre comprar una caminadora. No buscaste nada. A los 10 minutos aparece un anuncio de caminadoras en Instagram.',
-    duracion: '90 minutos',
-    pasos: 8,
-    nivel: 'Basico - sin conocimientos previos',
-    caso: 'Anuncio que aparece justo despues de una conversacion en voz alta.',
-    objetivos: [
-      'Entender que datos recopilan las aplicaciones que usas',
-      'Distinguir lo que las apps hacen vs lo que parecen hacer',
-      'Aplicar configuraciones de privacidad basicas',
-      'Conocer tus derechos digitales en Chile y Mexico',
-    ],
-  },
-  'clima-sin-catastrofe': {
-    titulo: 'Clima sin catastrofe',
-    subtitulo: 'Como evaluar informacion climatica sin negacionismo ni alarmismo.',
-    descripcion:
-      'Una nota viral dice que el volcan Villarrica emitio mas CO2 en una erupcion que todos los autos del mundo en 100 anos. Es verdad?',
-    duracion: '90 minutos',
-    pasos: 8,
-    nivel: 'Basico - sin conocimientos previos',
-    caso: 'Nota viral sobre volcan y emisiones de CO2 - dato real, contexto falso.',
-    objetivos: [
-      'Distinguir negacionismo climatico de escepticismo legitimo',
-      'Identificar las 5 tecnicas del negacionismo climatico',
-      'Evaluar una afirmacion climatica con fuentes verificables',
-      'Comunicar datos de clima sin alarmismo ni minimizacion',
-    ],
-  },
-  'cuentame-sin-asustarme': {
-    titulo: 'Cuentame sin asustarme',
-    subtitulo: 'Como hablar de tecnologia con personas mayores - sin condescendencia ni panico.',
-    descripcion:
-      'Tu mama de 72 anos te llama asustada: una cadena dice que el gobierno va a cerrar las cuentas bancarias antes del viernes. Ya es miercoles.',
-    duracion: '90 minutos',
-    pasos: 8,
-    nivel: 'Basico - sin conocimientos previos',
-    caso: 'Mama asustada por cadena sobre cuentas bancarias del gobierno.',
-    objetivos: [
-      'Distinguir miedo legitimo de barrera que se puede trabajar',
-      'Comunicar sobre tecnologia sin condescendencia',
-      'Ensenar verificacion basica sin generar ansiedad',
-      'Identificar estafas que afectan mas a personas mayores en LATAM',
-    ],
-  },
+type Props = {
+  params: Promise<{ courseId: string }>
 }
 
-export default function CursoPage() {
-  const params = useParams()
-  const courseId = params.courseId as string
-  const curso = CURSOS_DATA[courseId]
+export default async function CursoPage({ params }: Props) {
+  const { courseId } = await params
+  const curso = obtenerCursoPorId(courseId)
   const color = COLORES_CURSO[courseId] || '#1A1A1A'
 
-  if (!curso) {
+  if (!curso || curso.pasos.length === 0) {
     return (
       <main
         style={{
@@ -176,6 +34,15 @@ export default function CursoPage() {
       </main>
     )
   }
+
+  const objetivos = curso.señales.map(s => s.nombre)
+  const primeraLeccionHref = `/curso/lecciones/${curso.pasos[0]!.slug}`
+
+  const metaSidebar = [
+    { label: 'DURACION', valor: curso.duracion },
+    { label: 'PASOS', valor: `${curso.pasos.length} pasos` },
+    { label: 'CERTIFICADO', valor: 'Si, al completar' },
+  ]
 
   return (
     <main
@@ -261,7 +128,7 @@ export default function CursoPage() {
                 marginBottom: '14px',
               }}
             >
-                DE QUÉ TRATA
+              DE QUÉ TRATA
             </div>
             <p
               style={{
@@ -297,9 +164,9 @@ export default function CursoPage() {
                 gap: '16px',
               }}
             >
-              {curso.objetivos.map((obj, i) => (
+              {objetivos.map((obj, i) => (
                 <div
-                  key={i}
+                  key={`${obj}-${i}`}
                   style={{
                     display: 'flex',
                     gap: '16px',
@@ -351,12 +218,7 @@ export default function CursoPage() {
               gap: '20px',
             }}
           >
-            {[
-              { label: 'DURACION', valor: curso.duracion },
-              { label: 'PASOS', valor: `${curso.pasos} pasos` },
-              { label: 'NIVEL', valor: curso.nivel },
-              { label: 'CERTIFICADO', valor: 'Si, al completar' },
-            ].map(item => (
+            {metaSidebar.map(item => (
               <div key={item.label}>
                 <div
                   style={{
@@ -384,7 +246,7 @@ export default function CursoPage() {
           </div>
 
           <Link
-            href={`/curso/lecciones/les-${courseId}-bienvenida`}
+            href={primeraLeccionHref}
             style={{
               display: 'flex',
               alignItems: 'center',
@@ -398,12 +260,6 @@ export default function CursoPage() {
               textDecoration: 'none',
               textAlign: 'center' as const,
               transition: 'opacity 0.2s ease',
-            }}
-            onMouseEnter={e => {
-              ;(e.currentTarget as HTMLElement).style.opacity = '0.9'
-            }}
-            onMouseLeave={e => {
-              ;(e.currentTarget as HTMLElement).style.opacity = '1'
             }}
           >
             COMENZAR →
