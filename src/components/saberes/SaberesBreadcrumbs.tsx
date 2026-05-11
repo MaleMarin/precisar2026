@@ -6,7 +6,7 @@ import { Link } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
 import styles from "@/components/programs/ProgramBreadcrumbs.module.css";
 
-const SABERES_SLUGS = ["recorrido", "recursos", "una-pregunta-al-dia", "clic"] as const;
+const SABERES_SLUGS = ["recorrido", "recursos", "una-pregunta-al-dia"] as const;
 
 type SaberesSlug = (typeof SABERES_SLUGS)[number];
 
@@ -39,11 +39,6 @@ export function SaberesBreadcrumbs() {
   const raw = useNextPathname() || "/";
   const pathname = stripLeadingLocale(raw).replace(/\/$/, "") || "/";
   const parts = pathname.split("/").filter(Boolean);
-
-  /* Clic: el hero va sólo con la grilla de mosaicos, sin breadcrumbs encima */
-  if (pathname === "/saberes/clic") {
-    return null;
-  }
 
   /* Ruta canónica corta (nav Saberes), misma sección que /saberes/una-pregunta-al-dia */
   if (parts[0] === "unapreguntaaldia") {

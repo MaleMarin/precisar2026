@@ -1,27 +1,14 @@
 "use client";
-import { usePathname } from "next/navigation";
 import { createContext, useLayoutEffect, useState, type ReactNode } from "react";
 import type Lenis from "lenis";
 import styles from "./SmoothScrollProvider.module.css";
 
 export const LenisContext = createContext<Lenis | null>(null);
 
-/** Lenis intercepta scroll del documentElement; rompe sticky y a veces el layout en rutas tipo lección (#curso/*). */
-function skipLenisForPath(pathname: string | null): boolean {
-  if (!pathname || pathname === "/") return false;
-  return pathname === "/curso" || pathname.startsWith("/curso/");
-}
-
 export function SmoothScrollProvider({ children }: { children: ReactNode }) {
-  const pathname = usePathname();
   const [lenis, setLenis] = useState<Lenis | null>(null);
 
   useLayoutEffect(() => {
-    if (skipLenisForPath(pathname)) {
-      queueMicrotask(() => setLenis(null));
-      return;
-    }
-
     let cancelled = false;
     let lenisInstance: Lenis | null = null;
 
@@ -101,7 +88,7 @@ export function SmoothScrollProvider({ children }: { children: ReactNode }) {
         ScrollTrigger.refresh();
       });
     };
-  }, [pathname]);
+  }, []);
 
   return (
     <LenisContext.Provider value={lenis}>

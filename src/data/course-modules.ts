@@ -1,6 +1,6 @@
 export type CourseModule = {
   n: number;
-  /** Título temático visible (revisar contra narración en precisar.net /1–/25). */
+  /** Título temático visible (revisar contra narración en precisar.net /1–/24). */
   themeTitle: string;
   /** Resumen o gancho del módulo; vacío si falta transcripción. */
   lead: string;
@@ -13,7 +13,7 @@ export type CourseModule = {
 };
 
 /**
- * 25 pasos del recorrido «Aquí No Pasa».
+ * 24 pasos del recorrido «Aquí No Pasa».
  * Los títulos siguen una progresión pedagógica coherente con el curso de desinformación;
  * deben validarse contra el sitio publicado (los HTML de Wix no exponen título en <title>).
  */
@@ -23,7 +23,7 @@ const THEMES: Omit<CourseModule, "n">[] = [
     lead: "Contrato de lectura y objetivos del recorrido frente a la desinformación.",
     contentOutline: [
       "Qué es el curso y a quién está dirigido.",
-      "Cómo usar los 25 módulos y el ritmo sugerido.",
+      "Cómo usar los 24 módulos y el ritmo sugerido.",
       "Compromiso con el lenguaje respetuoso y la verificación práctica.",
     ],
     pendingTranscript: true,
@@ -212,17 +212,6 @@ const THEMES: Omit<CourseModule, "n">[] = [
       "Apelación a «naturaleza» y miedo a instituciones.",
       "Gráficos y estadísticas mal interpretadas en salud.",
       "Dónde acudir: organismos de salud pública y revisión sistemática.",
-    ],
-    pendingTranscript: true,
-    pendingAssets: [],
-  },
-  {
-    themeTitle: "Elecciones y deliberación",
-    lead: "Desinformación electoral y responsabilidad del ciudadano lector.",
-    contentOutline: [
-      "Rumores sobre fraude, fechas y lugares de votación.",
-      "Contenido generado para desmovilizar o confundir.",
-      "Verificación con fuentes electorales oficiales.",
     ],
     pendingTranscript: true,
     pendingAssets: [],

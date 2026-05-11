@@ -30,13 +30,13 @@ export default function Page() {
                 Estructura
               </p>
               <p className="mt-4 text-sm leading-relaxed text-[color-mix(in_oklab,var(--band-ink-fg)_82%,transparent)]">
-                25 módulos con título temático, esquema de contenido y enlace a la versión interactiva
+                24 módulos con título temático, esquema de contenido y enlace a la versión interactiva
                 histórica en precisar.net.
               </p>
             </div>
             <p className="mt-8 font-mono text-[10px] uppercase leading-relaxed tracking-[0.12em] text-[color-mix(in_oklab,var(--band-ink-fg)_65%,transparent)]">
               Las URLs públicas <span className="text-[var(--band-ink-fg)]">/1</span> …{" "}
-              <span className="text-[var(--band-ink-fg)]">/25</span> redirigen a{" "}
+              <span className="text-[var(--band-ink-fg)]">/24</span> redirigen a{" "}
               <span className="text-[var(--band-ink-fg)]">/aqui-no-pasa/modulos/[n]</span>.
             </p>
           </div>
@@ -45,7 +45,7 @@ export default function Page() {
 
       <ProgramBandModule variant="ink">
         <p>
-          25 módulos con título temático, esquema de contenido y enlace a la versión interactiva
+          24 módulos con título temático, esquema de contenido y enlace a la versión interactiva
           histórica en precisar.net.
         </p>
       </ProgramBandModule>

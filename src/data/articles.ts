@@ -275,15 +275,6 @@ export const ARTICLES: ArticleMeta[] = [
       "Síntesis de evidencia sobre la relación entre dependencia emocional de redes y mayor propensión a creer y compartir desinformación.",
   },
   {
-    catalogOrder: 26,
-    slug: "elecciones",
-    title: "Este 2025, Chile vive un nuevo proceso electoral",
-    category: "Democracia",
-    pubDate: "2025-06-24",
-    excerpt:
-      "Contexto y lectura mediática del proceso electoral desde la alfabetización en información y participación informada.",
-  },
-  {
     catalogOrder: 27,
     slug: "a-veces-cambiar-de-nombre-no-es-borrar-el-pasado-sino-precisar-mejor-hacia-dónde-se-quiere-ir",
     title: "A veces, cambiar de nombre no es borrar el pasado, sino precisar mejor hacia dónde se quiere ir",

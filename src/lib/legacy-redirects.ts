@@ -112,6 +112,8 @@ export function legacyRedirects() {
     { source: "/funcionariospublicos", destination: "/programas/funcionarios-publicos", permanent: true },
     { source: "/curso-desinformación", destination: "/aqui-no-pasa", permanent: true },
     { source: "/cursos/aqui-no-pasa/:n", destination: "/aqui-no-pasa/modulos/:n", permanent: true },
+    { source: "/precisando/elecciones", destination: "/precisando/explora", permanent: true },
+    { source: "/elecciones", destination: "/precisando/explora", permanent: true },
     // /comunicación y /educación apuntaban a /marco/* — ahora van directo a /educacion-mediatica/*
     { source: "/comunicación", destination: "/educacion-mediatica/comunicacion", permanent: true },
     { source: "/educación", destination: "/educacion-mediatica/educacion", permanent: true },

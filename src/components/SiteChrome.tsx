@@ -8,25 +8,18 @@ import styles from "./SiteChrome.module.css";
 export function SiteChrome({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const isStudioHome = pathname === "/cinematic" || pathname === "/atelier";
-  const isSaberesClic = pathname.includes("/saberes/clic");
   const isCulturaDigital = pathname.includes("/culturadigital");
   const isHome = pathname === "/" || pathname === "";
-  const usePageInner = !isStudioHome && !isHome && !isSaberesClic;
-
-  const chromeCls = [styles.chrome, isSaberesClic ? styles.chromeSaberesClicScroll : ""]
-    .filter(Boolean)
-    .join(" ");
+  const usePageInner = !isStudioHome && !isHome;
 
   return (
-    <div className={chromeCls}>
-      {!isStudioHome && !isSaberesClic ? <SiteHeader /> : null}
+    <div className={styles.chrome}>
+      {!isStudioHome ? <SiteHeader /> : null}
       <main
         className={
           isStudioHome
             ? styles.mainHome
-            : isSaberesClic
-              ? styles.mainSaberesClicFlow
-              : [styles.mainDefault, isCulturaDigital ? styles.mainCulturaDigital : ""].filter(Boolean).join(" ")
+            : [styles.mainDefault, isCulturaDigital ? styles.mainCulturaDigital : ""].filter(Boolean).join(" ")
         }
       >
         {usePageInner ? (

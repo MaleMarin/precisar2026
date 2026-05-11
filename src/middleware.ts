@@ -17,23 +17,11 @@ const SKIP_LOCALE_PREFIX_SEGMENTS = new Set([
   "consulta",
   "consulta-viva",
   "consulta-observatorio",
-  /** Resultado quiz / mapa de señales (`app/quiz/[quizId]`). */
-  "quiz",
-  /** Clic: plataforma de cursos (`app/(plataforma)/*`, entrada en `/saberes/clic`). */
-  "cursos",
-  "curso",
-  "perfil",
-  "certificados",
 ]);
 
 const RESERVED_ROOT_SEGMENTS = new Set(
   [
     "api",
-    "quiz",
-    "cursos",
-    "curso",
-    "perfil",
-    "certificados",
     "programas",
     "somos",
     "participa",
@@ -101,10 +89,26 @@ export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
   if (pathname.includes(".")) return NextResponse.next();
 
-  /** Clic pasó de `/inicio` a `/saberes/clic`. */
-  if (pathname === "/inicio") {
+  if (pathname === "/inicio" || pathname === "/saberes/clic" || pathname.startsWith("/saberes/clic/")) {
     const url = request.nextUrl.clone();
-    url.pathname = "/saberes/clic";
+    url.pathname = "/saberes";
+    return NextResponse.redirect(url, 308);
+  }
+
+  if (
+    pathname === "/cursos" ||
+    pathname.startsWith("/cursos/") ||
+    pathname === "/curso" ||
+    pathname.startsWith("/curso/") ||
+    pathname === "/quiz" ||
+    pathname.startsWith("/quiz/") ||
+    pathname === "/perfil" ||
+    pathname.startsWith("/perfil/") ||
+    pathname === "/certificados" ||
+    pathname.startsWith("/certificados/")
+  ) {
+    const url = request.nextUrl.clone();
+    url.pathname = "/saberes";
     return NextResponse.redirect(url, 308);
   }
 
@@ -116,7 +120,7 @@ export function middleware(request: NextRequest) {
   const numeric = pathname.match(/^\/(\d+)$/);
   if (numeric) {
     const n = Number.parseInt(numeric[1]!, 10);
-    if (n >= 1 && n <= 25) {
+    if (n >= 1 && n <= 24) {
       const url = request.nextUrl.clone();
       url.pathname = `/aqui-no-pasa/modulos/${n}`;
       return NextResponse.redirect(url, 308);
