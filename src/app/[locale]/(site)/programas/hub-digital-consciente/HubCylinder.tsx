@@ -7,10 +7,28 @@ import {
   type MouseEvent,
   type TouchEvent,
   type WheelEvent,
+  type ReactNode,
 } from "react"
 import "@/app/globals-hub-print.css"
 import styles from "./HubCylinder.module.css"
 import { HubDownloadButton } from "./HubDownloadButton"
+
+const ITINERANTES_SUB_PREFIX = "Itinerantes."
+
+/** Cortes opcionales solo entre sílabas (i-ti-ne-ran-tes). */
+function cardSubContent(sub: string): ReactNode {
+  if (sub.startsWith(ITINERANTES_SUB_PREFIX)) {
+    return (
+      <>
+        <span lang="es">
+          i<wbr />ti<wbr />ne<wbr />ran<wbr />tes.
+        </span>
+        {sub.slice(ITINERANTES_SUB_PREFIX.length)}
+      </>
+    )
+  }
+  return sub
+}
 
 const N = 6
 
@@ -430,7 +448,7 @@ export default function HubCylinder() {
                   className={styles.cardSub}
                   style={{ color: s.tc }}
                 >
-                  {s.sub}
+                  {cardSubContent(s.sub)}
                 </p>
                 <p
                   className={styles.cardHint}

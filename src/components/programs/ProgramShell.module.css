@@ -206,8 +206,9 @@
   letter-spacing: -0.035em;
   text-transform: none;
   max-width: 100%;
-  overflow-wrap: anywhere;
-  word-break: break-word;
+  /* Evita cortes arbitrarios al medio de la palabra (p. ej. «Itinera» + «ntes»). */
+  overflow-wrap: break-word;
+  word-break: normal;
 }
 
 .statSub {
