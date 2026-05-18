@@ -142,8 +142,8 @@ export function SiteFooter() {
   );
 
   const newsletterForm = newsletterThanks ? (
-    <p className={styles.newsBody} role="status">
-      Ya estás dentro. Pronto recibirás noticias que vale la pena leer.
+    <p className={styles.newsThanks} role="status">
+      Ya te uniste. Pronto recibirás noticias que vale la pena leer.
     </p>
   ) : newsletterError ? (
     <div className={styles.newsFormInner}>
@@ -229,11 +229,15 @@ export function SiteFooter() {
             <h2 id="footer-newsletter-heading" className={styles.visuallyHidden}>
               Newsletter
             </h2>
-            <p className={styles.newsTitle}>Hay conversaciones que no caben en un post.</p>
-            <p className={styles.newsBody}>
-              Únete a nuestra comunidad y recibe análisis más profundos, recursos exclusivos y perspectivas del
-              entorno digital.
-            </p>
+            {!newsletterThanks ? (
+              <>
+                <p className={styles.newsTitle}>Hay conversaciones que no caben en un post.</p>
+                <p className={styles.newsBody}>
+                  Únete a nuestra comunidad y recibe análisis más profundos, recursos exclusivos y perspectivas
+                  del entorno digital.
+                </p>
+              </>
+            ) : null}
             <div className={styles.newsForm}>{newsletterForm}</div>
           </section>
         </div>

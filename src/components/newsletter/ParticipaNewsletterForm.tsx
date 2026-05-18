@@ -63,7 +63,7 @@ export function ParticipaNewsletterForm() {
   if (thanks) {
     return (
       <p className="mt-4 max-w-xl text-sm text-[var(--fg)]" role="status">
-        Ya estás dentro. Pronto recibirás novedades de Precisar.
+        Ya te uniste. Pronto recibirás novedades de Precisar.
       </p>
     );
   }

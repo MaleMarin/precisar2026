@@ -110,6 +110,17 @@
   color: rgba(255, 255, 255, 0.62);
 }
 
+.newsThanks {
+  margin: 0 auto;
+  max-width: 32rem;
+  font-size: clamp(1.1875rem, 2.35vw, 1.5rem);
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: -0.02em;
+  color: #fff;
+  text-align: center;
+}
+
 .newsForm {
   margin-top: 0.35rem;
   text-align: left;
