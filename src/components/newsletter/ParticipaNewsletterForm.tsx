@@ -3,10 +3,8 @@
 import { useState, type FormEvent } from "react";
 import { Link, usePathname } from "@/i18n/navigation";
 import { useLocale } from "next-intl";
-import {
-  fetchNewsletterStorageReady,
-  subscribeNewsletterViaApi,
-} from "@/lib/newsletter/subscribeNewsletterViaApi";
+import { isNewsletterFirebaseReady } from "@/lib/newsletter/persistNewsletterSubscription";
+import { subscribeNewsletter } from "@/lib/newsletter/subscribeNewsletter";
 import { NEWSLETTER } from "@/lib/site";
 
 export function ParticipaNewsletterForm() {
