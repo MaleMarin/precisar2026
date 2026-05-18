@@ -1,14 +1,12 @@
 "use client";
 
 import Image from "next/image";
-import { useCallback, useEffect, useState, type FormEvent } from "react";
+import { useCallback, useState, type FormEvent } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
 import { footerContactRedirect } from "@/app/[locale]/(site)/participa/actions";
-import {
-  fetchNewsletterStorageReady,
-  subscribeNewsletterViaApi,
-} from "@/lib/newsletter/subscribeNewsletterViaApi";
+import { isNewsletterFirebaseReady } from "@/lib/newsletter/persistNewsletterSubscription";
+import { subscribeNewsletter } from "@/lib/newsletter/subscribeNewsletter";
 import {
   EXTERNAL,
   FOOTER_CONTACT_ANCHOR_ID,
@@ -85,12 +83,7 @@ export function SiteFooter() {
   const [newsletterThanks, setNewsletterThanks] = useState(false);
   const [newsletterSubmitting, setNewsletterSubmitting] = useState(false);
   const [newsletterError, setNewsletterError] = useState<string | null>(null);
-  const [newsletterStorageReady, setNewsletterStorageReady] = useState<boolean | null>(null);
-
-  useEffect(() => {
-    if (NEWSLETTER.formActionUrl) return;
-    void fetchNewsletterStorageReady().then(setNewsletterStorageReady);
-  }, []);
+  const firebaseReady = isNewsletterFirebaseReady();
 
   const onNewsletterSubmit = async (e: FormEvent<HTMLFormElement>) => {
     if (NEWSLETTER.formActionUrl) return;
@@ -103,9 +96,9 @@ export function SiteFooter() {
       return;
     }
 
-    if (newsletterStorageReady === false) {
+    if (!firebaseReady) {
       setNewsletterError(
-        "El boletín no está conectado en el servidor. En Vercel añade NEXT_PUBLIC_FIREBASE_ENCUESTA_* (o FIREBASE_ENCUESTA_*), quita NEXT_PUBLIC_NEWSLETTER_FORM_ACTION si existe, y redeploy.",
+        "El boletín no está conectado. En Vercel añade NEXT_PUBLIC_FIREBASE_ENCUESTA_* y haz Redeploy.",
       );
       return;
     }
@@ -113,7 +106,7 @@ export function SiteFooter() {
     setNewsletterSubmitting(true);
     setNewsletterError(null);
     try {
-      await subscribeNewsletterViaApi({
+      await subscribeNewsletter({
         email: input.value,
         source: "site-footer",
         locale,

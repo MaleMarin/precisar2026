@@ -8,6 +8,7 @@ import { NEWSLETTER } from "@/lib/site";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
+export const maxDuration = 30;
 
 const SOURCES = new Set<NewsletterSource>(["site-footer", "participa"]);
 

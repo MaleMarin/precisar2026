@@ -4,12 +4,27 @@ type SubscribeResponse = { ok?: boolean; error?: string; code?: string };
 
 export async function subscribeNewsletterViaApi(
   input: NewsletterSubscriptionInput,
+  timeoutMs = 20_000,
 ): Promise<void> {
-  const res = await fetch("/api/newsletter/subscribe", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(input),
-  });
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
+
+  let res: Response;
+  try {
+    res = await fetch("/api/newsletter/subscribe", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(input),
+      signal: controller.signal,
+    });
+  } catch (err) {
+    if (err instanceof Error && err.name === "AbortError") {
+      throw new Error("El servidor tardó demasiado. Intenta de nuevo.");
+    }
+    throw err;
+  } finally {
+    clearTimeout(timer);
+  }
 
   let data: SubscribeResponse = {};
   try {

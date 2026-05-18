@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, type FormEvent } from "react";
+import { useState, type FormEvent } from "react";
 import { Link, usePathname } from "@/i18n/navigation";
 import { useLocale } from "next-intl";
 import {
@@ -15,12 +15,7 @@ export function ParticipaNewsletterForm() {
   const [thanks, setThanks] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [storageReady, setStorageReady] = useState<boolean | null>(null);
-
-  useEffect(() => {
-    if (NEWSLETTER.formActionUrl) return;
-    void fetchNewsletterStorageReady().then(setStorageReady);
-  }, []);
+  const firebaseReady = isNewsletterFirebaseReady();
 
   const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     if (NEWSLETTER.formActionUrl) return;
@@ -39,9 +34,9 @@ export function ParticipaNewsletterForm() {
       return;
     }
 
-    if (storageReady === false) {
+    if (!firebaseReady) {
       setError(
-        "El boletín no está conectado en el servidor. Configura Firebase en Vercel (NEXT_PUBLIC_FIREBASE_ENCUESTA_* o FIREBASE_ENCUESTA_*) y redeploy.",
+        "El boletín no está conectado. Configura NEXT_PUBLIC_FIREBASE_ENCUESTA_* en Vercel y redeploy.",
       );
       return;
     }
@@ -49,7 +44,7 @@ export function ParticipaNewsletterForm() {
     setSubmitting(true);
     setError(null);
     try {
-      await subscribeNewsletterViaApi({
+      await subscribeNewsletter({
         email: emailInput.value,
         source: "participa",
         locale,
@@ -113,15 +108,15 @@ export function ParticipaNewsletterForm() {
 
   return (
     <form className="mt-6 max-w-lg space-y-5" onSubmit={onSubmit}>
-      {storageReady === false ? (
-        <p className="text-sm text-[var(--muted)]">
-          El boletín aún no tiene Firebase configurado en el servidor. Revisa{" "}
-          <code className="font-mono text-[10px]">.env.example</code> y Vercel.
-        </p>
-      ) : (
+      {firebaseReady ? (
         <p className="text-sm text-[var(--muted)]">
           Tu correo se guarda en Firebase (proyecto Encuesta Información · colección{" "}
           <code className="font-mono text-[10px]">newsletter_suscripciones</code>).
+        </p>
+      ) : (
+        <p className="text-sm text-[var(--muted)]">
+          El boletín aún no tiene Firebase configurado. Revisa{" "}
+          <code className="font-mono text-[10px]">.env.example</code> y Vercel (redeploy).
         </p>
       )}
       <input
@@ -157,7 +152,7 @@ export function ParticipaNewsletterForm() {
       <button
         type="submit"
         className="prec-btn prec-btn--ghost"
-        disabled={submitting || storageReady === false}
+        disabled={submitting || !firebaseReady}
       >
         {submitting ? "Enviando…" : "Suscribirme"}
       </button>

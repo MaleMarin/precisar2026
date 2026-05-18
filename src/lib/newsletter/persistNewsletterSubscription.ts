@@ -1,6 +1,7 @@
-import { addDoc, collection, getFirestore, serverTimestamp } from "firebase/firestore";
+import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { isEncuestaFirebaseConfigured } from "@/lib/firebase/encuestaFirebaseOptions";
 import { getEncuestaInformacionFirebaseApp } from "@/lib/firebase/encuestaInformacionClient";
+import { getEncuestaFirestore } from "@/lib/firebase/encuestaFirestore";
 
 const DEFAULT_COLLECTION = "newsletter_suscripciones";
 
@@ -33,7 +34,10 @@ export async function persistNewsletterSubscription(
   const collectionId =
     process.env.NEXT_PUBLIC_FIREBASE_NEWSLETTER_COLLECTION?.trim() || DEFAULT_COLLECTION;
 
-  const db = getFirestore(app);
+  const db = getEncuestaFirestore();
+  if (!db) {
+    throw new Error("MISSING_FIREBASE_ENCUESTA_CONFIG");
+  }
   const doc = {
     email,
     source: input.source,
