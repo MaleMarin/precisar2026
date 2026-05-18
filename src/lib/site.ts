@@ -49,8 +49,9 @@ export function hreflangAlternates(pathname: string): Record<string, string> {
 }
 
 /**
- * Newsletter: asignar `NEXT_PUBLIC_NEWSLETTER_FORM_ACTION` (Mailchimp, Brevo, etc.)
- * cuando el proveedor esté definido. Mientras sea null, el bloque en /participa no envía a terceros.
+ * Newsletter:
+ * 1. Si `NEXT_PUBLIC_NEWSLETTER_FORM_ACTION` → POST al proveedor (Mailchimp, Brevo, etc.).
+ * 2. Si no, y hay `NEXT_PUBLIC_FIREBASE_ENCUESTA_*` → Firestore (`newsletter_suscripciones` por defecto).
  */
 export const NEWSLETTER = {
   formActionUrl: process.env.NEXT_PUBLIC_NEWSLETTER_FORM_ACTION ?? null,

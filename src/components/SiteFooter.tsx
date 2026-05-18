@@ -6,6 +6,10 @@ import { useLocale, useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
 import { footerContactRedirect } from "@/app/[locale]/(site)/participa/actions";
 import {
+  isNewsletterFirebaseReady,
+  persistNewsletterSubscription,
+} from "@/lib/newsletter/persistNewsletterSubscription";
+import {
   EXTERNAL,
   FOOTER_CONTACT_ANCHOR_ID,
   FOOTER_MEDIA,
@@ -79,18 +83,44 @@ export function SiteFooter() {
   const isHome = isHomePath(pathname);
 
   const [newsletterThanks, setNewsletterThanks] = useState(false);
+  const [newsletterSubmitting, setNewsletterSubmitting] = useState(false);
+  const [newsletterError, setNewsletterError] = useState<string | null>(null);
 
-  const onNewsletterSubmit = (e: FormEvent<HTMLFormElement>) => {
-    if (!NEWSLETTER.formActionUrl) {
-      e.preventDefault();
-      const form = e.currentTarget;
-      const input = form.elements.namedItem("email") as HTMLInputElement | null;
-      if (!input?.value?.trim() || !input.validity.valid) {
-        input?.reportValidity();
-        return;
-      }
+  const onNewsletterSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    if (NEWSLETTER.formActionUrl) {
+      setNewsletterThanks(true);
+      return;
     }
-    setNewsletterThanks(true);
+
+    e.preventDefault();
+    const form = e.currentTarget;
+    const input = form.elements.namedItem("email") as HTMLInputElement | null;
+    if (!input?.value?.trim() || !input.validity.valid) {
+      input?.reportValidity();
+      return;
+    }
+
+    if (!isNewsletterFirebaseReady()) {
+      setNewsletterThanks(true);
+      return;
+    }
+
+    setNewsletterSubmitting(true);
+    setNewsletterError(null);
+    try {
+      await persistNewsletterSubscription({
+        email: input.value,
+        source: "site-footer",
+        locale,
+        path: pathname,
+      });
+      setNewsletterThanks(true);
+    } catch (err) {
+      console.error("[newsletter footer]", err);
+      setNewsletterError("No pudimos registrar tu correo. Intenta de nuevo.");
+    } finally {
+      setNewsletterSubmitting(false);
+    }
   };
 
   const scrollToHomeSection = useCallback(
@@ -115,6 +145,19 @@ export function SiteFooter() {
     <p className={styles.newsBody} role="status">
       Ya estás dentro. Pronto recibirás noticias que vale la pena leer.
     </p>
+  ) : newsletterError ? (
+    <div className={styles.newsFormInner}>
+      <p className={styles.newsBody} role="alert">
+        {newsletterError}
+      </p>
+      <button
+        type="button"
+        className={styles.btnSubscribe}
+        onClick={() => setNewsletterError(null)}
+      >
+        Reintentar
+      </button>
+    </div>
   ) : NEWSLETTER.formActionUrl ? (
     <form
       action={NEWSLETTER.formActionUrl}
@@ -135,9 +178,10 @@ export function SiteFooter() {
           autoComplete="email"
           placeholder="Escribe tu correo"
           className={styles.newsletterField}
+          disabled={newsletterSubmitting}
         />
-        <button type="submit" className={styles.btnSubscribe}>
-          Suscribirme
+        <button type="submit" className={styles.btnSubscribe} disabled={newsletterSubmitting}>
+          {newsletterSubmitting ? "Enviando…" : "Suscribirme"}
         </button>
       </div>
     </form>
@@ -155,9 +199,10 @@ export function SiteFooter() {
           autoComplete="email"
           placeholder="Escribe tu correo"
           className={styles.newsletterField}
+          disabled={newsletterSubmitting}
         />
-        <button type="submit" className={styles.btnSubscribe}>
-          Suscribirme
+        <button type="submit" className={styles.btnSubscribe} disabled={newsletterSubmitting}>
+          {newsletterSubmitting ? "Enviando…" : "Suscribirme"}
         </button>
       </div>
     </form>

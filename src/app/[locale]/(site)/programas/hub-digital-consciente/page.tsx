@@ -31,16 +31,15 @@ export default function Page() {
             </div>
             <div>
               <p id="hub-que-es" className={shell.bodyText}>
-                En el Hub Digital Consciente nos sumergimos en la cultura digital a través de muestras
-                interactivas y temáticas. Cada una es portátil y está diseñada para explorar cómo los
-                medios y la tecnología influyen en nuestra sociedad, llevando el conocimiento
-                directamente a eventos, municipios, espacios públicos y más.
+                En el Hub Digital Consciente transformamos la cultura digital en experiencias tangibles. A
+                través de muestras interactivas y portátiles, exploramos el impacto de la tecnología en
+                nuestra sociedad, llevando el conocimiento especializado directamente a eventos, municipios
+                y espacios públicos.
               </p>
               <p className={shell.bodyText}>
-                No solo presentamos temas: también abrimos un espacio para el diálogo y la acción. Con
-                cada muestra, traducimos conceptos complejos, desde la desinformación e inteligencia
-                artificial hasta la privacidad, en experiencias sensoriales accesibles que impulsan
-                conversaciones significativas sobre el uso responsable de la tecnología.
+                No solo exponemos contenidos; creamos espacios de diálogo y acción. Traducimos conceptos
+                complejos, como la desinformación, la IA y la privacidad, en experiencias sensoriales
+                accesibles que impulsan el uso responsable de la tecnología en la ciudadanía.
               </p>
             </div>
           </div>

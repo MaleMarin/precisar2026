@@ -1,6 +1,7 @@
 import { Link } from "@/i18n/navigation";
 import { PageShell } from "@/components/PageShell";
-import { EXTERNAL, NEWSLETTER, SITE } from "@/lib/site";
+import { ParticipaNewsletterForm } from "@/components/newsletter/ParticipaNewsletterForm";
+import { EXTERNAL, SITE } from "@/lib/site";
 import { participaContactRedirect } from "./actions";
 
 export const metadata = { title: "¿Cómo te informas hoy?" };
@@ -95,53 +96,7 @@ export default function Page() {
       <h2 className="mt-16 font-[family-name:var(--font-display)] text-xl font-medium tracking-tight md:text-2xl">
         Newsletter
       </h2>
-      {NEWSLETTER.formActionUrl ? (
-        <form action={NEWSLETTER.formActionUrl} method="post" className="mt-6 max-w-lg space-y-5">
-          <p className="text-sm text-[var(--muted)]">
-            Alta gestionada por el proveedor en{" "}
-            <code className="rounded bg-[var(--surface)] px-1 font-mono text-[10px]">
-              NEXT_PUBLIC_NEWSLETTER_FORM_ACTION
-            </code>
-            .
-          </p>
-          <input
-            type="email"
-            name="email"
-            placeholder="correo@ejemplo.cl"
-            required
-            className="prec-input"
-          />
-          <label className="flex items-start gap-3 text-sm leading-snug">
-            <input type="checkbox" name="consent" required className="mt-1 size-3.5 accent-[var(--fg)]" />
-            <span>
-              Acepto la{" "}
-              <Link href="/legal/privacidad-consulta-2026" className="underline underline-offset-2">
-                política de privacidad
-              </Link>{" "}
-              y el tratamiento de datos para recibir novedades.
-            </span>
-          </label>
-          <button type="submit" className="prec-btn prec-btn--ghost">
-            Suscribirme
-          </button>
-        </form>
-      ) : (
-        <p className="mt-4 max-w-xl text-sm text-[var(--muted)]">
-          El boletín aún no tiene <code className="font-mono text-[10px]">action</code> pública
-          configurada. Define el proveedor (Mailchimp, Brevo, Buttondown, etc.), crea el formulario
-          allí y asigna la URL en{" "}
-          <code className="font-mono text-[10px]">NEXT_PUBLIC_NEWSLETTER_FORM_ACTION</code>. Textos
-          legales en{" "}
-          <Link href="/legal/privacidad-consulta-2026" className="text-[var(--fg)] underline-offset-2 hover:underline">
-            privacidad consulta
-          </Link>{" "}
-          y{" "}
-          <Link href="/legal/privacidad-bot-onda" className="text-[var(--fg)] underline-offset-2 hover:underline">
-            Bot ONDA
-          </Link>
-          .
-        </p>
-      )}
+      <ParticipaNewsletterForm />
 
       <p className="mt-12 border-t border-[var(--border)] pt-8 text-sm text-[var(--muted)]">
         Contacto directo:{" "}
