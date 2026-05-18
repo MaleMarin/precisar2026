@@ -4,7 +4,8 @@ import {
 } from "@/lib/newsletter/persistNewsletterSubscription";
 import { subscribeNewsletterViaApi } from "@/lib/newsletter/subscribeNewsletterViaApi";
 
-const TIMEOUT_MS = 20_000;
+const CLIENT_TIMEOUT_MS = 15_000;
+const API_TIMEOUT_MS = 10_000;
 
 function withTimeout<T>(promise: Promise<T>, ms: number, timeoutMessage: string): Promise<T> {
   return new Promise((resolve, reject) => {
@@ -23,30 +24,34 @@ function withTimeout<T>(promise: Promise<T>, ms: number, timeoutMessage: string)
 }
 
 /**
- * Alta de newsletter: API (env en Vercel en runtime) y, si falla, Firestore en el navegador
- * (config embebida o cargada desde /api/newsletter/firebase-config).
+ * Alta de newsletter: primero Firestore en el navegador (como el bot);
+ * respaldo corto por API si el cliente no puede conectar.
  */
 export async function subscribeNewsletter(input: NewsletterSubscriptionInput): Promise<void> {
-  try {
-    await subscribeNewsletterViaApi(input, TIMEOUT_MS);
-    return;
-  } catch (apiErr) {
+  if (typeof window !== "undefined") {
     try {
       await withTimeout(
         persistNewsletterSubscription(input),
-        TIMEOUT_MS,
+        CLIENT_TIMEOUT_MS,
         "La conexión tardó demasiado. Revisa tu red e intenta de nuevo.",
       );
+      return;
     } catch (clientErr) {
-      if (apiErr instanceof Error && apiErr.message && apiErr.message !== "SUBSCRIBE_FAILED") {
-        throw apiErr;
-      }
       if (clientErr instanceof Error && clientErr.message === "MISSING_FIREBASE_ENCUESTA_CONFIG") {
-        throw new Error(
-          "Firebase no está configurado en Vercel. Añade las 6 variables NEXT_PUBLIC_FIREBASE_ENCUESTA_* en Production y haz Redeploy.",
-        );
+        // Sin config en el bundle: sigue al respaldo API (lee env en Vercel en runtime).
+      } else if (
+        clientErr instanceof Error &&
+        !clientErr.message.includes("tardó demasiado")
+      ) {
+        throw clientErr;
       }
-      throw clientErr;
     }
+  }
+
+  try {
+    await subscribeNewsletterViaApi(input, API_TIMEOUT_MS);
+  } catch (apiErr) {
+    if (apiErr instanceof Error && apiErr.message) throw apiErr;
+    throw new Error("No pudimos registrar tu correo. Intenta de nuevo.");
   }
 }

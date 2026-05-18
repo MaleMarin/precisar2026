@@ -25,8 +25,9 @@ export async function persistNewsletterSubscription(
   input: NewsletterSubscriptionInput,
 ): Promise<void> {
   const app =
-    getEncuestaInformacionFirebaseApp() ??
-    (typeof window !== "undefined" ? await getEncuestaInformacionFirebaseAppAsync() : null);
+    typeof window !== "undefined"
+      ? await getEncuestaInformacionFirebaseAppAsync()
+      : getEncuestaInformacionFirebaseApp();
   if (!app) {
     throw new Error("MISSING_FIREBASE_ENCUESTA_CONFIG");
   }

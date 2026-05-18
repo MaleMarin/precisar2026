@@ -96,6 +96,14 @@ export function SiteFooter() {
 
     setNewsletterSubmitting(true);
     setNewsletterError(null);
+
+    let finished = false;
+    const safetyTimer = window.setTimeout(() => {
+      if (finished) return;
+      setNewsletterSubmitting(false);
+      setNewsletterError("La solicitud tardó demasiado. Recarga la página e intenta de nuevo.");
+    }, 28_000);
+
     try {
       await subscribeNewsletter({
         email: input.value,
@@ -103,8 +111,10 @@ export function SiteFooter() {
         locale,
         path: pathname,
       });
+      finished = true;
       setNewsletterThanks(true);
     } catch (err) {
+      finished = true;
       console.error("[newsletter footer]", err);
       const msg = err instanceof Error ? err.message : "";
       setNewsletterError(
@@ -113,6 +123,8 @@ export function SiteFooter() {
           : "No pudimos registrar tu correo. Intenta de nuevo.",
       );
     } finally {
+      finished = true;
+      window.clearTimeout(safetyTimer);
       setNewsletterSubmitting(false);
     }
   };

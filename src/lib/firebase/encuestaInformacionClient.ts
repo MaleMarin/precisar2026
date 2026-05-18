@@ -11,6 +11,8 @@ function initEncuestaApp(opts: FirebaseOptions): FirebaseApp {
 }
 
 export function getEncuestaInformacionFirebaseApp(): FirebaseApp | null {
+  const existing = getApps().find((a) => a.name === ENCUESTA_APP_NAME);
+  if (existing) return existing;
   const opts = getEncuestaFirebaseOptions();
   if (!opts) return null;
   return initEncuestaApp(opts);
@@ -23,7 +25,13 @@ export async function getEncuestaInformacionFirebaseAppAsync(): Promise<Firebase
   if (typeof window === "undefined") return null;
 
   try {
-    const res = await fetch("/api/newsletter/firebase-config", { cache: "no-store" });
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), 8_000);
+    const res = await fetch("/api/newsletter/firebase-config", {
+      cache: "no-store",
+      signal: controller.signal,
+    });
+    clearTimeout(timer);
     if (!res.ok) return null;
     const data = (await res.json()) as {
       configured?: boolean;
