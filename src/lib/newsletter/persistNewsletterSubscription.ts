@@ -33,14 +33,21 @@ export async function persistNewsletterSubscription(
     process.env.NEXT_PUBLIC_FIREBASE_NEWSLETTER_COLLECTION?.trim() || DEFAULT_COLLECTION;
 
   const db = getFirestore(app);
-  await addDoc(collection(db, collectionId), {
+  const doc = {
     email,
     source: input.source,
     locale: input.locale ?? null,
     path: input.path ?? null,
     site: "precisar.net",
     createdAt: serverTimestamp(),
-  });
+  };
+
+  try {
+    await addDoc(collection(db, collectionId), doc);
+  } catch (err) {
+    console.error("[newsletter] Firestore addDoc failed", { collectionId, err });
+    throw err;
+  }
 }
 
 export function isNewsletterFirebaseReady(): boolean {

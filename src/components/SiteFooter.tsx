@@ -101,7 +101,9 @@ export function SiteFooter() {
     }
 
     if (!isNewsletterFirebaseReady()) {
-      setNewsletterThanks(true);
+      setNewsletterError(
+        "El boletín no está conectado en este entorno. Revisa en Vercel las variables NEXT_PUBLIC_FIREBASE_ENCUESTA_* y vuelve a desplegar.",
+      );
       return;
     }
 
