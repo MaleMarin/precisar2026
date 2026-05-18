@@ -1,6 +1,9 @@
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { isEncuestaFirebaseConfigured } from "@/lib/firebase/encuestaFirebaseOptions";
-import { getEncuestaInformacionFirebaseApp } from "@/lib/firebase/encuestaInformacionClient";
+import {
+  getEncuestaInformacionFirebaseApp,
+  getEncuestaInformacionFirebaseAppAsync,
+} from "@/lib/firebase/encuestaInformacionClient";
 import { getEncuestaFirestore } from "@/lib/firebase/encuestaFirestore";
 
 const DEFAULT_COLLECTION = "newsletter_suscripciones";
@@ -21,7 +24,9 @@ export type NewsletterSubscriptionInput = {
 export async function persistNewsletterSubscription(
   input: NewsletterSubscriptionInput,
 ): Promise<void> {
-  const app = getEncuestaInformacionFirebaseApp();
+  const app =
+    getEncuestaInformacionFirebaseApp() ??
+    (typeof window !== "undefined" ? await getEncuestaInformacionFirebaseAppAsync() : null);
   if (!app) {
     throw new Error("MISSING_FIREBASE_ENCUESTA_CONFIG");
   }

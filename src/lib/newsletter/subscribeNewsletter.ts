@@ -1,4 +1,3 @@
-import { isEncuestaFirebaseConfigured } from "@/lib/firebase/encuestaFirebaseOptions";
 import {
   persistNewsletterSubscription,
   type NewsletterSubscriptionInput,
@@ -24,21 +23,30 @@ function withTimeout<T>(promise: Promise<T>, ms: number, timeoutMessage: string)
 }
 
 /**
- * Alta de newsletter: primero Firestore en el navegador (como el bot);
- * si no hay config en el cliente, usa la API del servidor.
+ * Alta de newsletter: API (env en Vercel en runtime) y, si falla, Firestore en el navegador
+ * (config embebida o cargada desde /api/newsletter/firebase-config).
  */
 export async function subscribeNewsletter(input: NewsletterSubscriptionInput): Promise<void> {
-  const useBrowser =
-    typeof window !== "undefined" && isEncuestaFirebaseConfigured();
-
-  if (useBrowser) {
-    await withTimeout(
-      persistNewsletterSubscription(input),
-      TIMEOUT_MS,
-      "La conexión tardó demasiado. Revisa tu red e intenta de nuevo.",
-    );
+  try {
+    await subscribeNewsletterViaApi(input, TIMEOUT_MS);
     return;
+  } catch (apiErr) {
+    try {
+      await withTimeout(
+        persistNewsletterSubscription(input),
+        TIMEOUT_MS,
+        "La conexión tardó demasiado. Revisa tu red e intenta de nuevo.",
+      );
+    } catch (clientErr) {
+      if (apiErr instanceof Error && apiErr.message && apiErr.message !== "SUBSCRIBE_FAILED") {
+        throw apiErr;
+      }
+      if (clientErr instanceof Error && clientErr.message === "MISSING_FIREBASE_ENCUESTA_CONFIG") {
+        throw new Error(
+          "Firebase no está configurado en Vercel. Añade las 6 variables NEXT_PUBLIC_FIREBASE_ENCUESTA_* en Production y haz Redeploy.",
+        );
+      }
+      throw clientErr;
+    }
   }
-
-  await subscribeNewsletterViaApi(input, TIMEOUT_MS);
 }

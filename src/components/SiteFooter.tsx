@@ -5,7 +5,6 @@ import { useCallback, useState, type FormEvent } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
 import { footerContactRedirect } from "@/app/[locale]/(site)/participa/actions";
-import { isNewsletterFirebaseReady } from "@/lib/newsletter/persistNewsletterSubscription";
 import { subscribeNewsletter } from "@/lib/newsletter/subscribeNewsletter";
 import {
   EXTERNAL,
@@ -83,7 +82,6 @@ export function SiteFooter() {
   const [newsletterThanks, setNewsletterThanks] = useState(false);
   const [newsletterSubmitting, setNewsletterSubmitting] = useState(false);
   const [newsletterError, setNewsletterError] = useState<string | null>(null);
-  const firebaseReady = isNewsletterFirebaseReady();
 
   const onNewsletterSubmit = async (e: FormEvent<HTMLFormElement>) => {
     if (NEWSLETTER.formActionUrl) return;
@@ -93,13 +91,6 @@ export function SiteFooter() {
     const input = form.elements.namedItem("email") as HTMLInputElement | null;
     if (!input?.value?.trim() || !input.validity.valid) {
       input?.reportValidity();
-      return;
-    }
-
-    if (!firebaseReady) {
-      setNewsletterError(
-        "El boletín no está conectado. En Vercel añade NEXT_PUBLIC_FIREBASE_ENCUESTA_* y haz Redeploy.",
-      );
       return;
     }
 

@@ -3,7 +3,6 @@
 import { useState, type FormEvent } from "react";
 import { Link, usePathname } from "@/i18n/navigation";
 import { useLocale } from "next-intl";
-import { isNewsletterFirebaseReady } from "@/lib/newsletter/persistNewsletterSubscription";
 import { subscribeNewsletter } from "@/lib/newsletter/subscribeNewsletter";
 import { NEWSLETTER } from "@/lib/site";
 
@@ -13,7 +12,6 @@ export function ParticipaNewsletterForm() {
   const [thanks, setThanks] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const firebaseReady = isNewsletterFirebaseReady();
 
   const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     if (NEWSLETTER.formActionUrl) return;
@@ -29,13 +27,6 @@ export function ParticipaNewsletterForm() {
     }
     if (consent && !consent.checked) {
       consent.reportValidity();
-      return;
-    }
-
-    if (!firebaseReady) {
-      setError(
-        "El boletín no está conectado. Configura NEXT_PUBLIC_FIREBASE_ENCUESTA_* en Vercel y redeploy.",
-      );
       return;
     }
 
@@ -106,17 +97,10 @@ export function ParticipaNewsletterForm() {
 
   return (
     <form className="mt-6 max-w-lg space-y-5" onSubmit={onSubmit}>
-      {firebaseReady ? (
-        <p className="text-sm text-[var(--muted)]">
-          Tu correo se guarda en Firebase (proyecto Encuesta Información · colección{" "}
-          <code className="font-mono text-[10px]">newsletter_suscripciones</code>).
-        </p>
-      ) : (
-        <p className="text-sm text-[var(--muted)]">
-          El boletín aún no tiene Firebase configurado. Revisa{" "}
-          <code className="font-mono text-[10px]">.env.example</code> y Vercel (redeploy).
-        </p>
-      )}
+      <p className="text-sm text-[var(--muted)]">
+        Tu correo se guarda en Firebase (proyecto Encuesta Información · colección{" "}
+        <code className="font-mono text-[10px]">newsletter_suscripciones</code>).
+      </p>
       <input
         type="email"
         name="email"
@@ -150,7 +134,7 @@ export function ParticipaNewsletterForm() {
       <button
         type="submit"
         className="prec-btn prec-btn--ghost"
-        disabled={submitting || !firebaseReady}
+        disabled={submitting}
       >
         {submitting ? "Enviando…" : "Suscribirme"}
       </button>
