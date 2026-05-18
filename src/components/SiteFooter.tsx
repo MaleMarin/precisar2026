@@ -1,14 +1,14 @@
 "use client";
 
 import Image from "next/image";
-import { useCallback, useState, type FormEvent } from "react";
+import { useCallback, useEffect, useState, type FormEvent } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
 import { footerContactRedirect } from "@/app/[locale]/(site)/participa/actions";
 import {
-  isNewsletterFirebaseReady,
-  persistNewsletterSubscription,
-} from "@/lib/newsletter/persistNewsletterSubscription";
+  fetchNewsletterStorageReady,
+  subscribeNewsletterViaApi,
+} from "@/lib/newsletter/subscribeNewsletterViaApi";
 import {
   EXTERNAL,
   FOOTER_CONTACT_ANCHOR_ID,
@@ -85,12 +85,15 @@ export function SiteFooter() {
   const [newsletterThanks, setNewsletterThanks] = useState(false);
   const [newsletterSubmitting, setNewsletterSubmitting] = useState(false);
   const [newsletterError, setNewsletterError] = useState<string | null>(null);
+  const [newsletterStorageReady, setNewsletterStorageReady] = useState<boolean | null>(null);
+
+  useEffect(() => {
+    if (NEWSLETTER.formActionUrl) return;
+    void fetchNewsletterStorageReady().then(setNewsletterStorageReady);
+  }, []);
 
   const onNewsletterSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    if (NEWSLETTER.formActionUrl) {
-      setNewsletterThanks(true);
-      return;
-    }
+    if (NEWSLETTER.formActionUrl) return;
 
     e.preventDefault();
     const form = e.currentTarget;
@@ -100,9 +103,9 @@ export function SiteFooter() {
       return;
     }
 
-    if (!isNewsletterFirebaseReady()) {
+    if (newsletterStorageReady === false) {
       setNewsletterError(
-        "El boletín no está conectado en este entorno. Revisa en Vercel las variables NEXT_PUBLIC_FIREBASE_ENCUESTA_* y vuelve a desplegar.",
+        "El boletín no está conectado en el servidor. En Vercel añade NEXT_PUBLIC_FIREBASE_ENCUESTA_* (o FIREBASE_ENCUESTA_*), quita NEXT_PUBLIC_NEWSLETTER_FORM_ACTION si existe, y redeploy.",
       );
       return;
     }
@@ -110,7 +113,7 @@ export function SiteFooter() {
     setNewsletterSubmitting(true);
     setNewsletterError(null);
     try {
-      await persistNewsletterSubscription({
+      await subscribeNewsletterViaApi({
         email: input.value,
         source: "site-footer",
         locale,
@@ -119,7 +122,12 @@ export function SiteFooter() {
       setNewsletterThanks(true);
     } catch (err) {
       console.error("[newsletter footer]", err);
-      setNewsletterError("No pudimos registrar tu correo. Intenta de nuevo.");
+      const msg = err instanceof Error ? err.message : "";
+      setNewsletterError(
+        msg && msg !== "SUBSCRIBE_FAILED"
+          ? msg
+          : "No pudimos registrar tu correo. Intenta de nuevo.",
+      );
     } finally {
       setNewsletterSubmitting(false);
     }

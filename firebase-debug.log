@@ -1,0 +1,102 @@
+[debug] [2026-05-18T16:53:57.542Z] ----------------------------------------------------------------------
+[debug] [2026-05-18T16:53:57.544Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy --only firestore:rules
+[debug] [2026-05-18T16:53:57.544Z] CLI Version:   15.1.0
+[debug] [2026-05-18T16:53:57.544Z] Platform:      darwin
+[debug] [2026-05-18T16:53:57.544Z] Node Version:  v24.12.0
+[debug] [2026-05-18T16:53:57.544Z] Time:          Mon May 18 2026 12:53:57 GMT-0400 (Chile Standard Time)
+[debug] [2026-05-18T16:53:57.544Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-05-18T16:53:58.781Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-05-18T16:53:58.781Z] > authorizing via signed-in user (malemarinlg@gmail.com)
+[debug] [2026-05-18T16:53:58.782Z] [iam] checking project encuesta-informacion for permissions ["datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get"]
+[debug] [2026-05-18T16:53:58.782Z] Checked if tokens are valid: true, expires at: 1779126835544
+[debug] [2026-05-18T16:53:58.782Z] Checked if tokens are valid: true, expires at: 1779126835544
+[debug] [2026-05-18T16:53:58.782Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/encuesta-informacion:testIamPermissions [none]
+[debug] [2026-05-18T16:53:58.782Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/encuesta-informacion:testIamPermissions x-goog-quota-user=projects/encuesta-informacion
+[debug] [2026-05-18T16:53:58.782Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/encuesta-informacion:testIamPermissions {"permissions":["datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get"]}
+[debug] [2026-05-18T16:53:59.940Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/encuesta-informacion:testIamPermissions 200
+[debug] [2026-05-18T16:53:59.941Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/encuesta-informacion:testIamPermissions {"permissions":["datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get"]}
+[info] 
+[info] === Deploying to 'encuesta-informacion'...
+[info] 
+[info] i  deploying firestore 
+[info] i  firestore: ensuring required API firestore.googleapis.com is enabled... 
+[debug] [2026-05-18T16:53:59.944Z] Checked if tokens are valid: true, expires at: 1779126835544
+[debug] [2026-05-18T16:53:59.944Z] Checked if tokens are valid: true, expires at: 1779126835544
+[debug] [2026-05-18T16:53:59.944Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/encuesta-informacion/services/firestore.googleapis.com [none]
+[debug] [2026-05-18T16:53:59.944Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/encuesta-informacion/services/firestore.googleapis.com x-goog-quota-user=projects/encuesta-informacion
+[debug] [2026-05-18T16:54:01.300Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/encuesta-informacion/services/firestore.googleapis.com 200
+[debug] [2026-05-18T16:54:01.300Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/encuesta-informacion/services/firestore.googleapis.com [omitted]
+[info] ✔  firestore: required API firestore.googleapis.com is enabled 
+[info] i  firestore: ensuring required API firestore.googleapis.com is enabled... 
+[debug] [2026-05-18T16:54:01.306Z] Checked if tokens are valid: true, expires at: 1779126835544
+[debug] [2026-05-18T16:54:01.306Z] Checked if tokens are valid: true, expires at: 1779126835544
+[debug] [2026-05-18T16:54:01.306Z] >>> [apiv2][query] GET https://firestore.googleapis.com/v1/projects/encuesta-informacion/databases/(default) [none]
+[debug] [2026-05-18T16:54:01.527Z] <<< [apiv2][status] GET https://firestore.googleapis.com/v1/projects/encuesta-informacion/databases/(default) 200
+[debug] [2026-05-18T16:54:01.527Z] <<< [apiv2][body] GET https://firestore.googleapis.com/v1/projects/encuesta-informacion/databases/(default) {"name":"projects/encuesta-informacion/databases/(default)","uid":"f6ffed16-6965-4033-970d-b3a0c23c03af","createTime":"2025-08-01T17:39:07.461154Z","updateTime":"2025-08-01T17:39:07.461154Z","locationId":"southamerica-west1","type":"FIRESTORE_NATIVE","concurrencyMode":"PESSIMISTIC","versionRetentionPeriod":"3600s","earliestVersionTime":"2026-05-18T15:54:01.793875Z","appEngineIntegrationMode":"DISABLED","pointInTimeRecoveryEnablement":"POINT_IN_TIME_RECOVERY_DISABLED","deleteProtectionState":"DELETE_PROTECTION_DISABLED","databaseEdition":"STANDARD","freeTier":true,"realtimeUpdatesMode":"REALTIME_UPDATES_MODE_ENABLED","etag":"IPPs2samw5QDMNWfl5Tt4ZID"}
+[info] i  cloud.firestore: checking firestore.rules for compilation errors... 
+[debug] [2026-05-18T16:54:01.529Z] Checked if tokens are valid: true, expires at: 1779126835544
+[debug] [2026-05-18T16:54:01.529Z] Checked if tokens are valid: true, expires at: 1779126835544
+[debug] [2026-05-18T16:54:01.529Z] >>> [apiv2][query] POST https://firebaserules.googleapis.com/v1/projects/encuesta-informacion:test [none]
+[debug] [2026-05-18T16:54:01.529Z] >>> [apiv2][body] POST https://firebaserules.googleapis.com/v1/projects/encuesta-informacion:test [omitted]
+[debug] [2026-05-18T17:08:58.021Z] ----------------------------------------------------------------------
+[debug] [2026-05-18T17:08:58.026Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy --only firestore:rules --debug
+[debug] [2026-05-18T17:08:58.026Z] CLI Version:   15.1.0
+[debug] [2026-05-18T17:08:58.026Z] Platform:      darwin
+[debug] [2026-05-18T17:08:58.026Z] Node Version:  v24.12.0
+[debug] [2026-05-18T17:08:58.027Z] Time:          Mon May 18 2026 13:08:58 GMT-0400 (Chile Standard Time)
+[debug] [2026-05-18T17:08:58.027Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-05-18T17:09:02.741Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-05-18T17:09:02.745Z] > authorizing via signed-in user (malemarinlg@gmail.com)
+[debug] [2026-05-18T17:09:02.746Z] [iam] checking project encuesta-informacion for permissions ["datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get"]
+[debug] [2026-05-18T17:09:02.752Z] Checked if tokens are valid: true, expires at: 1779126835544
+[debug] [2026-05-18T17:09:02.753Z] Checked if tokens are valid: true, expires at: 1779126835544
+[debug] [2026-05-18T17:09:02.808Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/encuesta-informacion:testIamPermissions [none]
+[debug] [2026-05-18T17:09:02.812Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/encuesta-informacion:testIamPermissions x-goog-quota-user=projects/encuesta-informacion
+[debug] [2026-05-18T17:09:02.814Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/encuesta-informacion:testIamPermissions {"permissions":["datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get"]}
+[debug] [2026-05-18T17:09:03.956Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/encuesta-informacion:testIamPermissions 200
+[debug] [2026-05-18T17:09:03.957Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/encuesta-informacion:testIamPermissions {"permissions":["datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get"]}
+[info] 
+[info] === Deploying to 'encuesta-informacion'...
+[info] 
+[info] i  deploying firestore 
+[info] i  firestore: ensuring required API firestore.googleapis.com is enabled... 
+[info] i  firestore: ensuring required API firestore.googleapis.com is enabled... 
+[debug] [2026-05-18T17:09:03.994Z] Checked if tokens are valid: true, expires at: 1779126835544
+[debug] [2026-05-18T17:09:03.995Z] Checked if tokens are valid: true, expires at: 1779126835544
+[debug] [2026-05-18T17:09:03.995Z] >>> [apiv2][query] GET https://firestore.googleapis.com/v1/projects/encuesta-informacion/databases/(default) [none]
+[debug] [2026-05-18T17:09:04.220Z] <<< [apiv2][status] GET https://firestore.googleapis.com/v1/projects/encuesta-informacion/databases/(default) 200
+[debug] [2026-05-18T17:09:04.221Z] <<< [apiv2][body] GET https://firestore.googleapis.com/v1/projects/encuesta-informacion/databases/(default) {"name":"projects/encuesta-informacion/databases/(default)","uid":"f6ffed16-6965-4033-970d-b3a0c23c03af","createTime":"2025-08-01T17:39:07.461154Z","updateTime":"2025-08-01T17:39:07.461154Z","locationId":"southamerica-west1","type":"FIRESTORE_NATIVE","concurrencyMode":"PESSIMISTIC","versionRetentionPeriod":"3600s","earliestVersionTime":"2026-05-18T16:09:04.458047Z","appEngineIntegrationMode":"DISABLED","pointInTimeRecoveryEnablement":"POINT_IN_TIME_RECOVERY_DISABLED","deleteProtectionState":"DELETE_PROTECTION_DISABLED","databaseEdition":"STANDARD","freeTier":true,"realtimeUpdatesMode":"REALTIME_UPDATES_MODE_ENABLED","etag":"IO2KkfWpw5QDMNWfl5Tt4ZID"}
+[info] i  cloud.firestore: checking firestore.rules for compilation errors... 
+[debug] [2026-05-18T17:09:04.231Z] Checked if tokens are valid: true, expires at: 1779126835544
+[debug] [2026-05-18T17:09:04.231Z] Checked if tokens are valid: true, expires at: 1779126835544
+[debug] [2026-05-18T17:09:04.235Z] >>> [apiv2][query] POST https://firebaserules.googleapis.com/v1/projects/encuesta-informacion:test [none]
+[debug] [2026-05-18T17:09:04.235Z] >>> [apiv2][body] POST https://firebaserules.googleapis.com/v1/projects/encuesta-informacion:test [omitted]
+[debug] [2026-05-18T17:09:06.268Z] <<< [apiv2][status] POST https://firebaserules.googleapis.com/v1/projects/encuesta-informacion:test 200
+[debug] [2026-05-18T17:09:06.269Z] <<< [apiv2][body] POST https://firebaserules.googleapis.com/v1/projects/encuesta-informacion:test {}
+[info] ✔  cloud.firestore: rules file firestore.rules compiled successfully 
+[debug] [2026-05-18T17:09:06.684Z] Checked if tokens are valid: true, expires at: 1779126835544
+[debug] [2026-05-18T17:09:06.685Z] Checked if tokens are valid: true, expires at: 1779126835544
+[debug] [2026-05-18T17:09:06.689Z] >>> [apiv2][query] GET https://firebaserules.googleapis.com/v1/projects/encuesta-informacion/releases pageSize=10&pageToken=
+[debug] [2026-05-18T17:09:08.285Z] <<< [apiv2][status] GET https://firebaserules.googleapis.com/v1/projects/encuesta-informacion/releases 200
+[debug] [2026-05-18T17:09:08.285Z] <<< [apiv2][body] GET https://firebaserules.googleapis.com/v1/projects/encuesta-informacion/releases {"releases":[{"name":"projects/encuesta-informacion/releases/cloud.firestore","rulesetName":"projects/encuesta-informacion/rulesets/f9ed1df0-01e8-4196-a324-5d97d610f5a8","createTime":"2025-08-01T17:39:14.559947Z","updateTime":"2026-05-18T16:03:24.282995Z"}]}
+[debug] [2026-05-18T17:09:08.286Z] Checked if tokens are valid: true, expires at: 1779126835544
+[debug] [2026-05-18T17:09:08.286Z] Checked if tokens are valid: true, expires at: 1779126835544
+[debug] [2026-05-18T17:09:08.337Z] >>> [apiv2][query] GET https://firebaserules.googleapis.com/v1/projects/encuesta-informacion/rulesets/f9ed1df0-01e8-4196-a324-5d97d610f5a8 [none]
+[debug] [2026-05-18T17:09:09.420Z] <<< [apiv2][status] GET https://firebaserules.googleapis.com/v1/projects/encuesta-informacion/rulesets/f9ed1df0-01e8-4196-a324-5d97d610f5a8 200
+[debug] [2026-05-18T17:09:09.421Z] <<< [apiv2][body] GET https://firebaserules.googleapis.com/v1/projects/encuesta-informacion/rulesets/f9ed1df0-01e8-4196-a324-5d97d610f5a8 [omitted]
+[info] i  firestore: uploading rules firestore.rules... 
+[debug] [2026-05-18T17:09:09.471Z] Checked if tokens are valid: true, expires at: 1779126835544
+[debug] [2026-05-18T17:09:09.471Z] Checked if tokens are valid: true, expires at: 1779126835544
+[debug] [2026-05-18T17:09:09.472Z] >>> [apiv2][query] POST https://firebaserules.googleapis.com/v1/projects/encuesta-informacion/rulesets [none]
+[debug] [2026-05-18T17:09:09.472Z] >>> [apiv2][body] POST https://firebaserules.googleapis.com/v1/projects/encuesta-informacion/rulesets [omitted]
+[debug] [2026-05-18T17:09:11.773Z] <<< [apiv2][status] POST https://firebaserules.googleapis.com/v1/projects/encuesta-informacion/rulesets 200
+[debug] [2026-05-18T17:09:11.795Z] <<< [apiv2][body] POST https://firebaserules.googleapis.com/v1/projects/encuesta-informacion/rulesets {"name":"projects/encuesta-informacion/rulesets/c9c87b56-749d-49ce-ae3c-6d9da983e900","source":{"files":[{"content":"rules_version = '2';\nservice cloud.firestore {\n  match /databases/{database}/documents {\n\n    match /survey_responses_2026/{docId} {\n      allow create, update: if true;\n      allow read, delete: if false;\n    }\n\n    match /survey_responses_v6/{docId} {\n      allow create, update: if true;\n      allow read, delete: if false;\n    }\n\n    match /survey_responses/{docId} {\n      allow create, update: if true;\n      allow read, delete: if false;\n    }\n\n    match /consulta_respuestas/{id} {\n      allow create: if true;\n      allow read, update, delete: if false;\n    }\n\n    match /newsletter_suscripciones/{id} {\n      allow create: if request.resource.data.email is string\n        && request.resource.data.email.size() > 3\n        && request.resource.data.email.size() < 320;\n      allow read, update, delete: if false;\n    }\n\n    match /{document=**} {\n      allow read, write: if false;\n    }\n  }\n}\n","name":"firestore.rules"}]},"createTime":"2026-05-18T17:09:10.856527Z","metadata":{"services":["cloud.firestore"]}}
+[debug] [2026-05-18T17:09:11.798Z] [rules] created ruleset projects/encuesta-informacion/rulesets/c9c87b56-749d-49ce-ae3c-6d9da983e900
+[debug] [2026-05-18T17:09:11.840Z] [rules] releasing cloud.firestore/(default) with ruleset projects/encuesta-informacion/rulesets/c9c87b56-749d-49ce-ae3c-6d9da983e900
+[debug] [2026-05-18T17:09:11.847Z] Checked if tokens are valid: true, expires at: 1779126835544
+[debug] [2026-05-18T17:09:11.848Z] Checked if tokens are valid: true, expires at: 1779126835544
+[debug] [2026-05-18T17:09:11.853Z] >>> [apiv2][query] PATCH https://firebaserules.googleapis.com/v1/projects/encuesta-informacion/releases/cloud.firestore/(default) [none]
+[debug] [2026-05-18T17:09:11.853Z] >>> [apiv2][body] PATCH https://firebaserules.googleapis.com/v1/projects/encuesta-informacion/releases/cloud.firestore/(default) {"release":{"name":"projects/encuesta-informacion/releases/cloud.firestore/(default)","rulesetName":"projects/encuesta-informacion/rulesets/c9c87b56-749d-49ce-ae3c-6d9da983e900"}}
+[debug] [2026-05-18T17:09:13.290Z] <<< [apiv2][status] PATCH https://firebaserules.googleapis.com/v1/projects/encuesta-informacion/releases/cloud.firestore/(default) 200

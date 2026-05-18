@@ -1,4 +1,5 @@
 import { addDoc, collection, getFirestore, serverTimestamp } from "firebase/firestore";
+import { isEncuestaFirebaseConfigured } from "@/lib/firebase/encuestaFirebaseOptions";
 import { getEncuestaInformacionFirebaseApp } from "@/lib/firebase/encuestaInformacionClient";
 
 const DEFAULT_COLLECTION = "newsletter_suscripciones";
@@ -50,6 +51,7 @@ export async function persistNewsletterSubscription(
   }
 }
 
+/** @deprecated Preferir `/api/newsletter/status` o `fetchNewsletterStorageReady()`. */
 export function isNewsletterFirebaseReady(): boolean {
-  return getEncuestaInformacionFirebaseApp() !== null;
+  return isEncuestaFirebaseConfigured();
 }
