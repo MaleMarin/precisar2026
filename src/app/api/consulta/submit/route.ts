@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { isEncuestaFirebaseConfigured } from "@/lib/firebase/encuestaFirebaseOptions";
-import { persistConsultaSubmission } from "@/lib/consulta/persistConsultaSubmission";
+import { persistConsultaSubmissionServer } from "@/lib/consulta/persistConsultaSubmissionServer";
 import type { ConsultaAnswers } from "@/lib/consulta/types";
 import { notifyConsultaSubmission } from "@/lib/email/notifications";
 
@@ -16,7 +16,7 @@ export async function POST(request: Request) {
   if (!isEncuestaFirebaseConfigured()) {
     return NextResponse.json(
       {
-        error: "Firebase no configurado en el servidor.",
+        error: "Firebase no configurado en Vercel. Revisa NEXT_PUBLIC_FIREBASE_ENCUESTA_* y redeploy.",
         code: "MISSING_FIREBASE_ENCUESTA_CONFIG",
       },
       { status: 503 },
@@ -27,7 +27,7 @@ export async function POST(request: Request) {
   try {
     body = await request.json();
   } catch {
-    return NextResponse.json({ error: "Cuerpo JSON inválido.", code: "INVALID_BODY" }, { status: 400 });
+    return NextResponse.json({ error: "JSON inválido.", code: "INVALID_BODY" }, { status: 400 });
   }
 
   const answers = (body as { answers?: unknown }).answers;
@@ -36,16 +36,16 @@ export async function POST(request: Request) {
   }
 
   try {
-    await persistConsultaSubmission(answers);
-    void notifyConsultaSubmission(answers).catch((err) =>
-      console.error("[api/consulta/submit] notify email", err),
-    );
-    return NextResponse.json({ ok: true });
+    await persistConsultaSubmissionServer(answers);
   } catch (err) {
     console.error("[api/consulta/submit]", err);
-    return NextResponse.json(
-      { error: "No pudimos guardar tus respuestas.", code: "FIRESTORE_ERROR" },
-      { status: 500 },
-    );
+    const msg = err instanceof Error ? err.message : "Error al guardar.";
+    return NextResponse.json({ error: msg, code: "FIRESTORE_ERROR" }, { status: 500 });
   }
+
+  void notifyConsultaSubmission(answers).catch((err) =>
+    console.error("[api/consulta/submit] notify", err),
+  );
+
+  return NextResponse.json({ ok: true });
 }

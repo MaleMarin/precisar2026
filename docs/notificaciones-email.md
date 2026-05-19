@@ -20,6 +20,27 @@ FOOTER_CONTACT_TO=       # buzón (ej. male@precisar.net)
 
 Sin `RESEND_API_KEY` y `FOOTER_CONTACT_FROM`, los datos **sí** se guardan en Firebase pero **no** llega el correo de aviso.
 
+## Comprobar en producción
+
+Abre en el navegador:
+
+`https://precisar.net/api/health/forms`
+
+Debe responder algo como:
+
+```json
+{
+  "firebase": true,
+  "resend": true,
+  "newsletter": true,
+  "consulta": true,
+  "contactEmail": true
+}
+```
+
+Si `firebase: false` → revisa las 6 variables `NEXT_PUBLIC_FIREBASE_ENCUESTA_*` en Vercel y **Redeploy**.  
+Si `resend: false` → añade `RESEND_API_KEY` y `FOOTER_CONTACT_FROM`.
+
 ## Bot Onda
 
 El bot guarda directo en Firestore desde su propia app; este repo no intercepta esos envíos.

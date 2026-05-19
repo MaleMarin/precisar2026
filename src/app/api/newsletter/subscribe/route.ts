@@ -1,10 +1,10 @@
 import { NextResponse } from "next/server";
 import { isEncuestaFirebaseConfigured } from "@/lib/firebase/encuestaFirebaseOptions";
-import {
-  persistNewsletterSubscription,
-  type NewsletterSource,
-} from "@/lib/newsletter/persistNewsletterSubscription";
 import { notifyNewsletterSubscription } from "@/lib/email/notifications";
+import {
+  persistNewsletterSubscriptionServer,
+} from "@/lib/newsletter/persistNewsletterSubscriptionServer";
+import type { NewsletterSource } from "@/lib/newsletter/persistNewsletterSubscription";
 import { NEWSLETTER } from "@/lib/site";
 
 export const runtime = "nodejs";
@@ -13,23 +13,10 @@ export const maxDuration = 30;
 
 const SOURCES = new Set<NewsletterSource>(["site-footer", "participa"]);
 
-function firestoreErrorMessage(err: unknown): string | null {
-  if (err && typeof err === "object" && "code" in err) {
-    const code = String((err as { code: string }).code);
-    if (code === "permission-denied") {
-      return "Firestore rechazó el alta (reglas). Revisa newsletter_suscripciones en Firebase → Reglas.";
-    }
-  }
-  return null;
-}
-
 export async function POST(request: Request) {
   if (NEWSLETTER.formActionUrl) {
     return NextResponse.json(
-      {
-        error: "El boletín usa un proveedor externo (NEXT_PUBLIC_NEWSLETTER_FORM_ACTION).",
-        code: "EXTERNAL_PROVIDER",
-      },
+      { error: "Boletín configurado con proveedor externo.", code: "EXTERNAL_PROVIDER" },
       { status: 400 },
     );
   }
@@ -38,7 +25,7 @@ export async function POST(request: Request) {
     return NextResponse.json(
       {
         error:
-          "Firebase no configurado en el servidor. Añade NEXT_PUBLIC_FIREBASE_ENCUESTA_* o FIREBASE_ENCUESTA_* en Vercel y redeploy.",
+          "Firebase no configurado. Añade NEXT_PUBLIC_FIREBASE_ENCUESTA_* en Vercel (Production) y redeploy.",
         code: "MISSING_FIREBASE_ENCUESTA_CONFIG",
       },
       { status: 503 },
@@ -49,7 +36,7 @@ export async function POST(request: Request) {
   try {
     body = await request.json();
   } catch {
-    return NextResponse.json({ error: "Cuerpo JSON inválido.", code: "INVALID_BODY" }, { status: 400 });
+    return NextResponse.json({ error: "JSON inválido.", code: "INVALID_BODY" }, { status: 400 });
   }
 
   const email = typeof (body as { email?: unknown }).email === "string" ? (body as { email: string }).email : "";
@@ -62,41 +49,30 @@ export async function POST(request: Request) {
   }
 
   try {
-    await persistNewsletterSubscription({
+    await persistNewsletterSubscriptionServer({
       email,
       source: source as NewsletterSource,
       locale,
       path,
     });
-    void notifyNewsletterSubscription({
-      email: email.trim().toLowerCase(),
-      source: source as NewsletterSource,
-      locale,
-      path,
-    }).catch((err) => console.error("[api/newsletter/subscribe] notify email", err));
-    return NextResponse.json({ ok: true });
   } catch (err) {
     const message = err instanceof Error ? err.message : "UNKNOWN";
-    if (message === "MISSING_FIREBASE_ENCUESTA_CONFIG") {
-      return NextResponse.json(
-        {
-          error: "Firebase no configurado en el servidor.",
-          code: "MISSING_FIREBASE_ENCUESTA_CONFIG",
-        },
-        { status: 503 },
-      );
-    }
     if (message === "INVALID_EMAIL") {
       return NextResponse.json({ error: "Correo inválido.", code: "INVALID_EMAIL" }, { status: 400 });
     }
-    const rulesHint = firestoreErrorMessage(err);
     console.error("[api/newsletter/subscribe]", err);
     return NextResponse.json(
-      {
-        error: rulesHint ?? "No pudimos guardar tu correo. Intenta de nuevo.",
-        code: "FIRESTORE_ERROR",
-      },
+      { error: message || "No pudimos guardar tu correo.", code: "FIRESTORE_ERROR" },
       { status: 500 },
     );
   }
+
+  void notifyNewsletterSubscription({
+    email: email.trim().toLowerCase(),
+    source: source as NewsletterSource,
+    locale,
+    path,
+  }).catch((err) => console.error("[api/newsletter/subscribe] notify", err));
+
+  return NextResponse.json({ ok: true });
 }
