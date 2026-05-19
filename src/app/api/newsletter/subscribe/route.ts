@@ -4,6 +4,7 @@ import {
   persistNewsletterSubscription,
   type NewsletterSource,
 } from "@/lib/newsletter/persistNewsletterSubscription";
+import { notifyNewsletterSubscription } from "@/lib/email/notifications";
 import { NEWSLETTER } from "@/lib/site";
 
 export const runtime = "nodejs";
@@ -67,6 +68,12 @@ export async function POST(request: Request) {
       locale,
       path,
     });
+    void notifyNewsletterSubscription({
+      email: email.trim().toLowerCase(),
+      source: source as NewsletterSource,
+      locale,
+      path,
+    }).catch((err) => console.error("[api/newsletter/subscribe] notify email", err));
     return NextResponse.json({ ok: true });
   } catch (err) {
     const message = err instanceof Error ? err.message : "UNKNOWN";

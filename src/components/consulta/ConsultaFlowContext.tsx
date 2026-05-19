@@ -13,7 +13,6 @@ import {
   mergeDemographics,
   validateStep,
 } from "@/lib/consulta/questions";
-import { persistConsultaSubmission } from "@/lib/consulta/persistConsultaSubmission";
 import type {
   ConsultaAnswers,
   ConsultaDemographics,
@@ -90,16 +89,24 @@ export function ConsultaFlowProvider({ children }: { children: ReactNode }) {
 
     if (questionIndex >= 11) {
       try {
-        await persistConsultaSubmission(answers);
-      } catch (e) {
-        console.error("[consulta] Firestore persist failed", e);
-        if (e instanceof Error && e.message === "MISSING_FIREBASE_ENCUESTA_CONFIG") {
-          return {
-            ok: false,
-            error:
-              "Falta la configuración del servicio de respuestas. Si eres quien administra el sitio, revisa las variables de entorno de Firebase.",
-          };
+        const res = await fetch("/api/consulta/submit", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ answers }),
+        });
+        if (!res.ok) {
+          const data = (await res.json().catch(() => ({}))) as { error?: string; code?: string };
+          if (data.code === "MISSING_FIREBASE_ENCUESTA_CONFIG") {
+            return {
+              ok: false,
+              error:
+                "Falta la configuración del servicio de respuestas. Si eres quien administra el sitio, revisa las variables de entorno de Firebase.",
+            };
+          }
+          throw new Error(data.error ?? "SUBMIT_FAILED");
         }
+      } catch (e) {
+        console.error("[consulta] submit failed", e);
         return {
           ok: false,
           error:

@@ -35,6 +35,11 @@ export async function subscribeNewsletter(input: NewsletterSubscriptionInput): P
         CLIENT_TIMEOUT_MS,
         "La conexión tardó demasiado. Revisa tu red e intenta de nuevo.",
       );
+      void fetch("/api/newsletter/notify", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(input),
+      }).catch((err) => console.error("[newsletter] notify email", err));
       return;
     } catch (clientErr) {
       if (clientErr instanceof Error && clientErr.message === "MISSING_FIREBASE_ENCUESTA_CONFIG") {
