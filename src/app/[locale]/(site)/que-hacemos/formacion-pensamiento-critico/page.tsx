@@ -20,7 +20,7 @@ const taller01 = {
     "Aplicar una lista de chequeo de 3 pasos antes de creer o compartir",
     "Reconocer las señales de alerta más comunes en titulares falsos",
     "Usar búsqueda inversa de imágenes desde tu celular",
-    "Conversar con calma con alguien que comparte desinformación",
+    "Conversar con calma con alguien que comparte desinformación (integridad informativa)",
   ],
   modulos: [
     {

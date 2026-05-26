@@ -20,7 +20,7 @@ Las redes sociales se han convertido en la plaza pública de nuestro tiempo. Son
 
 
 
-Las plataformas se enfrentan a un desafío gigantesco: cómo equilibrar la libertad de expresión con la necesidad de evitar que se difunda contenido dañino, como el discurso de odio, la desinformación o la violencia. Este es uno de los debates más urgentes de nuestra era.
+Las plataformas se enfrentan a un desafío gigantesco: cómo equilibrar la libertad de expresión con la necesidad de evitar que se difunda contenido dañino, como el discurso de odio, la desinformación (integridad informativa) o la violencia. Este es uno de los debates más urgentes de nuestra era.
 
 
 
@@ -82,7 +82,7 @@ Estos son los tres pilares:
 
  Construyendo El Futuro Digital
 
-La era digital nos presenta un desafío monumental, pero también una oportunidad histórica. Los problemas de la desinformación, la polarización y la moderación de contenido en las redes sociales son reales y urgentes. Sin embargo, como demuestra el caso de Taiwán, la solución no es menos tecnología, sino una tecnología más democrática.
+La era digital nos presenta un desafío monumental, pero también una oportunidad histórica. Los problemas de la desinformación (integridad informativa), la polarización y la moderación de contenido en las redes sociales son reales y urgentes. Sin embargo, como demuestra el caso de Taiwán, la solución no es menos tecnología, sino una tecnología más democrática.
 
 
 

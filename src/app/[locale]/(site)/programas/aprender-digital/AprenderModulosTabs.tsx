@@ -9,7 +9,7 @@ const TABS = [
     label: "Educación mediática",
     panelTitle: "Educación Mediática Digital",
     body:
-      "En este módulo fundamental te equiparemos con las herramientas para navegar el vasto ecosistema de información. Aprenderás a identificar la desinformación y las noticias falsas, reconocer los sesgos implícitos en diversos contenidos incluyendo los generados por Inteligencia Artificial, y distinguir imágenes y videos manipulados. Desarrollarás un pensamiento crítico que te permitirá discernir la veracidad de la información, protegerte de narrativas engañosas y consumir medios de forma consciente e informada.",
+      "En este módulo fundamental te equiparemos con las herramientas para navegar el vasto ecosistema de información. Aprenderás a identificar la desinformación (integridad informativa) y las noticias falsas, reconocer los sesgos implícitos en diversos contenidos incluyendo los generados por Inteligencia Artificial, y distinguir imágenes y videos manipulados. Desarrollarás un pensamiento crítico que te permitirá discernir la veracidad de la información, protegerte de narrativas engañosas y consumir medios de forma consciente e informada.",
   },
   {
     id: "navegacion",

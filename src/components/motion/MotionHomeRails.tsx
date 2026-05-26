@@ -14,7 +14,7 @@ const TESTIMONIALS = [
   },
   {
     quote:
-      "Por fin pudimos ordenar la conversación sobre desinformación sin culpar solo a las redes: hay método y acompañamiento.",
+      "Por fin pudimos ordenar la conversación sobre desinformación (integridad informativa) sin culpar solo a las redes: hay método y acompañamiento.",
     author: "Equipo de desarrollo comunitario",
     meta: "Territorio urbano",
   },

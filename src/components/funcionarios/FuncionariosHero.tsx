@@ -16,7 +16,7 @@ export function FuncionariosHero() {
           whiteSpace: "pre-line",
         }}
       >
-        La desinformación no es{"\n"}solo un problema social.{"\n"}Es un riesgo institucional.
+        La desinformación (integridad informativa) no es{"\n"}solo un problema social.{"\n"}Es un riesgo institucional.
       </h1>
       <p className="mt-6 max-w-3xl" style={{ color: "#A0A0A0", fontSize: 16, lineHeight: 1.65 }}>
         Programa de formación en Educación Mediática diseñado específicamente para la administración pública. Para que

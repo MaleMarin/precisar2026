@@ -24,7 +24,7 @@ const BENEFICIOS = [
   {
     num: "03",
     title: "Reducción de Riesgos Institucionales",
-    desc: "Al entender algoritmos, cámaras de eco y aprender a identificar desinformación, deepfakes y propaganda, los funcionarios protegen la reputación institucional.",
+    desc: "Al entender algoritmos, cámaras de eco y aprender a identificar desinformación (integridad informativa), deepfakes y propaganda, los funcionarios protegen la reputación institucional.",
   },
   {
     num: "04",
@@ -77,7 +77,7 @@ export default function Page() {
             </div>
             <div>
               <p id="fp-por-que" className={shell.bodyText}>
-                En el entorno digital actual, la desinformación y la manipulación informativa no son solo un
+                En el entorno digital actual, la desinformación (integridad informativa) y la manipulación informativa no son solo un
                 desafío social, sino un riesgo directo para la administración pública, la confianza ciudadana y la
                 estabilidad democrática.
               </p>

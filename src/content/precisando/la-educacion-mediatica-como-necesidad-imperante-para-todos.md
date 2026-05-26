@@ -8,7 +8,7 @@ Desde Precisar  queremos invitar a las candidatas y candidatos a conocer en prof
 
 
 
-Esperamos que quienes aspiran a liderar el país incorporen la educación mediática en sus programas de gobierno, reconociéndola como una herramienta esencial para enfrentar la desinformación, promover el pensamiento crítico y garantizar el derecho a una información veraz, diversa y accesible.
+Esperamos que quienes aspiran a liderar el país incorporen la educación mediática en sus programas de gobierno, reconociéndola como una herramienta esencial para enfrentar la desinformación (integridad informativa), promover el pensamiento crítico y garantizar el derecho a una información veraz, diversa y accesible.
 
 
 
@@ -32,7 +32,7 @@ En un contexto marcado por la sobrecarga de información
 
 
 
-La resiliencia ante la desinformación y la capacidad de ejercer una ciudadanía crítica y activa son hoy condiciones democráticas esenciales, no atributos deseables.
+La resiliencia ante la desinformación (integridad informativa) y la capacidad de ejercer una ciudadanía crítica y activa son hoy condiciones democráticas esenciales, no atributos deseables.
 
 Desde nuestra experiencia en escuelas, con comunidades y con docentes a lo largo del país, hemos comprobado que es posible enseñar herramientas concretas para leer el mundo digital: verificación lateral, análisis de fuentes, comprensión de sesgos y producción crítica de contenidos. Cuando estas habilidades se integran con sentido pedagógico y continuidad curricular, los resultados son claros:
 
@@ -42,7 +42,7 @@ Desde nuestra experiencia en escuelas, con comunidades y con docentes a lo largo
 
 
 
-Estudiantes que reconocen la desinformación y no la replican.
+Estudiantes que reconocen la desinformación (integridad informativa) y no la replican.
 
 
 

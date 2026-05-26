@@ -40,7 +40,7 @@ Algoritmos de plataformas: Redes sociales y buscadores potencian estos efectos, 
 
 
 
-La combinación de estos factores genera burbujas informativas y cámaras de eco. Así se polarizan opiniones, se pierde el matiz y se corre el riesgo de caer en la desinformación o en puntos de vista muy cerrados.
+La combinación de estos factores genera burbujas informativas y cámaras de eco. Así se polarizan opiniones, se pierde el matiz y se corre el riesgo de caer en la desinformación (integridad informativa) o en puntos de vista muy cerrados.
 
 
 

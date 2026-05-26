@@ -126,12 +126,12 @@ export function PropuestaPoliticaPart1() {
           <li>Habilidad para diversificar conscientemente las fuentes de información.</li>
           <li>Capacidad para reconocer y contrarrestar la manipulación algorítmica.</li>
         </ul>
-        <h4>Identificación de desinformación y manipulación</h4>
+        <h4>Identificación de desinformación (integridad informativa) y manipulación</h4>
         <ul>
           <li>Competencia para detectar noticias falsas, deepfakes y contenido manipulado.</li>
           <li>Habilidad para reconocer técnicas de propaganda y manipulación emocional.</li>
-          <li>Destreza para identificar campañas de desinformación coordinadas.</li>
-          <li>Capacidad para distinguir entre información, desinformación y mal información.</li>
+          <li>Destreza para identificar campañas de desinformación (integridad informativa) coordinadas.</li>
+          <li>Capacidad para distinguir entre información, desinformación (integridad informativa) y mal información.</li>
         </ul>
         <h4>Contexto histórico y cultural</h4>
         <ul>
@@ -145,7 +145,7 @@ export function PropuestaPoliticaPart1() {
           <li>Mejora medible en la capacidad de identificar fuentes confiables frente a no confiables.</li>
           <li>Aumento en la frecuencia de verificación de información antes de compartirla.</li>
           <li>Mayor diversidad en las fuentes de información consultadas regularmente.</li>
-          <li>Reducción en la susceptibilidad a campañas de desinformación.</li>
+          <li>Reducción en la susceptibilidad a campañas de desinformación (integridad informativa).</li>
           <li>Incremento en la capacidad de análisis crítico de contenido publicitario.</li>
           <li>Mayor conciencia sobre sesgos propios y ajenos en el consumo mediático.</li>
         </ul>

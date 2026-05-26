@@ -50,12 +50,12 @@ Entender y evaluar críticamente contenido de transmisión, digital y otros medi
 - Habilidad para diversificar conscientemente las fuentes de información.
 - Capacidad para reconocer y contrarrestar la manipulación algorítmica.
 
-#### Identificación de desinformación y manipulación
+#### Identificación de desinformación (integridad informativa) y manipulación
 
 - Competencia para detectar noticias falsas, deepfakes y contenido manipulado.
 - Habilidad para reconocer técnicas de propaganda y manipulación emocional.
-- Destreza para identificar campañas de desinformación coordinadas.
-- Capacidad para distinguir entre información, desinformación y mala información.
+- Destreza para identificar campañas de desinformación (integridad informativa) coordinadas.
+- Capacidad para distinguir entre información, desinformación (integridad informativa) y mala información.
 
 #### Contexto histórico y cultural
 
@@ -69,6 +69,6 @@ Entender y evaluar críticamente contenido de transmisión, digital y otros medi
 - Mejora medible en la capacidad de identificar fuentes confiables frente a no confiables.
 - Aumento en la frecuencia de verificación de información antes de compartirla.
 - Mayor diversidad en las fuentes de información consultadas regularmente.
-- Reducción en la susceptibilidad a campañas de desinformación.
+- Reducción en la susceptibilidad a campañas de desinformación (integridad informativa).
 - Incremento en la capacidad de análisis crítico de contenido publicitario.
 - Mayor conciencia sobre sesgos propios y ajenos en el consumo mediático.

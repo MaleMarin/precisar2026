@@ -24,7 +24,7 @@ export default function Page() {
         Lo que propone este eje es mirar con lupa el camino que recorre la información,
         cuestionar quién la produce, por qué y con qué intención. También invita a
         fortalecer el derecho a expresarnos, a informarnos de manera libre y a reconocer
-        cuándo ese derecho está en riesgo —por la censura, la desinformación o la
+        cuándo ese derecho está en riesgo —por la censura, la desinformación (integridad informativa) o la
         invisibilización de ciertas comunidades.
       </p>
       <p>
@@ -40,7 +40,7 @@ export default function Page() {
         <li>Ecosistema mediático</li>
         <li>Libertad de Expresión y Derecho a la Información</li>
         <li>Medios de Comunicación</li>
-        <li>Desinformación</li>
+        <li>Desinformación (integridad informativa)</li>
         <li>Redes sociales</li>
       </ul>
       <p>

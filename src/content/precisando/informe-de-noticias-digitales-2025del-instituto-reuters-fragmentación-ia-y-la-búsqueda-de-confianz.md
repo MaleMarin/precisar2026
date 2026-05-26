@@ -16,7 +16,7 @@ Estas tendencias son cada vez más pronunciadas en Estados Unidos bajo el gobier
 
 
 
-La encuesta de este año también destaca los desafíos emergentes en forma de plataformas de IA y chatbots, sobre los cuales se pregunto por primera vez. A medida que las plataformas tecnológicas más grandes integran resúmenes de IA y otras funciones relacionadas con las noticias, a los editores les preocupa que esto pueda reducir aún más el tráfico a sitios web y aplicaciones. Pero también demuestras que, en un mundo cada vez más poblado de contenido sintético y desinformación, todas las generaciones aún valoran las marcas confiables con un historial de precisión, incluso si no las usan con tanta frecuencia como antes.
+La encuesta de este año también destaca los desafíos emergentes en forma de plataformas de IA y chatbots, sobre los cuales se pregunto por primera vez. A medida que las plataformas tecnológicas más grandes integran resúmenes de IA y otras funciones relacionadas con las noticias, a los editores les preocupa que esto pueda reducir aún más el tráfico a sitios web y aplicaciones. Pero también demuestras que, en un mundo cada vez más poblado de contenido sintético y desinformación (integridad informativa), todas las generaciones aún valoran las marcas confiables con un historial de precisión, incluso si no las usan con tanta frecuencia como antes.
 
 
 

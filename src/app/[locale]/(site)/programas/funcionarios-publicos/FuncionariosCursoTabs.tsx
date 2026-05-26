@@ -23,7 +23,7 @@ const TABS = [
     label: "Ses. 3 y 4",
     panelTitle: "Sesiones 3 y 4: Confiabilidad y Evaluación de la Información",
     body:
-      "Se enfoca en cómo gestionar la sobrecarga de información y evaluar la fiabilidad de las fuentes, considerando al autor, el contexto y el contenido. Se abordan los deepfakes y la desinformación intencional. Herramientas prácticas para verificar antes de comunicar o tomar decisiones institucionales.",
+      "Se enfoca en cómo gestionar la sobrecarga de información y evaluar la fiabilidad de las fuentes, considerando al autor, el contexto y el contenido. Se abordan los deepfakes y la desinformación (integridad informativa) intencional. Herramientas prácticas para verificar antes de comunicar o tomar decisiones institucionales.",
   },
   {
     id: "s5",

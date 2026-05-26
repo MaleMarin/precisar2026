@@ -1,16 +1,16 @@
-Foro Económico Mundial: la desinformación ya es el riesgo global n.º 1
+Foro Económico Mundial: la desinformación (integridad informativa) ya es el riesgo global n.º 1
 
-Replanteando la Alfabetización Mediática: Un Nuevo Modelo Ecosistémico para la Integridad de la Información, del Foro Económico Mundial, lanzado en julio de 2025, presenta un nuevo marco para un enfoque integral de la alfabetización mediática e informacional (AMI), basado en dos modelos complementarios: el ciclo de vida de la desinformación y el modelo socioecológico. Juntos, ofrecen una forma estructurada de comprender cómo y dónde las intervenciones pueden ser más efectivas. En definitiva, el informe insta a pasar de considerar la AMI como una herramienta para aumentar la perspicacia de las personas a considerarla un pilar esencial de los ecosistemas de información saludables.
-
-
-
-El informe  reencuadra la alfabetización mediática e informacional (AMI) como una misión de toda la sociedad a lo largo de la vida: parte de la constatación de que la desinformación es el principal riesgo global inmediato y de que la velocidad y la escala de los mensajes digitales exigen algo más que “clases de fact‑checking” . Para ordenar la respuesta, propone una matriz 5 × 5 que cruza las cinco fases del ciclo de la desinformación (de la pre‑creación al posconsumo) con los cinco niveles del modelo socio‑ecológico (del individuo a la política pública), lo que permite ver de un vistazo quién debe actuar y en qué momento . Esa cartografía no solo localiza las intervenciones existentes, sino que destapa vacíos críticos y ofrece un GPS para coordinar recursos allí donde más se necesitan . El documento cierra con un llamado a pasar de iniciativas reactivas y fragmentadas a una estrategia sistémica que combine educación permanente, diseño responsable de plataformas e incentivos regulatorios, de modo que la integridad informativa se convierta en la verdadera infraestructura de la democracia digital .
+Replanteando la Alfabetización Mediática: Un Nuevo Modelo Ecosistémico para la Integridad de la Información, del Foro Económico Mundial, lanzado en julio de 2025, presenta un nuevo marco para un enfoque integral de la alfabetización mediática e informacional (AMI), basado en dos modelos complementarios: el ciclo de vida de la desinformación (integridad informativa) y el modelo socioecológico. Juntos, ofrecen una forma estructurada de comprender cómo y dónde las intervenciones pueden ser más efectivas. En definitiva, el informe insta a pasar de considerar la AMI como una herramienta para aumentar la perspicacia de las personas a considerarla un pilar esencial de los ecosistemas de información saludables.
 
 
 
-Las cinco etapas del ciclo de vida de la desinformación
+El informe  reencuadra la alfabetización mediática e informacional (AMI) como una misión de toda la sociedad a lo largo de la vida: parte de la constatación de que la desinformación (integridad informativa) es el principal riesgo global inmediato y de que la velocidad y la escala de los mensajes digitales exigen algo más que “clases de fact‑checking” . Para ordenar la respuesta, propone una matriz 5 × 5 que cruza las cinco fases del ciclo de la desinformación (integridad informativa) (de la pre‑creación al posconsumo) con los cinco niveles del modelo socio‑ecológico (del individuo a la política pública), lo que permite ver de un vistazo quién debe actuar y en qué momento . Esa cartografía no solo localiza las intervenciones existentes, sino que destapa vacíos críticos y ofrece un GPS para coordinar recursos allí donde más se necesitan . El documento cierra con un llamado a pasar de iniciativas reactivas y fragmentadas a una estrategia sistémica que combine educación permanente, diseño responsable de plataformas e incentivos regulatorios, de modo que la integridad informativa se convierta en la verdadera infraestructura de la democracia digital .
 
-Los expertos del Foro Económico Mundial describen la desinformación como una cadena de cinco eslabones consecutivos –pre‑creación, creación, distribución, consumo y posconsumo– que marcan dónde y cómo intervenir para frenar el daño antes de que se vuelva sistémico:
+
+
+Las cinco etapas del ciclo de vida de la desinformación (integridad informativa)
+
+Los expertos del Foro Económico Mundial describen la desinformación (integridad informativa) como una cadena de cinco eslabones consecutivos –pre‑creación, creación, distribución, consumo y posconsumo– que marcan dónde y cómo intervenir para frenar el daño antes de que se vuelva sistémico:
 
 
 
@@ -92,7 +92,7 @@ Si las personas no desarrollan AMI, el ciclo se alimenta de cada clic.
 
 
 
-La desinformación ya impacta creencias y comportamientos sociales. Aquí se necesita corregir, reparar daños y extraer lecciones para prevenir nuevas campañas.
+La desinformación (integridad informativa) ya impacta creencias y comportamientos sociales. Aquí se necesita corregir, reparar daños y extraer lecciones para prevenir nuevas campañas.
 
 
 
@@ -102,7 +102,7 @@ Entender estas cinco etapas permite diseñar políticas y programas de Alfabetiz
 
 
 
-Antes de sumergirnos en las siguientes tablas que convierten las recomendaciones del Foro Económico Mundial en hojas de ruta concretas, vale la pena subrayar por qué este ejercicio es decisivo: la alfabetización mediática e informacional ya no puede quedarse en declaraciones de buena voluntad. Necesitamos un manual quirúrgico, con responsables, plazos y métricas, que transforme cada clic en una oportunidad de pensamiento crítico y cada algoritmo en un aliado de la verdad. Las matrices que siguen organizadas por palancas organizacionales, estrategias de escalamiento y políticas públicas, funcionan como un GPS para gobiernos, empresas y comunidades que quieran blindar la esfera digital contra la desinformación u y sus nuevas herramientas basadas en IA.
+Antes de sumergirnos en las siguientes tablas que convierten las recomendaciones del Foro Económico Mundial en hojas de ruta concretas, vale la pena subrayar por qué este ejercicio es decisivo: la alfabetización mediática e informacional ya no puede quedarse en declaraciones de buena voluntad. Necesitamos un manual quirúrgico, con responsables, plazos y métricas, que transforme cada clic en una oportunidad de pensamiento crítico y cada algoritmo en un aliado de la verdad. Las matrices que siguen organizadas por palancas organizacionales, estrategias de escalamiento y políticas públicas, funcionan como un GPS para gobiernos, empresas y comunidades que quieran blindar la esfera digital contra la desinformación (integridad informativa) u y sus nuevas herramientas basadas en IA.
 
 
 
@@ -150,7 +150,7 @@ Localice brechas lingüísticas, etarias o de acceso y diseñe productos a su me
 
 
 
-La línea de ayuda de WhatsApp en India permite reenviar desinformación a verificadores en idiomas locales .
+La línea de ayuda de WhatsApp en India permite reenviar desinformación (integridad informativa) a verificadores en idiomas locales .
 
 
 

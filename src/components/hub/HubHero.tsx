@@ -22,7 +22,7 @@ export function HubHero() {
         className="mt-6 max-w-3xl"
         style={{ color: "#A0A0A0", fontFamily: "var(--font-body)", fontSize: 16, lineHeight: 1.65 }}
       >
-        Una experiencia itinerante que lleva desinformación, algoritmos, privacidad e inteligencia artificial a plazas,
+        Una experiencia itinerante que lleva desinformación (integridad informativa), algoritmos, privacidad e inteligencia artificial a plazas,
         municipios, bibliotecas, auditorios y eventos. Sin clase, sin sermón. Con conversación real.
       </p>
       <blockquote

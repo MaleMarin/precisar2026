@@ -1,6 +1,6 @@
-Principios Globales de la ONU para la integridad de la información: claves para combatir la desinformación
+Principios Globales de la ONU para la integridad de la información: claves para combatir la desinformación (integridad informativa)
 
-Los Principios Globales de la ONU para la integridad de la información nos muestran otra forma de comunicar. En un momento en que la desinformación y la incitación al odio alimenta conflictos, la democracia, los derechos humanos, la salud pública y la acción por el clima es más necesario que nunca establecer un marco de acción internacional para hacer más seguros los espacios informativos. La información es poder y, por eso mismo, su uso y difusión responsable es fundamental.
+Los Principios Globales de la ONU para la integridad de la información nos muestran otra forma de comunicar. En un momento en que la desinformación (integridad informativa) y la incitación al odio alimenta conflictos, la democracia, los derechos humanos, la salud pública y la acción por el clima es más necesario que nunca establecer un marco de acción internacional para hacer más seguros los espacios informativos. La información es poder y, por eso mismo, su uso y difusión responsable es fundamental.
 
 “Toda persona debe expresarse libremente sin miedo a sufrir ataques. Toda persona debe tener acceso a diversos puntos de vista y a diversas fuentes de información”António Gutèrres, secretario general de las Naciones Unidas.
 
@@ -14,7 +14,7 @@ La tecnología ha revolucionado la forma en que nos comunicamos en la Era Digita
 
 
 
-Y aunque esto nos permite estar al día en todo momento, también provoca que la desinformación y los discursos de odio están poniendo en jaque la integridad del ecosistema informativo. Y es que, el fácil y rápido acceso a información no verificada puede erosionar la confianza en instituciones y medios informativos. Una amenaza que merece una acción internacional coordinada.
+Y aunque esto nos permite estar al día en todo momento, también provoca que la desinformación (integridad informativa) y los discursos de odio están poniendo en jaque la integridad del ecosistema informativo. Y es que, el fácil y rápido acceso a información no verificada puede erosionar la confianza en instituciones y medios informativos. Una amenaza que merece una acción internacional coordinada.
 
 
 
@@ -22,13 +22,13 @@ En respuesta a estos desafíos, los Principios globales de la ONU para la integr
 
 
 
-Unos esfuerzos que también son fundamentales para avanzar hacia los Objetivos de Desarrollo Sostenible (ODS) de la Agenda 2030. ¿Por qué? Básicamente porque la desinformación y la incitación al odio puede afectar a grupos en situación de vulnerabilidad y exclusión, así como a los avances en sostenibilidad. Un ejemplo de esto son las corrientes negacionistas del cambio climático que cuestionan la realidad de este fenómeno y socavan los avances para frenarlo. Ante esta situación, es necesario que todos los agentes, incluida la sociedad civil, empresas, se unan para reforzar la integridad de la información y apoyar los ODS.
+Unos esfuerzos que también son fundamentales para avanzar hacia los Objetivos de Desarrollo Sostenible (ODS) de la Agenda 2030. ¿Por qué? Básicamente porque la desinformación (integridad informativa) y la incitación al odio puede afectar a grupos en situación de vulnerabilidad y exclusión, así como a los avances en sostenibilidad. Un ejemplo de esto son las corrientes negacionistas del cambio climático que cuestionan la realidad de este fenómeno y socavan los avances para frenarlo. Ante esta situación, es necesario que todos los agentes, incluida la sociedad civil, empresas, se unan para reforzar la integridad de la información y apoyar los ODS.
 
 2. Hacia los Principios Globales de las Naciones Unidas para la Integridad de la Información
 
 Los Principios Globales de las Naciones Unidas para la integridad de la información proponen directrices para garantizar que la información digital sea precisa, transparente y respetuosa con los derechos humanos.
 
-Su objetivo principal es el establecimiento de normas para asegurar la precisión y autenticidad de la información digital a través de la cooperación para combatir la desinformación y manipulación. Además, promueven la creación de políticas que favorezcan la transparencia y rendición de cuentas, así como proteger la libertad de expresión mientras se garantiza la seguridad e integridad de la información. Por último, estos principios buscan empoderar a la sociedad civil para ayudarles a discernir sobre la veracidad y fomentar un debate informado.
+Su objetivo principal es el establecimiento de normas para asegurar la precisión y autenticidad de la información digital a través de la cooperación para combatir la desinformación (integridad informativa) y manipulación. Además, promueven la creación de políticas que favorezcan la transparencia y rendición de cuentas, así como proteger la libertad de expresión mientras se garantiza la seguridad e integridad de la información. Por último, estos principios buscan empoderar a la sociedad civil para ayudarles a discernir sobre la veracidad y fomentar un debate informado.
 
 Principios clave para la integridad de la información
 
@@ -44,7 +44,7 @@ Confianza y resiliencia de la sociedad. La credibilidad se refiere al grado de c
 
 
 
-Incentivos positivos. Los Principios ponen de relieve la necesidad de remodelar la estructura del sistema de incentivos, para evitar la proliferación de la desinformación. Esto puede producirse a través de modelos basados en los derechos humanos y no en publicidad programática dominada por algoritmos y basada en el seguimiento del comportamiento y los datos personales.
+Incentivos positivos. Los Principios ponen de relieve la necesidad de remodelar la estructura del sistema de incentivos, para evitar la proliferación de la desinformación (integridad informativa). Esto puede producirse a través de modelos basados en los derechos humanos y no en publicidad programática dominada por algoritmos y basada en el seguimiento del comportamiento y los datos personales.
 
 
 
@@ -86,7 +86,7 @@ Agentes de la inteligencia artificial (IA): se insta a implementar prácticas tr
 
 
 
-Publicistas y otros agentes del sector privado: responsables de evitar la propagación de la desinformación con políticas claras sobre publicidad. Se debe diferenciar entre contenido promocionado e informativo y ser transparente en los criterios de segmentación publicitaria y eliminar aquellos anuncios que promuevan información falsa o engañosa. Estos agentes deberán trabajar mano a mano con la sociedad civil para asegurarse que sus prácticas no fomenten la desinformación.
+Publicistas y otros agentes del sector privado: responsables de evitar la propagación de la desinformación (integridad informativa) con políticas claras sobre publicidad. Se debe diferenciar entre contenido promocionado e informativo y ser transparente en los criterios de segmentación publicitaria y eliminar aquellos anuncios que promuevan información falsa o engañosa. Estos agentes deberán trabajar mano a mano con la sociedad civil para asegurarse que sus prácticas no fomenten la desinformación (integridad informativa).
 
 
 

@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 const IMPACTOS = [
   {
     titulo: "Ciudadanía activa y crítica",
-    desc: "Desarrolla en la ciudadanía aptitudes de pensamiento analítico para cuestionar mensajes, detectar discursos de odio y desinformación, y participar en procesos de decisión local con argumentos basados en fuentes fiables.",
+    desc: "Desarrolla en la ciudadanía aptitudes de pensamiento analítico para cuestionar mensajes, detectar discursos de odio y desinformación (integridad informativa), y participar en procesos de decisión local con argumentos basados en fuentes fiables.",
   },
   {
     titulo: "Mayor seguridad digital",
@@ -48,12 +48,12 @@ const TALLERES = [
     ],
   },
   {
-    id: "desinformacion",
-    label: "Desinformación",
-    titulo: "Desinformación: Hechos vs. sentimientos sobre la información",
+    id: "desinformacion (integridad informativa)",
+    label: "Desinformación (integridad informativa)",
+    titulo: "Desinformación (integridad informativa): Hechos vs. sentimientos sobre la información",
     desc: "Taller práctico para desarrollar el criterio necesario para navegar en un ecosistema de información complejo, distinguir hechos de opiniones, y detectar noticias falsas y manipulación informativa.",
     sesiones: [
-      "Qué es la desinformación y por qué importa.",
+      "Qué es la desinformación (integridad informativa) y por qué importa.",
       "Cómo detectar noticias falsas y verificar fuentes.",
       "Algoritmos y burbujas de información.",
       "Estrategias prácticas para la vida cotidiana.",
@@ -201,7 +201,7 @@ export default function CiudadesPage() {
             { titulo: "Inteligencia Artificial", desc: "Desmitificando el futuro y sus implicaciones." },
             { titulo: "Bienestar Digital", desc: "Hábitos saludables en el uso de la tecnología." },
             { titulo: "Privacidad y Seguridad en Línea", desc: "Protegiendo identidad y datos." },
-            { titulo: "Estrategias contra la Desinformación", desc: "Criterio para navegar la información." },
+            { titulo: "Estrategias contra la Desinformación (integridad informativa)", desc: "Criterio para navegar la información." },
           ].map((item, i) => (
             <div
               key={i}

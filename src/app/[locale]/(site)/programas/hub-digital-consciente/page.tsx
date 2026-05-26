@@ -38,7 +38,7 @@ export default function Page() {
               </p>
               <p className={shell.bodyText}>
                 No solo exponemos contenidos; creamos espacios de diálogo y acción. Traducimos conceptos
-                complejos, como la desinformación, la IA y la privacidad, en experiencias sensoriales
+                complejos, como la desinformación (integridad informativa), la IA y la privacidad, en experiencias sensoriales
                 accesibles que impulsan el uso responsable de la tecnología en la ciudadanía.
               </p>
             </div>

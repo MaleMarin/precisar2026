@@ -112,7 +112,7 @@ export function FormatosGrid() {
             { label: "Audiencia", value: "100–300 / día" },
           ]}
           includes={[
-            "3 carteles: algoritmos, desinformación, bots",
+            "3 carteles: algoritmos, desinformación (integridad informativa), bots",
             "3 pantallas de animación en muro",
             "3 estaciones táctiles interactivas",
             "Experiencias para debate (opcional)",

@@ -11,7 +11,7 @@ const sesiones = [
   },
   {
     title: "Sesiones 3 y 4 · Confiabilidad y evaluación de la información",
-    body: "Gestión de la sobrecarga informativa. Cómo evaluar fuentes: autor, contexto y contenido. Deepfakes y desinformación intencional.",
+    body: "Gestión de la sobrecarga informativa. Cómo evaluar fuentes: autor, contexto y contenido. Deepfakes y desinformación (integridad informativa) intencional.",
   },
   {
     title: "Sesión 5 · Interacción en medios de comunicación",

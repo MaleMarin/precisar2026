@@ -160,7 +160,7 @@ Proponemos desarrollar un enfoque integral para medir el impacto de las iniciati
 
 - Número de personas alcanzadas por programas de alfabetización mediática.
 - Mejoras medibles en conocimientos y habilidades específicas.
-- Reducción en susceptibilidad a desinformación y estafas.
+- Reducción en susceptibilidad a desinformación (integridad informativa) y estafas.
 - Aumento en participación cívica digital.
 - Diversificación en fuentes de información consultadas.
 
@@ -247,7 +247,7 @@ Vemos potencial significativo en el uso de IA para mejorar la alfabetización me
 
 Consideramos que las tecnologías inmersivas pueden revolucionar la educación mediática:
 
-- Simulaciones realistas de escenarios de desinformación.
+- Simulaciones realistas de escenarios de desinformación (integridad informativa).
 - Experiencias inmersivas para comprender algoritmos y filtros.
 - Entornos seguros para practicar habilidades digitales.
 - Visualizaciones complejas de conceptos abstractos.

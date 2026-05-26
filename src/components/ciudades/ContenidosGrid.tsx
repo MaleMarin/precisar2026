@@ -6,7 +6,7 @@ const cards = [
     body: "Qué es, cómo opera en tu vida diaria y qué hacer cuando algo no cuadra.",
   },
   {
-    title: "Desinformación",
+    title: "Desinformación (integridad informativa)",
     body: "Hechos vs. sentimientos. Cómo los titulares manipulan y cómo desarrollar criterio propio.",
   },
   {

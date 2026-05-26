@@ -2,11 +2,11 @@ import Link from "next/link";
 import { ProgramBandModule, ProgramSplitModule } from "@/components/programs/modules";
 import { CourseLandingTemplate } from "@/components/templates/PageTemplates";
 
-export const metadata = { title: "Curso Desinformación · Aquí No Pasa" };
+export const metadata = { title: "Curso Desinformación (integridad informativa) · Aquí No Pasa" };
 
 export default function Page() {
   return (
-    <CourseLandingTemplate title="Aquí No Pasa" kicker="Curso Desinformación" moduleCanvas>
+    <CourseLandingTemplate title="Aquí No Pasa" kicker="Curso Desinformación (integridad informativa)" moduleCanvas>
       <ProgramSplitModule
         sideVariant="ink"
         main={

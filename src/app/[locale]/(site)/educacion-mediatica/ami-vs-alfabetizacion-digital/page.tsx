@@ -21,7 +21,7 @@ const TABLA = [
   },
   {
     dimension: "Ejemplos",
-    ami: "Detectar sesgos; verificar una imagen; reconocer desinformación.",
+    ami: "Detectar sesgos; verificar una imagen; reconocer desinformación (integridad informativa).",
     digital: "Crear una videollamada; cifrar un disco; gestionar contraseñas.",
   },
   {
@@ -258,7 +258,7 @@ export default function AmiVsDigitalPage() {
             },
             {
               titulo: "Ciudadanía",
-              desc: "Reducir desinformación requiere AMI; reducir fraudes requiere Alfabetización Digital.",
+              desc: "Reducir desinformación (integridad informativa) requiere AMI; reducir fraudes requiere Alfabetización Digital.",
             },
           ].map((r, i) => (
             <div key={i} className={styles.razonCard}>

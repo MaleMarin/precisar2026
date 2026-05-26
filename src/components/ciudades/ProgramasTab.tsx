@@ -16,10 +16,10 @@ const tabs = [
   },
   {
     id: "des",
-    label: "Desinformación",
+    label: "Desinformación (integridad informativa)",
     sessions: [
       "Hechos vs. Sentimientos: trucos que provocan emociones e influyen en el comportamiento",
-      "Entre Líneas: definir desinformación, practicar habilidades de investigación básica",
+      "Entre Líneas: definir desinformación (integridad informativa), practicar habilidades de investigación básica",
     ],
   },
   {

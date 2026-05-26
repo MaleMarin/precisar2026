@@ -94,11 +94,11 @@ export const ARTICLES: ArticleMeta[] = [
     catalogOrder: 7,
     slug: "migración-y-conflictos-internacionales-dominan-las-tendencias-de-desinformación-en-américa-latina",
     title:
-      "Migración y conflictos internacionales dominan las tendencias de desinformación en América Latina",
-    category: "Desinformación",
+      "Migración y conflictos internacionales dominan las tendencias de desinformación (integridad informativa) en América Latina",
+    category: "Desinformación (integridad informativa)",
     pubDate: "2025-10-16",
     excerpt:
-      "Un nuevo informe de LatamChequea revela que las políticas migratorias de Trump y eventos globales como la guerra Israel-Irán alimentaron campañas masivas de desinformación durante el segundo trimestre de 2025.",
+      "Un nuevo informe de LatamChequea revela que las políticas migratorias de Trump y eventos globales como la guerra Israel-Irán alimentaron campañas masivas de desinformación (integridad informativa) durante el segundo trimestre de 2025.",
   },
   {
     catalogOrder: 8,
@@ -163,7 +163,7 @@ export const ARTICLES: ArticleMeta[] = [
     catalogOrder: 14,
     slug: "foro-económico-mundial-la-desinformación-ya-es-el-riesgo-global-n-º-1",
     title:
-      "Foro Económico Mundial: la desinformación ya es el riesgo global n.º 1",
+      "Foro Económico Mundial: la desinformación (integridad informativa) ya es el riesgo global n.º 1",
     category: "Informes",
     pubDate: "2025-07-25",
     excerpt:
@@ -231,8 +231,8 @@ export const ARTICLES: ArticleMeta[] = [
     catalogOrder: 21,
     slug: "principios-globales-de-la-onu-para-la-integridad-de-la-información-claves-para-combatir-la-desinfor",
     title:
-      "Principios Globales de la ONU para la integridad de la información: claves para combatir la desinformación",
-    category: "Desinformación",
+      "Principios Globales de la ONU para la integridad de la información: claves para combatir la desinformación (integridad informativa)",
+    category: "Desinformación (integridad informativa)",
     pubDate: "2025-06-24",
     excerpt:
       "Los Principios Globales de la ONU para la integridad de la información nos muestran otra forma de comunicar.",
@@ -240,11 +240,11 @@ export const ARTICLES: ArticleMeta[] = [
   {
     catalogOrder: 22,
     slug: "comprendiendo-la-desinformación-un-recorrido-por-términos-y-técnicas-clave",
-    title: "Comprendiendo la desinformación: un recorrido por términos y técnicas clave",
-    category: "Desinformación",
+    title: "Comprendiendo la desinformación (integridad informativa): un recorrido por términos y técnicas clave",
+    category: "Desinformación (integridad informativa)",
     pubDate: "2025-06-24",
     excerpt:
-      "Guía conceptual para reconocer técnicas habituales de desinformación y el vocabulario que ayuda a analizarlas con rigor.",
+      "Guía conceptual para reconocer técnicas habituales de desinformación (integridad informativa) y el vocabulario que ayuda a analizarlas con rigor.",
   },
   {
     catalogOrder: 23,
@@ -272,7 +272,7 @@ export const ARTICLES: ArticleMeta[] = [
     category: "Informes",
     pubDate: "2025-06-24",
     excerpt:
-      "Síntesis de evidencia sobre la relación entre dependencia emocional de redes y mayor propensión a creer y compartir desinformación.",
+      "Síntesis de evidencia sobre la relación entre dependencia emocional de redes y mayor propensión a creer y compartir desinformación (integridad informativa).",
   },
   {
     catalogOrder: 27,
@@ -318,7 +318,7 @@ export const ARTICLES: ArticleMeta[] = [
     category: "Informes",
     pubDate: "2025-06-24",
     excerpt:
-      "Síntesis del informe de la OCDE sobre gobernanza, transparencia y acciones frente a la desinformación en espacios democráticos.",
+      "Síntesis del informe de la OCDE sobre gobernanza, transparencia y acciones frente a la desinformación (integridad informativa) en espacios democráticos.",
   },
   {
     catalogOrder: 32,

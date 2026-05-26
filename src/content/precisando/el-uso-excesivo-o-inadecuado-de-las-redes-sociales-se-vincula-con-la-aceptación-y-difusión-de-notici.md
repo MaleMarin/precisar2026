@@ -2,7 +2,7 @@ Un nuevo estudio realizado por investigadores de la **Universidad Michigan State
 
 ## Metodología
 
-Para llevar a cabo el estudio, se seleccionaron **189 participantes** que fueron expuestos a **20 publicaciones simuladas** de redes sociales, de las cuales la mitad correspondía a noticias verídicas y la otra mitad a ejemplos claros de desinformación. Los investigadores evaluaron tanto el juicio crítico de los participantes sobre la veracidad de estas publicaciones, como su intención de interactuar con ellas mediante clics, comentarios, «me gusta» o compartir.
+Para llevar a cabo el estudio, se seleccionaron **189 participantes** que fueron expuestos a **20 publicaciones simuladas** de redes sociales, de las cuales la mitad correspondía a noticias verídicas y la otra mitad a ejemplos claros de desinformación (integridad informativa). Los investigadores evaluaron tanto el juicio crítico de los participantes sobre la veracidad de estas publicaciones, como su intención de interactuar con ellas mediante clics, comentarios, «me gusta» o compartir.
 
 Además, el estudio incluyó una medición del nivel de **«uso problemático»** de redes sociales en los participantes, que se define como una dependencia conductual que puede incluir preocupaciones constantes por las plataformas, cambios de humor relacionados con su uso, necesidad de validación social a través de interacciones, conflictos en la vida diaria e incluso síntomas de abstinencia al intentar desconectarse.
 
@@ -14,6 +14,6 @@ Si bien las autoridades médicas aún no reconocen formalmente el consumo proble
 
 ## Intervención y relevancia
 
-Los investigadores señalan que la colaboración con las grandes plataformas tecnológicas —como **Meta** o **Google**— podría ser clave para diseñar estrategias que identifiquen a usuarios con este perfil de uso problemático. Así, sería posible ajustar los algoritmos y ofrecer experiencias digitales que disminuyan la exposición y el impacto de la desinformación, por ejemplo, mediante opciones personalizadas para usuarios en tratamiento.
+Los investigadores señalan que la colaboración con las grandes plataformas tecnológicas —como **Meta** o **Google**— podría ser clave para diseñar estrategias que identifiquen a usuarios con este perfil de uso problemático. Así, sería posible ajustar los algoritmos y ofrecer experiencias digitales que disminuyan la exposición y el impacto de la desinformación (integridad informativa), por ejemplo, mediante opciones personalizadas para usuarios en tratamiento.
 
-Este estudio es pionero en su enfoque, pues no solo examina la relación entre consumo de redes y desinformación, sino que también aporta evidencias sobre cómo la adicción conductual influye en los comportamientos digitales. Su relevancia radica en ofrecer una base para intervenciones dirigidas a reducir la propagación de *fake news* en un entorno cada vez más marcado por la dependencia tecnológica.
+Este estudio es pionero en su enfoque, pues no solo examina la relación entre consumo de redes y desinformación (integridad informativa), sino que también aporta evidencias sobre cómo la adicción conductual influye en los comportamientos digitales. Su relevancia radica en ofrecer una base para intervenciones dirigidas a reducir la propagación de *fake news* en un entorno cada vez más marcado por la dependencia tecnológica.

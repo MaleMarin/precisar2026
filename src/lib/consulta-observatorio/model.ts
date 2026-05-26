@@ -101,7 +101,7 @@ export const QDEFS: QuestionDef[] = [
     t: "multi",
     s: "Ante la duda",
     f: "Cuando dudas de una información, ¿qué haces normalmente?",
-    why: "La respuesta ante la duda define si la desinformación circula o se detiene.",
+    why: "La respuesta ante la duda define si la desinformación (integridad informativa) circula o se detiene.",
     slots: [
       { l: "Busco más info", c: "#155D84" },
       { l: "Reviso con calma", c: "#9D2A80" },

@@ -279,7 +279,7 @@ export function OlfatoDigitalExperience() {
           <h2 className={styles.h2}>Análisis de Resultados: ¿Cómo está tu Olfato Digital?</h2>
           <p className={styles.bodyText}>
             <strong>Mayoría A y B</strong> — <em>Oportunidad de mejora:</em> podrías estar expuesto/a a{" "}
-            <strong>phishing</strong> y <strong>desinformación</strong>. Refuerza hábitos de verificación:
+            <strong>phishing</strong> y <strong>desinformación (integridad informativa)</strong>. Refuerza hábitos de verificación:
             desconfía de premios, evita tocar enlaces desconocidos, contrasta en un <strong>buscador</strong> y
             revisa medios u organismos oficiales antes de compartir o pagar.
           </p>

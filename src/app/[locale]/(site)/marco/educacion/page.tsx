@@ -25,7 +25,7 @@ export default function Page() {
         La educación mediática, en este sentido, es una herramienta de autonomía y
         participación que debe estar presente durante toda la vida: en la infancia, como
         base para la lectura crítica; en la adolescencia, para fortalecer la identidad
-        digital; en la adultez, para defenderse de la desinformación y tomar decisiones
+        digital; en la adultez, para defenderse de la desinformación (integridad informativa) y tomar decisiones
         informadas; y en la vejez, para garantizar inclusión, vínculos y derechos.
       </p>
       <p>Este eje impulsa:</p>

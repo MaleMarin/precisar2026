@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 const OBJETIVOS = [
   {
     titulo: "Fomentar el Pensamiento Crítico",
-    desc: "Capacitar a los docentes para enseñar a los estudiantes a evaluar críticamente la información, identificar desinformación y reconocer sesgos en diversas fuentes digitales, incluyendo contenidos generados por IA.",
+    desc: "Capacitar a los docentes para enseñar a los estudiantes a evaluar críticamente la información, identificar desinformación (integridad informativa) y reconocer sesgos en diversas fuentes digitales, incluyendo contenidos generados por IA.",
   },
   {
     titulo: "Promover la Producción Responsable",
@@ -70,9 +70,9 @@ const MODULOS = [
     desc: "Comprender, enseñar y transformar. Explora el impacto de los medios y plataformas digitales en la vida cotidiana y su vínculo con los objetivos educativos. Aprende a integrar la educación mediática y digital en el aula a través de proyectos aplicados como la creación de contenidos, el análisis crítico de información y el debate guiado, fortaleciendo así el rol del docente como formador de ciudadanía digital activa.",
   },
   {
-    id: "desinformacion",
-    label: "Desinformación, Verificación de Datos",
-    desc: "Adquiere estrategias prácticas para enseñar a tus estudiantes a identificar y desmantelar la desinformación: aprenderán técnicas de verificación de datos, uso de herramientas de fact-checking y métodos para contrastar fuentes, reconocer patrones de manipulación y aplicar estas competencias tanto en sus investigaciones escolares como en su día a día.",
+    id: "desinformacion (integridad informativa)",
+    label: "Desinformación (integridad informativa), Verificación de Datos",
+    desc: "Adquiere estrategias prácticas para enseñar a tus estudiantes a identificar y desmantelar la desinformación (integridad informativa): aprenderán técnicas de verificación de datos, uso de herramientas de fact-checking y métodos para contrastar fuentes, reconocer patrones de manipulación y aplicar estas competencias tanto en sus investigaciones escolares como en su día a día.",
   },
   {
     id: "algoritmos",

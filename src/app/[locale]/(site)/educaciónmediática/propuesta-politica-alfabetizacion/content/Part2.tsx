@@ -44,7 +44,7 @@ export function PropuestaPoliticaPart2() {
           <li>Mayor participación en iniciativas cívicas y democráticas digitales.</li>
           <li>Incremento en contribuciones positivas a comunidades online.</li>
           <li>Mejora en la capacidad de colaboración digital intercultural.</li>
-          <li>Reducción en comportamientos problemáticos online (acoso, desinformación).</li>
+          <li>Reducción en comportamientos problemáticos online (acoso, desinformación (integridad informativa)).</li>
           <li>Aumento en el uso creativo y emprendedor de tecnologías digitales.</li>
         </ul>
       </section>

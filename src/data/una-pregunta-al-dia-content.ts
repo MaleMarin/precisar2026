@@ -88,7 +88,7 @@ export const PREGUNTAS_VIDA_DIGITAL: PreguntaTarjeta[] = [
   {
     pregunta: "¿Buscas la misma información en varias fuentes?",
     reflexion:
-      "Un solo relato, por brillante que sea, deja fuera matices. Comparar versiones es la vacuna más barata contra la desinformación.",
+      "Un solo relato, por brillante que sea, deja fuera matices. Comparar versiones es la vacuna más barata contra la desinformación (integridad informativa).",
   },
   {
     pregunta: "¿Hay algo que el algoritmo te muestra demasiado?",

@@ -14,7 +14,7 @@ export function PropuestaPoliticaPart4() {
         <ul>
           <li>Número de personas alcanzadas por programas de alfabetización mediática.</li>
           <li>Mejoras medibles en conocimientos y habilidades específicas.</li>
-          <li>Reducción en susceptibilidad a desinformación y estafas.</li>
+          <li>Reducción en susceptibilidad a desinformación (integridad informativa) y estafas.</li>
           <li>Aumento en participación cívica digital.</li>
           <li>Diversificación en fuentes de información consultadas.</li>
         </ul>
@@ -96,7 +96,7 @@ export function PropuestaPoliticaPart4() {
         <h4>Realidad virtual y aumentada</h4>
         <p>Consideramos que las tecnologías inmersivas pueden revolucionar la educación mediática:</p>
         <ul>
-          <li>Simulaciones realistas de escenarios de desinformación.</li>
+          <li>Simulaciones realistas de escenarios de desinformación (integridad informativa).</li>
           <li>Experiencias inmersivas para comprender algoritmos y filtros.</li>
           <li>Entornos seguros para practicar habilidades digitales.</li>
           <li>Visualizaciones complejas de conceptos abstractos.</li>

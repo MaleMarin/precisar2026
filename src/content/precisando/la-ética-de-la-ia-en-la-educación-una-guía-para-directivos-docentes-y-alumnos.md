@@ -196,7 +196,7 @@ Al usarla, es vital tener en cuenta sus principales riesgos:
 
 
 
-Sesgos y Contenido Cuestionable: La IA generativa aprende de internet, un espacio que contiene desinformación y material discriminatorio. Aunque se intenta filtrar, puede producir contenido incorrecto, sesgado u ofensivo.
+Sesgos y Contenido Cuestionable: La IA generativa aprende de internet, un espacio que contiene desinformación (integridad informativa) y material discriminatorio. Aunque se intenta filtrar, puede producir contenido incorrecto, sesgado u ofensivo.
 
 
 

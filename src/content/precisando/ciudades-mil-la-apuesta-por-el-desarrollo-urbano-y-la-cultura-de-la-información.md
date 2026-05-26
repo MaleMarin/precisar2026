@@ -12,7 +12,7 @@ En este contexto, se están gestando pautas operativas que buscan guiar a las ci
 
 
 
-La vertiginosa evolución de las tecnologías digitales, incluyendo el surgimiento de la inteligencia artificial generativa, ha desdibujado los límites entre el mundo físico y el virtual, transformando radicalmente los ecosistemas de información. Sin embargo, esta transformación viene acompañada de desafíos significativos, como el aumento de la polarización, la desinformación y la intolerancia, tanto en línea como fuera de ella. Por ello, fomentar ciudades que empoderen a sus ciudadanos con habilidades de alfabetización mediática e informacional se presenta como una respuesta crucial a estos retos, promoviendo la resiliencia, la inclusión y la innovación en los entornos urbanos.
+La vertiginosa evolución de las tecnologías digitales, incluyendo el surgimiento de la inteligencia artificial generativa, ha desdibujado los límites entre el mundo físico y el virtual, transformando radicalmente los ecosistemas de información. Sin embargo, esta transformación viene acompañada de desafíos significativos, como el aumento de la polarización, la desinformación (integridad informativa) y la intolerancia, tanto en línea como fuera de ella. Por ello, fomentar ciudades que empoderen a sus ciudadanos con habilidades de alfabetización mediática e informacional se presenta como una respuesta crucial a estos retos, promoviendo la resiliencia, la inclusión y la innovación en los entornos urbanos.
 
 
 

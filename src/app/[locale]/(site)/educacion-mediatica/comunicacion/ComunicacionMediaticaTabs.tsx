@@ -28,10 +28,10 @@ const tabs: MediaticaTab[] = [
     ],
   },
   {
-    id: "desinformacion",
-    label: "Desinformación",
+    id: "desinformacion (integridad informativa)",
+    label: "Desinformación (integridad informativa)",
     paragraphs: [
-      "La desinformación existe porque hay quienes quieren manipular lo que pensamos, generar confusión o sacar provecho económico, político o social. A veces se crea con intención, otras veces se difunde por error o desconocimiento. Las redes sociales y los medios digitales permiten que estos contenidos se propaguen muy rápido, sin filtros ni verificaciones.",
+      "La desinformación (integridad informativa) existe porque hay quienes quieren manipular lo que pensamos, generar confusión o sacar provecho económico, político o social. A veces se crea con intención, otras veces se difunde por error o desconocimiento. Las redes sociales y los medios digitales permiten que estos contenidos se propaguen muy rápido, sin filtros ni verificaciones.",
       "Combatirla no es censurar: es defender el derecho a estar bien informados, a pensar con autonomía y a participar con responsabilidad en el mundo que compartimos.",
     ],
   },

@@ -40,11 +40,11 @@ const TABS: Tab[] = [
     ],
   },
   {
-    id: "desinformacion",
-    label: "Desinformación",
-    panelTitle: "Desinformación: Hechos vs. sentimientos sobre la información",
+    id: "desinformacion (integridad informativa)",
+    label: "Desinformación (integridad informativa)",
+    panelTitle: "Desinformación (integridad informativa): Hechos vs. sentimientos sobre la información",
     intro:
-      "Este taller capacita a los participantes para desenvolverse en el complejo panorama de la desinformación mediante sesiones interactivas sobre los ecosistemas de información y medios, patrones de estrategias influyentes y prácticas persuasivas integradas en la tecnología. Ideal para públicos de todas las edades y niveles de conocimiento.",
+      "Este taller capacita a los participantes para desenvolverse en el complejo panorama de la desinformación (integridad informativa) mediante sesiones interactivas sobre los ecosistemas de información y medios, patrones de estrategias influyentes y prácticas persuasivas integradas en la tecnología. Ideal para públicos de todas las edades y niveles de conocimiento.",
     sessions: [
       {
         lead: "Hechos vs. Sentimientos",
@@ -54,7 +54,7 @@ const TABS: Tab[] = [
       {
         lead: "Entre Línea",
         detail:
-          "La información es complicada. Define desinformación y fake news, explora la complejidad de la información y practica habilidades fundamentales de investigación.",
+          "La información es complicada. Define desinformación (integridad informativa) y fake news, explora la complejidad de la información y practica habilidades fundamentales de investigación.",
       },
     ],
   },

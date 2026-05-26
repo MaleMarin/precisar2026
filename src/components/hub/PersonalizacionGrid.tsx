@@ -3,7 +3,7 @@ import { Kicker } from "@/components/ui/Kicker";
 const cards = [
   {
     title: "Ediciones temáticas",
-    body: "IA y algoritmos, desinformación, privacidad digital. Contenidos especializados según el foco del evento.",
+    body: "IA y algoritmos, desinformación (integridad informativa), privacidad digital. Contenidos especializados según el foco del evento.",
   },
   {
     title: "Edición comunitaria",

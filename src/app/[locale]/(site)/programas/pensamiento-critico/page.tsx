@@ -64,7 +64,7 @@ const BENEFICIOS = [
   {
     num: "02",
     title: "Mitigación de Riesgos y Protección de la Reputación",
-    desc: "Capacitar en la detección de desinformación disminuye el riesgo de que la organización actúe basándose en datos falsos, previniendo crisis y protegiendo la reputación.",
+    desc: "Capacitar en la detección de desinformación (integridad informativa) disminuye el riesgo de que la organización actúe basándose en datos falsos, previniendo crisis y protegiendo la reputación.",
   },
   {
     num: "03",
@@ -169,7 +169,7 @@ export default function Page() {
               </p>
               <p className={styles.workBody}>
                 Dirigido a cualquier persona que use redes sociales y quiera aprender a protegerse de los
-                engaños y la desinformación. No necesitas saber nada de tecnología, solo tener curiosidad.
+                engaños y la desinformación (integridad informativa). No necesitas saber nada de tecnología, solo tener curiosidad.
               </p>
               <p className={styles.outcomesLead}>Al finalizar serás capaz de:</p>
               <ul className={styles.bulletList}>

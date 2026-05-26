@@ -81,7 +81,7 @@ Crear y participar, a través de medios, de manera responsable, ética y efectiv
 - Mayor participación en iniciativas cívicas y democráticas digitales.
 - Incremento en contribuciones positivas a comunidades online.
 - Mejora en la capacidad de colaboración digital intercultural.
-- Reducción en comportamientos problemáticos online (acoso, desinformación).
+- Reducción en comportamientos problemáticos online (acoso, desinformación (integridad informativa)).
 - Aumento en el uso creativo y emprendedor de tecnologías digitales.
 
 ## Competencia 4: Comprensión y Uso Responsable de Inteligencia Artificial

@@ -1,14 +1,14 @@
-Comprendiendo la desinformación: un recorrido por términos y técnicas clave
+Comprendiendo la desinformación (integridad informativa): un recorrido por términos y técnicas clave
 
-La desinformación, aunque no es un fenómeno nuevo, se ha convertido en la actualidad en una amenaza compleja que afecta profundamente a las democracias y a la confianza en las instituciones. En el ámbito digital, su impacto se amplifica y adopta formas más sofisticadas, lo que dificulta su identificación y combate.
-
-
-
-A diferencia de idiomas como el inglés, donde se distinguen términos específicos como malinformation, misinformation y disinformation para clasificar distintos tipos de información errónea o malintencionada, en español el uso del término “desinformación” tiende a abarcar equivocadamente conceptos más amplios, como el simple desconocimiento de hechos.
+La desinformación (integridad informativa), aunque no es un fenómeno nuevo, se ha convertido en la actualidad en una amenaza compleja que afecta profundamente a las democracias y a la confianza en las instituciones. En el ámbito digital, su impacto se amplifica y adopta formas más sofisticadas, lo que dificulta su identificación y combate.
 
 
 
-Sin embargo, la falsedad, la manipulación y la tergiversación de la realidad presentan múltiples facetas, a menudo tan sutiles que resultan difíciles de detectar. Con el objetivo de clarificar y sistematizar este campo, un equipo interdisciplinar de once investigadores, provenientes de diez instituciones distintas, recopiló 125 términos relacionados con la desinformación. Esta exhaustiva compilación forma parte del capítulo de un libro incluido en la publicación anual del Foro contra las campañas de desinformación en el ámbito de la seguridad nacional.
+A diferencia de idiomas como el inglés, donde se distinguen términos específicos como malinformation, misinformation y disinformation para clasificar distintos tipos de información errónea o malintencionada, en español el uso del término “desinformación (integridad informativa)” tiende a abarcar equivocadamente conceptos más amplios, como el simple desconocimiento de hechos.
+
+
+
+Sin embargo, la falsedad, la manipulación y la tergiversación de la realidad presentan múltiples facetas, a menudo tan sutiles que resultan difíciles de detectar. Con el objetivo de clarificar y sistematizar este campo, un equipo interdisciplinar de once investigadores, provenientes de diez instituciones distintas, recopiló 125 términos relacionados con la desinformación (integridad informativa). Esta exhaustiva compilación forma parte del capítulo de un libro incluido en la publicación anual del Foro contra las campañas de desinformación (integridad informativa) en el ámbito de la seguridad nacional.
 
 
 
@@ -38,7 +38,7 @@ Deplatforming: Acción de restringir o eliminar el acceso a plataformas digitale
 
 
 
-Estrategia híbrida: Uso coordinado de múltiples acciones políticas, sociales, económicas, diplomáticas, militares e informacionales para explotar vulnerabilidades de un objetivo político o país, incluyendo campañas de desinformación y ciberataques.
+Estrategia híbrida: Uso coordinado de múltiples acciones políticas, sociales, económicas, diplomáticas, militares e informacionales para explotar vulnerabilidades de un objetivo político o país, incluyendo campañas de desinformación (integridad informativa) y ciberataques.
 
 
 
@@ -64,7 +64,7 @@ Pseudoescepticismo: Posturas negacionistas que se presentan como escépticas, di
 
 
 
-Este recorrido terminológico no solo aporta claridad conceptual sino que también destaca la necesidad de fortalecer la educación digital como una herramienta fundamental para aumentar la resiliencia ciudadana frente a la desinformación.
+Este recorrido terminológico no solo aporta claridad conceptual sino que también destaca la necesidad de fortalecer la educación digital como una herramienta fundamental para aumentar la resiliencia ciudadana frente a la desinformación (integridad informativa).
 
 
 
@@ -110,7 +110,7 @@ Virginia Martín Jiménez, Profesora de Periodismo en la Universidad de Valladol
 
 
 
-Este enfoque interdisciplinar y plural aporta un marco sólido para comprender la desinformación en todas sus dimensiones, facilitando la construcción de estrategias educativas y políticas más eficaces.
+Este enfoque interdisciplinar y plural aporta un marco sólido para comprender la desinformación (integridad informativa) en todas sus dimensiones, facilitando la construcción de estrategias educativas y políticas más eficaces.
 
 
 

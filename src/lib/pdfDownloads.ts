@@ -55,7 +55,7 @@ export const PDF_DOWNLOAD_UI = {
   ),
   hubDesinformacion: embed(
     PDFS.hubDesinformacion,
-    "Portada del PDF de la edición Desinformación del Hub Digital Consciente",
+    "Portada del PDF de la edición Desinformación (integridad informativa) del Hub Digital Consciente",
   ),
   hubIaAlgoritmos: embed(
     PDFS.hubIaAlgoritmos,

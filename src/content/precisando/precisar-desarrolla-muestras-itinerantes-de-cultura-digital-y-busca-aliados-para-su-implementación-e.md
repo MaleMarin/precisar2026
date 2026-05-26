@@ -1,6 +1,6 @@
 Precisar desarrolla muestras itinerantes de cultura digital y busca aliados para su implementación en espacios públicos y privados
 
-Como parte de su programa HUG Digital Consciente, Precisar está trabajando en el diseño de muestras itinerantes que abordan temas urgentes de la cultura digital contemporánea, como la desinformación, la inteligencia artificial y el rol de los algoritmos en la vida cotidiana.
+Como parte de su programa HUG Digital Consciente, Precisar está trabajando en el diseño de muestras itinerantes que abordan temas urgentes de la cultura digital contemporánea, como la desinformación (integridad informativa), la inteligencia artificial y el rol de los algoritmos en la vida cotidiana.
 
 
 
@@ -14,7 +14,7 @@ Actualmente se están desarrollando dos prototipos o ediciones piloto:
 
 
 
-Edición Desinformación
+Edición Desinformación (integridad informativa)
 
 
 

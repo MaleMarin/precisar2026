@@ -11,7 +11,7 @@ const SLIDES = [
   },
   {
     title: "Puntos de encuentro temáticos",
-    desc: "Crea estaciones dedicadas a la privacidad, la IA, la desinformación o la ética digital, permitiendo que los visitantes transiten libremente entre ellas.",
+    desc: "Crea estaciones dedicadas a la privacidad, la IA, la desinformación (integridad informativa) o la ética digital, permitiendo que los visitantes transiten libremente entre ellas.",
   },
   {
     title: "Rutas autoguiadas",

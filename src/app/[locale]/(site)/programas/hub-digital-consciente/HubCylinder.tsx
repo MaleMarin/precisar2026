@@ -51,7 +51,7 @@ const CONTENT = [
         label: "Nuestro enfoque",
         items: [
           "No solo presentamos temas: también abrimos un espacio para el diálogo y la acción.",
-          "Traducimos conceptos complejos —desinformación, IA, privacidad— en experiencias sensoriales accesibles.",
+          "Traducimos conceptos complejos —desinformación (integridad informativa), IA, privacidad— en experiencias sensoriales accesibles.",
           "Impulsamos conversaciones significativas sobre el uso responsable de la tecnología.",
         ],
       },
@@ -97,7 +97,7 @@ const CONTENT = [
       {
         label: "VECTOR — Formato estándar para eventos medianos",
         items: [
-          "3 Carteles Temáticos — Representan bloques clave como algoritmos, desinformación, bots y manipulación informativa.",
+          "3 Carteles Temáticos — Representan bloques clave como algoritmos, desinformación (integridad informativa), bots y manipulación informativa.",
           "3 Pantallas de Animación — Monitores horizontales que proyectan visualizaciones dinámicas, simulaciones o contenidos de contexto.",
           "3 Estaciones Interactivas — Paneles digitales verticales con pantallas táctiles para aplicaciones, juegos y módulos de verificación.",
           "Experiencias Prácticas para Debate (opcional según objetivo del evento).",
@@ -134,7 +134,7 @@ const CONTENT = [
         label: "Posibilidades de implementación",
         items: [
           "01 · Activación previa al evento — Despliega módulos interactivos en pasillos o vestíbulos para que la audiencia descubra conceptos clave antes de cualquier actividad programada.",
-          "02 · Puntos de encuentro temáticos — Crea estaciones dedicadas a la privacidad, la IA, la desinformación o la ética digital, permitiendo que los visitantes transiten libremente entre ellas.",
+          "02 · Puntos de encuentro temáticos — Crea estaciones dedicadas a la privacidad, la IA, la desinformación (integridad informativa) o la ética digital, permitiendo que los visitantes transiten libremente entre ellas.",
           "03 · Rutas autoguiadas — Diseña un recorrido cronológico o lógico que guíe a las personas por distintos retos y experiencias, cada uno acompañado de soportes visuales y multimedia.",
           "04 · Elementos móviles — Utiliza tablets, kioscos portátiles o gafas de realidad aumentada para llevar la instalación a espacios reducidos o itinerantes dentro del mismo recinto.",
           "05 · Material descargable — Ofrece a los visitantes códigos QR que enlacen a guías, infografías y recursos digitales para profundizar después del evento.",
@@ -151,13 +151,13 @@ const CONTENT = [
   {
     kicker: "05 · Personalización",
     title: "Ediciones\ntemáticas",
-    sub: "Desinformación · IA · Comunitaria",
+    sub: "Desinformación (integridad informativa) · IA · Comunitaria",
     body: "Hub Digital Consciente ofrece tres paquetes modulares —Pixel, Vector, Holo— que se ajustan al espacio, la duración y el público del evento.",
     groups: [
       {
         label: "Ediciones temáticas",
         items: [
-          "Profundiza en áreas específicas (IA, desinformación, privacidad digital, etc.) incorporando contenidos y tecnologías especializadas, como estaciones de realidad virtual o simulaciones avanzadas.",
+          "Profundiza en áreas específicas (IA, desinformación (integridad informativa), privacidad digital, etc.) incorporando contenidos y tecnologías especializadas, como estaciones de realidad virtual o simulaciones avanzadas.",
         ],
       },
       {
@@ -175,7 +175,7 @@ const CONTENT = [
       {
         label: "Ediciones disponibles",
         items: [
-          "01 · Edición Desinformación — Ver especificaciones completas →",
+          "01 · Edición Desinformación (integridad informativa) — Ver especificaciones completas →",
           "02 · Edición IA y Algoritmos — Ver especificaciones completas →",
         ],
       },
@@ -600,7 +600,7 @@ export default function HubCylinder() {
                     item.toLowerCase().includes("especificaciones")
                   let pdfHref: string | null = null
                   if (edicionesPdf) {
-                    if (item.includes("Desinformación")) {
+                    if (item.includes("Desinformación (integridad informativa)")) {
                       pdfHref = "/hub-edicion-desinformacion.pdf"
                     } else if (item.includes("IA y Algoritmos")) {
                       pdfHref = "/hub-edicion-ia-algoritmos.pdf"

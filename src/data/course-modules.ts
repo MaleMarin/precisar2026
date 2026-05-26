@@ -14,13 +14,13 @@ export type CourseModule = {
 
 /**
  * 24 pasos del recorrido «Aquí No Pasa».
- * Los títulos siguen una progresión pedagógica coherente con el curso de desinformación;
+ * Los títulos siguen una progresión pedagógica coherente con el curso de desinformación (integridad informativa);
  * deben validarse contra el sitio publicado (los HTML de Wix no exponen título en <title>).
  */
 const THEMES: Omit<CourseModule, "n">[] = [
   {
     themeTitle: "Bienvenida: qué es «Aquí No Pasa»",
-    lead: "Contrato de lectura y objetivos del recorrido frente a la desinformación.",
+    lead: "Contrato de lectura y objetivos del recorrido frente a la desinformación (integridad informativa).",
     contentOutline: [
       "Qué es el curso y a quién está dirigido.",
       "Cómo usar los 24 módulos y el ritmo sugerido.",
@@ -206,7 +206,7 @@ const THEMES: Omit<CourseModule, "n">[] = [
     pendingAssets: [],
   },
   {
-    themeTitle: "Salud y ciencia: desinformación de alto riesgo",
+    themeTitle: "Salud y ciencia: desinformación (integridad informativa) de alto riesgo",
     lead: "Patrones en epidemias, vacunas y «tratamientos milagro».",
     contentOutline: [
       "Apelación a «naturaleza» y miedo a instituciones.",

@@ -16,7 +16,7 @@ La autora destaca que el pensamiento crítico moderno debe ser entrenado no solo
 
 
 
-El texto también invita a repensar la calidad de la información que consumimos. No se trata solo de combatir la desinformación, sino de reconocer cómo el volumen desmedido de datos puede ser en sí mismo una forma de desinformar: cuando todo compite por captar la atención, la comprensión pierde terreno.
+El texto también invita a repensar la calidad de la información que consumimos. No se trata solo de combatir la desinformación (integridad informativa), sino de reconocer cómo el volumen desmedido de datos puede ser en sí mismo una forma de desinformar: cuando todo compite por captar la atención, la comprensión pierde terreno.
 
 
 

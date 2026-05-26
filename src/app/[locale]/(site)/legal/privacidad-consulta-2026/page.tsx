@@ -109,12 +109,12 @@ export default function Page() {
       <p>
         Recopilaremos información sobre: sus habilidades para verificar información; su
         capacidad de usar tecnología; su comprensión de noticias y datos; su capacidad de
-        identificar desinformación.
+        identificar desinformación (integridad informativa).
       </p>
 
       <h3 className="mt-6 text-base font-medium">3.5 Opiniones y Percepciones</h3>
       <p>
-        Solicitaremos su opinión sobre: la desinformación y sus efectos; la inteligencia
+        Solicitaremos su opinión sobre: la desinformación (integridad informativa) y sus efectos; la inteligencia
         artificial en medios; las posibles soluciones a estos fenómenos; confianza en
         diferentes medios de comunicación.
       </p>
@@ -143,7 +143,7 @@ export default function Page() {
       <h3 className="mt-6 text-base font-medium">4.1 Análisis Estadístico</h3>
       <p>
         Para generar evidencia agregada y anonimizada sobre: hábitos informativos de la
-        ciudadanía en Chile; necesidades de información; percepciones sobre desinformación y
+        ciudadanía en Chile; necesidades de información; percepciones sobre desinformación (integridad informativa) y
         alfabetización mediática.
       </p>
       <p>
@@ -154,7 +154,7 @@ export default function Page() {
       <p>
         Los resultados de la Consulta serán utilizados para: elaboración de informes;
         estudios académicos; publicaciones científicas; contribución al conocimiento sobre
-        desinformación y alfabetización mediática.
+        desinformación (integridad informativa) y alfabetización mediática.
       </p>
       <h3 className="mt-6 text-base font-medium">4.3 Diseño de Prototipos y Soluciones</h3>
       <p>

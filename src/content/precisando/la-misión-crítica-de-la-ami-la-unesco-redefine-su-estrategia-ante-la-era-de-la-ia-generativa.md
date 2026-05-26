@@ -6,7 +6,7 @@ Cartagena de Indias se ha convertido en el epicentro del debate global sobre ciu
 
 
 
-El mensaje central de Jelassi fue inequívoco: en la era de la inteligencia artificial generativa y la proliferación exponencial de la desinformación, la AMI "no es un lujo, sino que se ha convertido en una necesidad".
+El mensaje central de Jelassi fue inequívoco: en la era de la inteligencia artificial generativa y la proliferación exponencial de la desinformación (integridad informativa), la AMI "no es un lujo, sino que se ha convertido en una necesidad".
 
 Aquí analizamos los tres mensajes clave de su intervención y lo que significan para el futuro de nuestra misión.
 
@@ -16,7 +16,7 @@ Aquí analizamos los tres mensajes clave de su intervención y lo que significan
 
 
 
-Jelassi comenzó trazando un panorama sombrío pero realista del ecosistema de la información. La "innovación disruptiva" de la IA generativa, sumada al dominio de las plataformas digitales, ha provocado una "proliferación exponencial" de desinformación y discursos de odio.
+Jelassi comenzó trazando un panorama sombrío pero realista del ecosistema de la información. La "innovación disruptiva" de la IA generativa, sumada al dominio de las plataformas digitales, ha provocado una "proliferación exponencial" de desinformación (integridad informativa) y discursos de odio.
 
 El impacto directo, advirtió, es la erosión de la confianza pública. Citando a la periodista y Premio Nobel de la Paz, Maria Ressa, Jelassi lo resumió de forma contundente: "Sin hechos, no hay verdad. Y sin verdad, no hay confianza. Y sin confianza, no hay realidad compartida".
 

@@ -224,7 +224,7 @@ Realizamos talleres y acompañamos a instituciones y municipios en el diseño e 
 
 Hub Digital Consciente
 
-Experiencias inmersivas de cultura digital para todas las edades, adaptables a eventos, municipios y entornos educativos. Mediante carteles, videos y aplicaciones interactivas centradas en el usuario, abordamos temas como IA, desinformación y privacidad, transformándolos en vivencias participativas que fomentan la reflexión sobre el impacto de la tecnología en la sociedad.
+Experiencias inmersivas de cultura digital para todas las edades, adaptables a eventos, municipios y entornos educativos. Mediante carteles, videos y aplicaciones interactivas centradas en el usuario, abordamos temas como IA, desinformación (integridad informativa) y privacidad, transformándolos en vivencias participativas que fomentan la reflexión sobre el impacto de la tecnología en la sociedad.
 
 Aprender Digital: Nunca es Tarde
 
@@ -363,7 +363,7 @@ En producción esta URL responve con experiencia propia (posible contenido
 
 
 ============================================================================
-Curso Desinformación · Aquí No Pasa
+Curso Desinformación (integridad informativa) · Aquí No Pasa
 ============================================================================
 
 ¡Comienza ahora y no dejes que te la hagan!
@@ -381,9 +381,9 @@ Aquí comienza tu recorrido con el programa «Aquí No Pasa», una invitación a
 
 Aquí No Pasa
 
-Curso Desinformación
+Curso Desinformación (integridad informativa)
 
-Curso Desinformación · Aquí No Pasa
+Curso Desinformación (integridad informativa) · Aquí No Pasa
 
 Ir al módulo 1
 
@@ -443,11 +443,11 @@ Escribe en el formulario Contáctanos del pie de página.
 Cultura Digital · Tiras
 ============================================================================
 
-Treinta y seis miradas sobre algoritmos, privacidad, desinformación, ciudadanía digital y prácticas conscientes en línea.
+Treinta y seis miradas sobre algoritmos, privacidad, desinformación (integridad informativa), ciudadanía digital y prácticas conscientes en línea.
 
 Cultura Digital · Tiras
 
-Treinta y seis miradas sobre algoritmos, privacidad, desinformación, ciudadanía digital y prácticas conscientes en línea.
+Treinta y seis miradas sobre algoritmos, privacidad, desinformación (integridad informativa), ciudadanía digital y prácticas conscientes en línea.
 
 
 ============================================================================
@@ -508,7 +508,7 @@ Derechos: acceso, autoría, privacidad, libertad de expresión, uso justo.
 
 Detectar deepfakes en campaña
 
-Detectar sesgos; verificar una imagen; reconocer desinformación.
+Detectar sesgos; verificar una imagen; reconocer desinformación (integridad informativa).
 
 Dimensión a dimensión
 
@@ -548,7 +548,7 @@ Prueba rápida
 
 Reconocer publicidad nativa en un portal
 
-Reducir desinformación requiere AMI; reducir fraudes requiere Alfabetización Digital.
+Reducir desinformación (integridad informativa) requiere AMI; reducir fraudes requiere Alfabetización Digital.
 
 Resolver problemas básicos de software/hardware.
 
@@ -580,7 +580,7 @@ Verificar con varias fuentes y entender sesgos/algoritmos.
 Comunicación
 ============================================================================
 
-Eje Comunicación — educación mediática: ecosistema mediático, libertad de expresión, medios, desinformación y redes.
+Eje Comunicación — educación mediática: ecosistema mediático, libertad de expresión, medios, desinformación (integridad informativa) y redes.
 
 Comunicación
 
@@ -588,7 +588,7 @@ Contenido principal
 
 Defender la libertad de expresión con responsabilidad.
 
-Eje Comunicación — educación mediática: ecosistema mediático, libertad de expresión, medios, desinformación y redes.
+Eje Comunicación — educación mediática: ecosistema mediático, libertad de expresión, medios, desinformación (integridad informativa) y redes.
 
 Este eje es una invitación a pensar la comunicación no solo como algo que recibimos, sino también
             como algo que creamos, compartimos y transformamos.
@@ -607,7 +607,7 @@ La comunicación no es neutra:
 Lo que propone este eje es mirar con lupa el camino que recorre la información, cuestionar quién
             la produce, por qué y con qué intención. También invita a fortalecer el derecho a expresarnos, a
             informarnos de manera libre y a reconocer cuándo ese derecho está en riesgo —por la censura, la
-            desinformación o la invisibilización de ciertas comunidades.
+            desinformación (integridad informativa) o la invisibilización de ciertas comunidades.
 
 Participar en experiencias comunicativas propias, como medios comunitarios.
 
@@ -682,7 +682,7 @@ La educación mediática no es solo para estudiantes ni solo para expertos. Es u
 La educación mediática, en este sentido, es una herramienta de autonomía y participación que debe
             estar presente durante toda la vida: en la infancia, como base para la lectura crítica; en la
             adolescencia, para fortalecer la identidad digital; en la adultez, para defenderse de la
-            desinformación y tomar decisiones informadas; y en la vejez, para garantizar inclusión, vínculos y
+            desinformación (integridad informativa) y tomar decisiones informadas; y en la vejez, para garantizar inclusión, vínculos y
             derechos.
 
 La integración de la educación mediática e informacional en los currículos escolares, no como
@@ -834,11 +834,11 @@ Derecho a explicación algorítmica. Accesibilidad en servicios
 
 Derechos: acceso, autoría, privacidad, libertad de expresión, uso justo.
 
-Desinformación: 63% creyó noticias falsas
+Desinformación (integridad informativa): 63% creyó noticias falsas
 
 Detectar deepfakes en campaña
 
-Detectar sesgos; verificar una imagen; reconocer desinformación.
+Detectar sesgos; verificar una imagen; reconocer desinformación (integridad informativa).
 
 Digitalización: 66% para no quedar aislados
 
@@ -848,7 +848,7 @@ Doble brecha: Sin herramientas y sin criterio
 
 Economía del conocimiento: trabajo colaborativo con IA y emprendimiento.
 
-Efectos: Desinformación / exclusión
+Efectos: Desinformación (integridad informativa) / exclusión
 
 El costo de la inacción
 
@@ -1549,13 +1549,13 @@ Los informes y publicaciones derivados del proyecto presentarán los datos de fo
 
 Los resultados de la Consulta serán utilizados para: elaboración de informes;
         estudios académicos; publicaciones científicas; contribución al conocimiento sobre
-        desinformación y alfabetización mediática.
+        desinformación (integridad informativa) y alfabetización mediática.
 
 oponerse a tratamientos específicos. Asunto:
           &quot;Solicitud de Oposición al Tratamiento de Datos&quot;.
 
 Para generar evidencia agregada y anonimizada sobre: hábitos informativos de la
-        ciudadanía en Chile; necesidades de información; percepciones sobre desinformación y
+        ciudadanía en Chile; necesidades de información; percepciones sobre desinformación (integridad informativa) y
         alfabetización mediática.
 
 Podremos compartir datos agregados y anonimizados con: organizaciones de la
@@ -1604,7 +1604,7 @@ Recopilaremos datos como: edad (en rangos: 18-25, 26-35, 36-50, 51-65, 65+); gé
 
 Recopilaremos información sobre: sus habilidades para verificar información; su
         capacidad de usar tecnología; su comprensión de noticias y datos; su capacidad de
-        identificar desinformación.
+        identificar desinformación (integridad informativa).
 
 Rectificación:
 
@@ -1619,7 +1619,7 @@ Si usted ha consentido en ello, podremos utilizar su correo electrónico para:
 solicitar portabilidad en formato estructurado.
           Asunto: &quot;Solicitud de Portabilidad de Datos Personales&quot;.
 
-Solicitaremos su opinión sobre: la desinformación y sus efectos; la inteligencia
+Solicitaremos su opinión sobre: la desinformación (integridad informativa) y sus efectos; la inteligencia
         artificial en medios; las posibles soluciones a estos fenómenos; confianza en
         diferentes medios de comunicación.
 
@@ -1646,7 +1646,7 @@ Claves para entender el mundo mediático
 
 Comunicación
 
-Desinformación
+Desinformación (integridad informativa)
 
 Ecosistema mediático
 
@@ -1679,7 +1679,7 @@ Libertad de Expresión y Derecho a la Información
 Lo que propone este eje es mirar con lupa el camino que recorre la información,
         cuestionar quién la produce, por qué y con qué intención. También invita a
         fortalecer el derecho a expresarnos, a informarnos de manera libre y a reconocer
-        cuándo ese derecho está en riesgo —por la censura, la desinformación o la
+        cuándo ese derecho está en riesgo —por la censura, la desinformación (integridad informativa) o la
         invisibilización de ciertas comunidades.
 
 Medios de Comunicación
@@ -1778,7 +1778,7 @@ La educación mediática no es solo para estudiantes ni solo para expertos. Es u
 La educación mediática, en este sentido, es una herramienta de autonomía y
         participación que debe estar presente durante toda la vida: en la infancia, como
         base para la lectura crítica; en la adolescencia, para fortalecer la identidad
-        digital; en la adultez, para defenderse de la desinformación y tomar decisiones
+        digital; en la adultez, para defenderse de la desinformación (integridad informativa) y tomar decisiones
         informadas; y en la vejez, para garantizar inclusión, vínculos y derechos.
 
 La integración de la educación mediática e informacional en los currículos
@@ -2034,7 +2034,7 @@ Empoderamiento Cívico
 
 Encuentra un equilibrio saludable entre el tiempo que pasas en línea y tus actividades presenciales, utilizando las herramientas digitales para enriquecer tu vida y fortalecer tus vínculos sociales, sin que sustituyan las interacciones cara a cara. Promovemos un uso consciente y beneficioso de la tecnología.
 
-Enseñamos a identificar la desinformación, reconocer sesgos y desarrollar un pensamiento crítico para navegar el mundo digital de forma informada. Esto te permitirá discernir la veracidad de la información y protegerte de contenidos engañosos.
+Enseñamos a identificar la desinformación (integridad informativa), reconocer sesgos y desarrollar un pensamiento crítico para navegar el mundo digital de forma informada. Esto te permitirá discernir la veracidad de la información y protegerte de contenidos engañosos.
 
 Facilita trámites y comunicaciones, brindando independencia digital.
 
@@ -2159,11 +2159,11 @@ Desafíos de la IA y estrategias prácticas 1: Magnificación del sesgo.
 
 Desafíos de la IA y estrategias prácticas 2: Acoso en línea.
 
-Desarrolla en la ciudadanía aptitudes de pensamiento analítico para cuestionar mensajes, detectar discursos de odio y desinformación, y participar en procesos de decisión local con argumentos basados en fuentes fiables.
+Desarrolla en la ciudadanía aptitudes de pensamiento analítico para cuestionar mensajes, detectar discursos de odio y desinformación (integridad informativa), y participar en procesos de decisión local con argumentos basados en fuentes fiables.
 
-Desinformación
+Desinformación (integridad informativa)
 
-Desinformación: Hechos vs. sentimientos sobre la información
+Desinformación (integridad informativa): Hechos vs. sentimientos sobre la información
 
 Desmitificando el futuro y sus implicaciones.
 
@@ -2173,7 +2173,7 @@ Este taller fomenta hábitos saludables en el uso de la tecnología, abordando e
 
 Este taller presenta los fundamentos de la IA, explorando qué es, cómo funciona y su impacto en las personas. Los participantes adquirirán habilidades cruciales y estrategias prácticas para abordar los desafíos que presenta la IA. Ideal para públicos de todas las edades y niveles de conocimiento.
 
-Estrategias contra la Desinformación
+Estrategias contra la Desinformación (integridad informativa)
 
 Estrategias prácticas para la vida cotidiana.
 
@@ -2237,7 +2237,7 @@ Promueve la comprensión de cómo funcionan los sistemas automatizados y sus ses
 
 Protegiendo identidad y datos.
 
-Qué es la desinformación y por qué importa.
+Qué es la desinformación (integridad informativa) y por qué importa.
 
 Qué hacer si fuiste víctima de un fraude.
 
@@ -2264,7 +2264,7 @@ Acceso a guías, plantillas, videos y ejemplos listos para usar y adaptar en sus
 
 Acompañamiento Continuo
 
-Adquiere estrategias prácticas para enseñar a tus estudiantes a identificar y desmantelar la desinformación: aprenderán técnicas de verificación de datos, uso de herramientas de fact-checking y métodos para contrastar fuentes, reconocer patrones de manipulación y aplicar estas competencias tanto en sus investigaciones escolares como en su día a día.
+Adquiere estrategias prácticas para enseñar a tus estudiantes a identificar y desmantelar la desinformación (integridad informativa): aprenderán técnicas de verificación de datos, uso de herramientas de fact-checking y métodos para contrastar fuentes, reconocer patrones de manipulación y aplicar estas competencias tanto en sus investigaciones escolares como en su día a día.
 
 Al incorporar buenas prácticas de protección de datos y control de privacidad, se reducen significativamente los riesgos de ciberacoso y usos indebidos de la tecnología, garantizando un entorno digital más seguro.
 
@@ -2278,7 +2278,7 @@ Beneficios para tu comunidad escolar
 
 Brindar herramientas a los educadores para guiar a los estudiantes en la creación de contenidos digitales de forma ética y responsable, respetando derechos de autor y promoviendo mensajes constructivos.
 
-Capacitar a los docentes para enseñar a los estudiantes a evaluar críticamente la información, identificar desinformación y reconocer sesgos en diversas fuentes digitales, incluyendo contenidos generados por IA.
+Capacitar a los docentes para enseñar a los estudiantes a evaluar críticamente la información, identificar desinformación (integridad informativa) y reconocer sesgos en diversas fuentes digitales, incluyendo contenidos generados por IA.
 
 Cómo aprendemos
 
@@ -2297,7 +2297,7 @@ Crea un ambiente de aprendizaje donde estudiantes, docentes y familias colaboren
 
 Descubre cómo integrar la educación mediática digital en diversas asignaturas y niveles educativos. Te proporcionaremos ejemplos de proyectos exitosos y te guiaremos en el diseño de actividades prácticas que permitan a tus estudiantes aplicar sus conocimientos, culminando en proyectos significativos que demuestren su educación digital y mediática.
 
-Desinformación, Verificación de Datos
+Desinformación (integridad informativa), Verificación de Datos
 
 Docentes Empoderados e Innovadores
 
@@ -2405,7 +2405,7 @@ Adaptamos a tu institución
 
 Agendamos una presentación
 
-Al entender algoritmos, cámaras de eco y aprender a identificar desinformación, deepfakes y propaganda, los funcionarios protegen la reputación institucional.
+Al entender algoritmos, cámaras de eco y aprender a identificar desinformación (integridad informativa), deepfakes y propaganda, los funcionarios protegen la reputación institucional.
 
 Beneficios para la institución pública
 
@@ -2426,7 +2426,7 @@ Diseñamos el programa a medida de las necesidades específicas de tu organizaci
 
 Educación Mediática para Funcionarios Públicos
 
-En el entorno digital actual, la desinformación y la manipulación informativa no son solo un
+En el entorno digital actual, la desinformación (integridad informativa) y la manipulación informativa no son solo un
                 desafío social, sino un riesgo directo para la administración pública, la confianza ciudadana y la
                 estabilidad democrática.
 
@@ -2500,7 +2500,7 @@ Lleva el Hub Digital Consciente a tu espacio.
 Muestras portátiles e interactivas de cultura digital para plazas, bibliotecas, educación, corporativos y territorio.
 
 No solo presentamos temas: también abrimos un espacio para el diálogo y la acción. Con
-                cada muestra, traducimos conceptos complejos, desde la desinformación e inteligencia
+                cada muestra, traducimos conceptos complejos, desde la desinformación (integridad informativa) e inteligencia
                 artificial hasta la privacidad, en experiencias sensoriales accesibles que impulsan
                 conversaciones significativas sobre el uso responsable de la tecnología.
 
@@ -2551,7 +2551,7 @@ Aplicar una lista de chequeo de 3 pasos para evaluar cualquier noticia.
 
 Beneficios para tu organización
 
-Capacitar en la detección de desinformación disminuye el riesgo de que la organización actúe basándose en datos falsos, previniendo crisis y protegiendo la reputación.
+Capacitar en la detección de desinformación (integridad informativa) disminuye el riesgo de que la organización actúe basándose en datos falsos, previniendo crisis y protegiendo la reputación.
 
 Cómo las plataformas aprenden de tus gustos para crear un perfil sobre ti y el fenómeno de la burbuja de filtros.
 
@@ -2569,7 +2569,7 @@ Conversar con calma con amigos o familiares que comparten información falsa.
 Día completo · 7 horas
 
 Dirigido a cualquier persona que use redes sociales y quiera aprender a protegerse de los
-                engaños y la desinformación. No necesitas saber nada de tecnología, solo tener curiosidad.
+                engaños y la desinformación (integridad informativa). No necesitas saber nada de tecnología, solo tener curiosidad.
 
 Dirigido a todas las personas curiosas por saber cómo funcionan las redes sociales por dentro y
                 el impacto que la tecnología tiene en nuestras vidas.
@@ -2708,7 +2708,7 @@ Cada organización tiene necesidades distintas. Conversamos, ajustamos y ejecuta
 
 Cómo las plataformas construyen un perfil tuyo. La burbuja de filtros.
 
-Conversar con calma con alguien que comparte desinformación
+Conversar con calma con alguien que comparte desinformación (integridad informativa)
 
 El chef secreto de tu internet
 

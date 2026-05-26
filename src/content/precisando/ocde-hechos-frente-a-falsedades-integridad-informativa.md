@@ -23,12 +23,12 @@ Para traducir buenas intenciones en resultados tangibles, la OCDE sugiere estas 
 - **Colaboración clara con actores no gubernamentales:** establecer directrices transparentes para evitar influencias indebidas cuando el Estado financie o coordine campañas de alfabetización o prebunking (prevención proactiva de rumores).
 - **Función de comunicación pública reforzada:** profesionalizar los canales gubernamentales para difundir alertas y prebunks en momentos de crisis, al tiempo que se salvaguarda su independencia.
 - **Protección de actores vulnerables:** crear protocolos para defender a periodistas, académicos y activistas de ataques, hostigamientos o campañas de acoso que busquen silenciarlos.
-- **Investigación continuada:** financiar estudios sobre patrones de consumo y tácticas de desinformación, para ajustar el rumbo de las políticas con datos de primera mano.
+- **Investigación continuada:** financiar estudios sobre patrones de consumo y tácticas de desinformación (integridad informativa), para ajustar el rumbo de las políticas con datos de primera mano.
 - **Transparencia en la financiación:** exponer públicamente quién pone los recursos para cada iniciativa, desmontando sospechas de agendas ocultas.
 
 En conjunto, estas recomendaciones apuntan a un ecosistema informativo más robusto, donde fluya la diversidad, se ejerza el escrutinio y se construya confianza. No es un manual de buena voluntad: es una hoja de ruta con preguntas clave sobre cómo asociarse, cómo medir resultados y cómo equilibrar libertad de expresión con protección contra la manipulación.
 
-En un entorno donde un retuit puede cambiar el pulso de una campaña electoral, este informe invita a los gobiernos a tomar el volante: no basta con reaccionar a cada ola de desinformación; hay que anticiparla, desmenuzarla y, sobre todo, co-crear soluciones con quienes viven la realidad digital día a día. Porque una democracia saludable no se forja en el silencio, sino en el discurso plural, crítico y compartido.
+En un entorno donde un retuit puede cambiar el pulso de una campaña electoral, este informe invita a los gobiernos a tomar el volante: no basta con reaccionar a cada ola de desinformación (integridad informativa); hay que anticiparla, desmenuzarla y, sobre todo, co-crear soluciones con quienes viven la realidad digital día a día. Porque una democracia saludable no se forja en el silencio, sino en el discurso plural, crítico y compartido.
 
 _Un abrazo,_  
 _Equipo Precisar._

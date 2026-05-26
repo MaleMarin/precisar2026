@@ -26,7 +26,7 @@ const amiVsDigitalRows = [
   },
   {
     dim: "Ejemplos",
-    ami: "Detectar sesgos; verificar una imagen; reconocer desinformación.",
+    ami: "Detectar sesgos; verificar una imagen; reconocer desinformación (integridad informativa).",
     dig: "Crear una videollamada; cifrar un disco; gestionar contraseñas.",
   },
   {
@@ -544,7 +544,7 @@ export default function PropuestaPoliticaAlfabetizacionPage() {
                 <ul>
                   <li>Conectividad: 80% con plan de datos propio</li>
                   <li>Bienestar: 53% con soledad digital</li>
-                  <li>Desinformación: 63% creyó noticias falsas</li>
+                  <li>Desinformación (integridad informativa): 63% creyó noticias falsas</li>
                   <li>Exposición: 27% vio contenidos violentos</li>
                   <li>Contacto con extraños: 40% contactado; 48% interactúa</li>
                   <li>Conductas: 23% admite insultar por mensajes</li>
@@ -554,7 +554,7 @@ export default function PropuestaPoliticaAlfabetizacionPage() {
                 <ul>
                   <li>Comprensión crítica: 44%+ sin base</li>
                   <li>Doble brecha: Sin herramientas y sin criterio</li>
-                  <li>Efectos: Desinformación / exclusión</li>
+                  <li>Efectos: Desinformación (integridad informativa) / exclusión</li>
                 </ul>
               </div>
               <div className="agendaAmiPanel agendaAmiPanelMayores" role="tabpanel">

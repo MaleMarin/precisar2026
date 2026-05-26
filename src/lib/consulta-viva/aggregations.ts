@@ -32,7 +32,7 @@ export function sourceColorRgb(source: SourceType): [number, number, number] {
 const SOURCE_KEYS: SourceType[] = ["whatsapp", "social", "tv_radio", "news", "ai"];
 
 export const CONCERN_LABELS: Record<ConcernType, string> = {
-  fake_news: "Desinformación viral",
+  fake_news: "Desinformación (integridad informativa) viral",
   manipulation: "Manipulación / sesgo",
   lack_context: "Falta de contexto",
   scams: "Estafas y engaños",

@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 const MODULOS = [
   {
     titulo: "Educación Mediática Digital",
-    desc: "Enseñamos a identificar la desinformación, reconocer sesgos y desarrollar un pensamiento crítico para navegar el mundo digital de forma informada. Esto te permitirá discernir la veracidad de la información y protegerte de contenidos engañosos.",
+    desc: "Enseñamos a identificar la desinformación (integridad informativa), reconocer sesgos y desarrollar un pensamiento crítico para navegar el mundo digital de forma informada. Esto te permitirá discernir la veracidad de la información y protegerte de contenidos engañosos.",
     color: "#DB5227",
   },
   {

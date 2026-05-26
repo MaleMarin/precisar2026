@@ -8,7 +8,7 @@ const TABS = [
     id: "tematicas",
     label: "Ediciones temáticas",
     content:
-      "Profundiza en áreas específicas: IA, desinformación, privacidad digital, incorporando contenidos y tecnologías especializadas como estaciones de realidad virtual o simulaciones avanzadas.",
+      "Profundiza en áreas específicas: IA, desinformación (integridad informativa), privacidad digital, incorporando contenidos y tecnologías especializadas como estaciones de realidad virtual o simulaciones avanzadas.",
   },
   {
     id: "comunitaria",

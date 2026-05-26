@@ -3,7 +3,7 @@ import { Kicker } from "@/components/ui/Kicker";
 const modulos = [
   {
     title: "Educación Mediática Digital",
-    body: "Cómo identificar desinformación, reconocer sesgos y distinguir imágenes manipuladas. Pensamiento crítico aplicado a lo que llega al celular todos los días.",
+    body: "Cómo identificar desinformación (integridad informativa), reconocer sesgos y distinguir imágenes manipuladas. Pensamiento crítico aplicado a lo que llega al celular todos los días.",
   },
   {
     title: "Navegación Segura",

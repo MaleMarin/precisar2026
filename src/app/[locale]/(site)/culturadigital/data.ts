@@ -74,9 +74,9 @@ const STRIPS_BASE: Omit<CulturaDigitalStrip, "palette">[] = [
   },
   {
     slug: "noticias-falsas-desinformacion",
-    h1: "Noticias falsas y desinformación",
+    h1: "Noticias falsas y desinformación (integridad informativa)",
     subhead: "Lo que parece verdad… no siempre lo es.",
-    body: "En internet circulan contenidos que parecen reales, pero no lo son. Algunos están hechos con la intención de manipular. Otros simplemente están mal verificados o se comparten sin contexto. Por eso, desarrollar pensamiento crítico y contrastar fuentes es más importante que nunca para no ser parte de la desinformación.",
+    body: "En internet circulan contenidos que parecen reales, pero no lo son. Algunos están hechos con la intención de manipular. Otros simplemente están mal verificados o se comparten sin contexto. Por eso, desarrollar pensamiento crítico y contrastar fuentes es más importante que nunca para no ser parte de la desinformación (integridad informativa).",
     left_title: "Pregunta para reflexionar:",
     left_bullets: ["¿Qué haces cuando una noticia te genera dudas?"],
     right_title: "¿Qué puedes hacer?",

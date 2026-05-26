@@ -6,7 +6,7 @@ import styles from "./ComunicacionInterior.module.css";
 export const metadata: Metadata = {
   title: "Comunicación",
   description:
-    "Eje Comunicación — educación mediática: ecosistema mediático, libertad de expresión, medios, desinformación y redes.",
+    "Eje Comunicación — educación mediática: ecosistema mediático, libertad de expresión, medios, desinformación (integridad informativa) y redes.",
 };
 
 export default function ComunicacionEducacionMediaticaPage() {
@@ -35,7 +35,7 @@ export default function ComunicacionEducacionMediaticaPage() {
             Lo que propone este eje es mirar con lupa el camino que recorre la información, cuestionar quién
             la produce, por qué y con qué intención. También invita a fortalecer el derecho a expresarnos, a
             informarnos de manera libre y a reconocer cuándo ese derecho está en riesgo —por la censura, la
-            desinformación o la invisibilización de ciertas comunidades.
+            desinformación (integridad informativa) o la invisibilización de ciertas comunidades.
           </p>
           <p className={styles.bodyLead}>
             <strong>La comunicación no es neutra:</strong> puede conectar o dividir, visibilizar o excluir.
