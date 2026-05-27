@@ -820,7 +820,7 @@ export default function PropuestaPoliticaAlfabetizacionPage() {
               <li>Presentaciones especializadas con datos y propuestas concretas</li>
               <li>Asesoría técnica para implementación de políticas</li>
             </ul>
-            <FooterContactLink className="agendaAmiAboutCta">Contáctanos</FooterContactLink>
+            <FooterContactLink className="agendaAmiAboutCta">Colabora con nosotros</FooterContactLink>
           </div>
         </section>
       </article>

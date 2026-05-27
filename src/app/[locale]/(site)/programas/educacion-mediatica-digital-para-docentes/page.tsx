@@ -386,7 +386,7 @@ export default function DocentesPage() {
             transition: "opacity 0.2s ease",
           }}
         >
-          Contáctanos
+          Colabora con nosotros
         </a>
       </section>
 

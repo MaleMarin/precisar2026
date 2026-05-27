@@ -281,7 +281,7 @@ export default function Page() {
               Consideramos esta capacitación una oportunidad estratégica en el capital humano y la resiliencia
               de tu organización.
             </p>
-            <FooterContactLink className={shell.ctaBtn}>Contáctanos</FooterContactLink>
+            <FooterContactLink className={shell.ctaBtn}>Colabora con nosotros</FooterContactLink>
           </div>
         </div>
       </section>

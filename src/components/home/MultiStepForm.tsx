@@ -65,9 +65,8 @@ export function MultiStepForm({ categories, onSubmit }: MultiStepFormProps) {
             <a href={`mailto:${SITE.contactEmail}`} className={styles.confirmLink}>
               {SITE.contactEmail}
             </a>{" "}
-            o escríbenos en{" "}
-            <FooterContactLink className={styles.confirmLink}>Contáctanos</FooterContactLink> (pie del
-            sitio).
+            o usa el{" "}
+            <FooterContactLink className={styles.confirmLink}>formulario del pie del sitio</FooterContactLink>.
           </p>
         </div>
       </div>

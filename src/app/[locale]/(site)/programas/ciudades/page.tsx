@@ -448,7 +448,7 @@ export default function CiudadesPage() {
             transition: "opacity 0.2s ease",
           }}
         >
-          Contáctanos
+          Colabora con nosotros
         </a>
       </section>
     </main>

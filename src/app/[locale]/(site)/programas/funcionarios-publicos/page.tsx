@@ -155,7 +155,7 @@ export default function Page() {
               Estamos listos para adaptar el programa a las necesidades específicas de tu institución.
               Contáctanos para coordinar.
             </p>
-            <FooterContactLink className={shell.ctaBtn}>Contáctanos</FooterContactLink>
+            <FooterContactLink className={shell.ctaBtn}>Colabora con nosotros</FooterContactLink>
           </div>
         </div>
       </section>
