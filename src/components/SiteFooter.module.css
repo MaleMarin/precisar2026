@@ -290,12 +290,20 @@
 }
 
 .contactTitle {
-  margin: 0 0 1rem;
+  margin: 0 0 0.65rem;
   font-size: clamp(1.25rem, 2.2vw, 1.5rem);
   font-weight: 500;
   letter-spacing: -0.03em;
-  line-height: 1.2;
+  line-height: 1.25;
   color: #fff;
+}
+
+.contactIntro {
+  margin: 0 0 1.35rem;
+  max-width: 32rem;
+  font-size: clamp(0.9375rem, 1.5vw, 1rem);
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.66);
 }
 
 .contactForm {

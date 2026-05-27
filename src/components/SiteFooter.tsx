@@ -283,7 +283,13 @@ export function SiteFooter() {
             </nav>
 
             <div className={styles.contactColumn}>
-              <h2 className={styles.contactTitle}>Contáctanos</h2>
+              <h2 className={styles.contactTitle}>¿Te interesa colaborar con Precisar?</h2>
+              <p className={styles.contactIntro}>
+                Si tu organización, medio o iniciativa comparte nuestro propósito de promover un
+                entendimiento crítico de la tecnología y garantizar el acceso a información veraz,
+                queremos sumarte. Colaboremos en investigaciones, procesos formativos o proyectos
+                regionales. Completa el formulario y conversemos.
+              </p>
               <form id={FOOTER_CONTACT_ANCHOR_ID} action={footerContactRedirect} className={styles.contactForm}>
                 <div className={styles.field}>
                   <label className={styles.fieldLabel} htmlFor="footer-nombre">
