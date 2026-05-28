@@ -206,6 +206,10 @@
       ["Tecnologia", "com critério"]
     ]
   },
+  "culturaDigitalPage": {
+    "metaTitle": "Cultura Digital · Tiras",
+    "metaDescription": "Trinta e seis olhares sobre algoritmos, privacidade, desinformação (integridade informativa), cidadania digital e práticas conscientes em linha."
+  },
   "educacionMediaticaSeccion": {
     "ariaContent": "Conteúdo principal",
     "comunicacion": {
