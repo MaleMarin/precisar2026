@@ -1,52 +1,50 @@
 import type { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 import { MediaticaEjesNav } from "@/components/educacion-mediatica/MediaticaEjesNav";
 import { ComunicacionMediaticaTabs } from "./ComunicacionMediaticaTabs";
 import styles from "./ComunicacionInterior.module.css";
 
-export const metadata: Metadata = {
-  title: "Comunicación",
-  description:
-    "Eje Comunicación — educación mediática: ecosistema mediático, libertad de expresión, medios, desinformación (integridad informativa) y redes.",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "educacionMediaticaSeccion.comunicacion" });
+  return { title: t("metaTitle"), description: t("metaDescription") };
+}
 
-export default function ComunicacionEducacionMediaticaPage() {
+export default async function ComunicacionEducacionMediaticaPage() {
+  const tBase = await getTranslations("educacionMediaticaSeccion");
+  const t = await getTranslations("educacionMediaticaSeccion.comunicacion");
+  const paras = t.raw("paras") as string[];
+  const listItems = t.raw("listItems") as string[];
+
   return (
     <article className="prec-page">
       <header className={styles.hero}>
         <MediaticaEjesNav current="comunicacion" />
         <div className={styles.heroGrid}>
-          <h1 className={styles.heroTitle}>Comunicación</h1>
-          <p className={styles.heroIntro}>
-            Este eje es una invitación a pensar la comunicación no solo como algo que recibimos, sino también
-            como algo que creamos, compartimos y transformamos.
-          </p>
+          <h1 className={styles.heroTitle}>{t("heroTitle")}</h1>
+          <p className={styles.heroIntro}>{t("heroIntro")}</p>
         </div>
       </header>
 
-      <section className={styles.bodySection} aria-label="Contenido principal">
+      <section className={styles.bodySection} aria-label={tBase("ariaContent")}>
         <div className={styles.bodyInner}>
-          <p className={styles.bodyText}>
-            Este eje, Comunicación, es el punto de partida esencial para entender cómo se construyen nuestras
-            ideas sobre el mundo. No se trata solo de medios de comunicación tradicionales, sino de todo el
-            ecosistema que produce, distribuye y resignifica la información que consumimos a diario: desde un
-            noticiero hasta un meme en redes sociales.
-          </p>
-          <p className={styles.bodyText}>
-            Lo que propone este eje es mirar con lupa el camino que recorre la información, cuestionar quién
-            la produce, por qué y con qué intención. También invita a fortalecer el derecho a expresarnos, a
-            informarnos de manera libre y a reconocer cuándo ese derecho está en riesgo —por la censura, la
-            desinformación (integridad informativa) o la invisibilización de ciertas comunidades.
-          </p>
+          {paras.map((p, i) => (
+            <p key={i} className={styles.bodyText}>
+              {p}
+            </p>
+          ))}
           <p className={styles.bodyLead}>
-            <strong>La comunicación no es neutra:</strong> puede conectar o dividir, visibilizar o excluir.
-            Por eso, este eje promueve una ciudadanía crítica y activa, capaz de:
+            <strong>{t("leadBold")}</strong>
+            {t("leadRest")}
           </p>
           <ul className={styles.bodyList}>
-            <li>Identificar los mecanismos de manipulación (como las fake news).</li>
-            <li>Exigir transparencia en los medios.</li>
-            <li>Participar en experiencias comunicativas propias, como medios comunitarios.</li>
-            <li>Defender la libertad de expresión con responsabilidad.</li>
-            <li>Salir de burbujas y polarizaciones para escuchar otras miradas.</li>
+            {listItems.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
           </ul>
         </div>
       </section>

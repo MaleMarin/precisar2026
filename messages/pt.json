@@ -206,6 +206,165 @@
       ["Tecnologia", "com critério"]
     ]
   },
+  "educacionMediaticaSeccion": {
+    "ariaContent": "Conteúdo principal",
+    "comunicacion": {
+      "metaTitle": "Comunicação",
+      "metaDescription": "Eixo Comunicação — educação midiática: ecossistema midiático, liberdade de expressão, meios, desinformação (integridade informativa) e redes.",
+      "heroTitle": "Comunicação",
+      "heroIntro": "Este eixo é um convite a pensar a comunicação não apenas como algo que recebemos, mas também como algo que criamos, partilhamos e transformamos.",
+      "paras": [
+        "Este eixo, Comunicação, é o ponto de partida essencial para entender como se constroem as nossas ideias sobre o mundo. Não se trata apenas dos meios de comunicação tradicionais, mas de todo o ecossistema que produz, distribui e ressignifica a informação que consumimos diariamente: desde um noticiário até um meme nas redes sociais.",
+        "O que este eixo propõe é olhar com lupa o caminho percorrido pela informação, questionar quem a produz, por que e com que intenção. Convida também a fortalecer o direito de nos expressarmos, de nos informarmos livremente e de reconhecer quando esse direito está em risco — pela censura, pela desinformação (integridade informativa) ou pela invisibilização de certas comunidades."
+      ],
+      "leadBold": "A comunicação não é neutra:",
+      "leadRest": " pode conectar ou dividir, dar visibilidade ou excluir. Por isso, este eixo promove uma cidadania crítica e ativa, capaz de:",
+      "listItems": [
+        "Identificar os mecanismos de manipulação (como as fake news).",
+        "Exigir transparência nos meios.",
+        "Participar em experiências comunicativas próprias, como meios comunitários.",
+        "Defender a liberdade de expressão com responsabilidade.",
+        "Sair de bolhas e polarizações para escutar outros olhares."
+      ]
+    },
+    "cultura": {
+      "metaTitle": "Cultura",
+      "metaDescription": "Eixo Cultura — educação midiática: diversidade cultural, representação midiática, cultura digital, participação, diálogo e direito de comunicar.",
+      "heroTitle": "Cultura",
+      "heroIntro": "Cultura é identidade, memória e criação. A educação midiática permite habitar esse espaço com consciência e voz própria.",
+      "paras": [
+        "A cultura não é um adorno: é a forma como convivemos, nos reconhecemos e nos expressamos. Está no que consumimos, em como falamos, nos memes que partilhamos, nos relatos que herdamos e nos que decidimos transformar.",
+        "No ambiente digital, a cultura multiplica-se e muda de forma rapidamente. As narrativas juvenis, os conteúdos virais, as expressões de povos originários, o ativismo de mulheres, as estéticas digitais ou os debates públicos em rede são tão parte do campo cultural como um livro, um festival ou uma obra de arte.",
+        "A educação midiática entra aqui não para julgar, mas para ampliar. Dá-nos ferramentas para entender que sentidos se reproduzem, quais se invisibilizam e como podemos intervir de forma criativa, respeitosa e transformadora.",
+        "Uma abordagem cultural da educação midiática permite reconhecer o direito de comunicar a partir da diversidade, fomentar o diálogo intergeracional e promover uma cidadania capaz de construir as suas próprias narrativas, para além dos discursos hegemónicos."
+      ]
+    },
+    "educacion": {
+      "metaTitle": "Educação",
+      "metaDescription": "Eixo Educação — educação midiática: pensamento crítico, sala de aula, produção, avaliação de informação e vida digital.",
+      "heroTitle": "Educação",
+      "heroIntro": "Este eixo procura transformar a relação entre cidadania e meios de comunicação desde a raiz: o pensamento crítico, a aprendizagem permanente e a capacidade de agir com consciência na esfera pública.",
+      "subhead": "Aprender ao longo da vida para conviver num ambiente digital crítico, consciente e ativo",
+      "paras": [
+        "Este eixo foca-se na formação de competências midiáticas desde a infância até à idade adulta avançada. Não se trata apenas de ensinar a usar tecnologias, mas de formar uma cidadania capaz de entender, analisar e participar na construção do mundo digital e informativo.",
+        "A educação midiática, nesse sentido, é uma ferramenta de autonomia e participação que deve estar presente ao longo de toda a vida: na infância, como base para a leitura crítica; na adolescência, para fortalecer a identidade digital; na idade adulta, para se defender da desinformação (integridade informativa) e tomar decisões informadas; e na velhice, para garantir inclusão, vínculos e direitos."
+      ],
+      "listIntro": "Este eixo impulsiona:",
+      "listItems": [
+        "A integração da educação midiática e informacional nos currículos escolares, não como conteúdo isolado, mas como uma competência transversal.",
+        "O apoio a docentes e educadores com ferramentas, metodologias e conteúdos contextualizados.",
+        "A produção criativa e reflexiva de conteúdos (vídeos, podcasts, memes, artigos) como forma de aprender fazendo.",
+        "O desenvolvimento de pensamento crítico, leitura informacional e habilidades para conviver em ambientes digitais.",
+        "A promoção de espaços de formação para pessoas adultas e idosas, reconhecendo os seus saberes e necessidades específicas."
+      ],
+      "closing": "A educação midiática não é só para estudantes nem só para especialistas. É um direito de todas as pessoas, em qualquer etapa da sua vida, e uma condição para construir sociedades mais democráticas, informadas e empáticas."
+    },
+    "tecnologia": {
+      "metaTitle": "Tecnologia",
+      "metaDescription": "Eixo Tecnologia — educação midiática: algoritmos, privacidade, lacuna digital, IA e uso consciente de plataformas.",
+      "heroTitle": "Tecnologia",
+      "heroIntro": "Este eixo aborda como a tecnologia modela a nossa forma de nos informarmos, comunicarmos e participarmos na vida digital. Não se trata apenas de usar dispositivos, mas de entender como influenciam o que vemos, pensamos e decidimos.",
+      "openBold": "A alfabetização midiática em chave tecnológica não é só aprender a usar ferramentas, mas a compreender os sistemas que as governam.",
+      "paras": [
+        "Vivemos numa sociedade hiperconectada, onde os dispositivos, as plataformas digitais e os algoritmos não só mediam a informação que recebemos, mas também as nossas emoções, decisões e formas de nos relacionarmos. Nesse cenário, o eixo Tecnologia convida-nos a olhar para além da interface.",
+        "Aqui, a Educação Midiática torna-se uma prática de autonomia. Porque quem não entende como a tecnologia opera fica exposto a manipulações invisíveis: a lógica dos algoritmos, a recolha de dados pessoais, a viralização do ódio ou a criação de bolhas de informação.",
+        "Este eixo não procura ensinar a usar a tecnologia «corretamente», mas a habitá-la com consciência, questioná-la com pensamento crítico e transformá-la com ética. Significa formar cidadãos capazes de proteger a sua privacidade, identificar enviesamentos em sistemas automatizados, detetar conteúdos gerados por inteligência artificial e exigir um ambiente digital mais justo e transparente."
+      ],
+      "closing": "Tecnologia e meios cruzam-se no quotidiano. Compreender esse cruzamento é fundamental para a cidadania digital."
+    }
+  },
+  "marco": {
+    "sharedKicker": "Educação midiática ampliada",
+    "comunicacion": {
+      "title": "Comunicação",
+      "description": "Eixo de educação midiática Precisar: como a informação é produzida e circula, e como exercer o direito de nos informarmos e expressarmos com critério.",
+      "paras": [
+        "Este eixo é um convite a pensar a comunicação não apenas como algo que recebemos, mas também como algo que criamos, partilhamos e transformamos.",
+        "Comunicação é o ponto de partida essencial para entender como se constroem as nossas ideias sobre o mundo. Não se trata apenas dos meios de comunicação tradicionais, mas de todo o ecossistema que produz, distribui e ressignifica a informação que consumimos diariamente: de um noticiário a um meme nas redes sociais.",
+        "O que este eixo propõe é olhar com lupa para o caminho percorrido pela informação, questionar quem a produz, por que e com que intenção. Convida também a fortalecer o direito de nos expressarmos, de nos informarmos livremente e de reconhecer quando esse direito está em risco — pela censura, pela desinformação (integridade informativa) ou pela invisibilização de certas comunidades.",
+        "A comunicação não é neutra: pode conectar ou dividir, dar visibilidade ou excluir. Por isso, este eixo promove uma cidadania crítica e ativa, capaz de identificar mecanismos de manipulação (como as fake news), exigir transparência nos meios, participar em experiências comunicativas próprias, defender a liberdade de expressão com responsabilidade e sair de bolhas e polarizações para escutar outros olhares."
+      ],
+      "listTitle": "Chaves para entender o mundo midiático",
+      "listItems": [
+        "Ecossistema midiático",
+        "Liberdade de expressão e direito à informação",
+        "Meios de comunicação",
+        "Desinformação (integridade informativa)",
+        "Redes sociais"
+      ],
+      "closing": "É o conjunto de meios, plataformas e atores que produzem e difundem informação. Inclui desde grandes canais até redes sociais e meios comunitários. Entender quem comunica, como e com que interesses é fundamental para ler melhor o que vemos."
+    },
+    "educacion": {
+      "title": "Educação",
+      "description": "Alfabetização midiática ao longo da vida: competências para ler o mundo digital com autonomia e participação, a partir da Precisar.",
+      "paras": [
+        "Este eixo procura transformar a relação entre cidadania e meios de comunicação desde a raiz: o pensamento crítico, a aprendizagem permanente e a capacidade de agir com consciência na esfera pública.",
+        "Aprender ao longo da vida para conviver num ambiente digital crítico, consciente e ativo.",
+        "Este eixo foca-se na formação de competências midiáticas desde a infância até à idade adulta avançada. Não se trata apenas de ensinar a usar tecnologias, mas de formar uma cidadania capaz de entender, analisar e participar na construção do mundo digital e informativo.",
+        "A educação midiática, nesse sentido, é uma ferramenta de autonomia e participação que deve estar presente ao longo de toda a vida: na infância, como base para a leitura crítica; na adolescência, para fortalecer a identidade digital; na idade adulta, para se defender da desinformação (integridade informativa) e tomar decisões informadas; e na velhice, para garantir inclusão, vínculos e direitos."
+      ],
+      "intermediate": "Este eixo impulsiona:",
+      "actions": [
+        "A integração da educação midiática e informacional nos currículos escolares, como competência transversal.",
+        "O apoio a docentes e educadores com ferramentas contextualizadas.",
+        "A produção criativa e reflexiva de conteúdos como forma de aprender fazendo.",
+        "O desenvolvimento de pensamento crítico, leitura informacional e habilidades para conviver em ambientes digitais.",
+        "A promoção de espaços de formação para pessoas adultas e idosas, reconhecendo os seus saberes e necessidades específicas."
+      ],
+      "afterActions": "A educação midiática não é só para estudantes nem só para especialistas. É um direito de todas as pessoas, em qualquer etapa da sua vida, e uma condição para construir sociedades mais democráticas, informadas e empáticas.",
+      "listTitle": "Chaves para aprender com sentido crítico",
+      "listItems": [
+        "Pensamento crítico",
+        "Educação midiática em sala de aula",
+        "Produção de conteúdos",
+        "Avaliar informação",
+        "Vida digital e convivência"
+      ],
+      "closing": "Não se trata apenas de ter opiniões, mas de saber por que as temos. O pensamento crítico é a capacidade de observar, interpretar e questionar o mundo à nossa volta, incluindo as mensagens midiáticas que consumimos."
+    },
+    "cultura": {
+      "title": "Cultura",
+      "description": "Identidade, memória e criação no ambiente digital: educação midiática para habitar a cultura com voz própria, com a Precisar.",
+      "paras": [
+        "Cultura é identidade, memória e criação. A educação midiática permite habitar esse espaço com consciência e voz própria.",
+        "A cultura não é um adorno: é a forma como convivemos, nos reconhecemos e nos expressamos. Está no que consumimos, em como falamos, nos memes que partilhamos, nos relatos que herdamos e nos que decidimos transformar.",
+        "No ambiente digital, a cultura multiplica-se e muda de forma rapidamente. As narrativas juvenis, os conteúdos virais, as expressões de povos originários, o ativismo de mulheres, as estéticas digitais ou os debates públicos em rede são tão parte do campo cultural como um livro, um festival ou uma obra de arte.",
+        "A educação midiática entra aqui não para julgar, mas para ampliar. Dá-nos ferramentas para entender que sentidos se reproduzem, quais se invisibilizam e como podemos intervir de forma criativa, respeitosa e transformadora.",
+        "Uma abordagem cultural da educação midiática permite reconhecer o direito de comunicar a partir da diversidade, fomentar o diálogo intergeracional e promover uma cidadania capaz de construir as suas próprias narrativas, para além dos discursos hegemónicos."
+      ],
+      "listTitle": "Chaves para entender a cultura na educação midiática",
+      "listItems": [
+        "A cultura é diversa",
+        "Os meios representam (e omitem)",
+        "O digital também é cultura",
+        "Criar é participar",
+        "O diálogo gera sentido",
+        "Comunicar é um direito"
+      ],
+      "closing": "A cultura não é uma só, homogénea ou estática. É múltipla, mutável e viva. A educação midiática convida a reconhecer essa diversidade como um valor, não como um obstáculo."
+    },
+    "tecnologia": {
+      "title": "Tecnologia",
+      "description": "Como a tecnologia e os algoritmos moldam o que vemos e decidimos: eixo de educação midiática Precisar para a autonomia digital.",
+      "paras": [
+        "Este eixo aborda como a tecnologia modela a nossa forma de nos informarmos, comunicarmos e participarmos na vida digital. Não se trata apenas de usar dispositivos, mas de entender como influenciam o que vemos, pensamos e decidimos.",
+        "A alfabetização midiática em chave tecnológica não é só aprender a usar ferramentas, mas a compreender os sistemas que as governam.",
+        "Vivemos numa sociedade hiperconectada, onde os dispositivos, as plataformas digitais e os algoritmos não só mediam a informação que recebemos, mas também as nossas emoções, decisões e formas de nos relacionarmos. Nesse cenário, o eixo Tecnologia convida-nos a olhar para além da interface.",
+        "Aqui, a Educação Midiática torna-se uma prática de autonomia. Porque quem não entende como a tecnologia opera fica exposto a manipulações invisíveis: a lógica dos algoritmos, a recolha de dados pessoais, a viralização do ódio ou a criação de bolhas de informação.",
+        "Este eixo não procura ensinar a usar a tecnologia «corretamente», mas a habitá-la com consciência, questioná-la com pensamento crítico e transformá-la com ética. Significa formar cidadãos capazes de proteger a sua privacidade, identificar enviesamentos em sistemas automatizados, detetar conteúdos gerados por inteligência artificial e exigir um ambiente digital mais justo e transparente.",
+        "Tecnologia e meios cruzam-se no quotidiano. Compreender esse cruzamento é fundamental para a cidadania digital."
+      ],
+      "listTitle": "Chaves para entender a tecnologia na educação midiática",
+      "listItems": [
+        "Algoritmo e enviesamento informativo",
+        "Privacidade e pegada digital",
+        "Lacuna digital e acesso",
+        "Inteligência artificial e cultura digital",
+        "Uso consciente de plataformas"
+      ],
+      "closing": "A tecnologia não é neutra. O que vemos nas redes sociais, motores de busca ou plataformas está mediado por algoritmos que priorizam certos conteúdos e silenciam outros. Compreender como funcionam estes sistemas é essencial para desenvolver um olhar crítico sobre a informação que consumimos."
+    }
+  },
   "participaPage": {
     "metaTitle": "Como você se informa hoje?",
     "kicker": "Participe",

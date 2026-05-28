@@ -206,6 +206,165 @@
       ["Tech", "with judgment"]
     ]
   },
+  "educacionMediaticaSeccion": {
+    "ariaContent": "Main content",
+    "comunicacion": {
+      "metaTitle": "Communication",
+      "metaDescription": "Communication axis — media literacy: media ecosystem, freedom of expression, mass media, disinformation (information integrity), and social networks.",
+      "heroTitle": "Communication",
+      "heroIntro": "This axis is an invitation to think of communication not only as something we receive, but also as something we create, share, and transform.",
+      "paras": [
+        "Communication is the essential starting point to understand how our ideas about the world are built. It’s not just about traditional media, but about the entire ecosystem that produces, distributes, and reshapes the information we consume daily—from a news bulletin to a meme on social networks.",
+        "This axis proposes looking closely at the path information travels, questioning who produces it, why, and with what intention. It also invites us to strengthen the right to express ourselves, to inform ourselves freely, and to recognise when that right is at risk—through censorship, disinformation (information integrity), or the invisibilisation of certain communities."
+      ],
+      "leadBold": "Communication is not neutral:",
+      "leadRest": " it can connect or divide, give visibility or exclude. That’s why this axis promotes a critical and active citizenry, capable of:",
+      "listItems": [
+        "Identifying manipulation mechanisms (such as fake news).",
+        "Demanding transparency from the media.",
+        "Taking part in their own communication experiences, such as community media.",
+        "Defending freedom of expression with responsibility.",
+        "Stepping out of bubbles and polarisation to listen to other perspectives."
+      ]
+    },
+    "cultura": {
+      "metaTitle": "Culture",
+      "metaDescription": "Culture axis — media literacy: cultural diversity, media representation, digital culture, participation, dialogue, and the right to communicate.",
+      "heroTitle": "Culture",
+      "heroIntro": "Culture is identity, memory, and creation. Media literacy lets us inhabit that space with awareness and a voice of our own.",
+      "paras": [
+        "Culture is not an ornament: it’s the way we live together, recognise each other, and express ourselves. It’s in what we consume, how we speak, in the memes we share, in the stories we inherit and in those we decide to transform.",
+        "In the digital environment, culture multiplies and changes rapidly. Youth narratives, viral content, expressions from native peoples, women’s activism, digital aesthetics, and public debates on networks are as much part of the cultural field as a book, a festival, or a work of art.",
+        "Media literacy enters here not to judge but to expand. It gives us tools to understand which meanings are reproduced, which are made invisible, and how we can intervene in creative, respectful, and transformative ways.",
+        "A cultural approach to media literacy recognises the right to communicate from diversity, fosters intergenerational dialogue, and promotes a citizenry able to build its own narratives, beyond hegemonic discourses."
+      ]
+    },
+    "educacion": {
+      "metaTitle": "Education",
+      "metaDescription": "Education axis — media literacy: critical thinking, classroom, production, information assessment, and digital life.",
+      "heroTitle": "Education",
+      "heroIntro": "This axis seeks to transform the relationship between citizenry and media from the root: critical thinking, lifelong learning, and the capacity to act with awareness in the public sphere.",
+      "subhead": "Learning throughout life to live in a critical, conscious, and active digital environment",
+      "paras": [
+        "This axis focuses on building media competencies from childhood through older adulthood. It’s not just about teaching how to use technology, but about shaping a citizenry able to understand, analyse, and take part in building the digital and informational world.",
+        "Media literacy, in this sense, is a tool for autonomy and participation that should be present throughout life: in childhood, as a basis for critical reading; in adolescence, to strengthen digital identity; in adulthood, to defend against disinformation (information integrity) and make informed decisions; and in old age, to ensure inclusion, bonds, and rights."
+      ],
+      "listIntro": "This axis promotes:",
+      "listItems": [
+        "Integrating media and information literacy into school curricula, not as an isolated subject but as a cross-cutting competence.",
+        "Supporting teachers and educators with contextualised tools, methodologies, and content.",
+        "Creative and reflective content production (videos, podcasts, memes, articles) as a way of learning by doing.",
+        "Developing critical thinking, informational reading, and skills to navigate digital environments.",
+        "Promoting training spaces for adults and older adults, recognising their knowledge and specific needs."
+      ],
+      "closing": "Media literacy is not just for students or experts. It’s a right for every person, at any stage of life, and a condition for building more democratic, informed, and empathetic societies."
+    },
+    "tecnologia": {
+      "metaTitle": "Technology",
+      "metaDescription": "Technology axis — media literacy: algorithms, privacy, digital divide, AI, and conscious use of platforms.",
+      "heroTitle": "Technology",
+      "heroIntro": "This axis addresses how technology shapes the way we inform ourselves, communicate, and take part in digital life. It’s not just about using devices, but about understanding how they influence what we see, think, and decide.",
+      "openBold": "Media literacy in a technological key is not only about learning to use tools, but about understanding the systems that govern them.",
+      "paras": [
+        "We live in a hyper-connected society, where devices, digital platforms, and algorithms mediate not only the information we receive, but also our emotions, decisions, and ways of relating. In this scenario, the Technology axis invites us to look beyond the interface.",
+        "Here, media literacy becomes a practice of autonomy. Because those who don’t understand how technology operates are exposed to invisible manipulations: algorithm logic, personal data collection, viralisation of hate, or the creation of information bubbles.",
+        "This axis does not seek to teach people to use technology “correctly,” but to inhabit it with awareness, question it with critical thinking, and transform it with ethics. It means shaping citizens who can protect their privacy, spot biases in automated systems, detect AI-generated content, and demand a fairer and more transparent digital environment."
+      ],
+      "closing": "Technology and media intersect in everyday life. Understanding that intersection is key to digital citizenship."
+    }
+  },
+  "marco": {
+    "sharedKicker": "Expanded media literacy",
+    "comunicacion": {
+      "title": "Communication",
+      "description": "Precisar media literacy axis: how information is produced and circulates, and how to exercise the right to inform ourselves and to speak with judgment.",
+      "paras": [
+        "This axis is an invitation to think of communication not only as something we receive, but also as something we create, share, and transform.",
+        "Communication is the essential starting point to understand how our ideas about the world are built. It’s not just about traditional media, but about the entire ecosystem that produces, distributes, and reshapes the information we consume daily—from a news bulletin to a meme on social media.",
+        "This axis proposes to look closely at the path information travels, to question who produces it, why, and with what intention. It also invites us to strengthen the right to express ourselves, to inform ourselves freely, and to recognise when that right is at risk—through censorship, disinformation (information integrity), or the invisibilisation of certain communities.",
+        "Communication is not neutral: it can connect or divide, give visibility or exclude. That’s why this axis promotes a critical and active citizenship, capable of identifying manipulation mechanisms (such as fake news), demanding transparency from the media, taking part in their own communication experiences, defending free speech with responsibility, and stepping out of bubbles and polarisation to listen to other perspectives."
+      ],
+      "listTitle": "Keys to understand the media world",
+      "listItems": [
+        "Media ecosystem",
+        "Freedom of expression and right to information",
+        "Mass media",
+        "Disinformation (information integrity)",
+        "Social networks"
+      ],
+      "closing": "It’s the set of media, platforms, and actors that produce and disseminate information. It ranges from large channels to social networks and community media. Understanding who communicates, how, and with what interests is key to reading better what we see."
+    },
+    "educacion": {
+      "title": "Education",
+      "description": "Media literacy throughout life: skills to read the digital world with autonomy and participation, from Precisar.",
+      "paras": [
+        "This axis seeks to transform the relationship between citizenry and media from the root: critical thinking, lifelong learning, and the capacity to act with awareness in the public sphere.",
+        "Learning throughout life to live in a critical, conscious, and active digital environment.",
+        "This axis focuses on building media competencies from childhood through older adulthood. It’s not only about teaching how to use technology, but about shaping a citizenry able to understand, analyse, and take part in building the digital and informational world.",
+        "Media literacy, in this sense, is a tool for autonomy and participation that should be present throughout life: in childhood, as a basis for critical reading; in adolescence, to strengthen digital identity; in adulthood, to defend against disinformation (information integrity) and make informed decisions; and in old age, to ensure inclusion, bonds, and rights."
+      ],
+      "intermediate": "This axis promotes:",
+      "actions": [
+        "Integrating media and information literacy into school curricula as a cross-cutting competence.",
+        "Supporting teachers and educators with contextualised tools.",
+        "Creative and reflective content production as a way of learning by doing.",
+        "Developing critical thinking, informational reading, and skills to navigate digital environments.",
+        "Promoting training spaces for adults and older adults, recognising their knowledge and specific needs."
+      ],
+      "afterActions": "Media literacy is not just for students or experts. It’s a right for every person, at any stage of life, and a condition for building more democratic, informed, and empathetic societies.",
+      "listTitle": "Keys to learning with critical sense",
+      "listItems": [
+        "Critical thinking",
+        "Media literacy in the classroom",
+        "Content production",
+        "Assessing information",
+        "Digital life and coexistence"
+      ],
+      "closing": "It’s not just about having opinions, but about knowing why we have them. Critical thinking is the ability to observe, interpret, and question the world around us, including the media messages we consume."
+    },
+    "cultura": {
+      "title": "Culture",
+      "description": "Identity, memory, and creation in the digital environment: media literacy to inhabit culture with one’s own voice, with Precisar.",
+      "paras": [
+        "Culture is identity, memory, and creation. Media literacy allows us to inhabit that space with awareness and a voice of our own.",
+        "Culture is not an ornament: it’s the way we live together, recognise each other, and express ourselves. It’s in what we consume, how we speak, in the memes we share, in the stories we inherit and in those we decide to transform.",
+        "In the digital environment, culture multiplies and changes quickly. Youth narratives, viral content, expressions from native peoples, women’s activism, digital aesthetics, and public debates on networks are as much part of the cultural field as a book, a festival, or a work of art.",
+        "Media literacy enters here not to judge but to expand. It gives us tools to understand which meanings are reproduced, which are made invisible, and how we can intervene in creative, respectful, and transformative ways.",
+        "A cultural approach to media literacy recognises the right to communicate from diversity, fosters intergenerational dialogue, and promotes a citizenry able to build its own narratives, beyond hegemonic discourses."
+      ],
+      "listTitle": "Keys to understand culture in media literacy",
+      "listItems": [
+        "Culture is diverse",
+        "Media represents (and omits)",
+        "The digital is also culture",
+        "To create is to take part",
+        "Dialogue generates meaning",
+        "To communicate is a right"
+      ],
+      "closing": "Culture is not one, homogeneous, or static. It’s multiple, changing, and alive. Media literacy invites us to recognise that diversity as a value, not an obstacle."
+    },
+    "tecnologia": {
+      "title": "Technology",
+      "description": "How technology and algorithms shape what we see and decide: Precisar media literacy axis for digital autonomy.",
+      "paras": [
+        "This axis addresses how technology shapes how we inform ourselves, communicate, and take part in digital life. It’s not just about using devices, but about understanding how they influence what we see, think, and decide.",
+        "Media literacy in a technological key is not only about learning to use tools, but about understanding the systems that govern them.",
+        "We live in a hyper-connected society, where devices, digital platforms, and algorithms mediate not only the information we receive, but also our emotions, decisions, and ways of relating. In this scenario, the Technology axis invites us to look beyond the interface.",
+        "Here, media literacy becomes a practice of autonomy. Because those who don’t understand how technology operates are exposed to invisible manipulations: algorithm logic, personal data collection, viralisation of hate, or the creation of information bubbles.",
+        "This axis does not seek to teach people to use technology “correctly,” but to inhabit it with awareness, question it with critical thinking, and transform it with ethics. It means shaping citizens who can protect their privacy, spot biases in automated systems, detect AI-generated content, and demand a fairer and more transparent digital environment.",
+        "Technology and media intersect in everyday life. Understanding that intersection is key to digital citizenship."
+      ],
+      "listTitle": "Keys to understand technology in media literacy",
+      "listItems": [
+        "Algorithms and informational bias",
+        "Privacy and digital footprint",
+        "Digital divide and access",
+        "Artificial intelligence and digital culture",
+        "Conscious use of platforms"
+      ],
+      "closing": "Technology is not neutral. What we see on social networks, search engines, or platforms is mediated by algorithms that prioritise some content and silence other. Understanding how these systems work is key to developing a critical view of the information we consume."
+    }
+  },
   "participaPage": {
     "metaTitle": "How do you get informed today?",
     "kicker": "Take part",
