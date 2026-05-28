@@ -1,10 +1,17 @@
 "use client";
 
-import { MARQUEE_CHUNKS } from "./constants";
+import { useTranslations } from "next-intl";
+import { MARQUEE_CHUNKS_FALLBACK } from "./constants";
 import styles from "../PrecisarHome.module.css";
 
 export function PrecisarHomeMarquee() {
-  const marqueeRepeat = [...MARQUEE_CHUNKS, ...MARQUEE_CHUNKS];
+  const t = useTranslations("homeMarquee");
+  const raw = t.raw("chunks");
+  const chunks: readonly (readonly [string, string])[] =
+    Array.isArray(raw) && raw.length > 0 && raw.every((p) => Array.isArray(p) && p.length >= 2)
+      ? (raw as (readonly [string, string])[])
+      : MARQUEE_CHUNKS_FALLBACK;
+  const marqueeRepeat = [...chunks, ...chunks];
 
   return (
     <div className={styles.marqueeWrap} aria-hidden>

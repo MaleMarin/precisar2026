@@ -116,6 +116,8 @@
   },
   "homePrograms": {
     "title": "Programs",
+    "stackKicker": "02 · Programs",
+    "stackLabel": "Initiatives",
     "stackHeadline": "Millions are connected. With judgment, many are still missing.",
     "body": "We design tools, content, and training experiences—in person and online—that strengthen critical thinking, digital security, and civic engagement.",
     "cta": "Discover our programs:",
@@ -163,7 +165,9 @@
     "linkComunicacion": "Communication",
     "linkEducacion": "Education",
     "linkTecnologia": "Technology",
-    "linkCultura": "Culture"
+    "linkCultura": "Culture",
+    "ctaPropuesta": "Media Literacy for Chile →",
+    "ctaAmi": "MIL vs Digital Literacy →"
   },
   "homePrecisando": {
     "stackKicker": "New site · 05 · Precisando",
@@ -174,7 +178,8 @@
   "homeSaberes": {
     "stackKicker": "03 · Saberes",
     "stackHeadline": "Knowing isn’t hoarding data. It’s knowing what to do with it.",
-    "stackBody": "Three collections of open resources—to reflect and broaden perspectives."
+    "stackBody": "Three collections of open resources—to reflect and broaden perspectives.",
+    "recursosCta": "Material to download →"
   },
   "homeBotOnda": {
     "stackKicker": "04 · Bot Onda",
@@ -191,5 +196,122 @@
     "educacion": "Education",
     "tecnologia": "Technology",
     "cultura": "Culture"
+  },
+  "homeMarquee": {
+    "chunks": [
+      ["Media", "literacy"],
+      ["Critical", "thinking"],
+      ["Data", "in context"],
+      ["Informed", "community"],
+      ["Tech", "with judgment"]
+    ]
+  },
+  "participaPage": {
+    "metaTitle": "How do you get informed today?",
+    "kicker": "Take part",
+    "title": "How do you get informed today?",
+    "lead": "Help us understand what information is useful to you, what worries you, and which formats really work in your day-to-day.",
+    "consultaKicker": "Citizen consultation",
+    "consultaBody": "Share your opinion in the external form and check the associated privacy policy.",
+    "consultaOpen": "Open the consultation",
+    "consultaPrivacy": "Privacy",
+    "writeTeamTitle": "Write to the team",
+    "writeTeamBuilding": "This form is under construction. Write directly to contacto@precisar.net",
+    "writeTeamRedirectBefore": "On submit, we will redirect you to ",
+    "writeTeamRedirectAfter": ".",
+    "labelName": "Name",
+    "labelEmail": "Email",
+    "labelMessage": "Message",
+    "send": "Send",
+    "newsletterTitle": "Newsletter",
+    "directContact": "Direct contact:"
+  },
+  "somos": {
+    "pageTitle": "We are Precisar",
+    "metaDescription": "We strengthen capacities to understand, assess, and use information with more judgment and meaning. Co-design with municipalities, education, civil society, and public services in Chile.",
+    "kicker": "We are Precisar",
+    "heroTitle": "We strengthen capacities to understand, assess, and use information with more judgment and meaning",
+    "introAria": "Introduction",
+    "intro": [
+      "At Precisar we work with organisations that want to strengthen people’s relationship with information and promote a more conscious, useful, and constructive use of technology.",
+      "We work with municipalities, educational communities, civil society organisations, public services, media outlets, and territorial networks to translate a complex problem — the unequal capacity to understand, assess, and use information — into concrete tools, methodologies, and resources adapted to real contexts."
+    ],
+    "principleAria": "Working principle",
+    "principle": "We don’t work from closed solutions. We start from context, listen to how people experience this problem, and design with each partner ways to address it with practical sense, clear language, and capacity to implement.",
+    "problem": {
+      "title": "What problem we address",
+      "paras": [
+        "We understand information in a broad sense. It refers not only to news or journalistic content, but also to institutional, civic, digital or non-digital, educational, and practical information that people receive, interpret, and use to solve problems, take part in public matters, access rights, and operate in digital environments.",
+        "Today the issue is no longer only connectivity. Although connectivity has advanced, a deep gap remains in people’s actual capacity to understand, assess, and use information usefully in everyday and civic life.",
+        "That gap is not limited to news or social media. It also includes institutional, educational, practical, and service-related information: the kind people need to orient themselves, solve problems, interact with institutions, and make informed decisions.",
+        "When that capacity is missing, confusion grows, distinguishing reliable information becomes harder, communication between institutions and citizens weakens, and barriers to participating, understanding, and acting with judgment widen."
+      ]
+    },
+    "howWeWork": {
+      "title": "How we work",
+      "items": [
+        { "title": "We co-design with context", "body": "We don’t apply one-size-fits-all formulas. We adapt methodologies, tools, and resources to the needs, languages, and capacities of each organisation and the communities they work with." },
+        { "title": "We translate evidence into action", "body": "We produce and organise useful evidence to understand how people get informed, what barriers they face, and which tools can be more effective in supporting them." },
+        { "title": "We test in the field", "body": "We design and implement experiences in real contexts, with concrete audiences and diverse conditions, to learn, adjust, and leave replicable models." },
+        { "title": "We transfer capacities", "body": "We aim for organisations to take ownership of methodologies, resources, and tools, integrating them into their own practices beyond a one-off intervention." },
+        { "title": "We combine clarity, technology, and public purpose", "body": "We develop open tools, accessible content, and applied experiences that help people better understand how information circulates and how to use technology in a more conscious and productive way." }
+      ]
+    },
+    "together": {
+      "title": "What we can do together",
+      "items": [
+        { "title": "Diagnosis and listening", "body": "Processes to understand how different audiences get informed, what difficulties they face, and what kind of support they need." },
+        { "title": "Methodologies for territories and institutions", "body": "Design and implementation of working models for municipalities, schools, organisations, and public services." },
+        { "title": "Open resources and tools", "body": "Guides, activities, explanatory materials, participatory experiences, and conversational tools adapted to different audiences and life stages." },
+        { "title": "Support for institutional adoption", "body": "Support to teams and organisations to incorporate this agenda from their own roles, capacities, and objectives." },
+        { "title": "Evidence for decisions", "body": "Systematising lessons learned and generating useful inputs to improve practices, programmes, and ways of communicating." }
+      ]
+    },
+    "partners": {
+      "title": "Who we work with",
+      "prologue": "We can partner with:",
+      "items": [
+        "Municipalities and local governments",
+        "Schools and educational communities",
+        "Civil society organisations",
+        "Public services",
+        "Media outlets and communication projects",
+        "Foundations and territorial networks",
+        "Teams working with older adults, youth, or specific communities"
+      ]
+    },
+    "outcomes": {
+      "title": "What we aim to leave behind",
+      "prologue": "Our goal is not simply to run activities. We aim for every organisation we work with to be left with:",
+      "items": [
+        "Better tools to understand how their audiences relate to information",
+        "Usable resources adaptable to their reality",
+        "Methodologies tested in real contexts",
+        "Capacities to sustain this work over time",
+        "A stronger connection between evidence, communication, and action"
+      ]
+    },
+    "approach": {
+      "title": "Our approach to collaboration",
+      "paras": [
+        "We believe that tools work better when they are born from real use, local context, and people’s experience.",
+        "That’s why at Precisar we understand collaboration as a process of joint construction. We bring evidence, methodological design, pedagogical experience, and tool development; our partners bring territorial knowledge, community reach, local legitimacy, and implementation capacity. That combination allows us to build responses that are more relevant, clearer, and more sustainable."
+      ]
+    },
+    "why": {
+      "title": "Why work with Precisar",
+      "prologue": "Because we combine four capacities that don’t usually come together:",
+      "items": [
+        "Useful evidence to understand how people get informed and what they need.",
+        "Applied methodologies to translate that evidence into concrete intervention.",
+        "Accessible resources designed for different audiences and contexts.",
+        "Institutional support so capacities stay in place."
+      ]
+    },
+    "cta": {
+      "title": "Let’s talk",
+      "body": "If your organisation wants to develop tools, methodologies, or experiences to strengthen people’s relationship with information and promote a more conscious, useful, and constructive use of technology, we’d be glad to talk.",
+      "button": "Write to us"
+    }
   }
 }

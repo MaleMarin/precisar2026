@@ -116,6 +116,8 @@
   },
   "homePrograms": {
     "title": "Programas",
+    "stackKicker": "02 · Programas",
+    "stackLabel": "Iniciativas",
     "stackHeadline": "Conectados hay millones. Con criterio, todavía faltan muchos.",
     "body": "Diseñamos herramientas, contenidos y experiencias formativas, presenciales y digitales, que fortalecen el pensamiento crítico, la seguridad digital y el compromiso ciudadano.",
     "cta": "Conoce nuestros programas:",
@@ -163,7 +165,9 @@
     "linkComunicacion": "Comunicación",
     "linkEducacion": "Educación",
     "linkTecnologia": "Tecnología",
-    "linkCultura": "Cultura"
+    "linkCultura": "Cultura",
+    "ctaPropuesta": "Educación Mediática para Chile →",
+    "ctaAmi": "AMI vs Alfabetización Digital →"
   },
   "homePrecisando": {
     "stackKicker": "Sitio nuevo · 05 · Precisando",
@@ -174,7 +178,8 @@
   "homeSaberes": {
     "stackKicker": "03 · Saberes",
     "stackHeadline": "Saber no es acumular datos. Es saber qué hacer con ellos.",
-    "stackBody": "Conocimiento abierto sobre cultura digital."
+    "stackBody": "Conocimiento abierto sobre cultura digital.",
+    "recursosCta": "Material para descargar →"
   },
   "homeBotOnda": {
     "stackKicker": "04 · Bot Onda",
@@ -191,5 +196,122 @@
     "educacion": "Educación",
     "tecnologia": "Tecnología",
     "cultura": "Cultura"
+  },
+  "homeMarquee": {
+    "chunks": [
+      ["Educación", "mediática"],
+      ["Pensamiento", "crítico"],
+      ["Datos", "con contexto"],
+      ["Comunidad", "informada"],
+      ["Tecnología", "con criterio"]
+    ]
+  },
+  "participaPage": {
+    "metaTitle": "¿Cómo te informas hoy?",
+    "kicker": "Participa",
+    "title": "¿Cómo te informas hoy?",
+    "lead": "Ayúdanos a entender qué información te sirve, cuál te preocupa y qué formatos realmente funcionan en tu día a día.",
+    "consultaKicker": "Consulta ciudadana",
+    "consultaBody": "Entrega tu opinión en el formulario externo y revisa la política de privacidad asociada.",
+    "consultaOpen": "Abrir consulta",
+    "consultaPrivacy": "Privacidad",
+    "writeTeamTitle": "Escribir al equipo",
+    "writeTeamBuilding": "Este formulario está en construcción. Escríbenos directo a contacto@precisar.net",
+    "writeTeamRedirectBefore": "Al enviar, te redirigiremos a ",
+    "writeTeamRedirectAfter": ".",
+    "labelName": "Nombre",
+    "labelEmail": "Correo",
+    "labelMessage": "Mensaje",
+    "send": "Enviar",
+    "newsletterTitle": "Newsletter",
+    "directContact": "Contacto directo:"
+  },
+  "somos": {
+    "pageTitle": "Somos Precisar",
+    "metaDescription": "Fortalecemos capacidades para comprender, evaluar y usar información con más criterio y sentido. Co-diseño con municipios, educación, sociedad civil y servicios públicos en Chile.",
+    "kicker": "Somos Precisar",
+    "heroTitle": "Fortalecemos capacidades para comprender, evaluar y usar información con más criterio y sentido",
+    "introAria": "Introducción",
+    "intro": [
+      "En Precisar trabajamos con organizaciones que quieren fortalecer la relación de las personas con la información y promover un uso más consciente, útil y constructivo de la tecnología.",
+      "Colaboramos con municipios, comunidades educativas, organizaciones de la sociedad civil, servicios públicos, medios y redes territoriales para traducir un problema complejo —la desigual capacidad de comprender, evaluar y usar información— en herramientas, metodologías y recursos concretos, adaptados a contextos reales."
+    ],
+    "principleAria": "Principio de trabajo",
+    "principle": "No trabajamos desde soluciones cerradas. Partimos del contexto, escuchamos cómo viven este problema las personas y diseñamos junto a cada aliado formas de abordarlo con sentido práctico, lenguaje claro y capacidad de implementación.",
+    "problem": {
+      "title": "Qué problema abordamos",
+      "paras": [
+        "La noción de información se entiende en un sentido amplio. No refiere únicamente a noticias o contenidos periodísticos, sino también a información institucional, cívica, digital o no, educativa y práctica que las personas reciben, interpretan y usan para resolver problemas, participar en asuntos públicos, acceder a derechos y desenvolverse en entornos digitales.",
+        "Hoy en día no es solo el problema de conexión. Aunque la conectividad ha avanzado, persiste una diferencia profunda en la posibilidad real de comprender, evaluar y usar información de manera útil en la vida cotidiana y cívica.",
+        "Esa brecha no se limita a noticias o redes sociales. Incluye también información institucional, educativa, práctica y de servicios: la que las personas necesitan para orientarse, resolver problemas, interactuar con instituciones y tomar decisiones informadas.",
+        "Cuando esa capacidad falta, aumenta la confusión, se vuelve más difícil distinguir información confiable, se debilita la comunicación entre instituciones y ciudadanía, y se amplían las barreras para participar, comprender y actuar con criterio."
+      ]
+    },
+    "howWeWork": {
+      "title": "Cómo trabajamos",
+      "items": [
+        { "title": "Co-diseñamos con el contexto", "body": "No aplicamos fórmulas únicas. Adaptamos metodologías, herramientas y recursos a las necesidades, lenguajes y capacidades de cada organización y de las comunidades con las que trabaja." },
+        { "title": "Traducimos evidencia en acción", "body": "Producimos y organizamos evidencia útil para comprender cómo se informan las personas, qué barreras enfrentan y qué herramientas pueden ser más efectivas para acompañarlas." },
+        { "title": "Probamos en terreno", "body": "Diseñamos e implementamos experiencias en contextos reales, con públicos concretos y condiciones diversas, para aprender, ajustar y dejar modelos replicables." },
+        { "title": "Transferimos capacidades", "body": "Buscamos que las organizaciones puedan apropiarse de metodologías, recursos y herramientas, integrándolos en sus propias prácticas más allá de una intervención puntual." },
+        { "title": "Combinamos claridad, tecnología y sentido público", "body": "Desarrollamos herramientas abiertas, contenidos accesibles y experiencias aplicadas que permitan comprender mejor cómo circula la información y cómo usar la tecnología de forma más consciente y provechosa." }
+      ]
+    },
+    "together": {
+      "title": "Qué podemos hacer juntos",
+      "items": [
+        { "title": "Diagnóstico y escucha", "body": "Procesos para comprender cómo se informan distintos públicos, qué dificultades enfrentan y qué tipo de apoyo necesitan." },
+        { "title": "Metodologías para territorios e instituciones", "body": "Diseño e implementación de modelos de trabajo para municipios, escuelas, organizaciones y servicios públicos." },
+        { "title": "Recursos y herramientas abiertas", "body": "Guías, actividades, materiales explicativos, experiencias participativas y herramientas conversacionales adaptadas a diferentes públicos y etapas de vida." },
+        { "title": "Acompañamiento para adopción institucional", "body": "Apoyo a equipos y organizaciones para incorporar esta agenda desde sus propios roles, capacidades y objetivos." },
+        { "title": "Evidencia para decisiones", "body": "Sistematización de aprendizajes y generación de insumos útiles para mejorar prácticas, programas y formas de comunicación." }
+      ]
+    },
+    "partners": {
+      "title": "Con quiénes trabajamos",
+      "prologue": "Podemos colaborar con:",
+      "items": [
+        "Municipios y gobiernos locales",
+        "Establecimientos y comunidades educativas",
+        "Organizaciones de la sociedad civil",
+        "Servicios públicos",
+        "Medios y proyectos de comunicación",
+        "Fundaciones y redes territoriales",
+        "Equipos que trabajan con personas mayores, juventudes o comunidades específicas"
+      ]
+    },
+    "outcomes": {
+      "title": "Lo que buscamos dejar instalado",
+      "prologue": "Nuestro objetivo no es solo ejecutar actividades. Buscamos que cada organización con la que trabajamos pueda quedar con:",
+      "items": [
+        "Mejores herramientas para comprender cómo se relacionan sus públicos con la información",
+        "Recursos utilizables y adaptables a su realidad",
+        "Metodologías probadas en contextos reales",
+        "Capacidades para sostener este trabajo en el tiempo",
+        "Una mejor conexión entre evidencia, comunicación y acción"
+      ]
+    },
+    "approach": {
+      "title": "Nuestro enfoque de colaboración",
+      "paras": [
+        "Creemos que las herramientas funcionan mejor cuando nacen del uso real, del contexto local y de la experiencia de las personas.",
+        "Por eso, en Precisar entendemos la colaboración como un proceso de construcción conjunta. Aportamos evidencia, diseño metodológico, experiencia pedagógica y desarrollo de herramientas; nuestros aliados aportan conocimiento territorial, llegada a comunidades, legitimidad local y capacidad de implementación. Esa combinación permite construir respuestas más pertinentes, más claras y más sostenibles."
+      ]
+    },
+    "why": {
+      "title": "Por qué trabajar con Precisar",
+      "prologue": "Porque combinamos cuatro capacidades que no suelen aparecer juntas:",
+      "items": [
+        "Evidencia útil para entender cómo se informan las personas y qué necesitan.",
+        "Metodologías aplicadas para traducir esa evidencia en intervención concreta.",
+        "Recursos accesibles diseñados para distintos públicos y contextos.",
+        "Acompañamiento institucional para que las capacidades queden instaladas."
+      ]
+    },
+    "cta": {
+      "title": "Hablemos",
+      "body": "Si tu organización quiere desarrollar herramientas, metodologías o experiencias para fortalecer la relación de las personas con la información y promover un uso más consciente, útil y constructivo de la tecnología, nos interesa conversar.",
+      "button": "Escríbenos"
+    }
   }
 }

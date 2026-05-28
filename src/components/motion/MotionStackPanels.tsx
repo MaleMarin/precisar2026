@@ -145,11 +145,12 @@ function MiniList({
 
 /** Columna Saberes: lista de recursos + CTA recursos. */
 function HomeSaberesAside({ reduceMotion, items }: { reduceMotion: boolean; items: MiniListItem[] }) {
+  const t = useTranslations("homeSaberes");
   return (
     <div className={styles.saberesAsideStack}>
       <MiniList dark glass glassExtraMargin reduceMotion={reduceMotion} items={items} />
       <Link href="/saberes/recursos" className={styles.recursosBtn}>
-        Material para descargar →
+        {t("recursosCta")}
       </Link>
     </div>
   );
@@ -658,8 +659,8 @@ export function MotionStackPanels({
     {
       id: "programas",
       theme: "light" as const,
-      kicker: "02 · Programas",
-      label: "Iniciativas",
+      kicker: tPrograms("stackKicker"),
+      label: tPrograms("stackLabel"),
       headline: tPrograms("stackHeadline"),
       body: tPrograms("body"),
       icon: IconBlocks,
@@ -710,10 +711,10 @@ export function MotionStackPanels({
           <MiniList reduceMotion={reduceMotion} glass items={educacionMediaticaLinks} />
           <div className={styles.amiBtnStack}>
             <Link href="/educacion-mediatica/propuesta-politica-alfabetizacion" className={styles.amiBtn}>
-              Educación Mediática para Chile →
+              {tEducacionMediatica("ctaPropuesta")}
             </Link>
             <Link href="/educacion-mediatica/ami-vs-alfabetizacion-digital" className={styles.amiBtn}>
-              AMI vs Alfabetización Digital →
+              {tEducacionMediatica("ctaAmi")}
             </Link>
           </div>
         </>
