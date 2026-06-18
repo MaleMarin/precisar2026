@@ -2,13 +2,14 @@
 
 import { useState, type FormEvent } from "react";
 import { Link, usePathname } from "@/i18n/navigation";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { subscribeNewsletter } from "@/lib/newsletter/subscribeNewsletter";
 import { NEWSLETTER } from "@/lib/site";
 
 export function ParticipaNewsletterForm() {
   const locale = useLocale();
   const pathname = usePathname();
+  const t = useTranslations("newsletterForm");
   const [thanks, setThanks] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -46,7 +47,7 @@ export function ParticipaNewsletterForm() {
       setError(
         msg && msg !== "SUBSCRIBE_FAILED"
           ? msg
-          : "No pudimos registrar tu correo. Intenta de nuevo en unos minutos.",
+          : t("errorFailed"),
       );
     } finally {
       setSubmitting(false);
@@ -56,7 +57,7 @@ export function ParticipaNewsletterForm() {
   if (thanks) {
     return (
       <p className="mt-4 max-w-xl text-sm text-[var(--fg)]" role="status">
-        Ya te uniste. Pronto recibirás novedades de Precisar.
+        {t("thanks")}
       </p>
     );
   }
@@ -65,31 +66,31 @@ export function ParticipaNewsletterForm() {
     return (
       <form action={NEWSLETTER.formActionUrl} method="post" className="mt-6 max-w-lg space-y-5">
         <p className="text-sm text-[var(--muted)]">
-          Alta gestionada por el proveedor configurado en{" "}
+          {t("providerNoteBefore")}{" "}
           <code className="rounded bg-[var(--surface)] px-1 font-mono text-[10px]">
             NEXT_PUBLIC_NEWSLETTER_FORM_ACTION
           </code>
-          .
+          {t("providerNoteAfter")}
         </p>
         <input
           type="email"
           name="email"
-          placeholder="correo@ejemplo.cl"
+          placeholder={t("emailPlaceholder")}
           required
           className="prec-input"
         />
         <label className="flex items-start gap-3 text-sm leading-snug">
           <input type="checkbox" name="consent" required className="mt-1 size-3.5 accent-[var(--fg)]" />
           <span>
-            Acepto la{" "}
+            {t("consentBefore")}{" "}
             <Link href="/legal/privacidad-consulta-2026" className="underline underline-offset-2">
-              política de privacidad
+              {t("privacyPolicy")}
             </Link>{" "}
-            y el tratamiento de datos para recibir novedades.
+            {t("consentAfter")}
           </span>
         </label>
         <button type="submit" className="prec-btn prec-btn--ghost">
-          Suscribirme
+          {t("subscribe")}
         </button>
       </form>
     );
@@ -98,13 +99,14 @@ export function ParticipaNewsletterForm() {
   return (
     <form className="mt-6 max-w-lg space-y-5" onSubmit={onSubmit}>
       <p className="text-sm text-[var(--muted)]">
-        Tu correo se guarda en Firebase (proyecto Encuesta Información · colección{" "}
-        <code className="font-mono text-[10px]">newsletter_suscripciones</code>).
+        {t("firebaseNoteBefore")}{" "}
+        <code className="font-mono text-[10px]">newsletter_suscripciones</code>
+        {t("firebaseNoteAfter")}
       </p>
       <input
         type="email"
         name="email"
-        placeholder="correo@ejemplo.cl"
+        placeholder={t("emailPlaceholder")}
         required
         autoComplete="email"
         disabled={submitting}
@@ -119,11 +121,11 @@ export function ParticipaNewsletterForm() {
           className="mt-1 size-3.5 accent-[var(--fg)]"
         />
         <span>
-          Acepto la{" "}
+          {t("consentBefore")}{" "}
           <Link href="/legal/privacidad-consulta-2026" className="underline underline-offset-2">
-            política de privacidad
+            {t("privacyPolicy")}
           </Link>{" "}
-          y el tratamiento de datos para recibir novedades.
+          {t("consentAfter")}
         </span>
       </label>
       {error ? (
@@ -136,7 +138,7 @@ export function ParticipaNewsletterForm() {
         className="prec-btn prec-btn--ghost"
         disabled={submitting}
       >
-        {submitting ? "Enviando…" : "Suscribirme"}
+        {submitting ? t("sending") : t("subscribe")}
       </button>
     </form>
   );

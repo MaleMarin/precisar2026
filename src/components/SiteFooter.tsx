@@ -101,7 +101,7 @@ export function SiteFooter() {
     const safetyTimer = window.setTimeout(() => {
       if (finished) return;
       setNewsletterSubmitting(false);
-      setNewsletterError("La solicitud tardó demasiado. Recarga la página e intenta de nuevo.");
+      setNewsletterError(tFooter("newsletterErrorTimeout"));
     }, 28_000);
 
     try {
@@ -120,7 +120,7 @@ export function SiteFooter() {
       setNewsletterError(
         msg && msg !== "SUBSCRIBE_FAILED"
           ? msg
-          : "No pudimos registrar tu correo. Intenta de nuevo.",
+          : tFooter("newsletterErrorFailed"),
       );
     } finally {
       finished = true;
@@ -149,7 +149,7 @@ export function SiteFooter() {
 
   const newsletterForm = newsletterThanks ? (
     <p className={styles.newsThanks} role="status">
-      Ya te uniste. Pronto recibirás noticias que vale la pena leer.
+      {tFooter("newsletterThanks")}
     </p>
   ) : newsletterError ? (
     <div className={styles.newsFormInner}>
@@ -161,7 +161,7 @@ export function SiteFooter() {
         className={styles.btnSubscribe}
         onClick={() => setNewsletterError(null)}
       >
-        Reintentar
+        {tFooter("retry")}
       </button>
     </div>
   ) : NEWSLETTER.formActionUrl ? (
@@ -173,7 +173,7 @@ export function SiteFooter() {
       onSubmit={onNewsletterSubmit}
     >
       <label className={styles.visuallyHidden} htmlFor="footer-newsletter-email">
-        Correo electrónico
+        {tFooter("emailLabel")}
       </label>
       <div className={styles.newsRow}>
         <input
@@ -182,19 +182,19 @@ export function SiteFooter() {
           name="email"
           required
           autoComplete="email"
-          placeholder="Escribe tu correo"
+          placeholder={tFooter("emailPlaceholder")}
           className={styles.newsletterField}
           disabled={newsletterSubmitting}
         />
         <button type="submit" className={styles.btnSubscribe} disabled={newsletterSubmitting}>
-          {newsletterSubmitting ? "Enviando…" : "Suscribirme"}
+          {newsletterSubmitting ? tFooter("sending") : tFooter("subscribe")}
         </button>
       </div>
     </form>
   ) : (
     <form className={styles.newsFormInner} onSubmit={onNewsletterSubmit}>
       <label className={styles.visuallyHidden} htmlFor="footer-newsletter-email">
-        Correo electrónico
+        {tFooter("emailLabel")}
       </label>
       <div className={styles.newsRow}>
         <input
@@ -203,12 +203,12 @@ export function SiteFooter() {
           name="email"
           required
           autoComplete="email"
-          placeholder="Escribe tu correo"
+          placeholder={tFooter("emailPlaceholder")}
           className={styles.newsletterField}
           disabled={newsletterSubmitting}
         />
         <button type="submit" className={styles.btnSubscribe} disabled={newsletterSubmitting}>
-          {newsletterSubmitting ? "Enviando…" : "Suscribirme"}
+          {newsletterSubmitting ? tFooter("sending") : tFooter("subscribe")}
         </button>
       </div>
     </form>
@@ -233,15 +233,12 @@ export function SiteFooter() {
         <div className={`prec-container ${styles.newsletterBand}`}>
           <section className={styles.newsletterSection} aria-labelledby="footer-newsletter-heading">
             <h2 id="footer-newsletter-heading" className={styles.visuallyHidden}>
-              Newsletter
+              {tFooter("newsletterHeading")}
             </h2>
             {!newsletterThanks ? (
               <>
-                <p className={styles.newsTitle}>Hay conversaciones que no caben en un post.</p>
-                <p className={styles.newsBody}>
-                  Únete a nuestra comunidad y recibe análisis más profundos, recursos exclusivos y perspectivas
-                  del entorno digital.
-                </p>
+                <p className={styles.newsTitle}>{tFooter("newsletterTitle")}</p>
+                <p className={styles.newsBody}>{tFooter("newsletterBody")}</p>
               </>
             ) : null}
             <div className={styles.newsForm}>{newsletterForm}</div>
@@ -255,7 +252,7 @@ export function SiteFooter() {
           <div className={styles.midDivider} aria-hidden />
           <div className={styles.midGrid}>
             <nav className={styles.navColumn} aria-label={tNav("main")}>
-              <p className={styles.midEyebrow}>Menú</p>
+              <p className={styles.midEyebrow}>{tFooter("menuEyebrow")}</p>
               <ul className={styles.navList}>
                 {NAV_PRIMARY.map((item) => (
                   <li key={item.href}>
@@ -283,17 +280,12 @@ export function SiteFooter() {
             </nav>
 
             <div className={styles.contactColumn}>
-              <h2 className={styles.contactTitle}>¿Te interesa colaborar con Precisar?</h2>
-              <p className={styles.contactIntro}>
-                Si tu organización, medio o iniciativa comparte nuestro propósito de promover un
-                entendimiento crítico de la tecnología y garantizar el acceso a información veraz,
-                queremos sumarte. Colaboremos en investigaciones, procesos formativos o proyectos
-                regionales. Completa el formulario y conversemos.
-              </p>
+              <h2 className={styles.contactTitle}>{tFooter("contactTitle")}</h2>
+              <p className={styles.contactIntro}>{tFooter("contactIntro")}</p>
               <form id={FOOTER_CONTACT_ANCHOR_ID} action={footerContactRedirect} className={styles.contactForm}>
                 <div className={styles.field}>
                   <label className={styles.fieldLabel} htmlFor="footer-nombre">
-                    Nombre
+                    {tFooter("labelName")}
                   </label>
                   <input
                     id="footer-nombre"
@@ -306,7 +298,7 @@ export function SiteFooter() {
                 </div>
                 <div className={styles.field}>
                   <label className={styles.fieldLabel} htmlFor="footer-apellido">
-                    Apellido
+                    {tFooter("labelLastName")}
                   </label>
                   <input
                     id="footer-apellido"
@@ -319,7 +311,7 @@ export function SiteFooter() {
                 </div>
                 <div className={styles.field}>
                   <label className={styles.fieldLabel} htmlFor="footer-email">
-                    Email
+                    {tFooter("labelEmail")}
                   </label>
                   <input
                     id="footer-email"
@@ -332,7 +324,7 @@ export function SiteFooter() {
                 </div>
                 <div className={styles.field}>
                   <label className={styles.fieldLabel} htmlFor="footer-mensaje">
-                    Mensaje
+                    {tFooter("labelMessage")}
                   </label>
                   <textarea
                     id="footer-mensaje"
@@ -344,7 +336,7 @@ export function SiteFooter() {
                 </div>
                 <div className={styles.btnSendWrap}>
                   <button type="submit" className={styles.btnSend}>
-                    Enviar
+                    {tFooter("send")}
                   </button>
                 </div>
               </form>
@@ -358,9 +350,7 @@ export function SiteFooter() {
         <div className="prec-container">
           <div className={styles.legalGrid}>
             <div className={styles.legalPrimary}>
-              <p className={styles.legalTagline}>
-                Precisar. Hecho con criterio en Chile 🇨🇱 y México 🇲🇽.
-              </p>
+              <p className={styles.legalTagline}>{tFooter("legalTagline")}</p>
               <div className={styles.socialBlock}>
                 <ul className={styles.socialList} aria-label={tFooter("socialEyebrow")}>
                   <li>
@@ -440,15 +430,15 @@ export function SiteFooter() {
                 </a>
                 {tFooter("ccLicenseAfter")}
               </p>
-              <nav aria-label="Legal" style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
+              <nav aria-label={tFooter("legalNavAria")} style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
                 <Link href="/legal/privacidad" className={styles.privacyLink}>
-                  Política de Privacidad
+                  {tFooter("privacyPolicy")}
                 </Link>
                 <Link href="/legal/privacidad-consulta-2026" className={styles.privacyLink}>
-                  Privacidad · Consulta 2026
+                  {tFooter("privacyConsulta")}
                 </Link>
                 <Link href="/legal/privacidad-bot-onda" className={styles.privacyLink}>
-                  Privacidad · Bot Onda
+                  {tFooter("privacyBotOnda")}
                 </Link>
               </nav>
             </div>

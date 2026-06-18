@@ -67,7 +67,31 @@
     "socialYouTube": "Precisar en YouTube (se abre en una pestaña nueva)",
     "ccLicenseBefore": "© {year} Precisar. Salvo que se indique lo contrario, los contenidos de Precisar se distribuyen bajo la licencia ",
     "ccLicenseName": "Creative Commons Atribución 4.0 Internacional (CC BY 4.0)",
-    "ccLicenseAfter": "."
+    "ccLicenseAfter": ".",
+    "newsletterHeading": "Newsletter",
+    "newsletterTitle": "Hay conversaciones que no caben en un post.",
+    "newsletterBody": "Únete a nuestra comunidad y recibe análisis más profundos, recursos exclusivos y perspectivas del entorno digital.",
+    "newsletterThanks": "Ya te uniste. Pronto recibirás noticias que vale la pena leer.",
+    "newsletterErrorTimeout": "La solicitud tardó demasiado. Recarga la página e intenta de nuevo.",
+    "newsletterErrorFailed": "No pudimos registrar tu correo. Intenta de nuevo.",
+    "retry": "Reintentar",
+    "emailLabel": "Correo electrónico",
+    "emailPlaceholder": "Escribe tu correo",
+    "subscribe": "Suscribirme",
+    "sending": "Enviando…",
+    "menuEyebrow": "Menú",
+    "contactTitle": "¿Te interesa colaborar con Precisar?",
+    "contactIntro": "Si tu organización, medio o iniciativa comparte nuestro propósito de promover un entendimiento crítico de la tecnología y garantizar el acceso a información veraz, queremos sumarte. Colaboremos en investigaciones, procesos formativos o proyectos regionales. Completa el formulario y conversemos.",
+    "labelName": "Nombre",
+    "labelLastName": "Apellido",
+    "labelEmail": "Email",
+    "labelMessage": "Mensaje",
+    "send": "Enviar",
+    "legalTagline": "Precisar. Hecho con criterio en Chile 🇨🇱 y México 🇲🇽.",
+    "legalNavAria": "Legal",
+    "privacyPolicy": "Política de Privacidad",
+    "privacyConsulta": "Privacidad · Consulta 2026",
+    "privacyBotOnda": "Privacidad · Bot Onda"
   },
   "language": {
     "switch": "Idioma",
@@ -368,6 +392,20 @@
       ],
       "closing": "La tecnología no es neutra. Lo que vemos en redes sociales, buscadores o plataformas está mediado por algoritmos que priorizan ciertos contenidos y silencian otros. Comprender cómo funcionan estos sistemas es clave para desarrollar una mirada crítica sobre la información que consumimos."
     }
+  },
+  "newsletterForm": {
+    "thanks": "Ya te uniste. Pronto recibirás novedades de Precisar.",
+    "errorFailed": "No pudimos registrar tu correo. Intenta de nuevo en unos minutos.",
+    "providerNoteBefore": "Alta gestionada por el proveedor configurado en",
+    "providerNoteAfter": ".",
+    "emailPlaceholder": "correo@ejemplo.cl",
+    "consentBefore": "Acepto la",
+    "privacyPolicy": "política de privacidad",
+    "consentAfter": "y el tratamiento de datos para recibir novedades.",
+    "firebaseNoteBefore": "Tu correo se guarda en Firebase (proyecto Encuesta Información · colección",
+    "firebaseNoteAfter": ").",
+    "subscribe": "Suscribirme",
+    "sending": "Enviando…"
   },
   "participaPage": {
     "metaTitle": "¿Cómo te informas hoy?",

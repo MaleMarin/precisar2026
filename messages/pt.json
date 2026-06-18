@@ -67,7 +67,31 @@
     "socialYouTube": "Precisar no YouTube (abre numa nova aba)",
     "ccLicenseBefore": "© {year} Precisar. Salvo indicação em contrário, os conteúdos da Precisar são distribuídos sob a licença ",
     "ccLicenseName": "Creative Commons Atribuição 4.0 Internacional (CC BY 4.0)",
-    "ccLicenseAfter": "."
+    "ccLicenseAfter": ".",
+    "newsletterHeading": "Newsletter",
+    "newsletterTitle": "Há conversas que não cabem num post.",
+    "newsletterBody": "Junte-se à nossa comunidade e receba análises mais profundas, recursos exclusivos e perspectivas sobre o ambiente digital.",
+    "newsletterThanks": "Já se inscreveu. Em breve receberá notícias que valem a pena ler.",
+    "newsletterErrorTimeout": "O pedido demorou demasiado. Recarregue a página e tente novamente.",
+    "newsletterErrorFailed": "Não conseguimos registar o seu e-mail. Tente novamente.",
+    "retry": "Tentar novamente",
+    "emailLabel": "E-mail",
+    "emailPlaceholder": "Escreva o seu e-mail",
+    "subscribe": "Inscrever-me",
+    "sending": "A enviar…",
+    "menuEyebrow": "Menu",
+    "contactTitle": "Tem interesse em colaborar com a Precisar?",
+    "contactIntro": "Se a sua organização, meio ou iniciativa partilha o nosso propósito de promover um entendimento crítico da tecnologia e garantir o acesso a informação veraz, queremos contar consigo. Colaboremos em investigações, processos formativos ou projetos regionais. Preencha o formulário e conversemos.",
+    "labelName": "Nome",
+    "labelLastName": "Apelido",
+    "labelEmail": "E-mail",
+    "labelMessage": "Mensagem",
+    "send": "Enviar",
+    "legalTagline": "Precisar. Feito com critério no Chile 🇨🇱 e no México 🇲🇽.",
+    "legalNavAria": "Legal",
+    "privacyPolicy": "Política de Privacidade",
+    "privacyConsulta": "Privacidade · Consulta 2026",
+    "privacyBotOnda": "Privacidade · Bot Onda"
   },
   "language": {
     "switch": "Idioma",
@@ -368,6 +392,20 @@
       ],
       "closing": "A tecnologia não é neutra. O que vemos nas redes sociais, motores de busca ou plataformas está mediado por algoritmos que priorizam certos conteúdos e silenciam outros. Compreender como funcionam estes sistemas é essencial para desenvolver um olhar crítico sobre a informação que consumimos."
     }
+  },
+  "newsletterForm": {
+    "thanks": "Já se inscreveu. Em breve receberá novidades da Precisar.",
+    "errorFailed": "Não conseguimos registar o seu e-mail. Tente novamente dentro de alguns minutos.",
+    "providerNoteBefore": "Inscrição gerida pelo fornecedor configurado em",
+    "providerNoteAfter": ".",
+    "emailPlaceholder": "email@exemplo.pt",
+    "consentBefore": "Aceito a",
+    "privacyPolicy": "política de privacidade",
+    "consentAfter": "e o tratamento de dados para receber novidades.",
+    "firebaseNoteBefore": "O seu e-mail é guardado no Firebase (projeto Encuesta Información · coleção",
+    "firebaseNoteAfter": ").",
+    "subscribe": "Inscrever-me",
+    "sending": "A enviar…"
   },
   "participaPage": {
     "metaTitle": "Como você se informa hoje?",

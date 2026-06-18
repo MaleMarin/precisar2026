@@ -67,7 +67,31 @@
     "socialYouTube": "Precisar on YouTube (opens in a new tab)",
     "ccLicenseBefore": "© {year} Precisar. Unless otherwise stated, Precisar content is distributed under the ",
     "ccLicenseName": "Creative Commons Attribution 4.0 International (CC BY 4.0)",
-    "ccLicenseAfter": " license."
+    "ccLicenseAfter": " license.",
+    "newsletterHeading": "Newsletter",
+    "newsletterTitle": "Some conversations don’t fit in a post.",
+    "newsletterBody": "Join our community and receive deeper analysis, exclusive resources, and perspectives on the digital environment.",
+    "newsletterThanks": "You’re subscribed. You’ll soon receive news worth reading.",
+    "newsletterErrorTimeout": "The request took too long. Reload the page and try again.",
+    "newsletterErrorFailed": "We couldn’t register your email. Please try again.",
+    "retry": "Try again",
+    "emailLabel": "Email",
+    "emailPlaceholder": "Enter your email",
+    "subscribe": "Subscribe",
+    "sending": "Sending…",
+    "menuEyebrow": "Menu",
+    "contactTitle": "Interested in collaborating with Precisar?",
+    "contactIntro": "If your organisation, outlet, or initiative shares our purpose of promoting a critical understanding of technology and ensuring access to reliable information, we’d like to work with you. Let’s collaborate on research, training processes, or regional projects. Fill in the form and let’s talk.",
+    "labelName": "First name",
+    "labelLastName": "Last name",
+    "labelEmail": "Email",
+    "labelMessage": "Message",
+    "send": "Send",
+    "legalTagline": "Precisar. Built with judgment in Chile 🇨🇱 and Mexico 🇲🇽.",
+    "legalNavAria": "Legal",
+    "privacyPolicy": "Privacy Policy",
+    "privacyConsulta": "Privacy · 2026 Consultation",
+    "privacyBotOnda": "Privacy · Bot Onda"
   },
   "language": {
     "switch": "Language",
@@ -368,6 +392,20 @@
       ],
       "closing": "Technology is not neutral. What we see on social networks, search engines, or platforms is mediated by algorithms that prioritise some content and silence other. Understanding how these systems work is key to developing a critical view of the information we consume."
     }
+  },
+  "newsletterForm": {
+    "thanks": "You’re subscribed. You’ll soon receive updates from Precisar.",
+    "errorFailed": "We couldn’t register your email. Please try again in a few minutes.",
+    "providerNoteBefore": "Sign-up is handled by the provider configured in",
+    "providerNoteAfter": ".",
+    "emailPlaceholder": "email@example.com",
+    "consentBefore": "I accept the",
+    "privacyPolicy": "privacy policy",
+    "consentAfter": "and the processing of my data to receive updates.",
+    "firebaseNoteBefore": "Your email is stored in Firebase (Encuesta Información project · collection",
+    "firebaseNoteAfter": ").",
+    "subscribe": "Subscribe",
+    "sending": "Sending…"
   },
   "participaPage": {
     "metaTitle": "How do you get informed today?",
