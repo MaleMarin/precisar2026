@@ -1,7 +1,7 @@
 "use client";
 
-import Link from "next/link";
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import { FooterContactLink } from "@/components/FooterContactLink";
 import { SITE } from "@/lib/site";
 import styles from "./MultiStepForm.module.css";
@@ -18,6 +18,7 @@ export type MultiStepFormProps = {
 };
 
 export function MultiStepForm({ categories, onSubmit }: MultiStepFormProps) {
+  const t = useTranslations("multiStepForm");
   const [step, setStep] = useState<1 | 2 | 3>(1);
   const [selections, setSelections] = useState<string[]>([]);
   const [message, setMessage] = useState("");
@@ -46,27 +47,22 @@ export function MultiStepForm({ categories, onSubmit }: MultiStepFormProps) {
   if (step === 3) {
     return (
       <div className={styles.root}>
-        <p className={styles.stepLabel}>Confirmación</p>
+        <p className={styles.stepLabel}>{t("stepConfirm")}</p>
         <div
           className={styles.confirmBox}
           role="status"
           aria-live="polite"
           aria-atomic="true"
         >
-          <h2 className={styles.confirmTitle}>Gracias — mensaje registrado</h2>
+          <h2 className={styles.confirmTitle}>{t("confirmTitle")}</h2>
+          <p className={styles.confirmBody}>{t("confirmBody1")}</p>
           <p className={styles.confirmBody}>
-            En un entorno con endpoint conectado, aquí mostrarías el envío real. Por ahora es una
-            vista previa local: tus datos no salen del navegador hasta que integres la acción del
-            formulario.
-          </p>
-          <p className={styles.confirmBody}>
-            Te respondemos en la casilla que indicaste cuando el flujo esté activo. Si necesitás
-            otra vía, escribí a{" "}
+            {t("confirmBody2Before")}{" "}
             <a href={`mailto:${SITE.contactEmail}`} className={styles.confirmLink}>
               {SITE.contactEmail}
             </a>{" "}
-            o usa el{" "}
-            <FooterContactLink className={styles.confirmLink}>formulario del pie del sitio</FooterContactLink>.
+            {t("confirmBody2After")}{" "}
+            <FooterContactLink className={styles.confirmLink}>{t("footerFormLink")}</FooterContactLink>.
           </p>
         </div>
       </div>
@@ -76,10 +72,10 @@ export function MultiStepForm({ categories, onSubmit }: MultiStepFormProps) {
   if (step === 2) {
     return (
       <div className={styles.root}>
-        <p className={styles.stepLabel}>Paso 2 de 3</p>
+        <p className={styles.stepLabel}>{t("step2Label")}</p>
         <div className={styles.row}>
           <label className={styles.label} htmlFor="msf-message">
-            Mensaje
+            {t("labelMessage")}
           </label>
           <textarea
             id="msf-message"
@@ -90,7 +86,7 @@ export function MultiStepForm({ categories, onSubmit }: MultiStepFormProps) {
         </div>
         <div className={styles.row}>
           <label className={styles.label} htmlFor="msf-name">
-            Nombre
+            {t("labelName")}
           </label>
           <input
             id="msf-name"
@@ -103,7 +99,7 @@ export function MultiStepForm({ categories, onSubmit }: MultiStepFormProps) {
         </div>
         <div className={styles.row}>
           <label className={styles.label} htmlFor="msf-email">
-            Email
+            {t("labelEmail")}
           </label>
           <input
             id="msf-email"
@@ -116,10 +112,10 @@ export function MultiStepForm({ categories, onSubmit }: MultiStepFormProps) {
         </div>
         <div className={styles.actions}>
           <button type="button" className={`${styles.btn} ${styles.btnSecondary}`} onClick={backStep1}>
-            Atrás
+            {t("back")}
           </button>
           <button type="button" className={styles.btn} onClick={submitStep2}>
-            Enviar
+            {t("send")}
           </button>
         </div>
       </div>
@@ -128,7 +124,7 @@ export function MultiStepForm({ categories, onSubmit }: MultiStepFormProps) {
 
   return (
     <div className={styles.root}>
-      <p className={styles.stepLabel}>Paso 1 de 3 · Elige una o más</p>
+      <p className={styles.stepLabel}>{t("step1Label")}</p>
       <div className={styles.chipRow}>
         {categories.map((c) => (
           <button
@@ -149,7 +145,7 @@ export function MultiStepForm({ categories, onSubmit }: MultiStepFormProps) {
           onClick={goStep2}
           disabled={selections.length === 0}
         >
-          Continuar
+          {t("continue")}
         </button>
       </div>
     </div>

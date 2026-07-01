@@ -2,62 +2,39 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 import styles from "./HubInteractivo.module.css";
-
-const MODELOS = [
-  {
-    id: "pixel",
-    nivel: "Básico",
-    nombre: "PIXEL",
-    subtitulo: "Espacios reducidos",
-    acento: "rgba(245,242,236,0.15)",
-    borde: "rgba(245,242,236,0.1)",
-    items: ["2 Carteles temáticos", "1 Pantalla de animación", "2 Experiencias interactivas"],
-    espacio: "8–12 m²",
-    instalacion: "45–60 min",
-    duracion: "1–3 días",
-    audiencia: "50–100/día",
-  },
-  {
-    id: "vector",
-    nivel: "Estándar",
-    nombre: "VECTOR",
-    subtitulo: "Eventos medianos",
-    acento: "rgba(219,82,39,0.15)",
-    borde: "#DB5227",
-    destacado: true,
-    items: ["3 Carteles temáticos", "3 Pantallas de animación", "3 Estaciones interactivas"],
-    espacio: "15–25 m²",
-    instalacion: "2–3 horas",
-    duracion: "3 días – 2 semanas",
-    audiencia: "100–300/día",
-  },
-  {
-    id: "holo",
-    nivel: "Completo",
-    nombre: "HOLO",
-    subtitulo: "Instalaciones duraderas",
-    acento: "rgba(2,54,97,0.3)",
-    borde: "rgba(245,242,236,0.1)",
-    items: [
-      "6 Carteles visuales",
-      "3 Animaciones de video",
-      "4 Aplicaciones interactivas",
-      "Zona central de reflexión",
-    ],
-    espacio: "30–50 m²",
-    instalacion: "4–6 horas",
-    duracion: "2 semanas – permanente",
-    audiencia: "200–500/día",
-  },
-] as const;
 
 const expandVariants = {
   collapsed: { opacity: 0, height: 0, marginTop: 0 },
   expanded: { opacity: 1, height: "auto", marginTop: 12 },
 };
 
+type Modelo = {
+  id: string;
+  nivel: string;
+  nombre: string;
+  subtitulo: string;
+  acento: string;
+  borde: string;
+  destacado?: boolean;
+  items: string[];
+  espacio: string;
+  instalacion: string;
+  duracion: string;
+  audiencia: string;
+};
+
+const MODELO_STYLES: Record<string, { acento: string; borde: string; destacado?: boolean }> = {
+  pixel: { acento: "rgba(245,242,236,0.15)", borde: "rgba(245,242,236,0.1)" },
+  vector: { acento: "rgba(219,82,39,0.15)", borde: "#DB5227", destacado: true },
+  holo: { acento: "rgba(2,54,97,0.3)", borde: "rgba(245,242,236,0.1)" },
+};
+
 export function HubModelos() {
+  const t = useTranslations("programsHub.modelos");
+  const modelos = t.raw("items") as Omit<Modelo, "acento" | "borde" | "destacado">[];
+  const specLabels = t.raw("specLabels") as Record<string, string>;
   const [openId, setOpenId] = useState<string | null>("vector");
 
   const toggle = (id: string) => {
@@ -65,18 +42,19 @@ export function HubModelos() {
   };
 
   return (
-    <section className={styles.hubSection} aria-label="Modelos de instalación">
-      <p className={styles.hubSectionLabel}>Modelos</p>
+    <section className={styles.hubSection} aria-label={t("aria")}>
+      <p className={styles.hubSectionLabel}>{t("label")}</p>
       <div className={styles.hubModelosGrid}>
-        {MODELOS.map((m) => {
+        {modelos.map((m) => {
+          const style = MODELO_STYLES[m.id]!;
           const isOpen = openId === m.id;
           return (
             <motion.article
               key={m.id}
               className={styles.hubModeloCard}
               style={{
-                border: `1px solid ${m.borde}`,
-                boxShadow: isOpen ? `inset 0 0 80px ${m.acento}` : undefined,
+                border: `1px solid ${style.borde}`,
+                boxShadow: isOpen ? `inset 0 0 80px ${style.acento}` : undefined,
               }}
               onClick={() => toggle(m.id)}
               role="button"
@@ -107,19 +85,19 @@ export function HubModelos() {
                 </ul>
                 <div className={styles.hubModeloSpecs}>
                   <div className={styles.hubModeloSpec}>
-                    <p className={styles.hubModeloSpecLabel}>Espacio</p>
+                    <p className={styles.hubModeloSpecLabel}>{specLabels.espacio}</p>
                     <p className={styles.hubModeloSpecValue}>{m.espacio}</p>
                   </div>
                   <div className={styles.hubModeloSpec}>
-                    <p className={styles.hubModeloSpecLabel}>Instalación</p>
+                    <p className={styles.hubModeloSpecLabel}>{specLabels.instalacion}</p>
                     <p className={styles.hubModeloSpecValue}>{m.instalacion}</p>
                   </div>
                   <div className={styles.hubModeloSpec}>
-                    <p className={styles.hubModeloSpecLabel}>Duración</p>
+                    <p className={styles.hubModeloSpecLabel}>{specLabels.duracion}</p>
                     <p className={styles.hubModeloSpecValue}>{m.duracion}</p>
                   </div>
                   <div className={styles.hubModeloSpec}>
-                    <p className={styles.hubModeloSpecLabel}>Audiencia</p>
+                    <p className={styles.hubModeloSpecLabel}>{specLabels.audiencia}</p>
                     <p className={styles.hubModeloSpecValue}>{m.audiencia}</p>
                   </div>
                 </div>

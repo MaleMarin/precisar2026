@@ -1,73 +1,18 @@
 import type { CSSProperties } from "react";
 import type { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 import shell from "@/components/programs/ProgramShell.module.css";
+import { absoluteLocaleUrl, hreflangAlternates, SITE } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Aprender Digital: Nunca es Tarde · Precisar",
-  description:
-    "Un espacio seguro y amigable donde personas adultas y mayores desarrollan confianza y habilidades digitales.",
-};
+function ogLocaleTag(locale: string): string {
+  if (locale === "pt") return "pt_BR";
+  if (locale === "en") return "en_US";
+  return "es_CL";
+}
 
-const MODULOS = [
-  {
-    titulo: "Educación Mediática Digital",
-    desc: "Enseñamos a identificar la desinformación (integridad informativa), reconocer sesgos y desarrollar un pensamiento crítico para navegar el mundo digital de forma informada. Esto te permitirá discernir la veracidad de la información y protegerte de contenidos engañosos.",
-    color: "#DB5227",
-  },
-  {
-    titulo: "Navegación Segura",
-    desc: "Aprenderás a identificar y evitar fraudes en línea, proteger tus datos personales y gestionar tu privacidad en redes y aplicaciones, asegurando una experiencia digital tranquila y sin riesgos. Te daremos las herramientas para sentirte seguro en cada clic.",
-    color: "#023661",
-  },
-  {
-    titulo: "Inteligencia Artificial",
-    desc: "La Inteligencia Artificial (IA) es la capacidad de las máquinas para imitar y realizar tareas que requieren inteligencia humana. Exploraremos cómo la IA está transformando nuestra vida diaria y el futuro. Descubriremos sus aplicaciones prácticas y cómo interactuar con ella de forma consciente.",
-    color: "#DB5227",
-  },
-  {
-    titulo: "Bienestar Digital",
-    desc: "Encuentra un equilibrio saludable entre el tiempo que pasas en línea y tus actividades presenciales, utilizando las herramientas digitales para enriquecer tu vida y fortalecer tus vínculos sociales, sin que sustituyan las interacciones cara a cara. Promovemos un uso consciente y beneficioso de la tecnología.",
-    color: "#023661",
-  },
-];
+type CardItem = { titulo: string; desc: string };
 
-const IMPACTOS = [
-  {
-    titulo: "Mayor Autonomía",
-    desc: "Facilita trámites y comunicaciones, brindando independencia digital.",
-  },
-  {
-    titulo: "Reducción del Aislamiento",
-    desc: "Fortalece lazos sociales y digitales con familiares y amigos.",
-  },
-  {
-    titulo: "Acceso Ágil a Información",
-    desc: "Información y servicios locales al alcance de la mano.",
-  },
-  {
-    titulo: "Empoderamiento Cívico",
-    desc: "Participación activa en iniciativas vecinales y plataformas ciudadanas.",
-  },
-];
-
-const METODOLOGIA = [
-  {
-    titulo: "Sesiones Híbridas",
-    desc: "Clases presenciales y virtuales, con apoyo individualizado.",
-  },
-  {
-    titulo: "Aprendizaje Colaborativo y Co-creación",
-    desc: "Participantes se apoyan mutuamente y co-crean materiales que enriquecen el taller.",
-  },
-  {
-    titulo: "Acompañamiento Continuo",
-    desc: "Línea de ayuda y encuentros mensuales de repaso para resolver dudas.",
-  },
-  {
-    titulo: "Materiales Accesibles",
-    desc: "Guías impresas y videos paso a paso para repasar a tu ritmo.",
-  },
-];
+const MODULO_COLORS = ["#DB5227", "#023661", "#DB5227", "#023661"];
 
 function IconModulo({ color }: { color: string }) {
   return (
@@ -110,22 +55,53 @@ const gridFineLines: CSSProperties = {
   background: "rgba(10,12,18,0.08)",
 };
 
-export default function AprenderDigitalPage() {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "programPages.aprenderDigital" });
+  const canonical = absoluteLocaleUrl(locale, "/programas/aprender-digital");
+  const title = t("metaTitle");
+  const description = t("metaDescription");
+  return {
+    title,
+    description,
+    alternates: {
+      canonical,
+      languages: hreflangAlternates("/programas/aprender-digital"),
+    },
+    openGraph: {
+      title,
+      description,
+      url: canonical,
+      siteName: SITE.name,
+      locale: ogLocaleTag(locale),
+      type: "website",
+    },
+  };
+}
+
+export default async function AprenderDigitalPage() {
+  const t = await getTranslations("programPages.aprenderDigital");
+  const tShared = await getTranslations("programPages.shared");
+  const modulos = t.raw("modulos") as CardItem[];
+  const contextParas = t.raw("contextParas") as string[];
+  const impactos = t.raw("impactos") as CardItem[];
+  const metodologia = t.raw("metodologia") as CardItem[];
+
   return (
     <main className={shell.page} data-program="aprender">
       <section className={shell.hero}>
         <div className={shell.heroInner}>
-          <p className={shell.heroEyebrow}>Programas · Aprender Digital</p>
+          <p className={shell.heroEyebrow}>{t("heroEyebrow")}</p>
           <h1 className={shell.heroTitle}>
-            Aprender Digital:
+            {t("heroTitleLine1")}
             <br />
-            Nunca es Tarde
+            {t("heroTitleLine2")}
           </h1>
-          <p className={shell.heroSub}>
-            Un espacio seguro, cercano y amigable, donde personas adultas y mayores desarrollan confianza, adquieren
-            habilidades digitales y mediáticas útiles, y disfrutan conectarse con su entorno, su comunidad y sus seres
-            queridos.
-          </p>
+          <p className={shell.heroSub}>{t("heroSub")}</p>
         </div>
       </section>
 
@@ -140,12 +116,12 @@ export default function AprenderDigitalPage() {
             margin: "0 0 1rem",
           }}
         >
-          Nuestros objetivos
+          {t("objectivesEyebrow")}
         </p>
         <h2 className={shell.programSectionTitle} style={{ color: "#0A0C12", margin: "0 0 0.75rem" }}>
-          Capacitamos para una vida
+          {t("objectivesTitleLine1")}
           <br />
-          digital plena y segura
+          {t("objectivesTitleLine2")}
         </h2>
         <p
           style={{
@@ -157,10 +133,10 @@ export default function AprenderDigitalPage() {
             maxWidth: 560,
           }}
         >
-          Capacitamos a nuestros participantes para una vida digital plena y segura.
+          {t("objectivesIntro")}
         </p>
         <div style={gridFineLines}>
-          {MODULOS.map((mod) => (
+          {modulos.map((mod, i) => (
             <div
               key={mod.titulo}
               style={{
@@ -171,7 +147,7 @@ export default function AprenderDigitalPage() {
               }}
             >
               <div style={{ marginBottom: "1rem" }}>
-                <IconModulo color={mod.color} />
+                <IconModulo color={MODULO_COLORS[i % MODULO_COLORS.length]!} />
               </div>
               <p className={shell.programCardTitle} style={{ color: "#0A0C12", margin: "0 0 10px" }}>
                 {mod.titulo}
@@ -184,15 +160,7 @@ export default function AprenderDigitalPage() {
 
       <section style={{ background: "#0A0C12", ...sectionPad }}>
         <div style={{ maxWidth: 720 }}>
-          {[
-            "Aunque en Chile el 96,5% de la población cuenta con algún tipo de conectividad, esa cobertura no se traduce automáticamente en capacidades de navegación segura y autónoma en el entorno digital.",
-            "Vivimos un momento histórico marcado por avances tecnológicos que amplían las posibilidades de producción y difusión de información, pero también generan un ecosistema saturado por la prisa, el inmediatismo y la dificultad para establecer relaciones profundas.",
-            "Los beneficios y, sobre todo, los riesgos derivados de nuestra interacción con medios y tecnologías han situado a la educación mediática y digital como una herramienta que debería estar integrada en la agenda de múltiples instituciones.",
-            "Reconocer el acceso a estas herramientas como un derecho no basta: es imprescindible incorporarlas en la educación formal y abrir espacios de debate más allá de las aulas, dirigidos especialmente a quienes ya no forman parte del sistema escolar.",
-            "Tener la oportunidad de entender la cultura digital y participar de manera crítica resulta clave para personas adultas y mayores. Esa brecha amplifica sus vulnerabilidades, limitando su acceso al mercado laboral, a información confiable, a servicios básicos y a otros derechos fundamentales.",
-            "Resulta imperativo diseñar e implementar políticas sólidas, destinar recursos adecuados y fomentar alianzas con empresas y organizaciones de diversos sectores.",
-            "Solo así podremos democratizar el acceso a la educación mediática y digital, garantizando que personas de todas las edades desarrollen autonomía y pensamiento crítico, tanto en entornos en línea como fuera de línea.",
-          ].map((text, i) => (
+          {contextParas.map((text, i) => (
             <p
               key={i}
               style={{
@@ -220,12 +188,12 @@ export default function AprenderDigitalPage() {
             margin: "0 0 1rem",
           }}
         >
-          Impacto en la comunidad
+          {t("impactEyebrow")}
         </p>
         <h2 className={shell.programSectionTitle} style={{ color: "#0A0C12", margin: "0 0 0.75rem" }}>
-          Más allá de las habilidades
+          {t("impactTitleLine1")}
           <br />
-          individuales
+          {t("impactTitleLine2")}
         </h2>
         <p
           style={{
@@ -237,10 +205,10 @@ export default function AprenderDigitalPage() {
             maxWidth: 560,
           }}
         >
-          Un programa que fortalece a todos.
+          {t("impactIntro")}
         </p>
         <div style={gridFineLines}>
-          {IMPACTOS.map((imp, i) => (
+          {impactos.map((imp, i) => (
             <div
               key={imp.titulo}
               style={{
@@ -273,11 +241,12 @@ export default function AprenderDigitalPage() {
             margin: "0 0 1rem",
           }}
         >
-          Nuestra metodología
+          {t("methodologyEyebrow")}
         </p>
         <h2 className={shell.programSectionTitle} style={{ color: "#F5F2EC", margin: "0 0 3rem" }}>
-          Aprendemos juntos,
-          <br />a tu ritmo
+          {t("methodologyTitleLine1")}
+          <br />
+          {t("methodologyTitleLine2")}
         </h2>
         <div
           style={{
@@ -287,7 +256,7 @@ export default function AprenderDigitalPage() {
             background: "rgba(245,242,236,0.08)",
           }}
         >
-          {METODOLOGIA.map((met) => (
+          {metodologia.map((met) => (
             <div
               key={met.titulo}
               style={{
@@ -308,8 +277,9 @@ export default function AprenderDigitalPage() {
 
       <section style={{ background: "#023661", ...sectionPad }}>
         <h2 className={shell.programSectionTitle} style={{ color: "#F5F2EC", margin: "0 0 1.5rem" }}>
-          Lleva Aprender Digital
-          <br />a tu comunidad
+          {t("ctaTitleLine1")}
+          <br />
+          {t("ctaTitleLine2")}
         </h2>
         <p
           style={{
@@ -321,8 +291,7 @@ export default function AprenderDigitalPage() {
             margin: "0 0 2.5rem",
           }}
         >
-          ¿Representas a un municipio, junta de vecinos o centro comunitario? Te invitamos a comunicarte con nosotros
-          para acercar este programa a los habitantes.
+          {t("ctaBody")}
         </p>
         <a
           href="#contacto"
@@ -342,7 +311,7 @@ export default function AprenderDigitalPage() {
             transition: "opacity 0.2s ease",
           }}
         >
-          Colabora con nosotros
+          {tShared("collaborateCta")}
         </a>
       </section>
     </main>

@@ -14,6 +14,8 @@ type MediaticaTabsProps = {
   idPrefix: string;
   sectionTitle: string;
   tabs: readonly MediaticaTab[];
+  /** Accessible name for the tab list (i18n: educacionMediaticaTabs.ariaTopics) */
+  tablistAriaLabel: string;
   /** Título largo (p. ej. Cultura): tipografía ligeramente menor */
   longSectionTitle?: boolean;
   /** Clase del módulo de página que define `--mediatica-accent` (paleta por eje) */
@@ -25,6 +27,7 @@ export function MediaticaTabs({
   idPrefix,
   sectionTitle,
   tabs,
+  tablistAriaLabel,
   longSectionTitle = false,
   sectionClassName,
 }: MediaticaTabsProps) {
@@ -44,7 +47,7 @@ export function MediaticaTabs({
           {sectionTitle}
         </h2>
 
-        <div className={styles.tabsBar} role="tablist" aria-label="Temas">
+        <div className={styles.tabsBar} role="tablist" aria-label={tablistAriaLabel}>
           {tabs.map((t, index) => (
             <button
               key={t.id}

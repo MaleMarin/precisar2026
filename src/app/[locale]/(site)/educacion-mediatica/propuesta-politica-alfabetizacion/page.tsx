@@ -1,42 +1,52 @@
 import type { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 import { FooterContactLink } from "@/components/FooterContactLink";
 import shell from "@/components/programs/ProgramShell.module.css";
 
-export const metadata: Metadata = {
-  title: "Agenda AMI-Chile · Propuesta política de alfabetización",
-  description:
-    "Chile hiperconectado y críticamente desprotegido: agenda para alfabetización mediática e informacional, ley marco, hoja de ruta y recomendaciones estratégicas.",
+const AGE_TAB_INPUT: Record<string, string> = {
+  nna: "agendaAmiAgeNna",
+  adult: "agendaAmiAgeAdult",
+  mayores: "agendaAmiAgeMayores",
 };
 
-const amiVsDigitalRows = [
-  {
-    dim: "Foco",
-    ami: "Sentido crítico sobre mensajes, fuentes y contextos.",
-    dig: "Uso eficiente y seguro de tecnologías y servicios.",
-  },
-  {
-    dim: "Preguntas guía",
-    ami: "¿Quién lo dice? ¿con qué evidencia? ¿qué intención tiene?",
-    dig: "¿Cómo lo hago? ¿qué botón? ¿qué ajuste de seguridad?",
-  },
-  {
-    dim: "Competencias",
-    ami: "Analizar, evaluar, verificar, argumentar, derechos informacionales.",
-    dig: "Instalar, configurar, operar, mantener, solucionar problemas.",
-  },
-  {
-    dim: "Ejemplos",
-    ami: "Detectar sesgos; verificar una imagen; reconocer desinformación (integridad informativa).",
-    dig: "Crear una videollamada; cifrar un disco; gestionar contraseñas.",
-  },
-  {
-    dim: "Resultado buscado",
-    ami: "Pensamiento crítico y ciudadanía informada.",
-    dig: "Autonomía técnica y seguridad operativa.",
-  },
-] as const;
+const AGE_TAB_PANEL: Record<string, string> = {
+  nna: "agendaAmiPanelNna",
+  adult: "agendaAmiPanelAdult",
+  mayores: "agendaAmiPanelMayores",
+};
 
-export default function PropuestaPoliticaAlfabetizacionPage() {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "propuestaPoliticaAlfabetizacion" });
+  return { title: t("metaTitle"), description: t("metaDescription") };
+}
+
+export default async function PropuestaPoliticaAlfabetizacionPage() {
+  const t = await getTranslations("propuestaPoliticaAlfabetizacion");
+  const stats = t.raw("stats") as { num: string; label: string; detail: string }[];
+  const amiColumn = t.raw("amiColumn") as {
+    title: string;
+    sub: string;
+    items: string[];
+    examplesLabel: string;
+    examples: string[];
+  };
+  const digitalColumn = t.raw("digitalColumn") as typeof amiColumn;
+  const tableRows = t.raw("tableRows") as { dim: string; ami: string; dig: string }[];
+  const ageTabs = t.raw("ageTabs") as { id: string; label: string; items: string[] }[];
+  const nudos = t.raw("nudos") as { num: string; text: string }[];
+  const scenarios2030 = t.raw("scenarios2030") as { title: string; sub: string; items: string[] }[];
+  const vacioColumns = t.raw("vacioColumns") as { title: string; items: string[] }[];
+  const leyMarcoBlocks = t.raw("leyMarcoBlocks") as { strong: string; body: string }[];
+  const phases = t.raw("phases") as { title: string; items: string[] }[];
+  const recommendations = t.raw("recommendations") as { strong: string; text: string }[];
+  const ctaColumns = t.raw("ctaColumns") as string[];
+  const collaborateItems = t.raw("collaborateItems") as string[];
+
   return (
     <>
       <style>{`
@@ -394,16 +404,11 @@ export default function PropuestaPoliticaAlfabetizacionPage() {
       >
         <header className={shell.hero} style={{ background: "#0a0c12" }}>
           <div className={shell.heroInner}>
-            <p className={shell.heroEyebrow}>Agenda AMI · Chile</p>
+            <p className={shell.heroEyebrow}>{t("heroEyebrow")}</p>
             <h1 className={shell.heroTitle} style={{ color: "#f5f2ec" }}>
-              Chile está hiperconectado, pero críticamente desprotegido
+              {t("heroTitle")}
             </h1>
-            <p className="agendaAmiHeroSub">
-              Agenda AMI-Chile nace para sensibilizar a tomadores de decisión y medios de comunicación sobre un
-              desafío que ya es estructural: cómo nos relacionamos con la inteligencia artificial, los algoritmos y la
-              sobreexposición informativa con criterios, no solo con conexión. Porque decidir qué es lo correcto siempre
-              será nuestra responsabilidad.
-            </p>
+            <p className="agendaAmiHeroSub">{t("heroSub")}</p>
           </div>
         </header>
 
@@ -414,29 +419,16 @@ export default function PropuestaPoliticaAlfabetizacionPage() {
         >
           <div className={shell.inner}>
             <h2 id="agenda-ami-stats-heading" className={shell.visuallyHidden}>
-              Datos clave
+              {t("statsHeading")}
             </h2>
             <div className="agendaAmiStatGrid">
-              <div>
-                <p className="amiStatNum">96,5%</p>
-                <p className="amiStatLabel">Conectividad</p>
-                <p className="amiStatDetail">↑ desde 87% en 2018</p>
-              </div>
-              <div>
-                <p className="amiStatNum">5 millones</p>
-                <p className="amiStatLabel">Sin habilidades funcionales</p>
-                <p className="amiStatDetail">≈ 28% de la población</p>
-              </div>
-              <div>
-                <p className="amiStatNum">50%+</p>
-                <p className="amiStatLabel">Competencias críticas insuficientes</p>
-                <p className="amiStatDetail">adultos — tendencia al alza</p>
-              </div>
-              <div>
-                <p className="amiStatNum">29%</p>
-                <p className="amiStatLabel">Fraudes a personas mayores</p>
-                <p className="amiStatDetail">reportado en 2024</p>
-              </div>
+              {stats.map((stat) => (
+                <div key={stat.label}>
+                  <p className="amiStatNum">{stat.num}</p>
+                  <p className="amiStatLabel">{stat.label}</p>
+                  <p className="amiStatDetail">{stat.detail}</p>
+                </div>
+              ))}
             </div>
           </div>
         </section>
@@ -447,48 +439,43 @@ export default function PropuestaPoliticaAlfabetizacionPage() {
         >
           <div className={shell.inner}>
             <h2 id="ami-vs-digital-heading" className={shell.secTitleDark}>
-              ¿En qué se diferencian la Alfabetización Mediática e Informacional y la Alfabetización Digital?
+              {t("amiVsDigitalTitle")}
             </h2>
-            <p className={shell.secSubtitle}>
-              Para entender AMI, primero es muy importante entender la diferencia entre la Alfabetización Digital y la
-              Alfabetización Mediática e Informacional
-            </p>
+            <p className={shell.secSubtitle}>{t("amiVsDigitalSubtitle")}</p>
 
             <div className="agendaAmiTwoCol">
               <div className="agendaAmiColCard">
-                <h3>AMI · Alfabetización Mediática e Informacional</h3>
-                <p className="agendaAmiColSub">Capacidades críticas sobre medios, mensajes y fuentes.</p>
+                <h3>{amiColumn.title}</h3>
+                <p className="agendaAmiColSub">{amiColumn.sub}</p>
                 <ul className="agendaAmiList">
-                  <li>Analizar cómo se construye una noticia y distinguir opinión de hecho.</li>
-                  <li>Evaluar la credibilidad de una fuente y detectar publicidad nativa.</li>
-                  <li>Verificar con varias fuentes y entender sesgos/algoritmos.</li>
-                  <li>Derechos: acceso, autoría, privacidad, libertad de expresión, uso justo.</li>
+                  {amiColumn.items.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
                 </ul>
                 <div className="agendaAmiExamples">
-                  <p>Ejemplos</p>
+                  <p>{amiColumn.examplesLabel}</p>
                   <ul>
-                    <li>Detectar deepfakes en campaña</li>
-                    <li>Identificar titulares clickbait</li>
-                    <li>Comprobar autoría y fecha</li>
+                    {amiColumn.examples.map((ex) => (
+                      <li key={ex}>{ex}</li>
+                    ))}
                   </ul>
                 </div>
               </div>
 
               <div className="agendaAmiColCard">
-                <h3>Alfabetización Digital</h3>
-                <p className="agendaAmiColSub">Habilidades técnicas y operativas con dispositivos y apps.</p>
+                <h3>{digitalColumn.title}</h3>
+                <p className="agendaAmiColSub">{digitalColumn.sub}</p>
                 <ul className="agendaAmiList">
-                  <li>Usar correo, videollamadas, hojas de cálculo, gestores de archivos.</li>
-                  <li>Configurar seguridad: contraseñas, 2FA, copias de seguridad.</li>
-                  <li>Administrar privacidad y permisos en redes y móviles.</li>
-                  <li>Resolver problemas básicos de software/hardware.</li>
+                  {digitalColumn.items.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
                 </ul>
                 <div className="agendaAmiExamples">
-                  <p>Ejemplos</p>
+                  <p>{digitalColumn.examplesLabel}</p>
                   <ul>
-                    <li>Activar 2FA en tus cuentas</li>
-                    <li>Compartir un Drive con permisos</li>
-                    <li>Limpiar malware del PC</li>
+                    {digitalColumn.examples.map((ex) => (
+                      <li key={ex}>{ex}</li>
+                    ))}
                   </ul>
                 </div>
               </div>
@@ -498,13 +485,13 @@ export default function PropuestaPoliticaAlfabetizacionPage() {
               <table className="agendaAmiTable">
                 <thead>
                   <tr>
-                    <th scope="col">Dimensión</th>
-                    <th scope="col">AMI</th>
-                    <th scope="col">Alfabetización Digital</th>
+                    <th scope="col">{t("tableHeaders.dimension")}</th>
+                    <th scope="col">{t("tableHeaders.ami")}</th>
+                    <th scope="col">{t("tableHeaders.digital")}</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {amiVsDigitalRows.map((row) => (
+                  {tableRows.map((row) => (
                     <tr key={row.dim}>
                       <td>{row.dim}</td>
                       <td>{row.ami}</td>
@@ -520,51 +507,42 @@ export default function PropuestaPoliticaAlfabetizacionPage() {
         <section className={`${shell.sectionDark} ${shell.padSection}`} aria-labelledby="ami-fundamental-heading">
           <div className={`${shell.inner} agendaAmiAgeTabs`}>
             <h2 id="ami-fundamental-heading" className={`${shell.secTitleLight} ${shell.secTitleLightSpaced}`}>
-              ¿Por qué AMI es fundamental para Chile en cada grupo etario?
+              {t("ageGroupsTitle")}
             </h2>
 
-            <input
-              className={shell.visuallyHidden}
-              type="radio"
-              name="agendaAmiAge"
-              id="agendaAmiAgeNna"
-              defaultChecked
-            />
-            <input className={shell.visuallyHidden} type="radio" name="agendaAmiAge" id="agendaAmiAgeAdult" />
-            <input className={shell.visuallyHidden} type="radio" name="agendaAmiAge" id="agendaAmiAgeMayores" />
+            {ageTabs.map((tab, i) => (
+              <input
+                key={tab.id}
+                className={shell.visuallyHidden}
+                type="radio"
+                name="agendaAmiAge"
+                id={AGE_TAB_INPUT[tab.id]}
+                defaultChecked={i === 0}
+              />
+            ))}
 
-            <div className="agendaAmiTabLabels" role="tablist" aria-label="Grupo etario">
-              <label htmlFor="agendaAmiAgeNna">Niños, Niñas y Adolescentes</label>
-              <label htmlFor="agendaAmiAgeAdult">Personas adultas</label>
-              <label htmlFor="agendaAmiAgeMayores">Personas mayores</label>
+            <div className="agendaAmiTabLabels" role="tablist" aria-label={t("ageTabsAriaLabel")}>
+              {ageTabs.map((tab) => (
+                <label key={tab.id} htmlFor={AGE_TAB_INPUT[tab.id]}>
+                  {tab.label}
+                </label>
+              ))}
             </div>
 
             <div className="agendaAmiPanels">
-              <div className="agendaAmiPanel agendaAmiPanelNna" role="tabpanel">
-                <ul>
-                  <li>Conectividad: 80% con plan de datos propio</li>
-                  <li>Bienestar: 53% con soledad digital</li>
-                  <li>Desinformación (integridad informativa): 63% creyó noticias falsas</li>
-                  <li>Exposición: 27% vio contenidos violentos</li>
-                  <li>Contacto con extraños: 40% contactado; 48% interactúa</li>
-                  <li>Conductas: 23% admite insultar por mensajes</li>
-                </ul>
-              </div>
-              <div className="agendaAmiPanel agendaAmiPanelAdult" role="tabpanel">
-                <ul>
-                  <li>Comprensión crítica: 44%+ sin base</li>
-                  <li>Doble brecha: Sin herramientas y sin criterio</li>
-                  <li>Efectos: Desinformación (integridad informativa) / exclusión</li>
-                </ul>
-              </div>
-              <div className="agendaAmiPanel agendaAmiPanelMayores" role="tabpanel">
-                <ul>
-                  <li>Motivación: 82% quiere aprender</li>
-                  <li>Digitalización: 66% para no quedar aislados</li>
-                  <li>Riesgos: 29% reporta fraudes</li>
-                  <li>Usabilidad: Plataformas poco amigables</li>
-                </ul>
-              </div>
+              {ageTabs.map((tab) => (
+                <div
+                  key={tab.id}
+                  className={`agendaAmiPanel ${AGE_TAB_PANEL[tab.id]}`}
+                  role="tabpanel"
+                >
+                  <ul>
+                    {tab.items.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
             </div>
           </div>
         </section>
@@ -576,22 +554,15 @@ export default function PropuestaPoliticaAlfabetizacionPage() {
         >
           <div className={shell.inner}>
             <h2 id="ami-nudos-heading" className={shell.secTitleLight}>
-              Tres nudos críticos a resolver en Chile sobre AMI
+              {t("nudosTitle")}
             </h2>
             <div className="agendaAmiNudoGrid">
-              <div className="agendaAmiNudoCard">
-                <strong>1</strong>
-                CONFUSIÓN CONCEPTUAL — AMI reducida a uso de herramientas (alfabetización digital) en vez de
-                pensamiento crítico sobre información y medios.
-              </div>
-              <div className="agendaAmiNudoCard">
-                <strong>2</strong>
-                FRAGMENTACIÓN INSTITUCIONAL — 35+ actores valiosos pero sin coordinación ni gobernanza conjunta.
-              </div>
-              <div className="agendaAmiNudoCard">
-                <strong>3</strong>
-                BRECHAS ETARIAS — Cada grupo (NNA, adultos, mayores) requiere enfoques diferenciados.
-              </div>
+              {nudos.map((nudo) => (
+                <div key={nudo.num} className="agendaAmiNudoCard">
+                  <strong>{nudo.num}</strong>
+                  {nudo.text}
+                </div>
+              ))}
             </div>
           </div>
         </section>
@@ -599,33 +570,25 @@ export default function PropuestaPoliticaAlfabetizacionPage() {
         <section className={`${shell.sectionCream} ${shell.padSection}`} aria-labelledby="escenarios-2030-heading">
           <div className={shell.inner}>
             <h2 id="escenarios-2030-heading" className={shell.secTitleDark}>
-              Escenarios 2030 para Chile
+              {t("scenarios2030Title")}
             </h2>
             <div className="agendaAmi2030">
               <div className="agendaAmi2030Col" style={{ background: "#0a0c12", color: "#f5f2ec" }}>
-                <h3>El costo de la inacción</h3>
-                <p className="ami2030Sub">La sociedad algorítmica chilena sin brújula crítica.</p>
+                <h3>{scenarios2030[0].title}</h3>
+                <p className="ami2030Sub">{scenarios2030[0].sub}</p>
                 <ul>
-                  <li>
-                    Erosión democrática: decisiones manipuladas por deepfakes y micro-targeting opaco.
-                  </li>
-                  <li>
-                    Vulnerabilidad masiva: estafas con IA generativa afectan especialmente a personas mayores.
-                  </li>
-                  <li>Pérdida de soberanía informativa: dependencia de plataformas extranjeras sin transparencia.</li>
-                  <li>Fractura social: brechas digitales no resueltas.</li>
-                  <li>Precariedad laboral: reemplazo sin reconversión.</li>
+                  {scenarios2030[0].items.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
                 </ul>
               </div>
               <div className="agendaAmi2030Col" style={{ background: "#023661", color: "#f5f2ec" }}>
-                <h3>La oportunidad de la acción</h3>
-                <p className="ami2030Sub">La sociedad chilena digitalmente empoderada.</p>
+                <h3>{scenarios2030[1].title}</h3>
+                <p className="ami2030Sub">{scenarios2030[1].sub}</p>
                 <ul>
-                  <li>Democracia fortalecida: ciudadanía que identifica manipulación y debate con evidencia.</li>
-                  <li>Innovación social: comunidades que usan IA para salud, educación y medio ambiente.</li>
-                  <li>Inclusión intergeneracional: mayores autónomos; jóvenes responsables.</li>
-                  <li>Economía del conocimiento: trabajo colaborativo con IA y emprendimiento.</li>
-                  <li>Liderazgo regional: Chile como referente iberoamericano.</li>
+                  {scenarios2030[1].items.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
                 </ul>
               </div>
             </div>
@@ -635,26 +598,19 @@ export default function PropuestaPoliticaAlfabetizacionPage() {
         <section className={`${shell.sectionCream} ${shell.padSection}`} aria-labelledby="vacio-normativo-heading">
           <div className={shell.inner}>
             <h2 id="vacio-normativo-heading" className={shell.secTitleDark}>
-              Vacío normativo crítico en Chile
+              {t("vacioTitle")}
             </h2>
             <div className="agendaAmiVacioGrid">
-              <div className="agendaAmiColCard">
-                <h3>Estado actual de la legislación chilena</h3>
-                <ul className="agendaAmiList">
-                  <li>LGE e Internet como servicio público: foco en acceso, no en uso crítico.</li>
-                  <li>Currículum chileno: AMI marginal y fragmentada.</li>
-                  <li>Medios chilenos: sin enfoque de alfabetización de audiencias.</li>
-                  <li>Conectividad 96,5% pero vacío legal en AMI.</li>
-                </ul>
-              </div>
-              <div className="agendaAmiColCard">
-                <h3>Vacíos críticos identificados en Chile</h3>
-                <ul className="agendaAmiList">
-                  <li>Sin política nacional ni institucionalidad coordinadora.</li>
-                  <li>Sin estándares AMI ni indicadores de impacto.</li>
-                  <li>Sin transparencia algorítmica y derecho a explicación.</li>
-                </ul>
-              </div>
+              {vacioColumns.map((col) => (
+                <div key={col.title} className="agendaAmiColCard">
+                  <h3>{col.title}</h3>
+                  <ul className="agendaAmiList">
+                    {col.items.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
             </div>
           </div>
         </section>
@@ -666,31 +622,16 @@ export default function PropuestaPoliticaAlfabetizacionPage() {
         >
           <div className={shell.inner}>
             <h2 id="ley-marco-heading" className={shell.secTitleLight}>
-              Propuesta: Ley Marco de AMI para Chile
+              {t("leyMarcoTitle")}
             </h2>
-            <blockquote className="agendaAmiQuote">
-              Garantizar que todas las personas en Chile desarrollen competencias para acceder, evaluar, usar y crear
-              información de manera crítica, ética y participativa, como derecho para la democracia plena.
-            </blockquote>
+            <blockquote className="agendaAmiQuote">{t("leyMarcoQuote")}</blockquote>
             <div className="agendaAmiBlockGrid">
-              <div className="agendaAmiBlock">
-                <strong>1 · Marco institucional chileno</strong>
-                Crear institucionalidad específica AMI. Mesa Intersectorial permanente. Coordinación con Educación,
-                Ciencia, Cultura, Desarrollo Social.
-              </div>
-              <div className="agendaAmiBlock">
-                <strong>2 · Formación inicial en Chile</strong>
-                Integración curricular AMI en pedagogías. Competencias obligatorias para egreso. Práctica profesional
-                con componente AMI.
-              </div>
-              <div className="agendaAmiBlock">
-                <strong>3 · Formación continua en Chile</strong>
-                Actualización en amenazas (IA generativa). Metodologías activas y red de docentes AMI.
-              </div>
-              <div className="agendaAmiBlock">
-                <strong>4 · Recursos pedagógicos chilenos</strong>
-                Kits por nivel. Plataforma digital y banco de actividades AMI.
-              </div>
+              {leyMarcoBlocks.map((block) => (
+                <div key={block.strong} className="agendaAmiBlock">
+                  <strong>{block.strong}</strong>
+                  {block.body}
+                </div>
+              ))}
             </div>
           </div>
         </section>
@@ -698,35 +639,19 @@ export default function PropuestaPoliticaAlfabetizacionPage() {
         <section className={`${shell.sectionCream} ${shell.padSection}`} aria-labelledby="hoja-ruta-heading">
           <div className={shell.inner}>
             <h2 id="hoja-ruta-heading" className={shell.secTitleDark}>
-              Hoja de ruta
+              {t("roadmapTitle")}
             </h2>
             <div className="agendaAmiFases">
-              <div className="agendaAmiFase">
-                <h3 className="amiPhaseTitle">FASE 1 — INSTITUCIONALIZACIÓN</h3>
-                <ul>
-                  <li>Crear Mesa Intersectorial AMI.</li>
-                  <li>Diseñar Política Nacional con participación ciudadana.</li>
-                  <li>Financiamiento 2025–2026 asegurado.</li>
-                  <li>Definir institucionalidad coordinadora.</li>
-                </ul>
-              </div>
-              <div className="agendaAmiFase">
-                <h3 className="amiPhaseTitle">FASE 2 — PILOTAJE</h3>
-                <ul>
-                  <li>Ciudades AMI en 16 comunas.</li>
-                  <li>Formación docente (inicial y continua).</li>
-                  <li>Observatorio Nacional AMI.</li>
-                  <li>Recursos pedagógicos.</li>
-                </ul>
-              </div>
-              <div className="agendaAmiFase">
-                <h3 className="amiPhaseTitle">FASE 3 — ESCALAMIENTO</h3>
-                <ul>
-                  <li>Evaluar y ajustar pilotos.</li>
-                  <li>Integrar AMI en SIMCE/ENDDEIE.</li>
-                  <li>Consolidar gobernanza.</li>
-                </ul>
-              </div>
+              {phases.map((phase) => (
+                <div key={phase.title} className="agendaAmiFase">
+                  <h3 className="amiPhaseTitle">{phase.title}</h3>
+                  <ul>
+                    {phase.items.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
             </div>
           </div>
         </section>
@@ -734,32 +659,14 @@ export default function PropuestaPoliticaAlfabetizacionPage() {
         <section className={`${shell.sectionDark} ${shell.padSection}`} aria-labelledby="reco-estrategicas-heading">
           <div className={shell.inner}>
             <h2 id="reco-estrategicas-heading" className={`${shell.secTitleLight} ${shell.secTitleLightSpaced}`}>
-              Recomendaciones estratégicas para Chile
+              {t("recommendationsTitle")}
             </h2>
             <ol className="agendaAmiRecoList">
-              <li>
-                <strong>1 · Marco institucional —</strong> Institucionalidad AMI con mandato legal. Mesa Intersectorial.
-                Presupuesto estable y plurianual.
-              </li>
-              <li>
-                <strong>2 · Integración curricular —</strong> Competencias AMI explícitas. AMI en formación inicial y
-                continua.
-              </li>
-              <li>
-                <strong>3 · Implementación territorial —</strong> Red comunal con facilitadores locales. Priorizar NNA,
-                adultos en rezago y mayores.
-              </li>
-              <li>
-                <strong>4 · Recursos y ecosistema —</strong> Kits por nivel + plataforma nacional. Corresponsabilidad
-                privada.
-              </li>
-              <li>
-                <strong>5 · Monitoreo y evidencia —</strong> Observatorio Nacional AMI. Indicadores en SIMCE y ENDDEIE.
-              </li>
-              <li>
-                <strong>6 · Marco regulatorio —</strong> Derecho a explicación algorítmica. Accesibilidad en servicios
-                digitales.
-              </li>
+              {recommendations.map((reco) => (
+                <li key={reco.strong}>
+                  <strong>{reco.strong}</strong> {reco.text}
+                </li>
+              ))}
             </ol>
           </div>
         </section>
@@ -771,17 +678,12 @@ export default function PropuestaPoliticaAlfabetizacionPage() {
         >
           <div className={shell.inner}>
             <h2 id="llamado-accion-heading" className={shell.secTitleLight}>
-              Llamado a acción para tomadores de decisiones chilenos
+              {t("ctaTitle")}
             </h2>
             <div className="agendaAmiCtaCols">
-              <p>
-                Pasar de acceso a competencias críticas — Chile ya tiene conectividad; ahora ciudadanos digitalmente
-                competentes.
-              </p>
-              <p>Legislar para institucionalizar — AMI como derecho ciudadano con marco normativo específico.</p>
-              <p>
-                Financiar y medir para escalar — Inversión sostenible en lo que funciona, con evaluación rigurosa.
-              </p>
+              {ctaColumns.map((col) => (
+                <p key={col}>{col}</p>
+              ))}
             </div>
             <p
               style={{
@@ -792,9 +694,7 @@ export default function PropuestaPoliticaAlfabetizacionPage() {
                 color: "rgba(245, 242, 236, 0.92)",
               }}
             >
-              El momento es ahora. Cada día sin acción: más vulnerabilidad, brechas más profundas, erosión de confianza
-              y debilitamiento democrático. El costo de la inacción será irreversible; el beneficio de la acción será
-              transformador. ¿Qué Chile queremos para 2030?
+              {t("ctaClosing")}
             </p>
           </div>
         </section>
@@ -802,25 +702,23 @@ export default function PropuestaPoliticaAlfabetizacionPage() {
         <section className={`${shell.sectionCream} ${shell.padSection}`} aria-labelledby="sobre-agenda-heading">
           <div className={shell.inner}>
             <h2 id="sobre-agenda-heading" className={shell.secTitleDark}>
-              Sobre Agenda AMI-Chile
+              {t("aboutTitle")}
             </h2>
             <p className={shell.bodyText} style={{ maxWidth: "48rem" }}>
-              Es una iniciativa de Precisar dedicada a impulsar la alfabetización mediática e informacional como
-              política de Estado en Chile. Trabajamos para que la ciudadanía chilena desarrolle las competencias
-              críticas necesarias para navegar de manera segura, ética y responsable en la era digital.
+              {t("aboutBody")}
             </p>
             <h3
               className={shell.secTitleDark}
               style={{ marginTop: "2rem", marginBottom: "1rem", fontSize: "clamp(1.35rem, 2vw, 1.75rem)" }}
             >
-              ¿Cómo podemos colaborar?
+              {t("collaborateTitle")}
             </h3>
             <ul className="agendaAmiList" style={{ maxWidth: "40rem" }}>
-              <li>Reuniones informativas con equipos técnicos</li>
-              <li>Presentaciones especializadas con datos y propuestas concretas</li>
-              <li>Asesoría técnica para implementación de políticas</li>
+              {collaborateItems.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
             </ul>
-            <FooterContactLink className="agendaAmiAboutCta">Colabora con nosotros</FooterContactLink>
+            <FooterContactLink className="agendaAmiAboutCta">{t("collaborateCta")}</FooterContactLink>
           </div>
         </section>
       </article>

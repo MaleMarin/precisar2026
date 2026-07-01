@@ -2,50 +2,8 @@
 
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 import styles from "./HubInteractivo.module.css";
-
-const SLIDES = [
-  {
-    title: "Activación previa al evento",
-    desc: "Despliega módulos interactivos en pasillos o vestíbulos para que la audiencia descubra conceptos clave antes de cualquier actividad programada.",
-  },
-  {
-    title: "Puntos de encuentro temáticos",
-    desc: "Crea estaciones dedicadas a la privacidad, la IA, la desinformación (integridad informativa) o la ética digital, permitiendo que los visitantes transiten libremente entre ellas.",
-  },
-  {
-    title: "Rutas autoguiadas",
-    desc: "Diseña un recorrido cronológico o lógico que guíe a las personas por distintos retos y experiencias, cada uno acompañado de soportes visuales y multimedia.",
-  },
-  {
-    title: "Elementos móviles",
-    desc: "Utiliza tablets, kioscos portátiles o gafas de realidad aumentada para llevar la instalación a espacios reducidos o itinerantes dentro del mismo recinto.",
-  },
-  {
-    title: "Material descargable",
-    desc: "Ofrece a los visitantes códigos QR que enlacen a guías, infografías y recursos digitales para profundizar después del evento.",
-  },
-  {
-    title: "Salas de reflexión",
-    desc: "Habilita áreas con mobiliario cómodo donde se proyecten cortos videos de discusión o paneles de expertos, invitando al diálogo espontáneo.",
-  },
-  {
-    title: "Interacción IA en vivo",
-    desc: "Incluye chatbots o asistentes virtuales que respondan preguntas, generen análisis de perfiles de privacidad y ofrezcan recomendaciones personalizadas.",
-  },
-  {
-    title: "Experiencias inmersivas",
-    desc: "Incorpora videoproyecciones 360°, realidad virtual y entornos sonoros para sumergir al visitante en escenarios que ilustran riesgos y oportunidades tecnológicas.",
-  },
-  {
-    title: "Gamificación",
-    desc: "Implementa desafíos y juegos basados en preguntas sobre los temas decididos, recompensando la participación con insignias digitales o reconocimientos físicos.",
-  },
-  {
-    title: "Integración con ponencias",
-    desc: "Combina las estaciones interactivas con conferencias, de modo que cada ponente pueda referirse a los módulos específicos para ejemplificar sus argumentos.",
-  },
-];
 
 const slideVariants = {
   enter: (direction: number) => ({
@@ -59,11 +17,15 @@ const slideVariants = {
   }),
 };
 
+type Slide = { title: string; desc: string };
+
 export function HubPosibilidades() {
+  const t = useTranslations("programsHub.posibilidades");
+  const slides = t.raw("slides") as Slide[];
   const [[page, direction], setPage] = useState([0, 0]);
 
-  const slideIndex = ((page % SLIDES.length) + SLIDES.length) % SLIDES.length;
-  const slide = SLIDES[slideIndex]!;
+  const slideIndex = ((page % slides.length) + slides.length) % slides.length;
+  const slide = slides[slideIndex]!;
 
   const paginate = (newDirection: number) => {
     setPage(([p]) => [p + newDirection, newDirection]);
@@ -75,13 +37,13 @@ export function HubPosibilidades() {
     setPage([index, delta > 0 ? 1 : -1]);
   };
 
-  const total = SLIDES.length;
+  const total = slides.length;
   const numLabel = `${String(slideIndex + 1).padStart(2, "0")} / ${String(total).padStart(2, "0")}`;
   const carouselBg = slideIndex % 2 === 0 ? "#DB5227" : "#023661";
 
   return (
-    <section className={styles.hubSection} aria-label="Posibilidades del hub interactivo">
-      <p className={styles.hubSectionLabel}>Posibilidades</p>
+    <section className={styles.hubSection} aria-label={t("aria")}>
+      <p className={styles.hubSectionLabel}>{t("label")}</p>
       <div className={styles.hubCarousel} style={{ background: carouselBg }}>
         <div style={{ position: "relative", overflow: "hidden", flex: "1 1 auto", minHeight: 0 }}>
           <AnimatePresence initial={false} custom={direction} mode="wait">
@@ -102,8 +64,8 @@ export function HubPosibilidades() {
         </div>
 
         <div className={styles.hubCarouselNav}>
-          <div className={styles.hubDots} role="tablist" aria-label="Ir a diapositiva">
-            {SLIDES.map((_, i) => (
+          <div className={styles.hubDots} role="tablist" aria-label={t("slideAria")}>
+            {slides.map((_, i) => (
               <button
                 key={i}
                 type="button"
@@ -111,7 +73,7 @@ export function HubPosibilidades() {
                 aria-selected={i === slideIndex}
                 className={i === slideIndex ? `${styles.hubDot} ${styles.hubDotActive}` : styles.hubDot}
                 onClick={() => goTo(i)}
-                aria-label={`Diapositiva ${i + 1} de ${total}`}
+                aria-label={t("slideN", { n: i + 1, total })}
               />
             ))}
           </div>
@@ -119,7 +81,7 @@ export function HubPosibilidades() {
             <button
               type="button"
               className={styles.hubNavBtn}
-              aria-label="Diapositiva anterior"
+              aria-label={t("prevSlide")}
               onClick={() => paginate(-1)}
             >
               ‹
@@ -127,7 +89,7 @@ export function HubPosibilidades() {
             <button
               type="button"
               className={styles.hubNavBtn}
-              aria-label="Diapositiva siguiente"
+              aria-label={t("nextSlide")}
               onClick={() => paginate(1)}
             >
               ›

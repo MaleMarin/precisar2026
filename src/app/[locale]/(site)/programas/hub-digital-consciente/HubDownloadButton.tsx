@@ -1,6 +1,10 @@
-"use client"
+"use client";
+
+import { useTranslations } from "next-intl";
 
 export function HubDownloadButton() {
+  const t = useTranslations("programsHub.cylinder");
+
   return (
     <button
       type="button"
@@ -20,7 +24,7 @@ export function HubDownloadButton() {
         cursor: "pointer",
       }}
     >
-      Descargar información completa ↓
+      {t("downloadButton")}
     </button>
-  )
+  );
 }

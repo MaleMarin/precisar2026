@@ -103,7 +103,14 @@
     "lineLabA": "Potencia el uso",
     "lineLabB": "de la tecnología.",
     "lineHome": "Potencia el uso de la tecnología.",
-    "verbs": ["Conecta", "Transforma", "Precisa", "Informa", "Entiende", "Participa"]
+    "verbs": [
+      "Conecta",
+      "Transforma",
+      "Precisa",
+      "Informa",
+      "Entiende",
+      "Participa"
+    ]
   },
   "Metadata": {
     "homeTitle": "Precisar · Potencia el uso de la tecnología",
@@ -203,7 +210,12 @@
     "stackKicker": "03 · Saberes",
     "stackHeadline": "Saber no es acumular datos. Es saber qué hacer con ellos.",
     "stackBody": "Conocimiento abierto sobre cultura digital.",
-    "recursosCta": "Material para descargar →"
+    "recursosCta": "Material para descargar →",
+    "links": {
+      "/unapreguntaaldia": "Una pregunta al día",
+      "/experiencias/sentidos-digitales": "Sentidos digitales",
+      "/culturadigital": "Cultura digital"
+    }
   },
   "homeBotOnda": {
     "stackKicker": "04 · Bot Onda",
@@ -223,11 +235,26 @@
   },
   "homeMarquee": {
     "chunks": [
-      ["Educación", "mediática"],
-      ["Pensamiento", "crítico"],
-      ["Datos", "con contexto"],
-      ["Comunidad", "informada"],
-      ["Tecnología", "con criterio"]
+      [
+        "Educación",
+        "mediática"
+      ],
+      [
+        "Pensamiento",
+        "crítico"
+      ],
+      [
+        "Datos",
+        "con contexto"
+      ],
+      [
+        "Comunidad",
+        "informada"
+      ],
+      [
+        "Tecnología",
+        "con criterio"
+      ]
     ]
   },
   "culturaDigitalPage": {
@@ -299,6 +326,179 @@
         "Este eje no busca enseñar a usar la tecnología «correctamente», sino a habitarla con conciencia, cuestionarla con pensamiento crítico y transformarla con ética. Significa formar ciudadanos capaces de proteger su privacidad, de identificar sesgos en los sistemas automatizados, de detectar contenidos generados por inteligencia artificial, y de exigir un entorno digital más justo y transparente."
       ],
       "closing": "Tecnología y medios se cruzan en lo cotidiano. Comprender ese cruce es clave para la ciudadanía digital."
+    }
+  },
+  "educacionMediaticaTabs": {
+    "ariaTopics": "Temas",
+    "comunicacion": {
+      "sectionTitle": "Claves para entender el mundo mediático",
+      "tabs": [
+        {
+          "id": "ecosistema",
+          "label": "Ecosistema mediático",
+          "paragraphs": [
+            "Es el conjunto de medios, plataformas y actores que producen y difunden información. Incluye desde grandes canales hasta redes sociales y medios comunitarios. Entender quién comunica, cómo y con qué intereses es clave para leer mejor lo que vemos."
+          ]
+        },
+        {
+          "id": "libertad",
+          "label": "Libertad de Expresión y Derecho a la Información",
+          "paragraphs": [
+            "La libertad de expresión es el derecho a decir lo que pensamos, a compartir ideas, opiniones y creencias sin miedo a ser censurados o castigados. Pero también incluye el derecho a recibir información veraz, plural y oportuna, algo fundamental para poder tomar decisiones informadas en nuestra vida cotidiana.",
+            "Este derecho no es absoluto: no protege discursos que incitan al odio, la violencia o la discriminación. Por eso, ejercer la libertad de expresión también implica responsabilidad: pensar en las consecuencias de lo que compartimos y promover un diálogo respetuoso, aunque pensemos distinto.",
+            "El derecho a la información garantiza que todas las personas podamos acceder a contenidos confiables, transparentes y diversos. Eso incluye medios públicos de calidad, datos abiertos, y mecanismos que nos permitan saber cómo se toman decisiones que nos afectan. Cuando estos derechos se garantizan y se respetan, se fortalece la participación ciudadana, la confianza social y la vida en común."
+          ]
+        },
+        {
+          "id": "medios",
+          "label": "Medios de Comunicación",
+          "paragraphs": [
+            "Los medios ayudan a construir la imagen que tenemos del mundo. Pero no siempre logran mostrar toda su diversidad. A veces, ciertas voces, territorios o experiencias quedan menos representadas. Por eso es importante ampliar la mirada: incluir distintas perspectivas nos permite comprender mejor la realidad y fortalecer una comunicación más abierta, plural y respetuosa."
+          ]
+        },
+        {
+          "id": "desinformacion (integridad informativa)",
+          "label": "Desinformación (integridad informativa)",
+          "paragraphs": [
+            "La desinformación (integridad informativa) existe porque hay quienes quieren manipular lo que pensamos, generar confusión o sacar provecho económico, político o social. A veces se crea con intención, otras veces se difunde por error o desconocimiento. Las redes sociales y los medios digitales permiten que estos contenidos se propaguen muy rápido, sin filtros ni verificaciones.",
+            "Combatirla no es censurar: es defender el derecho a estar bien informados, a pensar con autonomía y a participar con responsabilidad en el mundo que compartimos."
+          ]
+        },
+        {
+          "id": "redes",
+          "label": "Redes sociales",
+          "paragraphs": [
+            "En redes sociales, muchas veces vemos solo ideas similares a las nuestras. Esto pasa porque los algoritmos nos muestran lo que ya nos gusta o en lo que ya creemos. Así se forman burbujas informativas que refuerzan nuestros puntos de vista y nos aíslan de otras opiniones. Para salir de esa burbuja, es clave buscar distintas fuentes, contrastar información y estar abiertos al diálogo."
+          ]
+        }
+      ]
+    },
+    "educacion": {
+      "sectionTitle": "Claves para aprender con sentido crítico",
+      "tabs": [
+        {
+          "id": "pensamiento",
+          "label": "Pensamiento Crítico",
+          "paragraphs": [
+            "No se trata solo de tener opiniones, sino de saber por qué las tenemos. El pensamiento crítico es la capacidad de observar, interpretar y cuestionar el mundo que nos rodea, incluyendo los mensajes mediáticos que consumimos. En un entorno saturado de estímulos, aprender a pausar, analizar y formular juicios propios se convierte en una competencia clave para la autonomía y la ciudadanía."
+          ]
+        },
+        {
+          "id": "aula",
+          "label": "Educación Mediática en Aula",
+          "paragraphs": [
+            "La educación mediática no es un contenido más, es una forma de ver y enseñar el mundo. Integrarla en el aula es enseñar a los estudiantes a convivir con la información, a construir conocimiento colaborativo y a vincularse con el entorno digital con sentido. Desde la infancia hasta la adultez, la Educación Mediática permite una pedagogía más conectada con la realidad y más consciente de sus impactos."
+          ]
+        },
+        {
+          "id": "produccion",
+          "label": "Producción de Contenidos",
+          "paragraphs": [
+            "Hoy todos somos potencialmente emisores. Crear contenidos no es solo una habilidad técnica, es una forma de intervención en el mundo. Aprender a producir mensajes (videos, podcasts, memes, textos) con propósito, con ética y con mirada crítica, permite ejercer la ciudadanía en red y dialogar desde lo local hacia lo global. Se enseña también a escuchar y a construir con otros."
+          ]
+        },
+        {
+          "id": "evaluar",
+          "label": "Evaluar Información",
+          "paragraphs": [
+            "La capacidad de discriminar entre información confiable y contenido dudoso es una de las alfabetizaciones fundamentales del siglo XXI. No basta con consumir datos: hay que aprender a verificar, a identificar fuentes, a reconocer sesgos. Evaluar información no es desconfiar de todo, sino aprender a mirar con lupa y a valorar el conocimiento bien fundamentado."
+          ]
+        },
+        {
+          "id": "vida",
+          "label": "Vida Digital y Convivencia",
+          "paragraphs": [
+            "Estar en línea no es solo una experiencia técnica, es una experiencia humana. La educación mediática promueve formas de convivencia digital que respetan la diversidad, promueven el diálogo y rechazan la violencia. Aprender a vivir en red implica saber protegerse, pero también saber construir entornos más empáticos, colaborativos y democráticos."
+          ]
+        }
+      ]
+    },
+    "cultura": {
+      "sectionTitle": "Las claves para entender la cultura en la educación mediática parten del reconocimiento de que toda forma de expresión refleja identidades, contextos y valores",
+      "tabs": [
+        {
+          "id": "diversa",
+          "label": "La cultura es diversa",
+          "paragraphs": [
+            "La cultura no es una sola, homogénea o estática. Es múltiple, cambiante y viva. La educación mediática invita a reconocer esa diversidad como un valor, no como un obstáculo. Comprender que existen distintas formas de ver, narrar y habitar el mundo —desde una comunidad rural hasta un colectivo urbano digital— es esencial para construir una ciudadanía inclusiva, basada en el respeto mutuo y el diálogo intercultural. No se trata solo de aceptar la diferencia, sino de aprender con ella."
+          ]
+        },
+        {
+          "id": "representan",
+          "label": "Los medios representan (y omiten)",
+          "paragraphs": [
+            "Todo contenido mediático es una construcción. Ningún medio muestra la realidad tal cual es, sino que selecciona, jerarquiza y enmarca. Por eso, es clave preguntarse: ¿qué se muestra?, ¿qué se oculta?, ¿quién cuenta la historia? La educación mediática propone formar una mirada crítica frente a esas representaciones, entendiendo que lo que se ve en pantalla también moldea estereotipos, relaciones de poder y desigualdades. Reconocer lo omitido es el primer paso para construir narrativas más justas."
+          ]
+        },
+        {
+          "id": "digital",
+          "label": "Lo digital también es cultura",
+          "paragraphs": [
+            "TikToks, memes, emojis, hilos de X, reels, podcasts… todo eso es lenguaje, identidad y expresión. Son nuevas formas de narrar lo cotidiano, lo político, lo íntimo. La educación mediática no puede tratar estas producciones como superficiales, sino como parte de la cultura contemporánea. Comprender sus códigos, su estética y sus modos de circulación es fundamental para dialogar con las nuevas generaciones y para validar las formas en que crean sentido sobre el mundo."
+          ]
+        },
+        {
+          "id": "crear",
+          "label": "Crear es participar",
+          "paragraphs": [
+            "En la cultura digital, ya no somos solo receptores: también somos emisores. Hacer un video, compartir un meme, escribir un comentario… son actos comunicativos. Y toda comunicación es política, porque expresa visiones, afectos y posicionamientos. La educación mediática impulsa a las personas a ejercer su derecho a contar desde su lugar, con su voz, con sus medios. Participar activamente es ejercer ciudadanía cultural, es inscribirse en el presente con dignidad y sentido."
+          ]
+        },
+        {
+          "id": "dialogo",
+          "label": "El diálogo genera sentido",
+          "paragraphs": [
+            "Ni los medios ni los algoritmos reemplazan al encuentro humano. La comprensión no nace del monólogo, sino del intercambio. El diálogo, entre generaciones, territorios, saberes, es el corazón de una cultura democrática. La educación mediática propone crear espacios de conversación reales, donde se escuche con atención, se disienta con respeto y se construya conocimiento colectivo. Porque entender al otro es también entenderse a uno mismo en un mundo compartido."
+          ]
+        },
+        {
+          "id": "derecho",
+          "label": "Comunicar es un derecho",
+          "paragraphs": [
+            "No basta con tener acceso a internet: es necesario tener voz. Poder decir, ser escuchado y expresarse sin miedo es parte esencial de una ciudadanía plena. La educación mediática, desde la mirada de derechos humanos, no solo busca proteger del riesgo (como las fake news o el discurso de odio), sino habilitar el potencial expresivo de todas las personas. Comunicar no es un lujo, es una condición para participar en la vida pública de forma libre y significativa."
+          ]
+        }
+      ]
+    },
+    "tecnologia": {
+      "sectionTitle": "Claves para entender la tecnología en la educación mediática",
+      "tabs": [
+        {
+          "id": "algoritmo",
+          "label": "Algoritmo y Sesgo Informativo",
+          "paragraphs": [
+            "La tecnología no es neutra. Lo que vemos en redes sociales, buscadores o plataformas está mediado por algoritmos que priorizan ciertos contenidos y silencian otros. Comprender cómo funcionan estos sistemas es clave para desarrollar una mirada crítica sobre la información que consumimos. No se trata solo de saber que existen, sino de entender su impacto en nuestras decisiones, percepciones y relaciones."
+          ]
+        },
+        {
+          "id": "privacidad",
+          "label": "Privacidad y Huella Digital",
+          "paragraphs": [
+            "Cada clic deja una marca. En el mundo digital, nuestros datos son moneda de cambio. Saber proteger la privacidad no es solo una cuestión técnica, sino un acto de autonomía. Comprender qué compartimos, con quién y para qué, nos ayuda a ejercer un control más consciente sobre nuestra identidad digital y nuestros derechos."
+          ]
+        },
+        {
+          "id": "brecha",
+          "label": "Brecha Digital y Acceso",
+          "paragraphs": [
+            "La tecnología amplifica desigualdades cuando el acceso no es garantizado para todos. Este eje también visibiliza las barreras que impiden la participación plena en el entorno digital: desde la falta de conectividad hasta la ausencia de formación. Educar en tecnología con enfoque crítico es también educar para la justicia social."
+          ]
+        },
+        {
+          "id": "ia",
+          "label": "Inteligencia Artificial y Cultura Digital",
+          "paragraphs": [
+            "La inteligencia artificial ya no es ciencia ficción. Desde asistentes virtuales hasta sistemas que generan contenido, la IA forma parte del entorno informativo actual. Educar en este contexto implica no solo usar estas tecnologías, sino también comprender su funcionamiento y desarrollar una mirada crítica sobre su impacto en nuestras formas de comunicarnos, aprender y convivir."
+          ]
+        },
+        {
+          "id": "plataformas",
+          "label": "Uso Consciente de Plataformas",
+          "paragraphs": [
+            "La conexión permanente no siempre significa una conexión saludable. Este eje propone reflexionar sobre nuestros hábitos digitales: el tiempo que dedicamos, las emociones que nos generan, los vínculos que construimos. Promueve el equilibrio entre vida online y offline, y enseña a usar la tecnología con sentido, intención y cuidado."
+          ]
+        }
+      ]
     }
   },
   "marco": {
@@ -393,6 +593,22 @@
       "closing": "La tecnología no es neutra. Lo que vemos en redes sociales, buscadores o plataformas está mediado por algoritmos que priorizan ciertos contenidos y silencian otros. Comprender cómo funcionan estos sistemas es clave para desarrollar una mirada crítica sobre la información que consumimos."
     }
   },
+  "multiStepForm": {
+    "stepConfirm": "Confirmación",
+    "confirmTitle": "Gracias — mensaje registrado",
+    "confirmBody1": "En un entorno con endpoint conectado, aquí mostrarías el envío real. Por ahora es una vista previa local: tus datos no salen del navegador hasta que integres la acción del formulario.",
+    "confirmBody2Before": "Te respondemos en la casilla que indicaste cuando el flujo esté activo. Si necesitás otra vía, escribí a",
+    "confirmBody2After": "o usa el",
+    "footerFormLink": "formulario del pie del sitio",
+    "step2Label": "Paso 2 de 3",
+    "step1Label": "Paso 1 de 3 · Elige una o más",
+    "labelMessage": "Mensaje",
+    "labelName": "Nombre",
+    "labelEmail": "Email",
+    "back": "Atrás",
+    "send": "Enviar",
+    "continue": "Continuar"
+  },
   "newsletterForm": {
     "thanks": "Ya te uniste. Pronto recibirás novedades de Precisar.",
     "errorFailed": "No pudimos registrar tu correo. Intenta de nuevo en unos minutos.",
@@ -451,21 +667,51 @@
     "howWeWork": {
       "title": "Cómo trabajamos",
       "items": [
-        { "title": "Co-diseñamos con el contexto", "body": "No aplicamos fórmulas únicas. Adaptamos metodologías, herramientas y recursos a las necesidades, lenguajes y capacidades de cada organización y de las comunidades con las que trabaja." },
-        { "title": "Traducimos evidencia en acción", "body": "Producimos y organizamos evidencia útil para comprender cómo se informan las personas, qué barreras enfrentan y qué herramientas pueden ser más efectivas para acompañarlas." },
-        { "title": "Probamos en terreno", "body": "Diseñamos e implementamos experiencias en contextos reales, con públicos concretos y condiciones diversas, para aprender, ajustar y dejar modelos replicables." },
-        { "title": "Transferimos capacidades", "body": "Buscamos que las organizaciones puedan apropiarse de metodologías, recursos y herramientas, integrándolos en sus propias prácticas más allá de una intervención puntual." },
-        { "title": "Combinamos claridad, tecnología y sentido público", "body": "Desarrollamos herramientas abiertas, contenidos accesibles y experiencias aplicadas que permitan comprender mejor cómo circula la información y cómo usar la tecnología de forma más consciente y provechosa." }
+        {
+          "title": "Co-diseñamos con el contexto",
+          "body": "No aplicamos fórmulas únicas. Adaptamos metodologías, herramientas y recursos a las necesidades, lenguajes y capacidades de cada organización y de las comunidades con las que trabaja."
+        },
+        {
+          "title": "Traducimos evidencia en acción",
+          "body": "Producimos y organizamos evidencia útil para comprender cómo se informan las personas, qué barreras enfrentan y qué herramientas pueden ser más efectivas para acompañarlas."
+        },
+        {
+          "title": "Probamos en terreno",
+          "body": "Diseñamos e implementamos experiencias en contextos reales, con públicos concretos y condiciones diversas, para aprender, ajustar y dejar modelos replicables."
+        },
+        {
+          "title": "Transferimos capacidades",
+          "body": "Buscamos que las organizaciones puedan apropiarse de metodologías, recursos y herramientas, integrándolos en sus propias prácticas más allá de una intervención puntual."
+        },
+        {
+          "title": "Combinamos claridad, tecnología y sentido público",
+          "body": "Desarrollamos herramientas abiertas, contenidos accesibles y experiencias aplicadas que permitan comprender mejor cómo circula la información y cómo usar la tecnología de forma más consciente y provechosa."
+        }
       ]
     },
     "together": {
       "title": "Qué podemos hacer juntos",
       "items": [
-        { "title": "Diagnóstico y escucha", "body": "Procesos para comprender cómo se informan distintos públicos, qué dificultades enfrentan y qué tipo de apoyo necesitan." },
-        { "title": "Metodologías para territorios e instituciones", "body": "Diseño e implementación de modelos de trabajo para municipios, escuelas, organizaciones y servicios públicos." },
-        { "title": "Recursos y herramientas abiertas", "body": "Guías, actividades, materiales explicativos, experiencias participativas y herramientas conversacionales adaptadas a diferentes públicos y etapas de vida." },
-        { "title": "Acompañamiento para adopción institucional", "body": "Apoyo a equipos y organizaciones para incorporar esta agenda desde sus propios roles, capacidades y objetivos." },
-        { "title": "Evidencia para decisiones", "body": "Sistematización de aprendizajes y generación de insumos útiles para mejorar prácticas, programas y formas de comunicación." }
+        {
+          "title": "Diagnóstico y escucha",
+          "body": "Procesos para comprender cómo se informan distintos públicos, qué dificultades enfrentan y qué tipo de apoyo necesitan."
+        },
+        {
+          "title": "Metodologías para territorios e instituciones",
+          "body": "Diseño e implementación de modelos de trabajo para municipios, escuelas, organizaciones y servicios públicos."
+        },
+        {
+          "title": "Recursos y herramientas abiertas",
+          "body": "Guías, actividades, materiales explicativos, experiencias participativas y herramientas conversacionales adaptadas a diferentes públicos y etapas de vida."
+        },
+        {
+          "title": "Acompañamiento para adopción institucional",
+          "body": "Apoyo a equipos y organizaciones para incorporar esta agenda desde sus propios roles, capacidades y objetivos."
+        },
+        {
+          "title": "Evidencia para decisiones",
+          "body": "Sistematización de aprendizajes y generación de insumos útiles para mejorar prácticas, programas y formas de comunicación."
+        }
       ]
     },
     "partners": {
@@ -514,5 +760,2002 @@
       "body": "Si tu organización quiere desarrollar herramientas, metodologías o experiencias para fortalecer la relación de las personas con la información y promover un uso más consciente, útil y constructivo de la tecnología, nos interesa conversar.",
       "button": "Escríbenos"
     }
+  },
+  "programPages": {
+    "shared": {
+      "collaborateCta": "Colabora con nosotros"
+    },
+    "aprenderDigital": {
+      "metaTitle": "Aprender Digital: Nunca es Tarde · Precisar",
+      "metaDescription": "Un espacio seguro y amigable donde personas adultas y mayores desarrollan confianza y habilidades digitales.",
+      "heroEyebrow": "Programas · Aprender Digital",
+      "heroTitleLine1": "Aprender Digital:",
+      "heroTitleLine2": "Nunca es Tarde",
+      "heroSub": "Un espacio seguro, cercano y amigable, donde personas adultas y mayores desarrollan confianza, adquieren habilidades digitales y mediáticas útiles, y disfrutan conectarse con su entorno, su comunidad y sus seres queridos.",
+      "objectivesEyebrow": "Nuestros objetivos",
+      "objectivesTitleLine1": "Capacitamos para una vida",
+      "objectivesTitleLine2": "digital plena y segura",
+      "objectivesIntro": "Capacitamos a nuestros participantes para una vida digital plena y segura.",
+      "modulos": [
+        {
+          "titulo": "Educación Mediática Digital",
+          "desc": "Enseñamos a identificar la desinformación (integridad informativa), reconocer sesgos y desarrollar un pensamiento crítico para navegar el mundo digital de forma informada. Esto te permitirá discernir la veracidad de la información y protegerte de contenidos engañosos."
+        },
+        {
+          "titulo": "Navegación Segura",
+          "desc": "Aprenderás a identificar y evitar fraudes en línea, proteger tus datos personales y gestionar tu privacidad en redes y aplicaciones, asegurando una experiencia digital tranquila y sin riesgos. Te daremos las herramientas para sentirte seguro en cada clic."
+        },
+        {
+          "titulo": "Inteligencia Artificial",
+          "desc": "La Inteligencia Artificial (IA) es la capacidad de las máquinas para imitar y realizar tareas que requieren inteligencia humana. Exploraremos cómo la IA está transformando nuestra vida diaria y el futuro. Descubriremos sus aplicaciones prácticas y cómo interactuar con ella de forma consciente."
+        },
+        {
+          "titulo": "Bienestar Digital",
+          "desc": "Encuentra un equilibrio saludable entre el tiempo que pasas en línea y tus actividades presenciales, utilizando las herramientas digitales para enriquecer tu vida y fortalecer tus vínculos sociales, sin que sustituyan las interacciones cara a cara. Promovemos un uso consciente y beneficioso de la tecnología."
+        }
+      ],
+      "contextParas": [
+        "Aunque en Chile el 96,5% de la población cuenta con algún tipo de conectividad, esa cobertura no se traduce automáticamente en capacidades de navegación segura y autónoma en el entorno digital.",
+        "Vivimos un momento histórico marcado por avances tecnológicos que amplían las posibilidades de producción y difusión de información, pero también generan un ecosistema saturado por la prisa, el inmediatismo y la dificultad para establecer relaciones profundas.",
+        "Los beneficios y, sobre todo, los riesgos derivados de nuestra interacción con medios y tecnologías han situado a la educación mediática y digital como una herramienta que debería estar integrada en la agenda de múltiples instituciones.",
+        "Reconocer el acceso a estas herramientas como un derecho no basta: es imprescindible incorporarlas en la educación formal y abrir espacios de debate más allá de las aulas, dirigidos especialmente a quienes ya no forman parte del sistema escolar.",
+        "Tener la oportunidad de entender la cultura digital y participar de manera crítica resulta clave para personas adultas y mayores. Esa brecha amplifica sus vulnerabilidades, limitando su acceso al mercado laboral, a información confiable, a servicios básicos y a otros derechos fundamentales.",
+        "Resulta imperativo diseñar e implementar políticas sólidas, destinar recursos adecuados y fomentar alianzas con empresas y organizaciones de diversos sectores.",
+        "Solo así podremos democratizar el acceso a la educación mediática y digital, garantizando que personas de todas las edades desarrollen autonomía y pensamiento crítico, tanto en entornos en línea como fuera de línea."
+      ],
+      "impactEyebrow": "Impacto en la comunidad",
+      "impactTitleLine1": "Más allá de las habilidades",
+      "impactTitleLine2": "individuales",
+      "impactIntro": "Un programa que fortalece a todos.",
+      "impactos": [
+        {
+          "titulo": "Mayor Autonomía",
+          "desc": "Facilita trámites y comunicaciones, brindando independencia digital."
+        },
+        {
+          "titulo": "Reducción del Aislamiento",
+          "desc": "Fortalece lazos sociales y digitales con familiares y amigos."
+        },
+        {
+          "titulo": "Acceso Ágil a Información",
+          "desc": "Información y servicios locales al alcance de la mano."
+        },
+        {
+          "titulo": "Empoderamiento Cívico",
+          "desc": "Participación activa en iniciativas vecinales y plataformas ciudadanas."
+        }
+      ],
+      "methodologyEyebrow": "Nuestra metodología",
+      "methodologyTitleLine1": "Aprendemos juntos,",
+      "methodologyTitleLine2": "a tu ritmo",
+      "metodologia": [
+        {
+          "titulo": "Sesiones Híbridas",
+          "desc": "Clases presenciales y virtuales, con apoyo individualizado."
+        },
+        {
+          "titulo": "Aprendizaje Colaborativo y Co-creación",
+          "desc": "Participantes se apoyan mutuamente y co-crean materiales que enriquecen el taller."
+        },
+        {
+          "titulo": "Acompañamiento Continuo",
+          "desc": "Línea de ayuda y encuentros mensuales de repaso para resolver dudas."
+        },
+        {
+          "titulo": "Materiales Accesibles",
+          "desc": "Guías impresas y videos paso a paso para repasar a tu ritmo."
+        }
+      ],
+      "ctaTitleLine1": "Lleva Aprender Digital",
+      "ctaTitleLine2": "a tu comunidad",
+      "ctaBody": "¿Representas a un municipio, junta de vecinos o centro comunitario? Te invitamos a comunicarte con nosotros para acercar este programa a los habitantes.",
+      "tabs": {
+        "ariaLabel": "Módulos formativos",
+        "items": [
+          {
+            "id": "mediatica",
+            "label": "Educación mediática",
+            "panelTitle": "Educación Mediática Digital",
+            "body": "En este módulo fundamental te equiparemos con las herramientas para navegar el vasto ecosistema de información. Aprenderás a identificar la desinformación (integridad informativa) y las noticias falsas, reconocer los sesgos implícitos en diversos contenidos incluyendo los generados por Inteligencia Artificial, y distinguir imágenes y videos manipulados. Desarrollarás un pensamiento crítico que te permitirá discernir la veracidad de la información, protegerte de narrativas engañosas y consumir medios de forma consciente e informada."
+          },
+          {
+            "id": "navegacion",
+            "label": "Navegación segura",
+            "panelTitle": "Navegación Segura",
+            "body": "Aprenderás a identificar y evitar fraudes en línea, proteger tus datos personales y gestionar tu privacidad en redes y aplicaciones. Te daremos las herramientas para sentirte seguro en cada clic y disfrutar de una experiencia digital tranquila, sin riesgos ni sorpresas."
+          },
+          {
+            "id": "ia",
+            "label": "Inteligencia Artificial",
+            "panelTitle": "Inteligencia Artificial",
+            "body": "La Inteligencia Artificial es la capacidad de las máquinas para imitar y realizar tareas que requieren inteligencia humana: aprender, razonar y resolver problemas. Exploraremos cómo la IA está transformando nuestra vida diaria y el futuro. Descubriremos sus aplicaciones prácticas y cómo interactuar con ella de forma consciente."
+          },
+          {
+            "id": "bienestar",
+            "label": "Bienestar digital",
+            "panelTitle": "Bienestar Digital",
+            "body": "Encontrarás un equilibrio saludable entre el tiempo que pasas en línea y tus actividades presenciales, utilizando las herramientas digitales para enriquecer tu vida y fortalecer tus vínculos sociales sin que sustituyan las interacciones cara a cara. Promovemos un uso consciente y beneficioso de la tecnología."
+          }
+        ]
+      }
+    },
+    "docentes": {
+      "metaTitle": "Educación Mediática Digital para Docentes · Precisar",
+      "metaDescription": "Recursos didácticos, guías de aula y talleres para que los docentes preparen a sus estudiantes para un presente digital consciente, seguro y participativo.",
+      "heroEyebrow": "Programas · Docentes",
+      "heroTitleLine1": "Educación Mediática Digital",
+      "heroTitleLine2": "para Docentes",
+      "heroSub": "Prepara a tus estudiantes para un presente digital consciente, seguro y participativo. Ponemos a tu disposición recursos didácticos, guías de aula y actividades prácticas que fortalecen la evaluación crítica de la información, la creación responsable de contenidos y la convivencia en entornos digitales. Una herramienta para tus clases que no significa más trabajo, sino más confianza, seguridad y reflexión para ti y tus estudiantes en el mundo digital.",
+      "objectivesEyebrow": "Nuestros objetivos",
+      "objectivesTitleLine1": "Lo que queremos",
+      "objectivesTitleLine2": "lograr contigo",
+      "objetivos": [
+        {
+          "titulo": "Fomentar el Pensamiento Crítico",
+          "desc": "Capacitar a los docentes para enseñar a los estudiantes a evaluar críticamente la información, identificar desinformación (integridad informativa) y reconocer sesgos en diversas fuentes digitales, incluyendo contenidos generados por IA."
+        },
+        {
+          "titulo": "Promover la Producción Responsable",
+          "desc": "Brindar herramientas a los educadores para guiar a los estudiantes en la creación de contenidos digitales de forma ética y responsable, respetando derechos de autor y promoviendo mensajes constructivos."
+        },
+        {
+          "titulo": "Enseñar Participación Ética",
+          "desc": "Formar a los docentes para que instruyan a sus alumnos sobre la participación activa, segura y respetuosa en redes y plataformas digitales, fomentando la ciudadanía digital."
+        },
+        {
+          "titulo": "Integrar la Educación Mediática",
+          "desc": "Facilitar la integración de la educación mediática digital en el currículo escolar, proporcionando guías y recursos que se adapten a diferentes asignaturas y niveles educativos."
+        }
+      ],
+      "benefitsEyebrow": "Beneficios para tu comunidad escolar",
+      "benefitsTitleLine1": "Potencia la formación docente",
+      "benefitsTitleLine2": "y transforma la experiencia educativa",
+      "benefitsIntro": "Potencia la formación docente y transforma la experiencia educativa de tus estudiantes.",
+      "beneficios": [
+        {
+          "titulo": "Estudiantes Reflexivos y Resilientes",
+          "desc": "Ayuda a tus estudiantes a desarrollar habilidades para pensar críticamente, reconocer contenidos falsos y actuar con confianza y respeto en el mundo digital."
+        },
+        {
+          "titulo": "Docentes Empoderados e Innovadores",
+          "desc": "Fortalece a tu equipo docente con herramientas prácticas, enfoque pedagógico actualizado y confianza para enfrentar los desafíos del entorno digital. Capacítalos para guiar a sus estudiantes en el uso crítico, seguro y creativo de la tecnología, y para liderar procesos de innovación educativa en sus comunidades escolares."
+        },
+        {
+          "titulo": "Comunidad Educativa Fortalecida",
+          "desc": "Crea un ambiente de aprendizaje donde estudiantes, docentes y familias colaboren para un uso más consciente y ético de la tecnología."
+        },
+        {
+          "titulo": "Seguridad y Privacidad Digital",
+          "desc": "Al incorporar buenas prácticas de protección de datos y control de privacidad, se reducen significativamente los riesgos de ciberacoso y usos indebidos de la tecnología, garantizando un entorno digital más seguro."
+        }
+      ],
+      "methodologyEyebrow": "Nuestra metodología",
+      "methodologyTitleLine1": "Cómo aprendemos",
+      "methodologyTitleLine2": "juntos",
+      "metodologia": [
+        {
+          "titulo": "Talleres Prácticos Online",
+          "desc": "4 sesiones en vivo por Zoom con actividades 'manos a la obra' y trabajo autocontrolado en la plataforma digital del Programa EducaMedios, para avanzar al ritmo de cada docente."
+        },
+        {
+          "titulo": "Comunidad de Práctica",
+          "desc": "Conexión con otros docentes para compartir experiencias, co-crear materiales y resolver desafíos comunes."
+        },
+        {
+          "titulo": "Recursos Didácticos",
+          "desc": "Acceso a guías, plantillas, videos y ejemplos listos para usar y adaptar en sus clases."
+        },
+        {
+          "titulo": "Acompañamiento Continuo",
+          "desc": "Soporte y seguimiento personalizado para asegurar el acompañamiento en sala de aula."
+        }
+      ],
+      "modulesEyebrow": "Módulos formativos",
+      "modulesTitleLine1": "Un camino estructurado",
+      "modulesTitleLine2": "para el aprendizaje digital",
+      "modulesIntro": "Paso a paso, módulo a módulo.",
+      "moduleLabel": "Módulo {n}",
+      "modulos": [
+        {
+          "id": "fundamentos",
+          "label": "Fundamentos de la Educación Mediática Digital",
+          "desc": "Comprender, enseñar y transformar. Explora el impacto de los medios y plataformas digitales en la vida cotidiana y su vínculo con los objetivos educativos. Aprende a integrar la educación mediática y digital en el aula a través de proyectos aplicados como la creación de contenidos, el análisis crítico de información y el debate guiado, fortaleciendo así el rol del docente como formador de ciudadanía digital activa."
+        },
+        {
+          "id": "desinformacion",
+          "label": "Desinformación (integridad informativa), Verificación de Datos",
+          "desc": "Adquiere estrategias prácticas para enseñar a tus estudiantes a identificar y desmantelar la desinformación (integridad informativa): aprenderán técnicas de verificación de datos, uso de herramientas de fact-checking y métodos para contrastar fuentes, reconocer patrones de manipulación y aplicar estas competencias tanto en sus investigaciones escolares como en su día a día."
+        },
+        {
+          "id": "algoritmos",
+          "label": "Algoritmos e Inteligencia Artificial",
+          "desc": "Profundiza en cómo los algoritmos y la Inteligencia Artificial influyen en lo que vemos en línea, desde redes sociales hasta motores de búsqueda. Analizaremos los sesgos inherentes a la IA y su impacto en la información, y te daremos herramientas para enseñar a tus estudiantes a evaluar críticamente el contenido generado o filtrado por estas tecnologías. Además, aprenderás a establecer condiciones de uso claras —como acuerdos de responsabilidad digital, criterios de selección de fuentes automatizadas y proyectos colaborativos docente-estudiante— que fomenten un entorno seguro y reflexivo para explorar la IA en el aula."
+        },
+        {
+          "id": "produccion",
+          "label": "Producción de Contenidos Digitales y Ciudadanía",
+          "desc": "Este módulo te capacitará para guiar a tus estudiantes en la creación de contenidos digitales responsables y significativos. Exploraremos herramientas para la producción de texto, imagen y video, enfocándonos en la ética, el respeto a la propiedad intelectual y el impacto de sus mensajes. Fomentaremos la participación activa y constructiva en el espacio digital, convirtiendo a los estudiantes en creadores conscientes y responsables."
+        },
+        {
+          "id": "seguridad",
+          "label": "Seguridad, Privacidad y Bienestar Digital",
+          "desc": "Aprende a abordar temas cruciales como la ciberseguridad, la protección de datos personales y la gestión de la privacidad con tus estudiantes. Desarrollarás estrategias para promover un uso saludable y equilibrado de la tecnología, previniendo el ciberacoso y fomentando un bienestar digital que integre la vida online y offline."
+        },
+        {
+          "id": "integracion",
+          "label": "Integración Curricular y Proyectos en Educación Mediática",
+          "desc": "Descubre cómo integrar la educación mediática digital en diversas asignaturas y niveles educativos. Te proporcionaremos ejemplos de proyectos exitosos y te guiaremos en el diseño de actividades prácticas que permitan a tus estudiantes aplicar sus conocimientos, culminando en proyectos significativos que demuestren su educación digital y mediática."
+        }
+      ],
+      "ctaTitleLine1": "Lleva la educación mediática",
+      "ctaTitleLine2": "a tu escuela",
+      "ctaBody": "Contáctanos para diseñar una propuesta a medida de tu comunidad educativa."
+    },
+    "pensamientoCritico": {
+      "metaTitle": "Formación en Pensamiento Crítico Digital",
+      "metaDescription": "Dos talleres: verificación de noticias y alfabetización mediática en la era de la IA. Modalidades online y presencial para equipos y comunidades.",
+      "heroEyebrow": "■ PENSAMIENTO CRÍTICO DIGITAL · PROGRAMA 05",
+      "heroTitleLine1": "Consumidores críticos y competentes",
+      "heroTitleLine2": "en el ecosistema digital.",
+      "heroSub": "Herramientas para identificar, analizar y verificar la información que circula en el mundo digital.",
+      "heroStatLabel": "talleres disponibles",
+      "statWord": "Crítico.",
+      "statSub": "Competente. Informado.",
+      "introParas": [
+        "Para enfrentar este desafío, se han creado cursos diseñados para transformar a los participantes en consumidores críticos y competentes, entregándoles las herramientas necesarias para identificar, analizar y verificar la información que encuentran en el ecosistema digital actual.",
+        "Entendemos que cada persona tiene necesidades distintas, por eso ofrecemos dos formas de tomar los cursos."
+      ],
+      "modalidadesTitle": "Flexibilidad para aprender",
+      "modalidades": [
+        {
+          "num": "01",
+          "title": "Modalidad Online",
+          "text": "Un facilitador una vez por semana. Cada sesión de 90 minutos con actividades prácticas con los participantes."
+        },
+        {
+          "num": "02",
+          "title": "Modalidad Presencial",
+          "text": "Talleres vivenciales en grupos reducidos, máximo 15 personas, con ejercicios prácticos, dinámicas grupales y materiales impresos."
+        }
+      ],
+      "taller1Eyebrow": "■ TALLER 01",
+      "taller1Title": "Entendiendo las Noticias y Verificación de Hechos",
+      "taller1Kicker": "¿Que no te engañen! Aprende a verificar lo que lees en internet.",
+      "taller1Body": [
+        "¿Recibes cadenas en WhatsApp o ves noticias en Facebook y dudas si son ciertas? Este taller es una guía de herramientas y consejos prácticos para que aprendas a diferenciar la información real de la falsa en pocos minutos. El objetivo es que te sientas más seguro al navegar por internet y que tengas la confianza para saber qué creer y qué descartar.",
+        "Dirigido a cualquier persona que use redes sociales y quiera aprender a protegerse de los engaños y la desinformación (integridad informativa). No necesitas saber nada de tecnología, solo tener curiosidad."
+      ],
+      "outcomesLead": "Al finalizar serás capaz de:",
+      "taller1Outcomes": [
+        "Aplicar una lista de chequeo de 3 pasos para evaluar cualquier noticia.",
+        "Reconocer las señales de alerta más comunes en una noticia falsa.",
+        "Usar herramientas gratuitas para saber si una foto es real o si es antigua.",
+        "Conversar con calma con amigos o familiares que comparten información falsa."
+      ],
+      "taller1Modulos": [
+        {
+          "num": "01",
+          "title": "¿Por qué las noticias falsas son tan atractivas?",
+          "desc": "Los titulares impactantes o que provocan enojo están diseñados para que los compartamos sin pensar. Entender esto es el primer paso para no caer en la trampa."
+        },
+        {
+          "num": "02",
+          "title": "El método de los 3 pasos: Pausa, Pregunta y Compara",
+          "desc": "Pausa: No compartir de inmediato. Pregunta: ¿Quién dice esto? ¿Por qué? Compara: ¿Algún medio serio informa lo mismo?"
+        },
+        {
+          "num": "03",
+          "title": "Herramientas fáciles al alcance de tu mano",
+          "desc": "Taller práctico donde aprenderás a usar la búsqueda inversa de imágenes de Google en tu propio celular."
+        },
+        {
+          "num": "04",
+          "title": "¿Y ahora qué hago?",
+          "desc": "Plan de acción personal para consumir información de manera más saludable y consejos para actuar cuando alguien comparte algo falso."
+        }
+      ],
+      "taller2Eyebrow": "■ TALLER 02",
+      "taller2Title": "Alfabetización Mediática y Digital en la Era de la IA",
+      "taller2Kicker": "Entendiendo el Mundo Digital: Cómo la IA y los Algoritmos deciden lo que ves.",
+      "taller2Body": [
+        "¿Sientes que Instagram te lee la mente o que YouTube siempre sabe qué video recomendarte? No es magia, son algoritmos e inteligencia artificial. En este taller vamos a abrir el capó de internet para que entiendas de forma simple cómo estas tecnologías organizan el contenido que consumes cada día y cómo esto impacta tu visión del mundo.",
+        "Dirigido a todas las personas curiosas por saber cómo funcionan las redes sociales por dentro y el impacto que la tecnología tiene en nuestras vidas."
+      ],
+      "taller2Outcomes": [
+        "Explicar con un ejemplo simple qué es un algoritmo.",
+        "Entender cómo las plataformas personalizan el contenido que te muestran.",
+        "Reconocer el efecto de la burbuja de filtros en tu día a día.",
+        "Identificar las nuevas formas en que la IA se usa para crear contenido real y falso."
+      ],
+      "taller2Modulos": [
+        {
+          "num": "01",
+          "title": "El chef secreto de tu internet: ¿Qué es un algoritmo?",
+          "desc": "Ejemplos cotidianos como una receta de cocina para explicar qué es un algoritmo y cómo lo usan Spotify, Netflix, Facebook e Instagram."
+        },
+        {
+          "num": "02",
+          "title": "Un mundo hecho para ti: La personalización y la burbuja",
+          "desc": "Cómo las plataformas aprenden de tus gustos para crear un perfil sobre ti y el fenómeno de la burbuja de filtros."
+        },
+        {
+          "num": "03",
+          "title": "La llegada de la Inteligencia Artificial",
+          "desc": "Qué es la IA, cómo puede generar imágenes, textos y voces que parecen reales, y para qué se usa de forma positiva y cuáles son sus riesgos."
+        },
+        {
+          "num": "04",
+          "title": "¿Cómo navegar en un mundo con IA?",
+          "desc": "Consejos prácticos para moverte en este nuevo escenario y valorar las fuentes de información confiables."
+        }
+      ],
+      "durationPills": [
+        "Medio día · 4 horas",
+        "Día completo · 7 horas"
+      ],
+      "beneficiosTitle": "Beneficios para tu organización",
+      "beneficios": [
+        {
+          "num": "01",
+          "title": "Mejora en la Toma de Decisiones y Eficiencia",
+          "desc": "Al dotar a tus equipos de herramientas para identificar, analizar y verificar información, mejoras su capacidad para tomar decisiones acertadas y optimizar su tiempo."
+        },
+        {
+          "num": "02",
+          "title": "Mitigación de Riesgos y Protección de la Reputación",
+          "desc": "Capacitar en la detección de desinformación (integridad informativa) disminuye el riesgo de que la organización actúe basándose en datos falsos, previniendo crisis y protegiendo la reputación."
+        },
+        {
+          "num": "03",
+          "title": "Fortalecimiento de la Cultura Interna",
+          "desc": "Los cursos promueven un ambiente basado en el análisis de datos, el pensamiento crítico y el diálogo constructivo, reduciendo la polarización y mejorando la colaboración."
+        },
+        {
+          "num": "04",
+          "title": "Impacto Social",
+          "desc": "Al dominar el pensamiento crítico, tus colaboradores se convierten en agentes de apoyo en sus comunidades y familias, contribuyendo a una sociedad mejor informada."
+        }
+      ],
+      "ctaTitle": "Adapta el programa a las necesidades específicas de tu institución.",
+      "ctaSteps": [
+        "01 Solicita una propuesta detallada.",
+        "02 Coordinamos una presentación.",
+        "03 Co-creamos el programa a tu medida."
+      ],
+      "ctaBody": "Consideramos esta capacitación una oportunidad estratégica en el capital humano y la resiliencia de tu organización."
+    }
+  },
+  "programsHub": {
+    "metaTitle": "Hub Digital Consciente",
+    "metaDescription": "Muestras portátiles e interactivas de cultura digital para plazas, bibliotecas, educación, corporativos y territorio.",
+    "heroEyebrow": "■ HUB DIGITAL CONSCIENTE · PROGRAMA 02",
+    "heroTitle": "Cultura digital que viaja a donde están las personas.",
+    "statSub": "Diseñada para cualquier espacio.",
+    "body1": "En el Hub Digital Consciente transformamos la cultura digital en experiencias tangibles. A través de muestras interactivas y portátiles, exploramos el impacto de la tecnología en nuestra sociedad, llevando el conocimiento especializado directamente a eventos, municipios y espacios públicos.",
+    "body2": "No solo exponemos contenidos; creamos espacios de diálogo y acción. Traducimos conceptos complejos, como la desinformación (integridad informativa), la IA y la privacidad, en experiencias sensoriales accesibles que impulsan el uso responsable de la tecnología en la ciudadanía.",
+    "interactiveAria": "Exploración interactiva del Hub Digital Consciente",
+    "ctaTitle": "Lleva el Hub Digital Consciente a tu espacio.",
+    "cylinder": {
+      "topTitle": "El Hub en 360°",
+      "topHint": "arrastra para girar",
+      "clickHint": "click para leer →",
+      "prevSection": "Sección anterior",
+      "nextSection": "Sección siguiente",
+      "sectionsAria": "Secciones",
+      "sectionN": "Sección {n}",
+      "backToHub": "← volver al Hub en 360°",
+      "nextNav": "Siguiente → {kicker}",
+      "downloadButton": "Descargar información completa ↓",
+      "printTitle": "Hub Digital Consciente",
+      "printSubtitle": "Programa 02 · Precisar",
+      "printSocialTitle": "Redes y web",
+      "printWeb": "Web: precisar.net",
+      "printX": "X / Twitter: x.com/precisar_",
+      "printInstagram": "Instagram: instagram.com/_precisar",
+      "printFacebook": "Facebook: facebook.com/precisar",
+      "printYouTube": "YouTube: youtube.com/channel/UCQKEOqwm3pxIeO6E1Hsokhw",
+      "printMadeIn": "© {year} Precisar. Hecho con criterio en Chile y México.",
+      "printLicense": "Contenidos bajo licencia Creative Commons CC BY 4.0",
+      "sections": [
+        {
+          "kicker": "01 · Introducción",
+          "title": "Cultura digital\nque viaja",
+          "subItinerantes": true,
+          "subSuffix": " Para cualquier espacio.",
+          "body": "En el Hub Digital Consciente nos sumergimos en la cultura digital a través de muestras interactivas y temáticas. Cada una es portátil y está diseñada para explorar cómo los medios y la tecnología influyen en nuestra sociedad, llevando el conocimiento directamente a eventos, municipios, espacios públicos y más.",
+          "groups": [
+            {
+              "label": "¿Adónde y para quién?",
+              "items": [
+                "Plazas, bibliotecas, salas culturales, establecimientos educacionales, auditorios y eventos corporativos.",
+                "Pensada para un público amplio de cualquier edad y nivel educacional.",
+                "Cada visitante obtiene perspectivas críticas sobre la cultura digital y herramientas prácticas."
+              ]
+            },
+            {
+              "label": "Nuestro enfoque",
+              "items": [
+                "No solo presentamos temas: también abrimos un espacio para el diálogo y la acción.",
+                "Traducimos conceptos complejos —desinformación (integridad informativa), IA, privacidad— en experiencias sensoriales accesibles.",
+                "Impulsamos conversaciones significativas sobre el uso responsable de la tecnología."
+              ]
+            }
+          ],
+          "bg": "#DB5227",
+          "tc": "#F5F2EC"
+        },
+        {
+          "kicker": "02 · Contenido",
+          "title": "Lo que\nencontrarás",
+          "sub": "4 elementos que cautivarán.",
+          "body": "Ofrecemos una combinación de elementos visuales y prácticos que cautivarán a tus participantes desde el primer momento.",
+          "groups": [
+            {
+              "label": "Elementos de cada muestra",
+              "items": [
+                "Carteles visualmente impactantes — Diseñados para provocar conversación y reflexión inmediata sobre temas cruciales de la tecnología contemporánea. Cada póster actúa como un 'abre ojos' que presenta información de forma clara y estética.",
+                "Aplicaciones interactivas — Invitan a experimentar de primera mano tecnologías de punta como realidad aumentada e IA para crear experiencias memorables que conectan con el público de manera lúdica.",
+                "Animaciones de video — Dan pie a discusiones profundas sobre privacidad y detección de noticias falsas. Exploran dilemas éticos del mundo digital mediante historias visuales.",
+                "Experiencias prácticas — Estimulan debates significativos entre participantes. Complemento perfecto antes de talleres, charlas o seminarios sobre cultura digital."
+              ]
+            }
+          ],
+          "bg": "#023661",
+          "tc": "#F5F2EC"
+        },
+        {
+          "kicker": "03 · Formatos",
+          "title": "Modelos de\ninstalación",
+          "sub": "PIXEL · VECTOR · HOLO",
+          "body": "Tres paquetes modulares que se ajustan al espacio, la duración y el público de tu evento.",
+          "groups": [
+            {
+              "label": "PIXEL — Formato básico para espacios reducidos",
+              "items": [
+                "2 Carteles Temáticos — Conceptos esenciales de la edición elegida. Diseño compacto que introduce los temas principales de forma visual e impactante.",
+                "1 Pantalla de Animación — Monitor que reproduce contenido audiovisual básico con narrativas introductorias y datos clave.",
+                "2 Experiencias Interactivas — Aplicaciones simples en tablets que permiten exploración básica de conceptos a través de simulaciones sencillas.",
+                "Espacio requerido: 8–12 m²",
+                "Tiempo de instalación: 45–60 minutos",
+                "Duración recomendada: 1–3 días",
+                "Audiencia: 50–100 personas por día"
+              ]
+            },
+            {
+              "label": "VECTOR — Formato estándar para eventos medianos",
+              "items": [
+                "3 Carteles Temáticos — Representan bloques clave como algoritmos, desinformación (integridad informativa), bots y manipulación informativa.",
+                "3 Pantallas de Animación — Monitores horizontales que proyectan visualizaciones dinámicas, simulaciones o contenidos de contexto.",
+                "3 Estaciones Interactivas — Paneles digitales verticales con pantallas táctiles para aplicaciones, juegos y módulos de verificación.",
+                "Experiencias Prácticas para Debate (opcional según objetivo del evento).",
+                "Espacio requerido: 15–25 m²",
+                "Tiempo de instalación: 2–3 horas",
+                "Duración recomendada: 3 días – 2 semanas",
+                "Audiencia: 100–300 personas por día"
+              ]
+            },
+            {
+              "label": "HOLO — Formato completo para instalaciones duraderas",
+              "items": [
+                "6 Carteles Visuales — Tres paneles frontales y cuatro laterales que estructuran el espacio y capturan la atención.",
+                "3 Animaciones de Video — Pantallas con datos, narrativas, visualizaciones y simulaciones interactivas.",
+                "4 Aplicaciones Interactivas — Estaciones digitales diseñadas en coordinación con el cliente según objetivos del evento.",
+                "Consultas o encuestas adaptadas al interés del público o del cliente.",
+                "Zona Central — Área con mobiliario cómodo para la reflexión, el debate, el descanso o actividades guiadas.",
+                "Espacio requerido: 30–50 m²",
+                "Tiempo de instalación: 4–6 horas",
+                "Duración recomendada: 2 semanas – permanente",
+                "Audiencia: 200–500 personas por día"
+              ]
+            }
+          ],
+          "bg": "#F5F2EC",
+          "tc": "#0A0C12"
+        },
+        {
+          "kicker": "04 · Implementación",
+          "title": "10 formas de\nimplementar",
+          "sub": "De activaciones a experiencias inmersivas.",
+          "body": "Pueden integrarse de múltiples formas en el espacio y el tiempo de tu evento, sin limitarse a un tipo de público específico.",
+          "groups": [
+            {
+              "label": "Posibilidades de implementación",
+              "items": [
+                "01 · Activación previa al evento — Despliega módulos interactivos en pasillos o vestíbulos para que la audiencia descubra conceptos clave antes de cualquier actividad programada.",
+                "02 · Puntos de encuentro temáticos — Crea estaciones dedicadas a la privacidad, la IA, la desinformación (integridad informativa) o la ética digital, permitiendo que los visitantes transiten libremente entre ellas.",
+                "03 · Rutas autoguiadas — Diseña un recorrido cronológico o lógico que guíe a las personas por distintos retos y experiencias, cada uno acompañado de soportes visuales y multimedia.",
+                "04 · Elementos móviles — Utiliza tablets, kioscos portátiles o gafas de realidad aumentada para llevar la instalación a espacios reducidos o itinerantes dentro del mismo recinto.",
+                "05 · Material descargable — Ofrece a los visitantes códigos QR que enlacen a guías, infografías y recursos digitales para profundizar después del evento.",
+                "06 · Salas de reflexión — Habilita áreas con mobiliario cómodo donde se proyecten cortos vídeos de discusión o paneles de expertos, invitando al diálogo espontáneo.",
+                "07 · Interacción IA en vivo — Incluye chatbots o asistentes virtuales que respondan preguntas, generen análisis de perfiles de privacidad y ofrezcan recomendaciones personalizadas.",
+                "08 · Experiencias inmersivas — Incorpora videoproyecciones 360°, realidad virtual y entornos sonoros para sumergir al visitante en escenarios que ilustran riesgos y oportunidades tecnológicas.",
+                "09 · Gamificación — Implementa desafíos y juegos basados en preguntas sobre los temas decididos, recompensando la participación con insignias digitales o reconocimientos físicos.",
+                "10 · Integración con ponencias — Combina las estaciones interactivas con conferencias, de modo que cada ponente pueda referirse a los módulos específicos para ejemplificar sus argumentos."
+              ]
+            }
+          ],
+          "bg": "#DB5227",
+          "tc": "#F5F2EC"
+        },
+        {
+          "kicker": "05 · Personalización",
+          "title": "Ediciones\ntemáticas",
+          "sub": "Desinformación (integridad informativa) · IA · Comunitaria",
+          "body": "Hub Digital Consciente ofrece tres paquetes modulares —Pixel, Vector, Holo— que se ajustan al espacio, la duración y el público del evento.",
+          "groups": [
+            {
+              "label": "Ediciones temáticas",
+              "items": [
+                "Profundiza en áreas específicas (IA, desinformación (integridad informativa), privacidad digital, etc.) incorporando contenidos y tecnologías especializadas, como estaciones de realidad virtual o simulaciones avanzadas."
+              ]
+            },
+            {
+              "label": "Edición comunitaria",
+              "items": [
+                "Adapta la realidad de tu comuna o grupo objetivo, integrando dinámicas de participación local y fórums de debate que empoderan a vecinos de todas las edades."
+              ]
+            },
+            {
+              "label": "Componentes a la carta",
+              "items": [
+                "Elige piezas sueltas, pósters, mini-experimentos interactivos, kits de cultura digital, para complementar la exposición según las necesidades."
+              ]
+            },
+            {
+              "id": "ediciones-disponibles",
+              "label": "Ediciones disponibles",
+              "items": [
+                {
+                  "text": "01 · Edición Desinformación (integridad informativa) — Ver especificaciones completas →",
+                  "pdf": "desinformacion"
+                },
+                {
+                  "text": "02 · Edición IA y Algoritmos — Ver especificaciones completas →",
+                  "pdf": "ia-algoritmos"
+                }
+              ]
+            }
+          ],
+          "bg": "#023661",
+          "tc": "#F5F2EC"
+        },
+        {
+          "kicker": "06 · Proceso",
+          "title": "Lleva el Hub\na tu espacio",
+          "sub": "Diseñamos a medida.",
+          "body": "Definimos contigo espacio, público y duración, y armamos una propuesta alineada a tu evento o territorio.",
+          "groups": [
+            {
+              "label": "El proceso",
+              "items": [
+                "01 · Definimos espacio, público y duración imaginados para la muestra.",
+                "02 · Diseñamos la propuesta a medida de tu comunidad y objetivos.",
+                "03 · Co-creamos juntos el montaje, contenidos y cronograma."
+              ]
+            }
+          ],
+          "bg": "#F5F2EC",
+          "tc": "#0A0C12"
+        }
+      ]
+    },
+    "modelos": {
+      "aria": "Modelos de instalación",
+      "label": "Modelos",
+      "specLabels": {
+        "espacio": "Espacio",
+        "instalacion": "Instalación",
+        "duracion": "Duración",
+        "audiencia": "Audiencia"
+      },
+      "items": [
+        {
+          "id": "pixel",
+          "nivel": "Básico",
+          "nombre": "PIXEL",
+          "subtitulo": "Espacios reducidos",
+          "items": [
+            "2 Carteles temáticos",
+            "1 Pantalla de animación",
+            "2 Experiencias interactivas"
+          ],
+          "espacio": "8–12 m²",
+          "instalacion": "45–60 min",
+          "duracion": "1–3 días",
+          "audiencia": "50–100/día"
+        },
+        {
+          "id": "vector",
+          "nivel": "Estándar",
+          "nombre": "VECTOR",
+          "subtitulo": "Eventos medianos",
+          "items": [
+            "3 Carteles temáticos",
+            "3 Pantallas de animación",
+            "3 Estaciones interactivas"
+          ],
+          "espacio": "15–25 m²",
+          "instalacion": "2–3 horas",
+          "duracion": "3 días – 2 semanas",
+          "audiencia": "100–300/día"
+        },
+        {
+          "id": "holo",
+          "nivel": "Completo",
+          "nombre": "HOLO",
+          "subtitulo": "Instalaciones duraderas",
+          "items": [
+            "6 Carteles visuales",
+            "3 Animaciones de video",
+            "4 Aplicaciones interactivas",
+            "Zona central de reflexión"
+          ],
+          "espacio": "30–50 m²",
+          "instalacion": "4–6 horas",
+          "duracion": "2 semanas – permanente",
+          "audiencia": "200–500/día"
+        }
+      ]
+    },
+    "posibilidades": {
+      "aria": "Posibilidades del hub interactivo",
+      "label": "Posibilidades",
+      "slideAria": "Ir a diapositiva",
+      "slideN": "Diapositiva {n} de {total}",
+      "prevSlide": "Diapositiva anterior",
+      "nextSlide": "Diapositiva siguiente",
+      "slides": [
+        {
+          "title": "Activación previa al evento",
+          "desc": "Despliega módulos interactivos en pasillos o vestíbulos para que la audiencia descubra conceptos clave antes de cualquier actividad programada."
+        },
+        {
+          "title": "Puntos de encuentro temáticos",
+          "desc": "Crea estaciones dedicadas a la privacidad, la IA, la desinformación (integridad informativa) o la ética digital, permitiendo que los visitantes transiten libremente entre ellas."
+        },
+        {
+          "title": "Rutas autoguiadas",
+          "desc": "Diseña un recorrido cronológico o lógico que guíe a las personas por distintos retos y experiencias, cada uno acompañado de soportes visuales y multimedia."
+        },
+        {
+          "title": "Elementos móviles",
+          "desc": "Utiliza tablets, kioscos portátiles o gafas de realidad aumentada para llevar la instalación a espacios reducidos o itinerantes dentro del mismo recinto."
+        },
+        {
+          "title": "Material descargable",
+          "desc": "Ofrece a los visitantes códigos QR que enlacen a guías, infografías y recursos digitales para profundizar después del evento."
+        },
+        {
+          "title": "Salas de reflexión",
+          "desc": "Habilita áreas con mobiliario cómodo donde se proyecten cortos videos de discusión o paneles de expertos, invitando al diálogo espontáneo."
+        },
+        {
+          "title": "Interacción IA en vivo",
+          "desc": "Incluye chatbots o asistentes virtuales que respondan preguntas, generen análisis de perfiles de privacidad y ofrezcan recomendaciones personalizadas."
+        },
+        {
+          "title": "Experiencias inmersivas",
+          "desc": "Incorpora videoproyecciones 360°, realidad virtual y entornos sonoros para sumergir al visitante en escenarios que ilustran riesgos y oportunidades tecnológicas."
+        },
+        {
+          "title": "Gamificación",
+          "desc": "Implementa desafíos y juegos basados en preguntas sobre los temas decididos, recompensando la participación con insignias digitales o reconocimientos físicos."
+        },
+        {
+          "title": "Integración con ponencias",
+          "desc": "Combina las estaciones interactivas con conferencias, de modo que cada ponente pueda referirse a los módulos específicos para ejemplificar sus argumentos."
+        }
+      ]
+    },
+    "personalizacion": {
+      "aria": "Personalización del hub",
+      "tabs": [
+        {
+          "id": "tematicas",
+          "label": "Ediciones temáticas",
+          "content": "Profundiza en áreas específicas: IA, desinformación (integridad informativa), privacidad digital, incorporando contenidos y tecnologías especializadas como estaciones de realidad virtual o simulaciones avanzadas."
+        },
+        {
+          "id": "comunitaria",
+          "label": "Edición comunitaria",
+          "content": "Adapta la realidad de tu comuna o grupo objetivo, integrando dinámicas de participación local y foros de debate que empoderan a vecinos de todas las edades."
+        },
+        {
+          "id": "carta",
+          "label": "Componentes a la carta",
+          "content": "Elige piezas sueltas: pósters, mini-experimentos interactivos, kits de cultura digital, para complementar la exposición según tus necesidades."
+        }
+      ]
+    }
+  },
+  "programsFuncionarios": {
+    "metaTitle": "Educación Mediática para Funcionarios Públicos",
+    "metaDescription": "Formación para la administración pública: medios digitales, verificación, comunicación institucional y uso responsable de redes sociales.",
+    "heroEyebrow": "■ FUNCIONARIOS PÚBLICOS · PROGRAMA 06",
+    "heroTitle": "Capacitación en Educación Mediática\npara Funcionarios Públicos.",
+    "heroSub": "Formación diseñada específicamente para el contexto de la administración pública.",
+    "statWord": "Riesgo",
+    "statSub": "directo para la democracia.",
+    "porQue1": "En el entorno digital actual, la desinformación (integridad informativa) y la manipulación informativa no son solo un desafío social, sino un riesgo directo para la administración pública, la confianza ciudadana y la estabilidad democrática.",
+    "porQue2": "La capacidad de los servidores públicos para navegar, evaluar y utilizar los medios de comunicación de manera eficaz y segura es una competencia fundamental.",
+    "porQue3": "Este programa ha sido diseñado específicamente para el contexto de la administración pública. Su objetivo es dotar a los funcionarios de las herramientas necesarias para trabajar de forma segura, confiable y eficiente en un mundo saturado de medios, fortaleciendo la transparencia institucional, la participación ciudadana y la resiliencia frente a amenazas informacionales.",
+    "estructuraTitle": "Contenido y estructura del curso",
+    "estructuraSub": "8 sesiones diseñadas para el contexto de la administración pública.",
+    "cursoTabsAria": "Contenido y estructura del curso",
+    "cursoTabs": [
+      {
+        "id": "s1",
+        "label": "Sesión 1",
+        "panelTitle": "Sesión 1: Una Vida Llena de Medios",
+        "body": "Introduce el rol central de los medios en la sociedad y los cuatro niveles de análisis mediático: la plataforma, el contenido, la industria y el entorno. Una mirada estructurada para comprender cómo los medios construyen realidades y moldean decisiones en el ámbito público y ciudadano."
+      },
+      {
+        "id": "s2",
+        "label": "Sesión 2",
+        "panelTitle": "Sesión 2: ¿Cómo Funcionan los Medios Digitales?",
+        "body": "Explora el impacto de la digitalización y el funcionamiento de los algoritmos, las cámaras de eco y la polarización. Comprende por qué las personas reciben información diferente en sus dispositivos y cómo esto afecta la percepción ciudadana sobre la gestión pública."
+      },
+      {
+        "id": "s34",
+        "label": "Ses. 3 y 4",
+        "panelTitle": "Sesiones 3 y 4: Confiabilidad y Evaluación de la Información",
+        "body": "Se enfoca en cómo gestionar la sobrecarga de información y evaluar la fiabilidad de las fuentes, considerando al autor, el contexto y el contenido. Se abordan los deepfakes y la desinformación (integridad informativa) intencional. Herramientas prácticas para verificar antes de comunicar o tomar decisiones institucionales."
+      },
+      {
+        "id": "s5",
+        "label": "Sesión 5",
+        "panelTitle": "Sesión 5: Interacción en los Medios de Comunicación",
+        "body": "Proporciona herramientas para la interacción y la comunicación efectiva, y para fomentar la participación ciudadana a través de los medios. Cómo responder, aclarar y comunicar desde la institución pública con transparencia y criterio."
+      },
+      {
+        "id": "s6",
+        "label": "Sesión 6",
+        "panelTitle": "Sesión 6: Uso de Redes Sociales en la Administración Pública",
+        "body": "Aborda las oportunidades y responsabilidades del uso de redes sociales, destacando que los funcionarios deben actuar de forma imparcial, independiente y justa. Protocolos, buenas prácticas y límites éticos para el uso institucional y personal de plataformas digitales."
+      },
+      {
+        "id": "s78",
+        "label": "Ses. 7 y 8",
+        "panelTitle": "Sesiones 7 y 8: Resumen y Autoevaluación",
+        "body": "Permite a los participantes reflexionar sobre los objetivos de la educación mediática en su trabajo y evaluar su aprendizaje para ponerlo en práctica. Cierre con plan de acción personal y compromisos concretos para aplicar en la institución."
+      }
+    ],
+    "beneficiosTitle": "Beneficios para la institución pública",
+    "beneficios": [
+      {
+        "num": "01",
+        "title": "Toma de Decisiones Informada",
+        "desc": "Los funcionarios estarán capacitados para buscar, filtrar y evaluar información relevante y confiable, mejorando la calidad de las decisiones internas y el desempeño diario."
+      },
+      {
+        "num": "02",
+        "title": "Mejora de la Comunicación Pública",
+        "desc": "Herramientas para una comunicación más efectiva y transparente a través de los medios y redes sociales, aumentando la confianza de los ciudadanos en la institución."
+      },
+      {
+        "num": "03",
+        "title": "Reducción de Riesgos Institucionales",
+        "desc": "Al entender algoritmos, cámaras de eco y aprender a identificar desinformación (integridad informativa), deepfakes y propaganda, los funcionarios protegen la reputación institucional."
+      },
+      {
+        "num": "04",
+        "title": "Fomento de una Cultura de Pensamiento Crítico",
+        "desc": "Se promueve una mentalidad analítica entre los colaboradores, permitiéndoles abordar la información de manera reflexiva y consciente, fundamental para una gestión pública moderna."
+      }
+    ],
+    "pasosLead": "Consideramos esta capacitación una oportunidad estratégica en el capital humano y la resiliencia de la administración pública.",
+    "pasos": [
+      {
+        "badge": "PASO 01",
+        "title": "Solicita una propuesta detallada",
+        "text": "Contáctanos para recibir una propuesta formal que incluya la inversión y la logística de implementación para tus equipos."
+      },
+      {
+        "badge": "PASO 02",
+        "title": "Agendamos una presentación",
+        "text": "Coordinamos una reunión para presentar el programa en detalle y resolver todas tus preguntas."
+      },
+      {
+        "badge": "PASO 03",
+        "title": "Adaptamos a tu institución",
+        "text": "Diseñamos el programa a medida de las necesidades específicas de tu organización."
+      }
+    ],
+    "ctaTitle": "Lleva este programa a tu institución pública.",
+    "ctaAside": "Estamos listos para adaptar el programa a las necesidades específicas de tu institución. Contáctanos para coordinar.",
+    "collaborateCta": "Colabora con nosotros"
+  },
+  "programsCiudades": {
+    "metaTitle": "Ciudades Conectadas · Precisar",
+    "metaDescription": "Formación en Cultura Digital para la Ciudadanía. Programas modulares para municipios.",
+    "heroEyebrow": "Programas · Ciudades Conectadas",
+    "heroTitle": "Formación en Cultura Digital\npara la Ciudadanía",
+    "heroSub": "Ponemos a disposición de los municipios una oferta formativa diseñada para capacitar a la comunidad con las habilidades críticas esenciales en la era digital.",
+    "intro1Before": "Nuestro trabajo en las ciudades se inspira directamente en el marco de las ",
+    "intro1Strong": "Ciudades AMI (Alfabetización Mediática e Informacional) de la UNESCO",
+    "intro1After": ", adaptando sus principios para fomentar ecosistemas de información locales más críticos y resilientes.",
+    "intro2": "Experiencias dinámicas para que cada participante comprenda, use y gestione los medios digitales con autonomía.",
+    "flexItems": [
+      {
+        "titulo": "Impacto Directo en la Ciudadanía",
+        "desc": "Talleres y actividades para vecinos de todas las edades."
+      },
+      {
+        "titulo": "Capacitación de Formadores",
+        "desc": "Estrategias que multiplican el impacto con educadores, bibliotecarios, equipos municipales y organizaciones comunitarias."
+      }
+    ],
+    "contentItems": [
+      {
+        "titulo": "Inteligencia Artificial",
+        "desc": "Desmitificando el futuro y sus implicaciones."
+      },
+      {
+        "titulo": "Bienestar Digital",
+        "desc": "Hábitos saludables en el uso de la tecnología."
+      },
+      {
+        "titulo": "Privacidad y Seguridad en Línea",
+        "desc": "Protegiendo identidad y datos."
+      },
+      {
+        "titulo": "Estrategias contra la Desinformación (integridad informativa)",
+        "desc": "Criterio para navegar la información."
+      }
+    ],
+    "impactosEyebrow": "Lo que cambia en tu municipio",
+    "impactosTitle": "Impacto en\nel municipio",
+    "impactos": [
+      {
+        "titulo": "Ciudadanía activa y crítica",
+        "desc": "Desarrolla en la ciudadanía aptitudes de pensamiento analítico para cuestionar mensajes, detectar discursos de odio y desinformación (integridad informativa), y participar en procesos de decisión local con argumentos basados en fuentes fiables."
+      },
+      {
+        "titulo": "Mayor seguridad digital",
+        "desc": "Fortalece la resiliencia comunitaria frente a fraudes y amenazas en línea mediante la enseñanza de buenas prácticas de protección de datos, privacidad y uso ético de la tecnología."
+      },
+      {
+        "titulo": "Alfabetización en IA y algoritmos",
+        "desc": "Promueve la comprensión de cómo funcionan los sistemas automatizados y sus sesgos, capacitando a los ciudadanos para evaluar críticamente el contenido filtrado o generado por IA."
+      },
+      {
+        "titulo": "Bienestar digital",
+        "desc": "Incorpora hábitos saludables de uso tecnológico y fomenta espacios de aprendizaje permanente que reducen la brecha digital y mejoran la inclusión social."
+      },
+      {
+        "titulo": "Gobernanza local transparente",
+        "desc": "Capacita a equipos municipales en la integración de Educación Mediática y Digital en políticas y servicios urbanos, generando espacios de rendición de cuentas y comunicación abierta."
+      },
+      {
+        "titulo": "Conexión y participación comunitaria",
+        "desc": "Facilita el despliegue de iniciativas en plazas, centros de salud, transporte y otros espacios urbanos, creando una red de información accesible para todos los habitantes."
+      }
+    ],
+    "talleresEyebrow": "Nuestras propuestas formativas",
+    "talleresTitle": "Programas modulares\ny flexibles",
+    "sesionesIncluidas": "Sesiones incluidas",
+    "talleres": [
+      {
+        "id": "ia",
+        "label": "IA",
+        "titulo": "Inteligencia Artificial y su impacto",
+        "desc": "Este taller presenta los fundamentos de la IA, explorando qué es, cómo funciona y su impacto en las personas. Los participantes adquirirán habilidades cruciales y estrategias prácticas para abordar los desafíos que presenta la IA. Ideal para públicos de todas las edades y niveles de conocimiento.",
+        "sesiones": [
+          "Desmitificando la IA: qué es, cómo funciona y sus impactos en las personas.",
+          "Vivir con algoritmos: qué son los algoritmos y su relación con la IA y el aprendizaje automático.",
+          "Desafíos de la IA y estrategias prácticas 1: Magnificación del sesgo.",
+          "Desafíos de la IA y estrategias prácticas 2: Acoso en línea."
+        ]
+      },
+      {
+        "id": "desinformacion",
+        "label": "Desinformación (integridad informativa)",
+        "titulo": "Desinformación (integridad informativa): Hechos vs. sentimientos sobre la información",
+        "desc": "Taller práctico para desarrollar el criterio necesario para navegar en un ecosistema de información complejo, distinguir hechos de opiniones, y detectar noticias falsas y manipulación informativa.",
+        "sesiones": [
+          "Qué es la desinformación (integridad informativa) y por qué importa.",
+          "Cómo detectar noticias falsas y verificar fuentes.",
+          "Algoritmos y burbujas de información.",
+          "Estrategias prácticas para la vida cotidiana."
+        ]
+      },
+      {
+        "id": "fraudes",
+        "label": "Fraudes",
+        "titulo": "Prevención de Fraudes y Estafas en Línea",
+        "desc": "Herramientas prácticas para reconocer y evitar fraudes digitales, proteger datos personales y actuar frente a situaciones de riesgo en línea.",
+        "sesiones": [
+          "Tipos de fraudes digitales más comunes.",
+          "Phishing, smishing y suplantación de identidad.",
+          "Cómo proteger tus datos y contraseñas.",
+          "Qué hacer si fuiste víctima de un fraude."
+        ]
+      },
+      {
+        "id": "bienestar",
+        "label": "Bienestar",
+        "titulo": "Bienestar Digital y Salud Tecnológica",
+        "desc": "Este taller fomenta hábitos saludables en el uso de la tecnología, abordando el bienestar emocional, la gestión del tiempo en pantalla y la construcción de una relación equilibrada con los dispositivos.",
+        "sesiones": [
+          "Impacto del uso de tecnología en la salud mental.",
+          "Gestión del tiempo de pantalla y adicción digital.",
+          "Construcción de hábitos digitales saludables.",
+          "Bienestar digital en familia y comunidad."
+        ]
+      }
+    ],
+    "ctaTitle": "Lleva la cultura digital\na tu municipio",
+    "ctaBody": "Contáctanos para diseñar una propuesta a medida de tu comunidad.",
+    "collaborateCta": "Colabora con nosotros",
+    "propuestasTabsAria": "Propuestas formativas",
+    "propuestasTabs": [
+      {
+        "id": "ia",
+        "label": "IA",
+        "panelTitle": "Inteligencia Artificial y su impacto",
+        "intro": "Este taller presenta los fundamentos de la IA, explorando qué es, cómo funciona y su impacto en las personas. Los participantes adquirirán habilidades cruciales y estrategias prácticas para abordar los desafíos que presenta la IA. Ideal para públicos de todas las edades y niveles de conocimiento.",
+        "sessions": [
+          {
+            "lead": "Desmitificando la IA",
+            "detail": "qué es, cómo funciona y sus impactos en las personas."
+          },
+          {
+            "lead": "Vivir con algoritmos",
+            "detail": "qué son los algoritmos y su relación con la IA y el aprendizaje automático."
+          },
+          {
+            "lead": "Desafíos de la IA y estrategias prácticas 1",
+            "detail": "Magnificación del sesgo."
+          },
+          {
+            "lead": "Desafíos de la IA y estrategias prácticas 2",
+            "detail": "Acoso en línea."
+          }
+        ]
+      },
+      {
+        "id": "desinformacion",
+        "label": "Desinformación (integridad informativa)",
+        "panelTitle": "Desinformación (integridad informativa): Hechos vs. sentimientos sobre la información",
+        "intro": "Este taller capacita a los participantes para desenvolverse en el complejo panorama de la desinformación (integridad informativa) mediante sesiones interactivas sobre los ecosistemas de información y medios, patrones de estrategias influyentes y prácticas persuasivas integradas en la tecnología. Ideal para públicos de todas las edades y niveles de conocimiento.",
+        "sessions": [
+          {
+            "lead": "Hechos vs. Sentimientos",
+            "detail": "Mantén la calma y detecta los trucos de estrategias intencionales que usan apps, redes sociales, medios y sitios web. Comprende los trucos que provocan emociones e influyen en el comportamiento."
+          },
+          {
+            "lead": "Entre Línea",
+            "detail": "La información es complicada. Define desinformación (integridad informativa) y fake news, explora la complejidad de la información y practica habilidades fundamentales de investigación."
+          }
+        ]
+      },
+      {
+        "id": "fraudes",
+        "label": "Fraudes",
+        "panelTitle": "Prevención de Fraudes y Estafas en Línea",
+        "intro": "El objetivo de este taller es dotar a todos los vecinos y vecinas de herramientas prácticas para reconocer, evitar y reaccionar ante fraudes digitales.",
+        "sessions": [
+          {
+            "lead": "Señales de alerta",
+            "detail": "identificar correos falsos, mensajes sospechosos y llamadas fraudulentas."
+          },
+          {
+            "lead": "Buenas prácticas de contraseña",
+            "detail": "crear y gestionar contraseñas seguras y usar autenticación fuerte como PIN, patrones o apps de verificación."
+          },
+          {
+            "lead": "Compras y pagos seguros",
+            "detail": "detectar sitios web fraudulentos y elegir medios de pago confiables."
+          },
+          {
+            "lead": "¿Y si ya fui víctima?",
+            "detail": "pasos para reportar el incidente, suspender cuentas y recuperar el control."
+          }
+        ]
+      },
+      {
+        "id": "bienestar",
+        "label": "Bienestar",
+        "panelTitle": "Bienestar Digital y Salud Tecnológica",
+        "intro": "Este taller aborda el impacto del uso de pantallas en el sueño, la atención y las relaciones personales, proponiendo estrategias para equilibrar nuestra vida online y offline. Ideal para todo público, fomenta dinámicas intergeneracionales.",
+        "sessions": [
+          {
+            "lead": "Pantallas y Cerebro",
+            "detail": "Cómo el uso excesivo influye en la calidad del sueño y la concentración."
+          },
+          {
+            "lead": "Rutas de Desconexión",
+            "detail": "Herramientas y hábitos para gestionar tiempos de uso de dispositivos."
+          },
+          {
+            "lead": "Dinámicas Intergeneracionales",
+            "detail": "Jóvenes y personas mayores comparten experiencias y diseñan acuerdos familiares o comunitarios."
+          }
+        ]
+      }
+    ],
+    "propuestasSessionsLead": "Sesiones incluidas:"
+  },
+  "legalPrivacidad": {
+    "metaTitle": "Política de Privacidad | Precisar",
+    "title": "Política de privacidad",
+    "kicker": "Sitio web · {siteHost}",
+    "lastUpdated": "Última actualización: 12 de abril de 2026",
+    "s1Title": "1. Alcance",
+    "s1Body": "Esta política describe cómo {siteName} trata la información personal y técnica asociada al uso público de nuestro sitio web ({siteUrl}), salvo que exista un aviso o política específica para un producto o formulario concreto.",
+    "s2Title": "2. Responsable",
+    "s2BodyBefore": "El responsable del sitio y del tratamiento de los datos descritos aquí es la organización detrás de {siteName}. Para consultas sobre privacidad puedes escribir a",
+    "s2BodyOrSensitive": "o, para asuntos sensibles de datos personales, a",
+    "s3Title": "3. Qué información podemos tratar",
+    "s3Items": [
+      {
+        "strong": "Datos que nos envías voluntariamente",
+        "text": " (por ejemplo, nombre, apellido, correo y mensaje en el formulario de contacto del pie de página u otros formularios publicados en el sitio), con la finalidad de responder o gestionar tu solicitud."
+      },
+      {
+        "strong": "Datos técnicos de conexión",
+        "text": " (por ejemplo, dirección IP, tipo de navegador o dispositivo, páginas visitadas y marcas de tiempo) que el alojamiento o servicios de seguridad del sitio pueden registrar de forma habitual para operar el servicio, prevenir abusos y mejorar la estabilidad."
+      },
+      {
+        "strong": "Newsletter u otros registros",
+        "text": " solo si activas explícitamente un formulario que indique esa finalidad y, cuando corresponda, el proveedor externo que procese la lista."
+      }
+    ],
+    "s4Title": "4. Conservación y seguridad",
+    "s4Body": "Conservamos la información el tiempo necesario para las finalidades indicadas y según obligaciones legales aplicables. Aplicamos medidas razonables de seguridad técnica y organizativa acordes al tipo de servicio.",
+    "s5Title": "5. Tus derechos",
+    "s5Body": "Puedes solicitar acceso, rectificación, supresión u oposición al tratamiento de tus datos personales cuando la normativa aplicable lo permita, contactándonos por los correos indicados arriba. Si resides en Chile, también puedes informarte sobre la Ley de Protección de Datos Personales y sus canales oficiales.",
+    "s6Title": "6. Políticas específicas",
+    "s6Intro": "Algunas experiencias de {siteName} tienen avisos propios, que prevalecen en su ámbito:",
+    "s6Links": [
+      {
+        "href": "/legal/privacidad-consulta-2026",
+        "label": "Privacidad · Consulta ciudadana «¿Cómo te informas hoy?» (2026)"
+      },
+      {
+        "href": "/legal/privacidad-bot-onda",
+        "label": "Privacidad · Bot Onda"
+      }
+    ]
+  },
+  "legalPrivacidadConsulta2026": {
+    "metaTitle": "Política de Privacidad Consulta | Precisar",
+    "title": "Política de Privacidad y Tratamiento de Datos Personales",
+    "kicker": "Consulta: ¿Cómo te Informas Hoy? · DemocraTICa.",
+    "lastUpdated": "Fecha de última actualización: 31 de diciembre de 2025",
+    "sections": [
+      {
+        "title": "1. Introducción",
+        "blocks": [
+          {
+            "type": "p",
+            "text": "La presente Política de Privacidad y Tratamiento de Datos Personales (en adelante, la \"Política de Privacidad\") tiene por objeto informar a los participantes de la consulta ciudadana \"¿Cómo te informas hoy?\" (en adelante, la \"Consulta\"), impulsada por la Fundación Democracia Abierta y su iniciativa Precisar (en adelante, \"DemocraTICa\" o \"nosotros\"), sobre cómo recolectamos, usamos, almacenamos, compartimos y protegemos sus datos personales, en conformidad con la legislación chilena vigente y las mejores prácticas internacionales en la materia."
+          },
+          {
+            "type": "p",
+            "text": "DemocraTICa está comprometida con el respeto y la protección de su privacidad y sus datos personales. Esta política se ha redactado en cumplimiento de la normativa chilena vigente, Ley N° 19.628 sobre Protección de la Vida Privada (en su versión vigente) y la nueva Ley N° 21.719 de Protección de Datos Personales, que moderniza la legislación y la alinea con los más altos estándares internacionales, como el Reglamento General de Protección de Datos (RGPD) de la Unión Europea."
+          }
+        ]
+      },
+      {
+        "title": "2. Responsable del Tratamiento de Datos",
+        "blocks": [
+          {
+            "type": "p",
+            "text": "El responsable del tratamiento de sus datos personales es:"
+          },
+          {
+            "type": "ul",
+            "items": [
+              {
+                "bold": "Razón social:",
+                "text": " Fundación Democracia Abierta"
+              },
+              {
+                "bold": "RUT:",
+                "text": " 65.198.517-K"
+              },
+              {
+                "bold": "Correo electrónico:",
+                "text": " __EMAIL__"
+              },
+              {
+                "bold": "Representante legal:",
+                "text": " Ana Magdalena Marín Ladrón de Guevara"
+              }
+            ]
+          },
+          {
+            "type": "p",
+            "label": "Delegado de Protección de Datos",
+            "wrapStrong": true,
+            "text": " (si la organización ha designado un Delegado conforme al artículo 50 de la Ley 21.719):"
+          },
+          {
+            "type": "ul",
+            "items": [
+              {
+                "bold": "Nombre:",
+                "text": " Ana Magdalena Marín Ladrón de Guevara"
+              },
+              {
+                "bold": "Cargo:",
+                "text": " Delegado de Protección de Datos"
+              },
+              {
+                "bold": "Correo electrónico:",
+                "text": " __PRIVACY_EMAIL__"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "3. ¿Qué datos personales recolectamos?",
+        "blocks": [
+          {
+            "type": "p",
+            "text": "En el marco de la Consulta, recolectaremos las siguientes categorías de datos personales:"
+          },
+          {
+            "type": "h3",
+            "text": "3.1 Datos de Identificación y Contacto"
+          },
+          {
+            "type": "p",
+            "text": "De manera opcional, podremos solicitar datos como: correo electrónico; nombre completo."
+          },
+          {
+            "type": "p",
+            "label": "Finalidad:",
+            "text": " Futuras comunicaciones sobre los resultados del estudio o para invitarle a participar en etapas posteriores del proyecto."
+          },
+          {
+            "type": "p",
+            "label": "Aclaración importante:",
+            "text": " Su participación en la consulta no está condicionada a la entrega de esta información. Puede participar de forma anónima."
+          },
+          {
+            "type": "h3",
+            "text": "3.2 Datos Sociodemográficos"
+          },
+          {
+            "type": "p",
+            "text": "Recopilaremos datos como: edad (en rangos: 18-25, 26-35, 36-50, 51-65, 65+); género (masculino, femenino, otro, prefiero no especificar); nivel educacional (básico, medio, técnico, universitario, postgrado); comuna de residencia; región de residencia; estudios (en categorías generales)."
+          },
+          {
+            "type": "p",
+            "label": "Protección:",
+            "text": " Estos datos se solicitarán en rangos o de forma anonimizada para proteger su identidad. No se recopilará información que permita identificarlo directamente."
+          },
+          {
+            "type": "h3",
+            "text": "3.3 Datos sobre Hábitos y Preferencias de Información"
+          },
+          {
+            "type": "p",
+            "text": "La Consulta se centra en preguntas sobre: cómo se informa; qué medios utiliza (televisión, radio, prensa escrita, redes sociales, plataformas digitales, etc.); con qué frecuencia se informa; qué formatos prefiere (texto, video, audio, infografías, etc.); cuáles son sus temas de interés (política, economía, tecnología, salud, etc.)."
+          },
+          {
+            "type": "h3",
+            "text": "3.4 Datos sobre Habilidades y Necesidades de Alfabetización Mediática"
+          },
+          {
+            "type": "p",
+            "text": "Recopilaremos información sobre: sus habilidades para verificar información; su capacidad de usar tecnología; su comprensión de noticias y datos; su capacidad de identificar desinformación (integridad informativa)."
+          },
+          {
+            "type": "h3",
+            "text": "3.5 Opiniones y Percepciones"
+          },
+          {
+            "type": "p",
+            "text": "Solicitaremos su opinión sobre: la desinformación (integridad informativa) y sus efectos; la inteligencia artificial en medios; las posibles soluciones a estos fenómenos; confianza en diferentes medios de comunicación."
+          },
+          {
+            "type": "h3",
+            "text": "3.6 Datos Sensibles"
+          },
+          {
+            "type": "p",
+            "text": "La Consulta podría incluir preguntas sobre: sus opiniones políticas o ideológicas; sus creencias religiosas (si aplica); cualquier otra información considerada sensible conforme a la Ley 21.719."
+          },
+          {
+            "type": "p",
+            "label": "Protección especial:",
+            "text": " El tratamiento de estos datos sensibles se realizará únicamente con su consentimiento explícito y con las más estrictas medidas de seguridad. Le informaremos de manera clara y destacada cuando una pregunta involucre este tipo de datos, y podrá elegir no responder sin que esto afecte su participación en la consulta."
+          }
+        ]
+      },
+      {
+        "title": "4. ¿Para qué utilizamos sus datos personales?",
+        "blocks": [
+          {
+            "type": "p",
+            "text": "Los datos personales que recolectamos serán utilizados exclusivamente para las siguientes finalidades:"
+          },
+          {
+            "type": "h3",
+            "text": "4.1 Análisis Estadístico"
+          },
+          {
+            "type": "p",
+            "text": "Para generar evidencia agregada y anonimizada sobre: hábitos informativos de la ciudadanía en Chile; necesidades de información; percepciones sobre desinformación (integridad informativa) y alfabetización mediática."
+          },
+          {
+            "type": "p",
+            "label": "Aclaración:",
+            "text": " Los análisis se presentarán siempre en forma agregada, sin posibilidad de identificar a participantes individuales."
+          },
+          {
+            "type": "h3",
+            "text": "4.2 Investigación Académica y Social"
+          },
+          {
+            "type": "p",
+            "text": "Los resultados de la Consulta serán utilizados para: elaboración de informes; estudios académicos; publicaciones científicas; contribución al conocimiento sobre desinformación (integridad informativa) y alfabetización mediática."
+          },
+          {
+            "type": "h3",
+            "text": "4.3 Diseño de Prototipos y Soluciones"
+          },
+          {
+            "type": "p",
+            "text": "La información recopilada servirá como insumo para: co-diseño de nuevos formatos de noticias; desarrollo de plataformas informativas; creación de recursos educativos; desarrollo de herramientas de verificación de información."
+          },
+          {
+            "type": "h3",
+            "text": "4.4 Incidencia en Políticas Públicas"
+          },
+          {
+            "type": "p",
+            "text": "Los hallazgos del proyecto serán compartidos con: tomadores de decisión; medios de comunicación; organizaciones de la sociedad civil; organismos públicos."
+          },
+          {
+            "type": "p",
+            "label": "Objetivo:",
+            "text": " Promover políticas públicas y prácticas que fortalezcan el ecosistema informativo chileno."
+          },
+          {
+            "type": "h3",
+            "text": "4.5 Comunicación y Difusión"
+          },
+          {
+            "type": "p",
+            "text": "Si usted ha consentido en ello, podremos utilizar su correo electrónico para: enviarle información sobre los avances del proyecto; compartir resultados y hallazgos; invitarle a participar en futuras iniciativas relacionadas."
+          },
+          {
+            "type": "p",
+            "label": "Derecho de revocación:",
+            "text": " Puede revocar este consentimiento en cualquier momento contactándonos."
+          },
+          {
+            "type": "h3",
+            "text": "4.6 Cumplimiento de Obligaciones Legales"
+          },
+          {
+            "type": "p",
+            "text": "Podremos utilizar sus datos para: cumplir con obligaciones legales; responder a requerimientos de autoridades competentes; proteger nuestros derechos legales."
+          }
+        ]
+      },
+      {
+        "title": "5. Bases Legales para el Tratamiento de sus Datos",
+        "blocks": [
+          {
+            "type": "h3",
+            "text": "5.1 Consentimiento Libre, Informado, Específico e Inequívoco"
+          },
+          {
+            "type": "p",
+            "text": "Su participación en la Consulta es voluntaria. Al iniciar la encuesta, le solicitaremos su consentimiento de forma clara y explícita para el tratamiento de sus datos personales, de acuerdo con los fines descritos en esta política."
+          },
+          {
+            "type": "p",
+            "text": "Características del consentimiento: libre; informado; específico; inequívoco. Para datos sensibles: solicitaremos consentimiento explícito adicional antes de recopilar cualquier dato considerado sensible."
+          },
+          {
+            "type": "h3",
+            "text": "5.2 Interés Legítimo"
+          },
+          {
+            "type": "p",
+            "text": "Podremos tratar sus datos de forma anonimizada y agregada para fines de investigación y estadística, en el marco del interés legítimo del proyecto de: generar conocimiento para el bien público; fortalecer el ecosistema informativo chileno; contribuir al debate público informado; mejorar la alfabetización mediática."
+          },
+          {
+            "type": "p",
+            "label": "Equilibrio de intereses:",
+            "text": " Este interés legítimo no prevalece sobre sus derechos fundamentales, y los datos se tratan siempre de forma anonimizada cuando se utiliza esta base legal."
+          }
+        ]
+      },
+      {
+        "title": "6. ¿Con quién compartimos sus datos personales?",
+        "blocks": [
+          {
+            "type": "p",
+            "text": "DemocraTICa no venderá, alquilará ni cederá sus datos personales a terceros con fines de lucro. Sus datos podrán ser compartidos únicamente en las siguientes circunstancias:"
+          },
+          {
+            "type": "h3",
+            "text": "6.1 Equipo de Investigación"
+          },
+          {
+            "type": "p",
+            "text": "El equipo de DemocraTICa y sus colaboradores directos tendrán acceso a los datos para los fines del proyecto, bajo estrictos acuerdos de confidencialidad que incluyen: obligación de guardar secreto; restricción de uso a fines del proyecto; prohibición de comunicación a terceros; sanciones por incumplimiento."
+          },
+          {
+            "type": "h3",
+            "text": "6.2 Aliados Estratégicos"
+          },
+          {
+            "type": "p",
+            "text": "Podremos compartir datos agregados y anonimizados con: organizaciones de la sociedad civil; universidades y centros de investigación; medios de comunicación; organismos públicos."
+          },
+          {
+            "type": "p",
+            "label": "Condición:",
+            "text": " Estos datos se compartirán siempre en forma agregada, sin posibilidad de identificar a participantes individuales."
+          },
+          {
+            "type": "h3",
+            "text": "6.3 Publicaciones y Divulgación"
+          },
+          {
+            "type": "p",
+            "text": "Los informes y publicaciones derivados del proyecto presentarán los datos de forma agregada, estadística, anonimizada, sin posibilidad de identificar a participantes individuales."
+          },
+          {
+            "type": "h3",
+            "text": "6.4 Requerimientos Legales"
+          },
+          {
+            "type": "p",
+            "text": "Podremos compartir sus datos personales si así lo exige: una ley vigente; un decreto o resolución; una orden judicial."
+          },
+          {
+            "type": "p",
+            "label": "Protección:",
+            "text": " En estos casos, informaremos al titular sobre el requerimiento, salvo que la ley lo prohiba expresamente."
+          },
+          {
+            "type": "h3",
+            "text": "6.5 Proveedores de Servicios"
+          },
+          {
+            "type": "p",
+            "text": "Podremos compartir datos con proveedores de servicios que nos ayudan a operar (hosting, análisis, etc.), bajo contratos que garantizan: protección equivalente de datos; uso exclusivo para fines del proyecto; obligaciones de confidencialidad."
+          }
+        ]
+      },
+      {
+        "title": "7. ¿Por Cuánto Tiempo Conservamos sus Datos?",
+        "blocks": [
+          {
+            "type": "p",
+            "text": "Conservaremos sus datos personales según el cronograma publicado en el sitio original: datos de identificación y contacto (3 años desde la última comunicación, eliminación segura); datos sociodemográficos, hábitos informativos y opiniones (5 años desde recopilación, anonimización o eliminación); datos sensibles (3 años desde recopilación, eliminación segura); datos agregados/anonimizados (indefinido para investigación)."
+          },
+          {
+            "type": "p",
+            "text": "Procedimiento de eliminación: los datos se eliminarán de forma segura mediante métodos criptográficos; se generará certificado de eliminación; se mantendrá registro de eliminaciones. Cuando sea posible, los datos se anonimizarán en lugar de eliminarse; los datos anonimizados pueden conservarse indefinidamente para investigación."
+          }
+        ]
+      },
+      {
+        "title": "8. ¿Cuáles son sus Derechos y Cómo Puede Ejercerlos?",
+        "blocks": [
+          {
+            "type": "p",
+            "text": "Conforme a la Ley 21.719, usted tiene derecho a:"
+          },
+          {
+            "type": "ul",
+            "items": [
+              {
+                "bold": "Acceso:",
+                "text": " acceder a los datos personales que tenemos sobre usted. Envíe un correo a __EMAIL__ con asunto \"Solicitud de Acceso a Datos Personales\", adjunte copia de su cédula. Plazo de respuesta: máximo 30 días hábiles."
+              },
+              {
+                "bold": "Rectificación:",
+                "text": " corregir datos inexactos. Asunto: \"Solicitud de Rectificación de Datos Personales\"."
+              },
+              {
+                "bold": "Supresión o cancelación:",
+                "text": " cuando carezca de fundamento legal, caduquen plazos, revoque consentimiento u oponga tratamiento. Asunto: \"Solicitud de Supresión de Datos Personales\"."
+              },
+              {
+                "bold": "Oposición:",
+                "text": " oponerse a tratamientos específicos. Asunto: \"Solicitud de Oposición al Tratamiento de Datos\"."
+              },
+              {
+                "bold": "Portabilidad:",
+                "text": " solicitar portabilidad en formato estructurado. Asunto: \"Solicitud de Portabilidad de Datos Personales\"."
+              },
+              {
+                "bold": "Revocación de consentimiento:",
+                "text": " en cualquier momento. Asunto: \"Revocación de Consentimiento\". El tratamiento futuro se detendrá; los datos ya tratados lícitamente no serán afectados."
+              }
+            ]
+          },
+          {
+            "type": "p",
+            "text": "Para ejercer cualquiera de estos derechos, envíe una solicitud al correo __EMAIL__ con nombre completo, copia de cédula, descripción clara de lo solicitado y firma (en caso de envío físico). Confirmación de recepción dentro de 2 días hábiles; respuesta dentro de 30 días hábiles máximo. Puede recurrir ante la Agencia de Protección de Datos Personales si no está satisfecho."
+          },
+          {
+            "type": "p",
+            "text": "Contacto de la APDP: sitio web, correo y teléfono se completarán cuando la APDP esté operativa. Plazo para reclamo: dentro de 1 año desde que conoce los hechos que lo motivan."
+          }
+        ]
+      },
+      {
+        "title": "10. Cambios a esta Política de Privacidad",
+        "blocks": [
+          {
+            "type": "p",
+            "text": "Fundación Democracia Abierta se reserva el derecho de modificar esta Política de Privacidad en cualquier momento. Si no está de acuerdo con cambios significativos, puede: revocar su consentimiento; solicitar la supresión de sus datos; contactarnos para discutir alternativas."
+          }
+        ]
+      },
+      {
+        "title": "11. Contacto y Atención de Consultas",
+        "blocks": [
+          {
+            "type": "p",
+            "text": "Si tiene alguna pregunta o inquietud sobre esta Política de Privacidad o sobre el tratamiento de sus datos personales, puede contactarnos a través de __EMAIL__"
+          }
+        ]
+      }
+    ],
+    "footerNotes": [
+      {
+        "bold": "11.1 Vigencia:",
+        "text": " Esta Política entra en vigencia a partir del 31 de diciembre de 2025 y será aplicable a todos los datos recopilados a partir de esa fecha."
+      },
+      {
+        "bold": "11.2 Compatibilidad con normativa futura:",
+        "text": " Cuando la Agencia de Protección de Datos Personales esté operativa, nos alinearemos con sus directrices y recomendaciones."
+      },
+      {
+        "bold": "11.3 Jurisdicción:",
+        "text": " Cualquier disputa relacionada con esta Política será resuelta conforme a las leyes de la República de Chile y la competencia de los tribunales chilenos."
+      }
+    ],
+    "versionLine": "Versión: 1.0 · Fecha de última actualización: 31 de diciembre de 2025 · Próxima revisión prevista: 30 de junio de 2026",
+    "complianceNote": "Esta política ha sido redactada en cumplimiento de la Ley 21.719 de Protección de Datos Personales de Chile. Para información adicional sobre sus derechos, visite el sitio web de la Agencia de Protección de Datos Personales cuando esté operativa."
+  },
+  "legalPrivacidadBotOnda": {
+    "metaTitle": "Política de Privacidad BOT ONDA | Precisar",
+    "title": "Política de Privacidad BOT ONDA",
+    "kicker": "Legal",
+    "lastUpdated": "Última actualización: 27 de febrero de 2026",
+    "responsible": "Responsable:",
+    "responsibleValue": "Fundación Precisar ({siteHost})",
+    "s1Title": "1. Quién es el responsable",
+    "s1Body": "El Chat ONDA (ONDA, el chat, el bot) es un servicio de la Fundación Precisar (en adelante, Precisar, nosotros). Esta política describe cómo tratamos la información en el uso del chat en web y, cuando corresponda, a través de WhatsApp.",
+    "s2Title": "2. Qué datos recogemos y para qué",
+    "s2WebTitle": "2.1 En la versión web (sitio web / precisar.net)",
+    "s2WebItems": [
+      {
+        "strong": "Contenido que tú envías:",
+        "text": " mensajes de texto, enlaces, imágenes o audios que escribas o adjuntes en el chat."
+      },
+      {
+        "strong": "Datos técnicos:",
+        "text": " dirección IP, tipo de navegador y dispositivo, y datos de uso (por ejemplo, que se abrió el chat o que se envió un mensaje), necesarios para el funcionamiento del servicio y la seguridad."
+      },
+      {
+        "strong": "Finalidad:",
+        "text": " Atender tus consultas, generar respuestas con inteligencia artificial (IA) y mejorar la calidad del servicio. No usamos el contenido de tus mensajes para publicidad ni lo vendemos a terceros."
+      }
+    ],
+    "s2WaTitle": "2.2 En la versión WhatsApp",
+    "s2WaItems": [
+      "Número de teléfono asociado a tu cuenta de WhatsApp.",
+      {
+        "strong": "Contenido que envías:",
+        "text": " texto, audios, imágenes o enlaces que mandas al número de ONDA por WhatsApp."
+      },
+      "Identificadores de mensaje que Meta/WhatsApp y nosotros usamos para entregar y procesar las respuestas.",
+      {
+        "strong": "Finalidad:",
+        "text": " Prestar el mismo servicio de chat ONDA por WhatsApp: responder tus preguntas, procesar audios (transcripción) o imágenes cuando las envíes, y devolver respuestas en texto o en audio cuando el sistema lo permita."
+      }
+    ],
+    "s3Title": "3. Base legal y consentimiento",
+    "s3Items": [
+      {
+        "strong": "Ejecución del servicio:",
+        "text": " el tratamiento es necesario para darte el chat y las respuestas."
+      },
+      {
+        "strong": "Consentimiento:",
+        "text": " al usar el chat (web o WhatsApp) aceptas esta política. Si eres menor de edad, se recomienda que un padre o tutor conozca el uso del servicio."
+      },
+      "En los lugares en que aplique (por ejemplo, Chile, Brasil o la UE), podremos apoyarnos además en el interés legítimo para mejorar el servicio y la seguridad, siempre dentro de lo descrito aquí."
+    ],
+    "s4Title": "4. Con quién compartimos datos",
+    "s4Intro": "Proveedores necesarios para el servicio:",
+    "s4Providers": [
+      {
+        "strong": "OpenAI:",
+        "text": " procesamiento de texto e imágenes y generación de respuestas (y, si se usa, de voz)."
+      },
+      {
+        "strong": "Vercel (u otro proveedor de hosting):",
+        "text": " alojamiento del chat web."
+      },
+      {
+        "strong": "Meta / WhatsApp:",
+        "text": " cuando usas ONDA por WhatsApp, los mensajes pasan por la infraestructura de Meta según su Política de Privacidad de WhatsApp."
+      }
+    ],
+    "s4Closing": "No vendemos ni alquilamos tus datos personales. Solo los compartimos en la medida necesaria para ofrecer el chat y cumplir la ley.",
+    "s5Title": "5. Retención de datos",
+    "s5Paras": [
+      {
+        "strong": "Conversaciones:",
+        "text": " los mensajes y respuestas se procesan para generar la respuesta en el momento. Podemos conservar registros técnicos o de uso (por ejemplo, logs) durante un tiempo limitado necesario para seguridad, depuración o cumplimiento legal."
+      },
+      {
+        "strong": "WhatsApp:",
+        "text": " los identificadores y el contenido que envías por WhatsApp se tratan según esta política y las condiciones de Meta; no conservamos tu número para fines distintos al servicio."
+      },
+      "Puedes pedirnos que no conservemos datos identificables más allá de lo estrictamente necesario; en ese caso, contáctanos (ver sección 8)."
+    ],
+    "s6Title": "6. Seguridad",
+    "s6Body": "Aplicamos medidas técnicas y organizativas para proteger los datos (comunicación cifrada, acceso limitado, variables sensibles en entorno seguro). Ningún sistema es infalible; si detectas un incidente, agradecemos que nos lo comuniques.",
+    "s7Title": "7. Tus derechos",
+    "s7Intro": "Según la ley que te aplique (por ejemplo, la Ley 19.628 en Chile o la LGPD en Brasil), puedes tener derecho a:",
+    "s7Rights": [
+      "Acceso a los datos que tengamos sobre ti.",
+      "Rectificación o actualización de datos inexactos.",
+      "Eliminación de datos cuando la ley lo permita.",
+      "Limitación u oposición a cierto tratamiento.",
+      "Portabilidad de los datos, cuando sea aplicable."
+    ],
+    "s7Closing": "Para ejercer estos derechos, escríbenos al contacto indicado más abajo. También puedes presentar una reclamación ante la autoridad de protección de datos de tu país.",
+    "s8Title": "8. Contacto",
+    "s8Org": "Fundación Precisar",
+    "s8WebLabel": "Web:",
+    "s8PrivacyLabel": "Para temas de privacidad del chat ONDA:",
+    "s9Title": "9. Cambios",
+    "s9Paras": [
+      "Podemos actualizar esta política. Los cambios relevantes se indicarán en la web (por ejemplo, en precisar.net o en la página donde se ofrezca el chat) con una nueva fecha de Última actualización. El uso continuado del chat después de esos cambios implica la aceptación de la política actualizada.",
+      "Esta política aplica al Chat ONDA ofrecido por la Fundación Precisar en web y, cuando corresponda, en WhatsApp."
+    ]
+  },
+  "propuestaPoliticaAlfabetizacion": {
+    "metaTitle": "Agenda AMI-Chile · Propuesta política de alfabetización",
+    "metaDescription": "Chile hiperconectado y críticamente desprotegido: agenda para alfabetización mediática e informacional, ley marco, hoja de ruta y recomendaciones estratégicas.",
+    "heroEyebrow": "Agenda AMI · Chile",
+    "heroTitle": "Chile está hiperconectado, pero críticamente desprotegido",
+    "heroSub": "Agenda AMI-Chile nace para sensibilizar a tomadores de decisión y medios de comunicación sobre un desafío que ya es estructural: cómo nos relacionamos con la inteligencia artificial, los algoritmos y la sobreexposición informativa con criterios, no solo con conexión. Porque decidir qué es lo correcto siempre será nuestra responsabilidad.",
+    "statsHeading": "Datos clave",
+    "stats": [
+      {
+        "num": "96,5%",
+        "label": "Conectividad",
+        "detail": "↑ desde 87% en 2018"
+      },
+      {
+        "num": "5 millones",
+        "label": "Sin habilidades funcionales",
+        "detail": "≈ 28% de la población"
+      },
+      {
+        "num": "50%+",
+        "label": "Competencias críticas insuficientes",
+        "detail": "adultos — tendencia al alza"
+      },
+      {
+        "num": "29%",
+        "label": "Fraudes a personas mayores",
+        "detail": "reportado en 2024"
+      }
+    ],
+    "amiVsDigitalTitle": "¿En qué se diferencian la Alfabetización Mediática e Informacional y la Alfabetización Digital?",
+    "amiVsDigitalSubtitle": "Para entender AMI, primero es muy importante entender la diferencia entre la Alfabetización Digital y la Alfabetización Mediática e Informacional",
+    "amiColumn": {
+      "title": "AMI · Alfabetización Mediática e Informacional",
+      "sub": "Capacidades críticas sobre medios, mensajes y fuentes.",
+      "items": [
+        "Analizar cómo se construye una noticia y distinguir opinión de hecho.",
+        "Evaluar la credibilidad de una fuente y detectar publicidad nativa.",
+        "Verificar con varias fuentes y entender sesgos/algoritmos.",
+        "Derechos: acceso, autoría, privacidad, libertad de expresión, uso justo."
+      ],
+      "examplesLabel": "Ejemplos",
+      "examples": [
+        "Detectar deepfakes en campaña",
+        "Identificar titulares clickbait",
+        "Comprobar autoría y fecha"
+      ]
+    },
+    "digitalColumn": {
+      "title": "Alfabetización Digital",
+      "sub": "Habilidades técnicas y operativas con dispositivos y apps.",
+      "items": [
+        "Usar correo, videollamadas, hojas de cálculo, gestores de archivos.",
+        "Configurar seguridad: contraseñas, 2FA, copias de seguridad.",
+        "Administrar privacidad y permisos en redes y móviles.",
+        "Resolver problemas básicos de software/hardware."
+      ],
+      "examplesLabel": "Ejemplos",
+      "examples": [
+        "Activar 2FA en tus cuentas",
+        "Compartir un Drive con permisos",
+        "Limpiar malware del PC"
+      ]
+    },
+    "tableHeaders": {
+      "dimension": "Dimensión",
+      "ami": "AMI",
+      "digital": "Alfabetización Digital"
+    },
+    "tableRows": [
+      {
+        "dim": "Foco",
+        "ami": "Sentido crítico sobre mensajes, fuentes y contextos.",
+        "dig": "Uso eficiente y seguro de tecnologías y servicios."
+      },
+      {
+        "dim": "Preguntas guía",
+        "ami": "¿Quién lo dice? ¿con qué evidencia? ¿qué intención tiene?",
+        "dig": "¿Cómo lo hago? ¿qué botón? ¿qué ajuste de seguridad?"
+      },
+      {
+        "dim": "Competencias",
+        "ami": "Analizar, evaluar, verificar, argumentar, derechos informacionales.",
+        "dig": "Instalar, configurar, operar, mantener, solucionar problemas."
+      },
+      {
+        "dim": "Ejemplos",
+        "ami": "Detectar sesgos; verificar una imagen; reconocer desinformación (integridad informativa).",
+        "dig": "Crear una videollamada; cifrar un disco; gestionar contraseñas."
+      },
+      {
+        "dim": "Resultado buscado",
+        "ami": "Pensamiento crítico y ciudadanía informada.",
+        "dig": "Autonomía técnica y seguridad operativa."
+      }
+    ],
+    "ageGroupsTitle": "¿Por qué AMI es fundamental para Chile en cada grupo etario?",
+    "ageTabsAriaLabel": "Grupo etario",
+    "ageTabs": [
+      {
+        "id": "nna",
+        "label": "Niños, Niñas y Adolescentes",
+        "items": [
+          "Conectividad: 80% con plan de datos propio",
+          "Bienestar: 53% con soledad digital",
+          "Desinformación (integridad informativa): 63% creyó noticias falsas",
+          "Exposición: 27% vio contenidos violentos",
+          "Contacto con extraños: 40% contactado; 48% interactúa",
+          "Conductas: 23% admite insultar por mensajes"
+        ]
+      },
+      {
+        "id": "adult",
+        "label": "Personas adultas",
+        "items": [
+          "Comprensión crítica: 44%+ sin base",
+          "Doble brecha: Sin herramientas y sin criterio",
+          "Efectos: Desinformación (integridad informativa) / exclusión"
+        ]
+      },
+      {
+        "id": "mayores",
+        "label": "Personas mayores",
+        "items": [
+          "Motivación: 82% quiere aprender",
+          "Digitalización: 66% para no quedar aislados",
+          "Riesgos: 29% reporta fraudes",
+          "Usabilidad: Plataformas poco amigables"
+        ]
+      }
+    ],
+    "nudosTitle": "Tres nudos críticos a resolver en Chile sobre AMI",
+    "nudos": [
+      {
+        "num": "1",
+        "text": "CONFUSIÓN CONCEPTUAL — AMI reducida a uso de herramientas (alfabetización digital) en vez de pensamiento crítico sobre información y medios."
+      },
+      {
+        "num": "2",
+        "text": "FRAGMENTACIÓN INSTITUCIONAL — 35+ actores valiosos pero sin coordinación ni gobernanza conjunta."
+      },
+      {
+        "num": "3",
+        "text": "BRECHAS ETARIAS — Cada grupo (NNA, adultos, mayores) requiere enfoques diferenciados."
+      }
+    ],
+    "scenarios2030Title": "Escenarios 2030 para Chile",
+    "scenarios2030": [
+      {
+        "title": "El costo de la inacción",
+        "sub": "La sociedad algorítmica chilena sin brújula crítica.",
+        "items": [
+          "Erosión democrática: decisiones manipuladas por deepfakes y micro-targeting opaco.",
+          "Vulnerabilidad masiva: estafas con IA generativa afectan especialmente a personas mayores.",
+          "Pérdida de soberanía informativa: dependencia de plataformas extranjeras sin transparencia.",
+          "Fractura social: brechas digitales no resueltas.",
+          "Precariedad laboral: reemplazo sin reconversión."
+        ]
+      },
+      {
+        "title": "La oportunidad de la acción",
+        "sub": "La sociedad chilena digitalmente empoderada.",
+        "items": [
+          "Democracia fortalecida: ciudadanía que identifica manipulación y debate con evidencia.",
+          "Innovación social: comunidades que usan IA para salud, educación y medio ambiente.",
+          "Inclusión intergeneracional: mayores autónomos; jóvenes responsables.",
+          "Economía del conocimiento: trabajo colaborativo con IA y emprendimiento.",
+          "Liderazgo regional: Chile como referente iberoamericano."
+        ]
+      }
+    ],
+    "vacioTitle": "Vacío normativo crítico en Chile",
+    "vacioColumns": [
+      {
+        "title": "Estado actual de la legislación chilena",
+        "items": [
+          "LGE e Internet como servicio público: foco en acceso, no en uso crítico.",
+          "Currículum chileno: AMI marginal y fragmentada.",
+          "Medios chilenos: sin enfoque de alfabetización de audiencias.",
+          "Conectividad 96,5% pero vacío legal en AMI."
+        ]
+      },
+      {
+        "title": "Vacíos críticos identificados en Chile",
+        "items": [
+          "Sin política nacional ni institucionalidad coordinadora.",
+          "Sin estándares AMI ni indicadores de impacto.",
+          "Sin transparencia algorítmica y derecho a explicación."
+        ]
+      }
+    ],
+    "leyMarcoTitle": "Propuesta: Ley Marco de AMI para Chile",
+    "leyMarcoQuote": "Garantizar que todas las personas en Chile desarrollen competencias para acceder, evaluar, usar y crear información de manera crítica, ética y participativa, como derecho para la democracia plena.",
+    "leyMarcoBlocks": [
+      {
+        "strong": "1 · Marco institucional chileno",
+        "body": "Crear institucionalidad específica AMI. Mesa Intersectorial permanente. Coordinación con Educación, Ciencia, Cultura, Desarrollo Social."
+      },
+      {
+        "strong": "2 · Formación inicial en Chile",
+        "body": "Integración curricular AMI en pedagogías. Competencias obligatorias para egreso. Práctica profesional con componente AMI."
+      },
+      {
+        "strong": "3 · Formación continua en Chile",
+        "body": "Actualización en amenazas (IA generativa). Metodologías activas y red de docentes AMI."
+      },
+      {
+        "strong": "4 · Recursos pedagógicos chilenos",
+        "body": "Kits por nivel. Plataforma digital y banco de actividades AMI."
+      }
+    ],
+    "roadmapTitle": "Hoja de ruta",
+    "phases": [
+      {
+        "title": "FASE 1 — INSTITUCIONALIZACIÓN",
+        "items": [
+          "Crear Mesa Intersectorial AMI.",
+          "Diseñar Política Nacional con participación ciudadana.",
+          "Financiamiento 2025–2026 asegurado.",
+          "Definir institucionalidad coordinadora."
+        ]
+      },
+      {
+        "title": "FASE 2 — PILOTAJE",
+        "items": [
+          "Ciudades AMI en 16 comunas.",
+          "Formación docente (inicial y continua).",
+          "Observatorio Nacional AMI.",
+          "Recursos pedagógicos."
+        ]
+      },
+      {
+        "title": "FASE 3 — ESCALAMIENTO",
+        "items": [
+          "Evaluar y ajustar pilotos.",
+          "Integrar AMI en SIMCE/ENDDEIE.",
+          "Consolidar gobernanza."
+        ]
+      }
+    ],
+    "recommendationsTitle": "Recomendaciones estratégicas para Chile",
+    "recommendations": [
+      {
+        "strong": "1 · Marco institucional —",
+        "text": "Institucionalidad AMI con mandato legal. Mesa Intersectorial. Presupuesto estable y plurianual."
+      },
+      {
+        "strong": "2 · Integración curricular —",
+        "text": "Competencias AMI explícitas. AMI en formación inicial y continua."
+      },
+      {
+        "strong": "3 · Implementación territorial —",
+        "text": "Red comunal con facilitadores locales. Priorizar NNA, adultos en rezago y mayores."
+      },
+      {
+        "strong": "4 · Recursos y ecosistema —",
+        "text": "Kits por nivel + plataforma nacional. Corresponsabilidad privada."
+      },
+      {
+        "strong": "5 · Monitoreo y evidencia —",
+        "text": "Observatorio Nacional AMI. Indicadores en SIMCE y ENDDEIE."
+      },
+      {
+        "strong": "6 · Marco regulatorio —",
+        "text": "Derecho a explicación algorítmica. Accesibilidad en servicios digitales."
+      }
+    ],
+    "ctaTitle": "Llamado a acción para tomadores de decisiones chilenos",
+    "ctaColumns": [
+      "Pasar de acceso a competencias críticas — Chile ya tiene conectividad; ahora ciudadanos digitalmente competentes.",
+      "Legislar para institucionalizar — AMI como derecho ciudadano con marco normativo específico.",
+      "Financiar y medir para escalar — Inversión sostenible en lo que funciona, con evaluación rigurosa."
+    ],
+    "ctaClosing": "El momento es ahora. Cada día sin acción: más vulnerabilidad, brechas más profundas, erosión de confianza y debilitamiento democrático. El costo de la inacción será irreversible; el beneficio de la acción será transformador. ¿Qué Chile queremos para 2030?",
+    "aboutTitle": "Sobre Agenda AMI-Chile",
+    "aboutBody": "Es una iniciativa de Precisar dedicada a impulsar la alfabetización mediática e informacional como política de Estado en Chile. Trabajamos para que la ciudadanía chilena desarrolle las competencias críticas necesarias para navegar de manera segura, ética y responsable en la era digital.",
+    "collaborateTitle": "¿Cómo podemos colaborar?",
+    "collaborateItems": [
+      "Reuniones informativas con equipos técnicos",
+      "Presentaciones especializadas con datos y propuestas concretas",
+      "Asesoría técnica para implementación de políticas"
+    ],
+    "collaborateCta": "Colabora con nosotros"
+  },
+  "amiVsAlfabetizacionDigital": {
+    "metaTitle": "AMI vs Alfabetización Digital — Precisar",
+    "metaDescription": "¿En qué se diferencian la Alfabetización Mediática e Informacional (AMI) y la alfabetización digital? Tabla comparativa, ejercicio interactivo y tres razones clave para entender el enfoque de Precisar.",
+    "heroKicker": "Educación Mediática · AMI",
+    "heroTitle": "¿En qué se diferencian\nAMI y la Alfabetización Digital?",
+    "heroBajada": "AMI se centra en comprender, analizar y usar críticamente los medios y la información. La Alfabetización Digital prioriza las habilidades técnicas para usar herramientas y servicios tecnológicos con seguridad y eficacia.",
+    "amiColumn": {
+      "title": "AMI · Alfabetización Mediática e Informacional",
+      "sub": "Capacidades críticas sobre medios, mensajes y fuentes.",
+      "items": [
+        "Analizar cómo se construye una noticia y distinguir opinión de hecho.",
+        "Evaluar la credibilidad de una fuente y detectar publicidad nativa.",
+        "Verificar con varias fuentes y entender sesgos/algoritmos.",
+        "Derechos: acceso, autoría, privacidad, libertad de expresión, uso justo."
+      ],
+      "examplesLabel": "Ejemplos prácticos",
+      "examples": [
+        "Detectar deepfakes en campaña",
+        "Identificar titulares clickbait",
+        "Comprobar autoría y fecha"
+      ]
+    },
+    "digitalColumn": {
+      "title": "Alfabetización Digital",
+      "sub": "Habilidades técnicas y operativas con dispositivos y apps.",
+      "items": [
+        "Usar correo, videollamadas, hojas de cálculo, gestores de archivos.",
+        "Configurar seguridad: contraseñas, 2FA, copias de seguridad.",
+        "Administrar privacidad y permisos en redes y móviles.",
+        "Resolver problemas básicos de software/hardware."
+      ],
+      "examplesLabel": "Ejemplos prácticos",
+      "examples": [
+        "Activar 2FA en tus cuentas",
+        "Compartir un Drive con permisos",
+        "Limpiar malware del PC"
+      ]
+    },
+    "tableKicker": "Tabla comparativa",
+    "tableTitle": "Dimensión a dimensión",
+    "tableHeaders": {
+      "dimension": "Dimensión",
+      "ami": "AMI",
+      "digital": "Alfabetización Digital"
+    },
+    "tableRows": [
+      {
+        "dimension": "Foco",
+        "ami": "Sentido crítico sobre mensajes, fuentes y contextos.",
+        "digital": "Uso eficiente y seguro de tecnologías y servicios."
+      },
+      {
+        "dimension": "Preguntas guía",
+        "ami": "¿Quién lo dice? ¿con qué evidencia? ¿qué intención tiene?",
+        "digital": "¿Cómo lo hago? ¿qué botón? ¿qué ajuste de seguridad?"
+      },
+      {
+        "dimension": "Competencias",
+        "ami": "Analizar, evaluar, verificar, argumentar, derechos informacionales.",
+        "digital": "Instalar, configurar, operar, mantener, solucionar problemas."
+      },
+      {
+        "dimension": "Ejemplos",
+        "ami": "Detectar sesgos; verificar una imagen; reconocer desinformación (integridad informativa).",
+        "digital": "Crear una videollamada; cifrar un disco; gestionar contraseñas."
+      },
+      {
+        "dimension": "Resultado buscado",
+        "ami": "Pensamiento crítico y ciudadanía informada.",
+        "digital": "Autonomía técnica y seguridad operativa."
+      }
+    ],
+    "exerciseKicker": "Prueba rápida",
+    "exerciseTitle": "Arrastra cada ejemplo\na su columna",
+    "exerciseTip": "Si dudas, pregúntate: ¿el ejemplo te pide pensar sobre la información (AMI) o usar herramientas con seguridad (Digital)?",
+    "poolEmpty": "Todos los ejemplos han sido asignados ✓",
+    "dropAmiLabel": "AMI",
+    "dropDigitalLabel": "Alfabetización Digital",
+    "dropHint": "Suelta aquí →",
+    "btnCheck": "Comprobar",
+    "btnReset": "Reiniciar",
+    "scoreTemplate": "{score} / {total} correctos",
+    "ejercicios": [
+      {
+        "id": 1,
+        "texto": "Usar una herramienta de verificación de imágenes (OSINT)",
+        "respuesta": "ami"
+      },
+      {
+        "id": 2,
+        "texto": "Crear una videollamada con agenda y enlace",
+        "respuesta": "digital"
+      },
+      {
+        "id": 3,
+        "texto": "Compartir un documento en la nube con permisos correctos",
+        "respuesta": "digital"
+      },
+      {
+        "id": 4,
+        "texto": "Hacer una copia de seguridad automática",
+        "respuesta": "digital"
+      },
+      {
+        "id": 5,
+        "texto": "Citar correctamente y respetar licencias de autor",
+        "respuesta": "ami"
+      },
+      {
+        "id": 6,
+        "texto": "Eliminar malware y actualizar el antivirus",
+        "respuesta": "digital"
+      },
+      {
+        "id": 7,
+        "texto": "Explicar cómo un algoritmo sesga tu feed",
+        "respuesta": "ami"
+      },
+      {
+        "id": 8,
+        "texto": "Configurar autenticación en dos pasos (2FA)",
+        "respuesta": "digital"
+      },
+      {
+        "id": 9,
+        "texto": "Reconocer publicidad nativa en un portal",
+        "respuesta": "ami"
+      },
+      {
+        "id": 10,
+        "texto": "Contrastar una noticia con tres fuentes independientes",
+        "respuesta": "ami"
+      }
+    ],
+    "razonesKicker": "¿Por qué importa distinguirlas?",
+    "razonesTitle": "Tres razones clave",
+    "razones": [
+      {
+        "titulo": "Diseño curricular",
+        "desc": "Equilibra pensamiento crítico (AMI) con habilidades técnicas (Digital)."
+      },
+      {
+        "titulo": "Políticas públicas",
+        "desc": "La brecha no es solo de acceso/uso; también de criterio y verificación."
+      },
+      {
+        "titulo": "Ciudadanía",
+        "desc": "Reducir desinformación (integridad informativa) requiere AMI; reducir fraudes requiere Alfabetización Digital."
+      }
+    ]
   }
 }

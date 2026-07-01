@@ -1,61 +1,40 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import styles from "./AprenderModulosTabs.module.css";
 
-const TABS = [
-  {
-    id: "mediatica",
-    label: "Educación mediática",
-    panelTitle: "Educación Mediática Digital",
-    body:
-      "En este módulo fundamental te equiparemos con las herramientas para navegar el vasto ecosistema de información. Aprenderás a identificar la desinformación (integridad informativa) y las noticias falsas, reconocer los sesgos implícitos en diversos contenidos incluyendo los generados por Inteligencia Artificial, y distinguir imágenes y videos manipulados. Desarrollarás un pensamiento crítico que te permitirá discernir la veracidad de la información, protegerte de narrativas engañosas y consumir medios de forma consciente e informada.",
-  },
-  {
-    id: "navegacion",
-    label: "Navegación segura",
-    panelTitle: "Navegación Segura",
-    body:
-      "Aprenderás a identificar y evitar fraudes en línea, proteger tus datos personales y gestionar tu privacidad en redes y aplicaciones. Te daremos las herramientas para sentirte seguro en cada clic y disfrutar de una experiencia digital tranquila, sin riesgos ni sorpresas.",
-  },
-  {
-    id: "ia",
-    label: "Inteligencia Artificial",
-    panelTitle: "Inteligencia Artificial",
-    body:
-      "La Inteligencia Artificial es la capacidad de las máquinas para imitar y realizar tareas que requieren inteligencia humana: aprender, razonar y resolver problemas. Exploraremos cómo la IA está transformando nuestra vida diaria y el futuro. Descubriremos sus aplicaciones prácticas y cómo interactuar con ella de forma consciente.",
-  },
-  {
-    id: "bienestar",
-    label: "Bienestar digital",
-    panelTitle: "Bienestar Digital",
-    body:
-      "Encontrarás un equilibrio saludable entre el tiempo que pasas en línea y tus actividades presenciales, utilizando las herramientas digitales para enriquecer tu vida y fortalecer tus vínculos sociales sin que sustituyan las interacciones cara a cara. Promovemos un uso consciente y beneficioso de la tecnología.",
-  },
-] as const;
+type TabItem = {
+  id: string;
+  label: string;
+  panelTitle: string;
+  body: string;
+};
 
 const PREFIX = "aprender-modulos";
 
 export function AprenderModulosTabs() {
+  const t = useTranslations("programPages.aprenderDigital.tabs");
+  const tabs = t.raw("items") as TabItem[];
   const [activeTab, setActiveTab] = useState(0);
-  const current = TABS[activeTab]!;
+  const current = tabs[activeTab]!;
 
   return (
-    <div className={styles.tabsShell} aria-label="Módulos formativos">
+    <div className={styles.tabsShell} aria-label={t("ariaLabel")}>
       <div className={styles.tabsBar} role="tablist">
-        {TABS.map((t, index) => (
+        {tabs.map((tab, index) => (
           <button
-            key={t.id}
+            key={tab.id}
             type="button"
             role="tab"
-            id={`tab-${PREFIX}-${t.id}`}
+            id={`tab-${PREFIX}-${tab.id}`}
             aria-selected={activeTab === index}
-            aria-controls={`panel-${PREFIX}-${t.id}`}
+            aria-controls={`panel-${PREFIX}-${tab.id}`}
             tabIndex={activeTab === index ? 0 : -1}
             className={activeTab === index ? styles.tabActive : styles.tabInactive}
             onClick={() => setActiveTab(index)}
           >
-            {t.label}
+            {tab.label}
           </button>
         ))}
       </div>

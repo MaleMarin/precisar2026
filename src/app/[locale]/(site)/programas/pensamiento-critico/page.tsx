@@ -1,103 +1,78 @@
 import type { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 import { FooterContactLink } from "@/components/FooterContactLink";
 import shell from "@/components/programs/ProgramShell.module.css";
+import { absoluteLocaleUrl, hreflangAlternates, SITE } from "@/lib/site";
 import styles from "./PensamientoCriticoPage.module.css";
 
-export const metadata: Metadata = {
-  title: "Formación en Pensamiento Crítico Digital",
-  description:
-    "Dos talleres: verificación de noticias y alfabetización mediática en la era de la IA. Modalidades online y presencial para equipos y comunidades.",
-};
+function ogLocaleTag(locale: string): string {
+  if (locale === "pt") return "pt_BR";
+  if (locale === "en") return "en_US";
+  return "es_CL";
+}
 
-const TALLER1_MODULOS = [
-  {
-    num: "01",
-    title: "¿Por qué las noticias falsas son tan atractivas?",
-    desc: "Los titulares impactantes o que provocan enojo están diseñados para que los compartamos sin pensar. Entender esto es el primer paso para no caer en la trampa.",
-  },
-  {
-    num: "02",
-    title: "El método de los 3 pasos: Pausa, Pregunta y Compara",
-    desc: "Pausa: No compartir de inmediato. Pregunta: ¿Quién dice esto? ¿Por qué? Compara: ¿Algún medio serio informa lo mismo?",
-  },
-  {
-    num: "03",
-    title: "Herramientas fáciles al alcance de tu mano",
-    desc: "Taller práctico donde aprenderás a usar la búsqueda inversa de imágenes de Google en tu propio celular.",
-  },
-  {
-    num: "04",
-    title: "¿Y ahora qué hago?",
-    desc: "Plan de acción personal para consumir información de manera más saludable y consejos para actuar cuando alguien comparte algo falso.",
-  },
-] as const;
+type ModuloItem = { num: string; title: string; desc: string };
+type BeneficioItem = { num: string; title: string; desc: string };
+type ModalidadItem = { num: string; title: string; text: string };
 
-const TALLER2_MODULOS = [
-  {
-    num: "01",
-    title: "El chef secreto de tu internet: ¿Qué es un algoritmo?",
-    desc: "Ejemplos cotidianos como una receta de cocina para explicar qué es un algoritmo y cómo lo usan Spotify, Netflix, Facebook e Instagram.",
-  },
-  {
-    num: "02",
-    title: "Un mundo hecho para ti: La personalización y la burbuja",
-    desc: "Cómo las plataformas aprenden de tus gustos para crear un perfil sobre ti y el fenómeno de la burbuja de filtros.",
-  },
-  {
-    num: "03",
-    title: "La llegada de la Inteligencia Artificial",
-    desc: "Qué es la IA, cómo puede generar imágenes, textos y voces que parecen reales, y para qué se usa de forma positiva y cuáles son sus riesgos.",
-  },
-  {
-    num: "04",
-    title: "¿Cómo navegar en un mundo con IA?",
-    desc: "Consejos prácticos para moverte en este nuevo escenario y valorar las fuentes de información confiables.",
-  },
-] as const;
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "programPages.pensamientoCritico" });
+  const canonical = absoluteLocaleUrl(locale, "/programas/pensamiento-critico");
+  const title = t("metaTitle");
+  const description = t("metaDescription");
+  return {
+    title,
+    description,
+    alternates: {
+      canonical,
+      languages: hreflangAlternates("/programas/pensamiento-critico"),
+    },
+    openGraph: {
+      title,
+      description,
+      url: canonical,
+      siteName: SITE.name,
+      locale: ogLocaleTag(locale),
+      type: "website",
+    },
+  };
+}
 
-const BENEFICIOS = [
-  {
-    num: "01",
-    title: "Mejora en la Toma de Decisiones y Eficiencia",
-    desc: "Al dotar a tus equipos de herramientas para identificar, analizar y verificar información, mejoras su capacidad para tomar decisiones acertadas y optimizar su tiempo.",
-  },
-  {
-    num: "02",
-    title: "Mitigación de Riesgos y Protección de la Reputación",
-    desc: "Capacitar en la detección de desinformación (integridad informativa) disminuye el riesgo de que la organización actúe basándose en datos falsos, previniendo crisis y protegiendo la reputación.",
-  },
-  {
-    num: "03",
-    title: "Fortalecimiento de la Cultura Interna",
-    desc: "Los cursos promueven un ambiente basado en el análisis de datos, el pensamiento crítico y el diálogo constructivo, reduciendo la polarización y mejorando la colaboración.",
-  },
-  {
-    num: "04",
-    title: "Impacto Social",
-    desc: "Al dominar el pensamiento crítico, tus colaboradores se convierten en agentes de apoyo en sus comunidades y familias, contribuyendo a una sociedad mejor informada.",
-  },
-] as const;
+export default async function Page() {
+  const t = await getTranslations("programPages.pensamientoCritico");
+  const tShared = await getTranslations("programPages.shared");
+  const introParas = t.raw("introParas") as string[];
+  const modalidades = t.raw("modalidades") as ModalidadItem[];
+  const taller1Body = t.raw("taller1Body") as string[];
+  const taller1Outcomes = t.raw("taller1Outcomes") as string[];
+  const taller1Modulos = t.raw("taller1Modulos") as ModuloItem[];
+  const taller2Body = t.raw("taller2Body") as string[];
+  const taller2Outcomes = t.raw("taller2Outcomes") as string[];
+  const taller2Modulos = t.raw("taller2Modulos") as ModuloItem[];
+  const durationPills = t.raw("durationPills") as string[];
+  const beneficios = t.raw("beneficios") as BeneficioItem[];
+  const ctaSteps = t.raw("ctaSteps") as string[];
 
-export default function Page() {
   return (
     <article className={shell.page} data-program="pensamiento">
       <header className={shell.hero} aria-labelledby="pc-hero-title">
         <div className={shell.heroInner}>
-          <p className={shell.heroEyebrow}>
-            ■ PENSAMIENTO CRÍTICO DIGITAL · PROGRAMA 05
-          </p>
+          <p className={shell.heroEyebrow}>{t("heroEyebrow")}</p>
           <h1 id="pc-hero-title" className={`${shell.heroTitle} ${styles.heroTitleBlock}`}>
-            Consumidores críticos y competentes
+            {t("heroTitleLine1")}
             <br />
-            en el ecosistema digital.
+            {t("heroTitleLine2")}
           </h1>
-          <p className={shell.heroSub}>
-            Herramientas para identificar, analizar y verificar la información que circula en el mundo digital.
-          </p>
+          <p className={shell.heroSub}>{t("heroSub")}</p>
         </div>
         <aside className={shell.heroStat} aria-hidden="true">
           <p className={shell.heroStatBig}>2</p>
-          <p className={shell.heroStatLabel}>talleres disponibles</p>
+          <p className={shell.heroStatLabel}>{t("heroStatLabel")}</p>
         </aside>
       </header>
 
@@ -105,19 +80,15 @@ export default function Page() {
         <div className={shell.inner}>
           <div className={shell.queEsGrid}>
             <div>
-              <p className={shell.statWord}>Crítico.</p>
-              <p className={styles.statSubLg}>Competente. Informado.</p>
+              <p className={shell.statWord}>{t("statWord")}</p>
+              <p className={styles.statSubLg}>{t("statSub")}</p>
             </div>
             <div>
-              <p id="pc-que-es" className={shell.bodyText}>
-                Para enfrentar este desafío, se han creado cursos diseñados para transformar a los participantes
-                en consumidores críticos y competentes, entregándoles las herramientas necesarias para
-                identificar, analizar y verificar la información que encuentran en el ecosistema digital actual.
-              </p>
-              <p className={shell.bodyText}>
-                Entendemos que cada persona tiene necesidades distintas, por eso ofrecemos dos formas de tomar
-                los cursos.
-              </p>
+              {introParas.map((para, i) => (
+                <p key={i} id={i === 0 ? "pc-que-es" : undefined} className={shell.bodyText}>
+                  {para}
+                </p>
+              ))}
             </div>
           </div>
         </div>
@@ -126,62 +97,45 @@ export default function Page() {
       <section className={`${shell.sectionDark} ${shell.padSection}`} aria-labelledby="pc-modalidades">
         <div className={shell.inner}>
           <h2 id="pc-modalidades" className={styles.modalidadesTitle}>
-            Flexibilidad para aprender
+            {t("modalidadesTitle")}
           </h2>
           <div className={styles.modalRow}>
-            <article className={styles.modalCard}>
-              <p className={styles.modalNum}>01</p>
-              <h3 className={styles.modalCardTitle}>Modalidad Online</h3>
-              <p className={styles.modalCardText}>
-                Un facilitador una vez por semana. Cada sesión de 90 minutos con actividades prácticas con los
-                participantes.
-              </p>
-            </article>
-            <article className={styles.modalCard}>
-              <p className={styles.modalNum}>02</p>
-              <h3 className={styles.modalCardTitle}>Modalidad Presencial</h3>
-              <p className={styles.modalCardText}>
-                Talleres vivenciales en grupos reducidos, máximo 15 personas, con ejercicios prácticos,
-                dinámicas grupales y materiales impresos.
-              </p>
-            </article>
+            {modalidades.map((modal) => (
+              <article key={modal.num} className={styles.modalCard}>
+                <p className={styles.modalNum}>{modal.num}</p>
+                <h3 className={styles.modalCardTitle}>{modal.title}</h3>
+                <p className={styles.modalCardText}>{modal.text}</p>
+              </article>
+            ))}
           </div>
         </div>
       </section>
 
       <section className={`${shell.sectionCream} ${shell.padSection}`} aria-labelledby="pc-taller1-title">
         <div className={shell.inner}>
-          <p className={styles.workshopEyebrow}>■ TALLER 01</p>
+          <p className={styles.workshopEyebrow}>{t("taller1Eyebrow")}</p>
           <h2 id="pc-taller1-title" className={styles.workshopTitle}>
-            Entendiendo las Noticias y Verificación de Hechos
+            {t("taller1Title")}
           </h2>
-          <p className={styles.workshopKicker}>
-            ¿Que no te engañen! Aprende a verificar lo que lees en internet.
-          </p>
+          <p className={styles.workshopKicker}>{t("taller1Kicker")}</p>
 
           <div className={styles.workshopGrid}>
             <div>
-              <p className={styles.workBody}>
-                ¿Recibes cadenas en WhatsApp o ves noticias en Facebook y dudas si son ciertas? Este taller es
-                una guía de herramientas y consejos prácticos para que aprendas a diferenciar la información
-                real de la falsa en pocos minutos. El objetivo es que te sientas más seguro al navegar por
-                internet y que tengas la confianza para saber qué creer y qué descartar.
-              </p>
-              <p className={styles.workBody}>
-                Dirigido a cualquier persona que use redes sociales y quiera aprender a protegerse de los
-                engaños y la desinformación (integridad informativa). No necesitas saber nada de tecnología, solo tener curiosidad.
-              </p>
-              <p className={styles.outcomesLead}>Al finalizar serás capaz de:</p>
+              {taller1Body.map((para, i) => (
+                <p key={i} className={styles.workBody}>
+                  {para}
+                </p>
+              ))}
+              <p className={styles.outcomesLead}>{t("outcomesLead")}</p>
               <ul className={styles.bulletList}>
-                <li>Aplicar una lista de chequeo de 3 pasos para evaluar cualquier noticia.</li>
-                <li>Reconocer las señales de alerta más comunes en una noticia falsa.</li>
-                <li>Usar herramientas gratuitas para saber si una foto es real o si es antigua.</li>
-                <li>Conversar con calma con amigos o familiares que comparten información falsa.</li>
+                {taller1Outcomes.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
               </ul>
             </div>
             <div>
               <div className={styles.moduleStack}>
-                {TALLER1_MODULOS.map((m) => (
+                {taller1Modulos.map((m) => (
                   <article key={m.num} className={styles.modCardLight}>
                     <p className={styles.modNum}>{m.num}</p>
                     <h3 className={styles.modTitle}>{m.title}</h3>
@@ -190,8 +144,11 @@ export default function Page() {
                 ))}
               </div>
               <div className={styles.pills}>
-                <span className={styles.pillOrange}>Medio día · 4 horas</span>
-                <span className={styles.pillOrange}>Día completo · 7 horas</span>
+                {durationPills.map((pill) => (
+                  <span key={pill} className={styles.pillOrange}>
+                    {pill}
+                  </span>
+                ))}
               </div>
             </div>
           </div>
@@ -200,37 +157,29 @@ export default function Page() {
 
       <section className={`${shell.sectionDark} ${shell.padSection}`} aria-labelledby="pc-taller2-title">
         <div className={shell.inner}>
-          <p className={styles.workshopEyebrow}>■ TALLER 02</p>
+          <p className={styles.workshopEyebrow}>{t("taller2Eyebrow")}</p>
           <h2 id="pc-taller2-title" className={`${styles.workshopTitle} ${styles.workshopTitleLight}`}>
-            Alfabetización Mediática y Digital en la Era de la IA
+            {t("taller2Title")}
           </h2>
-          <p className={`${styles.workshopKicker} ${styles.workshopKickerMuted}`}>
-            Entendiendo el Mundo Digital: Cómo la IA y los Algoritmos deciden lo que ves.
-          </p>
+          <p className={`${styles.workshopKicker} ${styles.workshopKickerMuted}`}>{t("taller2Kicker")}</p>
 
           <div className={styles.workshopGrid}>
             <div>
-              <p className={`${styles.workBody} ${styles.workBodyLight}`}>
-                ¿Sientes que Instagram te lee la mente o que YouTube siempre sabe qué video recomendarte? No es
-                magia, son algoritmos e inteligencia artificial. En este taller vamos a abrir el capó de
-                internet para que entiendas de forma simple cómo estas tecnologías organizan el contenido que
-                consumes cada día y cómo esto impacta tu visión del mundo.
-              </p>
-              <p className={`${styles.workBody} ${styles.workBodyLight}`}>
-                Dirigido a todas las personas curiosas por saber cómo funcionan las redes sociales por dentro y
-                el impacto que la tecnología tiene en nuestras vidas.
-              </p>
-              <p className={`${styles.outcomesLead} ${styles.outcomesLeadLight}`}>Al finalizar serás capaz de:</p>
+              {taller2Body.map((para, i) => (
+                <p key={i} className={`${styles.workBody} ${styles.workBodyLight}`}>
+                  {para}
+                </p>
+              ))}
+              <p className={`${styles.outcomesLead} ${styles.outcomesLeadLight}`}>{t("outcomesLead")}</p>
               <ul className={`${styles.bulletList} ${styles.bulletListLight}`}>
-                <li>Explicar con un ejemplo simple qué es un algoritmo.</li>
-                <li>Entender cómo las plataformas personalizan el contenido que te muestran.</li>
-                <li>Reconocer el efecto de la burbuja de filtros en tu día a día.</li>
-                <li>Identificar las nuevas formas en que la IA se usa para crear contenido real y falso.</li>
+                {taller2Outcomes.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
               </ul>
             </div>
             <div>
               <div className={styles.moduleStack}>
-                {TALLER2_MODULOS.map((m) => (
+                {taller2Modulos.map((m) => (
                   <article key={m.num} className={styles.modCardDark}>
                     <p className={styles.modNum}>{m.num}</p>
                     <h3 className={`${styles.modTitle} ${styles.modTitleLight}`}>{m.title}</h3>
@@ -239,8 +188,11 @@ export default function Page() {
                 ))}
               </div>
               <div className={styles.pills}>
-                <span className={styles.pillLight}>Medio día · 4 horas</span>
-                <span className={styles.pillLight}>Día completo · 7 horas</span>
+                {durationPills.map((pill) => (
+                  <span key={pill} className={styles.pillLight}>
+                    {pill}
+                  </span>
+                ))}
               </div>
             </div>
           </div>
@@ -250,10 +202,10 @@ export default function Page() {
       <section className={`${shell.sectionCream} ${shell.padSection}`} aria-labelledby="pc-beneficios">
         <div className={shell.inner}>
           <h2 id="pc-beneficios" className={styles.beneficiosTitle}>
-            Beneficios para tu organización
+            {t("beneficiosTitle")}
           </h2>
           <div className={styles.benefGrid}>
-            {BENEFICIOS.map((b) => (
+            {beneficios.map((b) => (
               <article key={b.num} className={styles.benefCard}>
                 <p className={styles.benefNum}>{b.num}</p>
                 <h3 className={styles.benefTitle}>{b.title}</h3>
@@ -268,20 +220,17 @@ export default function Page() {
         <div className={`${shell.ctaInner} ${shell.ctaInnerCiudades}`}>
           <div>
             <h2 id="pc-cta-title" className={styles.ctaTitleTight}>
-              Adapta el programa a las necesidades específicas de tu institución.
+              {t("ctaTitle")}
             </h2>
             <ul className={styles.ctaStepsPlain}>
-              <li>01 Solicita una propuesta detallada.</li>
-              <li>02 Coordinamos una presentación.</li>
-              <li>03 Co-creamos el programa a tu medida.</li>
+              {ctaSteps.map((step) => (
+                <li key={step}>{step}</li>
+              ))}
             </ul>
           </div>
           <div>
-            <p className={shell.ctaText}>
-              Consideramos esta capacitación una oportunidad estratégica en el capital humano y la resiliencia
-              de tu organización.
-            </p>
-            <FooterContactLink className={shell.ctaBtn}>Colabora con nosotros</FooterContactLink>
+            <p className={shell.ctaText}>{t("ctaBody")}</p>
+            <FooterContactLink className={shell.ctaBtn}>{tShared("collaborateCta")}</FooterContactLink>
           </div>
         </div>
       </section>

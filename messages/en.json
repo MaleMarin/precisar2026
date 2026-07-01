@@ -103,7 +103,14 @@
     "lineLabA": "Empower how you",
     "lineLabB": "use technology.",
     "lineHome": "Empower how you use technology.",
-    "verbs": ["Connect", "Transform", "Sharpen", "Inform", "Understand", "Take part"]
+    "verbs": [
+      "Connect",
+      "Transform",
+      "Sharpen",
+      "Inform",
+      "Understand",
+      "Take part"
+    ]
   },
   "Metadata": {
     "homeTitle": "Precisar · Empower how you use technology",
@@ -203,7 +210,12 @@
     "stackKicker": "03 · Saberes",
     "stackHeadline": "Knowing isn’t hoarding data. It’s knowing what to do with it.",
     "stackBody": "Three collections of open resources—to reflect and broaden perspectives.",
-    "recursosCta": "Material to download →"
+    "recursosCta": "Material to download →",
+    "links": {
+      "/unapreguntaaldia": "A question a day",
+      "/experiencias/sentidos-digitales": "Digital senses",
+      "/culturadigital": "Digital culture"
+    }
   },
   "homeBotOnda": {
     "stackKicker": "04 · Bot Onda",
@@ -223,11 +235,26 @@
   },
   "homeMarquee": {
     "chunks": [
-      ["Media", "literacy"],
-      ["Critical", "thinking"],
-      ["Data", "in context"],
-      ["Informed", "community"],
-      ["Tech", "with judgment"]
+      [
+        "Media",
+        "literacy"
+      ],
+      [
+        "Critical",
+        "thinking"
+      ],
+      [
+        "Data",
+        "in context"
+      ],
+      [
+        "Informed",
+        "community"
+      ],
+      [
+        "Tech",
+        "with judgment"
+      ]
     ]
   },
   "culturaDigitalPage": {
@@ -299,6 +326,179 @@
         "This axis does not seek to teach people to use technology “correctly,” but to inhabit it with awareness, question it with critical thinking, and transform it with ethics. It means shaping citizens who can protect their privacy, spot biases in automated systems, detect AI-generated content, and demand a fairer and more transparent digital environment."
       ],
       "closing": "Technology and media intersect in everyday life. Understanding that intersection is key to digital citizenship."
+    }
+  },
+  "educacionMediaticaTabs": {
+    "ariaTopics": "Topics",
+    "comunicacion": {
+      "sectionTitle": "Keys to understanding the media world",
+      "tabs": [
+        {
+          "id": "ecosistema",
+          "label": "Media ecosystem",
+          "paragraphs": [
+            "It is the set of media, platforms, and actors that produce and spread information. It ranges from major channels to social networks and community media. Understanding who communicates, how, and with what interests is key to reading what we see more clearly."
+          ]
+        },
+        {
+          "id": "libertad",
+          "label": "Freedom of Expression and the Right to Information",
+          "paragraphs": [
+            "Freedom of expression is the right to say what we think, to share ideas, opinions, and beliefs without fear of censorship or punishment. But it also includes the right to receive truthful, diverse, and timely information—something essential for making informed decisions in everyday life.",
+            "This right is not absolute: it does not protect speech that incites hatred, violence, or discrimination. That is why exercising freedom of expression also means responsibility: thinking about the consequences of what we share and fostering respectful dialogue, even when we disagree.",
+            "The right to information guarantees that all people can access reliable, transparent, and diverse content. That includes quality public media, open data, and mechanisms that let us know how decisions that affect us are made. When these rights are upheld, civic participation, social trust, and shared life are strengthened."
+          ]
+        },
+        {
+          "id": "medios",
+          "label": "Media",
+          "paragraphs": [
+            "Media help shape the image we have of the world. But they do not always show its full diversity. Sometimes certain voices, territories, or experiences are less represented. That is why it is important to broaden our view: including different perspectives helps us understand reality better and strengthen more open, plural, and respectful communication."
+          ]
+        },
+        {
+          "id": "desinformacion (integridad informativa)",
+          "label": "Disinformation (information integrity)",
+          "paragraphs": [
+            "Disinformation (information integrity) exists because some people want to manipulate what we think, create confusion, or gain economic, political, or social advantage. Sometimes it is created on purpose; other times it spreads through error or lack of knowledge. Social networks and digital media allow this content to spread very quickly, without filters or verification.",
+            "Fighting it is not censorship: it is defending the right to be well informed, to think autonomously, and to participate responsibly in the world we share."
+          ]
+        },
+        {
+          "id": "redes",
+          "label": "Social networks",
+          "paragraphs": [
+            "On social networks, we often see only ideas similar to our own. This happens because algorithms show us what we already like or already believe. Information bubbles form this way, reinforcing our views and isolating us from other opinions. To break out of that bubble, it is essential to seek different sources, compare information, and stay open to dialogue."
+          ]
+        }
+      ]
+    },
+    "educacion": {
+      "sectionTitle": "Keys to learning with critical awareness",
+      "tabs": [
+        {
+          "id": "pensamiento",
+          "label": "Critical Thinking",
+          "paragraphs": [
+            "It is not just about having opinions, but knowing why we hold them. Critical thinking is the ability to observe, interpret, and question the world around us—including the media messages we consume. In an environment saturated with stimuli, learning to pause, analyse, and form our own judgments becomes a key competence for autonomy and citizenship."
+          ]
+        },
+        {
+          "id": "aula",
+          "label": "Media Literacy in the Classroom",
+          "paragraphs": [
+            "Media literacy is not just another subject; it is a way of seeing and teaching the world. Integrating it in the classroom means teaching students to live with information, build knowledge collaboratively, and engage with the digital environment meaningfully. From childhood through adulthood, media literacy enables pedagogy that is more connected to reality and more aware of its impacts."
+          ]
+        },
+        {
+          "id": "produccion",
+          "label": "Content Production",
+          "paragraphs": [
+            "Today we are all potential broadcasters. Creating content is not just a technical skill; it is a way of intervening in the world. Learning to produce messages (videos, podcasts, memes, texts) with purpose, ethics, and a critical eye makes it possible to exercise citizenship online and to dialogue from the local to the global. It also teaches us to listen and build with others."
+          ]
+        },
+        {
+          "id": "evaluar",
+          "label": "Evaluating Information",
+          "paragraphs": [
+            "The ability to distinguish reliable information from doubtful content is one of the fundamental literacies of the 21st century. Consuming data is not enough: we must learn to verify, identify sources, and recognise bias. Evaluating information does not mean distrusting everything, but learning to look closely and value well-founded knowledge."
+          ]
+        },
+        {
+          "id": "vida",
+          "label": "Digital Life and Coexistence",
+          "paragraphs": [
+            "Being online is not just a technical experience; it is a human one. Media literacy promotes forms of digital coexistence that respect diversity, encourage dialogue, and reject violence. Learning to live online means knowing how to protect ourselves, but also how to build more empathetic, collaborative, and democratic environments."
+          ]
+        }
+      ]
+    },
+    "cultura": {
+      "sectionTitle": "The keys to understanding culture in media literacy begin with recognising that every form of expression reflects identities, contexts, and values",
+      "tabs": [
+        {
+          "id": "diversa",
+          "label": "Culture is diverse",
+          "paragraphs": [
+            "Culture is not single, homogeneous, or static. It is multiple, changing, and alive. Media literacy invites us to recognise that diversity as a value, not an obstacle. Understanding that there are different ways of seeing, narrating, and inhabiting the world—from a rural community to a digital urban collective—is essential for building inclusive citizenship based on mutual respect and intercultural dialogue. It is not just about accepting difference, but learning from it."
+          ]
+        },
+        {
+          "id": "representan",
+          "label": "Media represent (and omit)",
+          "paragraphs": [
+            "Every media content is a construction. No medium shows reality as it is; it selects, ranks, and frames. That is why it is essential to ask: what is shown? what is hidden? who tells the story? Media literacy seeks to build a critical gaze on those representations, understanding that what appears on screen also shapes stereotypes, power relations, and inequalities. Recognising what is omitted is the first step toward more just narratives."
+          ]
+        },
+        {
+          "id": "digital",
+          "label": "The digital is also culture",
+          "paragraphs": [
+            "TikToks, memes, emojis, X threads, reels, podcasts… all of that is language, identity, and expression. They are new ways of narrating the everyday, the political, and the intimate. Media literacy cannot treat these productions as superficial; they are part of contemporary culture. Understanding their codes, aesthetics, and modes of circulation is fundamental for dialogue with new generations and for validating the ways they make sense of the world."
+          ]
+        },
+        {
+          "id": "crear",
+          "label": "Creating is participating",
+          "paragraphs": [
+            "In digital culture, we are no longer only receivers—we are also broadcasters. Making a video, sharing a meme, writing a comment… these are communicative acts. And all communication is political, because it expresses visions, feelings, and positions. Media literacy encourages people to exercise their right to tell their story from their place, with their voice and their media. Participating actively is exercising cultural citizenship; it is inscribing oneself in the present with dignity and meaning."
+          ]
+        },
+        {
+          "id": "dialogo",
+          "label": "Dialogue creates meaning",
+          "paragraphs": [
+            "Neither media nor algorithms replace human encounter. Understanding does not arise from monologue, but from exchange. Dialogue—between generations, territories, and knowledges—is the heart of democratic culture. Media literacy proposes creating real spaces for conversation, where we listen carefully, disagree respectfully, and build collective knowledge. Because understanding others is also understanding ourselves in a shared world."
+          ]
+        },
+        {
+          "id": "derecho",
+          "label": "Communicating is a right",
+          "paragraphs": [
+            "Having access to the internet is not enough: we need a voice. Being able to speak, be heard, and express ourselves without fear is an essential part of full citizenship. Media literacy, from a human-rights perspective, does not only seek to protect against risk (such as fake news or hate speech), but to enable the expressive potential of all people. Communicating is not a luxury; it is a condition for participating in public life freely and meaningfully."
+          ]
+        }
+      ]
+    },
+    "tecnologia": {
+      "sectionTitle": "Keys to understanding technology in media literacy",
+      "tabs": [
+        {
+          "id": "algoritmo",
+          "label": "Algorithms and Information Bias",
+          "paragraphs": [
+            "Technology is not neutral. What we see on social networks, search engines, or platforms is mediated by algorithms that prioritise certain content and silence others. Understanding how these systems work is key to developing a critical view of the information we consume. It is not just about knowing they exist, but understanding their impact on our decisions, perceptions, and relationships."
+          ]
+        },
+        {
+          "id": "privacidad",
+          "label": "Privacy and Digital Footprint",
+          "paragraphs": [
+            "Every click leaves a mark. In the digital world, our data is currency. Knowing how to protect privacy is not just a technical matter, but an act of autonomy. Understanding what we share, with whom, and for what purpose helps us exercise more conscious control over our digital identity and our rights."
+          ]
+        },
+        {
+          "id": "brecha",
+          "label": "Digital Divide and Access",
+          "paragraphs": [
+            "Technology amplifies inequalities when access is not guaranteed for everyone. This axis also makes visible the barriers that prevent full participation in the digital environment—from lack of connectivity to absence of training. Educating in technology with a critical approach is also educating for social justice."
+          ]
+        },
+        {
+          "id": "ia",
+          "label": "Artificial Intelligence and Digital Culture",
+          "paragraphs": [
+            "Artificial intelligence is no longer science fiction. From virtual assistants to systems that generate content, AI is part of today's information environment. Educating in this context means not only using these technologies, but also understanding how they work and developing a critical view of their impact on how we communicate, learn, and live together."
+          ]
+        },
+        {
+          "id": "plataformas",
+          "label": "Conscious Use of Platforms",
+          "paragraphs": [
+            "Being constantly connected does not always mean being healthily connected. This axis invites reflection on our digital habits: the time we spend, the emotions they generate, the bonds we build. It promotes balance between online and offline life, and teaches us to use technology with purpose, intention, and care."
+          ]
+        }
+      ]
     }
   },
   "marco": {
@@ -393,6 +593,22 @@
       "closing": "Technology is not neutral. What we see on social networks, search engines, or platforms is mediated by algorithms that prioritise some content and silence other. Understanding how these systems work is key to developing a critical view of the information we consume."
     }
   },
+  "multiStepForm": {
+    "stepConfirm": "Confirmation",
+    "confirmTitle": "Thank you — message recorded",
+    "confirmBody1": "With a connected endpoint, this is where you would show the real submission. For now it is a local preview: your data does not leave the browser until you wire up the form action.",
+    "confirmBody2Before": "We will reply to the address you provided when the flow is active. If you need another channel, write to",
+    "confirmBody2After": "or use the",
+    "footerFormLink": "footer contact form",
+    "step2Label": "Step 2 of 3",
+    "step1Label": "Step 1 of 3 · Choose one or more",
+    "labelMessage": "Message",
+    "labelName": "Name",
+    "labelEmail": "Email",
+    "back": "Back",
+    "send": "Send",
+    "continue": "Continue"
+  },
   "newsletterForm": {
     "thanks": "You’re subscribed. You’ll soon receive updates from Precisar.",
     "errorFailed": "We couldn’t register your email. Please try again in a few minutes.",
@@ -451,21 +667,51 @@
     "howWeWork": {
       "title": "How we work",
       "items": [
-        { "title": "We co-design with context", "body": "We don’t apply one-size-fits-all formulas. We adapt methodologies, tools, and resources to the needs, languages, and capacities of each organisation and the communities they work with." },
-        { "title": "We translate evidence into action", "body": "We produce and organise useful evidence to understand how people get informed, what barriers they face, and which tools can be more effective in supporting them." },
-        { "title": "We test in the field", "body": "We design and implement experiences in real contexts, with concrete audiences and diverse conditions, to learn, adjust, and leave replicable models." },
-        { "title": "We transfer capacities", "body": "We aim for organisations to take ownership of methodologies, resources, and tools, integrating them into their own practices beyond a one-off intervention." },
-        { "title": "We combine clarity, technology, and public purpose", "body": "We develop open tools, accessible content, and applied experiences that help people better understand how information circulates and how to use technology in a more conscious and productive way." }
+        {
+          "title": "We co-design with context",
+          "body": "We don’t apply one-size-fits-all formulas. We adapt methodologies, tools, and resources to the needs, languages, and capacities of each organisation and the communities they work with."
+        },
+        {
+          "title": "We translate evidence into action",
+          "body": "We produce and organise useful evidence to understand how people get informed, what barriers they face, and which tools can be more effective in supporting them."
+        },
+        {
+          "title": "We test in the field",
+          "body": "We design and implement experiences in real contexts, with concrete audiences and diverse conditions, to learn, adjust, and leave replicable models."
+        },
+        {
+          "title": "We transfer capacities",
+          "body": "We aim for organisations to take ownership of methodologies, resources, and tools, integrating them into their own practices beyond a one-off intervention."
+        },
+        {
+          "title": "We combine clarity, technology, and public purpose",
+          "body": "We develop open tools, accessible content, and applied experiences that help people better understand how information circulates and how to use technology in a more conscious and productive way."
+        }
       ]
     },
     "together": {
       "title": "What we can do together",
       "items": [
-        { "title": "Diagnosis and listening", "body": "Processes to understand how different audiences get informed, what difficulties they face, and what kind of support they need." },
-        { "title": "Methodologies for territories and institutions", "body": "Design and implementation of working models for municipalities, schools, organisations, and public services." },
-        { "title": "Open resources and tools", "body": "Guides, activities, explanatory materials, participatory experiences, and conversational tools adapted to different audiences and life stages." },
-        { "title": "Support for institutional adoption", "body": "Support to teams and organisations to incorporate this agenda from their own roles, capacities, and objectives." },
-        { "title": "Evidence for decisions", "body": "Systematising lessons learned and generating useful inputs to improve practices, programmes, and ways of communicating." }
+        {
+          "title": "Diagnosis and listening",
+          "body": "Processes to understand how different audiences get informed, what difficulties they face, and what kind of support they need."
+        },
+        {
+          "title": "Methodologies for territories and institutions",
+          "body": "Design and implementation of working models for municipalities, schools, organisations, and public services."
+        },
+        {
+          "title": "Open resources and tools",
+          "body": "Guides, activities, explanatory materials, participatory experiences, and conversational tools adapted to different audiences and life stages."
+        },
+        {
+          "title": "Support for institutional adoption",
+          "body": "Support to teams and organisations to incorporate this agenda from their own roles, capacities, and objectives."
+        },
+        {
+          "title": "Evidence for decisions",
+          "body": "Systematising lessons learned and generating useful inputs to improve practices, programmes, and ways of communicating."
+        }
       ]
     },
     "partners": {
@@ -514,5 +760,2002 @@
       "body": "If your organisation wants to develop tools, methodologies, or experiences to strengthen people’s relationship with information and promote a more conscious, useful, and constructive use of technology, we’d be glad to talk.",
       "button": "Write to us"
     }
+  },
+  "programPages": {
+    "shared": {
+      "collaborateCta": "Work with us"
+    },
+    "aprenderDigital": {
+      "metaTitle": "Learn Digital: It's Never Too Late · Precisar",
+      "metaDescription": "A safe, friendly space where adults and older people build confidence and digital skills.",
+      "heroEyebrow": "Programs · Learn Digital",
+      "heroTitleLine1": "Learn Digital:",
+      "heroTitleLine2": "It's Never Too Late",
+      "heroSub": "A safe, welcoming, friendly space where adults and older people build confidence, gain useful digital and media skills, and enjoy connecting with their surroundings, community, and loved ones.",
+      "objectivesEyebrow": "Our objectives",
+      "objectivesTitleLine1": "We train people for a",
+      "objectivesTitleLine2": "full and safe digital life",
+      "objectivesIntro": "We train participants for a full and safe digital life.",
+      "modulos": [
+        {
+          "titulo": "Digital Media Education",
+          "desc": "We teach how to identify disinformation (information integrity), recognise bias, and develop critical thinking to navigate the digital world in an informed way. This will help you judge whether information is truthful and protect yourself from misleading content."
+        },
+        {
+          "titulo": "Safe Browsing",
+          "desc": "You will learn to identify and avoid online fraud, protect your personal data, and manage your privacy on networks and apps, ensuring a calm, risk-free digital experience. We will give you the tools to feel safe with every click."
+        },
+        {
+          "titulo": "Artificial Intelligence",
+          "desc": "Artificial Intelligence (AI) is the ability of machines to imitate and perform tasks that require human intelligence. We will explore how AI is transforming our daily lives and the future, discover its practical applications, and learn how to interact with it consciously."
+        },
+        {
+          "titulo": "Digital Wellbeing",
+          "desc": "Find a healthy balance between time spent online and in-person activities, using digital tools to enrich your life and strengthen social bonds without replacing face-to-face interaction. We promote conscious, beneficial use of technology."
+        }
+      ],
+      "contextParas": [
+        "Although 96.5% of Chile's population has some form of connectivity, that coverage does not automatically translate into safe, autonomous navigation skills in the digital environment.",
+        "We live in a historic moment marked by technological advances that expand the possibilities of producing and sharing information, but also create an ecosystem saturated with haste, immediacy, and difficulty building deep relationships.",
+        "The benefits and, above all, the risks of our interaction with media and technologies have placed media and digital education as a tool that should be integrated into the agenda of many institutions.",
+        "Recognising access to these tools as a right is not enough: they must be incorporated into formal education and debate spaces opened beyond classrooms, especially for those no longer in the school system.",
+        "Having the opportunity to understand digital culture and participate critically is key for adults and older people. That gap amplifies their vulnerabilities, limiting access to the labour market, reliable information, basic services, and other fundamental rights.",
+        "It is imperative to design and implement solid policies, allocate adequate resources, and foster partnerships with companies and organisations across sectors.",
+        "Only then can we democratise access to media and digital education, ensuring people of all ages develop autonomy and critical thinking, both online and offline."
+      ],
+      "impactEyebrow": "Community impact",
+      "impactTitleLine1": "Beyond individual",
+      "impactTitleLine2": "skills",
+      "impactIntro": "A programme that strengthens everyone.",
+      "impactos": [
+        {
+          "titulo": "Greater autonomy",
+          "desc": "Makes procedures and communications easier, providing digital independence."
+        },
+        {
+          "titulo": "Less isolation",
+          "desc": "Strengthens social and digital ties with family and friends."
+        },
+        {
+          "titulo": "Quick access to information",
+          "desc": "Local information and services within reach."
+        },
+        {
+          "titulo": "Civic empowerment",
+          "desc": "Active participation in neighbourhood initiatives and civic platforms."
+        }
+      ],
+      "methodologyEyebrow": "Our methodology",
+      "methodologyTitleLine1": "We learn together,",
+      "methodologyTitleLine2": "at your pace",
+      "metodologia": [
+        {
+          "titulo": "Hybrid sessions",
+          "desc": "In-person and virtual classes with individualised support."
+        },
+        {
+          "titulo": "Collaborative learning and co-creation",
+          "desc": "Participants support each other and co-create materials that enrich the workshop."
+        },
+        {
+          "titulo": "Ongoing support",
+          "desc": "Help line and monthly review meetings to resolve questions."
+        },
+        {
+          "titulo": "Accessible materials",
+          "desc": "Printed guides and step-by-step videos to review at your own pace."
+        }
+      ],
+      "ctaTitleLine1": "Bring Learn Digital",
+      "ctaTitleLine2": "to your community",
+      "ctaBody": "Do you represent a municipality, neighbourhood association, or community centre? We invite you to contact us to bring this programme to residents.",
+      "tabs": {
+        "ariaLabel": "Training modules",
+        "items": [
+          {
+            "id": "mediatica",
+            "label": "Media education",
+            "panelTitle": "Digital Media Education",
+            "body": "In this core module we will equip you with tools to navigate the vast information ecosystem. You will learn to identify disinformation (information integrity) and fake news, recognise implicit bias in various content including AI-generated material, and distinguish manipulated images and videos. You will develop critical thinking that helps you judge whether information is truthful, protect yourself from misleading narratives, and consume media consciously and in an informed way."
+          },
+          {
+            "id": "navegacion",
+            "label": "Safe browsing",
+            "panelTitle": "Safe Browsing",
+            "body": "You will learn to identify and avoid online fraud, protect your personal data, and manage your privacy on networks and apps. We will give you the tools to feel safe with every click and enjoy a calm digital experience, without risks or surprises."
+          },
+          {
+            "id": "ia",
+            "label": "Artificial Intelligence",
+            "panelTitle": "Artificial Intelligence",
+            "body": "Artificial Intelligence is the ability of machines to imitate and perform tasks that require human intelligence: learning, reasoning, and solving problems. We will explore how AI is transforming our daily lives and the future, discover its practical applications, and learn how to interact with it consciously."
+          },
+          {
+            "id": "bienestar",
+            "label": "Digital wellbeing",
+            "panelTitle": "Digital Wellbeing",
+            "body": "You will find a healthy balance between time spent online and in-person activities, using digital tools to enrich your life and strengthen social bonds without replacing face-to-face interaction. We promote conscious, beneficial use of technology."
+          }
+        ]
+      }
+    },
+    "docentes": {
+      "metaTitle": "Digital Media Education for Teachers · Precisar",
+      "metaDescription": "Teaching resources, classroom guides, and workshops to help teachers prepare students for a conscious, safe, and participatory digital present.",
+      "heroEyebrow": "Programs · Teachers",
+      "heroTitleLine1": "Digital Media Education",
+      "heroTitleLine2": "for Teachers",
+      "heroSub": "Prepare your students for a conscious, safe, and participatory digital present. We provide teaching resources, classroom guides, and practical activities that strengthen critical evaluation of information, responsible content creation, and coexistence in digital environments. A tool for your classes that means not more work, but more confidence, safety, and reflection for you and your students in the digital world.",
+      "objectivesEyebrow": "Our objectives",
+      "objectivesTitleLine1": "What we want",
+      "objectivesTitleLine2": "to achieve with you",
+      "objetivos": [
+        {
+          "titulo": "Foster Critical Thinking",
+          "desc": "Train teachers to help students critically evaluate information, identify disinformation (information integrity), and recognise bias in various digital sources, including AI-generated content."
+        },
+        {
+          "titulo": "Promote Responsible Production",
+          "desc": "Provide educators with tools to guide students in creating digital content ethically and responsibly, respecting copyright and promoting constructive messages."
+        },
+        {
+          "titulo": "Teach Ethical Participation",
+          "desc": "Train teachers to instruct their students on active, safe, and respectful participation on digital networks and platforms, fostering digital citizenship."
+        },
+        {
+          "titulo": "Integrate Media Education",
+          "desc": "Facilitate integration of digital media education into the school curriculum, providing guides and resources adapted to different subjects and educational levels."
+        }
+      ],
+      "benefitsEyebrow": "Benefits for your school community",
+      "benefitsTitleLine1": "Strengthen teacher training",
+      "benefitsTitleLine2": "and transform the educational experience",
+      "benefitsIntro": "Strengthen teacher training and transform your students' educational experience.",
+      "beneficios": [
+        {
+          "titulo": "Reflective, Resilient Students",
+          "desc": "Help your students develop skills to think critically, recognise false content, and act with confidence and respect in the digital world."
+        },
+        {
+          "titulo": "Empowered, Innovative Teachers",
+          "desc": "Strengthen your teaching team with practical tools, an updated pedagogical approach, and confidence to face digital environment challenges. Train them to guide students in critical, safe, and creative use of technology and to lead educational innovation in their school communities."
+        },
+        {
+          "titulo": "Strengthened Educational Community",
+          "desc": "Create a learning environment where students, teachers, and families collaborate for more conscious and ethical use of technology."
+        },
+        {
+          "titulo": "Digital Security and Privacy",
+          "desc": "By incorporating good data protection and privacy practices, risks of cyberbullying and misuse of technology are significantly reduced, ensuring a safer digital environment."
+        }
+      ],
+      "methodologyEyebrow": "Our methodology",
+      "methodologyTitleLine1": "How we learn",
+      "methodologyTitleLine2": "together",
+      "metodologia": [
+        {
+          "titulo": "Practical Online Workshops",
+          "desc": "4 live Zoom sessions with hands-on activities and self-paced work on the EducaMedios Programme digital platform, so each teacher can progress at their own pace."
+        },
+        {
+          "titulo": "Community of Practice",
+          "desc": "Connection with other teachers to share experiences, co-create materials, and resolve common challenges."
+        },
+        {
+          "titulo": "Teaching Resources",
+          "desc": "Access to guides, templates, videos, and examples ready to use and adapt in your classes."
+        },
+        {
+          "titulo": "Ongoing support",
+          "desc": "Personalised support and follow-up to ensure accompaniment in the classroom."
+        }
+      ],
+      "modulesEyebrow": "Training modules",
+      "modulesTitleLine1": "A structured path",
+      "modulesTitleLine2": "for digital learning",
+      "modulesIntro": "Step by step, module by module.",
+      "moduleLabel": "Module {n}",
+      "modulos": [
+        {
+          "id": "fundamentos",
+          "label": "Foundations of Digital Media Education",
+          "desc": "Understand, teach, and transform. Explore the impact of media and digital platforms on everyday life and their link to educational goals. Learn to integrate media and digital education in the classroom through applied projects such as content creation, critical analysis of information, and guided debate, strengthening the teacher's role as a trainer of active digital citizenship."
+        },
+        {
+          "id": "desinformacion",
+          "label": "Disinformation (information integrity), Data Verification",
+          "desc": "Acquire practical strategies to teach your students to identify and dismantle disinformation (information integrity): they will learn data verification techniques, use of fact-checking tools, and methods to compare sources, recognise manipulation patterns, and apply these skills in school research and daily life."
+        },
+        {
+          "id": "algoritmos",
+          "label": "Algorithms and Artificial Intelligence",
+          "desc": "Deepen your understanding of how algorithms and Artificial Intelligence influence what we see online, from social networks to search engines. We will analyse inherent AI bias and its impact on information, and give you tools to teach students to critically evaluate content generated or filtered by these technologies. You will also learn to establish clear conditions of use —such as digital responsibility agreements, criteria for selecting automated sources, and teacher-student collaborative projects— that foster a safe, reflective environment for exploring AI in the classroom."
+        },
+        {
+          "id": "produccion",
+          "label": "Digital Content Production and Citizenship",
+          "desc": "This module will train you to guide your students in creating responsible, meaningful digital content. We will explore tools for producing text, image, and video, focusing on ethics, respect for intellectual property, and the impact of their messages. We will foster active, constructive participation in the digital space, turning students into conscious, responsible creators."
+        },
+        {
+          "id": "seguridad",
+          "label": "Security, Privacy, and Digital Wellbeing",
+          "desc": "Learn to address crucial topics such as cybersecurity, personal data protection, and privacy management with your students. You will develop strategies to promote healthy, balanced use of technology, prevent cyberbullying, and foster digital wellbeing that integrates online and offline life."
+        },
+        {
+          "id": "integracion",
+          "label": "Curricular Integration and Media Education Projects",
+          "desc": "Discover how to integrate digital media education across subjects and educational levels. We will provide examples of successful projects and guide you in designing practical activities that let your students apply their knowledge, culminating in meaningful projects that demonstrate their digital and media education."
+        }
+      ],
+      "ctaTitleLine1": "Bring media education",
+      "ctaTitleLine2": "to your school",
+      "ctaBody": "Contact us to design a proposal tailored to your educational community."
+    },
+    "pensamientoCritico": {
+      "metaTitle": "Digital Critical Thinking Training",
+      "metaDescription": "Two workshops: news verification and media literacy in the AI era. Online and in-person formats for teams and communities.",
+      "heroEyebrow": "■ DIGITAL CRITICAL THINKING · PROGRAMME 05",
+      "heroTitleLine1": "Critical, competent consumers",
+      "heroTitleLine2": "in the digital ecosystem.",
+      "heroSub": "Tools to identify, analyse, and verify information circulating in the digital world.",
+      "heroStatLabel": "workshops available",
+      "statWord": "Critical.",
+      "statSub": "Competent. Informed.",
+      "introParas": [
+        "To meet this challenge, courses have been designed to turn participants into critical, competent consumers, giving them the tools needed to identify, analyse, and verify the information they find in today's digital ecosystem.",
+        "We understand that each person has different needs, which is why we offer two ways to take the courses."
+      ],
+      "modalidadesTitle": "Flexibility to learn",
+      "modalidades": [
+        {
+          "num": "01",
+          "title": "Online format",
+          "text": "A facilitator once a week. Each 90-minute session with practical activities with participants."
+        },
+        {
+          "num": "02",
+          "title": "In-person format",
+          "text": "Experiential workshops in small groups, maximum 15 people, with practical exercises, group dynamics, and printed materials."
+        }
+      ],
+      "taller1Eyebrow": "■ WORKSHOP 01",
+      "taller1Title": "Understanding News and Fact-Checking",
+      "taller1Kicker": "Don't let them fool you! Learn to verify what you read online.",
+      "taller1Body": [
+        "Do you receive WhatsApp chains or see news on Facebook and wonder if they are true? This workshop is a guide of tools and practical tips to help you tell real information from false in minutes. The goal is for you to feel safer browsing the internet and confident about what to believe and what to dismiss.",
+        "Aimed at anyone who uses social networks and wants to learn to protect themselves from deception and disinformation (information integrity). You don't need to know anything about technology — just be curious."
+      ],
+      "outcomesLead": "By the end you will be able to:",
+      "taller1Outcomes": [
+        "Apply a 3-step checklist to evaluate any news item.",
+        "Recognise the most common warning signs in fake news.",
+        "Use free tools to tell whether a photo is real or outdated.",
+        "Talk calmly with friends or family who share false information."
+      ],
+      "taller1Modulos": [
+        {
+          "num": "01",
+          "title": "Why is fake news so appealing?",
+          "desc": "Shocking or anger-provoking headlines are designed to make us share without thinking. Understanding this is the first step to avoid the trap."
+        },
+        {
+          "num": "02",
+          "title": "The 3-step method: Pause, Question, and Compare",
+          "desc": "Pause: Don't share immediately. Question: Who says this? Why? Compare: Does any reputable outlet report the same thing?"
+        },
+        {
+          "num": "03",
+          "title": "Easy tools at your fingertips",
+          "desc": "A practical workshop where you will learn to use Google's reverse image search on your own phone."
+        },
+        {
+          "num": "04",
+          "title": "What do I do now?",
+          "desc": "A personal action plan for consuming information more healthily and tips for acting when someone shares something false."
+        }
+      ],
+      "taller2Eyebrow": "■ WORKSHOP 02",
+      "taller2Title": "Media and Digital Literacy in the AI Era",
+      "taller2Kicker": "Understanding the Digital World: How AI and Algorithms decide what you see.",
+      "taller2Body": [
+        "Do you feel Instagram reads your mind or YouTube always knows what video to recommend? It's not magic — it's algorithms and artificial intelligence. In this workshop we open the hood of the internet so you can simply understand how these technologies organise the content you consume every day and how this affects your view of the world.",
+        "Aimed at anyone curious about how social networks work behind the scenes and the impact technology has on our lives."
+      ],
+      "taller2Outcomes": [
+        "Explain what an algorithm is using a simple example.",
+        "Understand how platforms personalise the content they show you.",
+        "Recognise the filter bubble effect in your daily life.",
+        "Identify new ways AI is used to create both real and fake content."
+      ],
+      "taller2Modulos": [
+        {
+          "num": "01",
+          "title": "The secret chef of your internet: What is an algorithm?",
+          "desc": "Everyday examples like a cooking recipe to explain what an algorithm is and how Spotify, Netflix, Facebook, and Instagram use them."
+        },
+        {
+          "num": "02",
+          "title": "A world made for you: Personalisation and the bubble",
+          "desc": "How platforms learn from your preferences to build a profile about you and the filter bubble phenomenon."
+        },
+        {
+          "num": "03",
+          "title": "The arrival of Artificial Intelligence",
+          "desc": "What AI is, how it can generate images, texts, and voices that seem real, how it is used positively, and what its risks are."
+        },
+        {
+          "num": "04",
+          "title": "How to navigate a world with AI?",
+          "desc": "Practical tips for moving in this new landscape and valuing reliable information sources."
+        }
+      ],
+      "durationPills": [
+        "Half day · 4 hours",
+        "Full day · 7 hours"
+      ],
+      "beneficiosTitle": "Benefits for your organisation",
+      "beneficios": [
+        {
+          "num": "01",
+          "title": "Better Decision-Making and Efficiency",
+          "desc": "By giving your teams tools to identify, analyse, and verify information, you improve their ability to make sound decisions and optimise their time."
+        },
+        {
+          "num": "02",
+          "title": "Risk Mitigation and Reputation Protection",
+          "desc": "Training in detecting disinformation (information integrity) reduces the risk of the organisation acting on false data, preventing crises and protecting reputation."
+        },
+        {
+          "num": "03",
+          "title": "Strengthening Internal Culture",
+          "desc": "The courses promote an environment based on data analysis, critical thinking, and constructive dialogue, reducing polarisation and improving collaboration."
+        },
+        {
+          "num": "04",
+          "title": "Social Impact",
+          "desc": "By mastering critical thinking, your staff become support agents in their communities and families, contributing to a better-informed society."
+        }
+      ],
+      "ctaTitle": "Adapt the programme to your institution's specific needs.",
+      "ctaSteps": [
+        "01 Request a detailed proposal.",
+        "02 We schedule a presentation.",
+        "03 We co-create a tailored programme."
+      ],
+      "ctaBody": "We see this training as a strategic opportunity for your organisation's human capital and resilience."
+    }
+  },
+  "programsHub": {
+    "metaTitle": "Conscious Digital Hub",
+    "metaDescription": "Portable, interactive digital culture exhibits for squares, libraries, education, corporate settings, and communities.",
+    "heroEyebrow": "■ CONSCIOUS DIGITAL HUB · PROGRAM 02",
+    "heroTitle": "Digital culture that travels to where people are.",
+    "statSub": "Designed for any space.",
+    "body1": "At the Conscious Digital Hub we turn digital culture into tangible experiences. Through interactive, portable exhibits, we explore technology's impact on society, bringing specialised knowledge directly to events, municipalities, and public spaces.",
+    "body2": "We don't just display content; we create spaces for dialogue and action. We translate complex concepts — such as disinformation (information integrity), AI, and privacy — into accessible sensory experiences that promote responsible technology use among citizens.",
+    "interactiveAria": "Interactive exploration of the Conscious Digital Hub",
+    "ctaTitle": "Bring the Conscious Digital Hub to your space.",
+    "cylinder": {
+      "topTitle": "The Hub in 360°",
+      "topHint": "drag to rotate",
+      "clickHint": "click to read →",
+      "prevSection": "Previous section",
+      "nextSection": "Next section",
+      "sectionsAria": "Sections",
+      "sectionN": "Section {n}",
+      "backToHub": "← back to the Hub in 360°",
+      "nextNav": "Next → {kicker}",
+      "downloadButton": "Download full information ↓",
+      "printTitle": "Conscious Digital Hub",
+      "printSubtitle": "Program 02 · Precisar",
+      "printSocialTitle": "Web and social",
+      "printWeb": "Web: precisar.net",
+      "printX": "X / Twitter: x.com/precisar_",
+      "printInstagram": "Instagram: instagram.com/_precisar",
+      "printFacebook": "Facebook: facebook.com/precisar",
+      "printYouTube": "YouTube: youtube.com/channel/UCQKEOqwm3pxIeO6E1Hsokhw",
+      "printMadeIn": "© {year} Precisar. Built with judgment in Chile and Mexico.",
+      "printLicense": "Content under Creative Commons CC BY 4.0 licence",
+      "sections": [
+        {
+          "kicker": "01 · Introduction",
+          "title": "Digital culture\nthat travels",
+          "subItinerantes": true,
+          "subSuffix": " For any space.",
+          "body": "At the Conscious Digital Hub we immerse ourselves in digital culture through interactive, thematic exhibits. Each one is portable and designed to explore how media and technology influence our society, bringing knowledge directly to events, municipalities, public spaces, and more.",
+          "groups": [
+            {
+              "label": "Where and for whom?",
+              "items": [
+                "Squares, libraries, cultural venues, schools, auditoriums, and corporate events.",
+                "Designed for a broad audience of any age and educational level.",
+                "Each visitor gains critical perspectives on digital culture and practical tools."
+              ]
+            },
+            {
+              "label": "Our approach",
+              "items": [
+                "We don't just present topics: we also open a space for dialogue and action.",
+                "We translate complex concepts — disinformation (information integrity), AI, privacy — into accessible sensory experiences.",
+                "We foster meaningful conversations about responsible technology use."
+              ]
+            }
+          ],
+          "bg": "#DB5227",
+          "tc": "#F5F2EC"
+        },
+        {
+          "kicker": "02 · Content",
+          "title": "What you'll\nfind",
+          "sub": "4 elements that will captivate.",
+          "body": "We offer a combination of visual and hands-on elements that will captivate your participants from the first moment.",
+          "groups": [
+            {
+              "label": "Elements of each exhibit",
+              "items": [
+                "Visually striking posters — Designed to spark immediate conversation and reflection on crucial topics in contemporary technology. Each poster acts as an 'eye-opener' presenting information clearly and aesthetically.",
+                "Interactive applications — Invite first-hand experimentation with cutting-edge technologies such as augmented reality and AI to create memorable experiences that connect with audiences playfully.",
+                "Video animations — Lead to deep discussions about privacy and detecting fake news. Explore ethical dilemmas of the digital world through visual stories.",
+                "Hands-on experiences — Stimulate meaningful debate among participants. The perfect complement before workshops, talks, or seminars on digital culture."
+              ]
+            }
+          ],
+          "bg": "#023661",
+          "tc": "#F5F2EC"
+        },
+        {
+          "kicker": "03 · Formats",
+          "title": "Installation\nmodels",
+          "sub": "PIXEL · VECTOR · HOLO",
+          "body": "Three modular packages that adapt to your event's space, duration, and audience.",
+          "groups": [
+            {
+              "label": "PIXEL — Basic format for small spaces",
+              "items": [
+                "2 Thematic Posters — Essential concepts from the chosen edition. Compact design that introduces main topics visually and impactfully.",
+                "1 Animation Screen — Monitor playing basic audiovisual content with introductory narratives and key data.",
+                "2 Interactive Experiences — Simple tablet applications allowing basic exploration of concepts through straightforward simulations.",
+                "Space required: 8–12 m²",
+                "Installation time: 45–60 minutes",
+                "Recommended duration: 1–3 days",
+                "Audience: 50–100 people per day"
+              ]
+            },
+            {
+              "label": "VECTOR — Standard format for medium events",
+              "items": [
+                "3 Thematic Posters — Represent key blocks such as algorithms, disinformation (information integrity), bots, and information manipulation.",
+                "3 Animation Screens — Horizontal monitors projecting dynamic visualisations, simulations, or contextual content.",
+                "3 Interactive Stations — Vertical digital panels with touch screens for applications, games, and verification modules.",
+                "Debate Hands-on Experiences (optional depending on event goals).",
+                "Space required: 15–25 m²",
+                "Installation time: 2–3 hours",
+                "Recommended duration: 3 days – 2 weeks",
+                "Audience: 100–300 people per day"
+              ]
+            },
+            {
+              "label": "HOLO — Full format for lasting installations",
+              "items": [
+                "6 Visual Posters — Three front panels and four side panels structuring the space and capturing attention.",
+                "3 Video Animations — Screens with data, narratives, visualisations, and interactive simulations.",
+                "4 Interactive Applications — Digital stations designed in coordination with the client according to event goals.",
+                "Surveys or polls adapted to audience or client interests.",
+                "Central Zone — Area with comfortable furniture for reflection, debate, rest, or guided activities.",
+                "Space required: 30–50 m²",
+                "Installation time: 4–6 hours",
+                "Recommended duration: 2 weeks – permanent",
+                "Audience: 200–500 people per day"
+              ]
+            }
+          ],
+          "bg": "#F5F2EC",
+          "tc": "#0A0C12"
+        },
+        {
+          "kicker": "04 · Implementation",
+          "title": "10 ways to\nimplement",
+          "sub": "From activations to immersive experiences.",
+          "body": "They can be integrated in multiple ways into your event's space and timeline, without being limited to a specific audience.",
+          "groups": [
+            {
+              "label": "Implementation possibilities",
+              "items": [
+                "01 · Pre-event activation — Deploy interactive modules in corridors or lobbies so the audience discovers key concepts before any scheduled activity.",
+                "02 · Thematic meeting points — Create stations dedicated to privacy, AI, disinformation (information integrity), or digital ethics, allowing visitors to move freely between them.",
+                "03 · Self-guided routes — Design a chronological or logical path guiding people through different challenges and experiences, each supported by visual and multimedia materials.",
+                "04 · Mobile elements — Use tablets, portable kiosks, or augmented reality glasses to bring the installation to small or itinerant spaces within the same venue.",
+                "05 · Downloadable material — Offer visitors QR codes linking to guides, infographics, and digital resources to explore after the event.",
+                "06 · Reflection rooms — Enable areas with comfortable furniture where short discussion videos or expert panels are projected, inviting spontaneous dialogue.",
+                "07 · Live AI interaction — Include chatbots or virtual assistants that answer questions, generate privacy profile analyses, and offer personalised recommendations.",
+                "08 · Immersive experiences — Incorporate 360° video projections, virtual reality, and sound environments to immerse visitors in scenarios illustrating technological risks and opportunities.",
+                "09 · Gamification — Implement challenges and games based on questions about chosen topics, rewarding participation with digital badges or physical recognition.",
+                "10 · Integration with talks — Combine interactive stations with conferences so each speaker can refer to specific modules to illustrate their arguments."
+              ]
+            }
+          ],
+          "bg": "#DB5227",
+          "tc": "#F5F2EC"
+        },
+        {
+          "kicker": "05 · Customisation",
+          "title": "Thematic\neditions",
+          "sub": "Disinformation (information integrity) · AI · Community",
+          "body": "Conscious Digital Hub offers three modular packages — Pixel, Vector, Holo — that adapt to the event's space, duration, and audience.",
+          "groups": [
+            {
+              "label": "Thematic editions",
+              "items": [
+                "Deepen specific areas (AI, disinformation (information integrity), digital privacy, etc.) by incorporating specialised content and technologies, such as virtual reality stations or advanced simulations."
+              ]
+            },
+            {
+              "label": "Community edition",
+              "items": [
+                "Adapt to the reality of your municipality or target group, integrating local participation dynamics and debate forums that empower neighbours of all ages."
+              ]
+            },
+            {
+              "label": "À la carte components",
+              "items": [
+                "Choose individual pieces, posters, mini interactive experiments, digital culture kits, to complement the exhibition according to your needs."
+              ]
+            },
+            {
+              "id": "ediciones-disponibles",
+              "label": "Available editions",
+              "items": [
+                {
+                  "text": "01 · Disinformation Edition (information integrity) — View full specifications →",
+                  "pdf": "desinformacion"
+                },
+                {
+                  "text": "02 · AI and Algorithms Edition — View full specifications →",
+                  "pdf": "ia-algoritmos"
+                }
+              ]
+            }
+          ],
+          "bg": "#023661",
+          "tc": "#F5F2EC"
+        },
+        {
+          "kicker": "06 · Process",
+          "title": "Bring the Hub\nto your space",
+          "sub": "We design to measure.",
+          "body": "We define space, audience, and duration with you, and build a proposal aligned with your event or community.",
+          "groups": [
+            {
+              "label": "The process",
+              "items": [
+                "01 · We define the space, audience, and duration envisioned for the exhibit.",
+                "02 · We design a proposal tailored to your community and goals.",
+                "03 · We co-create the setup, content, and schedule together."
+              ]
+            }
+          ],
+          "bg": "#F5F2EC",
+          "tc": "#0A0C12"
+        }
+      ]
+    },
+    "modelos": {
+      "aria": "Installation models",
+      "label": "Models",
+      "specLabels": {
+        "espacio": "Space",
+        "instalacion": "Installation",
+        "duracion": "Duration",
+        "audiencia": "Audience"
+      },
+      "items": [
+        {
+          "id": "pixel",
+          "nivel": "Basic",
+          "nombre": "PIXEL",
+          "subtitulo": "Small spaces",
+          "items": [
+            "2 Thematic posters",
+            "1 Animation screen",
+            "2 Interactive experiences"
+          ],
+          "espacio": "8–12 m²",
+          "instalacion": "45–60 min",
+          "duracion": "1–3 days",
+          "audiencia": "50–100/day"
+        },
+        {
+          "id": "vector",
+          "nivel": "Standard",
+          "nombre": "VECTOR",
+          "subtitulo": "Medium events",
+          "items": [
+            "3 Thematic posters",
+            "3 Animation screens",
+            "3 Interactive stations"
+          ],
+          "espacio": "15–25 m²",
+          "instalacion": "2–3 hours",
+          "duracion": "3 days – 2 weeks",
+          "audiencia": "100–300/day"
+        },
+        {
+          "id": "holo",
+          "nivel": "Full",
+          "nombre": "HOLO",
+          "subtitulo": "Lasting installations",
+          "items": [
+            "6 Visual posters",
+            "3 Video animations",
+            "4 Interactive applications",
+            "Central reflection zone"
+          ],
+          "espacio": "30–50 m²",
+          "instalacion": "4–6 hours",
+          "duracion": "2 weeks – permanent",
+          "audiencia": "200–500/day"
+        }
+      ]
+    },
+    "posibilidades": {
+      "aria": "Interactive hub possibilities",
+      "label": "Possibilities",
+      "slideAria": "Go to slide",
+      "slideN": "Slide {n} of {total}",
+      "prevSlide": "Previous slide",
+      "nextSlide": "Next slide",
+      "slides": [
+        {
+          "title": "Pre-event activation",
+          "desc": "Deploy interactive modules in corridors or lobbies so the audience discovers key concepts before any scheduled activity."
+        },
+        {
+          "title": "Thematic meeting points",
+          "desc": "Create stations dedicated to privacy, AI, disinformation (information integrity), or digital ethics, allowing visitors to move freely between them."
+        },
+        {
+          "title": "Self-guided routes",
+          "desc": "Design a chronological or logical path guiding people through different challenges and experiences, each supported by visual and multimedia materials."
+        },
+        {
+          "title": "Mobile elements",
+          "desc": "Use tablets, portable kiosks, or augmented reality glasses to bring the installation to small or itinerant spaces within the same venue."
+        },
+        {
+          "title": "Downloadable material",
+          "desc": "Offer visitors QR codes linking to guides, infographics, and digital resources to explore after the event."
+        },
+        {
+          "title": "Reflection rooms",
+          "desc": "Enable areas with comfortable furniture where short discussion videos or expert panels are projected, inviting spontaneous dialogue."
+        },
+        {
+          "title": "Live AI interaction",
+          "desc": "Include chatbots or virtual assistants that answer questions, generate privacy profile analyses, and offer personalised recommendations."
+        },
+        {
+          "title": "Immersive experiences",
+          "desc": "Incorporate 360° video projections, virtual reality, and sound environments to immerse visitors in scenarios illustrating technological risks and opportunities."
+        },
+        {
+          "title": "Gamification",
+          "desc": "Implement challenges and games based on questions about chosen topics, rewarding participation with digital badges or physical recognition."
+        },
+        {
+          "title": "Integration with talks",
+          "desc": "Combine interactive stations with conferences so each speaker can refer to specific modules to illustrate their arguments."
+        }
+      ]
+    },
+    "personalizacion": {
+      "aria": "Hub customisation",
+      "tabs": [
+        {
+          "id": "tematicas",
+          "label": "Thematic editions",
+          "content": "Deepen specific areas: AI, disinformation (information integrity), digital privacy, incorporating specialised content and technologies such as virtual reality stations or advanced simulations."
+        },
+        {
+          "id": "comunitaria",
+          "label": "Community edition",
+          "content": "Adapt to the reality of your municipality or target group, integrating local participation dynamics and debate forums that empower neighbours of all ages."
+        },
+        {
+          "id": "carta",
+          "label": "À la carte components",
+          "content": "Choose individual pieces: posters, mini interactive experiments, digital culture kits, to complement the exhibition according to your needs."
+        }
+      ]
+    }
+  },
+  "programsFuncionarios": {
+    "metaTitle": "Media Literacy for Public Officials",
+    "metaDescription": "Training for public administration: digital media, verification, institutional communication, and responsible use of social networks.",
+    "heroEyebrow": "■ PUBLIC OFFICIALS · PROGRAM 06",
+    "heroTitle": "Media Literacy Training\nfor Public Officials.",
+    "heroSub": "Training designed specifically for the context of public administration.",
+    "statWord": "Risk",
+    "statSub": "direct to democracy.",
+    "porQue1": "In today's digital environment, disinformation (information integrity) and information manipulation are not only a social challenge, but a direct risk to public administration, citizen trust, and democratic stability.",
+    "porQue2": "Public servants' ability to navigate, evaluate, and use media effectively and safely is a fundamental competence.",
+    "porQue3": "This programme has been designed specifically for the context of public administration. Its goal is to equip officials with the tools they need to work safely, reliably, and efficiently in a media-saturated world, strengthening institutional transparency, citizen participation, and resilience to information threats.",
+    "estructuraTitle": "Course content and structure",
+    "estructuraSub": "8 sessions designed for the context of public administration.",
+    "cursoTabsAria": "Course content and structure",
+    "cursoTabs": [
+      {
+        "id": "s1",
+        "label": "Session 1",
+        "panelTitle": "Session 1: A Life Full of Media",
+        "body": "Introduces the central role of media in society and the four levels of media analysis: platform, content, industry, and environment. A structured view of how media build realities and shape decisions in public and civic life."
+      },
+      {
+        "id": "s2",
+        "label": "Session 2",
+        "panelTitle": "Session 2: How Do Digital Media Work?",
+        "body": "Explores the impact of digitalisation and how algorithms, echo chambers, and polarisation work. Understand why people receive different information on their devices and how this affects citizens' perception of public management."
+      },
+      {
+        "id": "s34",
+        "label": "Sess. 3 & 4",
+        "panelTitle": "Sessions 3 and 4: Reliability and Evaluation of Information",
+        "body": "Focuses on managing information overload and evaluating source reliability, considering author, context, and content. Covers deepfakes and intentional disinformation (information integrity). Practical tools for verifying before communicating or making institutional decisions."
+      },
+      {
+        "id": "s5",
+        "label": "Session 5",
+        "panelTitle": "Session 5: Interaction in the Media",
+        "body": "Provides tools for interaction and effective communication, and for fostering citizen participation through media. How to respond, clarify, and communicate from public institutions with transparency and judgment."
+      },
+      {
+        "id": "s6",
+        "label": "Session 6",
+        "panelTitle": "Session 6: Use of Social Networks in Public Administration",
+        "body": "Addresses the opportunities and responsibilities of social network use, emphasising that officials must act impartially, independently, and fairly. Protocols, good practices, and ethical limits for institutional and personal use of digital platforms."
+      },
+      {
+        "id": "s78",
+        "label": "Sess. 7 & 8",
+        "panelTitle": "Sessions 7 and 8: Summary and Self-assessment",
+        "body": "Allows participants to reflect on the goals of media literacy in their work and assess their learning for practical application. Closes with a personal action plan and concrete commitments to apply in the institution."
+      }
+    ],
+    "beneficiosTitle": "Benefits for the public institution",
+    "beneficios": [
+      {
+        "num": "01",
+        "title": "Informed Decision-making",
+        "desc": "Officials will be trained to search for, filter, and evaluate relevant and reliable information, improving the quality of internal decisions and daily performance."
+      },
+      {
+        "num": "02",
+        "title": "Improved Public Communication",
+        "desc": "Tools for more effective and transparent communication through media and social networks, increasing citizens' trust in the institution."
+      },
+      {
+        "num": "03",
+        "title": "Reduced Institutional Risks",
+        "desc": "By understanding algorithms and echo chambers and learning to identify disinformation (information integrity), deepfakes, and propaganda, officials protect institutional reputation."
+      },
+      {
+        "num": "04",
+        "title": "Fostering a Culture of Critical Thinking",
+        "desc": "An analytical mindset is promoted among staff, enabling them to approach information reflectively and consciously — essential for modern public management."
+      }
+    ],
+    "pasosLead": "We consider this training a strategic opportunity for human capital and the resilience of public administration.",
+    "pasos": [
+      {
+        "badge": "STEP 01",
+        "title": "Request a detailed proposal",
+        "text": "Contact us to receive a formal proposal including investment and implementation logistics for your teams."
+      },
+      {
+        "badge": "STEP 02",
+        "title": "We schedule a presentation",
+        "text": "We coordinate a meeting to present the programme in detail and answer all your questions."
+      },
+      {
+        "badge": "STEP 03",
+        "title": "We adapt to your institution",
+        "text": "We design the programme tailored to your organisation's specific needs."
+      }
+    ],
+    "ctaTitle": "Bring this programme to your public institution.",
+    "ctaAside": "We are ready to adapt the programme to your institution's specific needs. Contact us to coordinate.",
+    "collaborateCta": "Collaborate with us"
+  },
+  "programsCiudades": {
+    "metaTitle": "Connected Cities · Precisar",
+    "metaDescription": "Digital Culture Training for Citizens. Modular programmes for municipalities.",
+    "heroEyebrow": "Programmes · Connected Cities",
+    "heroTitle": "Digital Culture Training\nfor Citizens",
+    "heroSub": "We offer municipalities a training programme designed to equip communities with the essential critical skills of the digital age.",
+    "intro1Before": "Our work in cities is directly inspired by the ",
+    "intro1Strong": "UNESCO Media and Information Literacy (MIL) Cities framework",
+    "intro1After": ", adapting its principles to foster more critical and resilient local information ecosystems.",
+    "intro2": "Dynamic experiences so every participant understands, uses, and manages digital media with autonomy.",
+    "flexItems": [
+      {
+        "titulo": "Direct Impact on Citizens",
+        "desc": "Workshops and activities for neighbours of all ages."
+      },
+      {
+        "titulo": "Trainer Capacity-building",
+        "desc": "Strategies that multiply impact with educators, librarians, municipal teams, and community organisations."
+      }
+    ],
+    "contentItems": [
+      {
+        "titulo": "Artificial Intelligence",
+        "desc": "Demystifying the future and its implications."
+      },
+      {
+        "titulo": "Digital Wellbeing",
+        "desc": "Healthy habits in technology use."
+      },
+      {
+        "titulo": "Online Privacy and Security",
+        "desc": "Protecting identity and data."
+      },
+      {
+        "titulo": "Strategies against Disinformation (information integrity)",
+        "desc": "Judgment for navigating information."
+      }
+    ],
+    "impactosEyebrow": "What changes in your municipality",
+    "impactosTitle": "Impact on\nyour municipality",
+    "impactos": [
+      {
+        "titulo": "Active, critical citizenship",
+        "desc": "Develops analytical thinking in citizens to question messages, detect hate speech and disinformation (information integrity), and take part in local decision-making with arguments based on reliable sources."
+      },
+      {
+        "titulo": "Greater digital security",
+        "desc": "Strengthens community resilience to online fraud and threats through teaching good data protection, privacy, and ethical technology use practices."
+      },
+      {
+        "titulo": "Literacy in AI and algorithms",
+        "desc": "Promotes understanding of how automated systems and their biases work, enabling citizens to critically evaluate AI-filtered or AI-generated content."
+      },
+      {
+        "titulo": "Digital wellbeing",
+        "desc": "Incorporates healthy technology use habits and fosters lifelong learning spaces that reduce the digital divide and improve social inclusion."
+      },
+      {
+        "titulo": "Transparent local governance",
+        "desc": "Trains municipal teams to integrate Media and Digital Education into urban policies and services, creating accountability spaces and open communication."
+      },
+      {
+        "titulo": "Community connection and participation",
+        "desc": "Facilitates initiatives in squares, health centres, transport, and other urban spaces, creating an accessible information network for all residents."
+      }
+    ],
+    "talleresEyebrow": "Our training proposals",
+    "talleresTitle": "Modular,\nflexible programmes",
+    "sesionesIncluidas": "Sessions included",
+    "talleres": [
+      {
+        "id": "ia",
+        "label": "AI",
+        "titulo": "Artificial Intelligence and its impact",
+        "desc": "This workshop presents the fundamentals of AI, exploring what it is, how it works, and its impact on people. Participants will acquire crucial skills and practical strategies to address the challenges AI presents. Ideal for audiences of all ages and knowledge levels.",
+        "sesiones": [
+          "Demystifying AI: what it is, how it works, and its impact on people.",
+          "Living with algorithms: what algorithms are and their relationship with AI and machine learning.",
+          "AI challenges and practical strategies 1: Bias amplification.",
+          "AI challenges and practical strategies 2: Online harassment."
+        ]
+      },
+      {
+        "id": "desinformacion",
+        "label": "Disinformation (information integrity)",
+        "titulo": "Disinformation (information integrity): Facts vs. feelings about information",
+        "desc": "A practical workshop to develop the judgment needed to navigate a complex information ecosystem, distinguish facts from opinions, and detect fake news and information manipulation.",
+        "sesiones": [
+          "What disinformation (information integrity) is and why it matters.",
+          "How to detect fake news and verify sources.",
+          "Algorithms and information bubbles.",
+          "Practical strategies for everyday life."
+        ]
+      },
+      {
+        "id": "fraudes",
+        "label": "Fraud",
+        "titulo": "Prevention of Online Fraud and Scams",
+        "desc": "Practical tools to recognise and avoid digital fraud, protect personal data, and act in online risk situations.",
+        "sesiones": [
+          "Most common types of digital fraud.",
+          "Phishing, smishing, and identity theft.",
+          "How to protect your data and passwords.",
+          "What to do if you were a victim of fraud."
+        ]
+      },
+      {
+        "id": "bienestar",
+        "label": "Wellbeing",
+        "titulo": "Digital Wellbeing and Technology Health",
+        "desc": "This workshop fosters healthy technology use habits, addressing emotional wellbeing, screen time management, and building a balanced relationship with devices.",
+        "sesiones": [
+          "Impact of technology use on mental health.",
+          "Screen time management and digital addiction.",
+          "Building healthy digital habits.",
+          "Digital wellbeing in family and community."
+        ]
+      }
+    ],
+    "ctaTitle": "Bring digital culture\nto your municipality",
+    "ctaBody": "Contact us to design a proposal tailored to your community.",
+    "collaborateCta": "Collaborate with us",
+    "propuestasTabsAria": "Training proposals",
+    "propuestasTabs": [
+      {
+        "id": "ia",
+        "label": "AI",
+        "panelTitle": "Artificial Intelligence and its impact",
+        "intro": "This workshop presents the fundamentals of AI, exploring what it is, how it works, and its impact on people. Participants will acquire crucial skills and practical strategies to address the challenges AI presents. Ideal for audiences of all ages and knowledge levels.",
+        "sessions": [
+          {
+            "lead": "Demystifying AI",
+            "detail": "what it is, how it works, and its impact on people."
+          },
+          {
+            "lead": "Living with algorithms",
+            "detail": "what algorithms are and their relationship with AI and machine learning."
+          },
+          {
+            "lead": "AI challenges and practical strategies 1",
+            "detail": "Bias amplification."
+          },
+          {
+            "lead": "AI challenges and practical strategies 2",
+            "detail": "Online harassment."
+          }
+        ]
+      },
+      {
+        "id": "desinformacion",
+        "label": "Disinformation (information integrity)",
+        "panelTitle": "Disinformation (information integrity): Facts vs. feelings about information",
+        "intro": "This workshop equips participants to navigate the complex landscape of disinformation (information integrity) through interactive sessions on information and media ecosystems, influential strategy patterns, and persuasive practices embedded in technology. Ideal for audiences of all ages and knowledge levels.",
+        "sessions": [
+          {
+            "lead": "Facts vs. Feelings",
+            "detail": "Stay calm and spot the tricks of intentional strategies used by apps, social networks, media, and websites. Understand the tricks that trigger emotions and influence behaviour."
+          },
+          {
+            "lead": "Reading Between the Lines",
+            "detail": "Information is complicated. Define disinformation (information integrity) and fake news, explore information complexity, and practise fundamental research skills."
+          }
+        ]
+      },
+      {
+        "id": "fraudes",
+        "label": "Fraud",
+        "panelTitle": "Prevention of Online Fraud and Scams",
+        "intro": "The goal of this workshop is to equip all neighbours with practical tools to recognise, avoid, and respond to digital fraud.",
+        "sessions": [
+          {
+            "lead": "Warning signs",
+            "detail": "identifying fake emails, suspicious messages, and fraudulent calls."
+          },
+          {
+            "lead": "Password best practices",
+            "detail": "creating and managing secure passwords and using strong authentication such as PINs, patterns, or verification apps."
+          },
+          {
+            "lead": "Safe shopping and payments",
+            "detail": "detecting fraudulent websites and choosing reliable payment methods."
+          },
+          {
+            "lead": "What if I was already a victim?",
+            "detail": "steps to report the incident, suspend accounts, and regain control."
+          }
+        ]
+      },
+      {
+        "id": "bienestar",
+        "label": "Wellbeing",
+        "panelTitle": "Digital Wellbeing and Technology Health",
+        "intro": "This workshop addresses the impact of screen use on sleep, attention, and personal relationships, proposing strategies to balance our online and offline lives. Ideal for all audiences; fosters intergenerational dynamics.",
+        "sessions": [
+          {
+            "lead": "Screens and the Brain",
+            "detail": "How excessive use affects sleep quality and concentration."
+          },
+          {
+            "lead": "Paths to Disconnect",
+            "detail": "Tools and habits for managing device use time."
+          },
+          {
+            "lead": "Intergenerational Dynamics",
+            "detail": "Young people and older adults share experiences and design family or community agreements."
+          }
+        ]
+      }
+    ],
+    "propuestasSessionsLead": "Sessions included:"
+  },
+  "legalPrivacidad": {
+    "metaTitle": "Privacy Policy | Precisar",
+    "title": "Privacy policy",
+    "kicker": "Website · {siteHost}",
+    "lastUpdated": "Last updated: April 12, 2026",
+    "s1Title": "1. Scope",
+    "s1Body": "This policy describes how {siteName} handles personal and technical information associated with public use of our website ({siteUrl}), unless a specific notice or policy applies to a particular product or form.",
+    "s2Title": "2. Data controller",
+    "s2BodyBefore": "The controller of this site and of the data processing described here is the organization behind {siteName}. For privacy inquiries you can write to",
+    "s2BodyOrSensitive": "or, for sensitive personal data matters, to",
+    "s3Title": "3. What information we may process",
+    "s3Items": [
+      {
+        "strong": "Data you send us voluntarily",
+        "text": " (for example, name, surname, email and message in the footer contact form or other forms published on the site), in order to respond to or manage your request."
+      },
+      {
+        "strong": "Technical connection data",
+        "text": " (for example, IP address, browser or device type, pages visited and timestamps) that hosting or site security services may routinely log to operate the service, prevent abuse and improve stability."
+      },
+      {
+        "strong": "Newsletter or other sign-ups",
+        "text": " only if you explicitly activate a form that states that purpose and, where applicable, the external provider that processes the list."
+      }
+    ],
+    "s4Title": "4. Retention and security",
+    "s4Body": "We retain information for as long as necessary for the stated purposes and in accordance with applicable legal obligations. We apply reasonable technical and organizational security measures appropriate to the type of service.",
+    "s5Title": "5. Your rights",
+    "s5Body": "You may request access, rectification, erasure or objection to the processing of your personal data when applicable law allows, by contacting us at the emails above. If you reside in Chile, you may also learn about the Personal Data Protection Act and its official channels.",
+    "s6Title": "6. Specific policies",
+    "s6Intro": "Some {siteName} experiences have their own notices, which prevail within their scope:",
+    "s6Links": [
+      {
+        "href": "/legal/privacidad-consulta-2026",
+        "label": "Privacy · Citizen consultation «How do you get informed today?» (2026)"
+      },
+      {
+        "href": "/legal/privacidad-bot-onda",
+        "label": "Privacy · Onda Bot"
+      }
+    ]
+  },
+  "legalPrivacidadConsulta2026": {
+    "metaTitle": "Consultation Privacy Policy | Precisar",
+    "title": "Privacy Policy and Personal Data Processing",
+    "kicker": "Consultation: How Do You Get Informed Today? · DemocraTICa.",
+    "lastUpdated": "Last updated: December 31, 2025",
+    "sections": [
+      {
+        "title": "1. Introduction",
+        "blocks": [
+          {
+            "type": "p",
+            "text": "This Privacy Policy and Personal Data Processing Policy (hereinafter, the \"Privacy Policy\") aims to inform participants in the citizen consultation \"How do you get informed today?\" (hereinafter, the \"Consultation\"), promoted by Fundación Democracia Abierta and its Precisar initiative (hereinafter, \"DemocraTICa\" or \"we\"), about how we collect, use, store, share and protect your personal data, in accordance with current Chilean legislation and international best practices in the field."
+          },
+          {
+            "type": "p",
+            "text": "DemocraTICa is committed to respecting and protecting your privacy and personal data. This policy has been drafted in compliance with current Chilean regulations, Law No. 19,628 on Protection of Private Life (in its current version) and the new Law No. 21,719 on Personal Data Protection, which modernizes the legislation and aligns it with the highest international standards, such as the European Union's General Data Protection Regulation (GDPR)."
+          }
+        ]
+      },
+      {
+        "title": "2. Data Controller",
+        "blocks": [
+          {
+            "type": "p",
+            "text": "The controller of your personal data is:"
+          },
+          {
+            "type": "ul",
+            "items": [
+              {
+                "bold": "Legal name:",
+                "text": " Fundación Democracia Abierta"
+              },
+              {
+                "bold": "Tax ID (RUT):",
+                "text": " 65.198.517-K"
+              },
+              {
+                "bold": "Email:",
+                "text": " __EMAIL__"
+              },
+              {
+                "bold": "Legal representative:",
+                "text": " Ana Magdalena Marín Ladrón de Guevara"
+              }
+            ]
+          },
+          {
+            "type": "p",
+            "label": "Data Protection Officer",
+            "wrapStrong": true,
+            "text": " (if the organization has appointed an Officer pursuant to Article 50 of Law 21,719):"
+          },
+          {
+            "type": "ul",
+            "items": [
+              {
+                "bold": "Name:",
+                "text": " Ana Magdalena Marín Ladrón de Guevara"
+              },
+              {
+                "bold": "Position:",
+                "text": " Data Protection Officer"
+              },
+              {
+                "bold": "Email:",
+                "text": " __PRIVACY_EMAIL__"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "3. What personal data do we collect?",
+        "blocks": [
+          {
+            "type": "p",
+            "text": "Within the framework of the Consultation, we will collect the following categories of personal data:"
+          },
+          {
+            "type": "h3",
+            "text": "3.1 Identification and Contact Data"
+          },
+          {
+            "type": "p",
+            "text": "Optionally, we may request data such as: email address; full name."
+          },
+          {
+            "type": "p",
+            "label": "Purpose:",
+            "text": " Future communications about the study results or to invite you to participate in later stages of the project."
+          },
+          {
+            "type": "p",
+            "label": "Important clarification:",
+            "text": " Your participation in the consultation is not conditional on providing this information. You may participate anonymously."
+          },
+          {
+            "type": "h3",
+            "text": "3.2 Sociodemographic Data"
+          },
+          {
+            "type": "p",
+            "text": "We will collect data such as: age (in ranges: 18-25, 26-35, 36-50, 51-65, 65+); gender (male, female, other, prefer not to specify); education level (primary, secondary, technical, university, postgraduate); municipality of residence; region of residence; studies (in general categories)."
+          },
+          {
+            "type": "p",
+            "label": "Protection:",
+            "text": " This data will be requested in ranges or in anonymized form to protect your identity. Information that would allow us to identify you directly will not be collected."
+          },
+          {
+            "type": "h3",
+            "text": "3.3 Data on Information Habits and Preferences"
+          },
+          {
+            "type": "p",
+            "text": "The Consultation focuses on questions about: how you get informed; which media you use (television, radio, print press, social networks, digital platforms, etc.); how often you get informed; which formats you prefer (text, video, audio, infographics, etc.); which topics interest you (politics, economy, technology, health, etc.)."
+          },
+          {
+            "type": "h3",
+            "text": "3.4 Data on Media Literacy Skills and Needs"
+          },
+          {
+            "type": "p",
+            "text": "We will collect information about: your ability to verify information; your capacity to use technology; your understanding of news and data; your ability to identify disinformation (information integrity)."
+          },
+          {
+            "type": "h3",
+            "text": "3.5 Opinions and Perceptions"
+          },
+          {
+            "type": "p",
+            "text": "We will ask for your opinion on: disinformation (information integrity) and its effects; artificial intelligence in the media; possible solutions to these phenomena; trust in different media outlets."
+          },
+          {
+            "type": "h3",
+            "text": "3.6 Sensitive Data"
+          },
+          {
+            "type": "p",
+            "text": "The Consultation may include questions about: your political or ideological opinions; your religious beliefs (if applicable); any other information considered sensitive under Law 21,719."
+          },
+          {
+            "type": "p",
+            "label": "Special protection:",
+            "text": " Processing of this sensitive data will be carried out only with your explicit consent and with the strictest security measures. We will inform you clearly and prominently when a question involves this type of data, and you may choose not to answer without this affecting your participation in the consultation."
+          }
+        ]
+      },
+      {
+        "title": "4. What do we use your personal data for?",
+        "blocks": [
+          {
+            "type": "p",
+            "text": "The personal data we collect will be used exclusively for the following purposes:"
+          },
+          {
+            "type": "h3",
+            "text": "4.1 Statistical Analysis"
+          },
+          {
+            "type": "p",
+            "text": "To generate aggregated and anonymized evidence on: information habits of citizens in Chile; information needs; perceptions of disinformation (information integrity) and media literacy."
+          },
+          {
+            "type": "p",
+            "label": "Clarification:",
+            "text": " Analyses will always be presented in aggregated form, with no possibility of identifying individual participants."
+          },
+          {
+            "type": "h3",
+            "text": "4.2 Academic and Social Research"
+          },
+          {
+            "type": "p",
+            "text": "The results of the Consultation will be used for: report preparation; academic studies; scientific publications; contribution to knowledge about disinformation (information integrity) and media literacy."
+          },
+          {
+            "type": "h3",
+            "text": "4.3 Prototype and Solution Design"
+          },
+          {
+            "type": "p",
+            "text": "The information collected will serve as input for: co-design of new news formats; development of information platforms; creation of educational resources; development of information verification tools."
+          },
+          {
+            "type": "h3",
+            "text": "4.4 Public Policy Advocacy"
+          },
+          {
+            "type": "p",
+            "text": "The project's findings will be shared with: decision-makers; media outlets; civil society organizations; public agencies."
+          },
+          {
+            "type": "p",
+            "label": "Objective:",
+            "text": " To promote public policies and practices that strengthen Chile's information ecosystem."
+          },
+          {
+            "type": "h3",
+            "text": "4.5 Communication and Outreach"
+          },
+          {
+            "type": "p",
+            "text": "If you have consented, we may use your email address to: send you information about project progress; share results and findings; invite you to participate in related future initiatives."
+          },
+          {
+            "type": "p",
+            "label": "Right to withdraw consent:",
+            "text": " You may withdraw this consent at any time by contacting us."
+          },
+          {
+            "type": "h3",
+            "text": "4.6 Compliance with Legal Obligations"
+          },
+          {
+            "type": "p",
+            "text": "We may use your data to: comply with legal obligations; respond to requests from competent authorities; protect our legal rights."
+          }
+        ]
+      },
+      {
+        "title": "5. Legal Bases for Processing Your Data",
+        "blocks": [
+          {
+            "type": "h3",
+            "text": "5.1 Free, Informed, Specific and Unambiguous Consent"
+          },
+          {
+            "type": "p",
+            "text": "Your participation in the Consultation is voluntary. When you start the survey, we will ask for your consent clearly and explicitly for the processing of your personal data, in accordance with the purposes described in this policy."
+          },
+          {
+            "type": "p",
+            "text": "Characteristics of consent: free; informed; specific; unambiguous. For sensitive data: we will request additional explicit consent before collecting any data considered sensitive."
+          },
+          {
+            "type": "h3",
+            "text": "5.2 Legitimate Interest"
+          },
+          {
+            "type": "p",
+            "text": "We may process your data in anonymized and aggregated form for research and statistical purposes, within the project's legitimate interest of: generating knowledge for the public good; strengthening Chile's information ecosystem; contributing to informed public debate; improving media literacy."
+          },
+          {
+            "type": "p",
+            "label": "Balancing of interests:",
+            "text": " This legitimate interest does not override your fundamental rights, and data is always processed in anonymized form when this legal basis is used."
+          }
+        ]
+      },
+      {
+        "title": "6. With whom do we share your personal data?",
+        "blocks": [
+          {
+            "type": "p",
+            "text": "DemocraTICa will not sell, rent or transfer your personal data to third parties for profit. Your data may only be shared in the following circumstances:"
+          },
+          {
+            "type": "h3",
+            "text": "6.1 Research Team"
+          },
+          {
+            "type": "p",
+            "text": "The DemocraTICa team and its direct collaborators will have access to the data for project purposes, under strict confidentiality agreements that include: obligation to maintain secrecy; restriction of use to project purposes; prohibition of disclosure to third parties; penalties for non-compliance."
+          },
+          {
+            "type": "h3",
+            "text": "6.2 Strategic Partners"
+          },
+          {
+            "type": "p",
+            "text": "We may share aggregated and anonymized data with: civil society organizations; universities and research centers; media outlets; public agencies."
+          },
+          {
+            "type": "p",
+            "label": "Condition:",
+            "text": " This data will always be shared in aggregated form, with no possibility of identifying individual participants."
+          },
+          {
+            "type": "h3",
+            "text": "6.3 Publications and Dissemination"
+          },
+          {
+            "type": "p",
+            "text": "Reports and publications derived from the project will present data in aggregated, statistical, anonymized form, with no possibility of identifying individual participants."
+          },
+          {
+            "type": "h3",
+            "text": "6.4 Legal Requirements"
+          },
+          {
+            "type": "p",
+            "text": "We may share your personal data if required by: current law; a decree or resolution; a court order."
+          },
+          {
+            "type": "p",
+            "label": "Protection:",
+            "text": " In these cases, we will inform the data subject about the request, unless the law expressly prohibits it."
+          },
+          {
+            "type": "h3",
+            "text": "6.5 Service Providers"
+          },
+          {
+            "type": "p",
+            "text": "We may share data with service providers that help us operate (hosting, analytics, etc.), under contracts that guarantee: equivalent data protection; exclusive use for project purposes; confidentiality obligations."
+          }
+        ]
+      },
+      {
+        "title": "7. How Long Do We Retain Your Data?",
+        "blocks": [
+          {
+            "type": "p",
+            "text": "We will retain your personal data according to the schedule published on the original site: identification and contact data (3 years from last communication, secure deletion); sociodemographic data, information habits and opinions (5 years from collection, anonymization or deletion); sensitive data (3 years from collection, secure deletion); aggregated/anonymized data (indefinite for research)."
+          },
+          {
+            "type": "p",
+            "text": "Deletion procedure: data will be securely deleted using cryptographic methods; a deletion certificate will be generated; a record of deletions will be maintained. Where possible, data will be anonymized rather than deleted; anonymized data may be retained indefinitely for research."
+          }
+        ]
+      },
+      {
+        "title": "8. What Are Your Rights and How Can You Exercise Them?",
+        "blocks": [
+          {
+            "type": "p",
+            "text": "Under Law 21,719, you have the right to:"
+          },
+          {
+            "type": "ul",
+            "items": [
+              {
+                "bold": "Access:",
+                "text": " access the personal data we hold about you. Send an email to __EMAIL__ with the subject \"Personal Data Access Request\", attach a copy of your ID. Response time: maximum 30 business days."
+              },
+              {
+                "bold": "Rectification:",
+                "text": " correct inaccurate data. Subject: \"Personal Data Rectification Request\"."
+              },
+              {
+                "bold": "Erasure or cancellation:",
+                "text": " when there is no legal basis, deadlines expire, you withdraw consent or object to processing. Subject: \"Personal Data Erasure Request\"."
+              },
+              {
+                "bold": "Objection:",
+                "text": " object to specific processing. Subject: \"Data Processing Objection Request\"."
+              },
+              {
+                "bold": "Portability:",
+                "text": " request portability in structured format. Subject: \"Personal Data Portability Request\"."
+              },
+              {
+                "bold": "Withdrawal of consent:",
+                "text": " at any time. Subject: \"Consent Withdrawal\". Future processing will stop; data already lawfully processed will not be affected."
+              }
+            ]
+          },
+          {
+            "type": "p",
+            "text": "To exercise any of these rights, send a request to __EMAIL__ with your full name, a copy of your ID, a clear description of what you are requesting and a signature (in case of physical submission). Acknowledgment of receipt within 2 business days; response within a maximum of 30 business days. You may appeal to the Personal Data Protection Agency if you are not satisfied."
+          },
+          {
+            "type": "p",
+            "text": "APDP contact: website, email and phone will be provided when the APDP is operational. Deadline for filing a complaint: within 1 year from when you become aware of the facts that motivate it."
+          }
+        ]
+      },
+      {
+        "title": "10. Changes to This Privacy Policy",
+        "blocks": [
+          {
+            "type": "p",
+            "text": "Fundación Democracia Abierta reserves the right to modify this Privacy Policy at any time. If you do not agree with significant changes, you may: withdraw your consent; request deletion of your data; contact us to discuss alternatives."
+          }
+        ]
+      },
+      {
+        "title": "11. Contact and Inquiries",
+        "blocks": [
+          {
+            "type": "p",
+            "text": "If you have any questions or concerns about this Privacy Policy or the processing of your personal data, you can contact us at __EMAIL__"
+          }
+        ]
+      }
+    ],
+    "footerNotes": [
+      {
+        "bold": "11.1 Effective date:",
+        "text": " This Policy takes effect as of December 31, 2025 and will apply to all data collected from that date."
+      },
+      {
+        "bold": "11.2 Compatibility with future regulations:",
+        "text": " When the Personal Data Protection Agency is operational, we will align with its guidelines and recommendations."
+      },
+      {
+        "bold": "11.3 Jurisdiction:",
+        "text": " Any dispute related to this Policy will be resolved in accordance with the laws of the Republic of Chile and the jurisdiction of Chilean courts."
+      }
+    ],
+    "versionLine": "Version: 1.0 · Last updated: December 31, 2025 · Next scheduled review: June 30, 2026",
+    "complianceNote": "This policy has been drafted in compliance with Chile's Law 21,719 on Personal Data Protection. For additional information about your rights, visit the website of the Personal Data Protection Agency when it is operational."
+  },
+  "legalPrivacidadBotOnda": {
+    "metaTitle": "ONDA BOT Privacy Policy | Precisar",
+    "title": "ONDA BOT Privacy Policy",
+    "kicker": "Legal",
+    "lastUpdated": "Last updated: February 27, 2026",
+    "responsible": "Controller:",
+    "responsibleValue": "Fundación Precisar ({siteHost})",
+    "s1Title": "1. Who is responsible",
+    "s1Body": "Chat ONDA (ONDA, the chat, the bot) is a service of Fundación Precisar (hereinafter, Precisar, we). This policy describes how we handle information when you use the chat on the web and, where applicable, through WhatsApp.",
+    "s2Title": "2. What data we collect and why",
+    "s2WebTitle": "2.1 On the web version (website / precisar.net)",
+    "s2WebItems": [
+      {
+        "strong": "Content you send:",
+        "text": " text messages, links, images or audio that you write or attach in the chat."
+      },
+      {
+        "strong": "Technical data:",
+        "text": " IP address, browser and device type, and usage data (for example, that the chat was opened or a message was sent), necessary for the service to function and for security."
+      },
+      {
+        "strong": "Purpose:",
+        "text": " To handle your inquiries, generate responses with artificial intelligence (AI) and improve service quality. We do not use the content of your messages for advertising nor do we sell it to third parties."
+      }
+    ],
+    "s2WaTitle": "2.2 On the WhatsApp version",
+    "s2WaItems": [
+      "Phone number associated with your WhatsApp account.",
+      {
+        "strong": "Content you send:",
+        "text": " text, audio, images or links that you send to ONDA's number via WhatsApp."
+      },
+      "Message identifiers that Meta/WhatsApp and we use to deliver and process responses.",
+      {
+        "strong": "Purpose:",
+        "text": " To provide the same ONDA chat service via WhatsApp: answer your questions, process audio (transcription) or images when you send them, and return text or audio responses when the system allows."
+      }
+    ],
+    "s3Title": "3. Legal basis and consent",
+    "s3Items": [
+      {
+        "strong": "Performance of the service:",
+        "text": " processing is necessary to provide you with the chat and responses."
+      },
+      {
+        "strong": "Consent:",
+        "text": " by using the chat (web or WhatsApp) you accept this policy. If you are a minor, a parent or guardian is advised to be aware of use of the service."
+      },
+      "Where applicable (for example, Chile, Brazil or the EU), we may also rely on legitimate interest to improve the service and security, always within what is described here."
+    ],
+    "s4Title": "4. Who we share data with",
+    "s4Intro": "Providers necessary for the service:",
+    "s4Providers": [
+      {
+        "strong": "OpenAI:",
+        "text": " text and image processing and response generation (and, if used, voice)."
+      },
+      {
+        "strong": "Vercel (or other hosting provider):",
+        "text": " hosting of the web chat."
+      },
+      {
+        "strong": "Meta / WhatsApp:",
+        "text": " when you use ONDA via WhatsApp, messages pass through Meta's infrastructure according to WhatsApp's Privacy Policy."
+      }
+    ],
+    "s4Closing": "We do not sell or rent your personal data. We only share it to the extent necessary to offer the chat and comply with the law.",
+    "s5Title": "5. Data retention",
+    "s5Paras": [
+      {
+        "strong": "Conversations:",
+        "text": " messages and responses are processed to generate the response at the time. We may retain technical or usage logs for a limited time necessary for security, debugging or legal compliance."
+      },
+      {
+        "strong": "WhatsApp:",
+        "text": " identifiers and content you send via WhatsApp are processed according to this policy and Meta's terms; we do not retain your number for purposes other than the service."
+      },
+      "You may ask us not to retain identifiable data beyond what is strictly necessary; in that case, contact us (see section 8)."
+    ],
+    "s6Title": "6. Security",
+    "s6Body": "We apply technical and organizational measures to protect data (encrypted communication, limited access, sensitive variables in a secure environment). No system is infallible; if you detect an incident, we appreciate you letting us know.",
+    "s7Title": "7. Your rights",
+    "s7Intro": "Depending on the law that applies to you (for example, Law 19.628 in Chile or LGPD in Brazil), you may have the right to:",
+    "s7Rights": [
+      "Access the data we hold about you.",
+      "Rectification or update of inaccurate data.",
+      "Deletion of data when the law allows.",
+      "Restriction of or objection to certain processing.",
+      "Data portability, where applicable."
+    ],
+    "s7Closing": "To exercise these rights, write to us at the contact below. You may also file a complaint with your country's data protection authority.",
+    "s8Title": "8. Contact",
+    "s8Org": "Fundación Precisar",
+    "s8WebLabel": "Web:",
+    "s8PrivacyLabel": "For ONDA chat privacy matters:",
+    "s9Title": "9. Changes",
+    "s9Paras": [
+      "We may update this policy. Relevant changes will be indicated on the web (for example, on precisar.net or on the page where the chat is offered) with a new Last updated date. Continued use of the chat after those changes implies acceptance of the updated policy.",
+      "This policy applies to Chat ONDA offered by Fundación Precisar on the web and, where applicable, on WhatsApp."
+    ]
+  },
+  "propuestaPoliticaAlfabetizacion": {
+    "metaTitle": "AMI-Chile Agenda · Literacy policy proposal",
+    "metaDescription": "Hyperconnected yet critically unprotected Chile: agenda for media and information literacy, framework law, roadmap and strategic recommendations.",
+    "heroEyebrow": "AMI Agenda · Chile",
+    "heroTitle": "Chile is hyperconnected, but critically unprotected",
+    "heroSub": "The AMI-Chile Agenda was created to raise awareness among decision-makers and media about a challenge that is already structural: how we relate to artificial intelligence, algorithms and information overload with judgment, not just connectivity. Because deciding what is right will always be our responsibility.",
+    "statsHeading": "Key data",
+    "stats": [
+      {
+        "num": "96.5%",
+        "label": "Connectivity",
+        "detail": "↑ up from 87% in 2018"
+      },
+      {
+        "num": "5 million",
+        "label": "Without functional skills",
+        "detail": "≈ 28% of the population"
+      },
+      {
+        "num": "50%+",
+        "label": "Insufficient critical competencies",
+        "detail": "adults — upward trend"
+      },
+      {
+        "num": "29%",
+        "label": "Fraud against older adults",
+        "detail": "reported in 2024"
+      }
+    ],
+    "amiVsDigitalTitle": "How do Media and Information Literacy and Digital Literacy differ?",
+    "amiVsDigitalSubtitle": "To understand MLI, it is essential first to understand the difference between Digital Literacy and Media and Information Literacy",
+    "amiColumn": {
+      "title": "MLI · Media and Information Literacy",
+      "sub": "Critical capacities regarding media, messages and sources.",
+      "items": [
+        "Analyze how news is constructed and distinguish opinion from fact.",
+        "Assess source credibility and detect native advertising.",
+        "Verify with multiple sources and understand biases/algorithms.",
+        "Rights: access, authorship, privacy, freedom of expression, fair use."
+      ],
+      "examplesLabel": "Examples",
+      "examples": [
+        "Detect deepfakes in a campaign",
+        "Identify clickbait headlines",
+        "Verify authorship and date"
+      ]
+    },
+    "digitalColumn": {
+      "title": "Digital Literacy",
+      "sub": "Technical and operational skills with devices and apps.",
+      "items": [
+        "Use email, video calls, spreadsheets, file managers.",
+        "Configure security: passwords, 2FA, backups.",
+        "Manage privacy and permissions on networks and mobile devices.",
+        "Resolve basic software/hardware problems."
+      ],
+      "examplesLabel": "Examples",
+      "examples": [
+        "Enable 2FA on your accounts",
+        "Share a Drive with permissions",
+        "Remove malware from a PC"
+      ]
+    },
+    "tableHeaders": {
+      "dimension": "Dimension",
+      "ami": "MLI",
+      "digital": "Digital Literacy"
+    },
+    "tableRows": [
+      {
+        "dim": "Focus",
+        "ami": "Critical sense about messages, sources and contexts.",
+        "dig": "Efficient and safe use of technologies and services."
+      },
+      {
+        "dim": "Guiding questions",
+        "ami": "Who says it? With what evidence? What intention?",
+        "dig": "How do I do it? Which button? Which security setting?"
+      },
+      {
+        "dim": "Competencies",
+        "ami": "Analyze, evaluate, verify, argue, informational rights.",
+        "dig": "Install, configure, operate, maintain, troubleshoot."
+      },
+      {
+        "dim": "Examples",
+        "ami": "Detect biases; verify an image; recognize disinformation (information integrity).",
+        "dig": "Create a video call; encrypt a disk; manage passwords."
+      },
+      {
+        "dim": "Desired outcome",
+        "ami": "Critical thinking and informed citizenship.",
+        "dig": "Technical autonomy and operational security."
+      }
+    ],
+    "ageGroupsTitle": "Why is MLI essential for Chile in each age group?",
+    "ageTabsAriaLabel": "Age group",
+    "ageTabs": [
+      {
+        "id": "nna",
+        "label": "Children and adolescents",
+        "items": [
+          "Connectivity: 80% with their own data plan",
+          "Well-being: 53% with digital loneliness",
+          "Disinformation (information integrity): 63% believed false news",
+          "Exposure: 27% saw violent content",
+          "Contact with strangers: 40% contacted; 48% interact",
+          "Behavior: 23% admit insulting via messages"
+        ]
+      },
+      {
+        "id": "adult",
+        "label": "Adults",
+        "items": [
+          "Critical comprehension: 44%+ without a foundation",
+          "Double gap: Without tools and without judgment",
+          "Effects: Disinformation (information integrity) / exclusion"
+        ]
+      },
+      {
+        "id": "mayores",
+        "label": "Older adults",
+        "items": [
+          "Motivation: 82% want to learn",
+          "Digitalization: 66% to avoid isolation",
+          "Risks: 29% report fraud",
+          "Usability: Unfriendly platforms"
+        ]
+      }
+    ],
+    "nudosTitle": "Three critical knots to resolve in Chile on MLI",
+    "nudos": [
+      {
+        "num": "1",
+        "text": "CONCEPTUAL CONFUSION — MLI reduced to tool use (digital literacy) instead of critical thinking about information and media."
+      },
+      {
+        "num": "2",
+        "text": "INSTITUTIONAL FRAGMENTATION — 35+ valuable actors but without coordination or joint governance."
+      },
+      {
+        "num": "3",
+        "text": "AGE GAPS — Each group (children and adolescents, adults, older adults) requires differentiated approaches."
+      }
+    ],
+    "scenarios2030Title": "2030 scenarios for Chile",
+    "scenarios2030": [
+      {
+        "title": "The cost of inaction",
+        "sub": "Chile's algorithmic society without a critical compass.",
+        "items": [
+          "Democratic erosion: decisions manipulated by deepfakes and opaque micro-targeting.",
+          "Mass vulnerability: generative AI scams especially affect older adults.",
+          "Loss of informational sovereignty: dependence on foreign platforms without transparency.",
+          "Social fracture: unresolved digital divides.",
+          "Job precarity: replacement without reskilling."
+        ]
+      },
+      {
+        "title": "The opportunity of action",
+        "sub": "Chile's digitally empowered society.",
+        "items": [
+          "Strengthened democracy: citizens who identify manipulation and debate with evidence.",
+          "Social innovation: communities using AI for health, education and the environment.",
+          "Intergenerational inclusion: autonomous older adults; responsible youth.",
+          "Knowledge economy: collaborative work with AI and entrepreneurship.",
+          "Regional leadership: Chile as an Ibero-American reference."
+        ]
+      }
+    ],
+    "vacioTitle": "Critical regulatory gap in Chile",
+    "vacioColumns": [
+      {
+        "title": "Current state of Chilean legislation",
+        "items": [
+          "General Education Law and Internet as a public service: focus on access, not critical use.",
+          "Chilean curriculum: marginal and fragmented MLI.",
+          "Chilean media: no audience literacy approach.",
+          "96.5% connectivity but legal void in MLI."
+        ]
+      },
+      {
+        "title": "Critical gaps identified in Chile",
+        "items": [
+          "No national policy or coordinating institution.",
+          "No MLI standards or impact indicators.",
+          "No algorithmic transparency or right to explanation."
+        ]
+      }
+    ],
+    "leyMarcoTitle": "Proposal: MLI Framework Law for Chile",
+    "leyMarcoQuote": "Guarantee that all people in Chile develop competencies to access, evaluate, use and create information critically, ethically and participatively, as a right for full democracy.",
+    "leyMarcoBlocks": [
+      {
+        "strong": "1 · Chilean institutional framework",
+        "body": "Create specific MLI institutions. Permanent Intersectoral Table. Coordination with Education, Science, Culture, Social Development."
+      },
+      {
+        "strong": "2 · Initial training in Chile",
+        "body": "Curricular MLI integration in pedagogies. Mandatory competencies for graduation. Professional practice with an MLI component."
+      },
+      {
+        "strong": "3 · Continuing training in Chile",
+        "body": "Updates on threats (generative AI). Active methodologies and MLI teacher network."
+      },
+      {
+        "strong": "4 · Chilean pedagogical resources",
+        "body": "Kits by level. Digital platform and MLI activity bank."
+      }
+    ],
+    "roadmapTitle": "Roadmap",
+    "phases": [
+      {
+        "title": "PHASE 1 — INSTITUTIONALIZATION",
+        "items": [
+          "Create MLI Intersectoral Table.",
+          "Design National Policy with citizen participation.",
+          "Secured 2025–2026 funding.",
+          "Define coordinating institution."
+        ]
+      },
+      {
+        "title": "PHASE 2 — PILOTING",
+        "items": [
+          "MLI Cities in 16 municipalities.",
+          "Teacher training (initial and continuing).",
+          "National MLI Observatory.",
+          "Pedagogical resources."
+        ]
+      },
+      {
+        "title": "PHASE 3 — SCALING",
+        "items": [
+          "Evaluate and adjust pilots.",
+          "Integrate MLI into SIMCE/ENDDEIE.",
+          "Consolidate governance."
+        ]
+      }
+    ],
+    "recommendationsTitle": "Strategic recommendations for Chile",
+    "recommendations": [
+      {
+        "strong": "1 · Institutional framework —",
+        "text": "MLI institution with legal mandate. Intersectoral Table. Stable and multi-year budget."
+      },
+      {
+        "strong": "2 · Curricular integration —",
+        "text": "Explicit MLI competencies. MLI in initial and continuing training."
+      },
+      {
+        "strong": "3 · Territorial implementation —",
+        "text": "Municipal network with local facilitators. Prioritize children and adolescents, lagging adults and older adults."
+      },
+      {
+        "strong": "4 · Resources and ecosystem —",
+        "text": "Kits by level + national platform. Private co-responsibility."
+      },
+      {
+        "strong": "5 · Monitoring and evidence —",
+        "text": "National MLI Observatory. Indicators in SIMCE and ENDDEIE."
+      },
+      {
+        "strong": "6 · Regulatory framework —",
+        "text": "Right to algorithmic explanation. Accessibility in digital services."
+      }
+    ],
+    "ctaTitle": "Call to action for Chilean decision-makers",
+    "ctaColumns": [
+      "Move from access to critical competencies — Chile already has connectivity; now digitally competent citizens.",
+      "Legislate to institutionalize — MLI as a citizen right with a specific regulatory framework.",
+      "Fund and measure to scale — Sustainable investment in what works, with rigorous evaluation."
+    ],
+    "ctaClosing": "The moment is now. Each day without action: more vulnerability, deeper gaps, erosion of trust and democratic weakening. The cost of inaction will be irreversible; the benefit of action will be transformative. What Chile do we want for 2030?",
+    "aboutTitle": "About the AMI-Chile Agenda",
+    "aboutBody": "It is a Precisar initiative dedicated to promoting media and information literacy as state policy in Chile. We work so that Chilean citizens develop the critical competencies needed to navigate safely, ethically and responsibly in the digital era.",
+    "collaborateTitle": "How can we collaborate?",
+    "collaborateItems": [
+      "Informational meetings with technical teams",
+      "Specialized presentations with data and concrete proposals",
+      "Technical advisory for policy implementation"
+    ],
+    "collaborateCta": "Collaborate with us"
+  },
+  "amiVsAlfabetizacionDigital": {
+    "metaTitle": "MLI vs Digital Literacy — Precisar",
+    "metaDescription": "How do Media and Information Literacy (MLI) and digital literacy differ? Comparative table, interactive exercise and three key reasons to understand Precisar's approach.",
+    "heroKicker": "Media Education · MLI",
+    "heroTitle": "How do MLI and\nDigital Literacy differ?",
+    "heroBajada": "MLI focuses on understanding, analyzing and critically using media and information. Digital Literacy prioritizes the technical skills to use tools and technological services safely and effectively.",
+    "amiColumn": {
+      "title": "MLI · Media and Information Literacy",
+      "sub": "Critical capacities regarding media, messages and sources.",
+      "items": [
+        "Analyze how news is constructed and distinguish opinion from fact.",
+        "Assess source credibility and detect native advertising.",
+        "Verify with multiple sources and understand biases/algorithms.",
+        "Rights: access, authorship, privacy, freedom of expression, fair use."
+      ],
+      "examplesLabel": "Practical examples",
+      "examples": [
+        "Detect deepfakes in a campaign",
+        "Identify clickbait headlines",
+        "Verify authorship and date"
+      ]
+    },
+    "digitalColumn": {
+      "title": "Digital Literacy",
+      "sub": "Technical and operational skills with devices and apps.",
+      "items": [
+        "Use email, video calls, spreadsheets, file managers.",
+        "Configure security: passwords, 2FA, backups.",
+        "Manage privacy and permissions on networks and mobile devices.",
+        "Resolve basic software/hardware problems."
+      ],
+      "examplesLabel": "Practical examples",
+      "examples": [
+        "Enable 2FA on your accounts",
+        "Share a Drive with permissions",
+        "Remove malware from a PC"
+      ]
+    },
+    "tableKicker": "Comparative table",
+    "tableTitle": "Dimension by dimension",
+    "tableHeaders": {
+      "dimension": "Dimension",
+      "ami": "MLI",
+      "digital": "Digital Literacy"
+    },
+    "tableRows": [
+      {
+        "dimension": "Focus",
+        "ami": "Critical sense about messages, sources and contexts.",
+        "digital": "Efficient and safe use of technologies and services."
+      },
+      {
+        "dimension": "Guiding questions",
+        "ami": "Who says it? With what evidence? What intention?",
+        "digital": "How do I do it? Which button? Which security setting?"
+      },
+      {
+        "dimension": "Competencies",
+        "ami": "Analyze, evaluate, verify, argue, informational rights.",
+        "digital": "Install, configure, operate, maintain, troubleshoot."
+      },
+      {
+        "dimension": "Examples",
+        "ami": "Detect biases; verify an image; recognize disinformation (information integrity).",
+        "digital": "Create a video call; encrypt a disk; manage passwords."
+      },
+      {
+        "dimension": "Desired outcome",
+        "ami": "Critical thinking and informed citizenship.",
+        "digital": "Technical autonomy and operational security."
+      }
+    ],
+    "exerciseKicker": "Quick test",
+    "exerciseTitle": "Drag each example\nto its column",
+    "exerciseTip": "If in doubt, ask yourself: does the example ask you to think about information (MLI) or to use tools safely (Digital)?",
+    "poolEmpty": "All examples have been assigned ✓",
+    "dropAmiLabel": "MLI",
+    "dropDigitalLabel": "Digital Literacy",
+    "dropHint": "Drop here →",
+    "btnCheck": "Check",
+    "btnReset": "Reset",
+    "scoreTemplate": "{score} / {total} correct",
+    "ejercicios": [
+      {
+        "id": 1,
+        "texto": "Use an image verification tool (OSINT)",
+        "respuesta": "ami"
+      },
+      {
+        "id": 2,
+        "texto": "Create a video call with calendar and link",
+        "respuesta": "digital"
+      },
+      {
+        "id": 3,
+        "texto": "Share a cloud document with correct permissions",
+        "respuesta": "digital"
+      },
+      {
+        "id": 4,
+        "texto": "Set up automatic backup",
+        "respuesta": "digital"
+      },
+      {
+        "id": 5,
+        "texto": "Cite correctly and respect copyright licenses",
+        "respuesta": "ami"
+      },
+      {
+        "id": 6,
+        "texto": "Remove malware and update antivirus",
+        "respuesta": "digital"
+      },
+      {
+        "id": 7,
+        "texto": "Explain how an algorithm biases your feed",
+        "respuesta": "ami"
+      },
+      {
+        "id": 8,
+        "texto": "Configure two-step authentication (2FA)",
+        "respuesta": "digital"
+      },
+      {
+        "id": 9,
+        "texto": "Recognize native advertising on a portal",
+        "respuesta": "ami"
+      },
+      {
+        "id": 10,
+        "texto": "Cross-check a news story with three independent sources",
+        "respuesta": "ami"
+      }
+    ],
+    "razonesKicker": "Why does it matter to distinguish them?",
+    "razonesTitle": "Three key reasons",
+    "razones": [
+      {
+        "titulo": "Curriculum design",
+        "desc": "Balances critical thinking (MLI) with technical skills (Digital)."
+      },
+      {
+        "titulo": "Public policy",
+        "desc": "The gap is not only access/use; it is also judgment and verification."
+      },
+      {
+        "titulo": "Citizenship",
+        "desc": "Reducing disinformation (information integrity) requires MLI; reducing fraud requires Digital Literacy."
+      }
+    ]
   }
 }

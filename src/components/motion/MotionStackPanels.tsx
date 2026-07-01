@@ -616,9 +616,10 @@ export function MotionStackPanels({
     { label: tPrograms("stackLinkFuncionarios"), href: "/programas/funcionarios-publicos", multiline: true },
   ];
 
+  const saberesLinkLabels = tSaberes.raw("links") as Record<string, string>;
   const saberesLinks = SABERES_NAV_LINKS.filter(
     (l) => l.href !== "/saberes" && l.href !== "/educacion-mediatica/comunicacion",
-  ).map((l) => ({ label: l.label, href: l.href }));
+  ).map((l) => ({ label: saberesLinkLabels[l.href] ?? l.label, href: l.href }));
 
   const educacionMediaticaLinks = [
     { label: tEducacionMediatica("linkComunicacion"), href: "/educacion-mediatica/comunicacion" },
