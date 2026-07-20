@@ -23,7 +23,7 @@ De acuerdo con el análisis de los datos, la discusión pública e institucional
 - **Dimensión informacional:** Las capacidades para buscar, clasificar y ordenar los flujos de información.
 - **Dimensión crítica:** La habilidad para evaluar la calidad, la procedencia y el propósito de los contenidos que se reciben, permitiendo tomar decisiones cotidianas basadas en evidencia.
 
-La investigación determinó que, al potenciar la base técnica con un criterio analítico robusto, se resguarda de manera eficaz a los usuarios frente a riesgos reales, como fraudes patrimoniales o la manipulación de datos.
+La investigación determinó que, al potenciar la base técnica con un criterio analítico robusto, se resguarda de manera eficaz a los usuarios frente a riesgos reales, como fraudes o la manipulación de datos.
 
 ## Dinámica de las trayectorias vitales y el entorno digital
 
