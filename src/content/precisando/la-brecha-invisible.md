@@ -6,7 +6,7 @@ El informe, que recopiló datos cualitativos y catastró 113 iniciativas en 11 p
 
 Para dotar a este diagnóstico de una base metodológica rigurosa y representativa, el equipo de Precisar recopiló de forma directa la experiencia de los actores que diseñan y gestionan este ecosistema mediante la realización de 16 entrevistas estructuradas individuales a informantes clave. El levantamiento abarcó las realidades de 6 países de Iberoamérica: Chile, Argentina, Brasil, Colombia, España y México.
 
-A través de un riguroso anonimato corporativo, se recogieron de manera transversal los discursos de los profesionales, expertos y tomadores de decisiones que forman parte activa del mundo digital:
+Se recogieron de manera transversal los discursos de los profesionales, expertos y tomadores de decisiones que forman parte activa del mundo digital:
 
 - **Representantes de Gobiernos e Instituciones Gubernamentales:** Altos funcionarios públicos involucrados en el diseño, implementación y evaluación de agendas digitales y políticas públicas vinculadas a educación, telecomunicaciones y protección social, sumando la mirada de coordinadores ministeriales y directores de entes públicos de regulación audiovisual.
 - **Líderes de la Sociedad Civil:** Fundadores y directores de Organizaciones No Gubernamentales (ONG) y organizaciones sociales enfocadas en derechos en la red, verificación de datos (fact-checking), mediación parental, periodismo independiente y empoderamiento de comunidades vulnerables y rurales.
