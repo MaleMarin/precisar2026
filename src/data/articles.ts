@@ -30,6 +30,15 @@ export const INFORME_CHILE_ENERO_2026_PDF =
 export const ARTICLES: ArticleMeta[] = [
   {
     catalogOrder: 1,
+    slug: "la-brecha-invisible",
+    title: "La Brecha Invisible",
+    category: "Informes",
+    pubDate: "2026-07-20",
+    excerpt:
+      "En Chile, el 88% de los hogares con personas mayores tiene internet, pero el 52% teme a los impactos de la Inteligencia Artificial. El último estudio regional de Precisar para la OEI revela que la conectividad digital alcanza su máximo potencial cuando se integra de manera inseparable con el desarrollo del pensamiento crítico.",
+  },
+  {
+    catalogOrder: 2,
     slug: "informarse-en-chile-hoy-menos-ruido-mas-criterio",
     title: "Informarse en Chile hoy: menos ruido, más criterio.",
     category: "Informes",
@@ -40,7 +49,7 @@ export const ARTICLES: ArticleMeta[] = [
     downloadLabel: "Descargar informe completo (PDF)",
   },
   {
-    catalogOrder: 2,
+    catalogOrder: 3,
     slug: "escuchar-primero-implementar-después-la-metodología-de-precisar-para-construir-ciudades-ami",
     title:
       "Escuchar Primero, Implementar Después: La Metodología de Precisar para Construir Ciudades AMI",
@@ -50,7 +59,7 @@ export const ARTICLES: ArticleMeta[] = [
       "El 27 de octubre de 2025, en conmemoración del Día Mundial de las Ciudades y la Semana Mundial de la AMI, ciudades piloto de cuatro continentes participaron en el evento internacional organizado en colaboración con la UNESCO bajo el lema \"Ciudades MIL: Conectando comunidades a través de la información y la cultura\".",
   },
   {
-    catalogOrder: 3,
+    catalogOrder: 4,
     slug: "democracia-en-la-era-dedigital-y-la-ia-desafíos-y-soluciones",
     title: "Democracia en la Era deDigital y la IA: Desafíos y Soluciones",
     category: "Democracia",
@@ -59,7 +68,7 @@ export const ARTICLES: ArticleMeta[] = [
       "La tecnología digital ha cambiado por completo la forma en que vivimos, nos comunicamos y participamos en la sociedad. Ya no es solo una herramienta; es el nuevo espacio donde ocurre gran parte de nuestra vida pública.",
   },
   {
-    catalogOrder: 4,
+    catalogOrder: 5,
     slug: "tres-desafíos-clave-para-la-alfabetización-mediática-en-américa-latina-lo-más-destacado-del-día-0-d",
     title:
       "Tres Desafíos Clave para la Alfabetización Mediática en América Latina: Lo Más Destacado del Día 0 de la Alianza MIL",
@@ -69,7 +78,7 @@ export const ARTICLES: ArticleMeta[] = [
       "Un día antes de la inauguración oficial de la Semana Mundial de la Alfabetización Mediática e Informacional, la UNESCO convocó a los miembros de la Alianza MIL y otras partes interesadas a un evento específico en Cartagena de Indias.",
   },
   {
-    catalogOrder: 5,
+    catalogOrder: 6,
     slug: "la-misión-crítica-de-la-ami-la-unesco-redefine-su-estrategia-ante-la-era-de-la-ia-generativa",
     title:
       "La Misión Crítica de la AMI: La UNESCO Redefine su Estrategia ante la Era de la IA Generativa",
@@ -79,7 +88,7 @@ export const ARTICLES: ArticleMeta[] = [
       "Un análisis del discurso de Tawfik Jelassi en la apertura de la Semana Mundial de la AMI 2025.",
   },
   {
-    catalogOrder: 6,
+    catalogOrder: 7,
     slug: "cómo-te-informas-hoy-precisar-lanza-consulta-ciudadana-para-mejorar-el-acceso-a-la-información",
     title:
       "“¿Cómo te informas hoy?”: Precisar lanza consulta ciudadana para mejorar el acceso a la información",
@@ -91,7 +100,7 @@ export const ARTICLES: ArticleMeta[] = [
     coverAlt: "Arte «¿Cómo te informas hoy?» · consulta ciudadana Precisar",
   },
   {
-    catalogOrder: 7,
+    catalogOrder: 8,
     slug: "migración-y-conflictos-internacionales-dominan-las-tendencias-de-desinformación-en-américa-latina",
     title:
       "Migración y conflictos internacionales dominan las tendencias de desinformación (integridad informativa) en América Latina",
@@ -101,7 +110,7 @@ export const ARTICLES: ArticleMeta[] = [
       "Un nuevo informe de LatamChequea revela que las políticas migratorias de Trump y eventos globales como la guerra Israel-Irán alimentaron campañas masivas de desinformación (integridad informativa) durante el segundo trimestre de 2025.",
   },
   {
-    catalogOrder: 8,
+    catalogOrder: 9,
     slug: "la-crisis-de-la-información-cuando-la-audiencia-huye-de-lo-que-se-cree-esencial",
     title:
       "La crisis de la información: cuando la audiencia huye de lo que se cree esencial",
@@ -111,7 +120,7 @@ export const ARTICLES: ArticleMeta[] = [
       "¿Qué pasa si quienes evitan consumir noticias tienen razón y no necesitan el tipo de información que reciben?",
   },
   {
-    catalogOrder: 9,
+    catalogOrder: 10,
     slug: "la-nueva-alfabetización-de-leer-textos-a-leer-sistemas",
     title: "La Nueva Alfabetización: De Leer Textos a Leer Sistemas",
     category: "Inteligencia Artificial",
@@ -120,7 +129,7 @@ export const ARTICLES: ArticleMeta[] = [
       "Vivimos en una era definida por una paradoja fundamental: mientras el acceso a la información es casi infinito, nuestra capacidad para comprender las fuerzas que la moldean parece disminuir.",
   },
   {
-    catalogOrder: 10,
+    catalogOrder: 11,
     slug: "la-ética-de-la-ia-en-la-educación-una-guía-para-directivos-docentes-y-alumnos",
     title:
       "La Ética de la IA en la Educación: Una Guía para Directivos, Docentes y Alumnos",
@@ -130,7 +139,7 @@ export const ARTICLES: ArticleMeta[] = [
       "La integración de la inteligencia artificial en la educación presenta desafíos éticos que requieren atención y vigilancia por parte del profesorado.",
   },
   {
-    catalogOrder: 11,
+    catalogOrder: 12,
     slug: "desconectados-para-conectar-lo-que-revela-la-radiografía-digital-de-nuestros-niños-niñas-y-adolesc",
     title:
       "Desconectados para conectar: lo que revela la radiografía digital de nuestros niños, niñas y adolescentes",
@@ -140,7 +149,7 @@ export const ARTICLES: ArticleMeta[] = [
       "Una mirada a los usos digitales de la niñez y adolescencia en clave de derechos, riesgos y oportunidades.",
   },
   {
-    catalogOrder: 12,
+    catalogOrder: 13,
     slug: "presentan-estudio-sobre-usos-y-riesgos-digitales-en-preadolescentes-chilenos",
     title:
       "Presentan estudio sobre usos y riesgos digitales en preadolescentes chilenos",
@@ -150,7 +159,7 @@ export const ARTICLES: ArticleMeta[] = [
       "El programa Formando Ciudadanía Digital de la UAI presentó los resultados del estudio \"Creciendo Conectados en Chile\".",
   },
   {
-    catalogOrder: 13,
+    catalogOrder: 14,
     slug: "el-futuro-es-ahora-por-qué-la-alfabetización-en-ia-es-la-nueva-frontera-del-pensamiento-crítico",
     title:
       "El Futuro es Ahora: Por Qué la Alfabetización en IA es la Nueva Frontera del Pensamiento Crítico",
@@ -160,7 +169,7 @@ export const ARTICLES: ArticleMeta[] = [
       "En Precisar, siempre hemos creído en ir directo al grano. Y hoy, el grano es este: la inteligencia artificial (IA) ya no es una promesa lejana.",
   },
   {
-    catalogOrder: 14,
+    catalogOrder: 15,
     slug: "foro-económico-mundial-la-desinformación-ya-es-el-riesgo-global-n-º-1",
     title:
       "Foro Económico Mundial: la desinformación (integridad informativa) ya es el riesgo global n.º 1",
@@ -170,7 +179,7 @@ export const ARTICLES: ArticleMeta[] = [
       "Replanteando la Alfabetización Mediática: Un Nuevo Modelo Ecosistémico para la Integridad de la Información, del Foro Económico Mundial, lanzado en julio de 2025.",
   },
   {
-    catalogOrder: 15,
+    catalogOrder: 16,
     slug: "pensamiento-crítico-en-tiempos-de-ruido-digital",
     title: "Pensamiento Crítico en Tiempos de Ruido Digital",
     category: "Tendencias",
@@ -179,7 +188,7 @@ export const ARTICLES: ArticleMeta[] = [
       "En un entorno saturado de estímulos y datos, el desafío ya no es acceder a la información, sino discernir su valor.",
   },
   {
-    catalogOrder: 16,
+    catalogOrder: 17,
     slug: "informe-de-noticias-digitales-2025del-instituto-reuters-fragmentación-ia-y-la-búsqueda-de-confianz",
     title:
       "Informe de Noticias Digitales 2025 de Instituto Reuters: Fragmentación, IA y la Búsqueda de Confianza",
@@ -189,7 +198,7 @@ export const ARTICLES: ArticleMeta[] = [
       "El informe de este año llega en un momento de profunda incertidumbre política y económica, de alianzas geopolíticas cambiantes.",
   },
   {
-    catalogOrder: 17,
+    catalogOrder: 18,
     slug: "tendencias-digitales-emergentes-observadas-este-año-2025",
     title: "Tendencias Digitales Emergentes Observadas este año 2025",
     category: "Tendencias",
@@ -198,7 +207,7 @@ export const ARTICLES: ArticleMeta[] = [
       "La cultura digital, lejos de ser una experiencia uniforme, se está fragmentando en comportamientos radicalmente diversos en 2025.",
   },
   {
-    catalogOrder: 18,
+    catalogOrder: 19,
     slug: "entender-los-filtros-burbuja-y-las-cámaras-de-eco-una-mirada-desde-la-antropología-digital",
     title:
       "Entender los Filtros Burbuja y las Cámaras de Eco: Una Mirada Desde la Antropología Digital",
@@ -208,7 +217,7 @@ export const ARTICLES: ArticleMeta[] = [
       "Elegir el primer tema no fue fácil, pero decidimos partir desde lo que mejor conocemos: la cultura digital.",
   },
   {
-    catalogOrder: 19,
+    catalogOrder: 20,
     slug: "precisar-desarrolla-muestras-itinerantes-de-cultura-digital-y-busca-aliados-para-su-implementación-e",
     title:
       "Precisar desarrolla muestras itinerantes de cultura digital y busca aliados para su implementación en espacios públicos y privados",
@@ -218,7 +227,7 @@ export const ARTICLES: ArticleMeta[] = [
       "Como parte de su programa HUB Digital Consciente, Precisar está trabajando en el diseño de muestras itinerantes que abordan temas urgentes de la cultura digital contemporánea.",
   },
   {
-    catalogOrder: 20,
+    catalogOrder: 21,
     slug: "algoritmos-y-misoginia-cómo-las-redes-sociales-están-moldeando-una-nueva-era-de-sexismo-entre-los-j",
     title:
       "Algoritmos y misoginia: cómo las redes sociales están moldeando una nueva era de sexismo entre los jóvenes",
@@ -228,7 +237,7 @@ export const ARTICLES: ArticleMeta[] = [
       "En un mundo donde los algoritmos deciden qué vemos y cuándo lo vemos, la escritora y activista feminista Laura Bates alerta sobre una preocupante tendencia.",
   },
   {
-    catalogOrder: 21,
+    catalogOrder: 22,
     slug: "principios-globales-de-la-onu-para-la-integridad-de-la-información-claves-para-combatir-la-desinfor",
     title:
       "Principios Globales de la ONU para la integridad de la información: claves para combatir la desinformación (integridad informativa)",
@@ -238,7 +247,7 @@ export const ARTICLES: ArticleMeta[] = [
       "Los Principios Globales de la ONU para la integridad de la información nos muestran otra forma de comunicar.",
   },
   {
-    catalogOrder: 22,
+    catalogOrder: 23,
     slug: "comprendiendo-la-desinformación-un-recorrido-por-términos-y-técnicas-clave",
     title: "Comprendiendo la desinformación (integridad informativa): un recorrido por términos y técnicas clave",
     category: "Desinformación (integridad informativa)",
@@ -247,7 +256,7 @@ export const ARTICLES: ArticleMeta[] = [
       "Guía conceptual para reconocer técnicas habituales de desinformación (integridad informativa) y el vocabulario que ayuda a analizarlas con rigor.",
   },
   {
-    catalogOrder: 23,
+    catalogOrder: 24,
     slug: "la-tecnología-debe-potenciar-nuestra-individualidad-no-estandarizarla",
     title: "La tecnología debe potenciar nuestra individualidad, no estandarizarla",
     category: "Tendencias",
@@ -256,7 +265,7 @@ export const ARTICLES: ArticleMeta[] = [
       "Reflexión sobre cómo la tecnología puede respetar la diversidad humana frente a dinámicas de homogeneización.",
   },
   {
-    catalogOrder: 24,
+    catalogOrder: 25,
     slug: "cómo-identificar-videos-falsos-sin-ser-un-experto",
     title: "Cómo identificar videos falsos sin ser un experto",
     category: "Ciudadanía Digital",
@@ -265,7 +274,7 @@ export const ARTICLES: ArticleMeta[] = [
       "Pautas accesibles para sospechar y verificar contenidos audiovisuales manipulados o sacados de contexto.",
   },
   {
-    catalogOrder: 25,
+    catalogOrder: 26,
     slug: "el-uso-excesivo-o-inadecuado-de-las-redes-sociales-se-vincula-con-la-aceptación-y-difusión-de-notici",
     title:
       "El uso excesivo o inadecuado de las redes sociales se vincula con la aceptación y difusión de noticias falsas",
@@ -275,7 +284,7 @@ export const ARTICLES: ArticleMeta[] = [
       "Síntesis de evidencia sobre la relación entre dependencia emocional de redes y mayor propensión a creer y compartir desinformación (integridad informativa).",
   },
   {
-    catalogOrder: 27,
+    catalogOrder: 28,
     slug: "a-veces-cambiar-de-nombre-no-es-borrar-el-pasado-sino-precisar-mejor-hacia-dónde-se-quiere-ir",
     title: "A veces, cambiar de nombre no es borrar el pasado, sino precisar mejor hacia dónde se quiere ir",
     category: "Precisar",
@@ -284,7 +293,7 @@ export const ARTICLES: ArticleMeta[] = [
       "Nota editorial sobre la evolución de la marca y la misión de Precisar en el ecosistema digital.",
   },
   {
-    catalogOrder: 28,
+    catalogOrder: 29,
     slug: "ia-y-educación-construyendo-el-futuro-a-través-de-la-transformación-digital",
     title: "IA y educación: construyendo el futuro a través de la transformación digital",
     category: "Educación Mediática",
@@ -293,7 +302,7 @@ export const ARTICLES: ArticleMeta[] = [
       "Balance entre oportunidades y riesgos de la IA en políticas y prácticas educativas.",
   },
   {
-    catalogOrder: 29,
+    catalogOrder: 30,
     slug: "ciudades-mil-la-apuesta-por-el-desarrollo-urbano-y-la-cultura-de-la-información",
     title: "Ciudades MIL: la apuesta por el desarrollo urbano y la cultura de la información",
     category: "Ciudades AMI",
@@ -302,7 +311,7 @@ export const ARTICLES: ArticleMeta[] = [
       "Cómo las ciudades incorporan alfabetización mediática e informacional en sus agendas de desarrollo y convivencia.",
   },
   {
-    catalogOrder: 30,
+    catalogOrder: 31,
     slug: "redes-sociales-en-chile-mucho-scroll-poco-control",
     title: "Redes sociales en Chile: mucho scroll, poco control",
     category: "Tendencias",
@@ -311,7 +320,7 @@ export const ARTICLES: ArticleMeta[] = [
       "Panorama de hábitos de uso en Chile y su relación con autonomía, bienestar y criterio frente a la información.",
   },
   {
-    catalogOrder: 31,
+    catalogOrder: 32,
     slug: "ocde-hechos-frente-a-falsedades-integridad-informativa",
     title:
       "Hechos frente a falsedades: la OCDE y la integridad de la información para fortalecer la democracia",
@@ -321,7 +330,7 @@ export const ARTICLES: ArticleMeta[] = [
       "Síntesis del informe de la OCDE sobre gobernanza, transparencia y acciones frente a la desinformación (integridad informativa) en espacios democráticos.",
   },
   {
-    catalogOrder: 32,
+    catalogOrder: 33,
     slug: "la-educacion-mediatica-como-necesidad-imperante-para-todos",
     title: "La educación mediática como necesidad imperante para todos",
     category: "Educación Mediática",
