@@ -35,7 +35,7 @@ export const ARTICLES: ArticleMeta[] = [
     category: "Informes",
     pubDate: "2026-07-20",
     excerpt:
-      "En Chile, el 88% de los hogares con personas mayores tiene internet, pero el 52% teme a los impactos de la Inteligencia Artificial. El último estudio regional de Precisar para la OEI revela que la conectividad digital alcanza su máximo potencial cuando se integra de manera inseparable con el desarrollo del pensamiento crítico.",
+      "En Chile, el 88% de los hogares con personas mayores tiene internet, pero el 52% teme a los impactos de la Inteligencia Artificial. El último estudio regional de Precisar para la Organización de los Estados Iberoamericanos (OEI) revela que la conectividad digital alcanza su máximo potencial cuando se integra de manera inseparable con el desarrollo del pensamiento crítico.",
     downloadUrl: "/estudio-ami-para-oei.pdf",
     downloadLabel: "Descargar estudio AMI para OEI (PDF)",
   },
