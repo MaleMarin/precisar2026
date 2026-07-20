@@ -111,7 +111,8 @@ export default async function PrecisandoArticulo({ params }: Props) {
           </p>
           <a
             href={post.downloadUrl}
-            download
+            target="_blank"
+            rel="noopener noreferrer"
             className="mt-2 inline-flex items-center gap-2 font-[family-name:var(--font-display)] text-base font-medium text-[var(--accent)] underline decoration-1 underline-offset-4 transition-opacity hover:opacity-85"
           >
             {post.downloadLabel ?? "Descargar archivo"}

@@ -41,4 +41,4 @@ El análisis comparado detectó que las respuestas en la región suelen ser atom
 
 Para enfrentar la fragmentación del ecosistema local, el informe técnico elaborado por Precisar plantea la necesidad de consolidar una gobernanza intersectorial con mandatos claros. Una de las principales recomendaciones es adoptar el enfoque territorial de "Ciudades Alfabetizadas" de la UNESCO, el cual propone articular el tejido local utilizando las infraestructuras comunitarias ya existentes, como municipios y bibliotecas públicas, para ofrecer espacios estables de capacitación, co-creación y encuentros intergeneracionales.
 
-El informe ejecutivo detallado y las fichas de las 113 iniciativas identificadas en la región están disponibles para consulta técnica en nuestro portal web corporativo [www.precisar.net](https://www.precisar.net) y en el sitio oficial de la OEI Chile.
+Te invitamos a descargar el informe ejecutivo detallado y las fichas de las 113 iniciativas identificadas en la región: [Descargar estudio AMI para OEI (PDF)](/estudio-ami-para-oei.pdf).
