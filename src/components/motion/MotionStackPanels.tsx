@@ -29,17 +29,6 @@ function ArrowIcon({ className }: { className?: string }) {
   );
 }
 
-function IconBlocks({ className }: { className?: string }) {
-  return (
-    <svg className={className} width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden>
-      <rect x="3" y="3" width="8" height="8" rx="1" stroke="currentColor" strokeWidth="1.5" />
-      <rect x="13" y="3" width="8" height="8" rx="1" stroke="currentColor" strokeWidth="1.5" />
-      <rect x="3" y="13" width="8" height="8" rx="1" stroke="currentColor" strokeWidth="1.5" />
-      <rect x="13" y="13" width="8" height="8" rx="1" stroke="currentColor" strokeWidth="1.5" />
-    </svg>
-  );
-}
-
 type MiniListItem = {
   label: ReactNode;
   href?: string;
@@ -661,10 +650,10 @@ export function MotionStackPanels({
       id: "programas",
       theme: "light" as const,
       kicker: tPrograms("stackKicker"),
-      label: tPrograms("stackLabel"),
+      label: undefined,
       headline: tPrograms("stackHeadline"),
       body: tPrograms("body"),
-      icon: IconBlocks,
+      icon: undefined,
       child: <MiniList reduceMotion={reduceMotion} glass items={programLinks} />,
     },
     {
