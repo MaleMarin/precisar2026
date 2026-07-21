@@ -31,11 +31,11 @@ export const ARTICLES: ArticleMeta[] = [
   {
     catalogOrder: 1,
     slug: "la-brecha-invisible",
-    title: "La Brecha Invisible",
+    title: "La brecha invisible: tenemos internet, nos falta criterio",
     category: "Informes",
     pubDate: "2026-07-20",
     excerpt:
-      "En Chile, el 88% de los hogares con personas mayores tiene internet, pero el 52% teme a los impactos de la Inteligencia Artificial. El último estudio regional de Precisar para la Organización de los Estados Iberoamericanos (OEI) revela que la conectividad digital alcanza su máximo potencial cuando se integra de manera inseparable con el desarrollo del pensamiento crítico.",
+      "En Chile, el 88% de los hogares con personas mayores está conectado a internet, pero más de la mitad teme a la inteligencia artificial. Un estudio regional realizado por Precisar para la Organización de los Estados Iberoamericanos (OEI) revela por qué el verdadero desafío digital ya no es el acceso, sino el pensamiento crítico.",
     downloadUrl: "/estudio-ami-para-oei.pdf",
     downloadLabel: "Descargar estudio AMI para OEI (PDF)",
   },
