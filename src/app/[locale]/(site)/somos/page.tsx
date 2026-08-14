@@ -46,20 +46,13 @@ export async function generateMetadata({
 export default async function SomosPrecisarPage() {
   const t = await getTranslations("somos");
   const intro = t.raw("intro") as string[];
-  const problemParas = t.raw("problem.paras") as string[];
   const howWeWork = t.raw("howWeWork.items") as ListItem[];
-  const together = t.raw("together.items") as ListItem[];
-  const partners = t.raw("partners.items") as string[];
-  const outcomes = t.raw("outcomes.items") as string[];
-  const approachParas = t.raw("approach.paras") as string[];
-  const whyFour = t.raw("why.items") as string[];
   const teamPeople = t.raw("team.people") as TeamPerson[];
 
   return (
     <article className={styles.page}>
       <header className={styles.hero} aria-labelledby="somos-title">
         <div className={styles.heroInner}>
-          <p className={styles.kicker}>{t("kicker")}</p>
           <h1 id="somos-title" className={styles.heroTitle}>
             {t("heroTitle")}
           </h1>
@@ -80,72 +73,12 @@ export default async function SomosPrecisarPage() {
         </SomosReveal>
       </section>
 
-      <section className={`${styles.band} ${styles.bandPaper}`} aria-label={t("principleAria")}>
-        <SomosReveal>
-          <div className={styles.inner}>
-            <blockquote className={styles.pullQuote}>
-              <span className={styles.pullQuoteMark} aria-hidden>
-                ·
-              </span>
-              {t("principle")}
-            </blockquote>
-          </div>
-        </SomosReveal>
-      </section>
-
-      <section className={`${styles.band} ${styles.bandMist}`} aria-label={t("team.aria")}>
-        <SomosReveal>
-          <div className={styles.inner}>
-            <ul className={styles.teamGrid}>
-              {teamPeople.map((person) => (
-                <li key={person.name} className={styles.teamCard}>
-                  <div className={styles.teamPhotoWrap}>
-                    <Image
-                      src={person.photo}
-                      alt={person.alt}
-                      width={320}
-                      height={320}
-                      className={styles.teamPhoto}
-                    />
-                  </div>
-                  <h2 className={styles.teamName}>{person.name}</h2>
-                  <p className={styles.teamRole}>{person.role}</p>
-                </li>
-              ))}
-            </ul>
-            <p className={styles.teamPhrase}>{t("team.phrase")}</p>
-          </div>
-        </SomosReveal>
-      </section>
-
-      <section className={`${styles.band} ${styles.bandCream}`} aria-labelledby="somos-problema">
-        <SomosReveal>
-          <div className={styles.inner}>
-            <div className={styles.sectionHead}>
-              <span className={styles.sectionIndex} aria-hidden>
-                01
-              </span>
-              <h2 id="somos-problema" className={styles.h2}>
-                {t("problem.title")}
-              </h2>
-            </div>
-            <div className={styles.proseM}>
-              {problemParas.map((p, i) => (
-                <p key={i} className={styles.para}>
-                  {p}
-                </p>
-              ))}
-            </div>
-          </div>
-        </SomosReveal>
-      </section>
-
       <section className={`${styles.band} ${styles.bandMist}`} aria-labelledby="somos-como">
         <SomosReveal>
           <div className={styles.inner}>
             <div className={styles.sectionHead}>
               <span className={styles.sectionIndex} aria-hidden>
-                02
+                01
               </span>
               <h2 id="somos-como" className={styles.h2}>
                 {t("howWeWork.title")}
@@ -168,115 +101,56 @@ export default async function SomosPrecisarPage() {
         </SomosReveal>
       </section>
 
-      <section className={`${styles.band} ${styles.bandPaper}`} aria-labelledby="somos-juntos">
-        <SomosReveal>
-          <div className={styles.inner}>
-            <div className={styles.sectionHead}>
-              <span className={styles.sectionIndex} aria-hidden>
-                03
-              </span>
-              <h2 id="somos-juntos" className={styles.h2}>
-                {t("together.title")}
-              </h2>
-            </div>
-            <ul className={styles.cardGrid}>
-              {together.map((item) => (
-                <li key={item.title} className={styles.softCard}>
-                  <h3 className={styles.h3}>{item.title}</h3>
-                  <p className={styles.para}>{item.body}</p>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </SomosReveal>
-      </section>
-
       <section className={`${styles.band} ${styles.bandCream}`} aria-labelledby="somos-con">
         <SomosReveal>
           <div className={styles.inner}>
             <div className={styles.sectionHead}>
               <span className={styles.sectionIndexLight} aria-hidden>
-                04
+                02
               </span>
               <h2 id="somos-con" className={styles.h2}>
                 {t("partners.title")}
               </h2>
             </div>
             <p className={styles.prologue}>{t("partners.prologue")}</p>
-            <ul className={styles.pillList}>
-              {partners.map((label) => (
-                <li key={label}>
-                  <span className={styles.pill}>{label}</span>
-                </li>
-              ))}
-            </ul>
           </div>
         </SomosReveal>
       </section>
 
-      <section className={`${styles.band} ${styles.bandPaper}`} aria-labelledby="somos-instalado">
+      <section className={`${styles.band} ${styles.bandMist}`} aria-labelledby="somos-equipo">
         <SomosReveal>
           <div className={styles.inner}>
             <div className={styles.sectionHead}>
               <span className={styles.sectionIndex} aria-hidden>
-                05
+                03
               </span>
-              <h2 id="somos-instalado" className={styles.h2}>
-                {t("outcomes.title")}
+              <h2 id="somos-equipo" className={styles.h2}>
+                {t("team.title")}
               </h2>
             </div>
-            <p className={styles.prologue}>{t("outcomes.prologue")}</p>
-            <ul className={styles.outcomeList}>
-              {outcomes.map((line) => (
-                <li key={line} className={styles.outcomeItem}>
-                  <span className={styles.outcomeDot} aria-hidden />
-                  <span>{line}</span>
+            <ul className={styles.teamGrid}>
+              {teamPeople.map((person) => (
+                <li key={person.name} className={styles.teamCard}>
+                  <div className={styles.teamPhotoWrap}>
+                    <Image
+                      src={person.photo}
+                      alt={person.alt}
+                      width={320}
+                      height={320}
+                      className={styles.teamPhoto}
+                    />
+                  </div>
+                  <h2 className={styles.teamName}>{person.name}</h2>
+                  <p className={styles.teamRole}>{person.role}</p>
                 </li>
               ))}
             </ul>
-          </div>
-        </SomosReveal>
-      </section>
-
-      <section className={`${styles.band} ${styles.bandNavy}`} aria-labelledby="somos-enfoque">
-        <SomosReveal>
-          <div className={styles.innerNarrow}>
-            <h2 id="somos-enfoque" className={styles.h2Accent}>
-              {t("approach.title")}
-            </h2>
-            <div className={styles.proseOnAccent}>
-              {approachParas.map((p, i) => (
-                <p key={i} className={styles.paraOnAccent}>
-                  {p}
-                </p>
-              ))}
-            </div>
-          </div>
-        </SomosReveal>
-      </section>
-
-      <section className={`${styles.band} ${styles.bandCream}`} aria-labelledby="somos-porque">
-        <SomosReveal>
-          <div className={styles.inner}>
-            <div className={styles.sectionHead}>
-              <span className={styles.sectionIndex} aria-hidden>
-                06
+            <blockquote className={styles.pullQuote}>
+              <span className={styles.pullQuoteMark} aria-hidden>
+                ·
               </span>
-              <h2 id="somos-porque" className={styles.h2}>
-                {t("why.title")}
-              </h2>
-            </div>
-            <p className={styles.prologue}>{t("why.prologue")}</p>
-            <ul className={styles.fourGrid}>
-              {whyFour.map((line, i) => (
-                <li key={line} className={styles.fourCell}>
-                  <span className={styles.fourNum} aria-hidden>
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <p className={styles.para}>{line}</p>
-                </li>
-              ))}
-            </ul>
+              {t("team.phrase")}
+            </blockquote>
           </div>
         </SomosReveal>
       </section>

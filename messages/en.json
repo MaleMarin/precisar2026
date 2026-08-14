@@ -761,6 +761,7 @@
       "button": "Write to us"
     },
     "team": {
+      "title": "Team",
       "aria": "Precisar team",
       "phrase": "Precisar is made by those who teach, those who create, those who think about technology, those who make decisions, neighbors, and people who, at some point, chose not to stay with the doubt. They are in every conversation we hold, in every question they ask us, in every story they allow us to tell. Without knowing it, each of them already is Precisar.",
       "people": [
