@@ -117,8 +117,8 @@ export default async function SomosPrecisarPage() {
         </SomosReveal>
       </section>
 
-      <section className={`${styles.band} ${styles.bandMist}`} aria-labelledby="somos-equipo">
-        <SomosReveal>
+      <section className={`${styles.band} ${styles.bandMist} ${styles.teamBand}`} aria-labelledby="somos-equipo">
+        <SomosReveal className={styles.teamReveal}>
           <div className={styles.inner}>
             <div className={styles.sectionHead}>
               <span className={styles.sectionIndex} aria-hidden>
@@ -146,13 +146,13 @@ export default async function SomosPrecisarPage() {
               ))}
             </ul>
           </div>
-          <blockquote className={styles.pullQuote}>
-            <span className={styles.pullQuoteMark} aria-hidden>
-              ·
-            </span>
-            {t("team.phrase")}
-          </blockquote>
         </SomosReveal>
+        <blockquote className={styles.teamQuote}>
+          <span className={styles.pullQuoteMark} aria-hidden>
+            ·
+          </span>
+          {t("team.phrase")}
+        </blockquote>
       </section>
 
       <section className={`${styles.band} ${styles.bandVoid}`} aria-labelledby="somos-hablemos">

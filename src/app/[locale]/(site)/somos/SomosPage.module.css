@@ -171,12 +171,34 @@
   max-width: min(40rem, 100%);
 }
 
-/* ─── Cita (mismo ancho y cuerpo que timeline / intro) ─── */
-.pullQuote {
+/* ─── Cita del equipo: mismo ancho que la franja Hablemos ─── */
+.teamBand {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+}
+
+.teamReveal {
+  width: 100%;
+  padding-left: var(--somos-band-x);
+  padding-right: var(--somos-band-x);
+  box-sizing: border-box;
+}
+
+.teamQuote {
+  display: block;
+  width: 100%;
+  max-width: none;
   margin: clamp(2rem, 5vw, 3rem) 0 0;
-  padding: clamp(1.35rem, 3.2vw, 1.85rem);
-  border-radius: 14px;
+  padding: clamp(1.35rem, 3.2vw, 1.85rem) var(--somos-band-x);
+  box-sizing: border-box;
+  border-radius: 0;
   border: 1px solid color-mix(in oklab, var(--ink) 8%, transparent);
+  border-left: none;
+  border-right: none;
   background: #fff;
   box-shadow: 0 12px 36px color-mix(in oklab, #0a0c12 5%, transparent);
   font-family: "Avenir Next", "Avenir", var(--font-sans-family), system-ui, sans-serif;
@@ -186,11 +208,6 @@
   line-height: 1.75;
   letter-spacing: 0;
   color: color-mix(in oklab, var(--ink) 78%, transparent);
-  width: calc(100% + 2 * var(--somos-band-x));
-  max-width: none;
-  margin-left: calc(-1 * var(--somos-band-x));
-  margin-right: calc(-1 * var(--somos-band-x));
-  box-sizing: border-box;
 }
 
 .pullQuoteMark {
