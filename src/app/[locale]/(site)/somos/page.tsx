@@ -145,13 +145,13 @@ export default async function SomosPrecisarPage() {
                 </li>
               ))}
             </ul>
-            <blockquote className={styles.pullQuote}>
-              <span className={styles.pullQuoteMark} aria-hidden>
-                ·
-              </span>
-              {t("team.phrase")}
-            </blockquote>
           </div>
+          <blockquote className={styles.pullQuote}>
+            <span className={styles.pullQuoteMark} aria-hidden>
+              ·
+            </span>
+            {t("team.phrase")}
+          </blockquote>
         </SomosReveal>
       </section>
 
