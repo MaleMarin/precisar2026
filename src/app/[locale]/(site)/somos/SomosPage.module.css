@@ -185,7 +185,9 @@
   line-height: 1.75;
   letter-spacing: 0;
   color: color-mix(in oklab, var(--ink) 78%, transparent);
-  max-width: min(48rem, 100%);
+  width: 100%;
+  max-width: none;
+  box-sizing: border-box;
 }
 
 .pullQuoteMark {
