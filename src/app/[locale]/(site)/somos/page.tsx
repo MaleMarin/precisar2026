@@ -93,7 +93,7 @@ export default async function SomosPrecisarPage() {
         </SomosReveal>
       </section>
 
-      <section className={`${styles.band} ${styles.bandCream}`} aria-label={t("team.aria")}>
+      <section className={`${styles.band} ${styles.bandMist}`} aria-label={t("team.aria")}>
         <SomosReveal>
           <div className={styles.inner}>
             <ul className={styles.teamGrid}>
