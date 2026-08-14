@@ -603,7 +603,7 @@
   border-radius: 50%;
   overflow: hidden;
   margin-bottom: 0.65rem;
-  background: color-mix(in oklab, var(--mist) 70%, #fff);
+  background: transparent;
 }
 
 .teamPhoto {
