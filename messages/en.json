@@ -759,6 +759,24 @@
       "title": "Let’s talk",
       "body": "If your organisation wants to develop tools, methodologies, or experiences to strengthen people’s relationship with information and promote a more conscious, useful, and constructive use of technology, we’d be glad to talk.",
       "button": "Write to us"
+    },
+    "team": {
+      "aria": "Precisar team",
+      "phrase": "Precisar is made by those who teach, those who create, those who think about technology, those who make decisions, neighbors, and people who, at some point, chose not to stay with the doubt. They are in every conversation we hold, in every question they ask us, in every story they allow us to tell. Without knowing it, each of them already is Precisar.",
+      "people": [
+        {
+          "name": "Ansa Hofmann",
+          "role": "Executive Director",
+          "photo": "/somos/ansa-hofmann.png",
+          "alt": "Portrait of Ansa Hofmann, Executive Director of Precisar"
+        },
+        {
+          "name": "Andrea Raglianti",
+          "role": "Projects Director",
+          "photo": "/somos/andrea-raglianti.png",
+          "alt": "Portrait of Andrea Raglianti, Projects Director of Precisar"
+        }
+      ]
     }
   },
   "programPages": {

@@ -759,6 +759,24 @@
       "title": "Hablemos",
       "body": "Si tu organización quiere desarrollar herramientas, metodologías o experiencias para fortalecer la relación de las personas con la información y promover un uso más consciente, útil y constructivo de la tecnología, nos interesa conversar.",
       "button": "Escríbenos"
+    },
+    "team": {
+      "aria": "Equipo Precisar",
+      "phrase": "Precisar la hacen quienes enseñan, quienes crean, quienes piensan la tecnología, quienes toman decisiones, vecinos, vecinas y personas que, en algún momento, prefirieron no quedarse con la duda. Están en cada conversación que sostenemos, en cada pregunta que nos hacen, en cada historia que nos permiten contar. Sin saberlo, cada una de ellas ya es Precisar.",
+      "people": [
+        {
+          "name": "Ansa Hofmann",
+          "role": "Directora Ejecutiva",
+          "photo": "/somos/ansa-hofmann.png",
+          "alt": "Retrato de Ansa Hofmann, Directora Ejecutiva de Precisar"
+        },
+        {
+          "name": "Andrea Raglianti",
+          "role": "Directora de Proyectos",
+          "photo": "/somos/andrea-raglianti.png",
+          "alt": "Retrato de Andrea Raglianti, Directora de Proyectos de Precisar"
+        }
+      ]
     }
   },
   "programPages": {

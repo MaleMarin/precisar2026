@@ -573,6 +573,74 @@
   border-color: #fff;
 }
 
+/* ─── Equipo ─── */
+.teamGrid {
+  display: grid;
+  gap: clamp(2rem, 5vw, 3.25rem);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media (min-width: 640px) {
+  .teamGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(2rem, 6vw, 4rem);
+  }
+}
+
+.teamCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.55rem;
+}
+
+.teamPhotoWrap {
+  width: min(11.5rem, 52vw);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 0.65rem;
+  background: color-mix(in oklab, var(--mist) 70%, #fff);
+}
+
+.teamPhoto {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.teamName {
+  margin: 0;
+  font-family: var(--font-display, system-ui, sans-serif);
+  font-size: clamp(1.15rem, 2vw, 1.35rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+.teamRole {
+  margin: 0;
+  font-family: "Avenir Next", "Avenir", var(--font-sans-family), system-ui, sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: color-mix(in oklab, var(--ink) 55%, transparent);
+}
+
+.teamPhrase {
+  margin: clamp(2.25rem, 5vw, 3.25rem) auto 0;
+  max-width: 42rem;
+  text-align: center;
+  font-size: var(--somos-body);
+  line-height: 1.7;
+  color: color-mix(in oklab, var(--ink) 78%, transparent);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .softCard:hover {
     transform: none;

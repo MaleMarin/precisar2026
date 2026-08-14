@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import { FooterContactLink } from "@/components/FooterContactLink";
 import { absoluteLocaleUrl, hreflangAlternates, SITE } from "@/lib/site";
@@ -12,6 +13,7 @@ function ogLocaleTag(locale: string): string {
 }
 
 type ListItem = { title: string; body: string };
+type TeamPerson = { name: string; role: string; photo: string; alt: string };
 
 export async function generateMetadata({
   params,
@@ -51,6 +53,7 @@ export default async function SomosPrecisarPage() {
   const outcomes = t.raw("outcomes.items") as string[];
   const approachParas = t.raw("approach.paras") as string[];
   const whyFour = t.raw("why.items") as string[];
+  const teamPeople = t.raw("team.people") as TeamPerson[];
 
   return (
     <article className={styles.page}>
@@ -86,6 +89,31 @@ export default async function SomosPrecisarPage() {
               </span>
               {t("principle")}
             </blockquote>
+          </div>
+        </SomosReveal>
+      </section>
+
+      <section className={`${styles.band} ${styles.bandCream}`} aria-label={t("team.aria")}>
+        <SomosReveal>
+          <div className={styles.inner}>
+            <ul className={styles.teamGrid}>
+              {teamPeople.map((person) => (
+                <li key={person.name} className={styles.teamCard}>
+                  <div className={styles.teamPhotoWrap}>
+                    <Image
+                      src={person.photo}
+                      alt={person.alt}
+                      width={320}
+                      height={320}
+                      className={styles.teamPhoto}
+                    />
+                  </div>
+                  <h2 className={styles.teamName}>{person.name}</h2>
+                  <p className={styles.teamRole}>{person.role}</p>
+                </li>
+              ))}
+            </ul>
+            <p className={styles.teamPhrase}>{t("team.phrase")}</p>
           </div>
         </SomosReveal>
       </section>
