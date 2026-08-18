@@ -5,6 +5,7 @@ import NextLink from "next/link";
 import { useMemo, useRef, type ComponentType, type ReactNode } from "react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
+import { HomeConvocaPanel } from "@/components/home/HomeConvocaPanel";
 import { PRECISANDO_ARTICLES_UNDER_CONSTRUCTION } from "@/lib/precisando-access";
 import { EXTERNAL, FOOTER_COLUMNS, SITE, SABERES_NAV_LINKS } from "@/lib/site";
 import styles from "./MotionStackPanels.module.css";
@@ -174,74 +175,6 @@ function HomeBotOndaAside() {
         </span>
         <span className={styles.botOndaHomeLightCta}>{tBot("ctaOpenChat")}</span>
       </a>
-    </div>
-  );
-}
-
-/** Primer panel apilado: “Qué nos convoca” (mismo formato archivo que el resto). */
-function HomeConvocaStackPanelContent() {
-  const t = useTranslations("homeConvoca");
-
-  return (
-    <div className={styles.convocaStackRoot}>
-      <header className={styles.convocaStackHeader}>
-        <p className={styles.convocaStackKicker}>
-          <span className={styles.convocaStackKickerSq} aria-hidden />
-          <span>{t("kickerLine1")}</span>
-          <span className={styles.convocaStackKickerSep} aria-hidden>
-            ·
-          </span>
-          <span>{t("kickerLine2")}</span>
-        </p>
-        <h2 className={styles.convocaStackHeadline} id="stack-convoca-heading">
-          <span className={styles.convocaStackHeadlineLine}>{t("headline.line1")}</span>
-          <span className={styles.convocaStackHeadlineAccent}>{t("headline.line2")}</span>
-        </h2>
-      </header>
-
-      <div className={styles.convocaStackMetricsIntro}>
-        <div className={styles.convocaStackImpact}>
-          <div className={styles.convocaStackImpactItem}>
-            <span className={styles.convocaStackImpactNum}>{t("metrics.exabytesValue")}</span>
-            <span className={styles.convocaStackImpactCap}>{t("metrics.exabytesLabel")}</span>
-          </div>
-          <div className={styles.convocaStackImpactItem}>
-            <span className={styles.convocaStackImpactNum}>{t("metrics.yearsValue")}</span>
-            <span className={styles.convocaStackImpactCap}>{t("metrics.yearsLabel")}</span>
-          </div>
-        </div>
-        <p className={styles.convocaStackIntroSlate}>{t("intro")}</p>
-      </div>
-
-      <section className={styles.convocaStackPropuesta} aria-labelledby="convoca-propuesta-lead">
-        <div className={styles.convocaStackPropuestaCopy}>
-          <p className={styles.convocaStackPropuestaLead} id="convoca-propuesta-lead">
-            {t("propuesta.body1")}
-          </p>
-          <p className={styles.convocaStackPropuestaClosing}>{t("propuesta.body2")}</p>
-        </div>
-      </section>
-
-      <section className={styles.convocaStackChile} aria-labelledby="convoca-chile-heading">
-        <h3 className={styles.convocaStackChileEyebrow} id="convoca-chile-heading">
-          {t("chile.eyebrow")}
-        </h3>
-        <div className={styles.convocaStackChileGrid}>
-          <div className={styles.convocaStackChileItem}>
-            <span className={styles.convocaStackChileNum}>{t("chile.stat1Value")}</span>
-            <span className={styles.convocaStackChileCap}>{t("chile.stat1Label")}</span>
-          </div>
-          <div className={styles.convocaStackChileItem}>
-            <span className={styles.convocaStackChileNum}>{t("chile.stat2Value")}</span>
-            <span className={styles.convocaStackChileCap}>{t("chile.stat2Label")}</span>
-          </div>
-          <div className={styles.convocaStackChileItem}>
-            <span className={styles.convocaStackChileNum}>{t("chile.stat3Value")}</span>
-            <span className={styles.convocaStackChileCap}>{t("chile.stat3Label")}</span>
-          </div>
-        </div>
-        <p className={styles.convocaStackChileOutro}>{t("chile.outro")}</p>
-      </section>
     </div>
   );
 }
@@ -643,7 +576,7 @@ export function MotionStackPanels({
       headline: "",
       body: "",
       icon: undefined,
-      editorialContent: <HomeConvocaStackPanelContent />,
+      editorialContent: <HomeConvocaPanel />,
       editorialHeight: "auto" as const,
     },
     {

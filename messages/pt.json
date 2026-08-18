@@ -143,6 +143,60 @@
     "propuesta": {
       "body1": "A informação chega em fragmentos. A IA responde antes de terminares a pergunta. Na Precisar impulsionamos algo muito concreto: o direito de entender a informação.",
       "body2": "Todos os dias circula mais informação do que as pessoas conseguem processar, e o desafio na América Latina já não é só o acesso, mas a autonomia informativa: a capacidade de compreender, analizar e usar com critério a informação que faz parte da vida cotidiana e cívica das pessoas. A próxima lacuna digital não será de conexão, mas de compreensão, e é essa que trabalhamos."
+    },
+    "compare": {
+      "label": "Comparar esta seção",
+      "nueva": "Proposta nova",
+      "legacy": "Versão anterior",
+      "hintNueva": "Você está vendo a proposta nova. A versão anterior continua guardada para você escolher.",
+      "hintLegacy": "Você está vendo a versão anterior: Menos ruído, mais critério."
+    },
+    "hero": {
+      "headlineLead": "Compreender a informação",
+      "headlineRest": "muda o que podemos fazer com ela.",
+      "lead": "Vivemos rodeados de informação: a que recebemos de instituições e meios, a que circula por plataformas e redes, e a que hoje também selecionam algoritmos e geram sistemas de inteligência artificial.",
+      "body": "Na Precisar trabalhamos para fortalecer as capacidades das pessoas para compreendê-la, avaliá-la, colocá-la em contexto e usá-la com mais critério e autonomia.",
+      "right": "O direito de compreender a informação.",
+      "ctaPrimary": "Conheça o que fazemos",
+      "ctaPrimaryAria": "Ir à seção de programas",
+      "ctaSecondary": "Explore nossos recursos",
+      "ctaSecondaryAria": "Ir aos recursos abertos de Saberes",
+      "microTitle": "A informação não chega sozinha.",
+      "microBody": "Meios, instituições, plataformas, algoritmos e inteligência artificial intervêm no que vemos, como vemos e o que encontramos.",
+      "visualAria": "Composição visual: a informação passa por meios, instituições, plataformas, algoritmos e inteligência artificial antes de chegar às pessoas.",
+      "infoLabel": "Informação",
+      "peopleLabel": "Pessoas",
+      "mediation": "meios · instituições · plataformas · algoritmos · IA",
+      "converge": "Compreender",
+      "fragments": {
+        "message": "Nova mensagem",
+        "notice": "Notificação",
+        "search": "Resultado de busca",
+        "recommend": "Recomendado para você",
+        "public": "Informação pública",
+        "generated": "Resposta gerada"
+      },
+      "fragmentKinds": {
+        "msg": "Mensagem",
+        "alert": "Alerta",
+        "search": "Busca",
+        "feed": "Plataforma",
+        "doc": "Instituição",
+        "ai": "IA"
+      },
+      "fragmentHints": {
+        "search": "ordenado por relevância",
+        "generated": "antes de terminar a pergunta",
+        "public": "documento · trâmite · dado"
+      },
+      "layers": {
+        "source": "Fonte",
+        "context": "Contexto",
+        "algorithm": "Algoritmo",
+        "ai": "IA",
+        "intent": "Intenção",
+        "evidence": "Evidência"
+      }
     }
   },
   "homePrograms": {
