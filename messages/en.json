@@ -117,6 +117,7 @@
     "homeDescription": "Empower how you use technology. Home with hero, rotating verbs, ticker, and stacked sections. Precisar 2026."
   },
   "homeConvoca": {
+    "eyebrow": "What moves us · Precisar",
     "kickerLine1": "What calls us",
     "kickerLine2": "at Precisar",
     "headline": {
@@ -152,50 +153,26 @@
       "hintLegacy": "You are viewing the previous version: Less noise, more judgment."
     },
     "hero": {
-      "headlineLead": "Understanding information",
-      "headlineRest": "changes what we can do with it.",
-      "lead": "We live surrounded by information: what we receive from institutions and media, what circulates on platforms and networks, and what algorithms now also select and artificial intelligence systems generate.",
-      "body": "At Precisar we work to strengthen people’s capacities to understand it, evaluate it, put it in context, and use it with greater judgment and autonomy.",
+      "headline": "Information does not arrive on its own.",
+      "lead": "Before it reaches you, someone —or something— selected, ordered, recommended, summarized, or generated it.",
+      "body": "At Precisar we work to strengthen people’s capacities to understand, evaluate, and use that information with greater judgment and autonomy.",
       "right": "The right to understand information.",
-      "ctaPrimary": "See what we do",
-      "ctaPrimaryAria": "Go to the programs section",
-      "ctaSecondary": "Explore our resources",
-      "ctaSecondaryAria": "Go to open resources in Saberes",
-      "microTitle": "Information does not arrive on its own.",
-      "microBody": "Media, institutions, platforms, algorithms, and artificial intelligence shape what we see, how we see it, and what we find.",
-      "visualAria": "Visual composition: information passes through media, institutions, platforms, algorithms, and artificial intelligence before reaching people.",
-      "infoLabel": "Information",
-      "peopleLabel": "People",
-      "mediation": "media · institutions · platforms · algorithms · AI",
-      "converge": "Understand",
+      "cta": "Get to know Precisar",
+      "ctaAria": "Get to know Precisar, go to the programs section",
+      "visualAria": "Everyday information fragments. Each one reveals a question about what lies behind it.",
       "fragments": {
-        "message": "New message",
-        "notice": "Notification",
-        "search": "Search result",
         "recommend": "Recommended for you",
-        "public": "Public information",
-        "generated": "Generated answer"
+        "urgent": "URGENT. Forward this before they delete it.",
+        "urgentShort": "URGENT. Forward this.",
+        "ai": "According to the AI…",
+        "request": "Your request was observed in accordance with…"
       },
-      "fragmentKinds": {
-        "msg": "Message",
-        "alert": "Alert",
-        "search": "Search",
-        "feed": "Platform",
-        "doc": "Institution",
-        "ai": "AI"
-      },
-      "fragmentHints": {
-        "search": "ranked by relevance",
-        "generated": "before you finish the question",
-        "public": "document · procedure · data"
-      },
-      "layers": {
-        "source": "Source",
-        "context": "Context",
-        "algorithm": "Algorithm",
-        "ai": "AI",
-        "intent": "Intent",
-        "evidence": "Evidence"
+      "notes": {
+        "why": "why did it appear?",
+        "whyShort": "why?",
+        "source": "source?",
+        "how": "how does it know?",
+        "now": "what do you need to do now?"
       }
     }
   },

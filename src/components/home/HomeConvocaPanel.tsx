@@ -58,6 +58,7 @@ export function HomeConvocaPanel() {
 
   return (
     <div className={styles.shell}>
+      {version === "legacy" ? <HomeConvocaLegacy /> : <HomeConvocaHero />}
       <div className={styles.compare} role="group" aria-label={t("label")}>
         <p className={styles.compareLabel}>{t("label")}</p>
         <div className={styles.compareSwitch}>
@@ -80,7 +81,6 @@ export function HomeConvocaPanel() {
         </div>
         <p className={styles.compareHint}>{version === "nueva" ? t("hintNueva") : t("hintLegacy")}</p>
       </div>
-      {version === "legacy" ? <HomeConvocaLegacy /> : <HomeConvocaHero />}
     </div>
   );
 }

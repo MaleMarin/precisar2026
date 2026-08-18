@@ -117,6 +117,7 @@
     "homeDescription": "Potencialize o uso da tecnologia. Capa com hero, verbos em rotação, faixa e seções empilhadas. Precisar 2026."
   },
   "homeConvoca": {
+    "eyebrow": "O que nos move · Precisar",
     "kickerLine1": "O que nos convoca",
     "kickerLine2": "na Precisar",
     "headline": {
@@ -152,50 +153,26 @@
       "hintLegacy": "Você está vendo a versão anterior: Menos ruído, mais critério."
     },
     "hero": {
-      "headlineLead": "Compreender a informação",
-      "headlineRest": "muda o que podemos fazer com ela.",
-      "lead": "Vivemos rodeados de informação: a que recebemos de instituições e meios, a que circula por plataformas e redes, e a que hoje também selecionam algoritmos e geram sistemas de inteligência artificial.",
-      "body": "Na Precisar trabalhamos para fortalecer as capacidades das pessoas para compreendê-la, avaliá-la, colocá-la em contexto e usá-la com mais critério e autonomia.",
+      "headline": "A informação não chega sozinha.",
+      "lead": "Antes de chegar a ti, alguém —ou algo— a selecionou, ordenou, recomendou, resumiu ou gerou.",
+      "body": "Na Precisar trabalhamos para fortalecer as capacidades das pessoas para compreender, avaliar e usar essa informação com mais critério e autonomia.",
       "right": "O direito de compreender a informação.",
-      "ctaPrimary": "Conheça o que fazemos",
-      "ctaPrimaryAria": "Ir à seção de programas",
-      "ctaSecondary": "Explore nossos recursos",
-      "ctaSecondaryAria": "Ir aos recursos abertos de Saberes",
-      "microTitle": "A informação não chega sozinha.",
-      "microBody": "Meios, instituições, plataformas, algoritmos e inteligência artificial intervêm no que vemos, como vemos e o que encontramos.",
-      "visualAria": "Composição visual: a informação passa por meios, instituições, plataformas, algoritmos e inteligência artificial antes de chegar às pessoas.",
-      "infoLabel": "Informação",
-      "peopleLabel": "Pessoas",
-      "mediation": "meios · instituições · plataformas · algoritmos · IA",
-      "converge": "Compreender",
+      "cta": "Conheça a Precisar",
+      "ctaAria": "Conheça a Precisar, ir à seção de programas",
+      "visualAria": "Fragmentos de informação cotidiana. Cada um revela uma pergunta sobre o que há por trás.",
       "fragments": {
-        "message": "Nova mensagem",
-        "notice": "Notificação",
-        "search": "Resultado de busca",
         "recommend": "Recomendado para você",
-        "public": "Informação pública",
-        "generated": "Resposta gerada"
+        "urgent": "URGENTE. Encaminhe isto antes que apaguem.",
+        "urgentShort": "URGENTE. Encaminhe.",
+        "ai": "Segundo a IA…",
+        "request": "Sua solicitação foi observada de acordo com…"
       },
-      "fragmentKinds": {
-        "msg": "Mensagem",
-        "alert": "Alerta",
-        "search": "Busca",
-        "feed": "Plataforma",
-        "doc": "Instituição",
-        "ai": "IA"
-      },
-      "fragmentHints": {
-        "search": "ordenado por relevância",
-        "generated": "antes de terminar a pergunta",
-        "public": "documento · trâmite · dado"
-      },
-      "layers": {
-        "source": "Fonte",
-        "context": "Contexto",
-        "algorithm": "Algoritmo",
-        "ai": "IA",
-        "intent": "Intenção",
-        "evidence": "Evidência"
+      "notes": {
+        "why": "por que apareceu?",
+        "whyShort": "por quê?",
+        "source": "fonte?",
+        "how": "como sabe?",
+        "now": "o que você precisa fazer agora?"
       }
     }
   },
