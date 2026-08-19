@@ -5,7 +5,7 @@ import NextLink from "next/link";
 import { useMemo, useRef, type ComponentType, type ReactNode } from "react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import { HomeConvocaPanel } from "@/components/home/HomeConvocaPanel";
+import { HomeConvocaList } from "@/components/home/HomeConvocaList";
 import { PRECISANDO_ARTICLES_UNDER_CONSTRUCTION } from "@/lib/precisando-access";
 import { EXTERNAL, FOOTER_COLUMNS, SITE, SABERES_NAV_LINKS } from "@/lib/site";
 import styles from "./MotionStackPanels.module.css";
@@ -378,7 +378,8 @@ function StackPanel({
     .filter(Boolean)
     .join(" ");
 
-  const isTwoColIntroLayout = id === "saberes" || id === "educacion-mediatica" || id === "bot-onda";
+  const isTwoColIntroLayout =
+    id === "convoca" || id === "saberes" || id === "educacion-mediatica" || id === "bot-onda";
   const gridClass = isTwoColIntroLayout ? `${styles.grid} ${styles.gridSaberes}` : styles.grid;
   const colMainClass = [styles.colMain, isTwoColIntroLayout ? styles.colMainSaberes : ""]
     .filter(Boolean)
@@ -521,6 +522,7 @@ export function MotionStackPanels({
 }: MotionStackPanelsProps) {
   const systemReduceMotion = useReducedMotion() ?? false;
   const reduceMotion = reduceMotionProp ?? systemReduceMotion;
+  const tConvoca = useTranslations("homeConvoca");
   const tPrograms = useTranslations("homePrograms");
   const tPrecisando = useTranslations("homePrecisando");
   const tSaberes = useTranslations("homeSaberes");
@@ -570,14 +572,16 @@ export function MotionStackPanels({
   const panels = [
     {
       id: "convoca",
-      theme: "light" as const,
-      kicker: "",
+      theme: "navy" as const,
+      kicker: tConvoca("stackKicker"),
       label: undefined,
-      headline: "",
-      body: "",
+      headline: tConvoca("stackHeadline"),
+      body: tConvoca("stackBody"),
       icon: undefined,
-      editorialContent: <HomeConvocaPanel />,
-      editorialHeight: "auto" as const,
+      mainFooter: (
+        <p className={`${styles.body} ${styles.bodyOnAccent} ${styles.bodyFollow}`}>{tConvoca("stackBodyClose")}</p>
+      ),
+      child: <HomeConvocaList reduceMotion={reduceMotion} />,
     },
     {
       id: "programas",
@@ -672,6 +676,7 @@ export function MotionStackPanels({
             body={panel.body}
             icon={panel.icon}
             reduceMotion={reduceMotion}
+            mainFooter={"mainFooter" in panel ? panel.mainFooter : undefined}
             editorialContent={"editorialContent" in panel ? panel.editorialContent : undefined}
             editorialHeight={"editorialHeight" in panel ? panel.editorialHeight : "tall"}
           >

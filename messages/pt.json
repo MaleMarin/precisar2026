@@ -117,74 +117,35 @@
     "homeDescription": "Potencialize o uso da tecnologia. Capa com hero, verbos em rotação, faixa e seções empilhadas. Precisar 2026."
   },
   "homeConvoca": {
-    "eyebrow": "O que nem sempre vemos",
-    "kickerLine1": "O que nos convoca",
-    "kickerLine2": "na Precisar",
-    "headline": {
-      "line1": "Menos ruído,",
-      "line2": "mais critério"
-    },
-    "intro": "Cada dia se produz e circula mais informação do que conseguimos processar.",
-    "metrics": {
-      "exabytesValue": "463",
-      "exabytesLabel": "exabytes de dados / dia",
-      "yearsValue": "26M",
-      "yearsLabel": "anos para ler tudo"
-    },
-    "chile": {
-      "eyebrow": "Chile em números",
-      "stat1Value": "96,5%",
-      "stat1Label": "dos lares têm acesso à internet",
-      "stat2Value": "53%",
-      "stat2Label": "da cidadania não entende o que lê",
-      "stat3Value": "5M",
-      "stat3Label": "de pessoas precisam fortalecer competências digitais",
-      "outro": "No Chile, o acesso já não é a única lacuna. O desafio atual é fortalecer as capacidades das pessoas para compreender, analisar e usar de forma útil a informação que atravessa a sua vida quotidiana e cívica, não só no âmbito noticioso nem apenas em ambientes digitais, mas também em serviços, instituições, plataformas e outros espaços onde as pessoas precisam de se orientar e agir."
-    },
-    "propuesta": {
-      "body1": "A informação chega em fragmentos. A IA responde antes de terminares a pergunta. Na Precisar impulsionamos algo muito concreto: o direito de entender a informação.",
-      "body2": "Todos os dias circula mais informação do que as pessoas conseguem processar, e o desafio na América Latina já não é só o acesso, mas a autonomia informativa: a capacidade de compreender, analizar e usar com critério a informação que faz parte da vida cotidiana e cívica das pessoas. A próxima lacuna digital não será de conexão, mas de compreensão, e é essa que trabalhamos."
-    },
-    "compare": {
-      "label": "Comparar esta seção",
-      "nueva": "Proposta nova",
-      "legacy": "Versão anterior",
-      "hintNueva": "Você está vendo a proposta nova. A versão anterior continua guardada para você escolher.",
-      "hintLegacy": "Você está vendo a versão anterior: Menos ruído, mais critério."
-    },
-    "hero": {
-      "headline": "A informação não chega sozinha.",
-      "intro": "Antes de chegar a nós, pode ter sido selecionada, ordenada, recomendada, resumida ou gerada.",
-      "actors": {
-        "institution": "Por uma instituição.",
-        "media": "Um meio.",
-        "platform": "Uma plataforma.",
-        "algorithm": "Um algoritmo.",
-        "ai": "Uma inteligência artificial."
+    "stackKicker": "01 · O que nem sempre vemos",
+    "stackHeadline": "A informação não chega sozinha.",
+    "stackBody": "Antes de chegar até nós, a informação pode ter sido produzida, selecionada, ordenada, recomendada, resumida ou gerada por meios, instituições, plataformas, algoritmos ou sistemas de inteligência artificial.",
+    "stackBodyClose": "Compreendê-la hoje também implica perguntarmos de onde vem, por que nos aparece, que contexto falta e o que podemos fazer com ela.",
+    "visualAria": "Lista de informação mediada. Cada entrada mostra uma mensagem, depois uma pergunta e em seguida a camada que costuma permanecer oculta.",
+    "cases": {
+      "platform": {
+        "origin": "Plataforma",
+        "text": "Recomendado para você",
+        "question": "por que apareceu?",
+        "layer": "Algoritmo de recomendação"
       },
-      "close": "Compreender informação hoje também implica perguntarmos de onde vem, por que nos aparece, que contexto falta e o que podemos fazer com ela.",
-      "visualAria": "Quatro situações cotidianas. Cada uma mostra uma mensagem, depois uma pergunta e em seguida a camada que costuma permanecer oculta.",
-      "cases": {
-        "recommend": {
-          "text": "Recomendado para você",
-          "question": "por que apareceu?",
-          "layer": "algoritmo de recomendação"
-        },
-        "message": {
-          "text": "URGENTE. Isso muda amanhã. Encaminhe.",
-          "question": "de onde vem?",
-          "layer": "fonte original"
-        },
-        "ai": {
-          "text": "Segundo a normativa vigente, você pode…",
-          "question": "como sabe?",
-          "layer": "IA + fontes"
-        },
-        "public": {
-          "text": "Sua solicitação foi observada conforme o artigo 17…",
-          "question": "o que você precisa fazer agora?",
-          "layer": "compreensão + utilidade"
-        }
+      "ai": {
+        "origin": "IA",
+        "text": "Segundo a normativa vigente, você pode…",
+        "question": "como sabe?",
+        "layer": "Fontes + IA"
+      },
+      "institution": {
+        "origin": "Instituição",
+        "text": "Sua solicitação foi observada conforme o artigo 17…",
+        "question": "o que você precisa fazer agora?",
+        "layer": "Compreensão + utilidade"
+      },
+      "message": {
+        "origin": "Mensagem",
+        "text": "URGENTE. Isso muda amanhã. Encaminhe.",
+        "question": "de onde vem?",
+        "layer": "Fonte original"
       }
     }
   },
