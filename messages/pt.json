@@ -118,36 +118,39 @@
   },
   "homeConvoca": {
     "stackKicker": "01 · O que nem sempre vemos",
-    "stackHeadline": "A informação não chega sozinha.",
-    "stackBody": "Antes de chegar até nós, uma informação pode ter sido produzida, selecionada, ordenada, recomendada, resumida ou gerada.",
-    "stackBodyClose": "Compreendê-la também implica entender o que interveio antes de chegar até nós.",
-    "seenGuide": "O que você vê",
-    "unseenGuide": "O que nem sempre vê",
-    "visualAria": "Quatro exemplos de informação mediada. Cada um mostra o que você vê, o que nem sempre vê e uma pergunta.",
+    "headlineLine1": "A informação",
+    "headlineLine2": "não chega sozinha.",
+    "stackBody": "Entre o que acontece e o que recebemos há decisões.",
+    "stackActors": "Um meio seleciona. Uma instituição comunica. Uma plataforma ordena. Um algoritmo prioriza. Uma IA pode resumir ou gerar.",
+    "stackClose": "Compreender informação também é entender como ela chegou até nós.",
+    "colArrives": "Chega a você",
+    "colIntervenes": "Intervém",
+    "colAsk": "Pergunte-se",
+    "visualAria": "Matriz de informação mediada: chega a você, intervém e pergunte-se.",
     "cases": {
       "platform": {
         "origin": "Plataforma",
-        "seen": "Recomendado para você",
-        "unseen": "Um algoritmo decidiu o que te mostrar e em que ordem.",
-        "question": "Por que isso me apareceu?"
+        "arrives": "Recomendado para você",
+        "intervenes": "Um algoritmo priorizou isto entre milhares de opções.",
+        "ask": "Por que isto e não outra coisa?"
+      },
+      "media": {
+        "origin": "Meio",
+        "arrives": "Este dado muda tudo",
+        "intervenes": "Um meio escolheu um ângulo para contar a história.",
+        "ask": "Que contexto falta?"
       },
       "ai": {
         "origin": "Inteligência artificial",
-        "seen": "Segundo a normativa vigente, você pode…",
-        "unseen": "Uma IA gerou esta resposta e pode errar ou omitir contexto.",
-        "question": "De onde obteve esta informação?"
+        "arrives": "Segundo a normativa vigente…",
+        "intervenes": "Uma IA gerou ou resumiu esta resposta.",
+        "ask": "Que fonte utilizou?"
       },
       "institution": {
         "origin": "Instituição",
-        "seen": "Sua solicitação foi observada conforme o artigo 17…",
-        "unseen": "Informar nem sempre significa explicar o que você precisa fazer.",
-        "question": "O que isso significa para mim?"
-      },
-      "message": {
-        "origin": "Mensagem",
-        "seen": "URGENTE. Isso muda amanhã. Encaminhe.",
-        "unseen": "A fonte original pode ter desaparecido na cadeia.",
-        "question": "De onde vem?"
+        "arrives": "Sua solicitação foi observada…",
+        "intervenes": "Uma instituição entregou informação.",
+        "ask": "O que eu preciso fazer agora?"
       }
     }
   },

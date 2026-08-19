@@ -211,7 +211,7 @@ type StackPanelProps = {
   theme?: "light" | "dark" | "accent" | "navy";
   kicker: string;
   label?: string;
-  headline: string;
+  headline: ReactNode;
   body: string;
   icon?: ComponentType<{ className?: string }>;
   id?: string;
@@ -378,17 +378,28 @@ function StackPanel({
     .filter(Boolean)
     .join(" ");
 
-  const isTwoColIntroLayout =
-    id === "convoca" || id === "saberes" || id === "educacion-mediatica" || id === "bot-onda";
-  const gridClass = isTwoColIntroLayout ? `${styles.grid} ${styles.gridSaberes}` : styles.grid;
-  const colMainClass = [styles.colMain, isTwoColIntroLayout ? styles.colMainSaberes : ""]
+  const isConvoca = id === "convoca";
+  const isTwoColIntroLayout = id === "saberes" || id === "educacion-mediatica" || id === "bot-onda";
+  const gridClass = isConvoca
+    ? `${styles.grid} ${styles.gridConvoca}`
+    : isTwoColIntroLayout
+      ? `${styles.grid} ${styles.gridSaberes}`
+      : styles.grid;
+  const colMainClass = [
+    styles.colMain,
+    isTwoColIntroLayout ? styles.colMainSaberes : "",
+    isConvoca ? styles.colMainConvoca : "",
+  ]
     .filter(Boolean)
     .join(" ");
-  const colAsideClass = [styles.colAside, isTwoColIntroLayout ? styles.colAsideSaberes : ""]
+  const colAsideClass = [
+    styles.colAside,
+    isTwoColIntroLayout ? styles.colAsideSaberes : "",
+    isConvoca ? styles.colAsideConvoca : "",
+  ]
     .filter(Boolean)
     .join(" ");
-  /** Misma tipografía en la columna izquierda que Precisando / Programas (titular display + bajada .body). */
-  const stackTitleClass = styles.displayTitle;
+  const stackTitleClass = isConvoca ? `${styles.displayTitle} ${styles.displayTitleIntro}` : styles.displayTitle;
   const stackBodyClass =
     id === "educacion-mediatica" || id === "bot-onda"
       ? `${bodyClass} ${styles.saberesBodyPreline}`.trim()
@@ -575,11 +586,19 @@ export function MotionStackPanels({
       theme: "navy" as const,
       kicker: tConvoca("stackKicker"),
       label: undefined,
-      headline: tConvoca("stackHeadline"),
+      headline: (
+        <>
+          <span className={styles.displayTitleLine}>{tConvoca("headlineLine1")}</span>
+          <span className={styles.displayTitleLine}>{tConvoca("headlineLine2")}</span>
+        </>
+      ),
       body: tConvoca("stackBody"),
       icon: undefined,
       mainFooter: (
-        <p className={`${styles.body} ${styles.bodyOnAccent} ${styles.bodyFollow}`}>{tConvoca("stackBodyClose")}</p>
+        <>
+          <p className={`${styles.body} ${styles.bodyOnAccent} ${styles.bodyFollow}`}>{tConvoca("stackActors")}</p>
+          <p className={`${styles.body} ${styles.bodyOnAccent} ${styles.bodyClose}`}>{tConvoca("stackClose")}</p>
+        </>
       ),
       child: <HomeConvocaList reduceMotion={reduceMotion} />,
     },

@@ -118,36 +118,39 @@
   },
   "homeConvoca": {
     "stackKicker": "01 · What we don’t always see",
-    "stackHeadline": "Information does not arrive on its own.",
-    "stackBody": "Before it reaches us, a piece of information may have been produced, selected, ordered, recommended, summarized, or generated.",
-    "stackBodyClose": "Understanding it also means understanding what intervened before it reached us.",
-    "seenGuide": "What you see",
-    "unseenGuide": "What you don’t always see",
-    "visualAria": "Four examples of mediated information. Each one shows what you see, what you don’t always see, and a question.",
+    "headlineLine1": "Information",
+    "headlineLine2": "does not arrive on its own.",
+    "stackBody": "Between what happens and what we receive, there are decisions.",
+    "stackActors": "A medium selects. An institution communicates. A platform orders. An algorithm prioritizes. An AI can summarize or generate.",
+    "stackClose": "Understanding information also means understanding how it reached us.",
+    "colArrives": "It reaches you",
+    "colIntervenes": "It intervenes",
+    "colAsk": "Ask yourself",
+    "visualAria": "Matrix of mediated information: it reaches you, it intervenes, and ask yourself.",
     "cases": {
       "platform": {
         "origin": "Platform",
-        "seen": "Recommended for you",
-        "unseen": "An algorithm decided what to show you and in what order.",
-        "question": "Why did this appear to me?"
+        "arrives": "Recommended for you",
+        "intervenes": "An algorithm prioritized this among thousands of options.",
+        "ask": "Why this and not something else?"
+      },
+      "media": {
+        "origin": "Media",
+        "arrives": "This fact changes everything",
+        "intervenes": "A news outlet chose an angle to tell the story.",
+        "ask": "What context is missing?"
       },
       "ai": {
         "origin": "Artificial intelligence",
-        "seen": "According to current regulations, you can…",
-        "unseen": "An AI generated this answer and may be wrong or omit context.",
-        "question": "Where did this information come from?"
+        "arrives": "According to current regulations…",
+        "intervenes": "An AI generated or summarized this answer.",
+        "ask": "What source did it use?"
       },
       "institution": {
         "origin": "Institution",
-        "seen": "Your request was observed pursuant to article 17…",
-        "unseen": "Informing does not always mean explaining what you need to do.",
-        "question": "What does this mean for me?"
-      },
-      "message": {
-        "origin": "Message",
-        "seen": "URGENT. This changes tomorrow. Forward it.",
-        "unseen": "The original source may have disappeared in the chain.",
-        "question": "Where does it come from?"
+        "arrives": "Your request was observed…",
+        "intervenes": "An institution delivered information.",
+        "ask": "What do I need to do now?"
       }
     }
   },

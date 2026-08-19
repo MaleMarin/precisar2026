@@ -9,75 +9,73 @@ const stackEase = [0.22, 1, 0.36, 1] as const;
 
 const CASES = [
   { id: "platform", mobile: true },
+  { id: "media", mobile: false },
   { id: "ai", mobile: true },
   { id: "institution", mobile: true },
-  { id: "message", mobile: false },
 ] as const;
 
-const ENTRY_STAGGER = 0.12;
-const ENTRY_DURATION = 0.5;
-const UNSEEN_DELAY = 0.4;
-const QUESTION_DELAY = 0.85;
-const REVEAL_DURATION = 0.5;
+const ROW_STAGGER = 0.12;
+const CELL_GAP = 0.2;
+const REVEAL_DURATION = 0.45;
 
 export function HomeConvocaList({ reduceMotion = false }: { reduceMotion?: boolean }) {
   const t = useTranslations("homeConvoca");
   const rootRef = useRef<HTMLDivElement>(null);
-  const inView = useInView(rootRef, { once: true, amount: 0.28 });
+  const inView = useInView(rootRef, { once: true, amount: 0.22 });
   const revealed = reduceMotion || inView;
 
   return (
     <div ref={rootRef} className={styles.root}>
-      <p className={styles.legend} aria-hidden>
-        <span>{t("seenGuide")}</span>
-        <span>{t("unseenGuide")}</span>
-      </p>
+      <div className={styles.head} aria-hidden>
+        <span>{t("colArrives")}</span>
+        <span>{t("colIntervenes")}</span>
+        <span>{t("colAsk")}</span>
+      </div>
       <ul className={styles.list} aria-label={t("visualAria")}>
         {CASES.map((item, i) => {
-          const baseDelay = i * ENTRY_STAGGER;
+          const base = i * ROW_STAGGER;
           return (
-            <motion.li
+            <li
               key={item.id}
-              className={`${styles.entry}${item.mobile ? "" : ` ${styles.desktopOnly}`}`}
-              initial={reduceMotion ? false : { opacity: 0, y: 16 }}
-              animate={revealed ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
-              transition={{ duration: ENTRY_DURATION, ease: stackEase, delay: reduceMotion ? 0 : baseDelay }}
+              className={`${styles.row}${item.mobile ? "" : ` ${styles.hideOnMobile}`}`}
             >
-              <p className={styles.origin}>{t(`cases.${item.id}.origin`)}</p>
-              <p className={styles.seen}>{t(`cases.${item.id}.seen`)}</p>
+              <p className={styles.category}>{t(`cases.${item.id}.origin`)}</p>
               <motion.p
-                className={styles.unseen}
-                initial={reduceMotion ? false : { opacity: 0, height: 0 }}
-                animate={
-                  revealed
-                    ? { opacity: 1, height: "auto" }
-                    : { opacity: 0, height: 0 }
-                }
-                transition={{
-                  duration: reduceMotion ? 0 : REVEAL_DURATION,
-                  ease: stackEase,
-                  delay: reduceMotion ? 0 : baseDelay + UNSEEN_DELAY,
-                }}
+                className={styles.arrives}
+                initial={reduceMotion ? false : { opacity: 0, y: 8 }}
+                animate={revealed ? { opacity: 1, y: 0 } : { opacity: 0, y: 8 }}
+                transition={{ duration: REVEAL_DURATION, ease: stackEase, delay: reduceMotion ? 0 : base }}
               >
-                {t(`cases.${item.id}.unseen`)}
+                <span className={styles.colLabel}>{t("colArrives")}</span>
+                {t(`cases.${item.id}.arrives`)}
               </motion.p>
               <motion.p
-                className={styles.question}
-                initial={reduceMotion ? false : { opacity: 0, height: 0 }}
-                animate={
-                  revealed
-                    ? { opacity: 1, height: "auto" }
-                    : { opacity: 0, height: 0 }
-                }
+                className={styles.intervenes}
+                initial={reduceMotion ? false : { opacity: 0, y: 8 }}
+                animate={revealed ? { opacity: 1, y: 0 } : { opacity: 0, y: 8 }}
                 transition={{
-                  duration: reduceMotion ? 0 : REVEAL_DURATION,
+                  duration: REVEAL_DURATION,
                   ease: stackEase,
-                  delay: reduceMotion ? 0 : baseDelay + QUESTION_DELAY,
+                  delay: reduceMotion ? 0 : base + CELL_GAP,
                 }}
               >
-                {t(`cases.${item.id}.question`)}
+                <span className={styles.colLabel}>{t("colIntervenes")}</span>
+                {t(`cases.${item.id}.intervenes`)}
               </motion.p>
-            </motion.li>
+              <motion.p
+                className={styles.ask}
+                initial={reduceMotion ? false : { opacity: 0, y: 8 }}
+                animate={revealed ? { opacity: 1, y: 0 } : { opacity: 0, y: 8 }}
+                transition={{
+                  duration: REVEAL_DURATION,
+                  ease: stackEase,
+                  delay: reduceMotion ? 0 : base + CELL_GAP * 2,
+                }}
+              >
+                <span className={styles.colLabel}>{t("colAsk")}</span>
+                {t(`cases.${item.id}.ask`)}
+              </motion.p>
+            </li>
           );
         })}
       </ul>
