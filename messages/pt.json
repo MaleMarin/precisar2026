@@ -117,7 +117,7 @@
     "homeDescription": "Potencialize o uso da tecnologia. Capa com hero, verbos em rotação, faixa e seções empilhadas. Precisar 2026."
   },
   "homeConvoca": {
-    "eyebrow": "O que nos move · Precisar",
+    "eyebrow": "O que nem sempre vemos",
     "kickerLine1": "O que nos convoca",
     "kickerLine2": "na Precisar",
     "headline": {
@@ -154,25 +154,37 @@
     },
     "hero": {
       "headline": "A informação não chega sozinha.",
-      "lead": "Antes de chegar a ti, alguém —ou algo— a selecionou, ordenou, recomendou, resumiu ou gerou.",
-      "body": "Na Precisar trabalhamos para fortalecer as capacidades das pessoas para compreender, avaliar e usar essa informação com mais critério e autonomia.",
-      "right": "O direito de compreender a informação.",
-      "cta": "Conheça a Precisar",
-      "ctaAria": "Conheça a Precisar, ir à seção de programas",
-      "visualAria": "Fragmentos de informação cotidiana. Cada um revela uma pergunta sobre o que há por trás.",
-      "fragments": {
-        "recommend": "Recomendado para você",
-        "urgent": "URGENTE. Encaminhe isto antes que apaguem.",
-        "urgentShort": "URGENTE. Encaminhe.",
-        "ai": "Segundo a IA…",
-        "request": "Sua solicitação foi observada de acordo com…"
+      "intro": "Antes de chegar a nós, pode ter sido selecionada, ordenada, recomendada, resumida ou gerada.",
+      "actors": {
+        "institution": "Por uma instituição.",
+        "media": "Um meio.",
+        "platform": "Uma plataforma.",
+        "algorithm": "Um algoritmo.",
+        "ai": "Uma inteligência artificial."
       },
-      "notes": {
-        "why": "por que apareceu?",
-        "whyShort": "por quê?",
-        "source": "fonte?",
-        "how": "como sabe?",
-        "now": "o que você precisa fazer agora?"
+      "close": "Compreender informação hoje também implica perguntarmos de onde vem, por que nos aparece, que contexto falta e o que podemos fazer com ela.",
+      "visualAria": "Quatro situações cotidianas. Cada uma mostra uma mensagem, depois uma pergunta e em seguida a camada que costuma permanecer oculta.",
+      "cases": {
+        "recommend": {
+          "text": "Recomendado para você",
+          "question": "por que apareceu?",
+          "layer": "algoritmo de recomendação"
+        },
+        "message": {
+          "text": "URGENTE. Isso muda amanhã. Encaminhe.",
+          "question": "de onde vem?",
+          "layer": "fonte original"
+        },
+        "ai": {
+          "text": "Segundo a normativa vigente, você pode…",
+          "question": "como sabe?",
+          "layer": "IA + fontes"
+        },
+        "public": {
+          "text": "Sua solicitação foi observada conforme o artigo 17…",
+          "question": "o que você precisa fazer agora?",
+          "layer": "compreensão + utilidade"
+        }
       }
     }
   },

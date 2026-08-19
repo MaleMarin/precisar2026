@@ -117,7 +117,7 @@
     "homeDescription": "Empower how you use technology. Home with hero, rotating verbs, ticker, and stacked sections. Precisar 2026."
   },
   "homeConvoca": {
-    "eyebrow": "What moves us · Precisar",
+    "eyebrow": "What we don’t always see",
     "kickerLine1": "What calls us",
     "kickerLine2": "at Precisar",
     "headline": {
@@ -154,25 +154,37 @@
     },
     "hero": {
       "headline": "Information does not arrive on its own.",
-      "lead": "Before it reaches you, someone —or something— selected, ordered, recommended, summarized, or generated it.",
-      "body": "At Precisar we work to strengthen people’s capacities to understand, evaluate, and use that information with greater judgment and autonomy.",
-      "right": "The right to understand information.",
-      "cta": "Get to know Precisar",
-      "ctaAria": "Get to know Precisar, go to the programs section",
-      "visualAria": "Everyday information fragments. Each one reveals a question about what lies behind it.",
-      "fragments": {
-        "recommend": "Recommended for you",
-        "urgent": "URGENT. Forward this before they delete it.",
-        "urgentShort": "URGENT. Forward this.",
-        "ai": "According to the AI…",
-        "request": "Your request was observed in accordance with…"
+      "intro": "Before it reaches us, it may have been selected, ordered, recommended, summarized, or generated.",
+      "actors": {
+        "institution": "By an institution.",
+        "media": "A medium.",
+        "platform": "A platform.",
+        "algorithm": "An algorithm.",
+        "ai": "An artificial intelligence."
       },
-      "notes": {
-        "why": "why did it appear?",
-        "whyShort": "why?",
-        "source": "source?",
-        "how": "how does it know?",
-        "now": "what do you need to do now?"
+      "close": "Understanding information today also means asking where it comes from, why it appears to us, what context is missing, and what we can do with it.",
+      "visualAria": "Four everyday situations. Each one shows a message, then a question, then the layer that usually stays hidden.",
+      "cases": {
+        "recommend": {
+          "text": "Recommended for you",
+          "question": "why did it appear?",
+          "layer": "recommendation algorithm"
+        },
+        "message": {
+          "text": "URGENT. This changes tomorrow. Forward it.",
+          "question": "where does it come from?",
+          "layer": "original source"
+        },
+        "ai": {
+          "text": "According to current regulations, you can…",
+          "question": "how does it know?",
+          "layer": "AI + sources"
+        },
+        "public": {
+          "text": "Your request was observed pursuant to article 17…",
+          "question": "what do you need to do now?",
+          "layer": "understanding + usefulness"
+        }
       }
     }
   },

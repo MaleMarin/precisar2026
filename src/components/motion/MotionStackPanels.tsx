@@ -431,7 +431,7 @@ function StackPanel({
         ? `${styles.panelSection} ${styles.panelSectionEditorial}`
         : styles.panelSection;
     const panelClassEditorial = isAuto
-      ? `${styles.stickyPanelDark} ${styles.stickyPanelAutoHeight}`.trim()
+      ? `${isDark ? styles.stickyPanelDark : styles.stickyPanelLight} ${styles.stickyPanelAutoHeight}`.trim()
       : isTall
         ? `${panelClass} ${styles.stickyPanelEditorial}`.trim()
         : `${panelClass} ${styles.stickyPanelParticipaFit}`.trim();
@@ -570,7 +570,7 @@ export function MotionStackPanels({
   const panels = [
     {
       id: "convoca",
-      theme: "dark" as const,
+      theme: "light" as const,
       kicker: "",
       label: undefined,
       headline: "",

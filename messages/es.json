@@ -117,7 +117,7 @@
     "homeDescription": "Potencia el uso de la tecnología."
   },
   "homeConvoca": {
-    "eyebrow": "Qué nos mueve · Precisar",
+    "eyebrow": "Lo que no siempre vemos",
     "kickerLine1": "Qué nos convoca",
     "kickerLine2": "en Precisar",
     "headline": {
@@ -154,25 +154,37 @@
     },
     "hero": {
       "headline": "La información no llega sola.",
-      "lead": "Antes de llegar a ti, alguien —o algo— la seleccionó, ordenó, recomendó, resumió o generó.",
-      "body": "En Precisar trabajamos para fortalecer las capacidades de las personas para comprender, evaluar y usar esa información con mayor criterio y autonomía.",
-      "right": "El derecho a comprender la información.",
-      "cta": "Conoce Precisar",
-      "ctaAria": "Conoce Precisar, ir a la sección de programas",
-      "visualAria": "Fragmentos de información cotidiana. Cada uno revela una pregunta sobre lo que hay detrás.",
-      "fragments": {
-        "recommend": "Recomendado para ti",
-        "urgent": "URGENTE. Reenvía esto antes de que lo borren.",
-        "urgentShort": "URGENTE. Reenvía.",
-        "ai": "Según la IA…",
-        "request": "Su solicitud fue observada de acuerdo con…"
+      "intro": "Antes de llegar a nosotros, puede haber sido seleccionada, ordenada, recomendada, resumida o generada.",
+      "actors": {
+        "institution": "Por una institución.",
+        "media": "Un medio.",
+        "platform": "Una plataforma.",
+        "algorithm": "Un algoritmo.",
+        "ai": "Una inteligencia artificial."
       },
-      "notes": {
-        "why": "¿por qué te apareció?",
-        "whyShort": "¿por qué?",
-        "source": "¿fuente?",
-        "how": "¿cómo lo sabe?",
-        "now": "¿qué tienes que hacer ahora?"
+      "close": "Comprender información hoy también implica preguntarnos de dónde viene, por qué nos aparece, qué contexto falta y qué podemos hacer con ella.",
+      "visualAria": "Cuatro situaciones cotidianas. Cada una muestra un mensaje, luego una pregunta y después la capa que suele quedar oculta.",
+      "cases": {
+        "recommend": {
+          "text": "Recomendado para ti",
+          "question": "¿por qué te apareció?",
+          "layer": "algoritmo de recomendación"
+        },
+        "message": {
+          "text": "URGENTE. Esto cambia mañana. Reenvíalo.",
+          "question": "¿de dónde viene?",
+          "layer": "fuente original"
+        },
+        "ai": {
+          "text": "Según la normativa vigente, puedes…",
+          "question": "¿cómo lo sabe?",
+          "layer": "IA + fuentes"
+        },
+        "public": {
+          "text": "Su solicitud fue observada conforme al artículo 17…",
+          "question": "¿qué tienes que hacer ahora?",
+          "layer": "comprensión + utilidad"
+        }
       }
     }
   },
