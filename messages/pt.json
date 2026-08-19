@@ -119,33 +119,35 @@
   "homeConvoca": {
     "stackKicker": "01 · O que nem sempre vemos",
     "stackHeadline": "A informação não chega sozinha.",
-    "stackBody": "Antes de chegar até nós, a informação pode ter sido produzida, selecionada, ordenada, recomendada, resumida ou gerada por meios, instituições, plataformas, algoritmos ou sistemas de inteligência artificial.",
-    "stackBodyClose": "Compreendê-la hoje também implica perguntarmos de onde vem, por que nos aparece, que contexto falta e o que podemos fazer com ela.",
-    "visualAria": "Lista de informação mediada. Cada entrada mostra uma mensagem, depois uma pergunta e em seguida a camada que costuma permanecer oculta.",
+    "stackBody": "Antes de chegar até nós, uma informação pode ter sido produzida, selecionada, ordenada, recomendada, resumida ou gerada.",
+    "stackBodyClose": "Compreendê-la também implica entender o que interveio antes de chegar até nós.",
+    "seenGuide": "O que você vê",
+    "unseenGuide": "O que nem sempre vê",
+    "visualAria": "Quatro exemplos de informação mediada. Cada um mostra o que você vê, o que nem sempre vê e uma pergunta.",
     "cases": {
       "platform": {
         "origin": "Plataforma",
-        "text": "Recomendado para você",
-        "question": "por que apareceu?",
-        "layer": "Algoritmo de recomendação"
+        "seen": "Recomendado para você",
+        "unseen": "Um algoritmo decidiu o que te mostrar e em que ordem.",
+        "question": "Por que isso me apareceu?"
       },
       "ai": {
-        "origin": "IA",
-        "text": "Segundo a normativa vigente, você pode…",
-        "question": "como sabe?",
-        "layer": "Fontes + IA"
+        "origin": "Inteligência artificial",
+        "seen": "Segundo a normativa vigente, você pode…",
+        "unseen": "Uma IA gerou esta resposta e pode errar ou omitir contexto.",
+        "question": "De onde obteve esta informação?"
       },
       "institution": {
         "origin": "Instituição",
-        "text": "Sua solicitação foi observada conforme o artigo 17…",
-        "question": "o que você precisa fazer agora?",
-        "layer": "Compreensão + utilidade"
+        "seen": "Sua solicitação foi observada conforme o artigo 17…",
+        "unseen": "Informar nem sempre significa explicar o que você precisa fazer.",
+        "question": "O que isso significa para mim?"
       },
       "message": {
         "origin": "Mensagem",
-        "text": "URGENTE. Isso muda amanhã. Encaminhe.",
-        "question": "de onde vem?",
-        "layer": "Fonte original"
+        "seen": "URGENTE. Isso muda amanhã. Encaminhe.",
+        "unseen": "A fonte original pode ter desaparecido na cadeia.",
+        "question": "De onde vem?"
       }
     }
   },
