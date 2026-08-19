@@ -94,12 +94,19 @@ export function SiteHeader() {
     if (typeof window === "undefined") return;
     const segments = window.location.pathname.split("/").filter(Boolean);
     const first = segments[0]?.toLowerCase();
-    if (first && LOCALE_PREFIXES.has(first)) {
-      segments[0] = loc;
-    } else {
+    const hasPrefix = Boolean(first && LOCALE_PREFIXES.has(first));
+
+    if (hasPrefix) {
+      if (loc === routing.defaultLocale) {
+        segments.shift();
+      } else {
+        segments[0] = loc;
+      }
+    } else if (loc !== routing.defaultLocale) {
       segments.unshift(loc);
     }
-    const nextPath = segments.length ? `/${segments.join("/")}` : `/${loc}`;
+
+    const nextPath = segments.length ? `/${segments.join("/")}` : "/";
     window.location.assign(`${nextPath}${window.location.search}${window.location.hash}`);
     setOpen(false);
   }, [locale]);
