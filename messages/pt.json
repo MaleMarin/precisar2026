@@ -118,40 +118,18 @@
   },
   "homeConvoca": {
     "stackKicker": "01 · O que nem sempre vemos",
-    "headlineLine1": "A informação",
-    "headlineLine2": "não chega sozinha.",
-    "stackBody": "Entre o que acontece e o que recebemos há decisões.",
-    "stackActors": "Um meio seleciona. Uma instituição comunica. Uma plataforma ordena. Um algoritmo prioriza. Uma IA pode resumir ou gerar.",
-    "stackClose": "Compreender informação também é entender como ela chegou até nós.",
-    "colArrives": "Chega a você",
-    "colIntervenes": "Intervém",
-    "colAsk": "Pergunte-se",
-    "visualAria": "Matriz de informação mediada: chega a você, intervém e pergunte-se.",
-    "cases": {
-      "platform": {
-        "origin": "Plataforma",
-        "arrives": "Recomendado para você",
-        "intervenes": "Um algoritmo priorizou isto entre milhares de opções.",
-        "ask": "Por que isto e não outra coisa?"
-      },
-      "media": {
-        "origin": "Meio",
-        "arrives": "Este dado muda tudo",
-        "intervenes": "Um meio escolheu um ângulo para contar a história.",
-        "ask": "Que contexto falta?"
-      },
-      "ai": {
-        "origin": "Inteligência artificial",
-        "arrives": "Segundo a normativa vigente…",
-        "intervenes": "Uma IA gerou ou resumiu esta resposta.",
-        "ask": "Que fonte utilizou?"
-      },
-      "institution": {
-        "origin": "Instituição",
-        "arrives": "Sua solicitação foi observada…",
-        "intervenes": "Uma instituição entregou informação.",
-        "ask": "O que eu preciso fazer agora?"
-      }
+    "headlineLine1": "O que você vê",
+    "headlineLine2": "já foi escolhido.",
+    "stackBody": "Por um meio. Uma instituição. Uma plataforma. Um algoritmo. Ou uma inteligência artificial.",
+    "stackLine": "A informação não chega sozinha.",
+    "stackClose": "Compreendê-la também é entender como chegou até você.",
+    "question": "Quem decidiu antes de você decidir?",
+    "cycle": {
+      "media": { "actor": "Um meio", "verb": "seleciona." },
+      "institution": { "actor": "Uma instituição", "verb": "comunica." },
+      "platform": { "actor": "Uma plataforma", "verb": "ordena." },
+      "algorithm": { "actor": "Um algoritmo", "verb": "prioriza." },
+      "ai": { "actor": "Uma IA", "verb": "gera." }
     }
   },
   "homePrograms": {

@@ -118,40 +118,18 @@
   },
   "homeConvoca": {
     "stackKicker": "01 · What we don’t always see",
-    "headlineLine1": "Information",
-    "headlineLine2": "does not arrive on its own.",
-    "stackBody": "Between what happens and what we receive, there are decisions.",
-    "stackActors": "A medium selects. An institution communicates. A platform orders. An algorithm prioritizes. An AI can summarize or generate.",
-    "stackClose": "Understanding information also means understanding how it reached us.",
-    "colArrives": "It reaches you",
-    "colIntervenes": "It intervenes",
-    "colAsk": "Ask yourself",
-    "visualAria": "Matrix of mediated information: it reaches you, it intervenes, and ask yourself.",
-    "cases": {
-      "platform": {
-        "origin": "Platform",
-        "arrives": "Recommended for you",
-        "intervenes": "An algorithm prioritized this among thousands of options.",
-        "ask": "Why this and not something else?"
-      },
-      "media": {
-        "origin": "Media",
-        "arrives": "This fact changes everything",
-        "intervenes": "A news outlet chose an angle to tell the story.",
-        "ask": "What context is missing?"
-      },
-      "ai": {
-        "origin": "Artificial intelligence",
-        "arrives": "According to current regulations…",
-        "intervenes": "An AI generated or summarized this answer.",
-        "ask": "What source did it use?"
-      },
-      "institution": {
-        "origin": "Institution",
-        "arrives": "Your request was observed…",
-        "intervenes": "An institution delivered information.",
-        "ask": "What do I need to do now?"
-      }
+    "headlineLine1": "What you see",
+    "headlineLine2": "was already chosen.",
+    "stackBody": "By a medium. An institution. A platform. An algorithm. Or an artificial intelligence.",
+    "stackLine": "Information does not arrive on its own.",
+    "stackClose": "Understanding it also means understanding how it reached you.",
+    "question": "Who decided before you decided?",
+    "cycle": {
+      "media": { "actor": "A medium", "verb": "selects." },
+      "institution": { "actor": "An institution", "verb": "communicates." },
+      "platform": { "actor": "A platform", "verb": "orders." },
+      "algorithm": { "actor": "An algorithm", "verb": "prioritizes." },
+      "ai": { "actor": "An AI", "verb": "generates." }
     }
   },
   "homePrograms": {

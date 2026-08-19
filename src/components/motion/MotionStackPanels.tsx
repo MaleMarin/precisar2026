@@ -596,8 +596,8 @@ export function MotionStackPanels({
       icon: undefined,
       mainFooter: (
         <>
-          <p className={`${styles.body} ${styles.bodyOnAccent} ${styles.bodyFollow}`}>{tConvoca("stackActors")}</p>
-          <p className={`${styles.body} ${styles.bodyOnAccent} ${styles.bodyClose}`}>{tConvoca("stackClose")}</p>
+          <p className={`${styles.body} ${styles.bodyOnAccent} ${styles.bodyClose}`}>{tConvoca("stackLine")}</p>
+          <p className={`${styles.body} ${styles.bodyOnAccent} ${styles.bodyQuiet}`}>{tConvoca("stackClose")}</p>
         </>
       ),
       child: <HomeConvocaList reduceMotion={reduceMotion} />,
