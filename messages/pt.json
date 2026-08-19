@@ -117,13 +117,9 @@
     "homeDescription": "Potencialize o uso da tecnologia. Capa com hero, verbos em rotação, faixa e seções empilhadas. Precisar 2026."
   },
   "homeConvoca": {
-    "stackKicker": "01 · O que nem sempre vemos",
-    "headlineLine1": "O que você vê",
-    "headlineLine2": "já foi escolhido.",
-    "stackBody": "Por um meio. Uma instituição. Uma plataforma. Um algoritmo. Ou uma inteligência artificial.",
-    "stackLine": "A informação não chega sozinha.",
-    "stackClose": "Compreendê-la também é entender como chegou até você.",
-    "question": "Quem decidiu antes de você decidir?",
+    "beatHeadline": "A informação não chega sozinha.",
+    "beatBody": "Antes de chegar até você, pode ter sido selecionada, ordenada, priorizada, resumida ou gerada.",
+    "beatClose": "Compreender informação também é entender como ela chegou até você.",
     "cycle": {
       "media": { "actor": "Um meio", "verb": "seleciona." },
       "institution": { "actor": "Uma instituição", "verb": "comunica." },
@@ -134,7 +130,7 @@
   },
   "homePrograms": {
     "title": "Programas",
-    "stackKicker": "02 · Programas",
+    "stackKicker": "01 · Programas",
     "stackLabel": "Iniciativas",
     "stackHeadline": "Milhões estão conectados. Com critério, ainda faltam muitos.",
     "body": "Desenhamos ferramentas, conteúdos e experiências formativas — presenciais e digitais — que fortalecem o pensamento crítico, a segurança digital e o compromisso cidadão.",
@@ -170,14 +166,14 @@
     }
   },
   "homeParticipa": {
-    "stackKicker": "07 · Participa",
+    "stackKicker": "06 · Participa",
     "stackHeadline": "Como você se informa hoje?",
     "stackTagline": "A sua experiência muda como todos nós nos informamos.",
     "stackBody": "Queremos entender como você recebe a informação hoje e como gostaria de recebê-la: que formatos ajudam, que tom gera confiança, o que falta para entender melhor, aceder com mais facilidade e partilhar com mais critério. As suas respostas chegam diretamente a meios, instituições e decisores para melhorarem a forma como informam.",
     "ctaLabel": "Responder agora →"
   },
   "homeEducacionMediatica": {
-    "stackKicker": "06 · EDUCAÇÃO MIDIÁTICA",
+    "stackKicker": "05 · EDUCAÇÃO MIDIÁTICA",
     "stackHeadline": "Compreender a informação também é uma habilidade que se aprende.",
     "stackBody": "Quatro dimensões para ler o mundo digital\ncom mais critério, mais consciência e mais autonomia.",
     "linkComunicacion": "Comunicação",
@@ -188,13 +184,13 @@
     "ctaAmi": "AMI vs Alfabetização Digital →"
   },
   "homePrecisando": {
-    "stackKicker": "05 · Precisando",
+    "stackKicker": "04 · Precisando",
     "stackHeadline": "Como circula a informação e que efeitos produz.",
     "stackBody": "Precisando é a editorial da Precisar: um espaço de artigos e debates para ler o ambiente digital com mais contexto, critério e profundidade. Explora publicações recentes e categorias.",
     "stackUnderConstruction": "Em construção. Em breve publicaremos as notas aqui."
   },
   "homeSaberes": {
-    "stackKicker": "03 · Saberes",
+    "stackKicker": "02 · Saberes",
     "stackHeadline": "Saber não é acumular dados. É saber o que fazer com eles.",
     "stackBody": "Três coleções de recursos abertos — para refletir e expandir perspectivas.",
     "recursosCta": "Material para baixar →",
@@ -205,7 +201,7 @@
     }
   },
   "homeBotOnda": {
-    "stackKicker": "04 · Bot Onda",
+    "stackKicker": "03 · Bot Onda",
     "stackHeadline": "A Onda não só responde. Também ouve.",
     "stackBody": "Onda en Mano, Onda Civita e Onda Profes: três conversas no chat para te orientar sem substituir o teu juízo.\nServiço em beta.",
     "ctaOpenChat": "Abrir o chat →"

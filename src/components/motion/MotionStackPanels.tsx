@@ -5,7 +5,6 @@ import NextLink from "next/link";
 import { useMemo, useRef, type ComponentType, type ReactNode } from "react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import { HomeConvocaList } from "@/components/home/HomeConvocaList";
 import { PRECISANDO_ARTICLES_UNDER_CONSTRUCTION } from "@/lib/precisando-access";
 import { EXTERNAL, FOOTER_COLUMNS, SITE, SABERES_NAV_LINKS } from "@/lib/site";
 import styles from "./MotionStackPanels.module.css";
@@ -219,9 +218,9 @@ type StackPanelProps = {
   /** Contenido opcional bajo la bajada del bloque principal (columna izquierda). */
   mainFooter?: ReactNode;
   reduceMotion?: boolean;
-  /** Contenido editorial a ancho completo (primer panel “Qué nos convoca”). */
+  /** Contenido editorial a ancho completo (p. ej. Participa). */
   editorialContent?: ReactNode;
-  /** `tall` = scroll largo; `auto` = flujo natural (convoca); `standard` = panel compacto (participa). */
+  /** `tall` = scroll largo; `auto` = flujo natural; `standard` = panel compacto (participa). */
   editorialHeight?: "tall" | "standard" | "auto";
 };
 
@@ -378,28 +377,15 @@ function StackPanel({
     .filter(Boolean)
     .join(" ");
 
-  const isConvoca = id === "convoca";
   const isTwoColIntroLayout = id === "saberes" || id === "educacion-mediatica" || id === "bot-onda";
-  const gridClass = isConvoca
-    ? `${styles.grid} ${styles.gridConvoca}`
-    : isTwoColIntroLayout
-      ? `${styles.grid} ${styles.gridSaberes}`
-      : styles.grid;
-  const colMainClass = [
-    styles.colMain,
-    isTwoColIntroLayout ? styles.colMainSaberes : "",
-    isConvoca ? styles.colMainConvoca : "",
-  ]
+  const gridClass = isTwoColIntroLayout ? `${styles.grid} ${styles.gridSaberes}` : styles.grid;
+  const colMainClass = [styles.colMain, isTwoColIntroLayout ? styles.colMainSaberes : ""]
     .filter(Boolean)
     .join(" ");
-  const colAsideClass = [
-    styles.colAside,
-    isTwoColIntroLayout ? styles.colAsideSaberes : "",
-    isConvoca ? styles.colAsideConvoca : "",
-  ]
+  const colAsideClass = [styles.colAside, isTwoColIntroLayout ? styles.colAsideSaberes : ""]
     .filter(Boolean)
     .join(" ");
-  const stackTitleClass = isConvoca ? `${styles.displayTitle} ${styles.displayTitleIntro}` : styles.displayTitle;
+  const stackTitleClass = styles.displayTitle;
   const stackBodyClass =
     id === "educacion-mediatica" || id === "bot-onda"
       ? `${bodyClass} ${styles.saberesBodyPreline}`.trim()
@@ -533,7 +519,6 @@ export function MotionStackPanels({
 }: MotionStackPanelsProps) {
   const systemReduceMotion = useReducedMotion() ?? false;
   const reduceMotion = reduceMotionProp ?? systemReduceMotion;
-  const tConvoca = useTranslations("homeConvoca");
   const tPrograms = useTranslations("homePrograms");
   const tPrecisando = useTranslations("homePrecisando");
   const tSaberes = useTranslations("homeSaberes");
@@ -581,27 +566,6 @@ export function MotionStackPanels({
   const footerCols = FOOTER_COLUMNS;
 
   const panels = [
-    {
-      id: "convoca",
-      theme: "navy" as const,
-      kicker: tConvoca("stackKicker"),
-      label: undefined,
-      headline: (
-        <>
-          <span className={styles.displayTitleLine}>{tConvoca("headlineLine1")}</span>
-          <span className={styles.displayTitleLine}>{tConvoca("headlineLine2")}</span>
-        </>
-      ),
-      body: tConvoca("stackBody"),
-      icon: undefined,
-      mainFooter: (
-        <>
-          <p className={`${styles.body} ${styles.bodyOnAccent} ${styles.bodyClose}`}>{tConvoca("stackLine")}</p>
-          <p className={`${styles.body} ${styles.bodyOnAccent} ${styles.bodyQuiet}`}>{tConvoca("stackClose")}</p>
-        </>
-      ),
-      child: <HomeConvocaList reduceMotion={reduceMotion} />,
-    },
     {
       id: "programas",
       theme: "light" as const,
@@ -695,8 +659,9 @@ export function MotionStackPanels({
             body={panel.body}
             icon={panel.icon}
             reduceMotion={reduceMotion}
-            mainFooter={"mainFooter" in panel ? panel.mainFooter : undefined}
-            editorialContent={"editorialContent" in panel ? panel.editorialContent : undefined}
+            editorialContent={
+              ("editorialContent" in panel ? panel.editorialContent : undefined) as ReactNode | undefined
+            }
             editorialHeight={"editorialHeight" in panel ? panel.editorialHeight : "tall"}
           >
             {"child" in panel ? panel.child : undefined}

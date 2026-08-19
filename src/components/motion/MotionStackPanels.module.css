@@ -83,7 +83,7 @@
   transform-origin: 50% 45%;
 }
 
-/** Panel “Qué nos convoca”: el contenido puede ser más alto que 100vh; scroll interno real. */
+/** Panel editorial alto: el contenido puede superar 100vh; scroll interno real. */
 .stickyPanelEditorial {
   display: flex;
   flex-direction: column;
@@ -230,27 +230,6 @@
   justify-content: flex-start;
 }
 
-@media (min-width: 1024px) {
-  .grid.gridConvoca {
-    grid-template-columns: repeat(12, minmax(0, 1fr));
-    align-items: center;
-    gap: 3rem;
-  }
-
-  .grid.gridConvoca .colMain {
-    grid-column: 1 / span 5;
-  }
-
-  .grid.gridConvoca .colAside {
-    grid-column: 6 / span 7;
-  }
-}
-
-.colMainConvoca,
-.colAsideConvoca {
-  justify-content: center;
-}
-
 .saberesBodyPreline {
   white-space: pre-line;
 }
@@ -361,14 +340,6 @@
   letter-spacing: -0.035em;
 }
 
-.displayTitleIntro {
-  font-size: clamp(2.75rem, 4.3vw, 4.25rem);
-}
-
-.displayTitleLine {
-  display: block;
-}
-
 .body {
   margin-top: 2rem;
   max-width: 40rem;
@@ -383,27 +354,6 @@
 
 .bodyOnAccent {
   color: rgba(255, 255, 255, 0.88);
-}
-
-.bodyFollow {
-  margin-top: 1.15rem;
-}
-
-:global(#convoca) .bodyClose {
-  margin-top: 1.15rem;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.96);
-}
-
-:global(#convoca) .bodyQuiet {
-  margin-top: 0.85rem;
-  font-size: 1rem;
-  font-weight: 400;
-  color: rgba(255, 255, 255, 0.68);
-}
-
-:global(#convoca) .body {
-  max-width: 32rem;
 }
 
 /* Panel Precisando (navy): bajada con medida de lectura cómoda (titular = .stackPanelLeftTitle vía .displayTitle). */

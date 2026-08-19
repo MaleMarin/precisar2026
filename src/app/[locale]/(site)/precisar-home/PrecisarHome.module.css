@@ -81,12 +81,15 @@
 
 .hero {
   position: relative;
-  min-height: min(96vh, 940px);
   display: flex;
   flex-direction: column;
-  padding: 0 var(--gutter) clamp(3.25rem, 11vw, 6.5rem);
+  padding: 0 var(--gutter) 0;
   overflow-x: clip;
   overflow-y: visible;
+}
+
+.heroStage {
+  position: relative;
   /* Duración por `--verb-flame-dur`; easing suave para evitar “frenazos” en la mancha */
   transition:
     --verb-flame-x var(--verb-flame-dur, 0.72s) cubic-bezier(0.33, 0.12, 0.25, 1),
@@ -102,7 +105,7 @@
   animation: heroPulse 10s ease-in-out infinite;
 }
 
-.hero::after {
+.heroStage::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -118,7 +121,7 @@
   transition: filter 0.2s ease;
 }
 
-.hero[data-verb-flame-pulse]::after {
+.heroStage[data-verb-flame-pulse]::after {
   background: radial-gradient(
     ellipse min(102%, 84vw) min(78%, 68vh) at var(--verb-flame-x) var(--verb-flame-y),
     rgba(219, 82, 39, 0.62),
@@ -144,7 +147,7 @@
     filter 0.22s ease;
 }
 
-.hero[data-verb-flame-pulse] .heroFlameMote {
+.heroStage[data-verb-flame-pulse] .heroFlameMote {
   opacity: 0.88;
   filter: blur(34px) brightness(1.14);
 }
@@ -174,6 +177,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  min-height: min(96vh, 940px);
   max-width: var(--max);
   margin: 0 auto;
   width: 100%;
@@ -189,6 +193,128 @@
   font-family: var(--font-display), system-ui, sans-serif;
   text-transform: none;
   overflow: visible;
+}
+
+.heroBeat {
+  position: relative;
+  z-index: 2;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: clamp(2rem, 5vh, 3rem) 0 clamp(2.5rem, 6vh, 3.5rem);
+  scroll-margin-top: 2.75rem;
+}
+
+@media (min-width: 1024px) {
+  .heroBeat {
+    min-height: 20.5rem;
+    padding: 3.25rem 0 3.75rem;
+  }
+}
+
+.heroBeatRule {
+  width: 100%;
+  max-width: 6.5rem;
+  height: 1px;
+  margin: 0 0 clamp(1.5rem, 3.5vh, 2.15rem);
+  background: color-mix(in oklab, var(--mist) 16%, transparent);
+}
+
+.heroBeatGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.75rem;
+  align-items: end;
+}
+
+@media (min-width: 900px) {
+  .heroBeatGrid {
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+    gap: 3rem;
+    align-items: start;
+  }
+}
+
+.heroBeatTitle {
+  margin: 0;
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: clamp(1.65rem, 3.4vw, 2.5rem);
+  font-weight: 600;
+  line-height: 1.06;
+  letter-spacing: -0.04em;
+  color: var(--mist);
+  max-width: 16ch;
+}
+
+.heroBeatBody,
+.heroBeatClose {
+  margin: 1rem 0 0;
+  max-width: 36rem;
+  font-family: "Avenir Next", "Avenir", sans-serif;
+  font-size: clamp(0.95rem, 1.15vw, 1.0625rem);
+  line-height: 1.55;
+  color: var(--mist-dim);
+}
+
+.heroBeatClose {
+  margin-top: 0.75rem;
+  color: color-mix(in oklab, var(--mist) 82%, transparent);
+}
+
+.heroBeatStage {
+  min-height: 6.5rem;
+}
+
+.heroBeatActor {
+  margin: 0 0 0.45rem;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: color-mix(in oklab, var(--mist) 42%, transparent);
+}
+
+.heroBeatVerb {
+  margin: 0;
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: clamp(2.15rem, 4.6vw, 3.65rem);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: var(--mist);
+}
+
+.heroBeatRoster {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 1.15rem 0 0;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  line-height: 1.65;
+  text-transform: uppercase;
+  color: color-mix(in oklab, var(--mist) 38%, transparent);
+  opacity: 0;
+  transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.heroBeatRosterOn {
+  opacity: 1;
+}
+
+.heroBeatRosterSep {
+  margin: 0 0.5em;
+  opacity: 0.55;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .heroBeatRoster {
+    opacity: 1;
+    transition: none;
+  }
 }
 
 .kicker {
