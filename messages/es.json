@@ -205,17 +205,15 @@
     "cultura": "Cultura"
   },
   "homeMarquee": {
-    "headline": "La información que recibes ya pasó por decisiones.",
-    "lead": "Medios, instituciones, plataformas, algoritmos e IA pueden seleccionarla, ordenarla, priorizarla, resumirla o generarla antes de que llegue a ti.",
-    "close": "Comprender la información también es entender cómo llegó.",
-    "items": [
-      { "word": "Información", "state": "seleccionada" },
-      { "word": "Información", "state": "ordenada" },
-      { "word": "Información", "state": "priorizada" },
-      { "word": "Información", "state": "resumida" },
-      { "word": "Información", "state": "generada" },
-      { "word": "Información", "state": "comunicada" }
-    ]
+    "headline": "La información no empieza cuando te llega.",
+    "lead": "Antes, puede haber sido:",
+    "groups": [
+      { "line1": "Seleccionada", "line2": "y comunicada", "accent": "line1", "by": "por medios e instituciones" },
+      { "line1": "Ordenada", "line2": "y priorizada", "accent": "line2", "by": "por plataformas y algoritmos" },
+      { "line1": "Resumida", "line2": "o generada", "accent": "line2", "by": "por inteligencia artificial" }
+    ],
+    "closeBefore": "Comprender la información también es ",
+    "closeAccent": "entender ese recorrido."
   },
   "culturaDigitalPage": {
     "metaTitle": "Cultura Digital · Tiras",

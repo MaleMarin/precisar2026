@@ -205,17 +205,15 @@
     "cultura": "Culture"
   },
   "homeMarquee": {
-    "headline": "The information you receive has already passed through decisions.",
-    "lead": "Media, institutions, platforms, algorithms, and AI can select, order, prioritize, summarize, or generate it before it reaches you.",
-    "close": "Understanding information also means understanding how it arrived.",
-    "items": [
-      { "word": "Information", "state": "selected" },
-      { "word": "Information", "state": "ordered" },
-      { "word": "Information", "state": "prioritized" },
-      { "word": "Information", "state": "summarized" },
-      { "word": "Information", "state": "generated" },
-      { "word": "Information", "state": "communicated" }
-    ]
+    "headline": "Information does not begin when it reaches you.",
+    "lead": "Before that, it may have been:",
+    "groups": [
+      { "line1": "Selected", "line2": "and communicated", "accent": "line1", "by": "by media and institutions" },
+      { "line1": "Ordered", "line2": "and prioritized", "accent": "line2", "by": "by platforms and algorithms" },
+      { "line1": "Summarized", "line2": "or generated", "accent": "line2", "by": "by artificial intelligence" }
+    ],
+    "closeBefore": "Understanding information also means ",
+    "closeAccent": "understanding that path."
   },
   "culturaDigitalPage": {
     "metaTitle": "Digital Culture · Strips",

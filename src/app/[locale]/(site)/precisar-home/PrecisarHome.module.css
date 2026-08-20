@@ -60,15 +60,6 @@
   }
 }
 
-@keyframes marquee {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
 .hero {
   position: relative;
   min-height: min(96vh, 940px);
@@ -250,18 +241,17 @@
 }
 
 .marqueeWrap {
-  --tape-bg: color-mix(in oklab, var(--void) 92%, var(--navy));
   position: relative;
   border-top: 1px solid color-mix(in oklab, var(--slate) 25%, transparent);
   border-bottom: 1px solid color-mix(in oklab, var(--slate) 25%, transparent);
-  background: var(--tape-bg);
-  padding: 1.5rem 0 1.6rem;
+  background: color-mix(in oklab, var(--void) 92%, var(--navy));
+  padding: 2.5rem 0;
   overflow: hidden;
 }
 
 @media (min-width: 768px) {
   .marqueeWrap {
-    padding: 1.75rem 0 1.9rem;
+    padding: 2.75rem 0 3rem;
   }
 }
 
@@ -277,11 +267,11 @@
 
 .marqueeHeadline {
   margin: 0;
-  max-width: 22ch;
+  max-width: 26ch;
   font-family: var(--font-display), system-ui, sans-serif;
-  font-size: clamp(1.65rem, 7vw, 2.1rem);
+  font-size: clamp(1.75rem, 7vw, 2.4rem);
   font-weight: 700;
-  line-height: 1.08;
+  line-height: 1.05;
   letter-spacing: -0.04em;
   text-transform: uppercase;
   color: var(--mist);
@@ -289,108 +279,108 @@
 
 @media (min-width: 768px) {
   .marqueeHeadline {
-    max-width: 28ch;
-    font-size: clamp(2rem, 3.1vw, 2.9rem);
+    font-size: clamp(2.4rem, 3.7vw, 3.6rem);
   }
 }
 
 .marqueeLead {
-  margin: 0.875rem 0 0;
-  max-width: 64rem;
+  margin: 0.85rem 0 0;
   font-family: var(--font-body);
-  font-size: clamp(0.95rem, 1.15vw, 1.125rem);
+  font-size: clamp(0.95rem, 1.1vw, 1.05rem);
   font-weight: 400;
   font-style: normal;
-  line-height: 1.5;
+  line-height: 1.4;
   text-transform: none;
   color: var(--mist-dim);
 }
 
-.marqueeClose {
-  margin: 1rem 0 0;
-  max-width: 40rem;
-  font-family: var(--font-display), system-ui, sans-serif;
-  font-size: clamp(1rem, 1.2vw, 1.15rem);
-  font-weight: 500;
-  font-style: normal;
-  line-height: 1.35;
-  text-transform: none;
-  color: var(--flame);
+.marqueeGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  margin-top: 1.75rem;
 }
 
-.marqueeRail {
-  position: relative;
+@media (min-width: 768px) {
+  .marqueeGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0;
+    margin-top: 2.15rem;
+  }
+}
+
+.marqueeCol {
   min-width: 0;
-  margin-top: 1.625rem;
-  overflow: hidden;
+  padding: 1.15rem 0 0;
+  border-top: 1px solid color-mix(in oklab, var(--slate) 25%, transparent);
 }
 
-.marqueeRail::before,
-.marqueeRail::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 2.25rem;
-  z-index: 1;
-  pointer-events: none;
+.marqueeCol:first-child {
+  padding-top: 0;
+  border-top: 0;
 }
 
-.marqueeRail::before {
-  left: 0;
-  background: linear-gradient(90deg, var(--tape-bg), transparent);
-}
+@media (min-width: 768px) {
+  .marqueeCol {
+    padding: 0 0 0 2.75rem;
+    border-top: 0;
+    border-left: 1px solid color-mix(in oklab, var(--slate) 25%, transparent);
+  }
 
-.marqueeRail::after {
-  right: 0;
-  background: linear-gradient(90deg, transparent, var(--tape-bg));
-}
-
-.marqueeTrack {
-  display: flex;
-  width: max-content;
-  align-items: center;
-  animation: marquee 36s linear infinite;
-  will-change: transform;
-}
-
-.marqueeItem {
-  display: inline-flex;
-  align-items: baseline;
-  flex-shrink: 0;
-  font-family: var(--font-mono);
-  font-size: clamp(0.72rem, 0.85vw, 0.82rem);
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  white-space: nowrap;
-  color: var(--mist);
-}
-
-.marqueeWord {
-  color: var(--mist);
+  .marqueeCol:first-child {
+    padding-left: 0;
+    border-left: 0;
+  }
 }
 
 .marqueeAction {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: clamp(1.4rem, 2vw, 2rem);
+  font-weight: 600;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  color: var(--mist);
+}
+
+.marqueeAction span {
+  display: block;
+}
+
+.marqueeAccent {
   color: var(--flame);
 }
 
-.marqueeSep {
-  color: color-mix(in oklab, var(--mist) 38%, transparent);
-  letter-spacing: 0.08em;
+.marqueeBy {
+  margin: 0.65rem 0 0;
+  font-family: var(--font-body);
+  font-size: clamp(0.9rem, 1vw, 1rem);
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.4;
+  color: var(--mist-dim);
+}
+
+.marqueeClose {
+  margin: 1.75rem 0 0;
+  max-width: 40rem;
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 1.2vw, 1.15rem);
+  font-weight: 500;
+  font-style: normal;
+  line-height: 1.45;
+  color: var(--mist-dim);
+}
+
+.marqueeCloseAccent {
+  color: var(--flame);
+  font-weight: 500;
 }
 
 .reduceMotion .hero::before,
 .reduceMotion .heroOrb2 {
   animation: none;
-}
-
-.reduceMotion .marqueeTrack {
-  animation: none;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .marqueeTrack {
-    animation: none;
-  }
 }
