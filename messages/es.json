@@ -212,7 +212,7 @@
       { "line1": "Qué mostrarte primero", "line2": "", "accent": "line1", "by": "plataformas y algoritmos" },
       { "line1": "Cómo resumírtelo o crearlo desde cero", "line2": "", "accent": "line1", "by": "inteligencia artificial" }
     ],
-    "close": "Sin conocer ese recorrido de la información, no tienes todo claro. Solo la parte que alguien decidió mostrarte."
+    "close": "Sin conocer ese recorrido de la información, no tienes todo claro. Solo la parte que alguien decidió mostrarte.",
     "bajada": "Conectados hay millones. Con criterio, todavía faltan muchos. En Precisar no te decimos qué pensar: te damos herramientas para que pienses con criterio propio."
   },
   "culturaDigitalPage": {
