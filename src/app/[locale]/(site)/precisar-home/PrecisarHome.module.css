@@ -267,31 +267,26 @@
 
 .marqueeHeadline {
   margin: 0;
-  max-width: 26ch;
+  max-width: var(--stack-panel-title-maxw);
   font-family: var(--font-display), system-ui, sans-serif;
-  font-size: clamp(1.75rem, 7vw, 2.4rem);
-  font-weight: 700;
-  line-height: 1.05;
-  letter-spacing: -0.04em;
-  text-transform: uppercase;
+  font-size: var(--stack-panel-title-size);
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+  text-transform: none;
   color: var(--mist);
 }
 
-@media (min-width: 768px) {
-  .marqueeHeadline {
-    font-size: clamp(2.4rem, 3.7vw, 3.6rem);
-  }
-}
-
 .marqueeLead {
-  margin: 0.85rem 0 0;
-  font-family: var(--font-body);
-  font-size: clamp(0.95rem, 1.1vw, 1.05rem);
-  font-weight: 400;
+  margin: 1rem 0 0;
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 0.625rem;
+  font-weight: 600;
   font-style: normal;
   line-height: 1.4;
-  text-transform: none;
-  color: var(--mist-dim);
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: color-mix(in oklab, #fff 92%, transparent);
 }
 
 .marqueeGrid {
@@ -338,11 +333,11 @@
   flex-direction: column;
   margin: 0;
   font-family: var(--font-display), system-ui, sans-serif;
-  font-size: clamp(1.4rem, 2vw, 2rem);
-  font-weight: 600;
-  line-height: 1.08;
-  letter-spacing: -0.03em;
-  text-transform: uppercase;
+  font-size: clamp(1.5rem, 2.4vw, 2.35rem);
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+  text-transform: none;
   color: var(--mist);
 }
 
@@ -357,27 +352,27 @@
 .marqueeBy {
   margin: 0.65rem 0 0;
   font-family: var(--font-body);
-  font-size: clamp(0.9rem, 1vw, 1rem);
+  font-size: 1.1875rem;
   font-weight: 400;
   font-style: normal;
-  line-height: 1.4;
-  color: var(--mist-dim);
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.85);
 }
 
 .marqueeClose {
   margin: 1.75rem 0 0;
   max-width: 40rem;
   font-family: var(--font-body);
-  font-size: clamp(1rem, 1.2vw, 1.15rem);
-  font-weight: 500;
+  font-size: 1.1875rem;
+  font-weight: 400;
   font-style: normal;
-  line-height: 1.45;
-  color: var(--mist-dim);
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.85);
 }
 
 .marqueeCloseAccent {
   color: var(--flame);
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .reduceMotion .hero::before,
