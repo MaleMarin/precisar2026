@@ -393,16 +393,15 @@ function StackPanel({
 
   const glowDrift = !reduceMotion ? styles.panelGlowDrift : "";
 
-  /** Pila junta (no pegada): 8px entre tarjetas; Programas baja un poco más para no fundirse con la sesión oscura. */
+  /** Pila junta (no pegada): ~8px entre tarjetas, igual en todas las sesiones. */
   const stackTopGap = 8;
-  const afterDarkGap = id === "programas" ? 28 : 0;
   const panelMotionStyle = {
     scale,
     y,
     borderRadius,
     rotateX,
     transformOrigin: "50% 88%",
-    top: `${index * stackTopGap + afterDarkGap}px`,
+    top: `${index * stackTopGap}px`,
     zIndex: total - index,
   };
 

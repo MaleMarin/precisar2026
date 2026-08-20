@@ -1047,19 +1047,6 @@
   transform: scale(0.97) translateY(-8px);
 }
 
-/* La sesión oscura dura más en pantalla para que Programas (clara) entre como tarjeta aparte. */
-:global(#recorrido) {
-  height: 175vh;
-  min-height: 175vh;
-}
-
-@media (min-width: 768px) {
-  :global(#recorrido) {
-    height: 195vh;
-    min-height: 195vh;
-  }
-}
-
 /* El titular largo no debe quedar recortado arriba (flex center + overflow hidden). */
 :global(#recorrido) .participaPanelBody {
   justify-content: flex-start;
@@ -1070,12 +1057,6 @@
   :global(#recorrido) .participaPanelBody {
     padding-top: calc(var(--header-h-md, 7.75rem) + 0.35rem);
   }
-}
-
-/* Hueco crema entre la tarjeta oscura y 01 · Programas. */
-:global(#programas) {
-  margin-top: 1.5rem;
-  padding-top: 0.5rem;
 }
 
 /* Programas: el card (cristal) llena la columna derecha; nada queda recortado por el sticky — el exceso scroll dentro del card. */
