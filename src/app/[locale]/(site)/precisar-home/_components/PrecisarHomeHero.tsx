@@ -11,10 +11,9 @@ import {
 import styles from "../PrecisarHome.module.css";
 import { ease } from "./constants";
 import { HeroFlameMoteTrack } from "./HeroFlameMoteTrack";
-import { HomeHeroConvocaBeat } from "./HomeHeroConvocaBeat";
 
 export function PrecisarHomeHero() {
-  const heroFlameRef = useRef<HTMLDivElement | null>(null);
+  const heroFlameRef = useRef<HTMLElement | null>(null);
   const [heroFlame, setHeroFlame] = useState(() => {
     const c = flameExitCornerForIndex(0);
     return { x: c.x, y: c.y, toCorner: false };
@@ -22,47 +21,44 @@ export function PrecisarHomeHero() {
   const reduceMotion = useReducedMotion() ?? false;
 
   return (
-    <header className={styles.hero}>
-      <div
-        ref={heroFlameRef}
-        className={styles.heroStage}
-        style={
-          {
-            ["--verb-flame-x" as string]: `${heroFlame.x}%`,
-            ["--verb-flame-y" as string]: `${heroFlame.y}%`,
-            ["--verb-flame-dur" as string]: heroFlame.toCorner ? verbFlameToCornerCssDuration() : "0.72s",
-          } as CSSProperties
-        }
-      >
-        {!reduceMotion ? (
-          <>
-            <HeroFlameMoteTrack
-              className={styles.heroFlameMote}
-              targetX={heroFlame.x}
-              targetY={heroFlame.y}
-              quickBlend={!heroFlame.toCorner}
-            />
-            <div className={`${styles.heroOrb} ${styles.heroOrb2}`} aria-hidden />
-          </>
-        ) : null}
-        <div className={styles.heroInner}>
-          <motion.h1
-            className={styles.heroPotenciaH1}
-            initial={reduceMotion ? false : { opacity: 0, y: 28 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.65, ease }}
-          >
-            <PotenciaRotatingHeadline
-              reduceMotion={reduceMotion}
-              surface="dark"
-              scale="precisarHome"
-              flameSyncContainerRef={heroFlameRef}
-              onFlamePercent={setHeroFlame}
-            />
-          </motion.h1>
-        </div>
+    <header
+      ref={heroFlameRef}
+      className={styles.hero}
+      style={
+        {
+          ["--verb-flame-x" as string]: `${heroFlame.x}%`,
+          ["--verb-flame-y" as string]: `${heroFlame.y}%`,
+          ["--verb-flame-dur" as string]: heroFlame.toCorner ? verbFlameToCornerCssDuration() : "0.72s",
+        } as CSSProperties
+      }
+    >
+      {!reduceMotion ? (
+        <>
+          <HeroFlameMoteTrack
+            className={styles.heroFlameMote}
+            targetX={heroFlame.x}
+            targetY={heroFlame.y}
+            quickBlend={!heroFlame.toCorner}
+          />
+          <div className={`${styles.heroOrb} ${styles.heroOrb2}`} aria-hidden />
+        </>
+      ) : null}
+      <div className={styles.heroInner}>
+        <motion.h1
+          className={styles.heroPotenciaH1}
+          initial={reduceMotion ? false : { opacity: 0, y: 28 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.65, ease }}
+        >
+          <PotenciaRotatingHeadline
+            reduceMotion={reduceMotion}
+            surface="dark"
+            scale="precisarHome"
+            flameSyncContainerRef={heroFlameRef}
+            onFlamePercent={setHeroFlame}
+          />
+        </motion.h1>
       </div>
-      <HomeHeroConvocaBeat reduceMotion={reduceMotion} />
     </header>
   );
 }

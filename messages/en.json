@@ -116,18 +116,6 @@
     "homeTitle": "Precisar · Empower how you use technology",
     "homeDescription": "Empower how you use technology. Home with hero, rotating verbs, ticker, and stacked sections. Precisar 2026."
   },
-  "homeConvoca": {
-    "beatHeadline": "Information does not arrive on its own.",
-    "beatBody": "Before it reaches you, it may have been selected, ordered, prioritized, summarized, or generated.",
-    "beatClose": "Understanding information also means understanding how it reached you.",
-    "cycle": {
-      "media": { "actor": "A medium", "verb": "selects." },
-      "institution": { "actor": "An institution", "verb": "communicates." },
-      "platform": { "actor": "A platform", "verb": "orders." },
-      "algorithm": { "actor": "An algorithm", "verb": "prioritizes." },
-      "ai": { "actor": "An AI", "verb": "generates." }
-    }
-  },
   "homePrograms": {
     "title": "Programs",
     "stackKicker": "01 · Programs",
@@ -218,26 +206,13 @@
   },
   "homeMarquee": {
     "chunks": [
-      [
-        "Media",
-        "literacy"
-      ],
-      [
-        "Critical",
-        "thinking"
-      ],
-      [
-        "Data",
-        "in context"
-      ],
-      [
-        "Informed",
-        "community"
-      ],
-      [
-        "Tech",
-        "with judgment"
-      ]
+      ["Information does not arrive on its own"],
+      ["A medium", "selects"],
+      ["An institution", "communicates"],
+      ["A platform", "orders"],
+      ["An algorithm", "prioritizes"],
+      ["An AI", "generates"],
+      ["Understanding also means understanding how it reached you"]
     ]
   },
   "culturaDigitalPage": {

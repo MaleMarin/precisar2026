@@ -116,18 +116,6 @@
     "homeTitle": "Precisar · Potencia el uso de la tecnología",
     "homeDescription": "Potencia el uso de la tecnología."
   },
-  "homeConvoca": {
-    "beatHeadline": "La información no llega sola.",
-    "beatBody": "Antes de llegar a ti, pudo haber sido seleccionada, ordenada, priorizada, resumida o generada.",
-    "beatClose": "Comprender información también es entender cómo llegó hasta ti.",
-    "cycle": {
-      "media": { "actor": "Un medio", "verb": "selecciona." },
-      "institution": { "actor": "Una institución", "verb": "comunica." },
-      "platform": { "actor": "Una plataforma", "verb": "ordena." },
-      "algorithm": { "actor": "Un algoritmo", "verb": "prioriza." },
-      "ai": { "actor": "Una IA", "verb": "genera." }
-    }
-  },
   "homePrograms": {
     "title": "Programas",
     "stackKicker": "01 · Programas",
@@ -218,26 +206,13 @@
   },
   "homeMarquee": {
     "chunks": [
-      [
-        "Educación",
-        "mediática"
-      ],
-      [
-        "Pensamiento",
-        "crítico"
-      ],
-      [
-        "Datos",
-        "con contexto"
-      ],
-      [
-        "Comunidad",
-        "informada"
-      ],
-      [
-        "Tecnología",
-        "con criterio"
-      ]
+      ["La información no llega sola"],
+      ["Un medio", "selecciona"],
+      ["Una institución", "comunica"],
+      ["Una plataforma", "ordena"],
+      ["Un algoritmo", "prioriza"],
+      ["Una IA", "genera"],
+      ["Comprender también es entender cómo llegó hasta ti"]
     ]
   },
   "culturaDigitalPage": {

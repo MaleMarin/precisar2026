@@ -116,18 +116,6 @@
     "homeTitle": "Precisar · Potencialize o uso da tecnologia",
     "homeDescription": "Potencialize o uso da tecnologia. Capa com hero, verbos em rotação, faixa e seções empilhadas. Precisar 2026."
   },
-  "homeConvoca": {
-    "beatHeadline": "A informação não chega sozinha.",
-    "beatBody": "Antes de chegar até você, pode ter sido selecionada, ordenada, priorizada, resumida ou gerada.",
-    "beatClose": "Compreender informação também é entender como ela chegou até você.",
-    "cycle": {
-      "media": { "actor": "Um meio", "verb": "seleciona." },
-      "institution": { "actor": "Uma instituição", "verb": "comunica." },
-      "platform": { "actor": "Uma plataforma", "verb": "ordena." },
-      "algorithm": { "actor": "Um algoritmo", "verb": "prioriza." },
-      "ai": { "actor": "Uma IA", "verb": "gera." }
-    }
-  },
   "homePrograms": {
     "title": "Programas",
     "stackKicker": "01 · Programas",
@@ -218,26 +206,13 @@
   },
   "homeMarquee": {
     "chunks": [
-      [
-        "Educação",
-        "midiática"
-      ],
-      [
-        "Pensamento",
-        "crítico"
-      ],
-      [
-        "Dados",
-        "com contexto"
-      ],
-      [
-        "Comunidade",
-        "informada"
-      ],
-      [
-        "Tecnologia",
-        "com critério"
-      ]
+      ["A informação não chega sozinha"],
+      ["Um meio", "seleciona"],
+      ["Uma instituição", "comunica"],
+      ["Uma plataforma", "ordena"],
+      ["Um algoritmo", "prioriza"],
+      ["Uma IA", "gera"],
+      ["Compreender também é entender como chegou até você"]
     ]
   },
   "culturaDigitalPage": {
