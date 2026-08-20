@@ -208,11 +208,11 @@
     "headline": "Toda la información que recibes ya fue decidida por alguien más.",
     "lead": "Antes de llegar a ti, alguien decidió tres cosas:",
     "groups": [
-      { "line1": "Qué contarte y qué dejar fuera", "line2": "", "accent": "line1", "by": "— medios e instituciones" },
-      { "line1": "Qué mostrarte primero", "line2": "", "accent": "line1", "by": "— plataformas y algoritmos" },
-      { "line1": "Cómo resumírtelo — o crearlo desde cero", "line2": "", "accent": "line1", "by": "— inteligencia artificial" }
+      { "line1": "Qué contarte y qué dejar fuera", "line2": "", "accent": "line1", "by": "medios e instituciones" },
+      { "line1": "Qué mostrarte primero", "line2": "", "accent": "line1", "by": "plataformas y algoritmos" },
+      { "line1": "Cómo resumírtelo o crearlo desde cero", "line2": "", "accent": "line1", "by": "inteligencia artificial" }
     ],
-    "close": "Y sin ver ese recorrido, es difícil saber si lo que piensas es realmente tuyo — o lo que alguien más decidió para ti.",
+    "close": "Y sin ver ese recorrido, es difícil saber si lo que piensas es realmente tuyo, o lo que alguien más decidió para ti.",
     "bajada": "Conectados hay millones. Con criterio, todavía faltan muchos. En Precisar no te decimos qué pensar: te damos herramientas para que pienses con criterio propio."
   },
   "culturaDigitalPage": {

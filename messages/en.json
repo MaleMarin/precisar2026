@@ -208,12 +208,12 @@
     "headline": "All the information you receive has already been decided by someone else.",
     "lead": "Before it reaches you, someone decided three things:",
     "groups": [
-      { "line1": "What to tell you and what to leave out", "line2": "", "accent": "line1", "by": "— media and institutions" },
-      { "line1": "What to show you first", "line2": "", "accent": "line1", "by": "— platforms and algorithms" },
-      { "line1": "How to summarize it — or create it from scratch", "line2": "", "accent": "line1", "by": "— artificial intelligence" }
+      { "line1": "What to tell you and what to leave out", "line2": "", "accent": "line1", "by": "media and institutions" },
+      { "line1": "What to show you first", "line2": "", "accent": "line1", "by": "platforms and algorithms" },
+      { "line1": "How to summarize it or create it from scratch", "line2": "", "accent": "line1", "by": "artificial intelligence" }
     ],
-    "close": "And without seeing that journey, it's hard to know if what you think is really yours — or what someone else decided for you.",
-    "bajada": "Millions are connected. With judgment, many are still missing. At Precisar we don't tell you what to think: we give you tools to think with your own judgment."
+    "close": "And without seeing that journey, it's hard to know if what you think is really yours, or what someone else decided for you.",
+    "bajada": "Millions are connected. Not nearly as many do so with judgment. At Precisar, we don't tell you what to think: we give you the tools to think for yourself."
   },
   "culturaDigitalPage": {
     "metaTitle": "Digital Culture · Strips",

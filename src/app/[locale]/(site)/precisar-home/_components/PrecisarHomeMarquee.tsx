@@ -11,9 +11,9 @@ type BandGroup = {
 };
 
 const GROUPS_FALLBACK: readonly BandGroup[] = [
-  { line1: "Qué contarte y qué dejar fuera", line2: "", accent: "line1", by: "— medios e instituciones" },
-  { line1: "Qué mostrarte primero", line2: "", accent: "line1", by: "— plataformas y algoritmos" },
-  { line1: "Cómo resumírtelo — o crearlo desde cero", line2: "", accent: "line1", by: "— inteligencia artificial" },
+  { line1: "Qué contarte y qué dejar fuera", line2: "", accent: "line1", by: "medios e instituciones" },
+  { line1: "Qué mostrarte primero", line2: "", accent: "line1", by: "plataformas y algoritmos" },
+  { line1: "Cómo resumírtelo o crearlo desde cero", line2: "", accent: "line1", by: "inteligencia artificial" },
 ];
 
 function parseGroups(raw: unknown): readonly BandGroup[] {
