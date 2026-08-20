@@ -10,8 +10,8 @@ function parseItems(raw: unknown): readonly MarqueeItem[] {
     (item) =>
       item &&
       typeof item === "object" &&
-      typeof (item as MarqueeItem).actor === "string" &&
-      typeof (item as MarqueeItem).action === "string",
+      typeof (item as MarqueeItem).word === "string" &&
+      typeof (item as MarqueeItem).state === "string",
   );
   return ok ? (raw as MarqueeItem[]) : MARQUEE_ITEMS_FALLBACK;
 }
@@ -24,19 +24,15 @@ export function PrecisarHomeMarquee() {
   return (
     <div className={styles.marqueeWrap}>
       <div className={styles.marqueeLayout}>
-        <div className={styles.marqueeFixed}>
-          <p className={styles.marqueeHeadline}>{t("headline")}</p>
-          <p className={styles.marqueeLead}>{t("lead")}</p>
-        </div>
+        <p className={styles.marqueeHeadline}>{t("headline")}</p>
+        <p className={styles.marqueeLead}>{t("lead")}</p>
+        <p className={styles.marqueeClose}>{t("close")}</p>
         <div className={styles.marqueeRail} aria-hidden>
           <div className={styles.marqueeTrack}>
             {track.map((item, i) => (
-              <span
-                key={`${item.actor}-${item.action}-${i}`}
-                className={item.desktopOnly ? styles.marqueeItemDesktop : styles.marqueeItem}
-              >
-                <span className={styles.marqueeActor}>{item.actor}</span>{" "}
-                <span className={styles.marqueeAction}>{item.action}</span>
+              <span key={`${item.word}-${item.state}-${i}`} className={styles.marqueeItem}>
+                <span className={styles.marqueeWord}>{item.word}</span>{" "}
+                <span className={styles.marqueeAction}>{item.state}</span>
                 <span className={styles.marqueeSep}> · </span>
               </span>
             ))}

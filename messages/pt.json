@@ -205,14 +205,16 @@
     "cultura": "Cultura"
   },
   "homeMarquee": {
-    "headline": "A informação não chega sozinha.",
-    "lead": "Compreender também é entender como chegou até você.",
+    "headline": "A informação que você recebe já passou por decisões.",
+    "lead": "Meios, instituições, plataformas, algoritmos e IA podem selecioná-la, ordená-la, priorizá-la, resumí-la ou gerá-la antes de chegar até você.",
+    "close": "Compreender a informação também é entender como ela chegou.",
     "items": [
-      { "actor": "Um meio", "action": "seleciona" },
-      { "actor": "Uma instituição", "action": "comunica", "desktopOnly": true },
-      { "actor": "Uma plataforma", "action": "ordena" },
-      { "actor": "Um algoritmo", "action": "prioriza" },
-      { "actor": "Uma IA", "action": "gera" }
+      { "word": "Informação", "state": "selecionada" },
+      { "word": "Informação", "state": "ordenada" },
+      { "word": "Informação", "state": "priorizada" },
+      { "word": "Informação", "state": "resumida" },
+      { "word": "Informação", "state": "gerada" },
+      { "word": "Informação", "state": "comunicada" }
     ]
   },
   "culturaDigitalPage": {

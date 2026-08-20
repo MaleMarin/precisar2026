@@ -205,14 +205,16 @@
     "cultura": "Culture"
   },
   "homeMarquee": {
-    "headline": "Information does not arrive on its own.",
-    "lead": "Understanding also means understanding how it reached you.",
+    "headline": "The information you receive has already passed through decisions.",
+    "lead": "Media, institutions, platforms, algorithms, and AI can select, order, prioritize, summarize, or generate it before it reaches you.",
+    "close": "Understanding information also means understanding how it arrived.",
     "items": [
-      { "actor": "A medium", "action": "selects" },
-      { "actor": "An institution", "action": "communicates", "desktopOnly": true },
-      { "actor": "A platform", "action": "orders" },
-      { "actor": "An algorithm", "action": "prioritizes" },
-      { "actor": "An AI", "action": "generates" }
+      { "word": "Information", "state": "selected" },
+      { "word": "Information", "state": "ordered" },
+      { "word": "Information", "state": "prioritized" },
+      { "word": "Information", "state": "summarized" },
+      { "word": "Information", "state": "generated" },
+      { "word": "Information", "state": "communicated" }
     ]
   },
   "culturaDigitalPage": {
