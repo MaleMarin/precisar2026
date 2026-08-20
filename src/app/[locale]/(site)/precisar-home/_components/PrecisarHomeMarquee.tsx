@@ -52,8 +52,10 @@ export function PrecisarHomeMarquee() {
             </div>
           ))}
         </div>
-        <p className={styles.marqueeClose}>{t("close")}</p>
-        <p className={styles.marqueeClose}>{t("bajada")}</p>
+        <div className={styles.marqueeFooter}>
+          <p className={styles.marqueeClose}>{t("close")}</p>
+          <p className={styles.marqueeClose}>{t("bajada")}</p>
+        </div>
       </div>
     </div>
   );
