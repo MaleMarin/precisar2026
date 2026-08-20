@@ -205,15 +205,15 @@
     "cultura": "Cultura"
   },
   "homeMarquee": {
-    "headline": "A informação não começa quando chega até você.",
-    "lead": "Antes, pode ter sido:",
+    "headline": "Toda a informação que você recebe já foi decidida por outra pessoa.",
+    "lead": "Antes de chegar até você, alguém decidiu três coisas:",
     "groups": [
-      { "line1": "Selecionada", "line2": "e comunicada", "accent": "line1", "by": "por meios e instituições" },
-      { "line1": "Ordenada", "line2": "e priorizada", "accent": "line2", "by": "por plataformas e algoritmos" },
-      { "line1": "Resumida", "line2": "ou gerada", "accent": "line2", "by": "por inteligência artificial" }
+      { "line1": "O que contar e o que deixar de fora", "line2": "", "accent": "line1", "by": "— meios e instituições" },
+      { "line1": "O que mostrar primeiro", "line2": "", "accent": "line1", "by": "— plataformas e algoritmos" },
+      { "line1": "Como resumir — ou criar do zero", "line2": "", "accent": "line1", "by": "— inteligência artificial" }
     ],
-    "closeBefore": "Compreender a informação também é ",
-    "closeAccent": "entender esse percurso."
+    "close": "E sem ver esse percurso, é difícil saber se o que você pensa é realmente seu — ou o que alguém decidiu por você.",
+    "bajada": "Milhões estão conectados. Com critério, ainda faltam muitos. Na Precisar, não dizemos o que pensar: damos ferramentas para você pensar com critério próprio."
   },
   "culturaDigitalPage": {
     "metaTitle": "Cultura Digital · Tiras",

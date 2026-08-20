@@ -11,9 +11,9 @@ type BandGroup = {
 };
 
 const GROUPS_FALLBACK: readonly BandGroup[] = [
-  { line1: "Seleccionada", line2: "y comunicada", accent: "line1", by: "por medios e instituciones" },
-  { line1: "Ordenada", line2: "y priorizada", accent: "line2", by: "por plataformas y algoritmos" },
-  { line1: "Resumida", line2: "o generada", accent: "line2", by: "por inteligencia artificial" },
+  { line1: "Qué contarte y qué dejar fuera", line2: "", accent: "line1", by: "— medios e instituciones" },
+  { line1: "Qué mostrarte primero", line2: "", accent: "line1", by: "— plataformas y algoritmos" },
+  { line1: "Cómo resumírtelo — o crearlo desde cero", line2: "", accent: "line1", by: "— inteligencia artificial" },
 ];
 
 function parseGroups(raw: unknown): readonly BandGroup[] {
@@ -44,16 +44,16 @@ export function PrecisarHomeMarquee() {
             <div key={group.line1} className={styles.marqueeCol}>
               <p className={styles.marqueeAction}>
                 <span className={group.accent === "line1" ? styles.marqueeAccent : ""}>{group.line1}</span>
-                <span className={group.accent === "line2" ? styles.marqueeAccent : ""}>{group.line2}</span>
+                {group.line2 ? (
+                  <span className={group.accent === "line2" ? styles.marqueeAccent : ""}>{group.line2}</span>
+                ) : null}
               </p>
               <p className={styles.marqueeBy}>{group.by}</p>
             </div>
           ))}
         </div>
-        <p className={styles.marqueeClose}>
-          {t("closeBefore")}
-          <span className={styles.marqueeCloseAccent}>{t("closeAccent")}</span>
-        </p>
+        <p className={styles.marqueeClose}>{t("close")}</p>
+        <p className={styles.marqueeClose}>{t("bajada")}</p>
       </div>
     </div>
   );
