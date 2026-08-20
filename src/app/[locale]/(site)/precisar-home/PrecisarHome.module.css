@@ -260,11 +260,11 @@
 
 .marqueeHeadline {
   margin: 0;
-  max-width: 42rem;
+  max-width: min(66rem, 100%);
   font-family: var(--font-display-family), var(--font-display), system-ui, sans-serif;
-  font-size: clamp(1.95rem, 5.2vw, 4.65rem);
+  font-size: clamp(1.7rem, 4.2vw, 3.25rem);
   font-weight: 800;
-  line-height: 1.02;
+  line-height: 1.05;
   letter-spacing: -0.035em;
   text-transform: none;
   color: var(--mist);
@@ -272,8 +272,8 @@
 
 @media (min-width: 768px) {
   .marqueeHeadline {
-    max-width: 56rem;
-    font-size: clamp(2.5rem, 6vw, 4.85rem);
+    max-width: min(72rem, 100%);
+    font-size: clamp(2.15rem, 4.6vw, 3.55rem);
   }
 }
 
@@ -293,14 +293,14 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: 0;
-  margin-top: 1.75rem;
+  margin-top: 1.15rem;
 }
 
 @media (min-width: 768px) {
   .marqueeGrid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 0;
-    margin-top: 2.15rem;
+    margin-top: 1.35rem;
   }
 }
 
@@ -360,7 +360,7 @@
 }
 
 .marqueeClose {
-  margin: 1.75rem 0 0;
+  margin: 1.15rem 0 0;
   max-width: 40rem;
   font-family: var(--font-body);
   font-size: 1.1875rem;

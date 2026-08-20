@@ -1060,6 +1060,18 @@
   }
 }
 
+/* El titular largo no debe quedar recortado arriba (flex center + overflow hidden). */
+:global(#recorrido) .participaPanelBody {
+  justify-content: flex-start;
+  padding-top: calc(var(--header-h, 5rem) + 0.85rem);
+}
+
+@media (min-width: 768px) {
+  :global(#recorrido) .participaPanelBody {
+    padding-top: calc(var(--header-h-md, 7.75rem) + 0.35rem);
+  }
+}
+
 /* Hueco crema entre la tarjeta oscura y 01 · Programas. */
 :global(#programas) {
   margin-top: 1.5rem;
