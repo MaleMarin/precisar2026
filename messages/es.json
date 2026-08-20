@@ -205,14 +205,14 @@
     "cultura": "Cultura"
   },
   "homeMarquee": {
-    "chunks": [
-      ["La información no llega sola"],
-      ["Un medio", "selecciona"],
-      ["Una institución", "comunica"],
-      ["Una plataforma", "ordena"],
-      ["Un algoritmo", "prioriza"],
-      ["Una IA", "genera"],
-      ["Comprender también es entender cómo llegó hasta ti"]
+    "headline": "La información no llega sola.",
+    "lead": "Comprender también es entender cómo llegó hasta ti.",
+    "items": [
+      { "actor": "Un medio", "action": "selecciona" },
+      { "actor": "Una institución", "action": "comunica", "desktopOnly": true },
+      { "actor": "Una plataforma", "action": "ordena" },
+      { "actor": "Un algoritmo", "action": "prioriza" },
+      { "actor": "Una IA", "action": "genera" }
     ]
   },
   "culturaDigitalPage": {

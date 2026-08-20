@@ -205,14 +205,14 @@
     "cultura": "Culture"
   },
   "homeMarquee": {
-    "chunks": [
-      ["Information does not arrive on its own"],
-      ["A medium", "selects"],
-      ["An institution", "communicates"],
-      ["A platform", "orders"],
-      ["An algorithm", "prioritizes"],
-      ["An AI", "generates"],
-      ["Understanding also means understanding how it reached you"]
+    "headline": "Information does not arrive on its own.",
+    "lead": "Understanding also means understanding how it reached you.",
+    "items": [
+      { "actor": "A medium", "action": "selects" },
+      { "actor": "An institution", "action": "communicates", "desktopOnly": true },
+      { "actor": "A platform", "action": "orders" },
+      { "actor": "An algorithm", "action": "prioritizes" },
+      { "actor": "An AI", "action": "generates" }
     ]
   },
   "culturaDigitalPage": {

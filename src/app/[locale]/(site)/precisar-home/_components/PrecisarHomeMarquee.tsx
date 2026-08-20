@@ -1,47 +1,47 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { MARQUEE_CHUNKS_FALLBACK, type MarqueeChunk } from "./constants";
+import { MARQUEE_ITEMS_FALLBACK, type MarqueeItem } from "./constants";
 import styles from "../PrecisarHome.module.css";
 
-function parseChunks(raw: unknown): readonly MarqueeChunk[] {
-  if (!Array.isArray(raw) || raw.length === 0) return MARQUEE_CHUNKS_FALLBACK;
+function parseItems(raw: unknown): readonly MarqueeItem[] {
+  if (!Array.isArray(raw) || raw.length === 0) return MARQUEE_ITEMS_FALLBACK;
   const ok = raw.every(
-    (p) =>
-      Array.isArray(p) &&
-      p.length >= 1 &&
-      typeof p[0] === "string" &&
-      (p.length === 1 || typeof p[1] === "string"),
+    (item) =>
+      item &&
+      typeof item === "object" &&
+      typeof (item as MarqueeItem).actor === "string" &&
+      typeof (item as MarqueeItem).action === "string",
   );
-  return ok ? (raw as MarqueeChunk[]) : MARQUEE_CHUNKS_FALLBACK;
+  return ok ? (raw as MarqueeItem[]) : MARQUEE_ITEMS_FALLBACK;
 }
 
 export function PrecisarHomeMarquee() {
   const t = useTranslations("homeMarquee");
-  const chunks = parseChunks(t.raw("chunks"));
-  const marqueeRepeat = [...chunks, ...chunks];
+  const items = parseItems(t.raw("items"));
+  const track = [...items, ...items];
 
   return (
-    <div className={styles.marqueeWrap} aria-hidden>
-      <div className={styles.marqueeTrack}>
-        {marqueeRepeat.map((pair, i) => {
-          const lead = pair[0];
-          const action = pair.length > 1 ? pair[1] : undefined;
-          return (
-            <div key={`${lead}-${action ?? ""}-${i}`} className={styles.marqueeInner}>
-              <span>
-                {lead}
-                {action ? (
-                  <>
-                    {" "}
-                    · <span className={styles.marqueeAction}>{action}</span>
-                  </>
-                ) : null}
-              </span>{" "}
-              <span style={{ opacity: 0.35 }}>—</span>
-            </div>
-          );
-        })}
+    <div className={styles.marqueeWrap}>
+      <div className={styles.marqueeLayout}>
+        <div className={styles.marqueeFixed}>
+          <p className={styles.marqueeHeadline}>{t("headline")}</p>
+          <p className={styles.marqueeLead}>{t("lead")}</p>
+        </div>
+        <div className={styles.marqueeRail} aria-hidden>
+          <div className={styles.marqueeTrack}>
+            {track.map((item, i) => (
+              <span
+                key={`${item.actor}-${item.action}-${i}`}
+                className={item.desktopOnly ? styles.marqueeItemDesktop : styles.marqueeItem}
+              >
+                <span className={styles.marqueeActor}>{item.actor}</span>{" "}
+                <span className={styles.marqueeAction}>{item.action}</span>
+                <span className={styles.marqueeSep}> · </span>
+              </span>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );
