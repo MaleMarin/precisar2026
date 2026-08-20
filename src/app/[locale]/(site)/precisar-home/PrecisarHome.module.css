@@ -242,17 +242,10 @@
 
 .marqueeWrap {
   position: relative;
-  border-top: 1px solid color-mix(in oklab, var(--slate) 25%, transparent);
-  border-bottom: 1px solid color-mix(in oklab, var(--slate) 25%, transparent);
-  background: color-mix(in oklab, var(--void) 92%, var(--navy));
-  padding: 2.5rem 0;
-  overflow: hidden;
-}
-
-@media (min-width: 768px) {
-  .marqueeWrap {
-    padding: 2.75rem 0 3rem;
-  }
+  width: 100%;
+  padding: 0;
+  overflow: visible;
+  background: transparent;
 }
 
 .marqueeLayout {
@@ -262,7 +255,7 @@
   width: 100%;
   max-width: var(--max);
   margin: 0 auto;
-  padding: 0 var(--gutter);
+  padding: 0;
 }
 
 .marqueeHeadline {

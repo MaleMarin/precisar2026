@@ -510,12 +510,15 @@ export type MotionStackPanelsProps = {
   omitFooter?: boolean;
   /** Si true, se atenúan animaciones (respeta preferencia del sistema si no se pasa). */
   reduceMotion?: boolean;
+  /** Primera sesión editorial (franja oscura bajo la Hero), con el mismo stack que el resto. */
+  introPanel?: ReactNode;
 };
 
 export function MotionStackPanels({
   featuredArticles,
   omitFooter = false,
   reduceMotion: reduceMotionProp,
+  introPanel,
 }: MotionStackPanelsProps) {
   const systemReduceMotion = useReducedMotion() ?? false;
   const reduceMotion = reduceMotionProp ?? systemReduceMotion;
@@ -566,6 +569,19 @@ export function MotionStackPanels({
   const footerCols = FOOTER_COLUMNS;
 
   const panels = [
+    ...(introPanel
+      ? [
+          {
+            id: "recorrido",
+            theme: "dark" as const,
+            kicker: "",
+            headline: "",
+            body: "",
+            editorialContent: introPanel,
+            editorialHeight: "standard" as const,
+          },
+        ]
+      : []),
     {
       id: "programas",
       theme: "light" as const,

@@ -2,6 +2,7 @@
 
 import { articlesSortedByDate } from "@/data/articles";
 import { MotionStackPanels } from "@/components/motion/MotionStackPanels";
+import { PrecisarHomeMarquee } from "./PrecisarHomeMarquee";
 
 /**
  * Paneles full-viewport que se van apilando al hacer scroll (sesiones tipo “archivos”).
@@ -19,6 +20,7 @@ export function PrecisarHomeStackPanelsSection({ reduceMotion = false }: { reduc
         featuredArticles={featured}
         omitFooter
         reduceMotion={reduceMotion}
+        introPanel={<PrecisarHomeMarquee />}
       />
     </section>
   );
