@@ -27,6 +27,13 @@
   font-family: var(--font-display), system-ui, sans-serif;
 }
 
+/* globals.css pone Avenir Next en `span`; el titular vive en spans y debe heredar Syne. */
+.headline span {
+  font-family: inherit;
+  font-weight: inherit;
+  letter-spacing: inherit;
+}
+
 /* Home / hero inmersivo (tamaño display grande) */
 .scaleHome {
   line-height: 1.08;
@@ -55,9 +62,9 @@
   font-variant: normal;
 }
 
-/* Portada Precisar: misma voz tipográfica que #recorrido / Programas (Syne 800). */
+/* Portada Precisar: misma regla que #recorrido / Programas (.displayTitle). */
 .scalePrecisarHome {
-  font-size: clamp(2.5rem, 6vw, 4.85rem);
+  font-size: var(--stack-panel-title-size, clamp(2.5rem, 6vw, 4.85rem));
   font-weight: 800;
   line-height: 1.02;
   letter-spacing: -0.035em;
@@ -66,8 +73,13 @@
 }
 
 .scalePrecisarHome .line1Light,
-.scalePrecisarHome .line1Dark {
+.scalePrecisarHome .line1Dark,
+.scalePrecisarHome .line2,
+.scalePrecisarHome .verbWord {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-weight: 800;
   line-height: 1.02;
+  letter-spacing: -0.035em;
 }
 
 .scalePrecisarHome .line2 {
