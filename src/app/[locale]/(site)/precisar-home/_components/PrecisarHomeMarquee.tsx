@@ -10,8 +10,8 @@ type BandGroup = {
 
 const GROUPS_FALLBACK: readonly BandGroup[] = [
   { action: "Seleccionada y comunicada", by: "por medios e instituciones" },
-  { action: "Ordenada y priorizada", by: "por plataformas y algoritmos" },
-  { action: "Resumida o generada", by: "por inteligencia artificial" },
+  { action: "Ordenada y recomendada", by: "por plataformas y algoritmos" },
+  { action: "Resumida o generada", by: "por sistemas de inteligencia artificial" },
 ];
 
 function parseGroups(raw: unknown): readonly BandGroup[] {

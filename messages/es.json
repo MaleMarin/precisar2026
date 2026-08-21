@@ -205,16 +205,16 @@
     "cultura": "Cultura"
   },
   "homeMarquee": {
-    "headline": "La información que recibes ya pasó por decisiones.",
-    "headlineLines": ["La información", "que recibes ya pasó", "por decisiones."],
+    "headline": "La información no llega sola.",
+    "headlineLines": ["La información", "no llega sola."],
     "bridgeBefore": "Para ",
     "bridgeName": "Precisar",
-    "bridgeAfter": ", usar tecnología también es comprender la información.",
+    "bridgeAfter": ", usar tecnología con criterio empieza por comprender la información y cómo llega a ti.",
     "lead": "Antes de llegar a ti, puede haber sido:",
     "groups": [
       { "action": "Seleccionada y comunicada", "by": "por medios e instituciones" },
-      { "action": "Ordenada y priorizada", "by": "por plataformas y algoritmos" },
-      { "action": "Resumida o generada", "by": "por inteligencia artificial" }
+      { "action": "Ordenada y recomendada", "by": "por plataformas y algoritmos" },
+      { "action": "Resumida o generada", "by": "por sistemas de inteligencia artificial" }
     ]
   },
   "culturaDigitalPage": {

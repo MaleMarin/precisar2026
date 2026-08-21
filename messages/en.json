@@ -205,16 +205,16 @@
     "cultura": "Culture"
   },
   "homeMarquee": {
-    "headline": "The information you receive has already passed through decisions.",
-    "headlineLines": ["The information", "you receive has already", "passed through decisions."],
+    "headline": "Information doesn't arrive on its own.",
+    "headlineLines": ["Information", "doesn't arrive on its own."],
     "bridgeBefore": "For ",
     "bridgeName": "Precisar",
-    "bridgeAfter": ", using technology also means understanding information.",
+    "bridgeAfter": ", using technology with judgment starts with understanding information and how it reaches you.",
     "lead": "Before it reaches you, it may have been:",
     "groups": [
       { "action": "Selected and communicated", "by": "by media and institutions" },
-      { "action": "Ordered and prioritized", "by": "by platforms and algorithms" },
-      { "action": "Summarized or generated", "by": "by artificial intelligence" }
+      { "action": "Ordered and recommended", "by": "by platforms and algorithms" },
+      { "action": "Summarized or generated", "by": "by artificial intelligence systems" }
     ]
   },
   "culturaDigitalPage": {
