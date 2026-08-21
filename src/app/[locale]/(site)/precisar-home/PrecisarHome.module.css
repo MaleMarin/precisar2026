@@ -242,37 +242,57 @@
 
 /* Contenido del primer panel del stack (#recorrido): mismo card que Programas. */
 .marqueeLayout {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
   width: 100%;
   max-width: 90rem;
+  min-width: 0;
   margin: 0 auto;
   padding: 0;
   color: var(--mist);
 }
 
-@media (min-width: 1024px) {
+/* Dos columnas reales solo cuando hay aire suficiente para que el H2 no invada. */
+@media (min-width: 1100px) {
   .marqueeLayout {
-    grid-template-columns: repeat(12, minmax(0, 1fr));
-    gap: 3rem;
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    grid-template-areas:
+      "bridge ."
+      "title  list"
+      "intro  list";
+    column-gap: clamp(3rem, 5vw, 6rem);
+    row-gap: 0;
     align-items: start;
   }
-}
 
-.marqueeMain {
-  min-width: 0;
-}
+  .marqueeBridge {
+    grid-area: bridge;
+    min-width: 0;
+  }
 
-@media (min-width: 1024px) {
-  .marqueeMain {
-    grid-column: span 6;
+  .marqueeHeadline {
+    grid-area: title;
+    min-width: 0;
+  }
+
+  .marqueeLead {
+    grid-area: intro;
+    min-width: 0;
+  }
+
+  .marqueeList {
+    grid-area: list;
+    min-width: 0;
+    align-self: start;
   }
 }
 
 .marqueeBridge {
   margin: 0 0 1.75rem;
   max-width: 40rem;
+  width: 100%;
   font-family: var(--font-body);
   font-size: clamp(1rem, 1.2vw, 1.15rem);
   font-weight: 500;
@@ -288,21 +308,38 @@
   font-weight: 600;
 }
 
+/* Escala propia de #recorrido: no hereda --stack-panel-title-size (desborda la columna). */
 .marqueeHeadline {
   margin: 0;
-  max-width: var(--stack-panel-title-maxw, 42rem);
+  width: 100%;
+  max-width: 100%;
   font-family: var(--font-display), system-ui, sans-serif;
-  font-size: var(--stack-panel-title-size, clamp(1.95rem, 5.2vw, 4.65rem));
+  font-size: clamp(2.35rem, 4.1vw, 4.2rem);
   font-weight: 800;
   line-height: 1.02;
   letter-spacing: -0.035em;
   text-transform: none;
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: none;
   color: var(--mist);
+}
+
+@media (min-width: 1100px) {
+  .marqueeHeadline {
+    font-size: clamp(2.75rem, 4.3vw, 4.6rem);
+    margin: 0;
+  }
+
+  .marqueeBridge {
+    margin-bottom: 1.35rem;
+  }
 }
 
 .marqueeLead {
   margin: 1.35rem 0 0;
   max-width: 36rem;
+  width: 100%;
   font-family: var(--font-body);
   font-size: 0.95rem;
   font-weight: 400;
@@ -316,20 +353,23 @@
 .marqueeList {
   display: flex;
   flex-direction: column;
+  width: 100%;
   min-width: 0;
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-@media (min-width: 1024px) {
+@media (max-width: 1099.98px) {
   .marqueeList {
-    grid-column: span 6;
+    margin-top: 2.5rem;
   }
 }
 
 .marqueeItem {
   margin: 0;
+  width: 100%;
+  min-width: 0;
   padding: 1.15rem 0 1.25rem;
   border-top: 1px solid color-mix(in oklab, var(--slate) 28%, transparent);
 }
@@ -352,17 +392,30 @@
 
 .marqueeAction {
   margin: 0;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
   font-family: var(--font-display), system-ui, sans-serif;
-  font-size: clamp(1.45rem, 2vw, 2.1rem);
+  font-size: clamp(1.45rem, 2.1vw, 2.25rem);
   font-weight: 800;
-  line-height: 1.12;
+  line-height: 1.15;
   letter-spacing: -0.03em;
   text-transform: none;
+  overflow-wrap: break-word;
+  word-break: normal;
   color: var(--mist);
+}
+
+@media (min-width: 1100px) {
+  .marqueeAction {
+    font-size: clamp(1.55rem, 2.25vw, 2.55rem);
+  }
 }
 
 .marqueeBy {
   margin: 0.45rem 0 0;
+  width: 100%;
+  max-width: 100%;
   font-family: var(--font-body);
   font-size: 0.95rem;
   font-weight: 400;

@@ -33,17 +33,15 @@ export function PrecisarHomeMarquee() {
 
   return (
     <div className={styles.marqueeLayout}>
-      <div className={styles.marqueeMain}>
-        <p className={styles.marqueeBridge}>
-          {t("bridgeBefore")}
-          <span className={styles.marqueeBridgeAccent}>{t("bridgeName")}</span>
-          {t("bridgeAfter")}
-        </p>
-        <h2 id="recorrido-heading" className={styles.marqueeHeadline}>
-          {t("headline")}
-        </h2>
-        <p className={styles.marqueeLead}>{t("lead")}</p>
-      </div>
+      <p className={styles.marqueeBridge}>
+        {t("bridgeBefore")}
+        <span className={styles.marqueeBridgeAccent}>{t("bridgeName")}</span>
+        {t("bridgeAfter")}
+      </p>
+      <h2 id="recorrido-heading" className={styles.marqueeHeadline}>
+        {t("headline")}
+      </h2>
+      <p className={styles.marqueeLead}>{t("lead")}</p>
       <ol className={styles.marqueeList}>
         {groups.map((group, i) => (
           <li key={group.action} className={styles.marqueeItem}>
