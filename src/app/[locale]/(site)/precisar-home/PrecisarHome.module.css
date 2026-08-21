@@ -243,9 +243,10 @@
 .marqueeWrap {
   position: relative;
   width: 100%;
-  padding: 0;
+  background: var(--void);
+  color: var(--mist);
+  padding: 2.85rem var(--gutter) 2.65rem;
   overflow: visible;
-  background: transparent;
 }
 
 .marqueeLayout {
@@ -253,61 +254,59 @@
   flex-direction: column;
   align-items: stretch;
   width: 100%;
-  max-width: 100%;
-  margin: 0;
+  max-width: var(--max);
+  margin: 0 auto;
   padding: 0;
 }
 
 .marqueeHeadline {
   margin: 0;
-  max-width: min(66rem, 100%);
-  font-family: var(--font-display-family), var(--font-display), system-ui, sans-serif;
-  font-size: clamp(1.7rem, 4.2vw, 3.25rem);
+  max-width: 11.5em;
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: clamp(2.3rem, 3.6vw, 3.8rem);
   font-weight: 800;
   line-height: 1.05;
   letter-spacing: -0.035em;
-  text-transform: none;
+  text-transform: uppercase;
   color: var(--mist);
 }
 
-@media (min-width: 768px) {
-  .marqueeHeadline {
-    max-width: min(72rem, 100%);
-    font-size: clamp(2.15rem, 4.6vw, 3.55rem);
-  }
-}
-
 .marqueeLead {
-  margin: 1rem 0 0;
-  font-family: var(--font-mono, ui-monospace, monospace);
-  font-size: 0.625rem;
-  font-weight: 600;
+  margin: 1.25rem 0 0;
+  max-width: 36rem;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 400;
   font-style: normal;
-  line-height: 1.4;
-  letter-spacing: 0.34em;
-  text-transform: uppercase;
-  color: color-mix(in oklab, #fff 92%, transparent);
+  line-height: 1.45;
+  letter-spacing: 0.01em;
+  text-transform: none;
+  color: color-mix(in oklab, var(--mist) 62%, var(--slate));
 }
 
 .marqueeGrid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 0;
-  margin-top: 1.15rem;
+  margin-top: 1.6rem;
 }
 
 @media (min-width: 768px) {
+  .marqueeWrap {
+    padding: 3.1rem var(--gutter) 2.85rem;
+  }
+
   .marqueeGrid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 0;
-    margin-top: 1.35rem;
+    margin-top: 1.7rem;
   }
 }
 
 .marqueeCol {
   min-width: 0;
-  padding: 1.15rem 0 0;
-  border-top: 1px solid color-mix(in oklab, var(--slate) 25%, transparent);
+  padding: 1.05rem 0 0;
+  border-top: 1px solid color-mix(in oklab, var(--slate) 28%, transparent);
 }
 
 .marqueeCol:first-child {
@@ -317,9 +316,9 @@
 
 @media (min-width: 768px) {
   .marqueeCol {
-    padding: 0 0 0 2.75rem;
+    padding: 0 0 0 1.85rem;
     border-top: 0;
-    border-left: 1px solid color-mix(in oklab, var(--slate) 25%, transparent);
+    border-left: 1px solid color-mix(in oklab, var(--slate) 28%, transparent);
   }
 
   .marqueeCol:first-child {
@@ -332,12 +331,12 @@
   display: flex;
   flex-direction: column;
   margin: 0;
-  font-family: var(--font-display-family), var(--font-display), system-ui, sans-serif;
-  font-size: clamp(1.95rem, 3.2vw, 2.75rem);
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: clamp(1.5rem, 2vw, 2.2rem);
   font-weight: 800;
-  line-height: 1.02;
-  letter-spacing: -0.035em;
-  text-transform: none;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
   color: var(--mist);
 }
 
@@ -345,47 +344,31 @@
   display: block;
 }
 
-.marqueeAccent {
-  color: var(--flame);
-}
-
 .marqueeBy {
-  margin: 0.65rem 0 0;
+  margin: 0.55rem 0 0;
   font-family: var(--font-body);
-  font-size: 1.1875rem;
+  font-size: 0.95rem;
   font-weight: 400;
   font-style: normal;
-  line-height: 1.65;
-  color: rgba(255, 255, 255, 0.85);
-}
-
-.marqueeFooter {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  gap: 0.85rem;
-  width: 100%;
-  max-width: none;
-  margin-top: 1.35rem;
-  text-align: left;
+  line-height: 1.45;
+  color: color-mix(in oklab, var(--mist) 62%, var(--slate));
 }
 
 .marqueeClose {
-  margin: 0;
-  width: 100%;
-  max-width: none;
+  margin: 2rem auto 0;
+  max-width: 46rem;
   font-family: var(--font-body);
-  font-size: 1.1875rem;
-  font-weight: 400;
+  font-size: 1.125rem;
+  font-weight: 500;
   font-style: normal;
   line-height: 1.5;
-  color: rgba(255, 255, 255, 0.85);
-  text-align: left;
+  color: color-mix(in oklab, var(--mist) 78%, var(--slate));
+  text-align: center;
 }
 
 .marqueeCloseAccent {
   color: var(--flame);
-  font-weight: 400;
+  font-weight: 500;
 }
 
 .reduceMotion .hero::before,

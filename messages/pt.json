@@ -205,15 +205,16 @@
     "cultura": "Cultura"
   },
   "homeMarquee": {
-    "headline": "Toda a informação que você recebe já foi decidida por outra pessoa.",
-    "lead": "Antes de chegar até você, alguém decidiu três coisas:",
+    "headline": "A informação que você recebe já passou por decisões.",
+    "lead": "Antes de chegar até você, pode ter sido:",
     "groups": [
-      { "line1": "O que contar e o que deixar de fora", "line2": "", "accent": "line1", "by": "meios e instituições" },
-      { "line1": "O que mostrar primeiro", "line2": "", "accent": "line1", "by": "plataformas e algoritmos" },
-      { "line1": "Como resumir ou criar do zero", "line2": "", "accent": "line1", "by": "inteligência artificial" }
+      { "line1": "Selecionada", "line2": "e comunicada", "by": "por meios e instituições" },
+      { "line1": "Ordenada", "line2": "e priorizada", "by": "por plataformas e algoritmos" },
+      { "line1": "Resumida", "line2": "ou gerada", "by": "por inteligência artificial" }
     ],
-    "close": "Sem conhecer esse percurso da informação, você não tem tudo claro. Só a parte que alguém decidiu mostrar.",
-    "bajada": "Conectados, há milhões. Com critério, ainda faltam muitos. Na Precisar, não dizemos o que pensar: damos ferramentas para você pensar com critério próprio."
+    "closeBefore": "Compreender a informação também é entender ",
+    "closeAccent": "o que aconteceu antes",
+    "closeAfter": " de chegar até você."
   },
   "culturaDigitalPage": {
     "metaTitle": "Cultura Digital · Tiras",

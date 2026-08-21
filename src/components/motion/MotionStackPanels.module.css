@@ -1047,18 +1047,6 @@
   transform: scale(0.97) translateY(-8px);
 }
 
-/* El titular largo no debe quedar recortado arriba (flex center + overflow hidden). */
-:global(#recorrido) .participaPanelBody {
-  justify-content: flex-start;
-  padding-top: calc(var(--header-h, 5rem) + 0.85rem);
-}
-
-@media (min-width: 768px) {
-  :global(#recorrido) .participaPanelBody {
-    padding-top: calc(var(--header-h-md, 7.75rem) + 0.35rem);
-  }
-}
-
 /* Programas: el card (cristal) llena la columna derecha; nada queda recortado por el sticky — el exceso scroll dentro del card. */
 :global(#programas) .stickyPanel {
   display: flex;
