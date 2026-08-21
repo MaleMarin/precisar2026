@@ -212,9 +212,9 @@
       { "line1": "Ordenada", "line2": "e priorizada", "by": "por plataformas e algoritmos" },
       { "line1": "Resumida", "line2": "ou gerada", "by": "por inteligência artificial" }
     ],
-    "closeBefore": "Compreender a informação também é entender ",
-    "closeAccent": "o que aconteceu antes",
-    "closeAfter": " de chegar até você."
+    "closeBefore": "",
+    "closeAccent": "Compreender a informação",
+    "closeAfter": " também é entender o que aconteceu antes de chegar até você."
   },
   "culturaDigitalPage": {
     "metaTitle": "Cultura Digital · Tiras",

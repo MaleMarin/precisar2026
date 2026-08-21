@@ -212,9 +212,9 @@
       { "line1": "Ordered", "line2": "and prioritized", "by": "by platforms and algorithms" },
       { "line1": "Summarized", "line2": "or generated", "by": "by artificial intelligence" }
     ],
-    "closeBefore": "Understanding information also means understanding ",
-    "closeAccent": "what happened before",
-    "closeAfter": " it reached you."
+    "closeBefore": "",
+    "closeAccent": "Understanding information",
+    "closeAfter": " also means understanding what happened before it reached you."
   },
   "culturaDigitalPage": {
     "metaTitle": "Digital Culture · Strips",
