@@ -2,7 +2,7 @@
 
 import { motion, useReducedMotion, useScroll, useSpring, useTransform } from "framer-motion";
 import NextLink from "next/link";
-import { Fragment, useMemo, useRef, type ComponentType, type ReactNode } from "react";
+import { useMemo, useRef, type ComponentType, type ReactNode } from "react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { PRECISANDO_ARTICLES_UNDER_CONSTRUCTION } from "@/lib/precisando-access";
@@ -22,20 +22,6 @@ function RecorridoBridge() {
       <span className={styles.recorridoBridgeAccent}>{t("bridgeName")}</span>
       {t("bridgeAfter")}
     </p>
-  );
-}
-
-function RecorridoClose() {
-  const t = useTranslations("homeMarquee");
-
-  return (
-    <div className={styles.recorridoCloseBand}>
-      <p className={styles.recorridoCloseText}>
-        {t("closeBefore")}
-        <span className={styles.recorridoCloseCause}>{t("closeCause")}</span>
-        {t("closeAfter")}
-      </p>
-    </div>
   );
 }
 
@@ -704,28 +690,26 @@ export function MotionStackPanels({
     <div className={styles.stackRoot}>
       <div>
         {panels.map((panel, index) => (
-          <Fragment key={panel.id}>
-            <StackPanel
-              id={panel.id}
-              index={index}
-              total={total}
-              theme={panel.theme}
-              kicker={panel.kicker}
-              label={panel.label}
-              headline={panel.headline}
-              body={panel.body}
-              icon={panel.icon}
-              reduceMotion={reduceMotion}
-              preHeadline={"preHeadline" in panel ? panel.preHeadline : undefined}
-              editorialContent={
-                ("editorialContent" in panel ? panel.editorialContent : undefined) as ReactNode | undefined
-              }
-              editorialHeight={"editorialHeight" in panel ? panel.editorialHeight : "tall"}
-            >
-              {"child" in panel ? panel.child : undefined}
-            </StackPanel>
-            {panel.id === "recorrido" ? <RecorridoClose /> : null}
-          </Fragment>
+          <StackPanel
+            key={panel.id}
+            id={panel.id}
+            index={index}
+            total={total}
+            theme={panel.theme}
+            kicker={panel.kicker}
+            label={panel.label}
+            headline={panel.headline}
+            body={panel.body}
+            icon={panel.icon}
+            reduceMotion={reduceMotion}
+            preHeadline={"preHeadline" in panel ? panel.preHeadline : undefined}
+            editorialContent={
+              ("editorialContent" in panel ? panel.editorialContent : undefined) as ReactNode | undefined
+            }
+            editorialHeight={"editorialHeight" in panel ? panel.editorialHeight : "tall"}
+          >
+            {"child" in panel ? panel.child : undefined}
+          </StackPanel>
         ))}
 
         {!omitFooter ? (

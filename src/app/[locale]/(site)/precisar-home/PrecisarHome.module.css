@@ -256,10 +256,13 @@
 /* Columna derecha de `#recorrido`: misma geometría de lista que Programas, theme oscuro, sin caja ni flechas. */
 .marqueeAside {
   display: flex;
+  flex: 1 1 auto;
   flex-direction: column;
   align-items: stretch;
   width: 100%;
+  height: 100%;
   min-width: 0;
+  min-height: 0;
   margin: 0;
   padding: 0;
 }
@@ -324,6 +327,28 @@
   letter-spacing: 0.005em;
   line-height: 1.45;
   color: color-mix(in oklab, var(--mist) 36%, transparent);
+}
+
+.marqueeClose {
+  flex-shrink: 0;
+  margin: auto 0 0;
+  padding-top: clamp(1.5rem, 3vw, 2.25rem);
+  width: 100%;
+  max-width: 100%;
+  font-family: var(--font-body);
+  font-size: var(--recorrido-copy-size, clamp(0.97rem, 1.05vw, 1.0625rem));
+  font-weight: 500;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: 0.005em;
+  text-transform: none;
+  overflow-wrap: break-word;
+  color: var(--mist);
+}
+
+.marqueeCloseCause {
+  color: #db5227;
+  font-weight: 500;
 }
 
 .reduceMotion .hero::before,
