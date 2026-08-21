@@ -206,15 +206,16 @@
   },
   "homeMarquee": {
     "headline": "The information you receive has already passed through decisions.",
+    "bridgeBefore": "That’s why, at ",
+    "bridgeName": "Precisar",
+    "bridgeAfter": ", we work to help you better understand how information reaches your life.",
     "lead": "Before it reaches you, it may have been:",
     "groups": [
       { "line1": "Selected", "line2": "and communicated", "by": "by media and institutions" },
       { "line1": "Ordered", "line2": "and prioritized", "by": "by platforms and algorithms" },
       { "line1": "Summarized", "line2": "or generated", "by": "by artificial intelligence" }
     ],
-    "closeBefore": "",
-    "closeAccent": "Understanding information",
-    "closeAfter": " also means understanding what happened before it reached you."
+    "close": "Precisar strengthens capacities to understand information, assess it, and use it with more judgment."
   },
   "culturaDigitalPage": {
     "metaTitle": "Digital Culture · Strips",

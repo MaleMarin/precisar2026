@@ -39,6 +39,11 @@ export function PrecisarHomeMarquee() {
           <h2 id="recorrido-heading" className={styles.marqueeHeadline}>
             {t("headline")}
           </h2>
+          <p className={styles.marqueeBridge}>
+            {t("bridgeBefore")}
+            <span className={styles.marqueeBridgeAccent}>{t("bridgeName")}</span>
+            {t("bridgeAfter")}
+          </p>
           <p className={styles.marqueeLead}>{t("lead")}</p>
           <div className={styles.marqueeGrid}>
             {groups.map((group) => (
@@ -51,11 +56,7 @@ export function PrecisarHomeMarquee() {
               </div>
             ))}
           </div>
-          <p className={styles.marqueeClose}>
-            {t("closeBefore")}
-            <span className={styles.marqueeCloseAccent}>{t("closeAccent")}</span>
-            {t("closeAfter")}
-          </p>
+          <p className={styles.marqueeClose}>{t("close")}</p>
         </div>
       </section>
     </div>

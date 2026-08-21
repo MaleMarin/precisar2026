@@ -285,8 +285,25 @@
   color: var(--mist);
 }
 
+.marqueeBridge {
+  margin: 1.2rem 0 0;
+  max-width: 40rem;
+  font-family: var(--font-body);
+  font-size: clamp(1.05rem, 1.4vw, 1.22rem);
+  font-weight: 500;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: 0.005em;
+  color: color-mix(in oklab, var(--mist) 88%, var(--slate));
+}
+
+.marqueeBridgeAccent {
+  color: #db5227;
+  font-weight: 600;
+}
+
 .marqueeLead {
-  margin: 1.25rem 0 0;
+  margin: 1.85rem 0 0;
   max-width: 36rem;
   font-family: var(--font-body);
   font-size: 0.95rem;
@@ -369,20 +386,17 @@
 }
 
 .marqueeClose {
-  margin: 2rem auto 0;
-  max-width: 46rem;
+  margin: 2.35rem 0 0;
+  max-width: 48rem;
+  padding-top: 1.45rem;
+  border-top: 1px solid color-mix(in oklab, var(--slate) 28%, transparent);
   font-family: var(--font-body);
-  font-size: 1.125rem;
+  font-size: clamp(1rem, 1.2vw, 1.1rem);
   font-weight: 500;
   font-style: normal;
   line-height: 1.5;
-  color: color-mix(in oklab, var(--mist) 78%, var(--slate));
-  text-align: center;
-}
-
-.marqueeClose .marqueeCloseAccent {
-  color: #db5227;
-  font-weight: 600;
+  color: color-mix(in oklab, var(--mist) 82%, var(--slate));
+  text-align: left;
 }
 
 .reduceMotion .hero::before,
