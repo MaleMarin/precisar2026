@@ -4,15 +4,14 @@ import { useTranslations } from "next-intl";
 import styles from "../PrecisarHome.module.css";
 
 type BandGroup = {
-  line1: string;
-  line2: string;
+  action: string;
   by: string;
 };
 
 const GROUPS_FALLBACK: readonly BandGroup[] = [
-  { line1: "Seleccionada", line2: "y comunicada", by: "por medios e instituciones" },
-  { line1: "Ordenada", line2: "y priorizada", by: "por plataformas y algoritmos" },
-  { line1: "Resumida", line2: "o generada", by: "por inteligencia artificial" },
+  { action: "Seleccionada y comunicada", by: "por medios e instituciones" },
+  { action: "Ordenada y priorizada", by: "por plataformas y algoritmos" },
+  { action: "Resumida o generada", by: "por inteligencia artificial" },
 ];
 
 function parseGroups(raw: unknown): readonly BandGroup[] {
@@ -21,8 +20,7 @@ function parseGroups(raw: unknown): readonly BandGroup[] {
     (item) =>
       item &&
       typeof item === "object" &&
-      typeof (item as BandGroup).line1 === "string" &&
-      typeof (item as BandGroup).line2 === "string" &&
+      typeof (item as BandGroup).action === "string" &&
       typeof (item as BandGroup).by === "string",
   );
   return ok ? (raw as BandGroup[]) : GROUPS_FALLBACK;
@@ -35,27 +33,28 @@ export function PrecisarHomeMarquee() {
 
   return (
     <div className={styles.marqueeLayout}>
-      <h2 id="recorrido-heading" className={styles.marqueeHeadline}>
-        {t("headline")}
-      </h2>
-      <p className={styles.marqueeBridge}>
-        {t("bridgeBefore")}
-        <span className={styles.marqueeBridgeAccent}>{t("bridgeName")}</span>
-        {t("bridgeAfter")}
-      </p>
-      <p className={styles.marqueeLead}>{t("lead")}</p>
-      <div className={styles.marqueeGrid}>
-        {groups.map((group) => (
-          <div key={group.line1} className={styles.marqueeCol}>
-            <p className={styles.marqueeAction}>
-              <span>{group.line1}</span>
-              <span>{group.line2}</span>
-            </p>
-            <p className={styles.marqueeBy}>{group.by}</p>
-          </div>
-        ))}
+      <div className={styles.marqueeMain}>
+        <p className={styles.marqueeBridge}>
+          {t("bridgeBefore")}
+          <span className={styles.marqueeBridgeAccent}>{t("bridgeName")}</span>
+          {t("bridgeAfter")}
+        </p>
+        <h2 id="recorrido-heading" className={styles.marqueeHeadline}>
+          {t("headline")}
+        </h2>
+        <p className={styles.marqueeLead}>{t("lead")}</p>
       </div>
-      <p className={styles.marqueeClose}>{t("close")}</p>
+      <ol className={styles.marqueeList}>
+        {groups.map((group, i) => (
+          <li key={group.action} className={styles.marqueeItem}>
+            <span className={styles.marqueeIndex} aria-hidden>
+              {String(i + 1).padStart(2, "0")}
+            </span>
+            <p className={styles.marqueeAction}>{group.action}</p>
+            <p className={styles.marqueeBy}>{group.by}</p>
+          </li>
+        ))}
+      </ol>
     </div>
   );
 }

@@ -206,16 +206,15 @@
   },
   "homeMarquee": {
     "headline": "La información que recibes ya pasó por decisiones.",
-    "bridgeBefore": "Por eso, en ",
+    "bridgeBefore": "Para ",
     "bridgeName": "Precisar",
-    "bridgeAfter": " trabajamos para ayudarte a comprender mejor cómo llega la información a tu vida.",
+    "bridgeAfter": ", usar tecnología también es comprender la información.",
     "lead": "Antes de llegar a ti, puede haber sido:",
     "groups": [
-      { "line1": "Seleccionada", "line2": "y comunicada", "by": "por medios e instituciones" },
-      { "line1": "Ordenada", "line2": "y priorizada", "by": "por plataformas y algoritmos" },
-      { "line1": "Resumida", "line2": "o generada", "by": "por inteligencia artificial" }
-    ],
-    "close": "Precisar fortalece capacidades para comprender la información, evaluarla y usarla con más criterio."
+      { "action": "Seleccionada y comunicada", "by": "por medios e instituciones" },
+      { "action": "Ordenada y priorizada", "by": "por plataformas y algoritmos" },
+      { "action": "Resumida o generada", "by": "por inteligencia artificial" }
+    ]
   },
   "culturaDigitalPage": {
     "metaTitle": "Cultura Digital · Tiras",

@@ -206,16 +206,15 @@
   },
   "homeMarquee": {
     "headline": "A informação que você recebe já passou por decisões.",
-    "bridgeBefore": "Por isso, no ",
+    "bridgeBefore": "Para ",
     "bridgeName": "Precisar",
-    "bridgeAfter": " trabalhamos para ajudar você a compreender melhor como a informação chega à sua vida.",
+    "bridgeAfter": ", usar tecnologia também é compreender a informação.",
     "lead": "Antes de chegar até você, pode ter sido:",
     "groups": [
-      { "line1": "Selecionada", "line2": "e comunicada", "by": "por meios e instituições" },
-      { "line1": "Ordenada", "line2": "e priorizada", "by": "por plataformas e algoritmos" },
-      { "line1": "Resumida", "line2": "ou gerada", "by": "por inteligência artificial" }
-    ],
-    "close": "O Precisar fortalece capacidades para compreender a informação, avaliá-la e usá-la com mais critério."
+      { "action": "Selecionada e comunicada", "by": "por meios e instituições" },
+      { "action": "Ordenada e priorizada", "by": "por plataformas e algoritmos" },
+      { "action": "Resumida ou gerada", "by": "por inteligência artificial" }
+    ]
   },
   "culturaDigitalPage": {
     "metaTitle": "Cultura Digital · Tiras",
