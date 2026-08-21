@@ -3,6 +3,7 @@
 import { articlesSortedByDate } from "@/data/articles";
 import { MotionStackPanels } from "@/components/motion/MotionStackPanels";
 import { RecorridoList } from "./PrecisarHomeMarquee";
+import styles from "../PrecisarHome.module.css";
 
 /**
  * Paneles full-viewport que se van apilando al hacer scroll (sesiones tipo “archivos”).
