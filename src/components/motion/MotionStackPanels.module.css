@@ -360,7 +360,7 @@
   margin: 0 0 1rem;
   max-width: 40rem;
   font-family: var(--font-body, system-ui, sans-serif);
-  font-size: clamp(1.15rem, 1.55vw, 1.5rem);
+  font-size: var(--recorrido-copy-size, 1.1875rem);
   font-weight: 500;
   line-height: 1.45;
   letter-spacing: 0.005em;
@@ -369,6 +369,7 @@
 
 .recorridoBridgeAccent {
   font-family: inherit;
+  font-size: inherit;
   font-weight: 500;
   color: #db5227;
 }
@@ -1065,6 +1066,10 @@
 }
 
 /* Recorrido: misma cadena flex / grilla que Programas (titular .displayTitle + aside). */
+:global(#recorrido) {
+  --recorrido-copy-size: 1.1875rem;
+}
+
 :global(#recorrido) .stickyPanel {
   display: flex;
   flex-direction: column;
