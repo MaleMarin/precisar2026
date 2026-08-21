@@ -55,23 +55,24 @@
   font-variant: normal;
 }
 
-/* Portada Precisar: un escalón por encima de Explora, alineado al hero inmersivo */
+/* Portada Precisar: misma voz tipográfica que #recorrido / Programas (Syne 800). */
 .scalePrecisarHome {
-  font-size: clamp(2.85rem, 8.85vw, 5.75rem);
-  line-height: 1.06;
-  letter-spacing: -0.048em;
+  font-size: clamp(2.5rem, 6vw, 4.85rem);
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: -0.035em;
   text-transform: none;
   font-variant: normal;
 }
 
 .scalePrecisarHome .line1Light,
 .scalePrecisarHome .line1Dark {
-  line-height: 1.18;
+  line-height: 1.02;
 }
 
 .scalePrecisarHome .line2 {
-  margin-top: 0.1em;
-  font-size: 1.09em;
+  margin-top: 0.08em;
+  font-size: 1em;
 }
 
 /* Explora: corte fijo tras “Potencia el uso” — segunda línea “de la tecnología.” (ver TSX) */
@@ -86,14 +87,6 @@
   font-size: 1.06em;
 }
 
-/* Portada: “Potencia el uso de la tecnología.” — misma familia que la lista derecha del stack (.miniLabel / DM Sans). */
-.line1PrecisarList {
-  font-family: var(--font-sans-family), system-ui, sans-serif;
-  font-weight: 600;
-  letter-spacing: -0.02em;
-}
-
-.line1Light {
   display: block;
   color: #0a0a0c;
 }
