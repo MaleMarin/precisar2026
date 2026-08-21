@@ -1111,11 +1111,10 @@
   flex: 1 1 auto;
   min-height: 0;
   min-width: 0;
-  height: 100%;
   display: flex;
   flex-direction: column;
   overflow-x: hidden;
-  overflow-y: auto;
+  overflow-y: visible;
 }
 
 /* Programas: el card (cristal) llena la columna derecha; nada queda recortado por el sticky — el exceso scroll dentro del card. */
