@@ -12,6 +12,7 @@ export function PrecisarHomeClient() {
   return (
     <div className={rootClass}>
       <PrecisarHomeHero />
+      <div className={styles.heroStackBreak} aria-hidden />
       <PrecisarHomeStackPanelsSection reduceMotion={reduceMotion} />
     </div>
   );
