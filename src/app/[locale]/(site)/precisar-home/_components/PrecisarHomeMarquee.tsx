@@ -48,11 +48,6 @@ export function RecorridoList() {
           </li>
         ))}
       </ol>
-      <p className={styles.marqueeClose}>
-        {t("closeBefore")}
-        <span className={styles.marqueeCloseCause}>{t("closeCause")}</span>
-        {t("closeAfter")}
-      </p>
     </div>
   );
 }
