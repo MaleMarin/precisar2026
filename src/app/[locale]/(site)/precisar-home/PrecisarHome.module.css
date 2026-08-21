@@ -252,17 +252,30 @@
   padding: 0;
 }
 
+.marqueeLead,
+.marqueeAction,
+.marqueeBy {
+  margin: 0;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: clamp(1.15rem, 1.55vw, 1.5rem);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  text-transform: none;
+  overflow-wrap: break-word;
+  color: var(--mist);
+}
+
 .marqueeLead {
   margin: 0 0 1.75rem;
-  max-width: 100%;
-  font-family: var(--font-body);
-  font-size: clamp(1rem, 1.1vw, 1.125rem);
-  font-weight: 500;
-  font-style: normal;
-  line-height: 1.5;
-  letter-spacing: 0.005em;
-  text-transform: none;
-  color: color-mix(in oklab, var(--mist) 88%, transparent);
+}
+
+.marqueeBy {
+  margin: 0.35rem 0 0;
+  color: color-mix(in oklab, var(--mist) 62%, transparent);
 }
 
 .marqueeList {
@@ -298,33 +311,6 @@
   letter-spacing: 0.14em;
   line-height: 1;
   color: color-mix(in oklab, var(--mist) 36%, transparent);
-}
-
-.marqueeAction {
-  margin: 0;
-  width: 100%;
-  max-width: 100%;
-  min-width: 0;
-  font-family: var(--font-display), system-ui, sans-serif;
-  font-size: clamp(1.15rem, 1.55vw, 1.5rem);
-  font-weight: 800;
-  line-height: 1.2;
-  letter-spacing: -0.03em;
-  text-transform: none;
-  overflow-wrap: break-word;
-  color: var(--mist);
-}
-
-.marqueeBy {
-  margin: 0.35rem 0 0;
-  width: 100%;
-  max-width: 100%;
-  font-family: var(--font-body);
-  font-size: 0.95rem;
-  font-weight: 400;
-  font-style: normal;
-  line-height: 1.45;
-  color: color-mix(in oklab, var(--mist) 58%, transparent);
 }
 
 .reduceMotion .hero::before,
