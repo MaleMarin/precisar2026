@@ -16,7 +16,7 @@ export function PrecisarHomeStackPanelsSection({ reduceMotion = false }: { reduc
   }));
 
   return (
-    <section id="home-stack-panels" aria-label="Recorrido por secciones del sitio">
+    <section id="home-stack-panels" className={styles.stackWrap} aria-label="Recorrido por secciones del sitio">
       <MotionStackPanels
         featuredArticles={featured}
         omitFooter

@@ -37,6 +37,12 @@
   }
 }
 
+/* Marco crema entre Hero y el primer panel del stack (#recorrido), mismo 8px que entre tarjetas. */
+.stackWrap {
+  background: #e9e2d6;
+  padding-top: 8px;
+}
+
 @keyframes heroPulse {
   0%,
   100% {
