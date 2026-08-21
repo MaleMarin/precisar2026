@@ -33,29 +33,32 @@ export function PrecisarHomeMarquee() {
   const groups = parseGroups(t.raw("groups"));
 
   return (
-    <section id="recorrido" className={styles.marqueeWrap} aria-labelledby="recorrido-heading">
-      <div className={styles.marqueeLayout}>
-        <h2 id="recorrido-heading" className={styles.marqueeHeadline}>
-          {t("headline")}
-        </h2>
-        <p className={styles.marqueeLead}>{t("lead")}</p>
-        <div className={styles.marqueeGrid}>
-          {groups.map((group) => (
-            <div key={group.line1} className={styles.marqueeCol}>
-              <p className={styles.marqueeAction}>
-                <span>{group.line1}</span>
-                <span>{group.line2}</span>
-              </p>
-              <p className={styles.marqueeBy}>{group.by}</p>
-            </div>
-          ))}
+    <>
+      <div className={styles.marqueeGap} aria-hidden />
+      <section id="recorrido" className={styles.marqueeWrap} aria-labelledby="recorrido-heading">
+        <div className={styles.marqueeLayout}>
+          <h2 id="recorrido-heading" className={styles.marqueeHeadline}>
+            {t("headline")}
+          </h2>
+          <p className={styles.marqueeLead}>{t("lead")}</p>
+          <div className={styles.marqueeGrid}>
+            {groups.map((group) => (
+              <div key={group.line1} className={styles.marqueeCol}>
+                <p className={styles.marqueeAction}>
+                  <span>{group.line1}</span>
+                  <span>{group.line2}</span>
+                </p>
+                <p className={styles.marqueeBy}>{group.by}</p>
+              </div>
+            ))}
+          </div>
+          <p className={styles.marqueeClose}>
+            {t("closeBefore")}
+            <span className={styles.marqueeCloseAccent}>{t("closeAccent")}</span>
+            {t("closeAfter")}
+          </p>
         </div>
-        <p className={styles.marqueeClose}>
-          {t("closeBefore")}
-          <span className={styles.marqueeCloseAccent}>{t("closeAccent")}</span>
-          {t("closeAfter")}
-        </p>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }
