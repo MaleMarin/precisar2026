@@ -260,7 +260,7 @@
   max-width: 100%;
   min-width: 0;
   font-family: var(--font-body);
-  font-size: var(--recorrido-copy-size, 1.1875rem);
+  font-size: var(--recorrido-copy-size, clamp(0.97rem, 1.05vw, 1.0625rem));
   font-weight: 500;
   font-style: normal;
   line-height: 1.45;
@@ -307,10 +307,10 @@
   display: block;
   margin: 0 0 0.45rem;
   font-family: var(--font-body);
-  font-size: 0.625rem;
+  font-size: var(--recorrido-copy-size, clamp(0.97rem, 1.05vw, 1.0625rem));
   font-weight: 500;
-  letter-spacing: 0.08em;
-  line-height: 1;
+  letter-spacing: 0.005em;
+  line-height: 1.45;
   color: color-mix(in oklab, var(--mist) 36%, transparent);
 }
 

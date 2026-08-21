@@ -360,7 +360,7 @@
   margin: 0 0 1rem;
   max-width: 40rem;
   font-family: var(--font-body, system-ui, sans-serif);
-  font-size: var(--recorrido-copy-size, 1.1875rem);
+  font-size: var(--recorrido-copy-size, clamp(0.97rem, 1.05vw, 1.0625rem));
   font-weight: 500;
   line-height: 1.45;
   letter-spacing: 0.005em;
@@ -1067,7 +1067,7 @@
 
 /* Recorrido: misma cadena flex / grilla que Programas (titular .displayTitle + aside). */
 :global(#recorrido) {
-  --recorrido-copy-size: 1.1875rem;
+  --recorrido-copy-size: clamp(0.97rem, 1.05vw, 1.0625rem);
 }
 
 :global(#recorrido) .stickyPanel {
