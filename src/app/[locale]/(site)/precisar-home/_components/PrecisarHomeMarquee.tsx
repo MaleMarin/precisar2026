@@ -28,37 +28,34 @@ function parseGroups(raw: unknown): readonly BandGroup[] {
   return ok ? (raw as BandGroup[]) : GROUPS_FALLBACK;
 }
 
+/** Contenido del primer panel del stack (mismo card sticky que Programas). */
 export function PrecisarHomeMarquee() {
   const t = useTranslations("homeMarquee");
   const groups = parseGroups(t.raw("groups"));
 
   return (
-    <div className={styles.marqueeShell}>
-      <section id="recorrido" className={styles.marqueeWrap} aria-labelledby="recorrido-heading">
-        <div className={styles.marqueeLayout}>
-          <h2 id="recorrido-heading" className={styles.marqueeHeadline}>
-            {t("headline")}
-          </h2>
-          <p className={styles.marqueeBridge}>
-            {t("bridgeBefore")}
-            <span className={styles.marqueeBridgeAccent}>{t("bridgeName")}</span>
-            {t("bridgeAfter")}
-          </p>
-          <p className={styles.marqueeLead}>{t("lead")}</p>
-          <div className={styles.marqueeGrid}>
-            {groups.map((group) => (
-              <div key={group.line1} className={styles.marqueeCol}>
-                <p className={styles.marqueeAction}>
-                  <span>{group.line1}</span>
-                  <span>{group.line2}</span>
-                </p>
-                <p className={styles.marqueeBy}>{group.by}</p>
-              </div>
-            ))}
+    <div className={styles.marqueeLayout}>
+      <h2 id="recorrido-heading" className={styles.marqueeHeadline}>
+        {t("headline")}
+      </h2>
+      <p className={styles.marqueeBridge}>
+        {t("bridgeBefore")}
+        <span className={styles.marqueeBridgeAccent}>{t("bridgeName")}</span>
+        {t("bridgeAfter")}
+      </p>
+      <p className={styles.marqueeLead}>{t("lead")}</p>
+      <div className={styles.marqueeGrid}>
+        {groups.map((group) => (
+          <div key={group.line1} className={styles.marqueeCol}>
+            <p className={styles.marqueeAction}>
+              <span>{group.line1}</span>
+              <span>{group.line2}</span>
+            </p>
+            <p className={styles.marqueeBy}>{group.by}</p>
           </div>
-          <p className={styles.marqueeClose}>{t("close")}</p>
-        </div>
-      </section>
+        ))}
+      </div>
+      <p className={styles.marqueeClose}>{t("close")}</p>
     </div>
   );
 }

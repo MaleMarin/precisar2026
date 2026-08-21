@@ -240,46 +240,26 @@
   transform-style: preserve-3d;
 }
 
-.marqueeShell {
-  position: relative;
-  z-index: 3;
-  width: 100%;
-  background: #e9e2d6;
-  padding: 1.75rem 8px 1.5rem;
-}
-
-@media (min-width: 768px) {
-  .marqueeShell {
-    padding: 2.25rem 8px 1.75rem;
-  }
-}
-
-.marqueeWrap {
-  position: relative;
-  width: 100%;
-  background: var(--void);
-  color: var(--mist);
-  padding: 2.85rem var(--gutter) 2.65rem;
-  overflow: hidden;
-}
-
+/* Contenido del primer panel del stack (#recorrido): mismo card que Programas. */
 .marqueeLayout {
   display: flex;
   flex-direction: column;
   align-items: stretch;
+  justify-content: center;
   width: 100%;
-  max-width: var(--max);
+  max-width: 90rem;
   margin: 0 auto;
   padding: 0;
+  color: var(--mist);
 }
 
 .marqueeHeadline {
   margin: 0;
   max-width: 11.5em;
   font-family: var(--font-display), system-ui, sans-serif;
-  font-size: clamp(2.3rem, 3.6vw, 3.8rem);
+  font-size: var(--stack-panel-title-size, clamp(1.95rem, 5.2vw, 4.65rem));
   font-weight: 800;
-  line-height: 1.05;
+  line-height: 1.02;
   letter-spacing: -0.035em;
   text-transform: uppercase;
   color: var(--mist);
@@ -323,10 +303,6 @@
 }
 
 @media (min-width: 768px) {
-  .marqueeWrap {
-    padding: 3.1rem var(--gutter) 2.85rem;
-  }
-
   .marqueeGrid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 0;

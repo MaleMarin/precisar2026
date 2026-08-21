@@ -1047,6 +1047,18 @@
   transform: scale(0.97) translateY(-8px);
 }
 
+/* Recorrido: mismo card sticky que Programas (flex para llenar el viewport). */
+:global(#recorrido) .stickyPanel {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+:global(#recorrido) .panelDepthEnter {
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
 /* Programas: el card (cristal) llena la columna derecha; nada queda recortado por el sticky — el exceso scroll dentro del card. */
 :global(#programas) .stickyPanel {
   display: flex;
