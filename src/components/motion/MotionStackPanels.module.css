@@ -360,16 +360,17 @@
   margin: 0 0 1rem;
   max-width: 40rem;
   font-family: var(--font-body, system-ui, sans-serif);
-  font-size: clamp(1rem, 1.2vw, 1.15rem);
+  font-size: clamp(1.15rem, 1.55vw, 1.5rem);
   font-weight: 500;
-  line-height: 1.55;
+  line-height: 1.45;
   letter-spacing: 0.005em;
-  color: color-mix(in oklab, #fff 82%, transparent);
+  color: color-mix(in oklab, #fff 88%, transparent);
 }
 
 .recorridoBridgeAccent {
+  font-family: inherit;
+  font-weight: 500;
   color: #db5227;
-  font-weight: 600;
 }
 
 /* Panel Precisando (navy): bajada con medida de lectura cómoda (titular = .stackPanelLeftTitle vía .displayTitle). */

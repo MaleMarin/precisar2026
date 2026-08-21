@@ -279,15 +279,6 @@
   color: color-mix(in oklab, var(--mist) 62%, transparent);
 }
 
-.marqueeLead {
-  margin: 0 0 1.75rem;
-}
-
-.marqueeBy {
-  margin: 0.35rem 0 0;
-  color: color-mix(in oklab, var(--mist) 62%, transparent);
-}
-
 .marqueeList {
   display: flex;
   flex-direction: column;
