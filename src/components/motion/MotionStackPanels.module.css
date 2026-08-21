@@ -1100,6 +1100,14 @@
 
 :global(#recorrido) .grid {
   min-height: 0;
+  /* Reserva inferior: contentY llega a -72px y el sticky recorta con overflow:hidden. */
+  padding-bottom: calc(2.5rem + 80px);
+}
+
+@media (min-width: 1024px) {
+  :global(#recorrido) .grid {
+    padding-bottom: calc(3.25rem + 80px);
+  }
 }
 
 :global(#recorrido) .displayTitle {

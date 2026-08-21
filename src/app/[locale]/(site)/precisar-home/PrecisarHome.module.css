@@ -286,7 +286,7 @@
 }
 
 .marqueeLead {
-  margin: 0 0 1.75rem;
+  margin: 0 0 1.1rem;
 }
 
 .marqueeBy {
@@ -308,7 +308,7 @@
   margin: 0;
   width: 100%;
   min-width: 0;
-  padding: clamp(1.3rem, 2.2vw, 1.6rem) 0;
+  padding: clamp(0.7rem, 1.4vw, 1.05rem) 0;
   border-top: 1px solid color-mix(in oklab, #fff 12%, transparent);
   cursor: default;
 }
@@ -331,8 +331,8 @@
 
 .marqueeClose {
   flex-shrink: 0;
-  margin: auto 0 0;
-  padding-top: clamp(1.5rem, 3vw, 2.25rem);
+  margin: 1.5rem 0 0;
+  padding-top: 0.25rem;
   width: 100%;
   max-width: 100%;
   font-family: var(--font-body);
@@ -344,6 +344,13 @@
   text-transform: none;
   overflow-wrap: break-word;
   color: var(--mist);
+}
+
+@media (min-width: 1024px) {
+  .marqueeClose {
+    margin-top: auto;
+    padding-top: 1.25rem;
+  }
 }
 
 .marqueeCloseCause {
