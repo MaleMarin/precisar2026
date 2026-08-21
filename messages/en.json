@@ -206,6 +206,7 @@
   },
   "homeMarquee": {
     "headline": "The information you receive has already passed through decisions.",
+    "headlineLines": ["The information", "you receive has already", "passed through decisions."],
     "bridgeBefore": "For ",
     "bridgeName": "Precisar",
     "bridgeAfter": ", using technology also means understanding information.",

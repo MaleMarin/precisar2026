@@ -206,6 +206,7 @@
   },
   "homeMarquee": {
     "headline": "A informação que você recebe já passou por decisões.",
+    "headlineLines": ["A informação", "que você recebe já passou", "por decisões."],
     "bridgeBefore": "Para ",
     "bridgeName": "Precisar",
     "bridgeAfter": ", usar tecnologia também é compreender a informação.",
