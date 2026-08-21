@@ -603,7 +603,7 @@ export function MotionStackPanels({
             theme: "dark" as const,
             kicker: "",
             headline: tMarquee("headline"),
-            body: tMarquee("lead"),
+            body: "",
             preHeadline: <RecorridoBridge />,
             child: introPanel,
           },

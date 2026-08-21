@@ -1098,23 +1098,16 @@
 :global(#recorrido) .displayTitle {
   max-width: 100%;
   min-width: 0;
+  overflow-wrap: break-word;
 }
 
 :global(#recorrido) .asideSlot {
   flex: 1 1 auto;
   min-height: 0;
   min-width: 0;
-}
-
-/* “información” (Syne 800) necesita más columna que 7/12 bajo 1440. */
-@media (min-width: 1024px) and (max-width: 1439.98px) {
-  :global(#recorrido) .colMain {
-    grid-column: span 8;
-  }
-
-  :global(#recorrido) .colAside {
-    grid-column: span 4;
-  }
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
 }
 
 /* Programas: el card (cristal) llena la columna derecha; nada queda recortado por el sticky — el exceso scroll dentro del card. */
