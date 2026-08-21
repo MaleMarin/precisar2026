@@ -33,8 +33,7 @@ export function PrecisarHomeMarquee() {
   const groups = parseGroups(t.raw("groups"));
 
   return (
-    <>
-      <div className={styles.marqueeGap} aria-hidden />
+    <div className={styles.marqueeShell}>
       <section id="recorrido" className={styles.marqueeWrap} aria-labelledby="recorrido-heading">
         <div className={styles.marqueeLayout}>
           <h2 id="recorrido-heading" className={styles.marqueeHeadline}>
@@ -59,6 +58,6 @@ export function PrecisarHomeMarquee() {
           </p>
         </div>
       </section>
-    </>
+    </div>
   );
 }
