@@ -240,111 +240,7 @@
   transform-style: preserve-3d;
 }
 
-/* Contenido del primer panel del stack (#recorrido): mismo card que Programas. */
-.marqueeLayout {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  width: 100%;
-  max-width: 90rem;
-  min-width: 0;
-  margin: 0 auto;
-  padding: 0;
-  color: var(--mist);
-}
-
-/* Dos columnas: misma proporción 7/5 que Programas, cuando el H2 Syne 800 cabe. */
-@media (min-width: 1440px) {
-  .marqueeLayout {
-    display: grid;
-    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
-    grid-template-areas:
-      "bridge ."
-      "title  list"
-      "intro  list";
-    column-gap: clamp(3.5rem, 4.2vw, 4.75rem);
-    row-gap: 0;
-    align-items: start;
-  }
-
-  .marqueeBridge {
-    grid-area: bridge;
-    min-width: 0;
-  }
-
-  .marqueeHeadline {
-    grid-area: title;
-    min-width: 0;
-  }
-
-  .marqueeLead {
-    grid-area: intro;
-    min-width: 0;
-  }
-
-  .marqueeList {
-    grid-area: list;
-    min-width: 0;
-    align-self: start;
-  }
-}
-
-.marqueeBridge {
-  margin: 0 0 1.75rem;
-  max-width: 40rem;
-  width: 100%;
-  font-family: var(--font-body);
-  font-size: clamp(1rem, 1.2vw, 1.15rem);
-  font-weight: 500;
-  font-style: normal;
-  line-height: 1.55;
-  letter-spacing: 0.005em;
-  text-transform: none;
-  color: color-mix(in oklab, var(--mist) 88%, var(--slate));
-}
-
-.marqueeBridgeAccent {
-  color: #db5227;
-  font-weight: 600;
-}
-
-/* Misma tipografía que Programas (.displayTitle). */
-.marqueeHeadline {
-  margin: 0;
-  width: 100%;
-  max-width: min(var(--stack-panel-title-maxw, 56rem), 100%);
-  font-family: var(--font-display), system-ui, sans-serif;
-  font-size: var(--stack-panel-title-size, clamp(2.5rem, 6vw, 4.85rem));
-  font-weight: 800;
-  line-height: 1.02;
-  letter-spacing: -0.035em;
-  text-transform: none;
-  overflow-wrap: normal;
-  word-break: normal;
-  hyphens: none;
-  color: var(--mist);
-}
-
-@media (min-width: 1440px) {
-  .marqueeBridge {
-    margin-bottom: 1.35rem;
-  }
-}
-
-.marqueeLead {
-  margin: 1.35rem 0 0;
-  max-width: 40rem;
-  width: 100%;
-  font-family: var(--font-body);
-  font-size: 1.1875rem;
-  font-weight: 400;
-  font-style: normal;
-  line-height: 1.65;
-  letter-spacing: 0.01em;
-  text-transform: none;
-  color: color-mix(in oklab, var(--mist) 62%, var(--slate));
-}
-
+/* Lista 01/02/03 de `#recorrido` (columna derecha, como el aside de Programas). */
 .marqueeList {
   display: flex;
   flex-direction: column;
@@ -353,12 +249,6 @@
   margin: 0;
   padding: 0;
   list-style: none;
-}
-
-@media (max-width: 1439.98px) {
-  .marqueeList {
-    margin-top: 2.5rem;
-  }
 }
 
 .marqueeItem {

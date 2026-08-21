@@ -13,6 +13,18 @@ const MotionLink = motion.create(Link);
 
 const stackEase = [0.22, 1, 0.36, 1] as const;
 
+function RecorridoBridge() {
+  const t = useTranslations("homeMarquee");
+
+  return (
+    <p className={styles.recorridoBridge}>
+      {t("bridgeBefore")}
+      <span className={styles.recorridoBridgeAccent}>{t("bridgeName")}</span>
+      {t("bridgeAfter")}
+    </p>
+  );
+}
+
 export type StackArticle = { slug: string; title: string; category: string };
 
 function ArrowIcon({ className }: { className?: string }) {
@@ -217,6 +229,8 @@ type StackPanelProps = {
   children?: ReactNode;
   /** Contenido opcional bajo la bajada del bloque principal (columna izquierda). */
   mainFooter?: ReactNode;
+  /** Frase sobre el titular (p. ej. puente de `#recorrido`). */
+  preHeadline?: ReactNode;
   reduceMotion?: boolean;
   /** Contenido editorial a ancho completo (p. ej. Participa). */
   editorialContent?: ReactNode;
@@ -236,6 +250,7 @@ function StackPanel({
   id,
   children,
   mainFooter,
+  preHeadline,
   reduceMotion = false,
   editorialContent,
   editorialHeight = "tall",
@@ -466,22 +481,33 @@ function StackPanel({
               viewport={{ once: true, amount: 0.25 }}
             >
               <div>
-                <motion.div className={kickerClass} variants={mainItemVariants}>
-                  <span className={kickerSqClass} />
-                  <span>{kicker}</span>
-                </motion.div>
+                {kicker ? (
+                  <motion.div className={kickerClass} variants={mainItemVariants}>
+                    <span className={kickerSqClass} />
+                    <span>{kicker}</span>
+                  </motion.div>
+                ) : null}
+                {preHeadline ? (
+                  <motion.div variants={mainItemVariants}>{preHeadline}</motion.div>
+                ) : null}
                 {Icon ? (
                   <motion.div className={titleRowClass} variants={mainItemVariants}>
                     <Icon className={styles.iconSm} />
                     <span>{label ?? ""}</span>
                   </motion.div>
                 ) : null}
-                <motion.h2 className={stackTitleClass} variants={mainItemVariants}>
+                <motion.h2
+                  className={stackTitleClass}
+                  id={id ? `${id}-heading` : undefined}
+                  variants={mainItemVariants}
+                >
                   {headline}
                 </motion.h2>
-                <motion.p className={stackBodyClass} variants={mainItemVariants}>
-                  {body}
-                </motion.p>
+                {body ? (
+                  <motion.p className={stackBodyClass} variants={mainItemVariants}>
+                    {body}
+                  </motion.p>
+                ) : null}
                 {mainFooter ? (
                   <motion.div variants={mainItemVariants}>{mainFooter}</motion.div>
                 ) : null}
@@ -510,7 +536,7 @@ export type MotionStackPanelsProps = {
   omitFooter?: boolean;
   /** Si true, se atenúan animaciones (respeta preferencia del sistema si no se pasa). */
   reduceMotion?: boolean;
-  /** Primera sesión editorial (franja oscura bajo la Hero), con el mismo stack que el resto. */
+  /** Columna derecha de `#recorrido` (el titular usa la misma plantilla que Programas). */
   introPanel?: ReactNode;
 };
 
@@ -527,6 +553,7 @@ export function MotionStackPanels({
   const tSaberes = useTranslations("homeSaberes");
   const tBotOnda = useTranslations("homeBotOnda");
   const tEducacionMediatica = useTranslations("homeEducacionMediatica");
+  const tMarquee = useTranslations("homeMarquee");
   const programLinks: MiniListItem[] = [
     { label: tPrograms("stackLinkCiudades"), href: "/programas/ciudades", multiline: true },
     { label: tPrograms("stackLinkHub"), href: "/programas/hub-digital-consciente", multiline: true },
@@ -575,10 +602,10 @@ export function MotionStackPanels({
             id: "recorrido",
             theme: "dark" as const,
             kicker: "",
-            headline: "",
-            body: "",
-            editorialContent: introPanel,
-            editorialHeight: "standard" as const,
+            headline: tMarquee("headline"),
+            body: tMarquee("lead"),
+            preHeadline: <RecorridoBridge />,
+            child: introPanel,
           },
         ]
       : []),
@@ -675,6 +702,7 @@ export function MotionStackPanels({
             body={panel.body}
             icon={panel.icon}
             reduceMotion={reduceMotion}
+            preHeadline={"preHeadline" in panel ? panel.preHeadline : undefined}
             editorialContent={
               ("editorialContent" in panel ? panel.editorialContent : undefined) as ReactNode | undefined
             }

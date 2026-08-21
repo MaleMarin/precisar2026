@@ -2,11 +2,11 @@
 
 import { articlesSortedByDate } from "@/data/articles";
 import { MotionStackPanels } from "@/components/motion/MotionStackPanels";
-import { PrecisarHomeMarquee } from "./PrecisarHomeMarquee";
+import { RecorridoList } from "./PrecisarHomeMarquee";
 
 /**
  * Paneles full-viewport que se van apilando al hacer scroll (sesiones tipo “archivos”).
- * El primer panel es la franja editorial bajo la Hero; el resto arranca en Programas.
+ * El primer panel es `#recorrido` (misma plantilla que Programas); el resto arranca en Programas.
  */
 export function PrecisarHomeStackPanelsSection({ reduceMotion = false }: { reduceMotion?: boolean }) {
   const featured = articlesSortedByDate().slice(0, 4).map((a) => ({
@@ -21,7 +21,7 @@ export function PrecisarHomeStackPanelsSection({ reduceMotion = false }: { reduc
         featuredArticles={featured}
         omitFooter
         reduceMotion={reduceMotion}
-        introPanel={<PrecisarHomeMarquee />}
+        introPanel={<RecorridoList />}
       />
     </section>
   );

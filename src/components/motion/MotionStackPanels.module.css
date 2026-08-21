@@ -356,6 +356,22 @@
   color: rgba(255, 255, 255, 0.88);
 }
 
+.recorridoBridge {
+  margin: 0 0 1rem;
+  max-width: 40rem;
+  font-family: var(--font-body, system-ui, sans-serif);
+  font-size: clamp(1rem, 1.2vw, 1.15rem);
+  font-weight: 500;
+  line-height: 1.55;
+  letter-spacing: 0.005em;
+  color: color-mix(in oklab, #fff 82%, transparent);
+}
+
+.recorridoBridgeAccent {
+  color: #db5227;
+  font-weight: 600;
+}
+
 /* Panel Precisando (navy): bajada con medida de lectura cómoda (titular = .stackPanelLeftTitle vía .displayTitle). */
 :global(#precisando) .miniListGlass {
   border-radius: 14px;
@@ -1047,7 +1063,7 @@
   transform: scale(0.97) translateY(-8px);
 }
 
-/* Recorrido: mismo card sticky que Programas (flex para llenar el viewport). */
+/* Recorrido: misma cadena flex / grilla que Programas (titular .displayTitle + aside). */
 :global(#recorrido) .stickyPanel {
   display: flex;
   flex-direction: column;
@@ -1057,6 +1073,48 @@
 :global(#recorrido) .panelDepthEnter {
   flex: 1 1 auto;
   min-height: 0;
+}
+
+:global(#recorrido) .colMain {
+  min-height: 0;
+  min-width: 0;
+}
+
+:global(#recorrido) .colAside {
+  justify-content: flex-start;
+  min-height: 0;
+  min-width: 0;
+}
+
+:global(#recorrido) .panelDepthEnter .grid {
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+:global(#recorrido) .grid {
+  min-height: 0;
+}
+
+:global(#recorrido) .displayTitle {
+  max-width: 100%;
+  min-width: 0;
+}
+
+:global(#recorrido) .asideSlot {
+  flex: 1 1 auto;
+  min-height: 0;
+  min-width: 0;
+}
+
+/* “información” (Syne 800) necesita más columna que 7/12 bajo 1440. */
+@media (min-width: 1024px) and (max-width: 1439.98px) {
+  :global(#recorrido) .colMain {
+    grid-column: span 8;
+  }
+
+  :global(#recorrido) .colAside {
+    grid-column: span 4;
+  }
 }
 
 /* Programas: el card (cristal) llena la columna derecha; nada queda recortado por el sticky — el exceso scroll dentro del card. */

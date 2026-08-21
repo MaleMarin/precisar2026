@@ -26,33 +26,22 @@ function parseGroups(raw: unknown): readonly BandGroup[] {
   return ok ? (raw as BandGroup[]) : GROUPS_FALLBACK;
 }
 
-/** Contenido del primer panel del stack (mismo card sticky que Programas). */
-export function PrecisarHomeMarquee() {
+/** Lista 01/02/03 de la columna derecha de `#recorrido` (mismo aside que Programas). */
+export function RecorridoList() {
   const t = useTranslations("homeMarquee");
   const groups = parseGroups(t.raw("groups"));
 
   return (
-    <div className={styles.marqueeLayout}>
-      <p className={styles.marqueeBridge}>
-        {t("bridgeBefore")}
-        <span className={styles.marqueeBridgeAccent}>{t("bridgeName")}</span>
-        {t("bridgeAfter")}
-      </p>
-      <h2 id="recorrido-heading" className={styles.marqueeHeadline}>
-        {t("headline")}
-      </h2>
-      <p className={styles.marqueeLead}>{t("lead")}</p>
-      <ol className={styles.marqueeList}>
-        {groups.map((group, i) => (
-          <li key={group.action} className={styles.marqueeItem}>
-            <span className={styles.marqueeIndex} aria-hidden>
-              {String(i + 1).padStart(2, "0")}
-            </span>
-            <p className={styles.marqueeAction}>{group.action}</p>
-            <p className={styles.marqueeBy}>{group.by}</p>
-          </li>
-        ))}
-      </ol>
-    </div>
+    <ol className={styles.marqueeList}>
+      {groups.map((group, i) => (
+        <li key={group.action} className={styles.marqueeItem}>
+          <span className={styles.marqueeIndex} aria-hidden>
+            {String(i + 1).padStart(2, "0")}
+          </span>
+          <p className={styles.marqueeAction}>{group.action}</p>
+          <p className={styles.marqueeBy}>{group.by}</p>
+        </li>
+      ))}
+    </ol>
   );
 }
