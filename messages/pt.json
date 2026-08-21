@@ -215,7 +215,10 @@
       { "action": "Selecionada e comunicada", "by": "por meios e instituições" },
       { "action": "Ordenada e recomendada", "by": "por plataformas e algoritmos" },
       { "action": "Resumida ou gerada", "by": "por sistemas de inteligência artificial" }
-    ]
+    ],
+    "closeBefore": "Na Precisar trabalhamos pelo ",
+    "closeCause": "direito de compreender a informação",
+    "closeAfter": ": fortalecer capacidades para avaliá-la, contextualizá-la e usá-la com critério."
   },
   "culturaDigitalPage": {
     "metaTitle": "Cultura Digital · Tiras",

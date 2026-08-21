@@ -215,7 +215,10 @@
       { "action": "Selected and communicated", "by": "by media and institutions" },
       { "action": "Ordered and recommended", "by": "by platforms and algorithms" },
       { "action": "Summarized or generated", "by": "by artificial intelligence systems" }
-    ]
+    ],
+    "closeBefore": "At Precisar we work for ",
+    "closeCause": "the right to understand information",
+    "closeAfter": ": strengthening the capacity to evaluate it, contextualize it, and use it with judgment."
   },
   "culturaDigitalPage": {
     "metaTitle": "Digital Culture · Strips",

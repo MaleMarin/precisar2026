@@ -326,6 +326,26 @@
   color: color-mix(in oklab, var(--mist) 36%, transparent);
 }
 
+.marqueeClose {
+  margin: 2.25rem 0 0;
+  width: 100%;
+  max-width: 100%;
+  font-family: var(--font-body);
+  font-size: var(--recorrido-copy-size, clamp(0.97rem, 1.05vw, 1.0625rem));
+  font-weight: 500;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: 0.005em;
+  text-transform: none;
+  overflow-wrap: break-word;
+  color: var(--mist);
+}
+
+.marqueeCloseCause {
+  color: #db5227;
+  font-weight: 500;
+}
+
 .reduceMotion .hero::before,
 .reduceMotion .heroOrb2 {
   animation: none;

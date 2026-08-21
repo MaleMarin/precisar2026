@@ -215,7 +215,10 @@
       { "action": "Seleccionada y comunicada", "by": "por medios e instituciones" },
       { "action": "Ordenada y recomendada", "by": "por plataformas y algoritmos" },
       { "action": "Resumida o generada", "by": "por sistemas de inteligencia artificial" }
-    ]
+    ],
+    "closeBefore": "En Precisar trabajamos por ",
+    "closeCause": "el derecho a comprender la información",
+    "closeAfter": ": fortalecer capacidades para evaluarla, contextualizarla y usarla con criterio."
   },
   "culturaDigitalPage": {
     "metaTitle": "Cultura Digital · Tiras",
