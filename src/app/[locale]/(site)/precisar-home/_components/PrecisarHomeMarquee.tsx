@@ -38,8 +38,11 @@ export function RecorridoList() {
           <span className={styles.marqueeIndex} aria-hidden>
             {String(i + 1).padStart(2, "0")}
           </span>
-          <p className={styles.marqueeAction}>{group.action}</p>
-          <p className={styles.marqueeBy}>{group.by}</p>
+          <p className={styles.marqueePhrase}>
+            {group.action}
+            <span aria-hidden> – </span>
+            {group.by}
+          </p>
         </li>
       ))}
     </ol>
