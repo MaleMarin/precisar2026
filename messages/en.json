@@ -1809,7 +1809,7 @@
   "legalPrivacidadConsulta2026": {
     "metaTitle": "Consultation Privacy Policy | Precisar",
     "title": "Privacy Policy and Personal Data Processing",
-    "kicker": "Consultation: How Do You Get Informed Today? · DemocraTICa.",
+    "kicker": "Consultation: How Do You Get Informed Today? · Fundación Democracia Abierta.",
     "lastUpdated": "Last updated: December 31, 2025",
     "sections": [
       {
@@ -1817,11 +1817,11 @@
         "blocks": [
           {
             "type": "p",
-            "text": "This Privacy Policy and Personal Data Processing Policy (hereinafter, the \"Privacy Policy\") aims to inform participants in the citizen consultation \"How do you get informed today?\" (hereinafter, the \"Consultation\"), promoted by Fundación Democracia Abierta and its Precisar initiative (hereinafter, \"DemocraTICa\" or \"we\"), about how we collect, use, store, share and protect your personal data, in accordance with current Chilean legislation and international best practices in the field."
+            "text": "This Privacy Policy and Personal Data Processing Policy (hereinafter, the \"Privacy Policy\") aims to inform participants in the citizen consultation \"How do you get informed today?\" (hereinafter, the \"Consultation\"), promoted by Fundación Democracia Abierta and its Precisar initiative (hereinafter, \"Fundación Democracia Abierta\" or \"we\"), about how we collect, use, store, share and protect your personal data, in accordance with current Chilean legislation and international best practices in the field."
           },
           {
             "type": "p",
-            "text": "DemocraTICa is committed to respecting and protecting your privacy and personal data. This policy has been drafted in compliance with current Chilean regulations, Law No. 19,628 on Protection of Private Life (in its current version) and the new Law No. 21,719 on Personal Data Protection, which modernizes the legislation and aligns it with the highest international standards, such as the European Union's General Data Protection Regulation (GDPR)."
+            "text": "Fundación Democracia Abierta is committed to respecting and protecting your privacy and personal data. This policy has been drafted in compliance with current Chilean regulations, Law No. 19,628 on Protection of Private Life (in its current version) and the new Law No. 21,719 on Personal Data Protection, which modernizes the legislation and aligns it with the highest international standards, such as the European Union's General Data Protection Regulation (GDPR)."
           }
         ]
       },
@@ -2062,7 +2062,7 @@
         "blocks": [
           {
             "type": "p",
-            "text": "DemocraTICa will not sell, rent or transfer your personal data to third parties for profit. Your data may only be shared in the following circumstances:"
+            "text": "Fundación Democracia Abierta will not sell, rent or transfer your personal data to third parties for profit. Your data may only be shared in the following circumstances:"
           },
           {
             "type": "h3",
@@ -2070,7 +2070,7 @@
           },
           {
             "type": "p",
-            "text": "The DemocraTICa team and its direct collaborators will have access to the data for project purposes, under strict confidentiality agreements that include: obligation to maintain secrecy; restriction of use to project purposes; prohibition of disclosure to third parties; penalties for non-compliance."
+            "text": "The Fundación Democracia Abierta team and its direct collaborators will have access to the data for project purposes, under strict confidentiality agreements that include: obligation to maintain secrecy; restriction of use to project purposes; prohibition of disclosure to third parties; penalties for non-compliance."
           },
           {
             "type": "h3",
@@ -2217,9 +2217,9 @@
     "kicker": "Legal",
     "lastUpdated": "Last updated: February 27, 2026",
     "responsible": "Controller:",
-    "responsibleValue": "Fundación Precisar ({siteHost})",
+    "responsibleValue": "Fundación Democracia Abierta ({siteHost})",
     "s1Title": "1. Who is responsible",
-    "s1Body": "Chat ONDA (ONDA, the chat, the bot) is a service of Fundación Precisar (hereinafter, Precisar, we). This policy describes how we handle information when you use the chat on the web and, where applicable, through WhatsApp.",
+    "s1Body": "Chat ONDA (ONDA, the chat, the bot) is a service of Fundación Democracia Abierta (hereinafter, Precisar, we). This policy describes how we handle information when you use the chat on the web and, where applicable, through WhatsApp.",
     "s2Title": "2. What data we collect and why",
     "s2WebTitle": "2.1 On the web version (website / precisar.net)",
     "s2WebItems": [
@@ -2303,13 +2303,13 @@
     ],
     "s7Closing": "To exercise these rights, write to us at the contact below. You may also file a complaint with your country's data protection authority.",
     "s8Title": "8. Contact",
-    "s8Org": "Fundación Precisar",
+    "s8Org": "Fundación Democracia Abierta",
     "s8WebLabel": "Web:",
     "s8PrivacyLabel": "For ONDA chat privacy matters:",
     "s9Title": "9. Changes",
     "s9Paras": [
       "We may update this policy. Relevant changes will be indicated on the web (for example, on precisar.net or on the page where the chat is offered) with a new Last updated date. Continued use of the chat after those changes implies acceptance of the updated policy.",
-      "This policy applies to Chat ONDA offered by Fundación Precisar on the web and, where applicable, on WhatsApp."
+      "This policy applies to Chat ONDA offered by Fundación Democracia Abierta on the web and, where applicable, on WhatsApp."
     ]
   },
   "propuestaPoliticaAlfabetizacion": {
