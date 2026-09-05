@@ -112,9 +112,22 @@
       "Participa"
     ]
   },
+  "HomeHero": {
+    "kicker": "Precisar",
+    "h1Line1": "Comprender",
+    "h1Line1b": "la información",
+    "h1Line2": "fortalece la democracia",
+    "h1Accessible": "Comprender la información fortalece la democracia.",
+    "lead": "Herramientas para evaluar. Criterio para decidir. Autonomía para participar.",
+    "leadLine1": "Herramientas para evaluar.",
+    "leadLine2": "Criterio para decidir.",
+    "leadLine3": "Autonomía para participar.",
+    "secondary": "La información es mucho más que noticias. También incluye los contenidos y servicios que usamos para estudiar, hacer trámites, ejercer nuestros derechos y participar. Escuchamos a las personas para comprender las dificultades que enfrentan y diseñar respuestas útiles.",
+    "cta": "Conoce Precisar ↓"
+  },
   "Metadata": {
-    "homeTitle": "Precisar · Potencia el uso de la tecnología",
-    "homeDescription": "Potencia el uso de la tecnología."
+    "homeTitle": "Precisar | Información y tecnología con criterio",
+    "homeDescription": "Fortalecemos capacidades ciudadanas para comprender la información, ejercer derechos y usar la tecnología con criterio."
   },
   "homePrograms": {
     "title": "Programas",
@@ -206,7 +219,7 @@
   },
   "homeMarquee": {
     "headline": "La información no llega sola.",
-    "headlineLines": ["La información", "no llega sola."],
+    "headlineLines": ["La", "información", "no", "llega", "sola."],
     "bridgeBefore": "Para ",
     "bridgeName": "Precisar",
     "bridgeAfter": ", usar tecnología con criterio empieza por comprender la información y cómo llega a ti.",

@@ -19,12 +19,17 @@
 .titulo {
   font-family: var(--font-display);
   font-weight: 800;
-  font-size: var(--stack-panel-title-size, clamp(1.95rem, 5.2vw, 4.65rem));
-  max-width: min(var(--stack-panel-title-maxw, 42rem), 100%);
-  letter-spacing: -0.035em;
-  line-height: 1.02;
+  font-size: var(--type-display-size, var(--stack-panel-title-size));
+  max-inline-size: min(100%, var(--type-display-measure, 56rem));
+  min-inline-size: 0;
+  letter-spacing: var(--type-display-tracking, -0.035em);
+  line-height: var(--leading-display, 1.02);
   color: #F5F2EC;
   margin: 0 0 1.5rem;
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: none;
+  text-wrap: balance;
 }
 .bajada {
   font-family: 'Avenir Next', 'Avenir', sans-serif;

@@ -11,12 +11,15 @@ export function HeroFlameMoteTrack({
   targetX,
   targetY,
   quickBlend = false,
+  followGain,
 }: {
   className: string;
   targetX: number;
   targetY: number;
   /** true: converge más rápido al verbo para alinear la mancha con el texto */
   quickBlend?: boolean;
+  /** Ganancia por frame. Más baja = mancha más lenta. */
+  followGain?: number;
 }) {
   const targetRef = useRef({ x: targetX, y: targetY });
   useLayoutEffect(() => {
@@ -29,7 +32,7 @@ export function HeroFlameMoteTrack({
 
   useEffect(() => {
     /** Ganancia baja = movimiento más fluido; en `quickBlend` algo más alta para alcanzar el verbo al scramble. */
-    const k = quickBlend ? 0.095 : 0.017;
+    const k = followGain ?? (quickBlend ? 0.095 : 0.017);
     let id = 0;
     const loop = () => {
       const t = targetRef.current;
@@ -51,7 +54,7 @@ export function HeroFlameMoteTrack({
     };
     id = requestAnimationFrame(loop);
     return () => cancelAnimationFrame(id);
-  }, [mx, my, quickBlend]);
+  }, [mx, my, quickBlend, followGain]);
 
   const leftPct = useTransform(mx, (x) => `${x}%`);
   const topPct = useTransform(my, (y) => `${y}%`);

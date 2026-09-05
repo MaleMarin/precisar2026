@@ -7,7 +7,7 @@ import styles from "../PrecisarHome.module.css";
 
 /**
  * Paneles full-viewport que se van apilando al hacer scroll (sesiones tipo “archivos”).
- * El primer panel es `#recorrido` (misma plantilla que Programas); el resto arranca en Programas.
+ * El primer panel es `#convoca` (misma plantilla que Programas); el resto arranca en Programas.
  */
 export function PrecisarHomeStackPanelsSection({ reduceMotion = false }: { reduceMotion?: boolean }) {
   const featured = articlesSortedByDate().slice(0, 4).map((a) => ({
@@ -17,7 +17,7 @@ export function PrecisarHomeStackPanelsSection({ reduceMotion = false }: { reduc
   }));
 
   return (
-    <section id="home-stack-panels" className={styles.stackWrap} aria-label="Recorrido por secciones del sitio">
+    <section id="home-stack-panels" className={styles.stackWrap} aria-label="Secciones de la portada">
       <MotionStackPanels
         featuredArticles={featured}
         omitFooter

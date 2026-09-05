@@ -28,6 +28,14 @@ export type TextScrambleOptions = {
   swapResetKey?: string;
   /** `swap`: menos frames por carácter (p. ej. hero con pausa corta tras el texto final). */
   swapQuick?: boolean;
+  /** Si se define, reemplaza el tope de arranque por carácter (frames). */
+  swapStartMax?: number;
+  /** Si se define, reemplaza la duración aleatoria por carácter (frames). */
+  swapSpanMax?: number;
+  /** Avanzar un frame cada N rAF. 1 = cada frame (default). */
+  swapTickEvery?: number;
+  /** Probabilidad de cambiar el carácter dud por frame (default 0.28). */
+  dudRefresh?: number;
   /** `swap`: sin animación; texto final y `onSettle` en el siguiente microtask (timing predecible). */
   swapInstant?: boolean;
 };
@@ -42,7 +50,17 @@ export function useTextScramble(
   dudClassName: string,
   options: TextScrambleOptions = {},
 ) {
-  const { enabled = true, variant = "intro", swapResetKey, swapQuick = false, swapInstant = false } = options;
+  const {
+    enabled = true,
+    variant = "intro",
+    swapResetKey,
+    swapQuick = false,
+    swapStartMax,
+    swapSpanMax,
+    swapTickEvery = 1,
+    dudRefresh = 0.28,
+    swapInstant = false,
+  } = options;
   const onSettleRef = useRef(options.onSettle);
   onSettleRef.current = options.onSettle;
 
@@ -84,13 +102,21 @@ export function useTextScramble(
     }
 
     let frame = 0;
+    let rafCount = 0;
     let queue: QueueItem[] = [];
     let resolveAnim: (() => void) | undefined;
+    const tickEvery = Math.max(1, swapTickEvery);
+    const refresh = dudRefresh;
 
     const randomChar = () => CHARSET[Math.floor(Math.random() * CHARSET.length)]!;
 
     function tick() {
       if (cancelled) return;
+      rafCount++;
+      if (tickEvery > 1 && rafCount % tickEvery !== 0) {
+        raf = requestAnimationFrame(tick);
+        return;
+      }
       let output = "";
       let complete = 0;
       for (const item of queue) {
@@ -99,7 +125,7 @@ export function useTextScramble(
           complete++;
           output += escapeHtml(item.to);
         } else if (frame >= item.start) {
-          if (!char || Math.random() < 0.28) {
+          if (!char || Math.random() < refresh) {
             char = randomChar();
             item.char = char;
           }
@@ -120,8 +146,8 @@ export function useTextScramble(
 
     function startAnim(newText: string, oldText: string): Promise<void> {
       const len = Math.max(oldText.length, newText.length);
-      const startMax = swapQuick ? 7 : 40;
-      const spanMax = swapQuick ? 10 : 40;
+      const startMax = swapStartMax ?? (swapQuick ? 7 : 40);
+      const spanMax = swapSpanMax ?? (swapQuick ? 10 : 40);
       queue = [];
       for (let i = 0; i < len; i++) {
         const from = oldText[i] ?? "";
@@ -166,7 +192,20 @@ export function useTextScramble(
       cancelled = true;
       cancelAnimationFrame(raf);
     };
-  }, [finalText, respectReducedMotion, dudClassName, enabled, variant, swapResetKey, swapQuick, swapInstant]);
+  }, [
+    finalText,
+    respectReducedMotion,
+    dudClassName,
+    enabled,
+    variant,
+    swapResetKey,
+    swapQuick,
+    swapStartMax,
+    swapSpanMax,
+    swapTickEvery,
+    dudRefresh,
+    swapInstant,
+  ]);
 
   return html;
 }

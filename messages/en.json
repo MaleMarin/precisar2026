@@ -112,9 +112,22 @@
       "Take part"
     ]
   },
+  "HomeHero": {
+    "kicker": "Precisar",
+    "h1Line1": "Understanding",
+    "h1Line1b": "information",
+    "h1Line2": "strengthens democracy",
+    "h1Accessible": "Understanding information strengthens democracy.",
+    "lead": "Tools to evaluate. Judgment to decide. Autonomy to participate.",
+    "leadLine1": "Tools to evaluate.",
+    "leadLine2": "Judgment to decide.",
+    "leadLine3": "Autonomy to participate.",
+    "secondary": "Information is much more than news. It also includes the content and services we use to study, complete procedures, exercise our rights, and take part. We listen to people to understand the difficulties they face and to design useful responses.",
+    "cta": "Meet Precisar ↓"
+  },
   "Metadata": {
-    "homeTitle": "Precisar · Empower how you use technology",
-    "homeDescription": "Empower how you use technology. Home with hero, rotating verbs, ticker, and stacked sections. Precisar 2026."
+    "homeTitle": "Precisar | Information and technology with judgment",
+    "homeDescription": "We strengthen civic capacities to understand information, exercise rights, and use technology with judgment."
   },
   "homePrograms": {
     "title": "Programs",
@@ -206,7 +219,7 @@
   },
   "homeMarquee": {
     "headline": "Information doesn't arrive on its own.",
-    "headlineLines": ["Information", "doesn't arrive on its own."],
+    "headlineLines": ["Information", "doesn't", "arrive", "on", "its", "own."],
     "bridgeBefore": "For ",
     "bridgeName": "Precisar",
     "bridgeAfter": ", using technology with judgment starts with understanding information and how it reaches you.",

@@ -26,11 +26,11 @@ function parseGroups(raw: unknown): readonly BandGroup[] {
   return ok ? (raw as BandGroup[]) : GROUPS_FALLBACK;
 }
 
-/** Columna derecha de `#recorrido`: encabezado + lista 01/02/03 (sin links ni flechas). */
+/** Columna derecha de `#convoca`: encabezado + lista 01/02/03 (sin links ni flechas). */
 export function RecorridoList() {
   const t = useTranslations("homeMarquee");
   const groups = parseGroups(t.raw("groups"));
-  const leadId = "recorrido-list-lead";
+  const leadId = "convoca-list-lead";
 
   return (
     <div className={styles.marqueeAside}>

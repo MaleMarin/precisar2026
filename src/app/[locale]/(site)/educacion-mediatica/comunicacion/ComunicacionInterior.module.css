@@ -6,19 +6,12 @@
 }
 
 .hero {
-  --mediatica-title-size: clamp(2rem, 3.8vw, 3.5rem);
-  --mediatica-title-maxw: 42rem;
+  --mediatica-title-size: var(--type-display-size);
+  --mediatica-title-maxw: min(100%, var(--type-display-measure, 56rem));
   background: var(--brand-flame);
   color: #fff;
   padding: clamp(3rem, 8vw, 5.5rem) var(--gutter, 1.25rem);
   margin-top: 0;
-}
-
-@media (min-width: 768px) {
-  .hero {
-    --mediatica-title-size: clamp(2rem, 3.8vw, 3.5rem);
-    --mediatica-title-maxw: 56rem;
-  }
 }
 
 .heroGrid {
@@ -28,7 +21,6 @@
   max-width: 90rem;
   margin: 0 auto;
   text-align: left;
-  overflow: hidden;
 }
 
 /* Evita que el min-content del título ensanche la celda y se pinte encima de la columna derecha */
@@ -45,17 +37,19 @@
 
 .heroTitle {
   margin: 0;
-  max-width: 100%;
+  max-inline-size: min(var(--mediatica-title-maxw), 100%);
+  min-inline-size: 0;
   font-family: var(--font-display, system-ui, sans-serif);
   font-weight: 800;
-  line-height: 1.02;
-  letter-spacing: -0.035em;
+  line-height: var(--leading-display, 1.02);
+  letter-spacing: var(--type-display-tracking, -0.035em);
   color: #fff;
   hyphens: none;
   overflow-wrap: normal;
   word-break: normal;
-  font-size: clamp(2rem, 3.8vw, 3.5rem);
+  font-size: var(--mediatica-title-size);
   text-align: left;
+  text-wrap: balance;
 }
 
 .heroIntro {

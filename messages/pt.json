@@ -112,9 +112,22 @@
       "Participa"
     ]
   },
+  "HomeHero": {
+    "kicker": "Precisar",
+    "h1Line1": "Compreender",
+    "h1Line1b": "a informação",
+    "h1Line2": "fortalece a democracia",
+    "h1Accessible": "Compreender a informação fortalece a democracia.",
+    "lead": "Ferramentas para avaliar. Critério para decidir. Autonomia para participar.",
+    "leadLine1": "Ferramentas para avaliar.",
+    "leadLine2": "Critério para decidir.",
+    "leadLine3": "Autonomia para participar.",
+    "secondary": "A informação é muito mais do que notícias. Também inclui os conteúdos e serviços que usamos para estudar, fazer trâmites, exercer os nossos direitos e participar. Escutamos as pessoas para compreender as dificuldades que enfrentam e desenhar respostas úteis.",
+    "cta": "Conhecer a Precisar ↓"
+  },
   "Metadata": {
-    "homeTitle": "Precisar · Potencialize o uso da tecnologia",
-    "homeDescription": "Potencialize o uso da tecnologia. Capa com hero, verbos em rotação, faixa e seções empilhadas. Precisar 2026."
+    "homeTitle": "Precisar | Informação e tecnologia com critério",
+    "homeDescription": "Fortalecemos capacidades cidadãs para compreender a informação, exercer direitos e usar a tecnologia com critério."
   },
   "homePrograms": {
     "title": "Programas",
@@ -206,7 +219,7 @@
   },
   "homeMarquee": {
     "headline": "A informação não chega sozinha.",
-    "headlineLines": ["A informação", "não chega sozinha."],
+    "headlineLines": ["A", "informação", "não", "chega", "sozinha."],
     "bridgeBefore": "Para ",
     "bridgeName": "Precisar",
     "bridgeAfter": ", usar tecnologia com critério começa por compreender a informação e como ela chega até você.",

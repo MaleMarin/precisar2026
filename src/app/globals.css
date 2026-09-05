@@ -46,19 +46,31 @@
   --band-ink: var(--brand-navy);
   --band-ink-fg: #f2f5f8;
   --home-gap: clamp(3.5rem, 12vw, 8rem);
-  /* Titular tipo sesiones home (MotionStackPanels / ProgramShell); usable en cualquier página interna. */
-  --stack-panel-title-maxw: 42rem;
-  --stack-panel-title-size: clamp(1.95rem, 5.2vw, 4.65rem);
+  /* Jerarquía editorial. Display = titulares de sesión / H1 de página; heading = H2 / H3. */
+  --leading-display: 1.02;
+  --leading-heading: 1.12;
+  --type-display-tracking: -0.035em;
+  --type-display-size: clamp(1.5rem, 6.8vw, 4.65rem);
+  --type-display-measure: 56rem;
+  --type-heading-lg: clamp(1.35rem, 2.8vw, 1.85rem);
+  --type-heading-md: clamp(1.15rem, 2.1vw, 1.5rem);
+  /* Alias usados por stack / ProgramShell / páginas internas. */
+  --stack-panel-title-maxw: 100%;
+  --stack-panel-title-size: var(--type-display-size);
   /* Cuerpo editorial (stack home .body); Avenir si está instalado, si no DM Sans. */
   --font-body: "Avenir Next", "Avenir", var(--font-sans-family), system-ui, sans-serif;
+  /* Cuerpo de lectura en todo el sitio (ES / EN / PT). */
+  --copy-size: clamp(1.08rem, 1.75vw, 1.28rem);
+  --recorrido-copy-size: var(--copy-size);
   /* UI tipo quiz / formularios: DM Sans por defecto. */
   --font-ui: var(--font-sans-family), system-ui, sans-serif;
 }
 
 @media (min-width: 768px) {
   :root {
-    --stack-panel-title-maxw: 56rem;
-    --stack-panel-title-size: clamp(2.5rem, 6vw, 4.85rem);
+    --type-display-size: clamp(2.25rem, 4.8vw, 4.15rem);
+    --stack-panel-title-maxw: 100%;
+    --stack-panel-title-size: var(--type-display-size);
   }
 }
 
@@ -98,6 +110,8 @@ body {
   background: var(--bg);
   color: var(--fg);
   font-family: var(--font-body);
+  font-size: var(--copy-size);
+  line-height: 1.55;
 }
 
 /* Fase 6 · foco visible (WCAG) sin anular estilos de componentes que ya lo definen */
@@ -146,7 +160,7 @@ body {
 /* Landings programa · primer párrafo solo si no hay módulos 5.3 */
 .prec-program-canvas:not(.prec-program-canvas--modular) > p:first-of-type {
   font-family: var(--font-body);
-  font-size: 1.1875rem;
+  font-size: var(--copy-size);
   line-height: 1.65;
   color: var(--muted);
   max-width: 38rem;
@@ -199,7 +213,7 @@ body {
 }
 
 .prec-program-mod__lead-body {
-  font-size: 1.0625rem;
+  font-size: var(--copy-size);
   line-height: 1.72;
   color: var(--muted);
   max-width: 40rem;
@@ -228,7 +242,7 @@ body {
 
 .prec-program-mod--lead-flagship .prec-program-mod__lead-body {
   max-width: 44rem;
-  font-size: 1.125rem;
+  font-size: var(--copy-size);
 }
 
 .prec-program-mod--lead-institutional {
@@ -257,7 +271,7 @@ body {
 }
 
 .prec-program-mod--lead-applied .prec-program-mod__lead-body {
-  font-size: 1.05rem;
+  font-size: var(--copy-size);
 }
 
 .prec-program-mod--lead-immersive {
@@ -429,13 +443,13 @@ body {
 
 .prec-program-mod__checklist-body {
   margin-top: 0.35rem;
-  font-size: 0.875rem;
+  font-size: var(--copy-size);
   line-height: 1.6;
   color: var(--muted);
 }
 
 .prec-program-mod__resource-desc {
-  font-size: 0.9375rem;
+  font-size: var(--copy-size);
   color: var(--muted);
   margin-bottom: 1.25rem;
   max-width: 40rem;
@@ -527,7 +541,7 @@ body {
 }
 
 .prec-program-mod__process-body {
-  font-size: 0.9375rem;
+  font-size: var(--copy-size);
   line-height: 1.65;
   color: var(--muted);
 }
@@ -540,7 +554,7 @@ body {
 }
 
 .prec-program-mod__closing-body {
-  font-size: 0.9375rem;
+  font-size: var(--copy-size);
   line-height: 1.65;
   color: var(--muted);
   max-width: 38rem;
@@ -611,10 +625,15 @@ body {
 .prec-title-xl {
   font-family: var(--font-display);
   font-weight: 800;
-  font-size: var(--stack-panel-title-size);
-  max-width: min(var(--stack-panel-title-maxw), 100%);
-  letter-spacing: -0.035em;
-  line-height: 1.02;
+  font-size: var(--type-display-size);
+  max-inline-size: min(100%, var(--type-display-measure));
+  min-inline-size: 0;
+  letter-spacing: var(--type-display-tracking);
+  line-height: var(--leading-display);
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: none;
+  text-wrap: balance;
 }
 
 /* Cabeceras de artículo: medida de lectura más estrecha que el titular full-stack. */
@@ -808,7 +827,7 @@ body {
 /* Prosa editorial */
 .prose-precisar {
   font-family: var(--font-body);
-  font-size: 1.1875rem;
+  font-size: var(--copy-size);
   line-height: 1.65;
   color: var(--fg);
   overflow-wrap: break-word;
@@ -826,11 +845,16 @@ body {
   padding-top: 1.5rem;
   border-top: 1px solid var(--border);
   font-family: var(--font-display);
-  font-size: clamp(1.35rem, 2.8vw, 1.85rem);
+  font-size: var(--type-heading-lg);
   font-weight: 800;
-  letter-spacing: -0.035em;
-  line-height: 1.08;
-  max-width: var(--max-wide);
+  letter-spacing: var(--type-display-tracking);
+  line-height: var(--leading-heading);
+  max-inline-size: min(100%, var(--max-wide));
+  min-inline-size: 0;
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: none;
+  text-wrap: balance;
 }
 
 .prose-precisar h2:first-child {
@@ -843,13 +867,18 @@ body {
   margin-top: 1.75rem;
   margin-bottom: 0.65rem;
   font-family: var(--font-display);
-  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  font-size: var(--type-heading-md);
   font-weight: 700;
   letter-spacing: -0.03em;
-  line-height: 1.12;
+  line-height: var(--leading-heading);
   text-transform: none;
   color: var(--fg);
-  max-width: var(--max-wide);
+  max-inline-size: min(100%, var(--max-wide));
+  min-inline-size: 0;
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: none;
+  text-wrap: balance;
 }
 
 .prose-precisar ul {
@@ -902,11 +931,12 @@ body {
   border-top: 2px solid var(--fg);
   border-bottom: 1px solid var(--border);
   font-family: var(--font-display);
-  font-size: clamp(1.35rem, 2.8vw, 1.85rem);
+  font-size: var(--type-heading-lg);
   font-weight: 800;
-  letter-spacing: -0.035em;
-  line-height: 1.08;
-  max-width: 44rem;
+  letter-spacing: var(--type-display-tracking);
+  line-height: var(--leading-heading);
+  max-inline-size: min(100%, 44rem);
+  min-inline-size: 0;
   color: var(--ink);
 }
 
@@ -1043,7 +1073,7 @@ body {
 
 /* Artículo: columna de lectura */
 .prose-precisar.prose-precisar--article {
-  font-size: 1.1875rem;
+  font-size: var(--copy-size);
   line-height: 1.65;
 }
 

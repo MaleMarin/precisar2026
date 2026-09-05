@@ -6,18 +6,11 @@
 }
 
 .hero {
-  --mediatica-title-size: clamp(1.95rem, 5.2vw, 4.65rem);
-  --mediatica-title-maxw: 42rem;
+  --mediatica-title-size: var(--type-display-size);
+  --mediatica-title-maxw: min(100%, var(--type-display-measure, 56rem));
   background: var(--brand-void);
   color: #fff;
   padding: clamp(3rem, 8vw, 5.5rem) var(--gutter, 1.25rem);
-}
-
-@media (min-width: 768px) {
-  .hero {
-    --mediatica-title-size: clamp(2.5rem, 6vw, 4.85rem);
-    --mediatica-title-maxw: 56rem;
-  }
 }
 
 .heroGrid {
@@ -42,17 +35,19 @@
 
 .heroTitle {
   margin: 0;
-  max-width: min(var(--mediatica-title-maxw), 100%);
+  max-inline-size: min(var(--mediatica-title-maxw), 100%);
+  min-inline-size: 0;
   font-family: var(--font-display, system-ui, sans-serif);
   font-weight: 800;
-  line-height: 1.02;
-  letter-spacing: -0.035em;
+  line-height: var(--leading-display, 1.02);
+  letter-spacing: var(--type-display-tracking, -0.035em);
   color: #fff;
   hyphens: none;
   overflow-wrap: normal;
   word-break: normal;
   font-size: var(--mediatica-title-size);
   text-align: left;
+  text-wrap: balance;
 }
 
 .heroIntro {

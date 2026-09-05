@@ -62,7 +62,7 @@
   font-variant: normal;
 }
 
-/* Portada Precisar: misma regla que #recorrido / Programas (.displayTitle). */
+/* Portada Precisar: misma regla que #convoca / Programas (.displayTitle). */
 .scalePrecisarHome {
   font-size: var(--stack-panel-title-size, clamp(2.5rem, 6vw, 4.85rem));
   font-weight: 800;

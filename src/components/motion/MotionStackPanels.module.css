@@ -9,9 +9,9 @@
   --stack-bg-page: #e9e2d6;
   --stack-bg-light: #efe8dc;
   --stack-bg-dark: var(--brand-void, #0a0c12);
-  /* Titular columna izquierda: una sola escala para todos los paneles (incl. Precisando). */
-  --stack-panel-title-maxw: 42rem;
-  --stack-panel-title-size: clamp(1.95rem, 5.2vw, 4.65rem);
+  /* Titular columna izquierda: tokens globales; el ancho lo marca la columna. */
+  --stack-panel-title-maxw: 100%;
+  --stack-panel-title-size: var(--type-display-size, clamp(1.5rem, 6.8vw, 4.65rem));
   overflow-x: hidden;
   width: 100%;
   background: var(--stack-bg-page);
@@ -20,8 +20,8 @@
 
 @media (min-width: 768px) {
   .stackRoot {
-    --stack-panel-title-maxw: 56rem;
-    --stack-panel-title-size: clamp(2.5rem, 6vw, 4.85rem);
+    --stack-panel-title-maxw: 100%;
+    --stack-panel-title-size: var(--type-display-size, clamp(2.25rem, 5.2vw, 4.5rem));
   }
 }
 
@@ -258,6 +258,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  min-inline-size: 0;
 }
 
 @media (min-width: 1024px) {
@@ -332,18 +333,24 @@
 .stackPanelLeftTitle,
 .displayTitle {
   margin: 0;
-  max-width: var(--stack-panel-title-maxw);
+  max-inline-size: min(100%, var(--type-display-measure, 56rem));
+  min-inline-size: 0;
+  padding-inline-end: 0.15em;
   font-family: var(--font-display, system-ui, sans-serif);
-  font-size: var(--stack-panel-title-size);
+  font-size: var(--type-display-size, var(--stack-panel-title-size));
   font-weight: 800;
-  line-height: 1.02;
-  letter-spacing: -0.035em;
+  line-height: var(--leading-display, 1.02);
+  letter-spacing: var(--type-display-tracking, -0.035em);
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: none;
+  text-wrap: balance;
 }
 
 .body {
   margin-top: 2rem;
   max-width: 40rem;
-  font-size: 1.1875rem;
+  font-size: var(--copy-size);
   line-height: 1.65;
   color: color-mix(in oklab, #0a0a0a 72%, transparent);
 }
@@ -360,7 +367,7 @@
   margin: 0 0 1rem;
   max-width: 40rem;
   font-family: var(--font-body, system-ui, sans-serif);
-  font-size: var(--recorrido-copy-size, clamp(0.97rem, 1.05vw, 1.0625rem));
+  font-size: var(--recorrido-copy-size, var(--copy-size));
   font-weight: 500;
   line-height: 1.45;
   letter-spacing: 0.005em;
@@ -393,7 +400,7 @@
 :global(#precisando) .body {
   max-width: 38rem;
   margin-top: clamp(1.35rem, 2.8vw, 2rem);
-  font-size: clamp(1rem, 1.35vw, 1.125rem);
+  font-size: var(--copy-size);
   font-weight: 400;
   line-height: 1.72;
   letter-spacing: 0.015em;
@@ -769,7 +776,7 @@
 
 .miniLabel {
   font-family: 'Avenir Next', 'Avenir', sans-serif;
-  font-size: clamp(0.97rem, 1.05vw, 1.0625rem);
+  font-size: var(--copy-size);
   line-height: 1.45;
 }
 
@@ -1065,58 +1072,60 @@
   transform: scale(0.97) translateY(-8px);
 }
 
-/* Recorrido: misma cadena flex / grilla que Programas (titular .displayTitle + aside). */
-:global(#recorrido) {
-  --recorrido-copy-size: clamp(0.97rem, 1.05vw, 1.0625rem);
+/* Convoca: misma cadena flex / grilla que Programas (titular .displayTitle + aside). */
+:global(#convoca) {
+  --recorrido-copy-size: var(--copy-size);
 }
 
-:global(#recorrido) .stickyPanel {
+:global(#convoca) .stickyPanel {
   display: flex;
   flex-direction: column;
   min-height: 0;
 }
 
-:global(#recorrido) .panelDepthEnter {
+:global(#convoca) .panelDepthEnter {
   flex: 1 1 auto;
   min-height: 0;
 }
 
-:global(#recorrido) .colMain {
+:global(#convoca) .colMain {
   min-height: 0;
   min-width: 0;
 }
 
-:global(#recorrido) .colAside {
+:global(#convoca) .colAside {
   justify-content: stretch;
   height: 100%;
   min-height: 0;
   min-width: 0;
 }
 
-:global(#recorrido) .panelDepthEnter .grid {
+:global(#convoca) .panelDepthEnter .grid {
   flex: 1 1 auto;
   min-height: 0;
 }
 
-:global(#recorrido) .grid {
+:global(#convoca) .grid {
   min-height: 0;
   /* Reserva inferior: contentY llega a -72px y el sticky recorta con overflow:hidden. */
   padding-bottom: calc(2.5rem + 80px);
 }
 
 @media (min-width: 1024px) {
-  :global(#recorrido) .grid {
+  :global(#convoca) .grid {
     padding-bottom: calc(3.25rem + 80px);
   }
 }
 
-:global(#recorrido) .displayTitle {
-  max-width: 100%;
-  min-width: 0;
-  overflow-wrap: break-word;
+:global(#convoca) .displayTitle {
+  max-inline-size: 100%;
+  min-inline-size: 0;
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: none;
 }
 
-:global(#recorrido) .asideSlot {
+:global(#convoca) .asideSlot {
   flex: 1 1 auto;
   height: 100%;
   min-height: 0;
@@ -1398,7 +1407,7 @@
 }
 
 .botOndaHomeLightBlock .botOndaLine {
-  font-size: clamp(0.97rem, 1.05vw, 1.0625rem);
+  font-size: var(--copy-size);
   line-height: 1.45;
   color: color-mix(in oklab, #1a1814 62%, transparent);
 }

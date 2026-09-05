@@ -2,7 +2,7 @@
 
 import { useReducedMotion } from "framer-motion";
 import styles from "./PrecisarHome.module.css";
-import { PrecisarHomeHero } from "./_components/PrecisarHomeHero";
+import { PrecisarHomeCauseHero } from "./_components/PrecisarHomeCauseHero";
 import { PrecisarHomeStackPanelsSection } from "./_components/PrecisarHomeStackPanelsSection";
 
 export function PrecisarHomeClient() {
@@ -11,7 +11,7 @@ export function PrecisarHomeClient() {
 
   return (
     <div className={rootClass}>
-      <PrecisarHomeHero />
+      <PrecisarHomeCauseHero />
       <div className={styles.heroStackBreak} aria-hidden />
       <PrecisarHomeStackPanelsSection reduceMotion={reduceMotion} />
     </div>

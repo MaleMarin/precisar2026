@@ -3,9 +3,9 @@
 .page {
   --somos-y: clamp(4.5rem, 14vw, 10rem);
   --somos-inner: min(100%, 76rem);
-  --somos-title: clamp(2rem, 5.5vw, 3.75rem);
+  --somos-title: var(--type-display-size, clamp(2rem, 5.5vw, 3.75rem));
   --somos-h2: clamp(1.65rem, 3.2vw, 2.35rem);
-  --somos-body: clamp(1.0625rem, 1.2vw, 1.1875rem);
+  --somos-body: var(--copy-size);
   --ink: #0a0c12;
   --cream: #f5f2ec;
   --mist: #eef1f4;
@@ -116,18 +116,23 @@
 
 .heroTitle {
   margin: 0;
-  max-width: 22ch;
+  max-inline-size: min(22ch, 100%);
+  min-inline-size: 0;
   font-family: var(--font-display, system-ui, sans-serif);
   font-size: var(--somos-title);
   font-weight: 800;
-  line-height: 1.04;
-  letter-spacing: -0.038em;
+  line-height: var(--leading-display, 1.04);
+  letter-spacing: var(--type-display-tracking, -0.038em);
   color: var(--ink);
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: none;
+  text-wrap: balance;
 }
 
 @media (min-width: 900px) {
   .heroTitle {
-    max-width: 26ch;
+    max-inline-size: min(26ch, 100%);
   }
 }
 
@@ -245,12 +250,18 @@
 
 .h2 {
   margin: 0;
+  max-inline-size: 100%;
+  min-inline-size: 0;
   font-family: var(--font-display, system-ui, sans-serif);
   font-size: var(--somos-h2);
   font-weight: 700;
-  line-height: 1.12;
+  line-height: var(--leading-heading, 1.12);
   letter-spacing: -0.03em;
   color: var(--ink);
+  text-wrap: balance;
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: none;
 }
 
 .h2OnDark {
@@ -507,12 +518,18 @@
 
 .ctaTitle {
   margin: 0;
+  max-inline-size: 100%;
+  min-inline-size: 0;
   font-family: var(--font-display, system-ui, sans-serif);
   font-size: clamp(2.5rem, 7vw, 4.5rem);
   font-weight: 400;
   line-height: 1;
   letter-spacing: -0.04em;
   color: var(--ink);
+  text-wrap: balance;
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: none;
 }
 
 .ctaCol {

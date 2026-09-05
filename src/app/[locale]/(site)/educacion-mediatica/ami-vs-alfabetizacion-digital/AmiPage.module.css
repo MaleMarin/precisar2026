@@ -28,19 +28,18 @@
 .heroTitle {
   font-family: var(--font-display, system-ui, sans-serif);
   font-weight: 800;
-  font-size: clamp(1.95rem, 4vw, 3.5rem);
-  line-height: 1.05;
-  letter-spacing: -0.035em;
+  font-size: var(--type-display-size);
+  line-height: var(--leading-display, 1.02);
+  letter-spacing: var(--type-display-tracking, -0.035em);
   color: #f5f2ec;
   margin: 0 0 1.5rem;
-  max-width: min(48rem, 100%);
+  max-inline-size: min(100%, var(--type-display-measure, 56rem));
+  min-inline-size: 0;
   text-align: left;
-}
-
-@media (min-width: 768px) {
-  .heroTitle {
-    font-size: clamp(2.5rem, 6vw, 4.85rem);
-  }
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: none;
+  text-wrap: balance;
 }
 
 .heroBajada {

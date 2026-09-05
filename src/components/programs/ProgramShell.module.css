@@ -6,16 +6,16 @@
 .page {
   --program-hero-from: #023661;
   /* Misma escala que titulares de sesión en home (MotionStackPanels .stackPanelLeftTitle). */
-  --program-title-size: clamp(1.95rem, 5.2vw, 4.65rem);
-  --program-title-maxw: 42rem;
+  --program-title-size: var(--type-display-size, var(--stack-panel-title-size));
+  --program-title-maxw: min(100%, var(--type-display-measure, 56rem));
   padding: 0;
   margin: 0;
 }
 
 @media (min-width: 768px) {
   .page {
-    --program-title-size: clamp(2.5rem, 6vw, 4.85rem);
-    --program-title-maxw: 56rem;
+    --program-title-size: var(--type-display-size, var(--stack-panel-title-size));
+    --program-title-maxw: min(100%, var(--type-display-measure, 56rem));
   }
 }
 
@@ -106,14 +106,16 @@
 
 .heroTitle {
   margin: 0;
-  max-width: min(var(--program-title-maxw), 100%);
+  max-inline-size: min(var(--program-title-maxw), 100%);
+  min-inline-size: 0;
   font-family: var(--font-display, system-ui, sans-serif);
   font-size: var(--program-title-size);
   font-weight: 800;
-  line-height: 1.02;
-  letter-spacing: -0.035em;
+  line-height: var(--leading-display, 1.02);
+  letter-spacing: var(--type-display-tracking, -0.035em);
   color: #fff;
   text-transform: none;
+  text-wrap: balance;
 }
 
 .heroSub {
@@ -121,7 +123,7 @@
   max-width: 40rem;
   text-align: left;
   font-family: "Avenir Next", "Avenir", var(--font-sans), system-ui, sans-serif;
-  font-size: 1.1875rem;
+  font-size: var(--copy-size);
   line-height: 1.65;
   color: rgba(255, 255, 255, 0.85);
 }
@@ -206,15 +208,15 @@
   letter-spacing: -0.035em;
   text-transform: none;
   max-width: 100%;
-  /* Evita cortes arbitrarios al medio de la palabra (p. ej. «Itinera» + «ntes»). */
-  overflow-wrap: break-word;
+  overflow-wrap: normal;
   word-break: normal;
+  hyphens: none;
 }
 
 .statSub {
   margin: 8px 0 0;
   font-family: "Avenir Next", "Avenir", var(--font-sans), system-ui, sans-serif;
-  font-size: 1.1875rem;
+  font-size: var(--copy-size);
   line-height: 1.65;
   color: color-mix(in oklab, #0a0a0a 72%, transparent);
 }
@@ -222,7 +224,7 @@
 .bodyText {
   margin: 0;
   font-family: "Avenir Next", "Avenir", var(--font-sans), system-ui, sans-serif;
-  font-size: 1.1875rem;
+  font-size: var(--copy-size);
   line-height: 1.65;
   color: color-mix(in oklab, #0a0a0a 72%, transparent);
 }
@@ -243,14 +245,16 @@
 
 .secTitleLight {
   margin: 0 0 16px;
-  max-width: var(--program-title-maxw);
+  max-inline-size: min(var(--program-title-maxw), 100%);
+  min-inline-size: 0;
   font-family: var(--font-display, system-ui, sans-serif);
   font-size: var(--program-title-size);
   font-weight: 800;
-  line-height: 1.02;
-  letter-spacing: -0.035em;
+  line-height: var(--leading-display, 1.02);
+  letter-spacing: var(--type-display-tracking, -0.035em);
   color: #fff;
   text-transform: none;
+  text-wrap: balance;
 }
 
 .secTitleLightSpaced {
@@ -260,7 +264,7 @@
 .secSubMuted {
   margin: 0 0 48px;
   font-family: "Avenir Next", "Avenir", var(--font-sans), system-ui, sans-serif;
-  font-size: 1.1875rem;
+  font-size: var(--copy-size);
   line-height: 1.65;
   color: rgba(255, 255, 255, 0.85);
   max-width: 40rem;
@@ -268,14 +272,16 @@
 
 .secTitleDark {
   margin: 0 0 16px;
-  max-width: var(--program-title-maxw);
+  max-inline-size: min(var(--program-title-maxw), 100%);
+  min-inline-size: 0;
   font-family: var(--font-display, system-ui, sans-serif);
   font-size: var(--program-title-size);
   font-weight: 800;
-  line-height: 1.02;
-  letter-spacing: -0.035em;
+  line-height: var(--leading-display, 1.02);
+  letter-spacing: var(--type-display-tracking, -0.035em);
   color: #0a0c12;
   text-transform: none;
+  text-wrap: balance;
 }
 
 .secTitleDarkSpaced {
@@ -285,7 +291,7 @@
 .secSubtitle {
   margin: 0 0 48px;
   font-family: "Avenir Next", "Avenir", var(--font-sans), system-ui, sans-serif;
-  font-size: 1.1875rem;
+  font-size: var(--copy-size);
   line-height: 1.65;
   color: color-mix(in oklab, #0a0a0a 72%, transparent);
   max-width: 40rem;
@@ -312,6 +318,10 @@
   align-items: center;
 }
 
+.ctaInner > * {
+  min-inline-size: 0;
+}
+
 @media (min-width: 768px) {
   .ctaInner {
     grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
@@ -331,21 +341,23 @@
 
 .ctaTitle {
   margin: 0;
-  max-width: var(--program-title-maxw);
+  max-inline-size: min(var(--program-title-maxw), 100%);
+  min-inline-size: 0;
   font-family: var(--font-display, system-ui, sans-serif);
   font-style: normal;
   font-size: var(--program-title-size);
   font-weight: 800;
-  line-height: 1.02;
-  letter-spacing: -0.035em;
+  line-height: var(--leading-display, 1.02);
+  letter-spacing: var(--type-display-tracking, -0.035em);
   color: #fff;
   text-transform: none;
+  text-wrap: balance;
 }
 
 .ctaText {
   margin: 0 0 24px;
   font-family: "Avenir Next", "Avenir", var(--font-sans), system-ui, sans-serif;
-  font-size: 1.1875rem;
+  font-size: var(--copy-size);
   line-height: 1.65;
   color: rgba(255, 255, 255, 0.85);
 }
@@ -358,7 +370,7 @@
 
 .ctaSteps li {
   font-family: "Avenir Next", "Avenir", var(--font-sans), system-ui, sans-serif;
-  font-size: 1.1875rem;
+  font-size: var(--copy-size);
   line-height: 1.65;
   color: rgba(255, 255, 255, 0.85);
 }
@@ -379,7 +391,7 @@
 .ctaAside {
   margin: 0 0 24px;
   font-family: "Avenir Next", "Avenir", var(--font-sans), system-ui, sans-serif;
-  font-size: 1.1875rem;
+  font-size: var(--copy-size);
   line-height: 1.65;
   color: rgba(255, 255, 255, 0.85);
   max-width: 28rem;
@@ -447,7 +459,7 @@
 
 .continuaLink {
   font-family: "Avenir Next", "Avenir", var(--font-sans), system-ui, sans-serif;
-  font-size: 1.1875rem;
+  font-size: var(--copy-size);
   line-height: 1.65;
   font-weight: 500;
   color: #db5227;
@@ -473,23 +485,28 @@
 /* Titulares de sección/tarjeta: Syne como titulares de sesión en home. */
 .programSectionTitle {
   margin: 0 0 1rem;
-  max-width: var(--program-title-maxw);
+  max-inline-size: min(var(--program-title-maxw), 100%);
+  min-inline-size: 0;
   font-family: var(--font-display, system-ui, sans-serif);
   font-size: var(--program-title-size);
   font-weight: 800;
-  line-height: 1.02;
-  letter-spacing: -0.035em;
+  line-height: var(--leading-display, 1.02);
+  letter-spacing: var(--type-display-tracking, -0.035em);
   text-transform: none;
+  text-wrap: balance;
 }
 
 .programCardTitle {
   margin: 0;
+  max-inline-size: 100%;
+  min-inline-size: 0;
   font-family: var(--font-display, system-ui, sans-serif);
-  font-size: clamp(1.15rem, 2.1vw, 1.5rem);
+  font-size: var(--type-heading-md, clamp(1.15rem, 2.1vw, 1.5rem));
   font-weight: 800;
-  line-height: 1.12;
+  line-height: var(--leading-heading, 1.12);
   letter-spacing: -0.03em;
   text-transform: none;
+  text-wrap: balance;
 }
 
 .methodologyGrid {
@@ -503,4 +520,14 @@
   .methodologyGrid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+}
+
+.heroTitle,
+.secTitleLight,
+.secTitleDark,
+.ctaTitle,
+.programSectionTitle {
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: none;
 }

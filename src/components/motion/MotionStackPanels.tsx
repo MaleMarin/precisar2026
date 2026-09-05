@@ -229,7 +229,7 @@ type StackPanelProps = {
   children?: ReactNode;
   /** Contenido opcional bajo la bajada del bloque principal (columna izquierda). */
   mainFooter?: ReactNode;
-  /** Frase sobre el titular (p. ej. puente de `#recorrido`). */
+  /** Frase sobre el titular (p. ej. puente de `#convoca`). */
   preHeadline?: ReactNode;
   reduceMotion?: boolean;
   /** Contenido editorial a ancho completo (p. ej. Participa). */
@@ -536,7 +536,7 @@ export type MotionStackPanelsProps = {
   omitFooter?: boolean;
   /** Si true, se atenúan animaciones (respeta preferencia del sistema si no se pasa). */
   reduceMotion?: boolean;
-  /** Columna derecha de `#recorrido` (el titular usa la misma plantilla que Programas). */
+  /** Columna derecha de `#convoca` (el titular usa la misma plantilla que Programas). */
   introPanel?: ReactNode;
 };
 
@@ -599,7 +599,7 @@ export function MotionStackPanels({
     ...(introPanel
       ? [
           {
-            id: "recorrido",
+            id: "convoca",
             theme: "dark" as const,
             kicker: "",
             headline: tMarquee("headline"),
