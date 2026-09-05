@@ -99,19 +99,6 @@
     "pt": "Português",
     "en": "English"
   },
-  "PotenciaHeadline": {
-    "lineLabA": "Potencia el uso",
-    "lineLabB": "de la tecnología.",
-    "lineHome": "Potencia el uso de la tecnología.",
-    "verbs": [
-      "Conecta",
-      "Transforma",
-      "Precisa",
-      "Informa",
-      "Entiende",
-      "Participa"
-    ]
-  },
   "HomeHero": {
     "kicker": "Precisar",
     "h1Line1": "Comprender",

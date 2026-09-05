@@ -15,8 +15,6 @@ import {
   type ImmersiveCopy,
   type ImmersiveLocale,
 } from "./immersive-i18n";
-import { PotenciaRotatingHeadline } from "@/components/potencia-headline/PotenciaRotatingHeadline";
-
 const EASE = [0.22, 1, 0.36, 1] as const;
 
 type ImmersiveLocaleContextValue = {
@@ -342,7 +340,9 @@ function Hero({ reduceMotion }: { reduceMotion: boolean }) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: reduceMotion ? 0 : 0.95, ease: EASE }}
           >
-            <PotenciaRotatingHeadline reduceMotion={reduceMotion} surface="light" />
+            <h1 className="max-w-[18ch] font-[family-name:var(--font-display)] text-[clamp(2.4rem,7.5vw,5rem)] font-semibold leading-[1.08] tracking-[-0.06em] text-black">
+              {copy.heroTitle}
+            </h1>
           </motion.div>
           <motion.div
             initial={reduceMotion ? false : { opacity: 0, y: 34 }}

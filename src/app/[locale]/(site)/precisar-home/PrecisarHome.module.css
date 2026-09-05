@@ -174,17 +174,6 @@
   padding-bottom: clamp(1.25rem, 4vh, 2.75rem);
 }
 
-.heroPotenciaH1 {
-  margin: clamp(3rem, 7.5vh, 5.25rem) 0 0;
-  padding: 0 0 0.2em;
-  max-width: 100%;
-  font: inherit;
-  font-family: var(--font-display), system-ui, sans-serif;
-  font-weight: 800;
-  text-transform: none;
-  overflow: visible;
-}
-
 .kicker {
   font-family: var(--font-mono);
   font-size: 10px;
