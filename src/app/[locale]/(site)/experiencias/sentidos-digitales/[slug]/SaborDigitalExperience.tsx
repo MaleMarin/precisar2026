@@ -137,7 +137,7 @@ export function SaborDigitalExperience() {
         </svg>
       </section>
 
-      <main className={styles.wrap}>
+      <div className={styles.wrap}>
         <section className={`${styles.card} ${styles.section}`} id="intro">
           <h2 className={styles.h2}>Gusto Digital</h2>
           <div className={styles.quote}>
@@ -325,7 +325,7 @@ export function SaborDigitalExperience() {
             ← Volver a Sentidos digitales
           </Link>
         </div>
-      </main>
+      </div>
     </div>
   );
 }

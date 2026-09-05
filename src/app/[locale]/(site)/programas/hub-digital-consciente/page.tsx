@@ -23,7 +23,7 @@ export default async function Page() {
   const t = await getTranslations("programsHub");
 
   return (
-    <main className={shell.page} data-program="hub">
+    <div className={shell.page} data-program="hub">
       <header className={shell.hero} aria-labelledby="hub-hero-title">
         <div className={shell.heroInner}>
           <p className={shell.heroEyebrow}>{t("heroEyebrow")}</p>
@@ -63,6 +63,6 @@ export default async function Page() {
           </h2>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

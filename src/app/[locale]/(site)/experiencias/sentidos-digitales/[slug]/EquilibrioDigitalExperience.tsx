@@ -137,7 +137,7 @@ export function EquilibrioDigitalExperience() {
         </svg>
       </section>
 
-      <main className={styles.wrap}>
+      <div className={styles.wrap}>
         <section className={`${styles.card} ${styles.section}`} id="intro">
           <h2 className={styles.h2}>Equilibrio Digital</h2>
           <div className={styles.quote}>
@@ -283,7 +283,7 @@ export function EquilibrioDigitalExperience() {
             ← Volver a Sentidos digitales
           </Link>
         </div>
-      </main>
+      </div>
     </div>
   );
 }

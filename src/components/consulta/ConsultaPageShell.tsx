@@ -32,7 +32,7 @@ export function ConsultaPageShell({ children, variant = "default" }: ConsultaPag
           </a>
         </aside>
         <div className={styles.consultaMainStack}>
-          <main className={styles.main}>
+          <main id="contenido-principal" tabIndex={-1} className={styles.main}>
             <div className={styles.consultaBrandBar}>
               <a className={styles.consultaBrandLink} href="/" title="Precisar — inicio">
                 <img

@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function QueHacemosCiudadesPage() {
   return (
-    <main>
+    <div>
       <CiudadesHero />
       <ContenidosGrid />
       <ModosLlegada />
@@ -23,6 +23,6 @@ export default function QueHacemosCiudadesPage() {
         headline="Modular, flexible y 100% adaptable a las prioridades de tu municipio."
         buttonLabel="Colabora con nosotros"
       />
-    </main>
+    </div>
   );
 }

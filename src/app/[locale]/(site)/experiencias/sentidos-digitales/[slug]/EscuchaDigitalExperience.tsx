@@ -135,7 +135,7 @@ export function EscuchaDigitalExperience() {
         </svg>
       </section>
 
-      <main className={styles.wrap}>
+      <div className={styles.wrap}>
         <section className={`${styles.card} ${styles.section}`} id="intro">
           <h2 className={styles.h2}>Escucha Digital</h2>
           <div className={styles.quote}>
@@ -345,7 +345,7 @@ export function EscuchaDigitalExperience() {
             ← Volver a Sentidos digitales
           </Link>
         </div>
-      </main>
+      </div>
     </div>
   );
 }

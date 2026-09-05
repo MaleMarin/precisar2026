@@ -30,7 +30,7 @@ export default async function DocentesPage() {
   const modulos = t.raw("modulos") as ModuloItem[];
 
   return (
-    <main className={shell.page} data-program="leer-noticias">
+    <div className={shell.page} data-program="leer-noticias">
       <section className={shell.hero}>
         <div className={shell.heroInner}>
           <p className={shell.heroEyebrow}>{t("heroEyebrow")}</p>
@@ -361,6 +361,6 @@ export default async function DocentesPage() {
           {tShared("collaborateCta")}
         </a>
       </section>
-    </main>
+    </div>
   );
 }

@@ -61,7 +61,7 @@ const NAV = [
 export function FrontierLabHome() {
   const progressRef = useRef(0);
   const mouseRef = useRef({ x: 0, y: 0 }) as LabMouseRef;
-  const mainRef = useRef<HTMLElement>(null);
+  const mainRef = useRef<HTMLDivElement>(null);
   const pinRef = useRef<HTMLElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
   const prefersReducedMotion = usePrefersReducedMotion();
@@ -186,7 +186,7 @@ export function FrontierLabHome() {
         </nav>
       </header>
 
-      <main ref={mainRef} className={styles.main}>
+      <div ref={mainRef} className={styles.main}>
         <section className={styles.hero} id="lab-hero">
           <div className={styles.heroMain}>
             <p className={styles.heroEyebrow}>Experiencia digital · laboratorio</p>
@@ -325,7 +325,7 @@ export function FrontierLabHome() {
             Ir al inicio inmersivo
           </Link>
         </footer>
-      </main>
+      </div>
     </div>
   );
 }

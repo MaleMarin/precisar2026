@@ -43,7 +43,7 @@ export function AmiVsDigitalClient() {
   const heroTitleLines = t("heroTitle").split("\n");
 
   return (
-    <main>
+    <div>
       <section className={styles.hero}>
         <p className={styles.kicker}>{t("heroKicker")}</p>
         <h1 className={styles.heroTitle}>
@@ -213,6 +213,6 @@ export function AmiVsDigitalClient() {
           ))}
         </div>
       </section>
-    </main>
+    </div>
   );
 }

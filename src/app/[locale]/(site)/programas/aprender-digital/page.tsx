@@ -73,7 +73,7 @@ export default async function AprenderDigitalPage() {
   const metodologia = t.raw("metodologia") as CardItem[];
 
   return (
-    <main className={shell.page} data-program="aprender">
+    <div className={shell.page} data-program="aprender">
       <section className={shell.hero}>
         <div className={shell.heroInner}>
           <p className={shell.heroEyebrow}>{t("heroEyebrow")}</p>
@@ -295,6 +295,6 @@ export default async function AprenderDigitalPage() {
           {tShared("collaborateCta")}
         </a>
       </section>
-    </main>
+    </div>
   );
 }

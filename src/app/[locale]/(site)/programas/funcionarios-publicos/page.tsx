@@ -30,7 +30,7 @@ export default async function Page() {
   const pasos = t.raw("pasos") as Paso[];
 
   return (
-    <main className={shell.page} data-program="funcionarios">
+    <div className={shell.page} data-program="funcionarios">
       <header className={shell.hero} aria-labelledby="fp-hero-title">
         <div className={shell.heroInner}>
           <p className={shell.heroEyebrow}>{t("heroEyebrow")}</p>
@@ -121,6 +121,6 @@ export default async function Page() {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

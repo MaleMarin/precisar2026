@@ -71,7 +71,7 @@ const RECURSOS = [
 
 export default function RecursosPage() {
   return (
-    <main className={styles.page}>
+    <div className={styles.page}>
       <div className={styles.hero}>
         <p className={styles.kicker}>Saberes · Recursos</p>
         <h1 className={styles.titulo}>
@@ -105,6 +105,6 @@ export default function RecursosPage() {
           </div>
         ))}
       </div>
-    </main>
+    </div>
   );
 }

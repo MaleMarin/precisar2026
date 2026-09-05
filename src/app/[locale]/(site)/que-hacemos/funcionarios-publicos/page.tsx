@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function QueHacemosFuncionariosPage() {
   return (
-    <main>
+    <div>
       <FuncionariosHero />
       <SesionesSection />
       <BeneficiosGrid />
@@ -20,6 +20,6 @@ export default function QueHacemosFuncionariosPage() {
         description="Adaptamos el programa a las necesidades específicas de tu institución. Propuesta formal con inversión y logística incluidas."
         buttonLabel="Colabora con nosotros"
       />
-    </main>
+    </div>
   );
 }

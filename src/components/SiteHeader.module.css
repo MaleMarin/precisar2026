@@ -496,6 +496,13 @@
   box-shadow: 0 0 0 5px #0a0c12;
 }
 
+/* Anillo interior: overflow-x-clip del header recorta el outline exterior del logo. */
+.siteHeader .navBarLogoLink:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: -3px;
+  box-shadow: inset 0 0 0 5px #0a0c12;
+}
+
 .navOndaLink {
   min-width: 44px;
   min-height: 44px;

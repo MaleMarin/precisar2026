@@ -46,7 +46,7 @@ export default async function CiudadesPage() {
   const talleres = t.raw("talleres") as Taller[];
 
   return (
-    <main className={shell.page}>
+    <div className={shell.page}>
       <section className={shell.hero}>
         <div className={shell.heroInner}>
           <p className={shell.heroEyebrow}>{t("heroEyebrow")}</p>
@@ -349,6 +349,6 @@ export default async function CiudadesPage() {
           {t("collaborateCta")}
         </a>
       </section>
-    </main>
+    </div>
   );
 }

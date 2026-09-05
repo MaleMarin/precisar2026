@@ -62,7 +62,7 @@ export default function ConsultaVivaPage() {
   }, []);
 
   return (
-    <main style={{ background: "#0A0C12", minHeight: "100vh", color: "#F5F2EC" }}>
+    <main id="contenido-principal" tabIndex={-1} style={{ background: "#0A0C12", minHeight: "100vh", color: "#F5F2EC" }}>
       <style>{`@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}`}</style>
 
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "1.25rem clamp(1.5rem,4vw,3rem)", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>

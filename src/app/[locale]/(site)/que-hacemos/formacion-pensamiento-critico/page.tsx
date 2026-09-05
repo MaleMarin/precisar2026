@@ -84,7 +84,7 @@ const taller02 = {
 
 export default function QueHacemosFormacionPage() {
   return (
-    <main>
+    <div>
       <FormacionHero />
       <ModalidadesRow />
       <TallerCard {...taller01} />
@@ -95,6 +95,6 @@ export default function QueHacemosFormacionPage() {
         headline="Cada organización tiene necesidades distintas. Conversamos, ajustamos y ejecutamos. Sin propuestas genéricas."
         buttonLabel="Colabora con nosotros"
       />
-    </main>
+    </div>
   );
 }

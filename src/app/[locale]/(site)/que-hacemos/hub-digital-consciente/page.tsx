@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function QueHacemosHubPage() {
   return (
-    <main>
+    <div>
       <HubHero />
       <ElementosGrid />
       <FormatosGrid />
@@ -24,6 +24,6 @@ export default function QueHacemosHubPage() {
         description="Trabajamos con municipios, universidades, organizaciones sociales y empresas."
         buttonLabel="Colabora con nosotros"
       />
-    </main>
+    </div>
   );
 }

@@ -175,7 +175,7 @@
   background: var(--a-gold);
 }
 
-main.main {
+.main {
   position: relative;
   z-index: 3;
   padding-top: 4.75rem;

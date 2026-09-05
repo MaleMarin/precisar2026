@@ -13,7 +13,7 @@ type Props = {
 
 export function ProgramModularShell({ program, heroEyebrow, heroTitle, heroSub, children }: Props) {
   return (
-    <main className={shell.page} data-program={program}>
+    <div className={shell.page} data-program={program}>
       <header className={shell.hero} aria-labelledby="program-modular-hero-title">
         <div className={shell.heroInner}>
           <p className={shell.heroEyebrow}>{heroEyebrow}</p>
@@ -36,6 +36,6 @@ export function ProgramModularShell({ program, heroEyebrow, heroTitle, heroSub, 
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

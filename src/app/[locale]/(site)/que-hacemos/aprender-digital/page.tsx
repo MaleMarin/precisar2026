@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function QueHacemosAprenderPage() {
   return (
-    <main>
+    <div>
       <AprenderHero />
       <ModulosSection />
       <MetodologiaGrid />
@@ -21,6 +21,6 @@ export default function QueHacemosAprenderPage() {
         headline="¿Representas a un municipio, junta de vecinos o centro comunitario? Llevamos el programa a tu espacio."
         buttonLabel="Colabora con nosotros"
       />
-    </main>
+    </div>
   );
 }

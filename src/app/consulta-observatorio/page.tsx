@@ -11,7 +11,7 @@ export const metadata: Metadata = rootPageSeo({
 
 export default function ConsultaObservatorioPage() {
   return (
-    <main className="flex h-full min-h-screen w-full min-w-0 flex-1 flex-col">
+    <main id="contenido-principal" tabIndex={-1} className="flex h-full min-h-screen w-full min-w-0 flex-1 flex-col">
       <ConsultaObservatorioLive />
     </main>
   );
