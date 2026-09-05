@@ -63,7 +63,7 @@ export const ARTICLES: ArticleMeta[] = [
   {
     catalogOrder: 4,
     slug: "democracia-en-la-era-dedigital-y-la-ia-desafíos-y-soluciones",
-    title: "Democracia en la Era deDigital y la IA: Desafíos y Soluciones",
+    title: "Democracia en la era digital y la IA: desafíos y soluciones",
     category: "Democracia",
     pubDate: "2025-10-23",
     excerpt:
