@@ -1,10 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import { useCallback, useState, type FormEvent } from "react";
+import { useCallback, useEffect, useRef, useState, type FormEvent } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
-import { footerContactRedirect } from "@/app/[locale]/(site)/participa/actions";
 import { subscribeNewsletter } from "@/lib/newsletter/subscribeNewsletter";
 import {
   EXTERNAL,
@@ -82,11 +81,42 @@ export function SiteFooter() {
   const [newsletterThanks, setNewsletterThanks] = useState(false);
   const [newsletterSubmitting, setNewsletterSubmitting] = useState(false);
   const [newsletterError, setNewsletterError] = useState<string | null>(null);
+  const newsletterLock = useRef(false);
+  const newsletterStatusRef = useRef<HTMLDivElement>(null);
+
+  const [contactThanks, setContactThanks] = useState(false);
+  const [contactSubmitting, setContactSubmitting] = useState(false);
+  const [contactError, setContactError] = useState<string | null>(null);
+  const contactLock = useRef(false);
+  const contactStatusRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!newsletterThanks && !newsletterError) return;
+    const node = newsletterStatusRef.current;
+    if (!node) return;
+    queueMicrotask(() => node.focus());
+  }, [newsletterThanks, newsletterError]);
+
+  useEffect(() => {
+    if (!contactThanks && !contactError) return;
+    const node = contactStatusRef.current;
+    if (!node) return;
+    queueMicrotask(() => node.focus());
+  }, [contactThanks, contactError]);
 
   const onNewsletterSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    if (NEWSLETTER.formActionUrl) return;
+    if (NEWSLETTER.formActionUrl) {
+      if (newsletterLock.current || newsletterSubmitting) {
+        e.preventDefault();
+        return;
+      }
+      newsletterLock.current = true;
+      setNewsletterSubmitting(true);
+      return;
+    }
 
     e.preventDefault();
+    if (newsletterLock.current || newsletterSubmitting) return;
     const form = e.currentTarget;
     const input = form.elements.namedItem("email") as HTMLInputElement | null;
     if (!input?.value?.trim() || !input.validity.valid) {
@@ -94,15 +124,9 @@ export function SiteFooter() {
       return;
     }
 
+    newsletterLock.current = true;
     setNewsletterSubmitting(true);
     setNewsletterError(null);
-
-    let finished = false;
-    const safetyTimer = window.setTimeout(() => {
-      if (finished) return;
-      setNewsletterSubmitting(false);
-      setNewsletterError(tFooter("newsletterErrorTimeout"));
-    }, 28_000);
 
     try {
       await subscribeNewsletter({
@@ -111,21 +135,43 @@ export function SiteFooter() {
         locale,
         path: pathname,
       });
-      finished = true;
       setNewsletterThanks(true);
     } catch (err) {
-      finished = true;
       console.error("[newsletter footer]", err);
-      const msg = err instanceof Error ? err.message : "";
-      setNewsletterError(
-        msg && msg !== "SUBSCRIBE_FAILED"
-          ? msg
-          : tFooter("newsletterErrorFailed"),
-      );
+      setNewsletterError(tFooter("formError"));
     } finally {
-      finished = true;
-      window.clearTimeout(safetyTimer);
+      newsletterLock.current = false;
       setNewsletterSubmitting(false);
+    }
+  };
+
+  const onContactSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (contactLock.current || contactSubmitting) return;
+    const form = e.currentTarget;
+    if (!form.reportValidity()) return;
+
+    contactLock.current = true;
+    setContactSubmitting(true);
+    setContactError(null);
+
+    try {
+      const res = await fetch("/api/footer-contact", {
+        method: "POST",
+        body: new FormData(form),
+      });
+      const data = (await res.json().catch(() => ({}))) as { ok?: boolean };
+      if (!res.ok || !data.ok) {
+        setContactError(tFooter("formError"));
+        return;
+      }
+      setContactThanks(true);
+    } catch (err) {
+      console.error("[contact footer]", err);
+      setContactError(tFooter("formError"));
+    } finally {
+      contactLock.current = false;
+      setContactSubmitting(false);
     }
   };
 
@@ -147,22 +193,24 @@ export function SiteFooter() {
     [isHome],
   );
 
+  const newsletterStatus = newsletterSubmitting
+    ? tFooter("sending")
+    : newsletterError
+      ? tFooter("formError")
+      : newsletterThanks
+        ? tFooter("newsletterThanks")
+        : null;
+
   const newsletterForm = newsletterThanks ? (
-    <p className={styles.newsThanks} role="status">
+    <div
+      ref={newsletterStatusRef}
+      className={styles.formStatus}
+      role="status"
+      aria-live="polite"
+      aria-atomic="true"
+      tabIndex={-1}
+    >
       {tFooter("newsletterThanks")}
-    </p>
-  ) : newsletterError ? (
-    <div className={styles.newsFormInner}>
-      <p className={styles.newsBody} role="alert">
-        {newsletterError}
-      </p>
-      <button
-        type="button"
-        className={styles.btnSubscribe}
-        onClick={() => setNewsletterError(null)}
-      >
-        {tFooter("retry")}
-      </button>
     </div>
   ) : NEWSLETTER.formActionUrl ? (
     <form
@@ -175,6 +223,16 @@ export function SiteFooter() {
       <label className={styles.visuallyHidden} htmlFor="footer-newsletter-email">
         {tFooter("emailLabel")}
       </label>
+      <div
+        ref={newsletterStatusRef}
+        className={styles.formStatus}
+        role={newsletterError ? "alert" : "status"}
+        aria-live={newsletterError ? "assertive" : "polite"}
+        aria-atomic="true"
+        tabIndex={-1}
+      >
+        {newsletterStatus}
+      </div>
       <div className={styles.newsRow}>
         <input
           id="footer-newsletter-email"
@@ -196,6 +254,16 @@ export function SiteFooter() {
       <label className={styles.visuallyHidden} htmlFor="footer-newsletter-email">
         {tFooter("emailLabel")}
       </label>
+      <div
+        ref={newsletterStatusRef}
+        className={styles.formStatus}
+        role={newsletterError ? "alert" : "status"}
+        aria-live={newsletterError ? "assertive" : "polite"}
+        aria-atomic="true"
+        tabIndex={-1}
+      >
+        {newsletterStatus}
+      </div>
       <div className={styles.newsRow}>
         <input
           id="footer-newsletter-email"
@@ -282,64 +350,93 @@ export function SiteFooter() {
             <div className={styles.contactColumn}>
               <h2 className={styles.contactTitle}>{tFooter("contactTitle")}</h2>
               <p className={styles.contactIntro}>{tFooter("contactIntro")}</p>
-              <form id={FOOTER_CONTACT_ANCHOR_ID} action={footerContactRedirect} className={styles.contactForm}>
-                <div className={styles.field}>
-                  <label className={styles.fieldLabel} htmlFor="footer-nombre">
-                    {tFooter("labelName")}
-                  </label>
-                  <input
-                    id="footer-nombre"
-                    name="nombre"
-                    type="text"
-                    autoComplete="given-name"
-                    required
-                    className={styles.inputLine}
-                  />
+              <div id={FOOTER_CONTACT_ANCHOR_ID}>
+              {contactThanks ? (
+                <div
+                  ref={contactStatusRef}
+                  className={styles.formStatus}
+                  role="status"
+                  aria-live="polite"
+                  aria-atomic="true"
+                  tabIndex={-1}
+                >
+                  {tFooter("contactThanks")}
                 </div>
-                <div className={styles.field}>
-                  <label className={styles.fieldLabel} htmlFor="footer-apellido">
-                    {tFooter("labelLastName")}
-                  </label>
-                  <input
-                    id="footer-apellido"
-                    name="apellido"
-                    type="text"
-                    autoComplete="family-name"
-                    required
-                    className={styles.inputLine}
-                  />
-                </div>
-                <div className={styles.field}>
-                  <label className={styles.fieldLabel} htmlFor="footer-email">
-                    {tFooter("labelEmail")}
-                  </label>
-                  <input
-                    id="footer-email"
-                    name="email"
-                    type="email"
-                    autoComplete="email"
-                    required
-                    className={styles.inputLine}
-                  />
-                </div>
-                <div className={styles.field}>
-                  <label className={styles.fieldLabel} htmlFor="footer-mensaje">
-                    {tFooter("labelMessage")}
-                  </label>
-                  <textarea
-                    id="footer-mensaje"
-                    name="mensaje"
-                    rows={3}
-                    required
-                    className={`${styles.inputLine} ${styles.textareaLine}`}
-                  />
-                </div>
-                <div className={styles.btnSendWrap}>
-                  <button type="submit" className={styles.btnSend}>
-                    {tFooter("send")}
-                  </button>
-                </div>
-              </form>
+              ) : (
+                <form className={styles.contactForm} onSubmit={onContactSubmit}>
+                  <div
+                    ref={contactStatusRef}
+                    className={styles.formStatus}
+                    role={contactError ? "alert" : "status"}
+                    aria-live={contactError ? "assertive" : "polite"}
+                    aria-atomic="true"
+                    tabIndex={-1}
+                  >
+                    {contactSubmitting ? tFooter("sending") : contactError ? tFooter("formError") : null}
+                  </div>
+                  <div className={styles.field}>
+                    <label className={styles.fieldLabel} htmlFor="footer-nombre">
+                      {tFooter("labelName")}
+                    </label>
+                    <input
+                      id="footer-nombre"
+                      name="nombre"
+                      type="text"
+                      autoComplete="given-name"
+                      required
+                      className={styles.inputLine}
+                      disabled={contactSubmitting}
+                    />
+                  </div>
+                  <div className={styles.field}>
+                    <label className={styles.fieldLabel} htmlFor="footer-apellido">
+                      {tFooter("labelLastName")}
+                    </label>
+                    <input
+                      id="footer-apellido"
+                      name="apellido"
+                      type="text"
+                      autoComplete="family-name"
+                      required
+                      className={styles.inputLine}
+                      disabled={contactSubmitting}
+                    />
+                  </div>
+                  <div className={styles.field}>
+                    <label className={styles.fieldLabel} htmlFor="footer-email">
+                      {tFooter("labelEmail")}
+                    </label>
+                    <input
+                      id="footer-email"
+                      name="email"
+                      type="email"
+                      autoComplete="email"
+                      required
+                      className={styles.inputLine}
+                      disabled={contactSubmitting}
+                    />
+                  </div>
+                  <div className={styles.field}>
+                    <label className={styles.fieldLabel} htmlFor="footer-mensaje">
+                      {tFooter("labelMessage")}
+                    </label>
+                    <textarea
+                      id="footer-mensaje"
+                      name="mensaje"
+                      rows={3}
+                      required
+                      className={`${styles.inputLine} ${styles.textareaLine}`}
+                      disabled={contactSubmitting}
+                    />
+                  </div>
+                  <div className={styles.btnSendWrap}>
+                    <button type="submit" className={styles.btnSend} disabled={contactSubmitting}>
+                      {contactSubmitting ? tFooter("sending") : tFooter("send")}
+                    </button>
+                  </div>
+                </form>
+              )}
+              </div>
             </div>
           </div>
         </div>

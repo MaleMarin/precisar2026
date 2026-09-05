@@ -155,11 +155,29 @@
   color: #666;
 }
 
+.formStatus {
+  margin: 0 0 0.75rem;
+  font-size: var(--copy-size);
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.formStatus:empty {
+  display: none;
+  margin: 0;
+}
+
+.formStatus:focus {
+  outline: 2px solid #ffffff;
+  outline-offset: 3px;
+}
+
 .btnSubscribe {
   display: inline-flex;
   flex-shrink: 0;
   align-items: center;
   justify-content: center;
+  min-height: 44px;
   border: none;
   border-radius: 0;
   background: #d4d2cd;
@@ -177,6 +195,11 @@
 
 .btnSubscribe:hover {
   background: #e8e6e1;
+}
+
+.btnSubscribe:disabled {
+  cursor: not-allowed;
+  opacity: 0.72;
 }
 
 /* ─── Mitad: nav | contacto ─── */
@@ -363,6 +386,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  min-height: 44px;
   border: 1px solid var(--brand-flame, #db5227);
   border-radius: 999px;
   background: transparent;
@@ -383,6 +407,11 @@
   border-color: color-mix(in oklab, var(--brand-flame, #db5227) 82%, #fff);
   color: color-mix(in oklab, var(--brand-flame, #db5227) 82%, #fff);
   background: rgba(219, 82, 39, 0.06);
+}
+
+.btnSend:disabled {
+  cursor: not-allowed;
+  opacity: 0.72;
 }
 
 /* ─── Franja legal ─── */
