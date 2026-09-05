@@ -14,7 +14,9 @@
     "botOnda": "Bot ONDA",
     "botOndaNavBadge": "Bot Onda/Beta",
     "botOndaBeta": "BETA",
-    "botOndaAria": "Open Bot ONDA chat (beta) in a new tab"
+    "botOndaAria": "Open Bot ONDA chat (beta) in a new tab",
+    "skipToContent": "Skip to content",
+    "logoHome": "Go to Precisar home"
   },
   "programBreadcrumbs": {
     "aria": "Breadcrumb",

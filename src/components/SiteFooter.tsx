@@ -219,10 +219,10 @@ export function SiteFooter() {
       {/* 1 · Wordmark + newsletter (centrado, editorial) */}
       <div className={styles.footerBrandZone}>
         <div className={styles.brandStrip}>
-          <Link href="/" className={styles.brandLogoLink}>
+          <Link href="/" className={styles.brandLogoLink} aria-label={tNav("logoHome")}>
             <Image
               src={FOOTER_MEDIA.footerBrandStrip}
-              alt="Precisar"
+              alt=""
               width={1920}
               height={1080}
               className={styles.brandLogo}
@@ -258,7 +258,7 @@ export function SiteFooter() {
                   <li key={item.href}>
                     <Link
                       href={item.href}
-                      className={`${styles.navLink}${item.href === "/#convoca" ? ` ${styles.navLinkPreline}` : ""}`}
+                      className={`${styles.navLink} ${styles.hitTarget}${item.href === "/#convoca" ? ` ${styles.navLinkPreline}` : ""}`}
                       onClick={(e) => scrollToHomeSection(e, item.href)}
                     >
                       {NAV_PRIMARY_I18N_KEY[item.href] ? tNav(NAV_PRIMARY_I18N_KEY[item.href]) : item.label}
@@ -270,7 +270,7 @@ export function SiteFooter() {
                     href={EXTERNAL.botOnda}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={styles.navLinkBotOnda}
+                    className={`${styles.navLinkBotOnda} ${styles.hitTarget}`}
                   >
                     <span className={styles.navBotOndaLabel}>{tNav("botOnda")}</span>
                     <span className={styles.navBotOndaBeta}>{tNav("botOndaBeta")}</span>
@@ -358,7 +358,7 @@ export function SiteFooter() {
                       href={EXTERNAL.xTwitter}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={styles.socialLink}
+                      className={`${styles.socialLink} ${styles.hitTarget}`}
                       aria-label={tFooter("socialX")}
                     >
                       <IconX />
@@ -369,7 +369,7 @@ export function SiteFooter() {
                       href={EXTERNAL.instagram}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={styles.socialLink}
+                      className={`${styles.socialLink} ${styles.hitTarget}`}
                       aria-label={tFooter("socialInstagram")}
                     >
                       <IconInstagram />
@@ -380,7 +380,7 @@ export function SiteFooter() {
                       href={EXTERNAL.facebook}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={styles.socialLink}
+                      className={`${styles.socialLink} ${styles.hitTarget}`}
                       aria-label={tFooter("socialFacebook")}
                     >
                       <IconFacebook />
@@ -391,7 +391,7 @@ export function SiteFooter() {
                       href={EXTERNAL.youtube}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={styles.socialLink}
+                      className={`${styles.socialLink} ${styles.hitTarget}`}
                       aria-label={tFooter("socialYouTube")}
                     >
                       <IconYouTube />
@@ -403,7 +403,7 @@ export function SiteFooter() {
                 href={EXTERNAL.botOnda}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={styles.legalOndaInline}
+                className={`${styles.legalOndaInline} ${styles.hitTarget}`}
                 aria-label={tNav("botOndaAria")}
               >
                 <Image
@@ -424,20 +424,20 @@ export function SiteFooter() {
                   href={ccByDeedUrl(locale)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={styles.licenseLink}
+                  className={`${styles.licenseLink} ${styles.hitTarget}`}
                 >
                   {tFooter("ccLicenseName")}
                 </a>
                 {tFooter("ccLicenseAfter")}
               </p>
               <nav aria-label={tFooter("legalNavAria")} style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
-                <Link href="/legal/privacidad" className={styles.privacyLink}>
+                <Link href="/legal/privacidad" className={`${styles.privacyLink} ${styles.hitTarget}`}>
                   {tFooter("privacyPolicy")}
                 </Link>
-                <Link href="/legal/privacidad-consulta-2026" className={styles.privacyLink}>
+                <Link href="/legal/privacidad-consulta-2026" className={`${styles.privacyLink} ${styles.hitTarget}`}>
                   {tFooter("privacyConsulta")}
                 </Link>
-                <Link href="/legal/privacidad-bot-onda" className={styles.privacyLink}>
+                <Link href="/legal/privacidad-bot-onda" className={`${styles.privacyLink} ${styles.hitTarget}`}>
                   {tFooter("privacyBotOnda")}
                 </Link>
               </nav>

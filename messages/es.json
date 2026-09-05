@@ -14,7 +14,9 @@
     "botOnda": "Bot ONDA",
     "botOndaNavBadge": "Bot Onda/Beta",
     "botOndaBeta": "BETA",
-    "botOndaAria": "Abrir el chat Bot ONDA (beta) en una pestaña nueva"
+    "botOndaAria": "Abrir el chat Bot ONDA (beta) en una pestaña nueva",
+    "skipToContent": "Saltar al contenido",
+    "logoHome": "Ir al inicio de Precisar"
   },
   "programBreadcrumbs": {
     "aria": "Migas de pan",

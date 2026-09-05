@@ -28,7 +28,10 @@ export function SiteHeader() {
   const isHome = isHomePath(pathname);
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const menuBtnRef = useRef<HTMLButtonElement>(null);
   const closeMenuBtnRef = useRef<HTMLButtonElement>(null);
+  const panelRef = useRef<HTMLDivElement>(null);
+  const wasOpenRef = useRef(false);
 
   const scrollToHomeSection = useCallback(
     (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -62,9 +65,37 @@ export function SiteHeader() {
   }, [open]);
 
   useEffect(() => {
+    if (wasOpenRef.current && !open) {
+      const btn = menuBtnRef.current;
+      if (btn && btn.offsetParent !== null) btn.focus();
+    }
+    wasOpenRef.current = open;
+  }, [open]);
+
+  useEffect(() => {
     if (!open) return;
+    const panel = panelRef.current;
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setOpen(false);
+      if (e.key === "Escape") {
+        e.preventDefault();
+        setOpen(false);
+        return;
+      }
+      if (e.key !== "Tab" || !panel) return;
+      const items = Array.from(
+        panel.querySelectorAll<HTMLElement>("a[href], button:not([disabled])"),
+      ).filter((el) => el.tabIndex !== -1);
+      if (items.length === 0) return;
+      const first = items[0];
+      const last = items[items.length - 1];
+      const active = document.activeElement;
+      if (e.shiftKey && active === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && active === last) {
+        e.preventDefault();
+        first.focus();
+      }
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
@@ -176,16 +207,21 @@ export function SiteHeader() {
     ].join(" ");
 
   return (
-    <header className="sticky top-0 z-50 min-w-0 max-w-full overflow-x-clip">
+    <header className={`${styles.siteHeader} sticky top-0 z-50 min-w-0 max-w-full overflow-x-clip`}>
       <div className="relative z-[70] min-w-0 max-w-full">
         <div className={shellClass}>
           <div
             className={`${styles.navBarOuter} relative flex min-h-[5rem] min-w-0 items-center py-2 md:min-h-0 md:py-3 ${styles.navBarRow}`}
           >
-            <Link href="/" className={styles.navBarLogoLink} onClick={() => setOpen(false)}>
+            <Link
+              href="/"
+              className={`${styles.navBarLogoLink} ${styles.hitTarget}`}
+              aria-label={tNav("logoHome")}
+              onClick={() => setOpen(false)}
+            >
               <Image
                 src={FOOTER_MEDIA.headerLogoBlack}
-                alt="Precisar"
+                alt=""
                 className={logoClass}
                 width={550}
                 height={138}
@@ -197,7 +233,7 @@ export function SiteHeader() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={linkDesktop}
+                  className={`${linkDesktop} ${styles.hitTarget}`}
                   onClick={(e) => scrollToHomeSection(e, item.href)}
                 >
                   {NAV_PRIMARY_I18N_KEY[item.href] ? tNav(NAV_PRIMARY_I18N_KEY[item.href]) : item.label}
@@ -219,7 +255,7 @@ export function SiteHeader() {
                     ) : null}
                     <button
                       type="button"
-                      className={localeLinkClass(loc)}
+                      className={`${localeLinkClass(loc)} ${styles.hitTarget}`}
                       aria-current={locale === loc ? "true" : undefined}
                       aria-label={tLang(loc)}
                       onClick={() => switchLocale(loc)}
@@ -233,7 +269,7 @@ export function SiteHeader() {
                 href={EXTERNAL.botOnda}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${styles.navOndaLink} ${styles.navOndaDesktop}`}
+                className={`${styles.navOndaLink} ${styles.navOndaDesktop} ${styles.hitTarget}`}
                 aria-label={tNav("botOndaAria")}
               >
                 <span className={styles.navOndaWithBeta}>
@@ -248,6 +284,7 @@ export function SiteHeader() {
                 </span>
               </a>
               <button
+                ref={menuBtnRef}
                 type="button"
                 className="relative z-[60] flex h-11 w-11 flex-shrink-0 flex-col items-center justify-center gap-1.5 md:hidden"
                 aria-expanded={open}
@@ -265,7 +302,7 @@ export function SiteHeader() {
                 href={EXTERNAL.botOnda}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${styles.navOndaLink} ${styles.navOndaLinkMobileBar}`}
+                className={`${styles.navOndaLink} ${styles.navOndaLinkMobileBar} ${styles.hitTarget}`}
                 aria-label={tNav("botOndaAria")}
               >
                 <span className={styles.navOndaWithBeta}>
@@ -292,6 +329,7 @@ export function SiteHeader() {
             onClick={() => setOpen(false)}
           />
           <div
+            ref={panelRef}
             id="site-nav-mobile-panel"
             className="fixed top-0 right-0 z-[1000] flex h-dvh w-[min(92vw,380px)] max-w-full flex-col border-l border-[var(--border)] bg-[var(--bg)] shadow-[0_24px_48px_-16px_rgba(12,12,11,0.25)] md:hidden"
             role="dialog"
@@ -320,7 +358,7 @@ export function SiteHeader() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`${styles.navLinkMobile} border-b border-[var(--border)] py-4 text-[var(--fg)] transition-colors hover:text-[var(--accent)]`}
+                  className={`${styles.navLinkMobile} ${styles.hitTarget} border-b border-[var(--border)] py-4 text-[var(--fg)] transition-colors hover:text-[var(--accent)]`}
                   style={{ transitionDelay: open ? `${i * 35}ms` : "0ms" }}
                   onClick={(e) => {
                     scrollToHomeSection(e, item.href);
@@ -347,8 +385,8 @@ export function SiteHeader() {
                       onClick={() => switchLocale(loc)}
                       className={
                         locale === loc
-                          ? "rounded-sm border border-[var(--fg)] bg-[var(--fg)] px-3 py-2 font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-[var(--elevated)]"
-                          : "rounded-sm border border-[var(--border)] bg-[var(--elevated)] px-3 py-2 font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--fg)] transition-colors hover:border-[var(--fg)]"
+                          ? `${styles.navLocaleMenuBtn} rounded-sm border border-[var(--fg)] bg-[var(--fg)] px-3 py-2 font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-[var(--elevated)]`
+                          : `${styles.navLocaleMenuBtn} rounded-sm border border-[var(--border)] bg-[var(--elevated)] px-3 py-2 font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--fg)] transition-colors hover:border-[var(--fg)]`
                       }
                       aria-current={locale === loc ? "true" : undefined}
                       aria-label={tLang(loc)}
@@ -362,7 +400,7 @@ export function SiteHeader() {
                 href={EXTERNAL.botOnda}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={styles.navOndaMobile}
+                className={`${styles.navOndaMobile} ${styles.hitTarget}`}
                 onClick={() => setOpen(false)}
               >
                 <Image
