@@ -96,7 +96,7 @@
   align-self: flex-start;
   max-width: 100%;
   text-align: left;
-  font-family: "Avenir Next", "Avenir", var(--font-sans), system-ui, sans-serif;
+  font-family: var(--font-sans), system-ui, sans-serif;
   font-size: 11px;
   font-weight: 400;
   letter-spacing: 0.22em;
@@ -122,7 +122,7 @@
   margin: 1.25rem 0 0;
   max-width: 40rem;
   text-align: left;
-  font-family: "Avenir Next", "Avenir", var(--font-sans), system-ui, sans-serif;
+  font-family: var(--font-sans), system-ui, sans-serif;
   font-size: var(--copy-size);
   line-height: 1.65;
   color: rgba(255, 255, 255, 0.85);
@@ -150,7 +150,7 @@
 
 .heroStatLabel {
   margin: 0.35rem 0 0;
-  font-family: "Avenir Next", "Avenir", var(--font-sans), system-ui, sans-serif;
+  font-family: var(--font-sans), system-ui, sans-serif;
   font-size: clamp(13px, 1.2vw, 15px);
   font-weight: 400;
   color: rgba(245, 242, 236, 0.65);
@@ -215,7 +215,7 @@
 
 .statSub {
   margin: 8px 0 0;
-  font-family: "Avenir Next", "Avenir", var(--font-sans), system-ui, sans-serif;
+  font-family: var(--font-sans), system-ui, sans-serif;
   font-size: var(--copy-size);
   line-height: 1.65;
   color: color-mix(in oklab, #0a0a0a 72%, transparent);
@@ -223,7 +223,7 @@
 
 .bodyText {
   margin: 0;
-  font-family: "Avenir Next", "Avenir", var(--font-sans), system-ui, sans-serif;
+  font-family: var(--font-sans), system-ui, sans-serif;
   font-size: var(--copy-size);
   line-height: 1.65;
   color: color-mix(in oklab, #0a0a0a 72%, transparent);
@@ -248,9 +248,9 @@
   max-inline-size: min(var(--program-title-maxw), 100%);
   min-inline-size: 0;
   font-family: var(--font-display, system-ui, sans-serif);
-  font-size: var(--program-title-size);
+  font-size: var(--type-heading-lg);
   font-weight: 800;
-  line-height: var(--leading-display, 1.02);
+  line-height: var(--leading-heading, 1.12);
   letter-spacing: var(--type-display-tracking, -0.035em);
   color: #fff;
   text-transform: none;
@@ -263,7 +263,7 @@
 
 .secSubMuted {
   margin: 0 0 48px;
-  font-family: "Avenir Next", "Avenir", var(--font-sans), system-ui, sans-serif;
+  font-family: var(--font-sans), system-ui, sans-serif;
   font-size: var(--copy-size);
   line-height: 1.65;
   color: rgba(255, 255, 255, 0.85);
@@ -275,9 +275,9 @@
   max-inline-size: min(var(--program-title-maxw), 100%);
   min-inline-size: 0;
   font-family: var(--font-display, system-ui, sans-serif);
-  font-size: var(--program-title-size);
+  font-size: var(--type-heading-lg);
   font-weight: 800;
-  line-height: var(--leading-display, 1.02);
+  line-height: var(--leading-heading, 1.12);
   letter-spacing: var(--type-display-tracking, -0.035em);
   color: #0a0c12;
   text-transform: none;
@@ -290,7 +290,7 @@
 
 .secSubtitle {
   margin: 0 0 48px;
-  font-family: "Avenir Next", "Avenir", var(--font-sans), system-ui, sans-serif;
+  font-family: var(--font-sans), system-ui, sans-serif;
   font-size: var(--copy-size);
   line-height: 1.65;
   color: color-mix(in oklab, #0a0a0a 72%, transparent);
@@ -356,7 +356,7 @@
 
 .ctaText {
   margin: 0 0 24px;
-  font-family: "Avenir Next", "Avenir", var(--font-sans), system-ui, sans-serif;
+  font-family: var(--font-sans), system-ui, sans-serif;
   font-size: var(--copy-size);
   line-height: 1.65;
   color: rgba(255, 255, 255, 0.85);
@@ -369,7 +369,7 @@
 }
 
 .ctaSteps li {
-  font-family: "Avenir Next", "Avenir", var(--font-sans), system-ui, sans-serif;
+  font-family: var(--font-sans), system-ui, sans-serif;
   font-size: var(--copy-size);
   line-height: 1.65;
   color: rgba(255, 255, 255, 0.85);
@@ -390,7 +390,7 @@
 
 .ctaAside {
   margin: 0 0 24px;
-  font-family: "Avenir Next", "Avenir", var(--font-sans), system-ui, sans-serif;
+  font-family: var(--font-sans), system-ui, sans-serif;
   font-size: var(--copy-size);
   line-height: 1.65;
   color: rgba(255, 255, 255, 0.85);
@@ -409,7 +409,7 @@
   justify-content: center;
   background: #f5f2ec;
   color: #0a0c12;
-  font-family: "Avenir Next", "Avenir", var(--font-sans), system-ui, sans-serif;
+  font-family: var(--font-sans), system-ui, sans-serif;
   font-weight: 500;
   font-size: 11px;
   letter-spacing: 0.15em;
@@ -443,7 +443,7 @@
 
 .continuaEyebrow {
   margin: 0 0 20px;
-  font-family: "Avenir Next", "Avenir", var(--font-sans), system-ui, sans-serif;
+  font-family: var(--font-sans), system-ui, sans-serif;
   font-size: 11px;
   font-weight: 400;
   letter-spacing: 0.22em;
@@ -458,7 +458,7 @@
 }
 
 .continuaLink {
-  font-family: "Avenir Next", "Avenir", var(--font-sans), system-ui, sans-serif;
+  font-family: var(--font-sans), system-ui, sans-serif;
   font-size: var(--copy-size);
   line-height: 1.65;
   font-weight: 500;
@@ -488,9 +488,9 @@
   max-inline-size: min(var(--program-title-maxw), 100%);
   min-inline-size: 0;
   font-family: var(--font-display, system-ui, sans-serif);
-  font-size: var(--program-title-size);
+  font-size: var(--type-heading-lg);
   font-weight: 800;
-  line-height: var(--leading-display, 1.02);
+  line-height: var(--leading-heading, 1.12);
   letter-spacing: var(--type-display-tracking, -0.035em);
   text-transform: none;
   text-wrap: balance;

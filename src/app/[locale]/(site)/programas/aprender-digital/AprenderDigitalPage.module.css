@@ -146,7 +146,7 @@
 
 .cardDesc {
   margin: 0;
-  font-family: "Avenir Next", "Avenir", var(--font-sans), system-ui, sans-serif;
+  font-family: var(--font-sans), system-ui, sans-serif;
   font-size: 1.1875rem;
   line-height: 1.65;
   color: color-mix(in oklab, #0a0a0a 72%, transparent);
@@ -155,7 +155,7 @@
 /* ─── Impacto comunidad (oscuro) ─── */
 .impactoSub {
   margin: 0 0 48px;
-  font-family: "Avenir Next", "Avenir", var(--font-sans), system-ui, sans-serif;
+  font-family: var(--font-sans), system-ui, sans-serif;
   font-size: 1.1875rem;
   line-height: 1.65;
   color: rgba(255, 255, 255, 0.85);
@@ -208,7 +208,7 @@
 
 .impactoCardDesc {
   margin: 0;
-  font-family: "Avenir Next", "Avenir", var(--font-sans), system-ui, sans-serif;
+  font-family: var(--font-sans), system-ui, sans-serif;
   font-size: 1.1875rem;
   line-height: 1.65;
   color: rgba(255, 255, 255, 0.85);
@@ -228,7 +228,7 @@
 
 .modulosSub {
   margin: 0 0 48px;
-  font-family: "Avenir Next", "Avenir", var(--font-sans), system-ui, sans-serif;
+  font-family: var(--font-sans), system-ui, sans-serif;
   font-size: 1.1875rem;
   line-height: 1.65;
   color: rgba(255, 255, 255, 0.85);

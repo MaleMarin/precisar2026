@@ -113,14 +113,14 @@
   -webkit-box-orient: vertical;
 }
 .cardSub {
-  font-family: 'Avenir Next', 'Avenir', sans-serif;
+  font-family: var(--font-sans-family), sans-serif;
   font-size: 13px;
   line-height: 1.5;
   margin: 0;
   opacity: 0.6;
 }
 .cardHint {
-  font-family: 'Avenir Next', 'Avenir', sans-serif;
+  font-family: var(--font-sans-family), sans-serif;
   font-size: 10px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -155,7 +155,7 @@
   text-transform: none;
 }
 .topHint {
-  font-family: 'Avenir Next', 'Avenir', sans-serif;
+  font-family: var(--font-sans-family), sans-serif;
   font-size: 11px;
   letter-spacing: 0.22em;
   color: rgba(245,242,236,0.35);
@@ -258,7 +258,7 @@
 }
 .closeBtn {
   background: none;
-  font-family: 'Avenir Next', 'Avenir', sans-serif;
+  font-family: var(--font-sans-family), sans-serif;
   font-size: 11px;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -272,13 +272,13 @@
 }
 .closeBtn:hover { opacity: 0.6; }
 .expandCounter {
-  font-family: 'Avenir Next', 'Avenir', sans-serif;
+  font-family: var(--font-sans-family), sans-serif;
   font-size: 10px;
   letter-spacing: 0.15em;
   margin: 0;
 }
 .expandKicker {
-  font-family: 'Avenir Next', 'Avenir', sans-serif;
+  font-family: var(--font-sans-family), sans-serif;
   font-size: 13px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -296,7 +296,7 @@
   text-transform: none;
 }
 .expandBody {
-  font-family: 'Avenir Next', 'Avenir', var(--font-sans), sans-serif;
+  font-family: var(--font-sans), sans-serif;
   font-size: 1.1875rem;
   line-height: 1.65;
   margin: 0 0 2rem;
@@ -304,7 +304,7 @@
   color: rgba(255, 255, 255, 0.85);
 }
 .groupLabel {
-  font-family: 'Avenir Next', 'Avenir', sans-serif;
+  font-family: var(--font-sans-family), sans-serif;
   font-size: 12px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -325,7 +325,7 @@
   gap: 10px;
   padding: 10px 0;
   border-bottom: 1px solid;
-  font-family: 'Avenir Next', 'Avenir', sans-serif;
+  font-family: var(--font-sans-family), sans-serif;
   font-size: clamp(15px, 1.4vw, 17px);
   line-height: 1.55;
 }
@@ -359,7 +359,7 @@
 .expandNavBtn {
   background: none;
   border: 1px solid;
-  font-family: 'Avenir Next', 'Avenir', sans-serif;
+  font-family: var(--font-sans-family), sans-serif;
   font-size: 10px;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -372,7 +372,7 @@
   background: #DB5227;
   border: 2px solid #DB5227;
   color: #F5F2EC;
-  font-family: 'Avenir Next', 'Avenir', sans-serif;
+  font-family: var(--font-sans-family), sans-serif;
   font-size: 12px;
   letter-spacing: 0.15em;
   text-transform: uppercase;

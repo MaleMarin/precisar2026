@@ -31,7 +31,7 @@ function IconImpacto({ index }: { index: number }) {
 }
 
 const cardBody: CSSProperties = {
-  fontFamily: "'Avenir Next', 'Avenir', sans-serif",
+  fontFamily: "var(--font-sans-family), sans-serif",
   fontSize: "1.1875rem",
   lineHeight: 1.65,
   color: "color-mix(in oklab, #0a0a0a 72%, transparent)",
@@ -89,7 +89,7 @@ export default async function AprenderDigitalPage() {
       <section style={{ background: "#F5F2EC", ...sectionPad }}>
         <p
           style={{
-            fontFamily: "'Avenir Next', 'Avenir', sans-serif",
+            fontFamily: "var(--font-sans-family), sans-serif",
             fontSize: "11px",
             letterSpacing: "0.22em",
             textTransform: "uppercase",
@@ -106,7 +106,7 @@ export default async function AprenderDigitalPage() {
         </h2>
         <p
           style={{
-            fontFamily: "'Avenir Next', 'Avenir', sans-serif",
+            fontFamily: "var(--font-sans-family), sans-serif",
             fontSize: "clamp(14px, 1.4vw, 17px)",
             color: "rgba(10,12,18,0.6)",
             lineHeight: 1.75,
@@ -145,7 +145,7 @@ export default async function AprenderDigitalPage() {
             <p
               key={i}
               style={{
-                fontFamily: "'Avenir Next', 'Avenir', sans-serif",
+                fontFamily: "var(--font-sans-family), sans-serif",
                 fontSize: "clamp(14px, 1.4vw, 17px)",
                 lineHeight: 1.75,
                 color: i === 0 ? "#F5F2EC" : "rgba(245,242,236,0.65)",
@@ -161,7 +161,7 @@ export default async function AprenderDigitalPage() {
       <section style={{ background: "#F5F2EC", ...sectionPad }}>
         <p
           style={{
-            fontFamily: "'Avenir Next', 'Avenir', sans-serif",
+            fontFamily: "var(--font-sans-family), sans-serif",
             fontSize: "11px",
             letterSpacing: "0.22em",
             textTransform: "uppercase",
@@ -178,7 +178,7 @@ export default async function AprenderDigitalPage() {
         </h2>
         <p
           style={{
-            fontFamily: "'Avenir Next', 'Avenir', sans-serif",
+            fontFamily: "var(--font-sans-family), sans-serif",
             fontSize: "clamp(14px, 1.4vw, 17px)",
             color: "rgba(10,12,18,0.6)",
             lineHeight: 1.75,
@@ -214,7 +214,7 @@ export default async function AprenderDigitalPage() {
       <section style={{ background: "#DB5227", ...sectionPad }}>
         <p
           style={{
-            fontFamily: "'Avenir Next', 'Avenir', sans-serif",
+            fontFamily: "var(--font-sans-family), sans-serif",
             fontSize: "11px",
             letterSpacing: "0.22em",
             textTransform: "uppercase",
@@ -264,7 +264,7 @@ export default async function AprenderDigitalPage() {
         </h2>
         <p
           style={{
-            fontFamily: "'Avenir Next', 'Avenir', sans-serif",
+            fontFamily: "var(--font-sans-family), sans-serif",
             fontSize: "clamp(14px, 1.4vw, 17px)",
             color: "rgba(245,242,236,0.65)",
             lineHeight: 1.75,
@@ -282,7 +282,7 @@ export default async function AprenderDigitalPage() {
             gap: "8px",
             background: "#DB5227",
             color: "#F5F2EC",
-            fontFamily: "'Avenir Next', 'Avenir', sans-serif",
+            fontFamily: "var(--font-sans-family), sans-serif",
             fontSize: "11px",
             letterSpacing: "0.15em",
             textTransform: "uppercase",

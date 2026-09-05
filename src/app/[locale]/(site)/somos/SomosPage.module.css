@@ -106,7 +106,7 @@
 
 .kicker {
   margin: 0;
-  font-family: "Avenir Next", "Avenir", var(--font-sans-family), system-ui, sans-serif;
+  font-family: var(--font-sans-family), system-ui, sans-serif;
   font-size: 11px;
   font-weight: 500;
   letter-spacing: 0.28em;
@@ -139,7 +139,7 @@
 /* ─── Tipografía compartida ─── */
 .para {
   margin: 0 0 clamp(1.25rem, 3vw, 1.75rem);
-  font-family: "Avenir Next", "Avenir", var(--font-sans-family), system-ui, sans-serif;
+  font-family: var(--font-sans-family), system-ui, sans-serif;
   font-size: var(--somos-body);
   line-height: 1.75;
   color: inherit;
@@ -151,7 +151,7 @@
 
 .paraMuted {
   margin: 0;
-  font-family: "Avenir Next", "Avenir", var(--font-sans-family), system-ui, sans-serif;
+  font-family: var(--font-sans-family), system-ui, sans-serif;
   font-size: var(--somos-body);
   line-height: 1.75;
   color: color-mix(in oklab, var(--ink) 68%, transparent);
@@ -170,7 +170,7 @@
 
 .prologue {
   margin: 0 0 clamp(1.35rem, 3.5vw, 2rem);
-  font-family: "Avenir Next", "Avenir", var(--font-sans-family), system-ui, sans-serif;
+  font-family: var(--font-sans-family), system-ui, sans-serif;
   font-size: var(--somos-body);
   line-height: 1.75;
   max-width: min(40rem, 100%);
@@ -206,7 +206,7 @@
   border-right: none;
   background: #fff;
   box-shadow: 0 12px 36px color-mix(in oklab, #0a0c12 5%, transparent);
-  font-family: "Avenir Next", "Avenir", var(--font-sans-family), system-ui, sans-serif;
+  font-family: var(--font-sans-family), system-ui, sans-serif;
   font-size: var(--somos-body);
   font-weight: 400;
   font-style: italic;
@@ -236,7 +236,7 @@
 
 .sectionIndex,
 .sectionIndexLight {
-  font-family: "Avenir Next", "Avenir", var(--font-sans-family), monospace;
+  font-family: var(--font-sans-family), ui-monospace, monospace;
   font-size: clamp(2.5rem, 6vw, 4.5rem);
   font-weight: 300;
   line-height: 1;
@@ -306,7 +306,7 @@
 
 .paraOnAccent {
   margin: 0 0 clamp(1.25rem, 3vw, 1.5rem);
-  font-family: "Avenir Next", "Avenir", var(--font-sans-family), system-ui, sans-serif;
+  font-family: var(--font-sans-family), system-ui, sans-serif;
   font-size: var(--somos-body);
   line-height: 1.75;
   color: color-mix(in oklab, var(--ink) 86%, transparent);
@@ -340,7 +340,7 @@
 }
 
 .timelineNum {
-  font-family: "Avenir Next", "Avenir", var(--font-sans-family), system-ui, sans-serif;
+  font-family: var(--font-sans-family), system-ui, sans-serif;
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.2em;
@@ -416,7 +416,7 @@
   border-radius: 999px;
   border: 1px solid color-mix(in oklab, var(--ink) 12%, transparent);
   background: color-mix(in oklab, #fff 80%, var(--cream));
-  font-family: "Avenir Next", "Avenir", var(--font-sans-family), system-ui, sans-serif;
+  font-family: var(--font-sans-family), system-ui, sans-serif;
   font-size: 0.9375rem;
   line-height: 1.45;
   color: color-mix(in oklab, var(--ink) 86%, transparent);
@@ -446,7 +446,7 @@
   grid-template-columns: auto 1fr;
   gap: 1rem;
   align-items: start;
-  font-family: "Avenir Next", "Avenir", var(--font-sans-family), system-ui, sans-serif;
+  font-family: var(--font-sans-family), system-ui, sans-serif;
   font-size: var(--somos-body);
   line-height: 1.65;
 }
@@ -488,7 +488,7 @@
 }
 
 .fourNum {
-  font-family: "Avenir Next", "Avenir", var(--font-sans-family), system-ui, sans-serif;
+  font-family: var(--font-sans-family), system-ui, sans-serif;
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.18em;
@@ -521,7 +521,7 @@
   max-inline-size: 100%;
   min-inline-size: 0;
   font-family: var(--font-display, system-ui, sans-serif);
-  font-size: clamp(2.5rem, 7vw, 4.5rem);
+  font-size: min(clamp(2.5rem, 7vw, 4.5rem), var(--somos-title));
   font-weight: 400;
   line-height: 1;
   letter-spacing: -0.04em;
@@ -541,7 +541,7 @@
 
 .ctaBody {
   margin: 0;
-  font-family: "Avenir Next", "Avenir", var(--font-sans-family), system-ui, sans-serif;
+  font-family: var(--font-sans-family), system-ui, sans-serif;
   font-size: var(--somos-body);
   line-height: 1.75;
   color: color-mix(in oklab, var(--ink) 72%, transparent);
@@ -555,7 +555,7 @@
   justify-content: center;
   background: var(--flame);
   color: #fff;
-  font-family: "Avenir Next", "Avenir", var(--font-sans-family), system-ui, sans-serif;
+  font-family: var(--font-sans-family), system-ui, sans-serif;
   font-weight: 600;
   font-size: 11px;
   letter-spacing: 0.18em;
@@ -663,7 +663,7 @@
 
 .teamRole {
   margin: 0;
-  font-family: "Avenir Next", "Avenir", var(--font-sans-family), system-ui, sans-serif;
+  font-family: var(--font-sans-family), system-ui, sans-serif;
   font-size: 0.8125rem;
   font-weight: 500;
   letter-spacing: 0.12em;

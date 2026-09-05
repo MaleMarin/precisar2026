@@ -52,13 +52,13 @@
   --type-display-tracking: -0.035em;
   --type-display-size: clamp(1.5rem, 6.8vw, 4.65rem);
   --type-display-measure: 56rem;
-  --type-heading-lg: clamp(1.35rem, 2.8vw, 1.85rem);
+  --type-heading-lg: clamp(1.25rem, 2.8vw, 1.85rem);
   --type-heading-md: clamp(1.15rem, 2.1vw, 1.5rem);
   /* Alias usados por stack / ProgramShell / páginas internas. */
   --stack-panel-title-maxw: 100%;
   --stack-panel-title-size: var(--type-display-size);
-  /* Cuerpo editorial (stack home .body); Avenir si está instalado, si no DM Sans. */
-  --font-body: "Avenir Next", "Avenir", var(--font-sans-family), system-ui, sans-serif;
+  /* Cuerpo y UI: DM Sans (next/font --font-sans-family). */
+  --font-body: var(--font-sans-family), system-ui, sans-serif;
   /* Cuerpo de lectura en todo el sitio (ES / EN / PT). */
   --copy-size: clamp(1.08rem, 1.75vw, 1.28rem);
   --recorrido-copy-size: var(--copy-size);
@@ -1104,7 +1104,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 p, a, button, label, input, textarea, select, li, span, td, th, caption {
-  font-family: "Avenir Next", "Avenir", var(--font-sans-family), system-ui, sans-serif;
+  font-family: var(--font-sans-family), system-ui, sans-serif;
 }
 
 /* Consulta stacked — neutraliza colores azul/verde del wizard */

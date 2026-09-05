@@ -17,7 +17,7 @@ export function HubDownloadButton() {
         borderRadius: "4px",
         background: "#DB5227",
         color: "#F5F2EC",
-        fontFamily: '"Avenir Next", "Avenir", sans-serif',
+        fontFamily: 'var(--font-sans-family), sans-serif',
         fontSize: "12px",
         letterSpacing: "0.12em",
         textTransform: "uppercase",

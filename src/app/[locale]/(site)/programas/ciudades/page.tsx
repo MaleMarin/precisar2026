@@ -23,14 +23,14 @@ type Impacto = { titulo: string; desc: string };
 type Taller = { id: string; label: string; titulo: string; desc: string; sesiones: string[] };
 
 const bodyTextStyle = {
-  fontFamily: "'Avenir Next','Avenir',sans-serif",
+  fontFamily: "var(--font-sans-family), sans-serif",
   fontSize: "clamp(14px,1.4vw,17px)",
   lineHeight: 1.75,
   color: "rgba(10,12,18,0.6)",
 } as const;
 
 const eyebrowStyle = {
-  fontFamily: "'Avenir Next','Avenir',sans-serif",
+  fontFamily: "var(--font-sans-family), sans-serif",
   fontSize: "11px",
   letterSpacing: "0.22em",
   textTransform: "uppercase" as const,
@@ -128,7 +128,7 @@ export default async function CiudadesPage() {
               </p>
               <p
                 style={{
-                  fontFamily: "'Avenir Next','Avenir',sans-serif",
+                  fontFamily: "var(--font-sans-family), sans-serif",
                   fontSize: "clamp(13px,1.2vw,15px)",
                   lineHeight: 1.55,
                   color: "rgba(10,12,18,0.6)",
@@ -179,7 +179,7 @@ export default async function CiudadesPage() {
               </p>
               <p
                 style={{
-                  fontFamily: "'Avenir Next','Avenir',sans-serif",
+                  fontFamily: "var(--font-sans-family), sans-serif",
                   fontSize: "clamp(14px,1.4vw,17px)",
                   color: "rgba(245,242,236,0.65)",
                   lineHeight: 1.75,
@@ -226,7 +226,7 @@ export default async function CiudadesPage() {
             >
               <p
                 style={{
-                  fontFamily: "'Avenir Next','Avenir',sans-serif",
+                  fontFamily: "var(--font-sans-family), sans-serif",
                   fontSize: "11px",
                   letterSpacing: "0.22em",
                   textTransform: "uppercase",
@@ -241,7 +241,7 @@ export default async function CiudadesPage() {
               </h3>
               <p
                 style={{
-                  fontFamily: "'Avenir Next','Avenir',sans-serif",
+                  fontFamily: "var(--font-sans-family), sans-serif",
                   fontSize: "clamp(14px,1.4vw,17px)",
                   color: "rgba(245,242,236,0.65)",
                   lineHeight: 1.75,
@@ -252,7 +252,7 @@ export default async function CiudadesPage() {
               </p>
               <p
                 style={{
-                  fontFamily: "'Avenir Next','Avenir',sans-serif",
+                  fontFamily: "var(--font-sans-family), sans-serif",
                   fontSize: "10px",
                   letterSpacing: "0.15em",
                   textTransform: "uppercase",
@@ -273,7 +273,7 @@ export default async function CiudadesPage() {
                   <li
                     key={s}
                     style={{
-                      fontFamily: "'Avenir Next','Avenir',sans-serif",
+                      fontFamily: "var(--font-sans-family), sans-serif",
                       fontSize: "clamp(13px,1.2vw,15px)",
                       lineHeight: 1.55,
                       color: "rgba(245,242,236,0.65)",
@@ -318,7 +318,7 @@ export default async function CiudadesPage() {
         </h2>
         <p
           style={{
-            fontFamily: "'Avenir Next','Avenir',sans-serif",
+            fontFamily: "var(--font-sans-family), sans-serif",
             fontSize: "clamp(14px,1.4vw,17px)",
             color: "rgba(245,242,236,0.65)",
             lineHeight: 1.75,
@@ -337,7 +337,7 @@ export default async function CiudadesPage() {
             gap: "8px",
             background: "#F5F2EC",
             color: "#0A0C12",
-            fontFamily: "'Avenir Next','Avenir',sans-serif",
+            fontFamily: "var(--font-sans-family), sans-serif",
             fontSize: "11px",
             letterSpacing: "0.15em",
             textTransform: "uppercase",

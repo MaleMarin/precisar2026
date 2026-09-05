@@ -52,7 +52,7 @@
 
 .heroIntro {
   margin: 0;
-  font-family: "Avenir Next", "Avenir", var(--font-sans-family), system-ui, sans-serif;
+  font-family: var(--font-sans-family), system-ui, sans-serif;
   font-size: 1.1875rem;
   font-weight: 400;
   line-height: 1.65;
@@ -91,7 +91,7 @@
 
 .bodyText {
   margin: 0 0 1.5rem;
-  font-family: "Avenir Next", "Avenir", var(--font-sans-family), system-ui, sans-serif;
+  font-family: var(--font-sans-family), system-ui, sans-serif;
   font-size: 1.1875rem;
   line-height: 1.65;
   color: var(--brand-void, #0a0c12);
@@ -103,7 +103,7 @@
 
 .bodyListIntro {
   margin: 0 0 0.5rem;
-  font-family: "Avenir Next", "Avenir", var(--font-sans-family), system-ui, sans-serif;
+  font-family: var(--font-sans-family), system-ui, sans-serif;
   font-size: 1.1875rem;
   line-height: 1.65;
   color: var(--brand-void, #0a0c12);
@@ -112,7 +112,7 @@
 .bodyList {
   margin: 0 0 1.5rem;
   padding-left: 1.25rem;
-  font-family: "Avenir Next", "Avenir", var(--font-sans-family), system-ui, sans-serif;
+  font-family: var(--font-sans-family), system-ui, sans-serif;
   font-size: 1.1875rem;
   line-height: 1.65;
   color: var(--brand-void, #0a0c12);
@@ -128,7 +128,7 @@
 
 .bodyClosing {
   margin: 1.5rem 0 0;
-  font-family: "Avenir Next", "Avenir", var(--font-sans-family), system-ui, sans-serif;
+  font-family: var(--font-sans-family), system-ui, sans-serif;
   font-size: 1.1875rem;
   line-height: 1.65;
   font-weight: 700;

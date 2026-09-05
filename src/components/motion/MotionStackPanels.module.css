@@ -707,7 +707,7 @@
   background: none;
   border: 1px solid rgba(245, 242, 236, 0.3);
   color: rgba(245, 242, 236, 0.8);
-  font-family: "Avenir Next", "Avenir", sans-serif;
+  font-family: var(--font-sans-family), sans-serif;
   font-size: 11px;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -775,7 +775,7 @@
 }
 
 .miniLabel {
-  font-family: 'Avenir Next', 'Avenir', sans-serif;
+  font-family: var(--font-sans-family), sans-serif;
   font-size: var(--copy-size);
   line-height: 1.45;
 }
@@ -1419,7 +1419,7 @@
 .botOndaHomeLightCta {
   display: block;
   margin-top: 1rem;
-  font-family: "Avenir Next", "Avenir", sans-serif;
+  font-family: var(--font-sans-family), sans-serif;
   font-size: 11px;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -1488,7 +1488,7 @@
   gap: 8px;
   background: #db5227;
   color: #f5f2ec;
-  font-family: "Avenir Next", "Avenir", sans-serif;
+  font-family: var(--font-sans-family), sans-serif;
   font-size: 11px;
   letter-spacing: 0.15em;
   text-transform: uppercase;

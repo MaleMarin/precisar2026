@@ -20,7 +20,7 @@
     top: 0;
     left: 0;
     width: 100%;
-    font-family: "Avenir Next", "Avenir", Helvetica, sans-serif;
+    font-family: var(--font-sans-family), Helvetica, sans-serif;
   }
 
   /* Cabecera con logo */

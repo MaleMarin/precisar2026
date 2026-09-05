@@ -15,7 +15,7 @@
   margin: 0 auto;
   padding: 0;
   list-style: none;
-  font-family: "Avenir Next", "Avenir", var(--font-sans), system-ui, sans-serif;
+  font-family: var(--font-sans), system-ui, sans-serif;
   font-size: 12px;
   line-height: 1.4;
   letter-spacing: 0.02em;

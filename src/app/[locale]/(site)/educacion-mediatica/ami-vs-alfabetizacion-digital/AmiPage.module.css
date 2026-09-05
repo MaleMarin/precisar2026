@@ -8,7 +8,7 @@
 }
 
 .kicker {
-  font-family: "Avenir Next", "Avenir", sans-serif;
+  font-family: var(--font-sans-family), sans-serif;
   font-size: 11px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -17,7 +17,7 @@
 }
 
 .kickerLight {
-  font-family: "Avenir Next", "Avenir", sans-serif;
+  font-family: var(--font-sans-family), sans-serif;
   font-size: 11px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -43,7 +43,7 @@
 }
 
 .heroBajada {
-  font-family: "Avenir Next", "Avenir", var(--font-sans-family), system-ui, sans-serif;
+  font-family: var(--font-sans-family), system-ui, sans-serif;
   font-size: 1.1875rem;
   line-height: 1.65;
   color: rgba(245, 242, 236, 0.72);
@@ -95,7 +95,7 @@
 }
 
 .colSub {
-  font-family: "Avenir Next", "Avenir", var(--font-sans-family), system-ui, sans-serif;
+  font-family: var(--font-sans-family), system-ui, sans-serif;
   font-size: 1.1875rem;
   color: rgba(245, 242, 236, 0.55);
   margin: 0 0 1.5rem;
@@ -103,7 +103,7 @@
 }
 
 .colSubD {
-  font-family: "Avenir Next", "Avenir", var(--font-sans-family), system-ui, sans-serif;
+  font-family: var(--font-sans-family), system-ui, sans-serif;
   font-size: 1.1875rem;
   color: rgba(10, 12, 18, 0.5);
   margin: 0 0 1.5rem;
@@ -128,7 +128,7 @@
   gap: 8px;
   padding: 8px 0;
   border-bottom: 1px solid rgba(245, 242, 236, 0.08);
-  font-family: "Avenir Next", "Avenir", var(--font-sans-family), system-ui, sans-serif;
+  font-family: var(--font-sans-family), system-ui, sans-serif;
   font-size: 1.1875rem;
   color: rgba(245, 242, 236, 0.8);
   line-height: 1.55;
@@ -140,7 +140,7 @@
   gap: 8px;
   padding: 8px 0;
   border-bottom: 1px solid rgba(10, 12, 18, 0.08);
-  font-family: "Avenir Next", "Avenir", var(--font-sans-family), system-ui, sans-serif;
+  font-family: var(--font-sans-family), system-ui, sans-serif;
   font-size: 1.1875rem;
   color: rgba(10, 12, 18, 0.72);
   line-height: 1.55;
@@ -159,7 +159,7 @@
 }
 
 .ejemplosLabel {
-  font-family: "Avenir Next", "Avenir", sans-serif;
+  font-family: var(--font-sans-family), sans-serif;
   font-size: 9px;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -168,7 +168,7 @@
 }
 
 .ejemplosLabelD {
-  font-family: "Avenir Next", "Avenir", sans-serif;
+  font-family: var(--font-sans-family), sans-serif;
   font-size: 9px;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -183,7 +183,7 @@
 }
 
 .tagAmi {
-  font-family: "Avenir Next", "Avenir", sans-serif;
+  font-family: var(--font-sans-family), sans-serif;
   font-size: 11px;
   padding: 4px 10px;
   background: rgba(219, 82, 39, 0.15);
@@ -192,7 +192,7 @@
 }
 
 .tagDigital {
-  font-family: "Avenir Next", "Avenir", sans-serif;
+  font-family: var(--font-sans-family), sans-serif;
   font-size: 11px;
   padding: 4px 10px;
   background: rgba(2, 54, 97, 0.08);
@@ -209,8 +209,8 @@
 .secTitulo {
   font-family: var(--font-display, system-ui, sans-serif);
   font-weight: 800;
-  font-size: clamp(1.75rem, 4vw, 3rem);
-  line-height: 1.05;
+  font-size: var(--type-heading-lg);
+  line-height: var(--leading-heading, 1.12);
   letter-spacing: -0.035em;
   color: #0a0c12;
   margin: 0 0 2.5rem;
@@ -236,7 +236,7 @@
 
 .headCelda {
   padding: 14px 20px;
-  font-family: "Avenir Next", "Avenir", sans-serif;
+  font-family: var(--font-sans-family), sans-serif;
   font-size: 12px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -245,7 +245,7 @@
 
 .celdaDim {
   padding: 14px 20px;
-  font-family: "Avenir Next", "Avenir", sans-serif;
+  font-family: var(--font-sans-family), sans-serif;
   font-size: 13px;
   font-weight: 600;
   color: #0a0c12;
@@ -254,7 +254,7 @@
 
 .celda {
   padding: 14px 20px;
-  font-family: "Avenir Next", "Avenir", sans-serif;
+  font-family: var(--font-sans-family), sans-serif;
   font-size: 13px;
   color: rgba(10, 12, 18, 0.65);
   line-height: 1.55;
@@ -270,8 +270,8 @@
 .secTituloLight {
   font-family: var(--font-display, system-ui, sans-serif);
   font-weight: 800;
-  font-size: clamp(1.75rem, 4vw, 3rem);
-  line-height: 1.05;
+  font-size: var(--type-heading-lg);
+  line-height: var(--leading-heading, 1.12);
   letter-spacing: -0.035em;
   color: #f5f2ec;
   margin: 0 0 1rem;
@@ -279,7 +279,7 @@
 }
 
 .tip {
-  font-family: "Avenir Next", "Avenir", sans-serif;
+  font-family: var(--font-sans-family), sans-serif;
   font-size: 13px;
   color: rgba(245, 242, 236, 0.35);
   font-style: italic;
@@ -298,7 +298,7 @@
 }
 
 .poolEmpty {
-  font-family: "Avenir Next", "Avenir", sans-serif;
+  font-family: var(--font-sans-family), sans-serif;
   font-size: 13px;
   color: rgba(245, 242, 236, 0.3);
   margin: 0;
@@ -309,7 +309,7 @@
   background: rgba(245, 242, 236, 0.08);
   border: 1px solid rgba(245, 242, 236, 0.15);
   color: #f5f2ec;
-  font-family: "Avenir Next", "Avenir", sans-serif;
+  font-family: var(--font-sans-family), sans-serif;
   font-size: 13px;
   padding: 8px 14px;
   cursor: grab;
@@ -367,14 +367,14 @@
 }
 
 .dropHint {
-  font-family: "Avenir Next", "Avenir", sans-serif;
+  font-family: var(--font-sans-family), sans-serif;
   font-size: 12px;
   color: rgba(245, 242, 236, 0.2);
   margin: 0;
 }
 
 .droppedItem {
-  font-family: "Avenir Next", "Avenir", sans-serif;
+  font-family: var(--font-sans-family), sans-serif;
   font-size: 13px;
   color: #f5f2ec;
   padding: 8px 12px;
@@ -395,7 +395,7 @@
   background: #db5227;
   border: none;
   color: #f5f2ec;
-  font-family: "Avenir Next", "Avenir", sans-serif;
+  font-family: var(--font-sans-family), sans-serif;
   font-size: 11px;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -413,7 +413,7 @@
   background: none;
   border: 1px solid rgba(245, 242, 236, 0.2);
   color: rgba(245, 242, 236, 0.5);
-  font-family: "Avenir Next", "Avenir", sans-serif;
+  font-family: var(--font-sans-family), sans-serif;
   font-size: 11px;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -467,7 +467,7 @@
 }
 
 .razonDesc {
-  font-family: "Avenir Next", "Avenir", sans-serif;
+  font-family: var(--font-sans-family), sans-serif;
   font-size: 14px;
   color: rgba(10, 12, 18, 0.6);
   line-height: 1.65;

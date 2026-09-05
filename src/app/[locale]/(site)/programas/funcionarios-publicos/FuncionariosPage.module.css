@@ -50,7 +50,7 @@
 
 .benefDesc {
   margin: 0;
-  font-family: "Avenir Next", "Avenir", var(--font-sans), system-ui, sans-serif;
+  font-family: var(--font-sans), system-ui, sans-serif;
   font-size: 1.1875rem;
   line-height: 1.65;
   color: color-mix(in oklab, #0a0a0a 72%, transparent);
@@ -59,7 +59,7 @@
 .pasosLead {
   margin: 0 0 48px;
   max-width: 760px;
-  font-family: "Avenir Next", "Avenir", var(--font-sans), system-ui, sans-serif;
+  font-family: var(--font-sans), system-ui, sans-serif;
   font-style: normal;
   font-size: 1.1875rem;
   font-weight: 400;
@@ -85,7 +85,7 @@
 
 .pasoBadge {
   margin: 0 0 0.5rem;
-  font-family: "Avenir Next", "Avenir", var(--font-sans), system-ui, sans-serif;
+  font-family: var(--font-sans), system-ui, sans-serif;
   font-size: 11px;
   font-weight: 400;
   letter-spacing: 0.22em;
@@ -106,7 +106,7 @@
 
 .pasoText {
   margin: 0;
-  font-family: "Avenir Next", "Avenir", var(--font-sans), system-ui, sans-serif;
+  font-family: var(--font-sans), system-ui, sans-serif;
   font-size: 1.1875rem;
   line-height: 1.65;
   color: rgba(255, 255, 255, 0.85);

@@ -9,7 +9,7 @@
     clamp(3rem, 6vw, 5rem);
 }
 .kicker {
-  font-family: 'Avenir Next', 'Avenir', sans-serif;
+  font-family: var(--font-sans-family), sans-serif;
   font-size: 11px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -32,7 +32,7 @@
   text-wrap: balance;
 }
 .bajada {
-  font-family: 'Avenir Next', 'Avenir', sans-serif;
+  font-family: var(--font-sans-family), sans-serif;
   font-size: clamp(14px, 1.4vw, 17px);
   line-height: 1.75;
   color: rgba(245,242,236,0.65);
@@ -92,7 +92,7 @@
   margin: 0 0 12px;
 }
 .cardDesc {
-  font-family: 'Avenir Next', 'Avenir', sans-serif;
+  font-family: var(--font-sans-family), sans-serif;
   font-size: clamp(14px, 1.4vw, 17px);
   line-height: 1.75;
   color: rgba(10,12,18,0.6);
@@ -105,7 +105,7 @@
   gap: 6px;
   background: #DB5227;
   color: #F5F2EC;
-  font-family: 'Avenir Next', 'Avenir', sans-serif;
+  font-family: var(--font-sans-family), sans-serif;
   font-size: 10px;
   letter-spacing: 0.15em;
   text-transform: uppercase;

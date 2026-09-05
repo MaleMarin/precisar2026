@@ -16,7 +16,7 @@
   min-height: 100dvh;
   background: var(--cv-surface);
   color: var(--cv-ink);
-  font-family: var(--font-consulta-viva), system-ui, sans-serif;
+  font-family: var(--font-sans-family), system-ui, sans-serif;
 }
 
 .inner {

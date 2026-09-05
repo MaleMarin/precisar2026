@@ -61,7 +61,7 @@ export default async function PropuestaPoliticaAlfabetizacionPage() {
           --ami-navy: #023661;
           --ami-flame: #db5227;
           --ami-cream: #f5f2ec;
-          font-family: "Avenir Next", "Avenir", var(--font-sans-family), system-ui, sans-serif;
+          font-family: var(--font-sans-family), system-ui, sans-serif;
           color: var(--ami-void);
           background: var(--ami-cream);
         }
@@ -178,7 +178,7 @@ export default async function PropuestaPoliticaAlfabetizacionPage() {
         .agendaAmiTable th {
           background: var(--ami-navy);
           color: var(--ami-cream);
-          font-family: "Avenir Next", "Avenir", var(--font-sans-family), sans-serif;
+          font-family: var(--font-sans-family), sans-serif;
           font-weight: 600;
           font-size: 0.8125rem;
           letter-spacing: 0.06em;
@@ -373,7 +373,7 @@ export default async function PropuestaPoliticaAlfabetizacionPage() {
           padding: 14px 28px;
           background: var(--ami-flame);
           color: var(--ami-cream);
-          font-family: "Avenir Next", "Avenir", var(--font-sans-family), sans-serif;
+          font-family: var(--font-sans-family), sans-serif;
           font-size: 11px;
           font-weight: 500;
           letter-spacing: 0.15em;
@@ -385,7 +385,7 @@ export default async function PropuestaPoliticaAlfabetizacionPage() {
         .agendaAmiHeroSub {
           margin: 1.25rem 0 0;
           max-width: 46rem;
-          font-family: "Avenir Next", "Avenir", var(--font-sans-family), sans-serif;
+          font-family: var(--font-sans-family), sans-serif;
           font-size: 1.1875rem;
           line-height: 1.65;
           color: rgba(245, 242, 236, 0.72);
@@ -395,7 +395,7 @@ export default async function PropuestaPoliticaAlfabetizacionPage() {
           padding: clamp(1.25rem, 3vw, 2rem);
           border-left: 4px solid var(--ami-flame);
           background: rgba(245, 242, 236, 0.06);
-          font-family: "Avenir Next", "Avenir", var(--font-sans-family), sans-serif;
+          font-family: var(--font-sans-family), sans-serif;
           font-size: clamp(14px, 1.4vw, 17px);
           line-height: 1.75;
           font-style: normal;

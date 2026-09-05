@@ -8,7 +8,7 @@
 }
 
 .lead {
-  font-family: "Avenir Next", "Avenir", var(--font-sans-family), system-ui, sans-serif;
+  font-family: var(--font-sans-family), system-ui, sans-serif;
   font-size: 1.1875rem;
   line-height: 1.65;
   color: var(--muted);
@@ -58,7 +58,7 @@
 
 .markdown :global(p) {
   margin: 0 0 1rem;
-  font-family: "Avenir Next", "Avenir", var(--font-sans-family), system-ui, sans-serif;
+  font-family: var(--font-sans-family), system-ui, sans-serif;
   font-size: 1.1875rem;
   line-height: 1.65;
   color: var(--fg);
@@ -68,7 +68,7 @@
 .markdown :global(ol) {
   margin: 0.5rem 0 1.25rem;
   padding-left: 1.35rem;
-  font-family: "Avenir Next", "Avenir", var(--font-sans-family), system-ui, sans-serif;
+  font-family: var(--font-sans-family), system-ui, sans-serif;
   font-size: 1.1875rem;
   line-height: 1.65;
   color: var(--fg);
