@@ -254,3 +254,22 @@
   font-size: 10px;
   letter-spacing: 3px;
 }
+
+.band {
+  min-inline-size: 0;
+  max-inline-size: 100%;
+}
+
+@media (max-width: 400px) {
+  .band {
+    padding-inline: 0.75rem !important;
+  }
+
+  .card {
+    padding: 1.1rem !important;
+  }
+
+  .card p {
+    text-wrap: wrap !important;
+  }
+}

@@ -57,6 +57,8 @@ export default async function PropuestaPoliticaAlfabetizacionPage() {
     <>
       <style>{`
         .agendaAmiPage {
+          min-inline-size: 0;
+          max-inline-size: 100%;
           --ami-void: #0a0c12;
           --ami-navy: #023661;
           --ami-flame: #db5227;
@@ -78,7 +80,12 @@ export default async function PropuestaPoliticaAlfabetizacionPage() {
         .agendaAmiStatGrid {
           display: grid;
           gap: clamp(1.5rem, 3vw, 2.5rem);
-          grid-template-columns: repeat(2, minmax(0, 1fr));
+          grid-template-columns: minmax(0, 1fr);
+          min-inline-size: 0;
+          max-inline-size: 100%;
+        }
+        @media (min-width: 500px) {
+          .agendaAmiStatGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
         }
         @media (min-width: 900px) {
           .agendaAmiStatGrid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
@@ -88,6 +95,8 @@ export default async function PropuestaPoliticaAlfabetizacionPage() {
           font-size: clamp(2.25rem, 4.5vw, 3.25rem);
           line-height: 1.02;
           color: var(--ami-cream);
+          min-inline-size: 0;
+          max-inline-size: 100%;
         }
         .amiStatLabel {
           margin: 0.5rem 0 0;
@@ -114,6 +123,9 @@ export default async function PropuestaPoliticaAlfabetizacionPage() {
           padding: clamp(1.25rem, 3vw, 2rem);
           border: 1px solid rgba(10, 12, 18, 0.08);
           background: #fff;
+          min-inline-size: 0;
+          max-inline-size: 100%;
+          box-sizing: border-box;
         }
         .agendaAmiColCard h3 {
           margin: 0 0 0.35rem;
@@ -158,12 +170,14 @@ export default async function PropuestaPoliticaAlfabetizacionPage() {
         }
         .agendaAmiTableWrap {
           margin-top: clamp(2rem, 4vw, 3rem);
-          overflow-x: auto;
-          -webkit-overflow-scrolling: touch;
+          width: 100%;
+          max-inline-size: 100%;
+          min-inline-size: 0;
         }
         .agendaAmiTable {
           width: 100%;
-          min-width: 560px;
+          max-inline-size: 100%;
+          min-inline-size: 0;
           border-collapse: collapse;
           font-size: 0.9375rem;
           line-height: 1.5;
@@ -188,6 +202,41 @@ export default async function PropuestaPoliticaAlfabetizacionPage() {
           font-weight: 600;
           background: rgba(245, 242, 236, 0.9);
           width: 11rem;
+        }
+        @media (max-width: 700px) {
+          .agendaAmiTable thead { display: none; }
+          .agendaAmiTable,
+          .agendaAmiTable tbody,
+          .agendaAmiTable tr,
+          .agendaAmiTable td {
+            display: block;
+            width: 100%;
+            max-inline-size: 100%;
+            min-inline-size: 0;
+            box-sizing: border-box;
+          }
+          .agendaAmiTable tr {
+            border: 1px solid rgba(10, 12, 18, 0.12);
+            margin-bottom: 0.85rem;
+          }
+          .agendaAmiTable td {
+            border: none;
+            border-top: 1px solid rgba(10, 12, 18, 0.08);
+          }
+          .agendaAmiTable td:first-child {
+            width: auto;
+            border-top: none;
+          }
+          .agendaAmiTable td::before {
+            content: attr(data-label);
+            display: block;
+            margin-bottom: 0.35rem;
+            font-size: 0.6875rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--ami-navy);
+          }
         }
         .agendaAmiAgeTabs .agendaAmiPanels .agendaAmiPanel { display: none; }
         #agendaAmiAgeNna:checked ~ .agendaAmiPanels .agendaAmiPanelNna,
@@ -239,6 +288,9 @@ export default async function PropuestaPoliticaAlfabetizacionPage() {
           .agendaAmiNudoGrid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
         }
         .agendaAmiNudoCard {
+          min-inline-size: 0;
+          max-inline-size: 100%;
+          box-sizing: border-box;
           padding: clamp(1.25rem, 2.5vw, 1.75rem);
           background: rgba(10, 12, 18, 0.12);
           border: 1px solid rgba(245, 242, 236, 0.2);
@@ -263,6 +315,9 @@ export default async function PropuestaPoliticaAlfabetizacionPage() {
         .agendaAmi2030Col {
           padding: clamp(2rem, 5vw, 4rem);
           min-height: 100%;
+          min-inline-size: 0;
+          max-inline-size: 100%;
+          box-sizing: border-box;
         }
         .agendaAmi2030Col h3 {
           margin: 0 0 0.5rem;
@@ -313,6 +368,8 @@ export default async function PropuestaPoliticaAlfabetizacionPage() {
         .agendaAmiFases {
           display: grid;
           gap: clamp(1.5rem, 3vw, 2.5rem);
+          min-inline-size: 0;
+          max-inline-size: 100%;
         }
         @media (min-width: 900px) {
           .agendaAmiFases { grid-template-columns: repeat(3, minmax(0, 1fr)); }
@@ -321,12 +378,21 @@ export default async function PropuestaPoliticaAlfabetizacionPage() {
           padding: clamp(1.25rem, 2.5vw, 1.75rem);
           background: #fff;
           border: 1px solid rgba(10, 12, 18, 0.08);
+          min-inline-size: 0;
+          max-inline-size: 100%;
+          box-sizing: border-box;
         }
         .amiPhaseTitle {
           margin: 0 0 1rem;
           font-size: clamp(1.35rem, 2vw, 1.75rem);
           line-height: 1.1;
           color: var(--ami-navy);
+          min-inline-size: 0;
+          max-inline-size: 100%;
+        }
+        @media (max-width: 400px) {
+          .amiPhaseTitle { font-size: 1.15rem; }
+          .agendaAmiFase { padding: 1rem; }
         }
         .agendaAmiFase ul {
           margin: 0;
@@ -499,9 +565,9 @@ export default async function PropuestaPoliticaAlfabetizacionPage() {
                 <tbody>
                   {tableRows.map((row) => (
                     <tr key={row.dim}>
-                      <td>{row.dim}</td>
-                      <td>{row.ami}</td>
-                      <td>{row.dig}</td>
+                      <td data-label={t("tableHeaders.dimension")}>{row.dim}</td>
+                      <td data-label={t("tableHeaders.ami")}>{row.ami}</td>
+                      <td data-label={t("tableHeaders.digital")}>{row.dig}</td>
                     </tr>
                   ))}
                 </tbody>

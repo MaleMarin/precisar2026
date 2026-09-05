@@ -2,6 +2,7 @@ import type { CSSProperties } from "react";
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import shell from "@/components/programs/ProgramShell.module.css";
+import page from "./AprenderDigitalPage.module.css";
 import { pageSeo } from "@/lib/seo";
 
 type CardItem = { titulo: string; desc: string };
@@ -47,6 +48,18 @@ const gridFineLines: CSSProperties = {
   gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 280px), 1fr))",
   gap: "1px",
   background: "rgba(10,12,18,0.08)",
+  minInlineSize: 0,
+  maxInlineSize: "100%",
+};
+
+const gridCard: CSSProperties = {
+  background: "#F5F2EC",
+  padding: "2rem",
+  borderLeft: "3px solid #DB5227",
+  borderRadius: 4,
+  minInlineSize: 0,
+  maxInlineSize: "100%",
+  boxSizing: "border-box",
 };
 
 export async function generateMetadata({
@@ -86,7 +99,7 @@ export default async function AprenderDigitalPage() {
         </div>
       </section>
 
-      <section style={{ background: "#F5F2EC", ...sectionPad }}>
+      <section className={page.band} style={{ background: "#F5F2EC", ...sectionPad }}>
         <p
           style={{
             fontFamily: "var(--font-sans-family), sans-serif",
@@ -118,15 +131,7 @@ export default async function AprenderDigitalPage() {
         </p>
         <div style={gridFineLines}>
           {modulos.map((mod, i) => (
-            <div
-              key={mod.titulo}
-              style={{
-                background: "#F5F2EC",
-                padding: "2rem",
-                borderLeft: "3px solid #DB5227",
-                borderRadius: 4,
-              }}
-            >
+            <div key={mod.titulo} className={page.card} style={gridCard}>
               <div style={{ marginBottom: "1rem" }}>
                 <IconModulo color={MODULO_COLORS[i % MODULO_COLORS.length]!} />
               </div>
@@ -139,7 +144,7 @@ export default async function AprenderDigitalPage() {
         </div>
       </section>
 
-      <section style={{ background: "#0A0C12", ...sectionPad }}>
+      <section className={page.band} style={{ background: "#0A0C12", ...sectionPad }}>
         <div style={{ maxWidth: 720 }}>
           {contextParas.map((text, i) => (
             <p
@@ -158,7 +163,7 @@ export default async function AprenderDigitalPage() {
         </div>
       </section>
 
-      <section style={{ background: "#F5F2EC", ...sectionPad }}>
+      <section className={page.band} style={{ background: "#F5F2EC", ...sectionPad }}>
         <p
           style={{
             fontFamily: "var(--font-sans-family), sans-serif",
@@ -190,15 +195,7 @@ export default async function AprenderDigitalPage() {
         </p>
         <div style={gridFineLines}>
           {impactos.map((imp, i) => (
-            <div
-              key={imp.titulo}
-              style={{
-                background: "#F5F2EC",
-                padding: "2rem",
-                borderLeft: "3px solid #DB5227",
-                borderRadius: 4,
-              }}
-            >
+            <div key={imp.titulo} className={page.card} style={gridCard}>
               <div style={{ marginBottom: "1rem" }}>
                 <IconImpacto index={i} />
               </div>
@@ -211,7 +208,7 @@ export default async function AprenderDigitalPage() {
         </div>
       </section>
 
-      <section style={{ background: "#DB5227", ...sectionPad }}>
+      <section className={page.band} style={{ background: "#DB5227", ...sectionPad }}>
         <p
           style={{
             fontFamily: "var(--font-sans-family), sans-serif",
@@ -231,22 +228,12 @@ export default async function AprenderDigitalPage() {
         </h2>
         <div
           style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 280px), 1fr))",
-            gap: "1px",
+            ...gridFineLines,
             background: "rgba(245,242,236,0.08)",
           }}
         >
           {metodologia.map((met) => (
-            <div
-              key={met.titulo}
-              style={{
-                background: "#F5F2EC",
-                padding: "2rem",
-                borderLeft: "3px solid #DB5227",
-                borderRadius: 4,
-              }}
-            >
+            <div key={met.titulo} className={page.card} style={gridCard}>
               <p className={shell.programCardTitle} style={{ color: "#0A0C12", margin: "0 0 10px" }}>
                 {met.titulo}
               </p>
@@ -256,7 +243,7 @@ export default async function AprenderDigitalPage() {
         </div>
       </section>
 
-      <section style={{ background: "#023661", ...sectionPad }}>
+      <section className={page.band} style={{ background: "#023661", ...sectionPad }}>
         <h2 className={shell.programSectionTitle} style={{ color: "#F5F2EC", margin: "0 0 1.5rem" }}>
           {t("ctaTitleLine1")}
           <br />

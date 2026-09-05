@@ -1,9 +1,16 @@
+.root {
+  min-inline-size: 0;
+  max-inline-size: 100%;
+}
+
 /* HERO */
 .hero {
   background: #0a0c12;
-  padding: clamp(4rem, 8vw, 7rem) clamp(2rem, 6vw, 5rem) clamp(3rem, 6vw, 5rem);
+  padding: clamp(4rem, 8vw, 7rem) clamp(1rem, 6vw, 5rem) clamp(3rem, 6vw, 5rem);
   text-align: left;
   width: 100%;
+  max-inline-size: 100%;
+  min-inline-size: 0;
   box-sizing: border-box;
 }
 
@@ -55,9 +62,11 @@
 /* DOS COLUMNAS */
 .dosCol {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 1px;
   background: rgba(10, 12, 18, 0.1);
+  min-inline-size: 0;
+  max-inline-size: 100%;
 }
 
 @media (max-width: 768px) {
@@ -203,7 +212,9 @@
 /* TABLA */
 .tablaSection {
   background: #f5f2ec;
-  padding: clamp(3rem, 6vw, 5rem) clamp(2rem, 6vw, 4rem);
+  padding: clamp(3rem, 6vw, 5rem) clamp(1rem, 6vw, 4rem);
+  min-inline-size: 0;
+  max-inline-size: 100%;
 }
 
 .secTitulo {
@@ -219,22 +230,47 @@
 
 .tabla {
   max-width: 960px;
+  max-inline-size: 100%;
+  min-inline-size: 0;
   border: 1px solid rgba(10, 12, 18, 0.1);
 }
 
 .tablaHead {
   display: grid;
-  grid-template-columns: 180px 1fr 1fr;
+  grid-template-columns: minmax(0, 180px) minmax(0, 1fr) minmax(0, 1fr);
   background: #0a0c12;
 }
 
 .tablaFila {
   display: grid;
-  grid-template-columns: 180px 1fr 1fr;
+  grid-template-columns: minmax(0, 180px) minmax(0, 1fr) minmax(0, 1fr);
   border-top: 1px solid rgba(10, 12, 18, 0.08);
+  min-inline-size: 0;
+}
+
+@media (max-width: 768px) {
+  .tablaHead {
+    display: none;
+  }
+
+  .tablaFila {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .celda::before {
+    content: attr(data-label);
+    display: block;
+    margin-bottom: 0.35rem;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #023661;
+  }
 }
 
 .headCelda {
+  min-inline-size: 0;
   padding: 14px 20px;
   font-family: var(--font-sans-family), sans-serif;
   font-size: 12px;
@@ -244,6 +280,7 @@
 }
 
 .celdaDim {
+  min-inline-size: 0;
   padding: 14px 20px;
   font-family: var(--font-sans-family), sans-serif;
   font-size: 13px;
@@ -253,6 +290,7 @@
 }
 
 .celda {
+  min-inline-size: 0;
   padding: 14px 20px;
   font-family: var(--font-sans-family), sans-serif;
   font-size: 13px;
@@ -264,7 +302,9 @@
 /* EJERCICIO */
 .ejercicioSection {
   background: #0a0c12;
-  padding: clamp(3rem, 6vw, 5rem) clamp(2rem, 6vw, 4rem);
+  padding: clamp(3rem, 6vw, 5rem) clamp(1rem, 6vw, 4rem);
+  min-inline-size: 0;
+  max-inline-size: 100%;
 }
 
 .secTituloLight {
@@ -293,6 +333,8 @@
   gap: 8px;
   margin-bottom: 2rem;
   min-height: 52px;
+  min-inline-size: 0;
+  max-inline-size: 100%;
   padding: 16px;
   border: 1px dashed rgba(245, 242, 236, 0.12);
 }
@@ -312,6 +354,8 @@
   font-family: var(--font-sans-family), sans-serif;
   font-size: 13px;
   padding: 8px 14px;
+  max-inline-size: 100%;
+  min-inline-size: 0;
   cursor: grab;
   user-select: none;
   transition: background 0.2s;
@@ -323,9 +367,11 @@
 
 .dropGrid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 16px;
   margin-bottom: 2rem;
+  min-inline-size: 0;
+  max-inline-size: 100%;
 }
 
 @media (max-width: 640px) {
@@ -433,7 +479,9 @@
 /* RAZONES */
 .razonesSection {
   background: #f5f2ec;
-  padding: clamp(3rem, 6vw, 5rem) clamp(2rem, 6vw, 4rem);
+  padding: clamp(3rem, 6vw, 5rem) clamp(1rem, 6vw, 4rem);
+  min-inline-size: 0;
+  max-inline-size: 100%;
 }
 
 .razonesGrid {

@@ -4,6 +4,8 @@
  */
 
 .page {
+  min-inline-size: 0;
+  max-inline-size: 100%;
   --program-hero-from: #023661;
   /* Misma escala que titulares de sesión en home (MotionStackPanels .stackPanelLeftTitle). */
   --program-title-size: var(--type-display-size, var(--stack-panel-title-size));
@@ -63,6 +65,8 @@
 
 .inner {
   max-width: 90rem;
+  max-inline-size: 100%;
+  min-inline-size: 0;
   margin: 0 auto;
 }
 
@@ -174,6 +178,15 @@
 
   .heroStatBig {
     font-size: clamp(64px, 18vw, 120px);
+  }
+}
+
+@media (max-width: 400px) {
+  .heroTitle,
+  .secTitleLight,
+  .secTitleDark,
+  .programSectionTitle {
+    text-wrap: wrap;
   }
 }
 

@@ -4,21 +4,34 @@
   --somos-y: clamp(4.5rem, 14vw, 10rem);
   --somos-inner: min(100%, 76rem);
   --somos-title: var(--type-display-size, clamp(2rem, 5.5vw, 3.75rem));
-  --somos-h2: clamp(1.65rem, 3.2vw, 2.35rem);
+  --somos-h2: min(clamp(1.25rem, 3.2vw, 2.35rem), var(--somos-title));
   --somos-body: var(--copy-size);
   --ink: #0a0c12;
   --cream: #f5f2ec;
   --mist: #eef1f4;
   --flame: #db5227;
   --navy: #023661;
-  margin: 0 calc(-1 * var(--gutter, 1.25rem));
-  width: calc(100% + 2 * var(--gutter, 1.25rem));
-  max-width: none;
-  overflow-x: hidden;
+  /* Breakout al padding real del wrapper (px-4 / sm:px-6 / lg:px-8), no a --gutter. */
+  margin-inline: -1rem;
+  width: auto;
+  max-inline-size: none;
+  min-inline-size: 0;
   background: #faf8f5;
   color: color-mix(in oklab, var(--ink) 90%, transparent);
   /* Aire antes del SiteFooter (mismo tono oscuro que fundía con «Hablemos»). */
   padding-bottom: clamp(2.25rem, 5.5vw, 4.75rem);
+}
+
+@media (min-width: 640px) {
+  .page {
+    margin-inline: -1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .page {
+    margin-inline: -2rem;
+  }
 }
 
 @media (min-width: 90rem) {

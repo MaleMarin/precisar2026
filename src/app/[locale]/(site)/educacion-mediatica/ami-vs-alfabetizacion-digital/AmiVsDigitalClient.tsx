@@ -43,7 +43,7 @@ export function AmiVsDigitalClient() {
   const heroTitleLines = t("heroTitle").split("\n");
 
   return (
-    <div>
+    <div className={styles.root}>
       <section className={styles.hero}>
         <p className={styles.kicker}>{t("heroKicker")}</p>
         <h1 className={styles.heroTitle}>
@@ -119,8 +119,12 @@ export function AmiVsDigitalClient() {
           {TABLA.map((f, i) => (
             <div key={i} className={styles.tablaFila}>
               <div className={styles.celdaDim}>{f.dimension}</div>
-              <div className={styles.celda}>{f.ami}</div>
-              <div className={styles.celda}>{f.digital}</div>
+              <div className={styles.celda} data-label={t("tableHeaders.ami")}>
+                {f.ami}
+              </div>
+              <div className={styles.celda} data-label={t("tableHeaders.digital")}>
+                {f.digital}
+              </div>
             </div>
           ))}
         </div>
