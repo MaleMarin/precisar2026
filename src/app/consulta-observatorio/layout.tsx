@@ -1,5 +1,6 @@
 import { Space_Grotesk } from "next/font/google";
 import type { ReactNode } from "react";
+import { ConsultaSkipLink } from "@/components/consulta/ConsultaSkipLink";
 
 const font = Space_Grotesk({
   subsets: ["latin"],
@@ -9,11 +10,14 @@ const font = Space_Grotesk({
 
 export default function ConsultaObservatorioLayout({ children }: { children: ReactNode }) {
   return (
-    <div
-      className={`${font.variable} flex min-h-screen w-full flex-1 flex-col overflow-hidden bg-[#4E0722] text-white antialiased`}
-      style={{ fontFamily: "var(--font-consulta-observatorio), system-ui, sans-serif" }}
-    >
-      {children}
-    </div>
+    <>
+      <ConsultaSkipLink label="Saltar al contenido" />
+      <div
+        className={`${font.variable} flex min-h-screen w-full flex-1 flex-col overflow-hidden bg-[#4E0722] text-white antialiased`}
+        style={{ fontFamily: "var(--font-consulta-observatorio), system-ui, sans-serif" }}
+      >
+        {children}
+      </div>
+    </>
   );
 }

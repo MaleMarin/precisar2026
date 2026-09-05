@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import Link from "next/link";
 import { SiteFooter } from "@/components/SiteFooter";
 import styles from "./ConsultaShell.module.css";
 
@@ -20,7 +21,7 @@ export function ConsultaPageShell({ children, variant = "default" }: ConsultaPag
     >
       <div className={styles.consultaLayoutRow}>
         <aside className={styles.consultaSideMark} aria-label="Precisar">
-          <a className={styles.consultaSideMarkLink} href="/" title="Precisar — inicio">
+          <Link className={styles.consultaSideMarkLink} href="/" title="Precisar — inicio">
             <img
               className={styles.consultaSideMarkImg}
               src={CONSULTA_BRAND_WORDMARK_SRC}
@@ -29,12 +30,12 @@ export function ConsultaPageShell({ children, variant = "default" }: ConsultaPag
               height={120}
               decoding="async"
             />
-          </a>
+          </Link>
         </aside>
         <div className={styles.consultaMainStack}>
           <main id="contenido-principal" tabIndex={-1} className={styles.main}>
             <div className={styles.consultaBrandBar}>
-              <a className={styles.consultaBrandLink} href="/" title="Precisar — inicio">
+              <Link className={styles.consultaBrandLink} href="/" title="Precisar — inicio">
                 <img
                   className={styles.consultaBrandLogo}
                   src={CONSULTA_BRAND_WORDMARK_SRC}
@@ -43,7 +44,7 @@ export function ConsultaPageShell({ children, variant = "default" }: ConsultaPag
                   height={28}
                   decoding="async"
                 />
-              </a>
+              </Link>
             </div>
             {children}
           </main>

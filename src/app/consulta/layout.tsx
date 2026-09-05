@@ -3,6 +3,7 @@ import { Space_Grotesk } from "next/font/google";
 import type { ReactNode } from "react";
 import { NextIntlClientProvider } from "next-intl";
 import esMessages from "../../../messages/es.json";
+import { ConsultaSkipLink } from "@/components/consulta/ConsultaSkipLink";
 import { rootPageSeo } from "@/lib/seo";
 
 const consultaFont = Space_Grotesk({
@@ -22,6 +23,7 @@ export default function ConsultaLayout({ children }: { children: ReactNode }) {
   return (
     <div className={consultaFont.variable}>
       <NextIntlClientProvider locale="es" messages={esMessages}>
+        <ConsultaSkipLink label={esMessages.nav.skipToContent} />
         {children}
       </NextIntlClientProvider>
     </div>

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
+import { ConsultaSkipLink } from "@/components/consulta/ConsultaSkipLink";
 import { rootPageSeo } from "@/lib/seo";
 
 export const metadata: Metadata = rootPageSeo({
@@ -10,5 +11,10 @@ export const metadata: Metadata = rootPageSeo({
 });
 
 export default function ConsultaVivaLayout({ children }: { children: ReactNode }) {
-  return <>{children}</>;
+  return (
+    <>
+      <ConsultaSkipLink label="Saltar al contenido" />
+      {children}
+    </>
+  );
 }
