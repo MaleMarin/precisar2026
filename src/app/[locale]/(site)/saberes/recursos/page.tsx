@@ -20,7 +20,7 @@ const RECURSOS = [
     descripcion:
       "Este recurso reúne 30 preguntas que invitan a observar con más atención nuestros hábitos digitales, emociones, decisiones y relaciones en línea. No están hechas para evaluar, sino para provocar curiosidad, conversación y pensamiento crítico.",
     portada: "/covers/30-preguntas-explora-vida-digital.png",
-    pdf: "/recursos-30-preguntas.pdf",
+    pdf: "/30-preguntas-precisar.pdf",
   },
   {
     titulo: "Uso Consciente de la Inteligencia Artificial",
