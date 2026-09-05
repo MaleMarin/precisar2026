@@ -2745,5 +2745,12 @@
         "desc": "Reduzir desinformação (integridade informacional) requer AMI; reduzir fraudes requer Alfabetização Digital."
       }
     ]
+  },
+  "notFound": {
+    "metaTitle": "Não encontramos esta página",
+    "label": "ERRO 404",
+    "title": "NÃO ENCONTRAMOS ESTA PÁGINA.",
+    "body": "O link pode ter mudado ou o endereço pode não existir.",
+    "cta": "VOLTAR AO INÍCIO →"
   }
 }

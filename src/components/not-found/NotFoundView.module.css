@@ -1,0 +1,65 @@
+.page {
+  min-inline-size: 0;
+  max-inline-size: min(36rem, 100%);
+  padding-block: clamp(2.75rem, 6vw, 4.75rem);
+}
+
+.label {
+  margin: 0 0 1.15rem;
+  font-family: var(--font-mono-family), ui-monospace, monospace;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  line-height: 1.3;
+  color: var(--brand-flame);
+}
+
+.title {
+  margin: 0 0 1.15rem;
+  max-inline-size: 100%;
+  min-inline-size: 0;
+  font-family: var(--font-display-family), system-ui, sans-serif;
+  font-size: clamp(1.65rem, 4.4vw, 2.75rem);
+  font-weight: 800;
+  line-height: 1.06;
+  letter-spacing: -0.03em;
+  color: var(--brand-void);
+  word-break: normal;
+  overflow-wrap: normal;
+  hyphens: none;
+}
+
+.body {
+  margin: 0 0 1.85rem;
+  max-inline-size: 30rem;
+  font-family: var(--font-sans-family), system-ui, sans-serif;
+  font-size: var(--copy-size);
+  line-height: 1.65;
+  color: color-mix(in oklab, var(--brand-void) 70%, transparent);
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0.35rem 0;
+  font-family: var(--font-mono-family), ui-monospace, monospace;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  line-height: 1.2;
+  color: var(--brand-void);
+  text-decoration: none;
+  border-bottom: 1px solid var(--brand-void);
+}
+
+.cta:hover {
+  color: var(--brand-flame);
+  border-bottom-color: var(--brand-flame);
+}
+
+.cta:focus-visible {
+  outline: 3px solid var(--brand-void);
+  outline-offset: 4px;
+}

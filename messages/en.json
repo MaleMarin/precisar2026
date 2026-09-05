@@ -2745,5 +2745,12 @@
         "desc": "Reducing disinformation (information integrity) requires MLI; reducing fraud requires Digital Literacy."
       }
     ]
+  },
+  "notFound": {
+    "metaTitle": "We couldn’t find this page",
+    "label": "ERROR 404",
+    "title": "WE COULDN’T FIND THIS PAGE.",
+    "body": "The link may have changed, or the address may not exist.",
+    "cta": "BACK TO HOME →"
   }
 }
