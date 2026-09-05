@@ -53,12 +53,6 @@ function firstPathSegment(pathname: string): string | undefined {
   return pathname.split("/").filter(Boolean)[0];
 }
 
-function hasLocalePrefix(pathname: string): boolean {
-  const first = firstPathSegment(pathname);
-  if (!first) return false;
-  return routing.locales.some((l) => l.toLowerCase() === first.toLowerCase());
-}
-
 /** Primer segmento es un código de locale → se devuelve ese locale y el resto del path. */
 function parseLocalePath(pathname: string): { locale: string; segments: string[] } {
   const parts = pathname.split("/").filter(Boolean);
@@ -85,9 +79,55 @@ function redirectHomePrecisando(request: NextRequest, locale: string) {
   return NextResponse.redirect(url, 307);
 }
 
+function requestHost(request: NextRequest): string {
+  const raw = request.headers.get("host") ?? request.nextUrl.hostname;
+  return raw.split(":")[0]?.toLowerCase() ?? "";
+}
+
+/** Español nunca se publica con `/es`. Conserva query; el fragmento lo reaplica el navegador. */
+function stripDefaultLocalePrefix(pathname: string): string {
+  const parts = pathname.split("/").filter(Boolean);
+  if (parts[0]?.toLowerCase() !== routing.defaultLocale) return pathname || "/";
+  const rest = parts.slice(1);
+  return rest.length ? `/${rest.join("/")}` : "/";
+}
+
+function redirectWwwToApex(request: NextRequest): NextResponse | null {
+  if (requestHost(request) !== "www.precisar.net") return null;
+  const dest = new URL(request.url);
+  dest.protocol = "https:";
+  dest.hostname = "precisar.net";
+  dest.port = "";
+  dest.pathname = stripDefaultLocalePrefix(dest.pathname);
+  return NextResponse.redirect(dest, 308);
+}
+
+function redirectDefaultLocalePrefix(request: NextRequest): NextResponse | null {
+  // next-intl reescribe `/somos` → `/es/somos` por dentro. Si redirigimos
+  // esa reescritura, el cliente recibe 308 a la misma URL pública (bucle).
+  if (request.headers.get("x-next-intl-locale")) return null;
+  const pathname = request.nextUrl.pathname;
+  const stripped = stripDefaultLocalePrefix(pathname);
+  if (stripped === pathname) return null;
+  const url = request.nextUrl.clone();
+  url.pathname = stripped;
+  return NextResponse.redirect(url, 308);
+}
+
 export function middleware(request: NextRequest) {
+  const wwwRedirect = redirectWwwToApex(request);
+  if (wwwRedirect) return wwwRedirect;
+
+  // Segunda pasada de next-intl (rewrite interno a `/es/...`): no redirigir ni reaplicar i18n.
+  if (request.headers.get("x-next-intl-locale")) {
+    return NextResponse.next();
+  }
+
   const pathname = request.nextUrl.pathname;
   if (pathname.includes(".")) return NextResponse.next();
+
+  const esPrefixRedirect = redirectDefaultLocalePrefix(request);
+  if (esPrefixRedirect) return esPrefixRedirect;
 
   if (pathname === "/inicio" || pathname === "/saberes/clic" || pathname.startsWith("/saberes/clic/")) {
     const url = request.nextUrl.clone();
@@ -127,23 +167,17 @@ export function middleware(request: NextRequest) {
     }
   }
 
-  if (!hasLocalePrefix(pathname)) {
-    const legacy = matchLegacyRedirect(pathname);
-    if (legacy) {
-      if (legacy.destination.startsWith("http://") || legacy.destination.startsWith("https://")) {
-        return NextResponse.redirect(legacy.destination, legacy.permanent ? 308 : 307);
-      }
-      const target = request.nextUrl.clone();
-      const destPath =
-        legacy.destination === "/" ? "/" : legacy.destination.startsWith("/")
-          ? legacy.destination
-          : `/${legacy.destination}`;
-      target.pathname = destPath;
-      return NextResponse.redirect(target, legacy.permanent ? 308 : 307);
-    }
-  }
-
   const { locale: pathLocale, segments: afterLocale } = parseLocalePath(pathname);
+  const unprefixedPath = afterLocale.length ? `/${afterLocale.join("/")}` : "/";
+  const legacy = matchLegacyRedirect(unprefixedPath);
+  if (legacy) {
+    if (legacy.destination.startsWith("http://") || legacy.destination.startsWith("https://")) {
+      return NextResponse.redirect(legacy.destination, legacy.permanent ? 308 : 307);
+    }
+    const target = request.nextUrl.clone();
+    target.pathname = withLocalePath(pathLocale, legacy.destination);
+    return NextResponse.redirect(target, legacy.permanent ? 308 : 307);
+  }
 
   if (afterLocale[0] === "programas" && afterLocale[1] === "docentes") {
     const url = request.nextUrl.clone();

@@ -2,15 +2,23 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { articlesSortedByDate } from "@/data/articles";
 import { articleYearLabel } from "@/lib/article-date";
-import { SITE } from "@/lib/site";
+import { pageSeo } from "@/lib/seo";
 import styles from "./ExploraPage.module.css";
 
-export const metadata: Metadata = {
-  title: "Explora · Precisando · Precisar",
-  description:
-    "Todos los textos de Precisando: análisis, informes y educación mediática. El nuevo recorrido editorial de Precisar.",
-  alternates: { canonical: `${SITE.url}/precisando/explora` },
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return pageSeo({
+    locale,
+    pathname: "/precisando/explora",
+    title: "Explora · Precisando · Precisar",
+    description:
+      "Todos los textos de Precisando: análisis, informes y educación mediática. El nuevo recorrido editorial de Precisar.",
+  });
+}
 
 export default function PrecisandoExploraPage() {
   const posts = articlesSortedByDate();

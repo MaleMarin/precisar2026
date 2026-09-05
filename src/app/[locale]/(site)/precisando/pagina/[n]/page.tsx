@@ -1,7 +1,8 @@
 import { notFound, redirect } from "next/navigation";
 import { articlesSortedByDate, PRECISANDO_PAGE_SIZE } from "@/data/articles";
 import { PRECISANDO_ARTICLES_UNDER_CONSTRUCTION } from "@/lib/precisando-access";
-import { SITE } from "@/lib/site";
+import { pageSeo } from "@/lib/seo";
+import { localePath } from "@/lib/site";
 import { EditorialIndexTemplate } from "@/components/templates/PageTemplates";
 import {
   PrecisandoArticleList,
@@ -14,17 +15,20 @@ import Link from "next/link";
 type Props = { params: Promise<{ locale: string; n: string }> };
 
 export async function generateMetadata({ params }: Props) {
-  const { n } = await params;
+  const { locale, n } = await params;
   if (PRECISANDO_ARTICLES_UNDER_CONSTRUCTION) {
     return { title: "Precisando", robots: { index: false, follow: false } };
   }
   const page = Number.parseInt(n, 10);
-  if (page === 1) return { title: "Precisando" };
-  return {
+  if (page === 1) {
+    return pageSeo({ locale, pathname: "/precisando/explora", title: "Precisando" });
+  }
+  return pageSeo({
+    locale,
+    pathname: `/precisando/pagina/${page}`,
     title: `Precisando · Página ${page}`,
-    alternates: { canonical: `${SITE.url}/precisando/pagina/${page}` },
     robots: { index: true, follow: true },
-  };
+  });
 }
 
 export function generateStaticParams() {
@@ -36,11 +40,11 @@ export function generateStaticParams() {
 export default async function PrecisandoPagina({ params }: Props) {
   const { locale, n } = await params;
   if (PRECISANDO_ARTICLES_UNDER_CONSTRUCTION) {
-    redirect(`/${locale}#precisando`);
+    redirect(`${localePath(locale, "/")}#precisando`);
   }
   const page = Number.parseInt(n, 10);
   if (Number.isNaN(page) || page < 1) notFound();
-  if (page === 1) redirect(`/${locale}/precisando/explora`);
+  if (page === 1) redirect(localePath(locale, "/precisando/explora"));
 
   const sorted = articlesSortedByDate();
   const totalPages = Math.max(1, Math.ceil(sorted.length / PRECISANDO_PAGE_SIZE));

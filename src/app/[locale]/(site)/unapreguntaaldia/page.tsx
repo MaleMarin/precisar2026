@@ -1,12 +1,23 @@
+import type { Metadata } from "next";
 import { PageShell } from "@/components/PageShell";
 import { PreguntaDiaCards } from "@/components/saberes/PreguntaDiaCards";
+import { pageSeo } from "@/lib/seo";
 import { PDF_DOWNLOAD_UI } from "@/lib/pdfDownloads";
 
-export const metadata = {
-  title: "30 preguntas para explorar tu vida digital · Una Pregunta al Día",
-  description:
-    "Treinta preguntas para explorar tu vida digital: tarjetas con frente y reverso. Descarga el PDF para compartir en clase, trabajo o familia.",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return pageSeo({
+    locale,
+    pathname: "/unapreguntaaldia",
+    title: "30 preguntas para explorar tu vida digital · Una Pregunta al Día",
+    description:
+      "Treinta preguntas para explorar tu vida digital: tarjetas con frente y reverso. Descarga el PDF para compartir en clase, trabajo o familia.",
+  });
+}
 
 export default function Page() {
   return (

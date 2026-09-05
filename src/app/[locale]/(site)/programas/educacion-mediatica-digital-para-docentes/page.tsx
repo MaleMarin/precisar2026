@@ -1,13 +1,7 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import shell from "@/components/programs/ProgramShell.module.css";
-import { absoluteLocaleUrl, hreflangAlternates, SITE } from "@/lib/site";
-
-function ogLocaleTag(locale: string): string {
-  if (locale === "pt") return "pt_BR";
-  if (locale === "en") return "en_US";
-  return "es_CL";
-}
+import { pageSeo } from "@/lib/seo";
 
 type CardItem = { titulo: string; desc: string };
 type ModuloItem = { id: string; label: string; desc: string };
@@ -19,25 +13,12 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "programPages.docentes" });
-  const canonical = absoluteLocaleUrl(locale, "/programas/educacion-mediatica-digital-para-docentes");
-  const title = t("metaTitle");
-  const description = t("metaDescription");
-  return {
-    title,
-    description,
-    alternates: {
-      canonical,
-      languages: hreflangAlternates("/programas/educacion-mediatica-digital-para-docentes"),
-    },
-    openGraph: {
-      title,
-      description,
-      url: canonical,
-      siteName: SITE.name,
-      locale: ogLocaleTag(locale),
-      type: "website",
-    },
-  };
+  return pageSeo({
+    locale,
+    pathname: "/programas/educacion-mediatica-digital-para-docentes",
+    title: t("metaTitle"),
+    description: t("metaDescription"),
+  });
 }
 
 export default async function DocentesPage() {

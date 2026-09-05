@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
+import { pageSeo } from "@/lib/seo";
 import { FooterContactLink } from "@/components/FooterContactLink";
 import shell from "@/components/programs/ProgramShell.module.css";
 import styles from "./FuncionariosPage.module.css";
@@ -12,7 +13,12 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "programsFuncionarios" });
-  return { title: t("metaTitle"), description: t("metaDescription") };
+  return pageSeo({
+    locale,
+    pathname: "/programas/funcionarios-publicos",
+    title: t("metaTitle"),
+    description: t("metaDescription"),
+  });
 }
 
 type Beneficio = { num: string; title: string; desc: string };

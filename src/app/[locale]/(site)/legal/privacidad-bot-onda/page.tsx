@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { LegalPageTemplate } from "@/components/templates/PageTemplates";
 import { renderBotListItem, renderBotPara } from "@/components/legal/LegalStructuredContent";
+import { pageSeo } from "@/lib/seo";
 import { SITE } from "@/lib/site";
 
 type ListItem = string | { strong?: string; text: string };
@@ -13,7 +14,11 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "legalPrivacidadBotOnda" });
-  return { title: t("metaTitle") };
+  return pageSeo({
+    locale,
+    pathname: "/legal/privacidad-bot-onda",
+    title: t("metaTitle"),
+  });
 }
 
 export default async function Page() {

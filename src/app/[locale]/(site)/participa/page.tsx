@@ -3,6 +3,7 @@ import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { PageShell } from "@/components/PageShell";
 import { ParticipaNewsletterForm } from "@/components/newsletter/ParticipaNewsletterForm";
+import { pageSeo } from "@/lib/seo";
 import { EXTERNAL, SITE } from "@/lib/site";
 import { participaContactRedirect } from "./actions";
 
@@ -17,7 +18,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "participaPage" });
-  return { title: t("metaTitle") };
+  return pageSeo({ locale, pathname: "/participa", title: t("metaTitle") });
 }
 
 export default async function Page() {

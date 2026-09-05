@@ -1,8 +1,21 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { ProgramBandModule, ProgramSplitModule } from "@/components/programs/modules";
 import { CourseLandingTemplate } from "@/components/templates/PageTemplates";
+import { pageSeo } from "@/lib/seo";
 
-export const metadata = { title: "Curso Desinformación (integridad informativa) · Aquí No Pasa" };
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return pageSeo({
+    locale,
+    pathname: "/aqui-no-pasa",
+    title: "Curso Desinformación (integridad informativa) · Aquí No Pasa",
+  });
+}
 
 export default function Page() {
   return (

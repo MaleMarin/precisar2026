@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { LegalPageTemplate } from "@/components/templates/PageTemplates";
+import { pageSeo } from "@/lib/seo";
 import { SITE } from "@/lib/site";
 
 export async function generateMetadata({
@@ -11,7 +12,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "legalPrivacidad" });
-  return { title: t("metaTitle") };
+  return pageSeo({ locale, pathname: "/legal/privacidad", title: t("metaTitle") });
 }
 
 export default async function Page() {

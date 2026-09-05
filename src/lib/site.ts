@@ -7,16 +7,17 @@ export const FOOTER_CONTACT_ANCHOR_ID = "contacto" as const;
 export const SITE = {
   name: "Precisar",
   /**
-   * Texto por defecto para compartir (WhatsApp, OG) y `app/layout.tsx` cuando una ruta no define el suyo.
-   * La portada por idioma define título/descripción en `generateMetadata` (namespace `Metadata`).
+   * Fallback social alineado a la portada (`Metadata.homeTitle` / `homeDescription`).
+   * No reutilizar el lema anterior.
    */
   socialDefault: {
-    title: "Precisar · Potencia el uso de la tecnología",
-    description: "Potencia el uso de la tecnología.",
+    title: "Precisar | Información y tecnología con criterio",
+    description:
+      "Fortalecemos capacidades ciudadanas para comprender la información, ejercer derechos y usar la tecnología con criterio.",
     /** Texto principal de la imagen OG estática (`/opengraph-image`). */
-    ogImageLine1: "Potencia el uso de la tecnología.",
+    ogImageLine1: "Información y tecnología con criterio.",
   },
-  /** Origen canónico (apex). Redirigir `www` → apex en middleware. */
+  /** Origen canónico (apex). `www` → apex en Vercel y middleware. */
   url: "https://precisar.net",
   contactEmail: "contacto@precisar.net",
   privacyEmail: "male@precisar.net",
@@ -25,11 +26,13 @@ export const SITE = {
 const SITE_ORIGIN = SITE.url.replace(/\/$/, "");
 
 /**
- * Ruta interna con prefijo de idioma (`/es`, `/es/somos`). `pathname` sin locale (`/` o `/somos`).
+ * Ruta pública: español sin prefijo (`/somos`); `en`/`pt` con prefijo (`/en/somos`).
+ * `pathname` va sin locale (`/` o `/somos`).
  */
 export function localePath(locale: string, pathname: string): string {
   const tail =
     pathname === "/" || pathname === "" ? "" : pathname.startsWith("/") ? pathname : `/${pathname}`;
+  if (locale === routing.defaultLocale) return tail || "/";
   return `/${locale}${tail}`;
 }
 

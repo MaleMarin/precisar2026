@@ -2,14 +2,8 @@ import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { FooterContactLink } from "@/components/FooterContactLink";
 import shell from "@/components/programs/ProgramShell.module.css";
-import { absoluteLocaleUrl, hreflangAlternates, SITE } from "@/lib/site";
+import { pageSeo } from "@/lib/seo";
 import styles from "./PensamientoCriticoPage.module.css";
-
-function ogLocaleTag(locale: string): string {
-  if (locale === "pt") return "pt_BR";
-  if (locale === "en") return "en_US";
-  return "es_CL";
-}
 
 type ModuloItem = { num: string; title: string; desc: string };
 type BeneficioItem = { num: string; title: string; desc: string };
@@ -22,25 +16,12 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "programPages.pensamientoCritico" });
-  const canonical = absoluteLocaleUrl(locale, "/programas/pensamiento-critico");
-  const title = t("metaTitle");
-  const description = t("metaDescription");
-  return {
-    title,
-    description,
-    alternates: {
-      canonical,
-      languages: hreflangAlternates("/programas/pensamiento-critico"),
-    },
-    openGraph: {
-      title,
-      description,
-      url: canonical,
-      siteName: SITE.name,
-      locale: ogLocaleTag(locale),
-      type: "website",
-    },
-  };
+  return pageSeo({
+    locale,
+    pathname: "/programas/pensamiento-critico",
+    title: t("metaTitle"),
+    description: t("metaDescription"),
+  });
 }
 
 export default async function Page() {

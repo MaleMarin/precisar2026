@@ -3,7 +3,7 @@ import { Space_Grotesk } from "next/font/google";
 import type { ReactNode } from "react";
 import { NextIntlClientProvider } from "next-intl";
 import esMessages from "../../../messages/es.json";
-import { SITE } from "@/lib/site";
+import { rootPageSeo } from "@/lib/seo";
 
 const consultaFont = Space_Grotesk({
   subsets: ["latin"],
@@ -11,23 +11,12 @@ const consultaFont = Space_Grotesk({
   variable: "--font-consulta",
 });
 
-const consultaCanonical = `${SITE.url}/consulta`;
-
-export const metadata: Metadata = {
+export const metadata: Metadata = rootPageSeo({
+  pathname: "/consulta",
   title: "Consulta",
   description:
     "¿Cómo te informas hoy? Menos ruido, más criterio. Consulta anónima en menos de un minuto.",
-  alternates: { canonical: consultaCanonical },
-  openGraph: {
-    title: "Consulta · Precisar",
-    description:
-      "¿Cómo te informas hoy? Menos ruido, más criterio. Consulta anónima en menos de un minuto.",
-    url: consultaCanonical,
-    siteName: SITE.name,
-    locale: "es_CL",
-    type: "website",
-  },
-};
+});
 
 export default function ConsultaLayout({ children }: { children: ReactNode }) {
   return (

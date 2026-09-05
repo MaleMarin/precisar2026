@@ -6,7 +6,8 @@ import { PRECISANDO_SLUG_ALIASES } from "@/data/slug-aliases";
 import { loadArticleMarkdown } from "@/lib/load-article-markdown";
 import { PRECISANDO_ARTICLES_UNDER_CONSTRUCTION } from "@/lib/precisando-access";
 import { articleYearLabel } from "@/lib/article-date";
-import { absoluteLocaleUrl, hreflangAlternates, SITE } from "@/lib/site";
+import { pageSeo } from "@/lib/seo";
+import { localePath, SITE } from "@/lib/site";
 import { ArticleTemplate } from "@/components/templates/PageTemplates";
 
 type Props = { params: Promise<{ locale: string; slug: string }> };
@@ -24,50 +25,39 @@ export async function generateMetadata({ params }: Props) {
   const post = articleBySlug(slug);
   if (!post) return { title: "No encontrado" };
   const path = `/precisando/${post.slug}`;
-  const canonical = absoluteLocaleUrl(locale, path);
   const ogImage = post.coverImage
     ? [{ url: new URL(post.coverImage, SITE.url).toString() }]
     : undefined;
-  const ogLocale = locale === "pt" ? "pt_BR" : locale === "en" ? "en_US" : "es_CL";
 
-  return {
+  return pageSeo({
+    locale,
+    pathname: path,
     title: post.title,
     description: post.excerpt,
-    alternates: {
-      canonical,
-      languages: hreflangAlternates(path),
-    },
-    openGraph: {
-      title: post.title,
-      description: post.excerpt,
-      url: canonical,
-      type: "article",
-      publishedTime: post.pubDate,
-      locale: ogLocale,
-      siteName: SITE.name,
-      ...(ogImage ? { images: ogImage } : {}),
-    },
+    type: "article",
+    publishedTime: post.pubDate,
+    images: ogImage,
     robots: { index: true, follow: true },
-  };
+  });
 }
 
 export default async function PrecisandoArticulo({ params }: Props) {
   const { locale, slug: raw } = await params;
   if (PRECISANDO_ARTICLES_UNDER_CONSTRUCTION) {
-    redirect(`/${locale}#precisando`);
+    redirect(`${localePath(locale, "/")}#precisando`);
   }
   const slug = decodeURIComponent(raw);
 
   const canonicalFromAlias = PRECISANDO_SLUG_ALIASES[slug];
   if (canonicalFromAlias && canonicalFromAlias !== slug) {
-    permanentRedirect(`/${locale}/precisando/${encodeURI(canonicalFromAlias)}`);
+    permanentRedirect(localePath(locale, `/precisando/${encodeURI(canonicalFromAlias)}`));
   }
 
   const post = articleBySlug(slug);
   if (!post) notFound();
 
   if (post.slug !== slug) {
-    permanentRedirect(`/${locale}/precisando/${encodeURI(post.slug)}`);
+    permanentRedirect(localePath(locale, `/precisando/${encodeURI(post.slug)}`));
   }
 
   const md = loadArticleMarkdown(post.slug);

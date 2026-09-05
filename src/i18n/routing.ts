@@ -5,4 +5,6 @@ export const routing = defineRouting({
   defaultLocale: "es",
   localePrefix: "as-needed",
   localeDetection: false,
+  /** Los hreflang salen de `pageSeo` / metadata (URLs apex), no del host de la petición. */
+  alternateLinks: false,
 });

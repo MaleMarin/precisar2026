@@ -1,8 +1,10 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { InstitutionalTemplate } from "@/components/templates/PageTemplates";
 import { SENTIDOS_DIGITALES } from "@/data/sentidos-digitales";
 import { sentidoBySlug } from "@/data/sentidos-content";
 import { Link } from "@/i18n/navigation";
+import { pageSeo } from "@/lib/seo";
 import { EquilibrioDigitalExperience } from "./EquilibrioDigitalExperience";
 import { EscuchaDigitalExperience } from "./EscuchaDigitalExperience";
 import { OlfatoDigitalExperience } from "./OlfatoDigitalExperience";
@@ -10,7 +12,7 @@ import { SaborDigitalExperience } from "./SaborDigitalExperience";
 import { TactoDigitalExperience } from "./TactoDigitalExperience";
 import { VisionDigitalExperience } from "./VisionDigitalExperience";
 
-type Props = { params: Promise<{ slug: string }> };
+type Props = { params: Promise<{ locale: string; slug: string }> };
 
 export function generateStaticParams() {
   return SENTIDOS_DIGITALES.map((s) => ({ slug: s.slug }));
@@ -34,50 +36,24 @@ const OLFATO_DESCRIPTION =
 const EQUILIBRIO_DESCRIPTION =
   "La capacidad para mantener balance entre la vida online y offline, preservando el bienestar integral.";
 
-export async function generateMetadata({ params }: Props) {
-  const { slug } = await params;
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale, slug } = await params;
   const s = sentidoBySlug(slug);
   if (!s) return { title: "Sentido digital" };
-  if (slug === "vision") {
-    return {
-      title: `${s.title} · Sentidos digitales`,
-      description: VISION_DESCRIPTION,
-    };
-  }
-  if (slug === "oido") {
-    return {
-      title: `${s.title} · Sentidos digitales`,
-      description: ESCUCHA_DESCRIPTION,
-    };
-  }
-  if (slug === "tacto") {
-    return {
-      title: `${s.title} · Sentidos digitales`,
-      description: TACTO_DESCRIPTION,
-    };
-  }
-  if (slug === "sabor") {
-    return {
-      title: `${s.title} · Sentidos digitales`,
-      description: SABOR_DESCRIPTION,
-    };
-  }
-  if (slug === "olfato") {
-    return {
-      title: `${s.title} · Sentidos digitales`,
-      description: OLFATO_DESCRIPTION,
-    };
-  }
-  if (slug === "equilibrio") {
-    return {
-      title: `${s.title} · Sentidos digitales`,
-      description: EQUILIBRIO_DESCRIPTION,
-    };
-  }
-  return {
-    title: `${s.title} · Sentidos digitales`,
-    description: s.body[0],
+  const descriptions: Record<string, string> = {
+    vision: VISION_DESCRIPTION,
+    oido: ESCUCHA_DESCRIPTION,
+    tacto: TACTO_DESCRIPTION,
+    sabor: SABOR_DESCRIPTION,
+    olfato: OLFATO_DESCRIPTION,
+    equilibrio: EQUILIBRIO_DESCRIPTION,
   };
+  return pageSeo({
+    locale,
+    pathname: `/experiencias/sentidos-digitales/${s.slug}`,
+    title: `${s.title} · Sentidos digitales`,
+    description: descriptions[slug] ?? s.body[0],
+  });
 }
 
 export default async function Page({ params }: Props) {

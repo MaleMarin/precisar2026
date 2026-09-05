@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
+import { pageSeo } from "@/lib/seo";
 import { MediaticaEjesNav } from "@/components/educacion-mediatica/MediaticaEjesNav";
 import { EducacionMediaticaTabs } from "./EducacionMediaticaTabs";
 import styles from "./EducacionInterior.module.css";
@@ -11,7 +12,12 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "educacionMediaticaSeccion.educacion" });
-  return { title: t("metaTitle"), description: t("metaDescription") };
+  return pageSeo({
+    locale,
+    pathname: "/educacion-mediatica/educacion",
+    title: t("metaTitle"),
+    description: t("metaDescription"),
+  });
 }
 
 export default async function EducacionEducacionMediaticaPage() {

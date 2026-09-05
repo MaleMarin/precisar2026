@@ -92,6 +92,16 @@ export function legacyRedirects() {
 
     // /saberes/una-pregunta-al-dia → /unapreguntaaldia (canónica: la corta, que usa el nav)
     { source: "/saberes/una-pregunta-al-dia", destination: "/unapreguntaaldia", permanent: true },
+    {
+      source: "/ami-vs-alfabetización-digital",
+      destination: "/educacion-mediatica/ami-vs-alfabetizacion-digital",
+      permanent: true,
+    },
+    {
+      source: "/ami-vs-alfabetizaci%C3%B3n-digital",
+      destination: "/educacion-mediatica/ami-vs-alfabetizacion-digital",
+      permanent: true,
+    },
 
     // ─── Wix legacy ───────────────────────────────────────────────────────────
 

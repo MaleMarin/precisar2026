@@ -1,11 +1,21 @@
 import type { Metadata } from "next";
+import { pageSeo } from "@/lib/seo";
 import styles from "./RecursosPage.module.css";
 
-export const metadata: Metadata = {
-  title: "Recursos descargables · Precisar",
-  description:
-    "Guías, materiales y recursos de educación mediática e informacional de Precisar.",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return pageSeo({
+    locale,
+    pathname: "/saberes/recursos",
+    title: "Recursos descargables · Precisar",
+    description:
+      "Guías, materiales y recursos de educación mediática e informacional de Precisar.",
+  });
+}
 
 const RECURSOS = [
   {

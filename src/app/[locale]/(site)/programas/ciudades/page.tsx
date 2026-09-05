@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
+import { pageSeo } from "@/lib/seo";
 import shell from "@/components/programs/ProgramShell.module.css";
 
 export async function generateMetadata({
@@ -9,7 +10,12 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "programsCiudades" });
-  return { title: t("metaTitle"), description: t("metaDescription") };
+  return pageSeo({
+    locale,
+    pathname: "/programas/ciudades",
+    title: t("metaTitle"),
+    description: t("metaDescription"),
+  });
 }
 
 type FlexItem = { titulo: string; desc: string };

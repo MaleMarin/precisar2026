@@ -2,15 +2,9 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import { FooterContactLink } from "@/components/FooterContactLink";
-import { absoluteLocaleUrl, hreflangAlternates, SITE } from "@/lib/site";
+import { pageSeo } from "@/lib/seo";
 import { SomosReveal } from "./_components/SomosReveal";
 import styles from "./SomosPage.module.css";
-
-function ogLocaleTag(locale: string): string {
-  if (locale === "pt") return "pt_BR";
-  if (locale === "en") return "en_US";
-  return "es_CL";
-}
 
 type ListItem = { title: string; body: string };
 type TeamPerson = { name: string; role: string; photo: string; alt: string };
@@ -22,25 +16,12 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "somos" });
-  const canonical = absoluteLocaleUrl(locale, "/somos");
-  const title = t("pageTitle");
-  const description = t("metaDescription");
-  return {
-    title,
-    description,
-    alternates: {
-      canonical,
-      languages: hreflangAlternates("/somos"),
-    },
-    openGraph: {
-      title,
-      description,
-      url: canonical,
-      siteName: SITE.name,
-      locale: ogLocaleTag(locale),
-      type: "website",
-    },
-  };
+  return pageSeo({
+    locale,
+    pathname: "/somos",
+    title: t("pageTitle"),
+    description: t("metaDescription"),
+  });
 }
 
 export default async function SomosPrecisarPage() {

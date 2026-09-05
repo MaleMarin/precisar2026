@@ -2,7 +2,8 @@ import { notFound, redirect } from "next/navigation";
 import { ARTICLES, articlesSortedByDate } from "@/data/articles";
 import { categoryToSlug } from "@/lib/category-slug";
 import { PRECISANDO_ARTICLES_UNDER_CONSTRUCTION } from "@/lib/precisando-access";
-import { SITE } from "@/lib/site";
+import { pageSeo } from "@/lib/seo";
+import { localePath } from "@/lib/site";
 import { EditorialIndexTemplate } from "@/components/templates/PageTemplates";
 import {
   PrecisandoArticleList,
@@ -19,23 +20,24 @@ export function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props) {
-  const { slug } = await params;
+  const { locale, slug } = await params;
   if (PRECISANDO_ARTICLES_UNDER_CONSTRUCTION) {
     return { title: "Precisando", robots: { index: false, follow: false } };
   }
   const label =
     ARTICLES.find((a) => categoryToSlug(a.category) === slug)?.category ?? slug;
-  return {
+  return pageSeo({
+    locale,
+    pathname: `/precisando/categoria/${slug}`,
     title: `Precisando · ${label}`,
-    alternates: { canonical: `${SITE.url}/precisando/categoria/${slug}` },
     robots: { index: true, follow: true },
-  };
+  });
 }
 
 export default async function PrecisandoCategoria({ params }: Props) {
   const { locale, slug } = await params;
   if (PRECISANDO_ARTICLES_UNDER_CONSTRUCTION) {
-    redirect(`/${locale}#precisando`);
+    redirect(`${localePath(locale, "/")}#precisando`);
   }
   const label = ARTICLES.find((a) => categoryToSlug(a.category) === slug)?.category;
   if (!label) notFound();

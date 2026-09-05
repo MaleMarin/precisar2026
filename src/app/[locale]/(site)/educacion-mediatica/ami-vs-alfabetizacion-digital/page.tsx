@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
+import { pageSeo } from "@/lib/seo";
 import { AmiVsDigitalClient } from "./AmiVsDigitalClient";
 
 export async function generateMetadata({
@@ -9,7 +10,12 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "amiVsAlfabetizacionDigital" });
-  return { title: t("metaTitle"), description: t("metaDescription") };
+  return pageSeo({
+    locale,
+    pathname: "/educacion-mediatica/ami-vs-alfabetizacion-digital",
+    title: t("metaTitle"),
+    description: t("metaDescription"),
+  });
 }
 
 export default function AmiVsDigitalPage() {

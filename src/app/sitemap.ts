@@ -6,31 +6,27 @@ import {
   uniqueCategories,
 } from "@/data/articles";
 import { categoryToSlug } from "@/lib/category-slug";
-import { SITE } from "@/lib/site";
+import { absoluteLocaleUrl, hreflangAlternates, SITE } from "@/lib/site";
 import { routing } from "@/i18n/routing";
 import { SENTIDOS_DIGITALES } from "@/data/sentidos-digitales";
 import { PRECISANDO_ARTICLES_UNDER_CONSTRUCTION } from "@/lib/precisando-access";
 
-const base = SITE.url.replace(/\/$/, "");
 const last = new Date();
 
-/** Rutas sin prefijo de locale (`/` = inicio en `/es`, `/pt/…`, etc.). */
+/** Rutas públicas 200, sin prefijo de locale y sin aliases que redirigen. */
 const STATIC_PATHS = [
   "/",
   "/somos",
   "/contacto",
-  "/programas",
   "/programas/ciudades",
   "/programas/hub-digital-consciente",
   "/programas/aprender-digital",
   "/programas/pensamiento-critico",
   "/programas/funcionarios-publicos",
   "/programas/educacion-mediatica-digital-para-docentes",
-  "/saberes",
   "/saberes/recorrido",
-  "/saberes/una-pregunta-al-dia",
+  "/saberes/recursos",
   "/precisando/explora",
-  "/precisando",
   "/participa",
   "/participa/gracias",
   "/agenda",
@@ -38,44 +34,20 @@ const STATIC_PATHS = [
   "/unapreguntaaldia",
   "/culturadigital",
   "/atelier",
-  "/ami-vs-alfabetización-digital",
   "/educacion-mediatica/comunicacion",
   "/educacion-mediatica/educacion",
   "/educacion-mediatica/tecnologia",
   "/educacion-mediatica/cultura",
   "/educacion-mediatica/propuesta-politica-alfabetizacion",
-  "/educaciónmediática",
-  "/educaciónmediática/propuesta-politica-alfabetizacion",
+  "/educacion-mediatica/ami-vs-alfabetizacion-digital",
   "/experiencias/sentidos-digitales",
-  "/marco/comunicacion",
-  "/marco/cultura",
-  "/marco/educacion",
-  "/marco/tecnologia",
+  "/legal/privacidad",
   "/legal/privacidad-bot-onda",
   "/legal/privacidad-consulta-2026",
-  "/que-hacemos/aprender-digital",
-  "/que-hacemos/ciudades",
-  "/que-hacemos/formacion-pensamiento-critico",
-  "/que-hacemos/funcionarios-publicos",
-  "/que-hacemos/hub-digital-consciente",
 ] as const;
 
-/** Fuera de `[locale]` (middleware no añade `/es`). */
+/** Fuera de `[locale]` (middleware no localiza). */
 const ROOT_ONLY_PATHS = ["/consulta", "/consulta-viva", "/consulta-observatorio"] as const;
-
-function localizedUrl(locale: string, pathNoLocale: string): string {
-  const tail = pathNoLocale === "/" ? "" : pathNoLocale;
-  return `${base}/${locale}${tail}`;
-}
-
-function hreflangForPath(pathNoLocale: string): Record<string, string> {
-  const primary = routing.defaultLocale;
-  const tail = pathNoLocale === "/" ? "" : pathNoLocale;
-  const languages = Object.fromEntries(
-    routing.locales.map((l) => [l, `${base}/${l}${tail}`] as const),
-  );
-  return { ...languages, "x-default": `${base}/${primary}${tail}` };
-}
 
 function pushLocalized(
   entries: MetadataRoute.Sitemap,
@@ -86,14 +58,16 @@ function pushLocalized(
     priority?: number;
   },
 ) {
-  const primary = routing.defaultLocale;
-  entries.push({
-    url: localizedUrl(primary, pathNoLocale),
-    lastModified: opts.lastModified ?? last,
-    changeFrequency: opts.changeFrequency ?? "monthly",
-    priority: opts.priority ?? 0.7,
-    alternates: { languages: hreflangForPath(pathNoLocale) },
-  });
+  const languages = hreflangAlternates(pathNoLocale);
+  for (const locale of routing.locales) {
+    entries.push({
+      url: absoluteLocaleUrl(locale, pathNoLocale),
+      lastModified: opts.lastModified ?? last,
+      changeFrequency: opts.changeFrequency ?? "monthly",
+      priority: opts.priority ?? 0.7,
+      alternates: { languages },
+    });
+  }
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -109,7 +83,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   for (const path of ROOT_ONLY_PATHS) {
     entries.push({
-      url: `${base}${path}`,
+      url: `${SITE.url.replace(/\/$/, "")}${path}`,
       lastModified: last,
       changeFrequency: "monthly",
       priority: 0.55,

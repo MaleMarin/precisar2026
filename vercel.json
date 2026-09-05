@@ -1,4 +1,18 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "framework": "nextjs"
+  "framework": "nextjs",
+  "redirects": [
+    {
+      "source": "/",
+      "has": [{ "type": "host", "value": "www.precisar.net" }],
+      "destination": "https://precisar.net/",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.precisar.net" }],
+      "destination": "https://precisar.net/:path*",
+      "permanent": true
+    }
+  ]
 }

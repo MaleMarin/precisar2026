@@ -1,7 +1,16 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { ThanksTemplate } from "@/components/templates/PageTemplates";
+import { pageSeo } from "@/lib/seo";
 
-export const metadata = { title: "Gracias" };
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return pageSeo({ locale, pathname: "/participa/gracias", title: "Gracias" });
+}
 
 export default function Page() {
   return (

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
+import { pageSeo } from "@/lib/seo";
 import shell from "@/components/programs/ProgramShell.module.css";
 import HubCylinder from "./HubCylinder";
 
@@ -10,7 +11,12 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "programsHub" });
-  return { title: t("metaTitle"), description: t("metaDescription") };
+  return pageSeo({
+    locale,
+    pathname: "/programas/hub-digital-consciente",
+    title: t("metaTitle"),
+    description: t("metaDescription"),
+  });
 }
 
 export default async function Page() {

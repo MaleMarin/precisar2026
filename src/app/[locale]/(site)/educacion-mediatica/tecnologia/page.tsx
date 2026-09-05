@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
+import { pageSeo } from "@/lib/seo";
 import { MediaticaEjesNav } from "@/components/educacion-mediatica/MediaticaEjesNav";
 import { TecnologiaMediaticaTabs } from "./TecnologiaMediaticaTabs";
 import styles from "./TecnologiaInterior.module.css";
@@ -11,7 +12,12 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "educacionMediaticaSeccion.tecnologia" });
-  return { title: t("metaTitle"), description: t("metaDescription") };
+  return pageSeo({
+    locale,
+    pathname: "/educacion-mediatica/tecnologia",
+    title: t("metaTitle"),
+    description: t("metaDescription"),
+  });
 }
 
 export default async function TecnologiaEducacionMediaticaPage() {

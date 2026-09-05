@@ -5,6 +5,7 @@ import {
   renderLegalBlock,
   type LegalSection,
 } from "@/components/legal/LegalStructuredContent";
+import { pageSeo } from "@/lib/seo";
 import { SITE } from "@/lib/site";
 
 export async function generateMetadata({
@@ -14,7 +15,11 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "legalPrivacidadConsulta2026" });
-  return { title: t("metaTitle") };
+  return pageSeo({
+    locale,
+    pathname: "/legal/privacidad-consulta-2026",
+    title: t("metaTitle"),
+  });
 }
 
 export default async function Page() {

@@ -1,23 +1,27 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { CourseModuleTemplate } from "@/components/templates/PageTemplates";
 import { moduleByNumber } from "@/data/course-modules";
+import { pageSeo } from "@/lib/seo";
 
-type Props = { params: Promise<{ n: string }> };
+type Props = { params: Promise<{ locale: string; n: string }> };
 
 export function generateStaticParams() {
   return Array.from({ length: 25 }, (_, i) => ({ n: String(i + 1) }));
 }
 
-export async function generateMetadata({ params }: Props) {
-  const { n } = await params;
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale, n } = await params;
   const num = Number.parseInt(n, 10);
   const mod = moduleByNumber(num);
   if (!mod) return { title: "Módulo" };
-  return {
+  return pageSeo({
+    locale,
+    pathname: `/aqui-no-pasa/modulos/${mod.n}`,
     title: `Aquí No Pasa · Módulo ${mod.n}`,
     description: mod.themeTitle,
-  };
+  });
 }
 
 export default async function ModuloAquiNoPasa({ params }: Props) {

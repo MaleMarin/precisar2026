@@ -1,7 +1,16 @@
+import type { Metadata } from "next";
 import { PageShell } from "@/components/PageShell";
+import { pageSeo } from "@/lib/seo";
 import { SITE } from "@/lib/site";
 
-export const metadata = { title: "Agenda de Educación Mediática" };
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return pageSeo({ locale, pathname: "/agenda", title: "Agenda de Educación Mediática" });
+}
 
 export default function Page() {
   return (
