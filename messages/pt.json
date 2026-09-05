@@ -578,7 +578,7 @@
   },
   "newsletterForm": {
     "thanks": "Já se inscreveu. Em breve receberá novidades da Precisar.",
-    "errorFailed": "Não conseguimos registar o seu e-mail. Tente novamente dentro de alguns minutos.",
+    "errorFailed": "Não foi possível concluir o envio. Tente novamente.",
     "providerNoteBefore": "Inscrição gerida pelo fornecedor configurado em",
     "providerNoteAfter": ".",
     "emailPlaceholder": "email@exemplo.pt",
@@ -607,6 +607,8 @@
     "labelEmail": "E-mail",
     "labelMessage": "Mensagem",
     "send": "Enviar",
+    "sending": "A enviar…",
+    "formError": "Não foi possível concluir o envio. Tente novamente.",
     "newsletterTitle": "Newsletter",
     "directContact": "Contato direto:"
   },

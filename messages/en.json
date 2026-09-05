@@ -578,7 +578,7 @@
   },
   "newsletterForm": {
     "thanks": "You’re subscribed. You’ll soon receive updates from Precisar.",
-    "errorFailed": "We couldn’t register your email. Please try again in a few minutes.",
+    "errorFailed": "We couldn’t complete the submission. Please try again.",
     "providerNoteBefore": "Sign-up is handled by the provider configured in",
     "providerNoteAfter": ".",
     "emailPlaceholder": "email@example.com",
@@ -607,6 +607,8 @@
     "labelEmail": "Email",
     "labelMessage": "Message",
     "send": "Send",
+    "sending": "Sending…",
+    "formError": "We couldn’t complete the submission. Please try again.",
     "newsletterTitle": "Newsletter",
     "directContact": "Direct contact:"
   },

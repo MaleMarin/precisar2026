@@ -3,13 +3,9 @@ import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { PageShell } from "@/components/PageShell";
 import { ParticipaNewsletterForm } from "@/components/newsletter/ParticipaNewsletterForm";
+import { ParticipaContactForm } from "@/components/participa/ParticipaContactForm";
 import { pageSeo } from "@/lib/seo";
 import { EXTERNAL, SITE } from "@/lib/site";
-import { participaContactRedirect } from "./actions";
-
-const contactFormReady = Boolean(
-  process.env.RESEND_API_KEY?.trim() && process.env.FOOTER_CONTACT_FROM?.trim(),
-);
 
 export async function generateMetadata({
   params,
@@ -44,62 +40,14 @@ export default async function Page() {
       <h2 className="mt-16 font-[family-name:var(--font-display)] text-xl font-medium tracking-tight md:text-2xl">
         {t("writeTeamTitle")}
       </h2>
-      {!contactFormReady ? (
-        <p className="mt-4 max-w-lg text-sm leading-relaxed text-[var(--muted)]">
-          {t("writeTeamBuilding")}
-        </p>
-      ) : (
-        <>
-          <p className="mt-4 text-sm text-[var(--muted)]">
-            {t("writeTeamRedirectBefore")}
-            <Link href="/participa/gracias" className="text-[var(--fg)] underline-offset-2 hover:underline">
-              /participa/gracias
-            </Link>
-            {t("writeTeamRedirectAfter")}
-          </p>
-          <form action={participaContactRedirect} className="mt-8 max-w-lg space-y-5">
-            <div>
-              <label className="prec-kicker mb-2 block" htmlFor="participa-contact-nombre">
-                {t("labelName")}
-              </label>
-              <input
-                id="participa-contact-nombre"
-                name="nombre"
-                type="text"
-                autoComplete="name"
-                className="prec-input"
-              />
-            </div>
-            <div>
-              <label className="prec-kicker mb-2 block" htmlFor="participa-contact-email">
-                {t("labelEmail")}
-              </label>
-              <input
-                id="participa-contact-email"
-                name="email"
-                type="email"
-                autoComplete="email"
-                className="prec-input"
-                required
-              />
-            </div>
-            <div>
-              <label className="prec-kicker mb-2 block" htmlFor="participa-contact-mensaje">
-                {t("labelMessage")}
-              </label>
-              <textarea
-                id="participa-contact-mensaje"
-                name="mensaje"
-                rows={4}
-                className="prec-input min-h-[8rem] resize-y"
-              />
-            </div>
-            <button type="submit" className="prec-btn prec-btn--primary">
-              {t("send")}
-            </button>
-          </form>
-        </>
-      )}
+      <p className="mt-4 text-sm text-[var(--muted)]">
+        {t("writeTeamRedirectBefore")}
+        <Link href="/participa/gracias" className="text-[var(--fg)] underline-offset-2 hover:underline">
+          /participa/gracias
+        </Link>
+        {t("writeTeamRedirectAfter")}
+      </p>
+      <ParticipaContactForm />
 
       <h2 className="mt-16 font-[family-name:var(--font-display)] text-xl font-medium tracking-tight md:text-2xl">
         {t("newsletterTitle")}

@@ -578,7 +578,7 @@
   },
   "newsletterForm": {
     "thanks": "Ya te uniste. Pronto recibirás novedades de Precisar.",
-    "errorFailed": "No pudimos registrar tu correo. Intenta de nuevo en unos minutos.",
+    "errorFailed": "No pudimos completar el envío. Inténtalo nuevamente.",
     "providerNoteBefore": "Alta gestionada por el proveedor configurado en",
     "providerNoteAfter": ".",
     "emailPlaceholder": "correo@ejemplo.cl",
@@ -607,6 +607,8 @@
     "labelEmail": "Correo",
     "labelMessage": "Mensaje",
     "send": "Enviar",
+    "sending": "Enviando…",
+    "formError": "No pudimos completar el envío. Inténtalo nuevamente.",
     "newsletterTitle": "Newsletter",
     "directContact": "Contacto directo:"
   },

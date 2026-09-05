@@ -8,6 +8,12 @@ export type FooterContactFields = {
   mensaje: string;
 };
 
+export type ParticipaContactFields = {
+  nombre: string;
+  email: string;
+  mensaje: string;
+};
+
 export type FooterContactResult =
   | { ok: true }
   | { ok: false; reason: "config" | "resend" | "network" };
@@ -26,8 +32,21 @@ export function fieldsFromFormData(formData: FormData): FooterContactFields {
   };
 }
 
-export async function sendFooterContactEmail(
-  fields: FooterContactFields,
+export function participaFieldsFromFormData(formData: FormData): ParticipaContactFields {
+  return {
+    nombre: safeField(formData.get("nombre"), 200),
+    email: safeField(formData.get("email"), 320),
+    mensaje: safeField(formData.get("mensaje"), MAX_MSG),
+  };
+}
+
+async function sendResendContactEmail(
+  input: {
+    text: string;
+    subject: string;
+    email: string;
+    logLabel: string;
+  },
   deps?: { fetchImpl?: typeof fetch; env?: NodeJS.ProcessEnv },
 ): Promise<FooterContactResult> {
   const fetchImpl = deps?.fetchImpl ?? fetch;
@@ -38,11 +57,42 @@ export async function sendFooterContactEmail(
 
   if (!apiKey || !from) {
     console.warn(
-      "[footerContact] Falta RESEND_API_KEY o FOOTER_CONTACT_FROM; el correo no se envió.",
+      `[${input.logLabel}] Falta RESEND_API_KEY o FOOTER_CONTACT_FROM; el correo no se envió.`,
     );
     return { ok: false, reason: "config" };
   }
 
+  try {
+    const res = await fetchImpl(RESEND_API, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        from,
+        to: [to],
+        reply_to: input.email || undefined,
+        subject: input.subject,
+        text: input.text,
+      }),
+    });
+    if (!res.ok) {
+      const body = await res.text();
+      console.error(`[${input.logLabel}] Resend error`, res.status, body);
+      return { ok: false, reason: "resend" };
+    }
+    return { ok: true };
+  } catch (e) {
+    console.error(`[${input.logLabel}]`, e);
+    return { ok: false, reason: "network" };
+  }
+}
+
+export async function sendFooterContactEmail(
+  fields: FooterContactFields,
+  deps?: { fetchImpl?: typeof fetch; env?: NodeJS.ProcessEnv },
+): Promise<FooterContactResult> {
   const text = [
     "Mensaje desde el pie del sitio (Precisar).",
     "",
@@ -56,29 +106,30 @@ export async function sendFooterContactEmail(
 
   const subject = `[Precisar · pie] ${fields.nombre} ${fields.apellido}`.slice(0, 200);
 
-  try {
-    const res = await fetchImpl(RESEND_API, {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${apiKey}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        from,
-        to: [to],
-        reply_to: fields.email || undefined,
-        subject,
-        text,
-      }),
-    });
-    if (!res.ok) {
-      const body = await res.text();
-      console.error("[footerContact] Resend error", res.status, body);
-      return { ok: false, reason: "resend" };
-    }
-    return { ok: true };
-  } catch (e) {
-    console.error("[footerContact]", e);
-    return { ok: false, reason: "network" };
-  }
+  return sendResendContactEmail(
+    { text, subject, email: fields.email, logLabel: "footerContact" },
+    deps,
+  );
+}
+
+export async function sendParticipaContactEmail(
+  fields: ParticipaContactFields,
+  deps?: { fetchImpl?: typeof fetch; env?: NodeJS.ProcessEnv },
+): Promise<FooterContactResult> {
+  const text = [
+    "Mensaje desde /participa (Precisar).",
+    "",
+    `Nombre: ${fields.nombre}`,
+    `Correo (reply): ${fields.email}`,
+    "",
+    "Mensaje:",
+    fields.mensaje || "(vacío)",
+  ].join("\n");
+
+  const subject = `[Precisar · participa] ${fields.nombre || "Sin nombre"}`.slice(0, 200);
+
+  return sendResendContactEmail(
+    { text, subject, email: fields.email, logLabel: "participaContact" },
+    deps,
+  );
 }
