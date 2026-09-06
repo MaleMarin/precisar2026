@@ -193,6 +193,9 @@ export function CulturaDigitalTirasClient() {
             onClick={() => goToSlug(d.slug)}
           >
             <div className={styles.stripContent} style={{ backgroundColor: CULTURA_DIGITAL_HOME_COLORS[i] }}>
+              <span className={styles.stripIndex} aria-hidden="true">
+                {String(i + 1).padStart(2, "0")}
+              </span>
               <div className={styles.verticalText}>{d.h1}</div>
             </div>
           </button>
