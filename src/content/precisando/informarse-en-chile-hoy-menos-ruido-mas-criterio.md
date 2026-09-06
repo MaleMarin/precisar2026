@@ -2,7 +2,7 @@ _Informe / Precisar · Enero 2026_
 
 366 personas respondieron en enero cómo realmente se informan. Lo que dijeron desarma la narrativa del «ciudadano descuidado» y la reemplaza con algo más honesto: estamos sobrepasados, no somos tontos.
 
-_Publicado en base al informe «¿Cómo te Informas Hoy? Menos Ruido, Más Criterio» · Fundación Precisar_
+_Publicado a partir del informe «¿Cómo te informas hoy? Menos ruido, más criterio» · Precisar_
 
 ---
 
@@ -14,7 +14,7 @@ _Publicado en base al informe «¿Cómo te Informas Hoy? Menos Ruido, Más Crite
 
 ## El dato que cambia la pregunta
 
-Cuando Fundación Precisar lanzó la consulta «¿Cómo te Informas Hoy?» en pleno verano chileno, la hipótesis implícita de muchos era predecible: la gente no sabe distinguir una noticia falsa, no verifica, se deja llevar. El informe de resultados les responde con evidencia.
+Cuando Precisar lanzó la consulta «¿Cómo te Informas Hoy?» en pleno verano chileno, la hipótesis implícita de muchos era predecible: la gente no sabe distinguir una noticia falsa, no verifica, se deja llevar. El informe de resultados les responde con evidencia.
 
 La dieta informativa real no funciona con una sola fuente. Redes sociales, televisión, portales, radio, WhatsApp y conversaciones presenciales conviven en el mismo scroll mental. La ciudadanía construye criterio por acumulación, no por autoridad.
 
@@ -44,4 +44,4 @@ El informe completo tiene 45 páginas de datos, cruces por edad y género, y pro
 
 **■ CON EL APOYO DE**
 
-Esta consulta fue diseñada y ejecutada por Fundación Precisar con el respaldo del **Fondo DemocráTICa** (CIVICUS · Digital Democracy Initiative) y el soporte de **Wingu**.
+Esta consulta fue diseñada y ejecutada por Precisar, una iniciativa de Fundación Democracia Abierta, con el respaldo del **Fondo DemocráTICa** (CIVICUS · Digital Democracy Initiative) y el soporte de **Wingu**.

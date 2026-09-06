@@ -73,4 +73,4 @@ En síntesis, la consulta busca pasar del diagnóstico a la acción. Si la ciuda
 
 **■ CON EL APOYO DE**
 
-Esta consulta fue diseñada y ejecutada por Fundación Precisar con el respaldo del **Fondo DemocráTICa** (CIVICUS · Digital Democracy Initiative) y el soporte de **Wingu**.
+Esta consulta fue diseñada y ejecutada por Precisar, una iniciativa de Fundación Democracia Abierta, con el respaldo del **Fondo DemocráTICa** (CIVICUS · Digital Democracy Initiative) y el soporte de **Wingu**.

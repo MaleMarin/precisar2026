@@ -1,6 +1,6 @@
 Escuchar Primero, Implementar Después: La Metodología de Precisar para Construir Ciudades AMI
 
-Desde Santiago hasta Dubrovnik: cómo Fundación Precisar aporta una estrategia diferenciada de "primero escuchamos, después actuamos" al movimiento global UNESCO MIL Cities.
+Desde Santiago hasta Dubrovnik: cómo Precisar aporta una estrategia diferenciada de "primero escuchamos, después actuamos" al movimiento global UNESCO MIL Cities.
 
 
 
@@ -94,7 +94,7 @@ Para Comodoro Rivadavia, la AMI trasciende la educación técnica: "Para nosotro
 
 La Perspectiva de Precisar: Se Construye Desde la Escucha
 
-Andrea Raglianti, coordinadora de proyectos de la Fundación Precisar, presentó una perspectiva en el encuentro: la de una organización que está construyendo las bases para la AMI en Chile desde una fase fundacional de escucha ciudadana y sensibilización sobre la importancia de estas competencias. Mientras otras experiencias presentaron implementaciones consolidadas, Precisar representa el momento crucial previo: primero escuchar, luego sensibilizar, después construir alianzas, y finalmente implementar pilotos.
+Andrea Raglianti, coordinadora de proyectos de Precisar, presentó una perspectiva en el encuentro: la de una organización que está construyendo las bases para la AMI en Chile desde una fase fundacional de escucha ciudadana y sensibilización sobre la importancia de estas competencias. Mientras otras experiencias presentaron implementaciones consolidadas, Precisar representa el momento crucial previo: primero escuchar, luego sensibilizar, después construir alianzas, y finalmente implementar pilotos.
 
 
 
