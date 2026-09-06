@@ -76,7 +76,7 @@ export function ConsultaStackedLayout() {
       }}>
 
         {isIntro && (
-          <div style={{ display: "flex", flexDirection: "column" as const, gap: "1.5rem", flex: 1 }}>
+          <div style={{ display: "flex", flexDirection: "column" as const, gap: "1.5rem", flex: 1, minWidth: 0, maxWidth: "100%" }}>
             <p style={{ margin: 0, fontSize: 10, fontWeight: 700, letterSpacing: "0.25em", textTransform: "uppercase" as const, color: "rgba(247,70,3,0.85)" }}>
               Precisar · Consulta ciudadana 2026
             </p>
@@ -85,10 +85,25 @@ export function ConsultaStackedLayout() {
                 display: "flex",
                 flexDirection: "column" as const,
                 gap: "clamp(2rem, 7vw, 4.25rem)",
+                minWidth: 0,
+                maxWidth: "100%",
               }}
             >
-              <h1 style={{ margin: 0, fontSize: "clamp(3rem,6.5vw,5.5rem)", fontWeight: 800, lineHeight: 0.93, letterSpacing: "-0.045em", color: "#ffffff" }}>
-                ¿Cómo te<br />informas<br />hoy?
+              <h1
+                style={{
+                  margin: 0,
+                  maxWidth: "100%",
+                  minWidth: 0,
+                  fontSize: "clamp(1.8rem, 6.5vw + 0.4rem, 5.5rem)",
+                  fontWeight: 800,
+                  lineHeight: 0.93,
+                  letterSpacing: "-0.045em",
+                  color: "#ffffff",
+                  overflowWrap: "break-word",
+                  textWrap: "balance",
+                }}
+              >
+                ¿Cómo te informas hoy?
               </h1>
               <p
                 style={{
