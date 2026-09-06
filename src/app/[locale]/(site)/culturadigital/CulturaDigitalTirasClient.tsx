@@ -35,9 +35,9 @@ function SectionPanel({
     <section className={sectionClass} aria-labelledby={`cd-h1-${d.slug}`} role="region">
       <div className={styles.innerScroll}>
         <div className={styles.contentMeasure}>
-          <h1 id={`cd-h1-${d.slug}`} className={styles.displayH1}>
+          <h2 id={`cd-h1-${d.slug}`} className={styles.displayH1}>
             {d.h1}
-          </h1>
+          </h2>
           {d.subhead ? <p className={styles.subhead}>{d.subhead}</p> : null}
           {d.body ? <p className={styles.bodyText}>{d.body}</p> : null}
           <div className={styles.grid2}>
