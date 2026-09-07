@@ -1,8 +1,9 @@
 import createMiddleware from "next-intl/middleware";
 import { NextResponse, type NextRequest } from "next/server";
-import { articleBySlug } from "@/data/articles";
+import { articleBySlug, uniqueCategories } from "@/data/articles";
 import { PRECISANDO_SLUG_ALIASES } from "@/data/slug-aliases";
 import { routing } from "@/i18n/routing";
+import { categoryToSlug } from "@/lib/category-slug";
 import { matchLegacyRedirect } from "@/lib/legacy-redirects";
 import { PRECISANDO_ARTICLES_UNDER_CONSTRUCTION } from "@/lib/precisando-access";
 
@@ -54,15 +55,15 @@ function firstPathSegment(pathname: string): string | undefined {
 }
 
 /** Primer segmento es un código de locale → se devuelve ese locale y el resto del path. */
-function parseLocalePath(pathname: string): { locale: string; segments: string[] } {
+function parseLocalePath(pathname: string): { locale: string; segments: string[]; hadPrefix: boolean } {
   const parts = pathname.split("/").filter(Boolean);
-  if (parts.length === 0) return { locale: routing.defaultLocale, segments: [] };
+  if (parts.length === 0) return { locale: routing.defaultLocale, segments: [], hadPrefix: false };
   const first = parts[0]!;
   const canonical = routing.locales.find((l) => l.toLowerCase() === first.toLowerCase());
   if (canonical) {
-    return { locale: canonical, segments: parts.slice(1) };
+    return { locale: canonical, segments: parts.slice(1), hadPrefix: true };
   }
-  return { locale: routing.defaultLocale, segments: parts };
+  return { locale: routing.defaultLocale, segments: parts, hadPrefix: false };
 }
 
 /** Path interno (p. ej. `/programas/foo`) con prefijo solo si el locale no es el por defecto. */
@@ -72,11 +73,10 @@ function withLocalePath(locale: string, path: string): string {
   return `/${locale}${normalized === "/" ? "" : normalized}`;
 }
 
-function redirectHomePrecisando(request: NextRequest, locale: string) {
-  const url = request.nextUrl.clone();
-  url.pathname = locale === routing.defaultLocale ? "/" : `/${locale}`;
-  url.hash = "precisando";
-  return NextResponse.redirect(url, 307);
+function cookieLocaleFromPath(pathname: string): string {
+  const first = firstPathSegment(pathname)?.toLowerCase();
+  if (first === "en" || first === "pt") return first;
+  return routing.defaultLocale;
 }
 
 function requestHost(request: NextRequest): string {
@@ -84,40 +84,68 @@ function requestHost(request: NextRequest): string {
   return raw.split(":")[0]?.toLowerCase() ?? "";
 }
 
-/** Español nunca se publica con `/es`. Conserva query; el fragmento lo reaplica el navegador. */
-function stripDefaultLocalePrefix(pathname: string): string {
-  const parts = pathname.split("/").filter(Boolean);
-  if (parts[0]?.toLowerCase() !== routing.defaultLocale) return pathname || "/";
-  const rest = parts.slice(1);
-  return rest.length ? `/${rest.join("/")}` : "/";
+function isWwwHost(request: NextRequest): boolean {
+  return requestHost(request) === "www.precisar.net";
 }
 
-function redirectWwwToApex(request: NextRequest): NextResponse | null {
-  if (requestHost(request) !== "www.precisar.net") return null;
+/**
+ * Un solo hop: www→apex + path canónico + cookie de locale alineada al destino.
+ * Evita que `/es/somos` (cookie `en`) acabe en `/en/somos`.
+ */
+function publicRedirect(request: NextRequest, pathname: string, status: 308 | 307 = 308) {
   const dest = new URL(request.url);
-  dest.protocol = "https:";
-  dest.hostname = "precisar.net";
-  dest.port = "";
-  dest.pathname = stripDefaultLocalePrefix(dest.pathname);
-  return NextResponse.redirect(dest, 308);
+  if (isWwwHost(request)) {
+    dest.protocol = "https:";
+    dest.hostname = "precisar.net";
+    dest.port = "";
+  }
+  const hashAt = pathname.indexOf("#");
+  dest.pathname = (hashAt < 0 ? pathname : pathname.slice(0, hashAt)) || "/";
+  dest.hash = hashAt < 0 ? "" : pathname.slice(hashAt);
+  const res = NextResponse.redirect(dest, status);
+  res.cookies.set("NEXT_LOCALE", cookieLocaleFromPath(dest.pathname), {
+    path: "/",
+    sameSite: "lax",
+  });
+  return res;
 }
 
-function redirectDefaultLocalePrefix(request: NextRequest): NextResponse | null {
-  // next-intl reescribe `/somos` → `/es/somos` por dentro. Si redirigimos
-  // esa reescritura, el cliente recibe 308 a la misma URL pública (bucle).
-  if (request.headers.get("x-next-intl-locale")) return null;
-  const pathname = request.nextUrl.pathname;
-  const stripped = stripDefaultLocalePrefix(pathname);
-  if (stripped === pathname) return null;
+function redirectHomePrecisando(request: NextRequest, locale: string) {
   const url = request.nextUrl.clone();
-  url.pathname = stripped;
-  return NextResponse.redirect(url, 308);
+  if (isWwwHost(request)) {
+    url.protocol = "https:";
+    url.hostname = "precisar.net";
+    url.port = "";
+  }
+  url.pathname = locale === routing.defaultLocale ? "/" : `/${locale}`;
+  url.hash = "precisando";
+  const res = NextResponse.redirect(url, 307);
+  res.cookies.set("NEXT_LOCALE", locale, { path: "/", sameSite: "lax" });
+  return res;
+}
+
+function maybeSaberesPlatformRedirect(unprefixedPath: string): string | null {
+  if (unprefixedPath === "/inicio" || unprefixedPath === "/saberes/clic" || unprefixedPath.startsWith("/saberes/clic/")) {
+    return "/saberes";
+  }
+  if (
+    unprefixedPath === "/cursos" ||
+    unprefixedPath.startsWith("/cursos/") ||
+    unprefixedPath === "/curso" ||
+    unprefixedPath.startsWith("/curso/") ||
+    unprefixedPath === "/quiz" ||
+    unprefixedPath.startsWith("/quiz/") ||
+    unprefixedPath === "/perfil" ||
+    unprefixedPath.startsWith("/perfil/") ||
+    unprefixedPath === "/certificados" ||
+    unprefixedPath.startsWith("/certificados/")
+  ) {
+    return "/saberes";
+  }
+  return null;
 }
 
 export function middleware(request: NextRequest) {
-  const wwwRedirect = redirectWwwToApex(request);
-  if (wwwRedirect) return wwwRedirect;
-
   // Segunda pasada de next-intl (rewrite interno a `/es/...`): no redirigir ni reaplicar i18n.
   if (request.headers.get("x-next-intl-locale")) {
     return NextResponse.next();
@@ -126,73 +154,81 @@ export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
   if (pathname.includes(".")) return NextResponse.next();
 
-  const esPrefixRedirect = redirectDefaultLocalePrefix(request);
-  if (esPrefixRedirect) return esPrefixRedirect;
-
-  if (pathname === "/inicio" || pathname === "/saberes/clic" || pathname.startsWith("/saberes/clic/")) {
-    const url = request.nextUrl.clone();
-    url.pathname = "/saberes";
-    return NextResponse.redirect(url, 308);
-  }
-
-  if (
-    pathname === "/cursos" ||
-    pathname.startsWith("/cursos/") ||
-    pathname === "/curso" ||
-    pathname.startsWith("/curso/") ||
-    pathname === "/quiz" ||
-    pathname.startsWith("/quiz/") ||
-    pathname === "/perfil" ||
-    pathname.startsWith("/perfil/") ||
-    pathname === "/certificados" ||
-    pathname.startsWith("/certificados/")
-  ) {
-    const url = request.nextUrl.clone();
-    url.pathname = "/saberes";
-    return NextResponse.redirect(url, 308);
-  }
-
   const head = firstPathSegment(pathname);
   if (head && SKIP_LOCALE_PREFIX_SEGMENTS.has(head)) {
+    if (isWwwHost(request)) return publicRedirect(request, pathname, 308);
     return NextResponse.next();
   }
 
-  const numeric = pathname.match(/^\/(\d+)$/);
+  const { locale: pathLocale, segments: afterLocale, hadPrefix } = parseLocalePath(pathname);
+  const unprefixedPath = afterLocale.length ? `/${afterLocale.join("/")}` : "/";
+
+  const saberesDest = maybeSaberesPlatformRedirect(unprefixedPath);
+  if (saberesDest) {
+    return publicRedirect(request, withLocalePath(pathLocale, saberesDest), 308);
+  }
+
+  const numeric = unprefixedPath.match(/^\/(\d+)$/);
   if (numeric) {
     const n = Number.parseInt(numeric[1]!, 10);
     if (n >= 1 && n <= 24) {
-      const url = request.nextUrl.clone();
-      url.pathname = `/aqui-no-pasa/modulos/${n}`;
-      return NextResponse.redirect(url, 308);
+      return publicRedirect(request, withLocalePath(pathLocale, `/aqui-no-pasa/modulos/${n}`), 308);
     }
   }
 
-  const { locale: pathLocale, segments: afterLocale } = parseLocalePath(pathname);
-  const unprefixedPath = afterLocale.length ? `/${afterLocale.join("/")}` : "/";
   const legacy = matchLegacyRedirect(unprefixedPath);
   if (legacy) {
     if (legacy.destination.startsWith("http://") || legacy.destination.startsWith("https://")) {
       return NextResponse.redirect(legacy.destination, legacy.permanent ? 308 : 307);
     }
-    const target = request.nextUrl.clone();
-    target.pathname = withLocalePath(pathLocale, legacy.destination);
-    return NextResponse.redirect(target, legacy.permanent ? 308 : 307);
+    return publicRedirect(
+      request,
+      withLocalePath(pathLocale, legacy.destination),
+      legacy.permanent ? 308 : 307,
+    );
+  }
+
+  if (afterLocale[0] === "blog" && afterLocale.length === 2) {
+    const slugSeg = decodePathSegment(afterLocale[1]!);
+    const aliasTarget = PRECISANDO_SLUG_ALIASES[slugSeg];
+    const article = articleBySlug(aliasTarget ?? slugSeg);
+    if (article) {
+      return publicRedirect(request, withLocalePath(pathLocale, `/precisando/${encodeURI(article.slug)}`), 308);
+    }
+  }
+
+  if (afterLocale[0] === "precisando" && afterLocale[1] === "categories" && afterLocale.length === 3) {
+    const incoming = categoryToSlug(decodePathSegment(afterLocale[2]!));
+    const cat = uniqueCategories().find((c) => categoryToSlug(c) === incoming);
+    if (cat) {
+      return publicRedirect(
+        request,
+        withLocalePath(pathLocale, `/precisando/categoria/${categoryToSlug(cat)}`),
+        308,
+      );
+    }
   }
 
   if (afterLocale[0] === "programas" && afterLocale[1] === "docentes") {
-    const url = request.nextUrl.clone();
-    url.pathname = withLocalePath(pathLocale, "/programas/educacion-mediatica-digital-para-docentes");
-    return NextResponse.redirect(url, 308);
+    return publicRedirect(
+      request,
+      withLocalePath(pathLocale, "/programas/educacion-mediatica-digital-para-docentes"),
+      308,
+    );
   }
   if (afterLocale[0] === "programas" && afterLocale[1] === "leer-noticias-era-digital") {
-    const url = request.nextUrl.clone();
-    url.pathname = withLocalePath(pathLocale, "/programas/educacion-mediatica-digital-para-docentes");
-    return NextResponse.redirect(url, 308);
+    return publicRedirect(
+      request,
+      withLocalePath(pathLocale, "/programas/educacion-mediatica-digital-para-docentes"),
+      308,
+    );
   }
   if (afterLocale[0] === "que-hacemos" && afterLocale[1] === "docentes") {
-    const url = request.nextUrl.clone();
-    url.pathname = withLocalePath(pathLocale, "/programas/educacion-mediatica-digital-para-docentes");
-    return NextResponse.redirect(url, 308);
+    return publicRedirect(
+      request,
+      withLocalePath(pathLocale, "/programas/educacion-mediatica-digital-para-docentes"),
+      308,
+    );
   }
 
   if (
@@ -213,19 +249,31 @@ export function middleware(request: NextRequest) {
       if (PRECISANDO_ARTICLES_UNDER_CONSTRUCTION) {
         return redirectHomePrecisando(request, pathLocale);
       }
-      const url = request.nextUrl.clone();
-      url.pathname = withLocalePath(pathLocale, `/precisando/${encodeURI(aliasTarget)}`);
-      return NextResponse.redirect(url, 308);
+      return publicRedirect(request, withLocalePath(pathLocale, `/precisando/${encodeURI(aliasTarget)}`), 308);
     }
     const postFromRoot = !RESERVED_ROOT_SEGMENTS.has(decoded) ? articleBySlug(decoded) : undefined;
     if (postFromRoot) {
       if (PRECISANDO_ARTICLES_UNDER_CONSTRUCTION) {
         return redirectHomePrecisando(request, pathLocale);
       }
-      const url = request.nextUrl.clone();
-      url.pathname = withLocalePath(pathLocale, `/precisando/${encodeURI(postFromRoot.slug)}`);
-      return NextResponse.redirect(url, 308);
+      return publicRedirect(
+        request,
+        withLocalePath(pathLocale, `/precisando/${encodeURI(postFromRoot.slug)}`),
+        308,
+      );
     }
+  }
+
+  /**
+   * `/es` y `/es/*` son español con prefijo. Canónico: sin `/es`.
+   * Nunca delegar esto a next-intl: con cookie `NEXT_LOCALE=en` puede reescribir a `/en/*`.
+   */
+  if (hadPrefix && pathLocale === routing.defaultLocale) {
+    return publicRedirect(request, unprefixedPath || "/", 308);
+  }
+
+  if (isWwwHost(request)) {
+    return publicRedirect(request, pathname, 308);
   }
 
   return intlMiddleware(request);

@@ -71,7 +71,7 @@ export function ParticipaNewsletterForm() {
     <form
       className="mt-6 max-w-lg space-y-5"
       action={NEWSLETTER.formActionUrl ?? undefined}
-      method={NEWSLETTER.formActionUrl ? "post" : undefined}
+      method="post"
       onSubmit={onSubmit}
     >
       <p className="text-sm text-[var(--muted)]">

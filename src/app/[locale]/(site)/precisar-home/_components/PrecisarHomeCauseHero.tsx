@@ -100,14 +100,19 @@ function CauseFlameWord({
   const verbClass = reduceMotion || mode !== "out" ? headline.verbShown : headline.verbOut;
 
   return (
-    <span ref={wordRef} className={styles.causeFlameRow}>
-      <span className={styles.causeFlameSizer} aria-hidden>
+    <span ref={wordRef} className={styles.causeFlameRow} aria-hidden="true">
+      <span className={styles.causeFlameSizer} aria-hidden="true">
         {word}.
       </span>
-      <span key={cycle} className={`${verbClass} ${headline.verbLine} ${styles.causeFlameAnim}`}>
-        <span className={`${headline.verbWord} ${styles.causeFlameWord}`}>
+      <span
+        key={cycle}
+        className={`${verbClass} ${headline.verbLine} ${styles.causeFlameAnim}`}
+        aria-hidden="true"
+      >
+        <span className={`${headline.verbWord} ${styles.causeFlameWord}`} aria-hidden="true">
           {clientReady ? (
             <span
+              aria-hidden="true"
               dangerouslySetInnerHTML={{
                 __html: verbHtml || escapeHtml(word),
               }}
@@ -116,7 +121,7 @@ function CauseFlameWord({
             word
           )}
         </span>
-        <span className={styles.causeFlamePeriod} aria-hidden>
+        <span className={styles.causeFlamePeriod} aria-hidden="true">
           .
         </span>
       </span>

@@ -63,7 +63,7 @@ export function legacyRedirects() {
     // ─── Rutas duplicadas — canonicalización ──────────────────────────────────
 
     // /que-hacemos/* → /programas/*
-    { source: "/que-hacemos", destination: "/programas", permanent: true },
+    { source: "/que-hacemos", destination: "/#programas", permanent: true },
     { source: "/que-hacemos/ciudades", destination: "/programas/ciudades", permanent: true },
     { source: "/que-hacemos/hub-digital-consciente", destination: "/programas/hub-digital-consciente", permanent: true },
     { source: "/que-hacemos/aprender-digital", destination: "/programas/aprender-digital", permanent: true },
@@ -105,7 +105,9 @@ export function legacyRedirects() {
 
     // ─── Wix legacy ───────────────────────────────────────────────────────────
 
+    { source: "/quienes-somos", destination: "/somos", permanent: true },
     { source: "/somosprecisar", destination: "/somos", permanent: true },
+    { source: "/blog", destination: "/#precisando", permanent: true },
     { source: "/hubdigitaconsciente", destination: "/programas/hub-digital-consciente", permanent: true },
     { source: "/services-3", destination: "/programas/hub-digital-consciente", permanent: true },
     { source: "/ciudades", destination: "/programas/ciudades", permanent: true },
@@ -138,7 +140,7 @@ export function legacyRedirects() {
     { source: "/sentido-digital-del-sabor", destination: "/experiencias/sentidos-digitales/sabor", permanent: true },
     { source: "/sentido-digital-del-equilibrio", destination: "/experiencias/sentidos-digitales/equilibrio", permanent: true },
     { source: "/sentido-digital-oído", destination: "/experiencias/sentidos-digitales/oido", permanent: true },
-    { source: "/autotalleres", destination: "/programas", permanent: true },
+    { source: "/autotalleres", destination: "/#programas", permanent: true },
     // /onda → Bot Onda en dominio propio
     { source: "/onda", destination: "https://onda.precisar.net/chat", permanent: true },
     { source: "/coming-soon-01", destination: "/", permanent: true },

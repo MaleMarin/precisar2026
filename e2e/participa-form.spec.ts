@@ -26,6 +26,8 @@ async function fillContact(page: Page) {
 
 async function openParticipa(page: Page) {
   await page.goto("/participa", { waitUntil: "domcontentloaded" });
+  await page.waitForLoadState("load");
+  await page.locator("#participa-contact-email").waitFor();
 }
 
 test.describe("/participa contacto", () => {

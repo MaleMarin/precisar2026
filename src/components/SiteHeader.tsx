@@ -121,24 +121,19 @@ export function SiteHeader() {
    * (en algunos entornos `router.replace` + next-intl no refrescaba `NextIntlClientProvider`).
    */
   const switchLocale = useCallback((loc: (typeof routing.locales)[number]) => {
-    if (locale === loc) return;
     if (typeof window === "undefined") return;
     const segments = window.location.pathname.split("/").filter(Boolean);
     const first = segments[0]?.toLowerCase();
-    const hasPrefix = Boolean(first && LOCALE_PREFIXES.has(first));
-
-    if (hasPrefix) {
-      if (loc === routing.defaultLocale) {
-        segments.shift();
-      } else {
-        segments[0] = loc;
-      }
-    } else if (loc !== routing.defaultLocale) {
+    if (first && LOCALE_PREFIXES.has(first)) {
+      segments.shift();
+    }
+    if (loc !== routing.defaultLocale) {
       segments.unshift(loc);
     }
-
     const nextPath = segments.length ? `/${segments.join("/")}` : "/";
-    window.location.assign(`${nextPath}${window.location.search}${window.location.hash}`);
+    const nextUrl = `${nextPath}${window.location.search}${window.location.hash}`;
+    if (locale === loc && window.location.pathname === nextPath) return;
+    window.location.assign(nextUrl);
     setOpen(false);
   }, [locale]);
 

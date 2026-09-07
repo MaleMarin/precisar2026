@@ -16,10 +16,10 @@ export function GsapRouteFade({ children, overlayColor }: GsapRouteFadeProps) {
       style={{
         position: "relative",
         zIndex: 1,
-        flex: 1,
+        flex: "1 0 auto",
         display: "flex",
         flexDirection: "column",
-        minHeight: 0,
+        minHeight: "100%",
         minWidth: 0,
         background: bg,
         opacity: 1,

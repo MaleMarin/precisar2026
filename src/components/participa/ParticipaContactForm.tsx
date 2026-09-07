@@ -36,7 +36,7 @@ export function ParticipaContactForm() {
   };
 
   return (
-    <form className="mt-8 max-w-lg space-y-5" onSubmit={onSubmit}>
+    <form className="mt-8 max-w-lg space-y-5" method="post" onSubmit={onSubmit}>
       <div>
         <label className="prec-kicker mb-2 block" htmlFor="participa-contact-nombre">
           {t("labelName")}
