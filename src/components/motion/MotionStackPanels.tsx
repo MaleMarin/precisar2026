@@ -591,6 +591,7 @@ export function MotionStackPanels({
         label: a.title,
         href: `/precisando/${encodeURI(a.slug)}`,
         itemKey: `precisando-${a.slug}`,
+        external: true,
       }));
 
   const footerCols = FOOTER_COLUMNS;

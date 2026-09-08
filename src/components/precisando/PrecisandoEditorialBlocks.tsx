@@ -62,7 +62,13 @@ export function PrecisandoArticleList({
           >
             <div className={`${styles.item} ${hasCover ? styles.itemWithCover : ""}`}>
               {a.coverImage ? (
-                <Link href={href} className={`group ${styles.coverLink}`} aria-label={a.coverAlt ?? a.title}>
+                <Link
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`group ${styles.coverLink}`}
+                  aria-label={a.coverAlt ?? a.title}
+                >
                   <Image
                     src={a.coverImage}
                     alt={a.coverAlt ?? ""}
@@ -75,6 +81,8 @@ export function PrecisandoArticleList({
               <div className={styles.body}>
                 <Link
                   href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className={`group block rounded-sm font-[family-name:var(--font-display)] font-medium leading-snug tracking-tight text-[var(--fg)] underline-offset-[6px] transition-colors hover:text-[var(--accent)] hover:underline ${
                     variant === "panel"
                       ? "text-xl md:text-[1.35rem] md:leading-snug"

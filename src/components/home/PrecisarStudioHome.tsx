@@ -202,7 +202,7 @@ export function PrecisarStudioHome({ children }: PrecisarStudioHomeProps) {
               <ul className={styles.precisandoList}>
                 {featured.map((a) => (
                   <li key={a.slug}>
-                    <Link href={`/precisando/${encodeURI(a.slug)}`}>
+                    <Link href={`/precisando/${encodeURI(a.slug)}`} target="_blank" rel="noopener noreferrer">
                       {a.title}
                       <span className={styles.precisandoMeta}>{a.category}</span>
                     </Link>

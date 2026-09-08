@@ -34,7 +34,12 @@ export default function PrecisandoExploraPage() {
         <ul className={styles.grid}>
           {posts.map((a) => (
             <li key={a.slug}>
-              <Link href={`/precisando/${encodeURI(a.slug)}`} className={styles.card}>
+              <Link
+                href={`/precisando/${encodeURI(a.slug)}`}
+                className={styles.card}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <div className={styles.cardMeta}>
                   <span className={styles.cardCat}>{a.category}</span>
                   <time className={styles.cardDate} dateTime={articleYearLabel(a.pubDate)}>

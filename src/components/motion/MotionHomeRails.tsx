@@ -75,7 +75,12 @@ export function MotionHomeRails({ articles }: MotionHomeRailsProps) {
         <div className={styles.track} role="list">
           {picks.map((a) => (
             <TiltCard key={a.slug} className={styles.railTiltPost} asListItem>
-              <Link href={`/precisando/${encodeURI(a.slug)}`} className={styles.cardPost}>
+              <Link
+                href={`/precisando/${encodeURI(a.slug)}`}
+                className={styles.cardPost}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <span className={styles.postKicker}>{a.category}</span>
                 <h3 className={styles.postTitle}>{a.title}</h3>
                 <p className={styles.postExcerpt}>{excerptShort(a.excerpt)}</p>
