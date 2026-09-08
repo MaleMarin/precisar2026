@@ -69,9 +69,18 @@ export function ArticleTemplate(props: {
   title: string;
   kicker?: string;
   children: ReactNode;
+  date?: string;
+  dateTime?: string;
 }) {
   return (
-    <PageShell title={props.title} kicker={props.kicker} bare variant="article">
+    <PageShell
+      title={props.title}
+      kicker={props.kicker}
+      bare
+      variant="article"
+      headerDate={props.date}
+      headerDateTime={props.dateTime}
+    >
       <div className="prec-article-body space-y-8 md:space-y-10">{props.children}</div>
     </PageShell>
   );

@@ -78,7 +78,12 @@ export default async function PrecisandoArticulo({ params }: Props) {
   const schemaImage = post.socialImage ?? post.coverImage ?? "/opengraph-image";
 
   return (
-    <ArticleTemplate title={post.title} kicker={`Precisando · ${post.category}`}>
+    <ArticleTemplate
+      title={post.title}
+      kicker={`Precisando · ${post.category}`}
+      date={articleDisplayDate(post.pubDate, locale)}
+      dateTime={articleDateTime(post.pubDate)}
+    >
       <ArticleJsonLd
         headline={post.ogTitle ?? post.title}
         description={post.seoDescription ?? post.excerpt}
@@ -88,14 +93,6 @@ export default async function PrecisandoArticulo({ params }: Props) {
         dateModified={post.pubDate}
         publisherLogo={new URL(FOOTER_MEDIA.logoWordmark, SITE.url).toString()}
       />
-      <div className="pb-6">
-        <time
-          dateTime={articleDateTime(post.pubDate)}
-          className="inline-block font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--muted)]"
-        >
-          {articleDisplayDate(post.pubDate, locale)}
-        </time>
-      </div>
       {post.coverImage ? (
         <figure className="not-prose mx-auto w-full max-w-4xl">
           <div className="relative aspect-[16/10] w-full overflow-hidden rounded-sm border border-[var(--border)] bg-[var(--surface)]">

@@ -18,6 +18,9 @@ export function PageShell({
   indexIntro,
   /** Texto bajo el título en cabecera estándar (p. ej. Saberes). */
   headerLead,
+  /** Fecha editorial bajo el H1 (artículos Precisando). */
+  headerDate,
+  headerDateTime,
 }: {
   title: string;
   kicker?: string;
@@ -28,6 +31,8 @@ export function PageShell({
   programCanvas?: boolean;
   indexIntro?: string;
   headerLead?: string;
+  headerDate?: string;
+  headerDateTime?: string;
 }) {
   const bodyClass = bare
     ? contentClassName ?? ""
@@ -58,6 +63,11 @@ export function PageShell({
             <div className="border-l-[3px] border-[var(--accent)] pl-6 md:pl-9">
               {kicker ? <p className="prec-kicker prec-kicker--accent">{kicker}</p> : null}
               <h1 className="prec-title-xl prec-title-xl--article mt-4">{title}</h1>
+              {headerDate ? (
+                <p className="prec-article-date mt-4">
+                  <time dateTime={headerDateTime ?? headerDate}>{headerDate}</time>
+                </p>
+              ) : null}
             </div>
           </header>
         ) : (
