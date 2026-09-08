@@ -258,6 +258,10 @@ const PRECISANDO_BLOG_FOOTER_LINKS: NavItem[] = PRECISANDO_ARTICLES_UNDER_CONSTR
   ? [{ label: "Precisando — en construcción", href: "/#precisando" }]
   : [
       {
+        label: "PISA 2025: cuando comprender se vuelve una urgencia democrática",
+        href: "/precisando/pisa-2025-chile-comprension-democracia",
+      },
+      {
         label: "Chile respondió: informe «¿Cómo te informas hoy?» (enero 2026)",
         href: "/precisando/informarse-en-chile-hoy-menos-ruido-mas-criterio",
       },
