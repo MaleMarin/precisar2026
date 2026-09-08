@@ -24,7 +24,7 @@ La señal, entonces, no es de derrumbe. Es de estancamiento peligroso.
 
 ## IA, lectura y criterio
 
-Y hay una razón por la que este dato importa más hoy que hace veinte años. Los estudiantes no están leyendo en el mismo mundo. Están leyendo en medio de pantallas, plataformas, videos breves, buscadores, [inteligencia artificial](/educacion-mediatica/tecnologia) y una cantidad de información que no deja de crecer. El problema ya no es solamente encontrar datos. El problema es saber qué significan, de dónde vienen, cómo se conectan y cuándo corresponde desconfiar.
+Y hay una razón por la que este dato importa más hoy que hace veinte años. Los estudiantes no están leyendo en el mismo mundo. Están leyendo en medio de pantallas, plataformas, videos breves, buscadores, inteligencia artificial y una cantidad de información que no deja de crecer. El problema ya no es solamente encontrar datos. El problema es saber qué significan, de dónde vienen, cómo se conectan y cuándo corresponde desconfiar.
 
 En Chile, la inteligencia artificial ya entró en la experiencia escolar: 51% de los estudiantes declara usar chatbots de IA al menos una vez por semana como apoyo para estudiar o realizar tareas escolares. Eso no significa necesariamente que aprendan más o mejor. Significa que la IA ya forma parte de sus prácticas de estudio. La pregunta, entonces, no es si los jóvenes van a usarla. Ya la usan. La pregunta es si saben evaluar lo que reciben, verificarlo y no reemplazar su propio criterio.
 
@@ -38,7 +38,7 @@ Ese contraste es importante. Prohibir celulares puede ayudar a ordenar la sala, 
 
 No es sólo un dato educativo. Es una señal de alerta para la democracia.
 
-No porque PISA mida democracia —no lo hace—, sino porque la vida democrática necesita ciudadanos capaces de entender información pública, comparar fuentes, reconocer [manipulación](/educacion-mediatica/comunicacion), evaluar promesas, ejercer derechos y tomar decisiones con cierta autonomía.
+No porque PISA mida democracia —no lo hace—, sino porque la vida democrática necesita ciudadanos capaces de entender información pública, comparar fuentes, reconocer manipulación, evaluar promesas, ejercer derechos y tomar decisiones con cierta autonomía.
 
 Una ciudadanía que no comprende bien la información queda más expuesta a la desinformación, a la manipulación y a decisiones tomadas sin suficiente criterio. En tiempos de inteligencia artificial, plataformas y contenidos automatizados, leer no es apenas una habilidad escolar: es una forma de defensa democrática.
 
@@ -54,11 +54,11 @@ El presente y el futuro no pertenecen simplemente a quienes pueden acceder a inf
 
 Ese debería ser el centro de la conversación pública después de PISA 2025.
 
-No basta con discutir si hay que prohibir celulares. No basta con comprar plataformas. No basta con enseñar a usar inteligencia artificial como si fuera una herramienta neutra. La [alfabetización](/educacion-mediatica/educacion) de esta época exige algo más profundo: atención, lectura, contexto, verificación, pensamiento crítico y autonomía.
+No basta con discutir si hay que prohibir celulares. No basta con comprar plataformas. No basta con enseñar a usar inteligencia artificial como si fuera una herramienta neutra. La alfabetización de esta época exige algo más profundo: atención, lectura, contexto, verificación, pensamiento crítico y autonomía.
 
 Precisar llama a eso autonomía informativa: la capacidad de comprender cómo llega la información, evaluarla críticamente y usarla para tomar decisiones propias.
 
-PISA 2025 no habla de Precisar. Pero sí confirma la urgencia de su [trabajo](/#programas).
+PISA 2025 no habla de Precisar. Pero sí confirma la urgencia de su trabajo.
 
 Porque si el país quiere preparar a sus estudiantes para una sociedad atravesada por IA, desinformación y servicios digitales, la pregunta no puede ser sólo cuánto saben. Tiene que ser también cuánto comprenden.
 
