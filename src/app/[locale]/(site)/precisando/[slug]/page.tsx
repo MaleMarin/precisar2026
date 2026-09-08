@@ -1,13 +1,14 @@
 import Image from "next/image";
 import { notFound, permanentRedirect, redirect } from "next/navigation";
 import { ArticleMarkdown } from "@/components/ArticleMarkdown";
+import { ArticleJsonLd } from "@/components/precisando/ArticleJsonLd";
 import { ARTICLES, articleBySlug } from "@/data/articles";
 import { PRECISANDO_SLUG_ALIASES } from "@/data/slug-aliases";
 import { loadArticleMarkdown } from "@/lib/load-article-markdown";
 import { PRECISANDO_ARTICLES_UNDER_CONSTRUCTION } from "@/lib/precisando-access";
 import { articleYearLabel } from "@/lib/article-date";
 import { pageSeo } from "@/lib/seo";
-import { localePath, SITE } from "@/lib/site";
+import { absoluteLocaleUrl, localePath, FOOTER_MEDIA, SITE } from "@/lib/site";
 import { ArticleTemplate } from "@/components/templates/PageTemplates";
 
 type Props = { params: Promise<{ locale: string; slug: string }> };
@@ -25,15 +26,27 @@ export async function generateMetadata({ params }: Props) {
   const post = articleBySlug(slug);
   if (!post) return { title: "No encontrado" };
   const path = `/precisando/${post.slug}`;
-  const ogImage = post.coverImage
-    ? [{ url: new URL(post.coverImage, SITE.url).toString() }]
+  const imagePath = post.socialImage ?? post.coverImage;
+  const ogImage = imagePath
+    ? [
+        {
+          url: new URL(imagePath, SITE.url).toString(),
+          width: 1200,
+          height: 630,
+          alt: post.socialImageAlt ?? post.coverAlt ?? post.title,
+        },
+      ]
     : undefined;
 
   return pageSeo({
     locale,
     pathname: path,
-    title: post.title,
-    description: post.excerpt,
+    title: post.seoTitle ?? post.title,
+    description: post.seoDescription ?? post.excerpt,
+    ogTitle: post.ogTitle,
+    ogDescription: post.ogDescription,
+    twitterTitle: post.twitterTitle,
+    twitterDescription: post.twitterDescription,
     type: "article",
     publishedTime: post.pubDate,
     images: ogImage,
@@ -61,9 +74,20 @@ export default async function PrecisandoArticulo({ params }: Props) {
   }
 
   const md = loadArticleMarkdown(post.slug);
+  const canonical = absoluteLocaleUrl(locale, `/precisando/${post.slug}`);
+  const schemaImage = post.socialImage ?? post.coverImage ?? "/opengraph-image";
 
   return (
     <ArticleTemplate title={post.title} kicker={`Precisando · ${post.category}`}>
+      <ArticleJsonLd
+        headline={post.ogTitle ?? post.title}
+        description={post.seoDescription ?? post.excerpt}
+        url={canonical}
+        image={new URL(schemaImage, SITE.url).toString()}
+        datePublished={post.pubDate}
+        dateModified={post.pubDate}
+        publisherLogo={new URL(FOOTER_MEDIA.logoWordmark, SITE.url).toString()}
+      />
       <div className="pb-6">
         <time
           dateTime={articleYearLabel(post.pubDate)}
@@ -113,7 +137,7 @@ export default async function PrecisandoArticulo({ params }: Props) {
         </div>
       ) : null}
       <div className="mt-14 max-w-3xl" aria-label="Cierre editorial">
-        <p className="text-[1.05rem] leading-relaxed text-[var(--muted)]">Un abrazo,</p>
+          <p className="text-[1.05rem] leading-relaxed text-[var(--muted)]">Un abrazo.</p>
         <p className="mt-1 font-[family-name:var(--font-display)] text-lg font-medium text-[var(--fg)]">
           Equipo Precisar
         </p>

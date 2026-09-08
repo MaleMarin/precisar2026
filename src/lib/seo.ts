@@ -40,6 +40,10 @@ type PageSeoInput = {
   publishedTime?: string;
   robots?: Metadata["robots"];
   home?: boolean;
+  ogTitle?: string;
+  ogDescription?: string;
+  twitterTitle?: string;
+  twitterDescription?: string;
 };
 
 export function pageSeo(input: PageSeoInput): Metadata {
@@ -59,16 +63,16 @@ export function pageSeo(input: PageSeoInput): Metadata {
       type: input.type ?? "website",
       locale: ogLocale(input.locale),
       siteName: SITE.name,
-      title,
-      description,
+      title: input.ogTitle ?? title,
+      description: input.ogDescription ?? description,
       url: canonical,
       images,
       ...(input.publishedTime ? { publishedTime: input.publishedTime } : {}),
     },
     twitter: {
       card: "summary_large_image",
-      title,
-      description,
+      title: input.twitterTitle ?? title,
+      description: input.twitterDescription ?? description,
       images,
     },
     ...(input.robots ? { robots: input.robots } : {}),

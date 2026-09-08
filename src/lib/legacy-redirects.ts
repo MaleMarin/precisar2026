@@ -108,6 +108,11 @@ export function legacyRedirects() {
     { source: "/quienes-somos", destination: "/somos", permanent: true },
     { source: "/somosprecisar", destination: "/somos", permanent: true },
     { source: "/blog", destination: "/#precisando", permanent: true },
+    {
+      source: "/noticias/pisa-2025-chile-comprension-democracia",
+      destination: "/precisando/pisa-2025-chile-comprension-democracia",
+      permanent: true,
+    },
     { source: "/hubdigitaconsciente", destination: "/programas/hub-digital-consciente", permanent: true },
     { source: "/services-3", destination: "/programas/hub-digital-consciente", permanent: true },
     { source: "/ciudades", destination: "/programas/ciudades", permanent: true },
