@@ -30,8 +30,12 @@ export type TextScrambleOptions = {
   swapQuick?: boolean;
   /** Si se define, reemplaza el tope de arranque por carácter (frames). */
   swapStartMax?: number;
+  /** Mínimo de frames en scramble por carácter (evita que una letra aparezca de golpe). */
+  swapSpanMin?: number;
   /** Si se define, reemplaza la duración aleatoria por carácter (frames). */
   swapSpanMax?: number;
+  /** Resuelve de izquierda a derecha, con jitter, en vez de un orden totalmente aleatorio. */
+  swapCascade?: boolean;
   /** Avanzar un frame cada N rAF. 1 = cada frame (default). */
   swapTickEvery?: number;
   /** Probabilidad de cambiar el carácter dud por frame (default 0.28). */
@@ -56,7 +60,9 @@ export function useTextScramble(
     swapResetKey,
     swapQuick = false,
     swapStartMax,
+    swapSpanMin,
     swapSpanMax,
+    swapCascade = false,
     swapTickEvery = 1,
     dudRefresh = 0.28,
     swapInstant = false,
@@ -148,12 +154,17 @@ export function useTextScramble(
       const len = Math.max(oldText.length, newText.length);
       const startMax = swapStartMax ?? (swapQuick ? 7 : 40);
       const spanMax = swapSpanMax ?? (swapQuick ? 10 : 40);
+      const spanMin = Math.max(1, swapSpanMin ?? (swapQuick ? 4 : 8));
+      const spanRange = Math.max(1, spanMax - spanMin);
       queue = [];
       for (let i = 0; i < len; i++) {
         const from = oldText[i] ?? "";
         const to = newText[i] ?? "";
-        const start = Math.floor(Math.random() * startMax);
-        const end = start + Math.floor(Math.random() * spanMax);
+        const cascade =
+          swapCascade && len > 1 ? Math.floor((i / (len - 1)) * startMax * 0.72) : 0;
+        const jitterMax = swapCascade ? Math.max(3, Math.floor(startMax * 0.28)) : startMax;
+        const start = cascade + Math.floor(Math.random() * jitterMax);
+        const end = start + spanMin + Math.floor(Math.random() * spanRange);
         queue.push({ from, to, start, end });
       }
       frame = 0;
@@ -201,7 +212,9 @@ export function useTextScramble(
     swapResetKey,
     swapQuick,
     swapStartMax,
+    swapSpanMin,
     swapSpanMax,
+    swapCascade,
     swapTickEvery,
     dudRefresh,
     swapInstant,

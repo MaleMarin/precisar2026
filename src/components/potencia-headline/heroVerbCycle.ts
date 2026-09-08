@@ -23,7 +23,7 @@ export const VERB_FLAME_IN_FOLLOW_CSS = "0.52s";
  */
 export const VERB_FLAME_IN_SCRAMBLE_FOLLOW_CSS = "0.055s";
 
-export const VERB_CYCLE_GAP_MS = 220;
+export const VERB_CYCLE_GAP_MS = 720;
 
 /** `--verb-flame-dur` cuando la mancha va al rincón (sincronizado con `STAIN_TO_CORNER_MS`). */
 export function verbFlameToCornerCssDuration(): string {
