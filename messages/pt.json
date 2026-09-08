@@ -105,16 +105,17 @@
   },
   "HomeHero": {
     "kicker": "Precisar",
-    "h1Line1": "Compreender",
-    "h1Line1b": "a informação",
-    "h1Line2": "fortalece a democracia",
-    "h1Accessible": "Compreender a informação fortalece a democracia.",
-    "lead": "Ferramentas para avaliar. Critério para decidir. Autonomia para participar.",
-    "leadLine1": "Ferramentas para avaliar.",
+    "h1Line1": "A democracia",
+    "h1Line1b": "precisa de",
+    "h1Line2": "compreensão",
+    "h1Accessible": "A democracia precisa de compreensão.",
+    "lead": "O presente e o futuro não pertencem simplesmente a quem pode acessar informação, mas a quem pode interpretá-la, conectá-la e dar-lhe significado.",
+    "leadLine1": "Ferramentas para interpretar.",
     "leadLine2": "Critério para decidir.",
     "leadLine3": "Autonomia para participar.",
-    "secondary": "A informação é muito mais do que notícias. Também inclui os conteúdos e serviços que usamos para estudar, fazer trâmites, exercer os nossos direitos e participar. Escutamos as pessoas para identificar as barreiras e desafios informacionais que enfrentam e desenhar respostas úteis.",
-    "cta": "Conhecer a Precisar ↓"
+    "secondary": "O presente e o futuro não pertencem simplesmente a quem pode acessar informação, mas a quem pode interpretá-la, conectá-la e dar-lhe significado.",
+    "cta": "Explorar Precisar",
+    "ctaSecondary": "Levar a Precisar para minha instituição"
   },
   "Metadata": {
     "homeTitle": "Precisar | Informação e tecnologia com critério",
@@ -214,6 +215,7 @@
     "bridgeBefore": "Para ",
     "bridgeName": "Precisar",
     "bridgeAfter": ", usar tecnologia com critério começa por compreender a informação e como ela chega até você.",
+    "body": "A informação é muito mais do que notícias. Também inclui os conteúdos e serviços que usamos para estudar, realizar trâmites, exercer nossos direitos e participar. Escutamos as pessoas para identificar as barreiras e os desafios informacionais que enfrentam e desenhar respostas úteis.",
     "lead": "Antes de chegar até você, pode ter sido:",
     "groups": [
       { "action": "Selecionada e comunicada", "by": "por meios e instituições" },

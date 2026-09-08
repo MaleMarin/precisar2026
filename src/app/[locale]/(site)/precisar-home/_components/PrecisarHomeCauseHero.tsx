@@ -213,15 +213,14 @@ export function PrecisarHomeCauseHero() {
           </p>
           <div className={styles.causeCopy}>
             <div className={styles.causeLead}>
-              <p className={styles.causeLeadLine}>{t("leadLine1")}</p>
-              <p className={styles.causeLeadLine}>{t("leadLine2")}</p>
-              <p className={styles.causeLeadLine}>{t("leadLine3")}</p>
+              <p className={styles.causeLeadLine}>{t("lead")}</p>
             </div>
-            <p className={styles.causeSecondary}>{t("secondary")}</p>
           </div>
-          <a href="#convoca" className={styles.causeCta}>
-            {t("cta")}
-          </a>
+          <div className={styles.causeCtas}>
+            <a href="#convoca" className={styles.causeCta}>
+              {t("cta")}
+            </a>
+          </div>
         </div>
       </div>
     </header>

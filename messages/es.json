@@ -105,16 +105,17 @@
   },
   "HomeHero": {
     "kicker": "Precisar",
-    "h1Line1": "Comprender",
-    "h1Line1b": "la información",
-    "h1Line2": "fortalece la democracia",
-    "h1Accessible": "Comprender la información fortalece la democracia.",
-    "lead": "Herramientas para evaluar. Criterio para decidir. Autonomía para participar.",
-    "leadLine1": "Herramientas para evaluar.",
+    "h1Line1": "La democracia",
+    "h1Line1b": "necesita",
+    "h1Line2": "comprensión",
+    "h1Accessible": "La democracia necesita comprensión.",
+    "lead": "El presente y el futuro no pertenecen simplemente a quienes pueden acceder a información, sino a quienes pueden interpretarla, conectarla y darle significado.",
+    "leadLine1": "Herramientas para interpretar.",
     "leadLine2": "Criterio para decidir.",
     "leadLine3": "Autonomía para participar.",
-    "secondary": "La información es mucho más que noticias. También incluye los contenidos y servicios que usamos para estudiar, hacer trámites, ejercer nuestros derechos y participar. Escuchamos a las personas para identificar las barreras y desafíos informacionales que enfrentan y diseñar respuestas útiles.",
-    "cta": "Conoce Precisar ↓"
+    "secondary": "El presente y el futuro no pertenecen simplemente a quienes pueden acceder a información, sino a quienes pueden interpretarla, conectarla y darle significado.",
+    "cta": "Explorar Precisar",
+    "ctaSecondary": "Llevar Precisar a mi institución"
   },
   "Metadata": {
     "homeTitle": "Precisar | Información y tecnología con criterio",
@@ -214,6 +215,7 @@
     "bridgeBefore": "Para ",
     "bridgeName": "Precisar",
     "bridgeAfter": ", usar tecnología con criterio empieza por comprender la información y cómo llega a ti.",
+    "body": "La información es mucho más que noticias. También incluye los contenidos y servicios que usamos para estudiar, hacer trámites, ejercer nuestros derechos y participar. Escuchamos a las personas para identificar las barreras y desafíos informacionales que enfrentan y diseñar respuestas útiles.",
     "lead": "Antes de llegar a ti, puede haber sido:",
     "groups": [
       { "action": "Seleccionada y comunicada", "by": "por medios e instituciones" },

@@ -105,16 +105,17 @@
   },
   "HomeHero": {
     "kicker": "Precisar",
-    "h1Line1": "Understanding",
-    "h1Line1b": "information",
-    "h1Line2": "strengthens democracy",
-    "h1Accessible": "Understanding information strengthens democracy.",
-    "lead": "Tools to evaluate. Judgment to decide. Autonomy to participate.",
-    "leadLine1": "Tools to evaluate.",
+    "h1Line1": "Democracy",
+    "h1Line1b": "needs",
+    "h1Line2": "understanding",
+    "h1Accessible": "Democracy needs understanding.",
+    "lead": "The present and the future do not simply belong to those who can access information, but to those who can interpret it, connect it, and give it meaning.",
+    "leadLine1": "Tools to interpret.",
     "leadLine2": "Judgment to decide.",
     "leadLine3": "Autonomy to participate.",
-    "secondary": "Information is much more than news. It also includes the content and services we use to study, complete procedures, exercise our rights, and take part. We listen to people to identify the informational barriers and challenges they face and to design useful responses.",
-    "cta": "Meet Precisar ↓"
+    "secondary": "The present and the future do not simply belong to those who can access information, but to those who can interpret it, connect it, and give it meaning.",
+    "cta": "Explore Precisar",
+    "ctaSecondary": "Bring Precisar to my institution"
   },
   "Metadata": {
     "homeTitle": "Precisar | Information and technology with judgment",
@@ -214,6 +215,7 @@
     "bridgeBefore": "For ",
     "bridgeName": "Precisar",
     "bridgeAfter": ", using technology with judgment starts with understanding information and how it reaches you.",
+    "body": "Information is much more than news. It also includes the content and services we use to study, complete procedures, exercise our rights, and participate. We listen to people to identify the informational barriers and challenges they face and design useful responses.",
     "lead": "Before it reaches you, it may have been:",
     "groups": [
       { "action": "Selected and communicated", "by": "by media and institutions" },
