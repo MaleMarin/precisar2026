@@ -66,12 +66,12 @@ function CauseFlameWord({
     enabled: clientReady,
     variant: "swap",
     swapResetKey: `${locale}-${cycle}`,
-    swapStartMax: 20,
-    swapSpanMin: 14,
-    swapSpanMax: 32,
-    swapTickEvery: 2,
+    swapStartMax: 32,
+    swapSpanMin: 24,
+    swapSpanMax: 52,
+    swapTickEvery: 3,
     swapCascade: true,
-    dudRefresh: 0.18,
+    dudRefresh: 0.1,
     onSettle: handleSettle,
   });
 

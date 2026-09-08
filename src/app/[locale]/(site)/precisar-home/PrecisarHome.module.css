@@ -368,9 +368,9 @@
 .causeHeroInner {
   container-type: inline-size;
   container-name: cause-hero;
-  justify-content: center;
-  padding-top: clamp(0.5rem, 2.4vh, 1.75rem);
-  padding-bottom: clamp(2.5rem, 7vh, 4.75rem);
+  justify-content: flex-start;
+  padding-top: clamp(7.25rem, 17vh, 11rem);
+  padding-bottom: clamp(2.25rem, 6vh, 4rem);
   min-width: 0;
 }
 
@@ -418,9 +418,9 @@
   min-width: 0;
   max-width: 100%;
   font-family: var(--font-display), system-ui, sans-serif;
-  /* Syne 800: /13.2 llena LA DEMOCRACIA / UNDERSTANDING (~13ch) sin recortar COMPRENSIÓN. */
-  font-size: clamp(2.05rem, 8.2vw, 6.35rem);
-  font-size: clamp(2.05rem, calc(100cqi / 13.2), 6.35rem);
+  /* Syne 800: /14.5 cabe LA DEMOCRACIA / UNDERSTANDING en una sola línea. */
+  font-size: clamp(2.05rem, 7.4vw, 5.85rem);
+  font-size: clamp(2.05rem, calc(100cqi / 14.5), 5.85rem);
   font-weight: 800;
   line-height: 0.96;
   letter-spacing: -0.04em;
@@ -442,6 +442,7 @@
   display: block;
   max-width: 100%;
   min-width: 0;
+  white-space: nowrap;
 }
 
 .causeTitleLineFlame {
@@ -509,8 +510,8 @@
 }
 
 .causeScrambleDud {
-  color: color-mix(in oklab, #ff4a10 82%, #f2f5f8);
-  opacity: 1;
+  color: color-mix(in oklab, #ff4a10 58%, #f2f5f8);
+  opacity: 0.72;
 }
 
 .causeFlamePeriod {
@@ -521,7 +522,7 @@
   display: flex;
   flex-direction: column;
   gap: 0;
-  margin-top: clamp(1.85rem, 4.6vh, 2.85rem);
+  margin-top: clamp(2.75rem, 6.5vh, 4.25rem);
   width: 100%;
 }
 
@@ -560,7 +561,7 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 0.65rem;
-  margin-top: clamp(3rem, 7.2vh, 4.75rem);
+  margin-top: clamp(4.25rem, 9vh, 6.25rem);
   width: 100%;
   min-width: 0;
   max-width: 100%;
