@@ -30,8 +30,8 @@ export async function generateMetadata({ params }: Props) {
     ? [
         {
           url: new URL(post.socialImage, SITE.url).toString(),
-          width: 1200,
-          height: 630,
+          width: post.socialImageWidth ?? 1200,
+          height: post.socialImageHeight ?? 630,
           alt: post.socialImageAlt ?? post.coverAlt ?? post.title,
         },
       ]

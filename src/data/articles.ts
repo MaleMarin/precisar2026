@@ -16,6 +16,8 @@ export type ArticleMeta = {
   /** Imagen 1200×630 para Open Graph / Twitter. */
   socialImage?: string;
   socialImageAlt?: string;
+  socialImageWidth?: number;
+  socialImageHeight?: number;
   seoTitle?: string;
   seoDescription?: string;
   ogTitle?: string;
@@ -48,6 +50,11 @@ export const ARTICLES: ArticleMeta[] = [
     coverImage: "/covers/pisa-2025-oecd.jpg",
     coverAlt:
       "Portada del informe OCDE PISA 2025 Results, Volume I: Future-Ready Students.",
+    socialImage: "/social/pisa-2025/pisa-2025-link-preview.jpg",
+    socialImageAlt:
+      "Gráfica Precisar sobre PISA 2025: 38% de estudiantes en Chile no alcanza el nivel mínimo de competencia lectora.",
+    socialImageWidth: 1200,
+    socialImageHeight: 1500,
     seoTitle: "PISA 2025 en Chile: comprensión, IA y democracia | Precisar",
     seoDescription:
       "Chile sigue lejos del promedio OCDE en PISA 2025. El desafío no es sólo acceder a información, sino comprenderla, contrastarla y usarla con criterio en tiempos de IA.",
