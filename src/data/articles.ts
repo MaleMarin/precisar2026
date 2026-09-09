@@ -48,9 +48,6 @@ export const ARTICLES: ArticleMeta[] = [
     coverImage: "/covers/pisa-2025-oecd.jpg",
     coverAlt:
       "Portada del informe OCDE PISA 2025 Results, Volume I: Future-Ready Students.",
-    socialImage: "/covers/pisa-2025-og.jpg",
-    socialImageAlt:
-      "Gráfica editorial de Precisar sobre PISA 2025, comprensión de información, inteligencia artificial y democracia.",
     seoTitle: "PISA 2025 en Chile: comprensión, IA y democracia | Precisar",
     seoDescription:
       "Chile sigue lejos del promedio OCDE en PISA 2025. El desafío no es sólo acceder a información, sino comprenderla, contrastarla y usarla con criterio en tiempos de IA.",

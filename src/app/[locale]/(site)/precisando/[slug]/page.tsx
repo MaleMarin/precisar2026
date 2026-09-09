@@ -26,11 +26,10 @@ export async function generateMetadata({ params }: Props) {
   const post = articleBySlug(slug);
   if (!post) return { title: "No encontrado" };
   const path = `/precisando/${post.slug}`;
-  const imagePath = post.socialImage ?? post.coverImage;
-  const ogImage = imagePath
+  const ogImage = post.socialImage
     ? [
         {
-          url: new URL(imagePath, SITE.url).toString(),
+          url: new URL(post.socialImage, SITE.url).toString(),
           width: 1200,
           height: 630,
           alt: post.socialImageAlt ?? post.coverAlt ?? post.title,
@@ -75,7 +74,7 @@ export default async function PrecisandoArticulo({ params }: Props) {
 
   const md = loadArticleMarkdown(post.slug);
   const canonical = absoluteLocaleUrl(locale, `/precisando/${post.slug}`);
-  const schemaImage = post.socialImage ?? post.coverImage ?? "/opengraph-image";
+  const schemaImage = post.socialImage ?? "/opengraph-image";
 
   return (
     <ArticleTemplate
