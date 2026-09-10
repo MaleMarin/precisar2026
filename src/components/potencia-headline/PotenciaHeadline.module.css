@@ -16,7 +16,7 @@
 }
 
 .verbWord {
-  color: #db5227;
+  color: var(--brand-flame);
 }
 
 .verbShown {

@@ -1,10 +1,10 @@
 /**
  * Paneles full-screen sticky + stacking scroll (post-hero).
- * Paleta marca (globals :root): void #0A0C12 · navy #023661 · charcoal #3F3A42 · slate #76828E · flame #DB5227
+ * Paleta marca (globals :root): void #0A0C12 · navy #023661 · charcoal #3F3A42 · slate #76828E · flame var(--brand-flame)
  * — Precisando = navy; Saberes (acento stack) = flame.
  */
 .stackRoot {
-  --stack-accent: var(--brand-flame, #db5227);
+  --stack-accent: var(--brand-flame);
   --stack-navy: var(--brand-navy, #023661);
   --stack-bg-page: #e9e2d6;
   --stack-bg-light: #efe8dc;
@@ -103,10 +103,39 @@
   color: #fff;
 }
 
+.stickyPanelDark .kicker {
+  color: var(--brand-flame);
+}
+
 .stickyPanelAccent {
   border-color: #000;
   background: var(--stack-accent);
   color: #fff;
+}
+
+.stickyPanelAccent .kickerOnAccent {
+  color: var(--brand-on-flame);
+}
+
+.stickyPanelAccent .kickerSquareOnAccent {
+  background: var(--brand-on-flame);
+}
+
+.stickyPanelAccent .titleRow {
+  color: var(--brand-on-flame);
+  opacity: 0.78;
+}
+
+.stickyPanelAccent .bodyOnAccent {
+  color: var(--brand-on-flame);
+}
+
+.stickyPanelAccent .miniLabelDark {
+  color: var(--brand-on-flame);
+}
+
+.stickyPanelAccent .miniRowDark.miniRowMotion:hover {
+  box-shadow: -4px 0 0 0 var(--brand-on-flame);
 }
 
 .stickyPanelNavy {
@@ -290,7 +319,7 @@
   font-weight: 600;
   letter-spacing: 0.34em;
   text-transform: uppercase;
-  color: var(--stack-accent);
+  color: var(--brand-flame-text);
 }
 
 .kickerOnAccent {
@@ -378,7 +407,7 @@
   font-family: inherit;
   font-size: inherit;
   font-weight: 500;
-  color: #db5227;
+  color: var(--brand-flame);
 }
 
 /* Panel Precisando (navy): bajada con medida de lectura cómoda (titular = .stackPanelLeftTitle vía .displayTitle). */
@@ -705,8 +734,8 @@
   flex-shrink: 0;
   align-self: flex-start;
   background: none;
-  border: 1px solid rgba(245, 242, 236, 0.3);
-  color: rgba(245, 242, 236, 0.8);
+  border: 1px solid rgba(7, 10, 18, 0.28);
+  color: var(--brand-on-flame);
   font-family: var(--font-sans-family), sans-serif;
   font-size: 11px;
   letter-spacing: 0.15em;
@@ -887,7 +916,7 @@
 }
 
 .footerLink:hover {
-  color: var(--stack-accent);
+  color: var(--brand-flame-text);
 }
 
 .footerLinkIcon {
@@ -1013,9 +1042,9 @@
   letter-spacing: 0.28em;
   text-transform: uppercase;
   text-decoration: none;
-  border: 1px solid var(--brand-flame, #db5227);
+  border: 1px solid var(--brand-flame);
   border-radius: 5px;
-  color: var(--brand-flame, #db5227);
+  color: var(--brand-flame-text);
   background: #fff;
   cursor: pointer;
   transition:
@@ -1026,7 +1055,7 @@
 }
 
 .participaStackCta:hover {
-  background: color-mix(in oklab, #fff 88%, var(--brand-flame, #db5227));
+  background: color-mix(in oklab, #fff 88%, var(--brand-flame));
   transform: translateY(-2px);
 }
 
@@ -1175,7 +1204,7 @@
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: thin;
-  scrollbar-color: rgba(219, 82, 39, 0.35) transparent;
+  scrollbar-color: rgba(255, 75, 11, 0.35) transparent;
 }
 
 :global(#programas) .asideSlot::-webkit-scrollbar {
@@ -1183,7 +1212,7 @@
 }
 
 :global(#programas) .asideSlot::-webkit-scrollbar-thumb {
-  background: rgba(219, 82, 39, 0.45);
+  background: rgba(255, 75, 11, 0.45);
   border-radius: 2px;
 }
 
@@ -1363,7 +1392,7 @@
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: thin;
-  scrollbar-color: rgba(219, 82, 39, 0.35) transparent;
+  scrollbar-color: rgba(255, 75, 11, 0.35) transparent;
 }
 
 .botOndaHomeAside::-webkit-scrollbar {
@@ -1371,7 +1400,7 @@
 }
 
 .botOndaHomeAside::-webkit-scrollbar-thumb {
-  background: rgba(219, 82, 39, 0.45);
+  background: rgba(255, 75, 11, 0.45);
   border-radius: 2px;
 }
 
@@ -1424,7 +1453,7 @@
   letter-spacing: 0.15em;
   text-transform: uppercase;
   font-weight: 700;
-  color: var(--brand-flame, #db5227);
+  color: var(--brand-flame-text);
 }
 
 .botOndaHomeLightBlock:hover .botOndaHomeLightCta {
@@ -1450,7 +1479,7 @@
 .stickyPanelScrollable .editorialPanelBody {
   overflow-y: scroll;
   scrollbar-width: thin;
-  scrollbar-color: rgba(219, 82, 39, 0.4) transparent;
+  scrollbar-color: rgba(255, 75, 11, 0.4) transparent;
   scroll-behavior: smooth;
 }
 
@@ -1459,7 +1488,7 @@
 }
 
 .stickyPanelScrollable .editorialPanelBody::-webkit-scrollbar-thumb {
-  background: rgba(219, 82, 39, 0.5);
+  background: rgba(255, 75, 11, 0.5);
   border-radius: 2px;
 }
 
@@ -1486,8 +1515,8 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: #db5227;
-  color: #f5f2ec;
+  background: var(--brand-flame);
+  color: var(--brand-on-flame);
   font-family: var(--font-sans-family), sans-serif;
   font-size: 11px;
   letter-spacing: 0.15em;

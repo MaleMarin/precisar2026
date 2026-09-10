@@ -32,7 +32,7 @@
   font-family: var(--font-display, system-ui, sans-serif);
   font-size: 32px;
   font-weight: 800;
-  color: #db5227;
+  color: var(--brand-flame);
   line-height: 1;
   letter-spacing: -0.04em;
 }
@@ -79,7 +79,7 @@
 }
 
 .pasoCol {
-  border-left: 2px solid #db5227;
+  border-left: 2px solid var(--brand-flame);
   padding-left: 20px;
 }
 
@@ -90,7 +90,7 @@
   font-weight: 400;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: #db5227;
+  color: var(--brand-flame);
 }
 
 .pasoTitle {

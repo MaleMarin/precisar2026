@@ -28,7 +28,7 @@
 }
 
 .link:hover {
-  color: #db5227;
+  color: var(--brand-flame-text);
 }
 
 .sep {

@@ -353,7 +353,7 @@ export function SiteHeader() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`${styles.navLinkMobile} ${styles.hitTarget} border-b border-[var(--border)] py-4 text-[var(--fg)] transition-colors hover:text-[var(--accent)]`}
+                  className={`${styles.navLinkMobile} ${styles.hitTarget} border-b border-[var(--border)] py-4 text-[var(--fg)] transition-colors hover:text-[var(--brand-flame-text)]`}
                   style={{ transitionDelay: open ? `${i * 35}ms` : "0ms" }}
                   onClick={(e) => {
                     scrollToHomeSection(e, item.href);

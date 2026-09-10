@@ -1,8 +1,8 @@
 const CYLINDER_COLORS = [
-  { bg: "#DB5227", tc: "#F5F2EC" },
+  { bg: "#FF4B0B", tc: "#F5F2EC" },
   { bg: "#023661", tc: "#F5F2EC" },
   { bg: "#F5F2EC", tc: "#0A0C12" },
-  { bg: "#DB5227", tc: "#F5F2EC" },
+  { bg: "#FF4B0B", tc: "#F5F2EC" },
   { bg: "#023661", tc: "#F5F2EC" },
   { bg: "#F5F2EC", tc: "#0A0C12" },
 ];

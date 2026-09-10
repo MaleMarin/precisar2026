@@ -28,7 +28,7 @@ export function CiudadesHero() {
       </p>
       <p
         className="mt-5 max-w-2xl italic"
-        style={{ color: "#DB5227", fontSize: 14, lineHeight: 1.55 }}
+        style={{ color: "var(--brand-flame-text)", fontSize: 14, lineHeight: 1.55 }}
       >
         Inspirado en el marco &apos;Ciudades AMI&apos; de la UNESCO, adaptado a la realidad local.
       </p>

@@ -109,7 +109,7 @@ export function AmiVsDigitalClient() {
             <div className={styles.headCelda} style={{ color: "rgba(245,242,236,0.5)" }}>
               {t("tableHeaders.dimension")}
             </div>
-            <div className={styles.headCelda} style={{ color: "#DB5227" }}>
+            <div className={styles.headCelda} style={{ color: "var(--brand-flame-text)" }}>
               {t("tableHeaders.ami")}
             </div>
             <div className={styles.headCelda} style={{ color: "rgba(245,242,236,0.6)" }}>

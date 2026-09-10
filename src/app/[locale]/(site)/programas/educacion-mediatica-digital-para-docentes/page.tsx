@@ -55,7 +55,7 @@ export default async function DocentesPage() {
             fontSize: "11px",
             letterSpacing: "0.22em",
             textTransform: "uppercase",
-            color: "#DB5227",
+            color: "var(--brand-flame-text)",
             margin: "0 0 1.5rem",
           }}
         >
@@ -80,7 +80,7 @@ export default async function DocentesPage() {
               style={{
                 background: "#F5F2EC",
                 padding: "2rem",
-                borderLeft: "3px solid #DB5227",
+                borderLeft: "3px solid var(--brand-flame)",
               }}
             >
               <p className={shell.programCardTitle} style={{ color: "#0A0C12", margin: "0 0 10px" }}>
@@ -114,7 +114,7 @@ export default async function DocentesPage() {
             fontSize: "11px",
             letterSpacing: "0.22em",
             textTransform: "uppercase",
-            color: "#DB5227",
+            color: "var(--brand-flame)",
             margin: "0 0 1.5rem",
           }}
         >
@@ -174,7 +174,7 @@ export default async function DocentesPage() {
 
       <section
         style={{
-          background: "#DB5227",
+          background: "var(--brand-flame)",
           padding: "clamp(3rem,6vw,5rem) clamp(2rem,6vw,4rem)",
         }}
       >
@@ -184,7 +184,7 @@ export default async function DocentesPage() {
             fontSize: "11px",
             letterSpacing: "0.22em",
             textTransform: "uppercase",
-            color: "rgba(245,242,236,0.6)",
+            color: "rgba(7, 10, 18, 0.72)",
             margin: "0 0 1.5rem",
           }}
         >
@@ -202,7 +202,7 @@ export default async function DocentesPage() {
               style={{
                 background: "#F5F2EC",
                 padding: "2rem",
-                borderLeft: "3px solid #DB5227",
+                borderLeft: "3px solid var(--brand-flame)",
                 minWidth: 0,
               }}
             >
@@ -241,7 +241,7 @@ export default async function DocentesPage() {
             fontSize: "11px",
             letterSpacing: "0.22em",
             textTransform: "uppercase",
-            color: "#DB5227",
+            color: "var(--brand-flame)",
             margin: "0 0 1.5rem",
           }}
         >
@@ -291,7 +291,7 @@ export default async function DocentesPage() {
                     fontSize: "11px",
                     letterSpacing: "0.22em",
                     textTransform: "uppercase",
-                    color: "#DB5227",
+                    color: "var(--brand-flame)",
                     margin: "0 0 6px",
                   }}
                 >
@@ -319,7 +319,7 @@ export default async function DocentesPage() {
 
       <section
         style={{
-          background: "#DB5227",
+          background: "var(--brand-flame)",
           padding: "clamp(3rem,6vw,5rem) clamp(2rem,6vw,4rem)",
         }}
       >
@@ -332,7 +332,7 @@ export default async function DocentesPage() {
           style={{
             fontFamily: "var(--font-sans-family), sans-serif",
             fontSize: "clamp(14px,1.4vw,17px)",
-            color: "rgba(245,242,236,0.65)",
+            color: "var(--brand-on-flame)",
             lineHeight: 1.75,
             maxWidth: 560,
             margin: "0 0 2.5rem",

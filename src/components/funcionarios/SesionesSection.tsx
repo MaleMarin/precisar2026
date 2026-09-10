@@ -42,7 +42,7 @@ export function SesionesSection() {
       >
         Estructura del curso
       </h2>
-      <ul className="mt-10 divide-y" style={{ borderColor: "rgba(219, 82, 39, 0.25)" }}>
+      <ul className="mt-10 divide-y" style={{ borderColor: "rgba(255, 75, 11, 0.25)" }}>
         {sesiones.map((s) => (
           <li key={s.title} className="py-8 first:pt-0">
             <h3 className="text-base font-semibold">{s.title}</h3>

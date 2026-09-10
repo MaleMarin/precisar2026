@@ -61,7 +61,7 @@ export default async function PropuestaPoliticaAlfabetizacionPage() {
           max-inline-size: 100%;
           --ami-void: #0a0c12;
           --ami-navy: #023661;
-          --ami-flame: #db5227;
+          --ami-flame: var(--brand-flame);
           --ami-cream: #f5f2ec;
           font-family: var(--font-sans-family), system-ui, sans-serif;
           color: var(--ami-void);
@@ -269,7 +269,7 @@ export default async function PropuestaPoliticaAlfabetizacionPage() {
         #agendaAmiAgeAdult:checked ~ .agendaAmiTabLabels label[for="agendaAmiAgeAdult"],
         #agendaAmiAgeMayores:checked ~ .agendaAmiTabLabels label[for="agendaAmiAgeMayores"] {
           color: var(--ami-cream);
-          background: rgba(219, 82, 39, 0.35);
+          background: rgba(255, 75, 11, 0.35);
           border-color: var(--ami-flame);
         }
         .agendaAmiPanel ul {
@@ -293,10 +293,10 @@ export default async function PropuestaPoliticaAlfabetizacionPage() {
           box-sizing: border-box;
           padding: clamp(1.25rem, 2.5vw, 1.75rem);
           background: rgba(10, 12, 18, 0.12);
-          border: 1px solid rgba(245, 242, 236, 0.2);
+          border: 1px solid rgba(7, 10, 18, 0.18);
           font-size: 0.9375rem;
           line-height: 1.55;
-          color: var(--ami-cream);
+          color: var(--brand-on-flame, #070a12);
         }
         .agendaAmiNudoCard strong {
           display: block;
@@ -429,7 +429,7 @@ export default async function PropuestaPoliticaAlfabetizacionPage() {
           margin: 0;
           font-size: 0.9375rem;
           line-height: 1.55;
-          color: rgba(245, 242, 236, 0.92);
+          color: var(--brand-on-flame, #070a12);
         }
         .agendaAmiAboutCta {
           display: inline-flex;
@@ -438,7 +438,7 @@ export default async function PropuestaPoliticaAlfabetizacionPage() {
           margin-top: 1.5rem;
           padding: 14px 28px;
           background: var(--ami-flame);
-          color: var(--ami-cream);
+          color: var(--brand-on-flame, #070a12);
           font-family: var(--font-sans-family), sans-serif;
           font-size: 11px;
           font-weight: 500;
@@ -621,7 +621,7 @@ export default async function PropuestaPoliticaAlfabetizacionPage() {
 
         <section
           className={`${shell.padSection}`}
-          style={{ background: "#db5227", color: "#f5f2ec" }}
+          style={{ background: "var(--brand-flame)", color: "var(--brand-on-flame)" }}
           aria-labelledby="ami-nudos-heading"
         >
           <div className={shell.inner}>
@@ -745,7 +745,7 @@ export default async function PropuestaPoliticaAlfabetizacionPage() {
 
         <section
           className={`${shell.padSection}`}
-          style={{ background: "#db5227", color: "#f5f2ec" }}
+          style={{ background: "var(--brand-flame)", color: "var(--brand-on-flame)" }}
           aria-labelledby="llamado-accion-heading"
         >
           <div className={shell.inner}>
@@ -763,7 +763,7 @@ export default async function PropuestaPoliticaAlfabetizacionPage() {
                 maxWidth: "52rem",
                 fontSize: "1rem",
                 lineHeight: 1.65,
-                color: "rgba(245, 242, 236, 0.92)",
+                color: "var(--brand-on-flame)",
               }}
             >
               {t("ctaClosing")}

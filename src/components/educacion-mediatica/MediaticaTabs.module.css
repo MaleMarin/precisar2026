@@ -4,6 +4,8 @@
 
 .tabsSection {
   --mediatica-accent: var(--brand-flame);
+  --mediatica-accent-text: var(--mediatica-accent);
+  --mediatica-on-accent: #fff;
   --mediatica-bar: var(--brand-slate);
   background: var(--bg, #f0f2f6);
   padding: clamp(3rem, 7vw, 5rem) clamp(1.25rem, 4vw, 2.75rem) clamp(4rem, 10vw, 6rem);
@@ -79,7 +81,7 @@
 
 .tabInactive {
   background: color-mix(in srgb, var(--mediatica-accent) 12%, var(--elevated, #fff));
-  color: var(--mediatica-accent);
+  color: var(--mediatica-accent-text);
 }
 
 .tabInactive:hover {
@@ -88,7 +90,7 @@
 
 .tabActive {
   background: var(--mediatica-accent);
-  color: #fff;
+  color: var(--mediatica-on-accent, #fff);
 }
 
 .tabPanel {

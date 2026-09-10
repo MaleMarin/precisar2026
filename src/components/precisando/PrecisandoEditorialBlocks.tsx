@@ -83,7 +83,7 @@ export function PrecisandoArticleList({
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`group block rounded-sm font-[family-name:var(--font-display)] font-medium leading-snug tracking-tight text-[var(--fg)] underline-offset-[6px] transition-colors hover:text-[var(--accent)] hover:underline ${
+                  className={`group block rounded-sm font-[family-name:var(--font-display)] font-medium leading-snug tracking-tight text-[var(--fg)] underline-offset-[6px] transition-colors hover:text-[var(--brand-flame-text)] hover:underline ${
                     variant === "panel"
                       ? "text-xl md:text-[1.35rem] md:leading-snug"
                       : "text-xl md:text-2xl md:leading-tight"

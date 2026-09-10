@@ -86,7 +86,7 @@ export default async function ModuloAquiNoPasa({ params }: Props) {
         Experiencia interactiva histórica:{" "}
         <a
           href={`https://www.precisar.net/${mod.n}`}
-          className="font-medium text-[var(--accent)] underline-offset-2 hover:underline"
+          className="font-medium text-[var(--brand-flame-text)] underline-offset-2 hover:underline"
           target="_blank"
           rel="noreferrer"
         >

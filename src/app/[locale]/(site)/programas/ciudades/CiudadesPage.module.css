@@ -23,7 +23,7 @@
   font-size: clamp(60px, 10vw, 120px);
   font-weight: 800;
   line-height: 1;
-  color: #db5227;
+  color: var(--brand-flame);
   letter-spacing: -0.035em;
 }
 
@@ -52,7 +52,7 @@
 }
 
 .territorioLink:hover {
-  color: #db5227;
+  color: var(--brand-flame-text);
 }
 
 /* ─── Propuesta formativa (oscuro) ─── */
@@ -97,7 +97,7 @@
 }
 
 .propuestaCol {
-  border-left: 2px solid #db5227;
+  border-left: 2px solid var(--brand-flame);
   padding-left: 20px;
 }
 
@@ -107,7 +107,7 @@
   font-weight: 700;
   letter-spacing: 1px;
   text-transform: uppercase;
-  color: #db5227;
+  color: var(--brand-flame);
 }
 
 .propuestaColText {
@@ -136,7 +136,7 @@
 }
 
 .propuestaCardMark {
-  color: #db5227;
+  color: var(--brand-flame);
   font-size: 12px;
   line-height: 1;
   margin-bottom: 0.5rem;
@@ -219,7 +219,7 @@
 }
 
 .impactoCardMark {
-  color: #db5227;
+  color: var(--brand-flame-text);
   font-size: 12px;
   line-height: 1;
   margin-bottom: 0.65rem;

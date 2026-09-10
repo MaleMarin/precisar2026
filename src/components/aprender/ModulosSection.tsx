@@ -22,7 +22,7 @@ const modulos = [
 function Dot() {
   return (
     <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden className="mt-2 shrink-0">
-      <circle cx="5" cy="5" r="4" fill="#DB5227" />
+      <circle cx="5" cy="5" r="4" fill="var(--brand-flame-text)" />
     </svg>
   );
 }
@@ -42,7 +42,7 @@ export function ModulosSection() {
       >
         Cuatro módulos
       </h2>
-      <ul className="mt-10 divide-y" style={{ borderColor: "rgba(219, 82, 39, 0.25)" }}>
+      <ul className="mt-10 divide-y" style={{ borderColor: "rgba(255, 75, 11, 0.25)" }}>
         {modulos.map((m) => (
           <li key={m.title} className="flex gap-4 py-8 first:pt-0">
             <Dot />

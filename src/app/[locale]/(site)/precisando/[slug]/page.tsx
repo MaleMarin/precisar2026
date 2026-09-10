@@ -123,7 +123,7 @@ export default async function PrecisandoArticulo({ params }: Props) {
             href={post.downloadUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-2 inline-flex items-center gap-2 font-[family-name:var(--font-display)] text-base font-medium text-[var(--accent)] underline decoration-1 underline-offset-4 transition-opacity hover:opacity-85"
+            className="mt-2 inline-flex items-center gap-2 font-[family-name:var(--font-display)] text-base font-medium text-[var(--brand-flame-text)] underline decoration-1 underline-offset-4 transition-opacity hover:opacity-85"
           >
             {post.downloadLabel ?? "Descargar archivo"}
             <span aria-hidden className="text-lg">

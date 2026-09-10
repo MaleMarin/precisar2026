@@ -4,7 +4,7 @@
   /* Marca 2026: flame (curaduría / gusto) */
   --accent: #c94a28;
   --accent-dark: #9e3b1f;
-  --accent-lite: #db5227;
+  --accent-lite: var(--brand-flame);
   --ink: #0a0c12;
   --paper: #fff;
   --page: #f5ebe7;

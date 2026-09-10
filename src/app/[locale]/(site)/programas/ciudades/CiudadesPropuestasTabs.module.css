@@ -1,4 +1,4 @@
-/* Propuestas formativas — tabs alineados con Docentes / Aprender; activo #DB5227 */
+/* Propuestas formativas — tabs alineados con Docentes / Aprender; activo var(--brand-flame) */
 
 .tabsShell {
   border-radius: 12px;
@@ -66,17 +66,17 @@
 }
 
 .tabInactive {
-  background: color-mix(in srgb, #db5227 14%, #fff);
-  color: #db5227;
+  background: color-mix(in srgb, var(--brand-flame) 14%, #fff);
+  color: var(--brand-flame-text);
 }
 
 .tabInactive:hover {
-  background: color-mix(in srgb, #db5227 22%, #fff);
+  background: color-mix(in srgb, var(--brand-flame) 22%, #fff);
 }
 
 .tabActive {
-  background: #db5227;
-  color: #fff;
+  background: var(--brand-flame);
+  color: var(--brand-on-flame);
 }
 
 .tabPanel {
@@ -159,7 +159,7 @@
   position: absolute;
   left: 0;
   top: 0.2em;
-  color: #db5227;
+  color: var(--brand-flame-text);
   font-size: 10px;
   line-height: 1;
 }

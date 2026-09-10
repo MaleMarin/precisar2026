@@ -88,12 +88,12 @@ export default async function Page({ params }: Props) {
   return (
     <InstitutionalTemplate title={s.title} kicker="Sentidos digitales">
       <aside className="max-w-2xl border border-[var(--border)] bg-[var(--surface)] p-5 text-sm text-[var(--muted)]">
-        <p className="prec-kicker mb-2 text-[var(--accent)]">Versión en sitio anterior</p>
+        <p className="prec-kicker mb-2 text-[var(--brand-flame-text)]">Versión en sitio anterior</p>
         <p>
           Experiencia interactiva en{" "}
           <a
             href={`https://www.precisar.net/${s.legacyPath}`}
-            className="font-medium text-[var(--accent)] underline-offset-2 hover:underline"
+            className="font-medium text-[var(--brand-flame-text)] underline-offset-2 hover:underline"
             target="_blank"
             rel="noreferrer"
           >

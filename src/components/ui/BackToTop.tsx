@@ -29,7 +29,7 @@ export default function BackToTop() {
         right: "24px",
         width: "44px",
         height: "44px",
-        background: "#DB5227",
+        background: "var(--brand-flame)",
         border: "none",
         cursor: "pointer",
         display: "flex",
@@ -48,7 +48,7 @@ export default function BackToTop() {
       >
         <path
           d="M9 14V4M9 4L4 9M9 4L14 9"
-          stroke="#F5F2EC"
+          stroke="var(--brand-on-flame)"
           strokeWidth="1.5"
           strokeLinecap="round"
           strokeLinejoin="round"

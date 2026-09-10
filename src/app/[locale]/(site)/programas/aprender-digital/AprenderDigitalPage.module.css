@@ -33,7 +33,7 @@
   font-size: clamp(60px, 10vw, 120px);
   font-weight: 800;
   line-height: 0.95;
-  color: rgba(219, 82, 39, 0.15);
+  color: rgba(255, 75, 11, 0.15);
   letter-spacing: -0.04em;
 }
 
@@ -68,7 +68,7 @@
 }
 
 .porQueCol {
-  border-left: 2px solid #db5227;
+  border-left: 2px solid var(--brand-flame);
   padding-left: 20px;
 }
 
@@ -78,7 +78,7 @@
   font-weight: 700;
   letter-spacing: 1px;
   text-transform: uppercase;
-  color: #db5227;
+  color: var(--brand-flame);
 }
 
 .porQueColText {
@@ -132,7 +132,7 @@
   font-family: var(--font-display, system-ui, sans-serif);
   font-size: 32px;
   font-weight: 800;
-  color: #db5227;
+  color: var(--brand-flame);
   line-height: 1;
   letter-spacing: -0.02em;
 }
@@ -189,11 +189,11 @@
 }
 
 .impactoCard:hover {
-  border-color: rgba(219, 82, 39, 0.4);
+  border-color: rgba(255, 75, 11, 0.4);
 }
 
 .impactoMark {
-  color: #db5227;
+  color: var(--brand-flame);
   font-size: 12px;
   line-height: 1;
   margin-bottom: 0.5rem;

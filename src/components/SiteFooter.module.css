@@ -302,9 +302,9 @@
   font-size: 0.5625rem;
   font-weight: 700;
   letter-spacing: 0.16em;
-  color: var(--accent, #db5227);
+  color: var(--accent);
   padding: 0.2rem 0.45rem;
-  border: 1px solid color-mix(in oklab, var(--accent, #db5227) 55%, transparent);
+  border: 1px solid color-mix(in oklab, var(--accent) 55%, transparent);
   border-radius: 2px;
 }
 
@@ -387,7 +387,7 @@
   align-items: center;
   justify-content: center;
   min-height: 44px;
-  border: 1px solid var(--brand-flame, #db5227);
+  border: 1px solid var(--brand-flame);
   border-radius: 999px;
   background: transparent;
   padding: 0.65rem 1.75rem;
@@ -395,7 +395,7 @@
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--brand-flame, #db5227);
+  color: var(--brand-flame);
   cursor: pointer;
   transition:
     border-color 0.2s ease,
@@ -404,9 +404,9 @@
 }
 
 .btnSend:hover {
-  border-color: color-mix(in oklab, var(--brand-flame, #db5227) 82%, #fff);
-  color: color-mix(in oklab, var(--brand-flame, #db5227) 82%, #fff);
-  background: rgba(219, 82, 39, 0.06);
+  border-color: color-mix(in oklab, var(--brand-flame) 82%, #fff);
+  color: color-mix(in oklab, var(--brand-flame) 82%, #fff);
+  background: rgba(255, 75, 11, 0.06);
 }
 
 .btnSend:disabled {
@@ -518,7 +518,7 @@
   font-size: 0.5rem;
   font-weight: 700;
   letter-spacing: 0.12em;
-  color: var(--accent, #db5227);
+  color: var(--accent);
 }
 
 .legalMeta {

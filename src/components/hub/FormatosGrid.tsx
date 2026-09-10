@@ -15,7 +15,7 @@ function FormatCard({ tier, tierStyle, title, specs, includes, featured }: Forma
     <article
       className="flex flex-col rounded-lg p-5 sm:p-6"
       style={{
-        border: featured ? "1px solid #DB5227" : "0.5px solid rgba(219, 82, 39, 0.25)",
+        border: featured ? "1px solid var(--brand-flame)" : "0.5px solid rgba(255, 75, 11, 0.25)",
         backgroundColor: featured ? "rgba(2, 54, 97, 0.25)" : "transparent",
       }}
     >
@@ -34,7 +34,7 @@ function FormatCard({ tier, tierStyle, title, specs, includes, featured }: Forma
         {title}
       </h3>
       <div className="mt-4 space-y-2">
-        <p className="text-xs font-semibold uppercase tracking-wide" style={{ color: "#DB5227" }}>
+        <p className="text-xs font-semibold uppercase tracking-wide" style={{ color: "var(--brand-flame-text)" }}>
           Especificaciones
         </p>
         <dl className="space-y-2 text-sm">
@@ -47,14 +47,14 @@ function FormatCard({ tier, tierStyle, title, specs, includes, featured }: Forma
         </dl>
       </div>
       <div className="mt-5">
-        <p className="text-xs font-semibold uppercase tracking-wide" style={{ color: "#DB5227" }}>
+        <p className="text-xs font-semibold uppercase tracking-wide" style={{ color: "var(--brand-flame-text)" }}>
           Incluye
         </p>
         <ul className="mt-2 space-y-2 text-sm" style={{ color: "#A0A0A0" }}>
           {includes.map((line) => (
             <li key={line} className="flex gap-2">
               <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden className="mt-0.5 shrink-0">
-                <circle cx="7" cy="7" r="3" fill="#DB5227" />
+                <circle cx="7" cy="7" r="3" fill="var(--brand-flame-text)" />
               </svg>
               <span>{line}</span>
             </li>
@@ -103,7 +103,7 @@ export function FormatosGrid() {
         <FormatCard
           featured
           tier="Estándar"
-          tierStyle={{ backgroundColor: "#DB5227", color: "#ffffff" }}
+          tierStyle={{ backgroundColor: "var(--brand-flame)", color: "var(--brand-on-flame)" }}
           title="VECTOR · Para eventos medianos"
           specs={[
             { label: "Espacio", value: "15–25 m²" },

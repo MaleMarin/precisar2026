@@ -9,10 +9,10 @@ const N = 6;
 const RADIUS = 10;
 
 const PANELS = [
-  { title: "Cultura digital\nque viaja", bg: "#DB5227", light: true },
+  { title: "Cultura digital\nque viaja", bg: "#FF4B0B", light: true },
   { title: "Lo que\nencontrarás", bg: "#023661", light: true },
   { title: "Modelos de\ninstalación", bg: "#F5F2EC", light: false },
-  { title: "10 formas de\nimplementar", bg: "#DB5227", light: true },
+  { title: "10 formas de\nimplementar", bg: "#FF4B0B", light: true },
   { title: "Ediciones\ntemáticas", bg: "#023661", light: true },
   { title: "Lleva el Hub\na tu espacio", bg: "#F5F2EC", light: false },
 ] as const;
@@ -34,11 +34,11 @@ function makeTexture(p: Panel, idx: number): THREE.CanvasTexture {
   ctx.fillStyle = p.light ? "rgba(245,242,236,0.06)" : "rgba(10,12,18,0.05)";
   ctx.font = "bold 320px Arial";
   ctx.fillText(String(idx + 1).padStart(2, "0"), 30, 360);
-  const tc = p.light ? "#F5F2EC" : "#0A0C12";
+  const tc = p.bg === "#FF4B0B" ? "#070A12" : p.light ? "#F5F2EC" : "#0A0C12";
   ctx.fillStyle = tc;
   ctx.font = "bold 148px Arial Black, Arial";
   p.title.split("\n").forEach((line, i) => ctx.fillText(line, 40, 560 + i * 162));
-  ctx.fillStyle = p.light ? "rgba(245,242,236,0.25)" : "rgba(10,12,18,0.22)";
+  ctx.fillStyle = p.bg === "#FF4B0B" ? "#070A12" : p.light ? "rgba(245,242,236,0.25)" : "rgba(10,12,18,0.22)";
   ctx.font = "34px Arial";
   ctx.fillText("click para leer →", 40, 1140);
   return new THREE.CanvasTexture(cv);

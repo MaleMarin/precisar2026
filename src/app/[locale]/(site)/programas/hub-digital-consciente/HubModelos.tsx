@@ -27,7 +27,7 @@ type Modelo = {
 
 const MODELO_STYLES: Record<string, { acento: string; borde: string; destacado?: boolean }> = {
   pixel: { acento: "rgba(245,242,236,0.15)", borde: "rgba(245,242,236,0.1)" },
-  vector: { acento: "rgba(219,82,39,0.15)", borde: "#DB5227", destacado: true },
+  vector: { acento: "rgba(255, 75, 11,0.15)", borde: "var(--brand-flame)", destacado: true },
   holo: { acento: "rgba(2,54,97,0.3)", borde: "rgba(245,242,236,0.1)" },
 };
 

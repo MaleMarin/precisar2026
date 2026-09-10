@@ -9,7 +9,7 @@ export function Kicker({ children }: { children: ReactNode }) {
         fontWeight: 500,
         letterSpacing: "0.12em",
         textTransform: "uppercase",
-        color: "#DB5227",
+        color: "var(--brand-flame-text)",
       }}
     >
       {children}

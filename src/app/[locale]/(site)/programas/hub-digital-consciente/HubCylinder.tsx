@@ -28,6 +28,11 @@ type HubSection = {
   groups: HubGroup[];
 };
 
+function isFlamePanel(bg: string) {
+  const v = bg.trim().toLowerCase();
+  return v === "#ff4b0b" || v.includes("--brand-flame");
+}
+
 const PDF_HREFS: Record<string, string> = {
   desinformacion: "/hub-edicion-desinformacion.pdf",
   "ia-algoritmos": "/hub-edicion-ia-algoritmos.pdf",
@@ -224,6 +229,7 @@ export default function HubCylinder() {
 
   const exp = CONTENT[expandedIdx]!;
   const isLight = exp.tc === "#F5F2EC";
+  const expIsFlame = isFlamePanel(exp.bg);
 
   return (
     <div
@@ -251,6 +257,7 @@ export default function HubCylinder() {
           {CONTENT.map((s, i) => {
             const angle = (i / N) * 360;
             const isDark = s.tc === "#0A0C12";
+            const faceInk = isFlamePanel(s.bg) ? "var(--brand-on-flame)" : s.tc;
             return (
               <div
                 key={i}
@@ -267,13 +274,13 @@ export default function HubCylinder() {
                 }}
                 onClick={() => openExpand(i)}
               >
-                <span className={styles.cardNum} style={{ color: s.tc }}>
+                <span className={styles.cardNum} style={{ color: faceInk }}>
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <h3
                   className={styles.cardTitle}
                   style={{
-                    color: s.tc,
+                    color: faceInk,
                     display: "-webkit-box",
                     WebkitLineClamp: 3,
                     WebkitBoxOrient: "vertical" as const,
@@ -287,10 +294,10 @@ export default function HubCylinder() {
                     </span>
                   ))}
                 </h3>
-                <p className={styles.cardSub} style={{ color: s.tc }}>
+                <p className={styles.cardSub} style={{ color: faceInk }}>
                   {cardSubContent(s)}
                 </p>
-                <p className={styles.cardHint} style={{ color: s.tc }}>
+                <p className={styles.cardHint} style={{ color: faceInk }}>
                   {t("clickHint")}
                 </p>
               </div>
@@ -335,8 +342,8 @@ export default function HubCylinder() {
               onClick={closeExpand}
               className={styles.closeBtn}
               style={{
-                color: isLight ? "rgba(245,242,236,0.6)" : "rgba(10,12,18,0.5)",
-                borderColor: isLight ? "rgba(245,242,236,0.25)" : "rgba(10,12,18,0.2)",
+                color: expIsFlame ? "rgba(7,10,18,0.72)" : isLight ? "rgba(245,242,236,0.6)" : "rgba(10,12,18,0.5)",
+                borderColor: expIsFlame ? "rgba(7,10,18,0.28)" : isLight ? "rgba(245,242,236,0.25)" : "rgba(10,12,18,0.2)",
               }}
             >
               {t("backToHub")}
@@ -344,7 +351,7 @@ export default function HubCylinder() {
             <p
               className={styles.expandCounter}
               style={{
-                color: isLight ? "rgba(245,242,236,0.3)" : "rgba(10,12,18,0.3)",
+                color: expIsFlame ? "rgba(7,10,18,0.45)" : isLight ? "rgba(245,242,236,0.3)" : "rgba(10,12,18,0.3)",
               }}
             >
               {String(expandedIdx + 1).padStart(2, "0")} / {N}
@@ -354,7 +361,7 @@ export default function HubCylinder() {
           <p
             className={styles.expandKicker}
             style={{
-              color: isLight ? "#F5F2EC" : "#DB5227",
+              color: expIsFlame ? "var(--brand-on-flame)" : isLight ? "#F5F2EC" : "var(--brand-flame-text)",
             }}
           >
             {exp.kicker}
@@ -370,7 +377,7 @@ export default function HubCylinder() {
           <p
             className={styles.expandBody}
             style={{
-              color: isLight ? "#F5F2EC" : "#0A0C12",
+              color: expIsFlame ? "var(--brand-on-flame)" : isLight ? "#F5F2EC" : "#0A0C12",
             }}
           >
             {exp.body}
@@ -381,8 +388,8 @@ export default function HubCylinder() {
               <p
                 className={styles.groupLabel}
                 style={{
-                  color: isLight ? "rgba(245,242,236,0.7)" : "#DB5227",
-                  borderTopColor: isLight ? "rgba(245,242,236,0.1)" : "rgba(10,12,18,0.1)",
+                  color: expIsFlame ? "rgba(7,10,18,0.72)" : isLight ? "rgba(245,242,236,0.7)" : "var(--brand-flame-text)",
+                  borderTopColor: expIsFlame ? "rgba(7,10,18,0.14)" : isLight ? "rgba(245,242,236,0.1)" : "rgba(10,12,18,0.1)",
                 }}
               >
                 {group.label}
@@ -390,11 +397,11 @@ export default function HubCylinder() {
               <ul className={styles.groupList}>
                 {group.items.map((item, ii) => {
                   const itemStyle = {
-                    color: isLight ? "#F5F2EC" : "rgba(10,12,18,0.68)",
-                    borderBottomColor: isLight ? "rgba(245,242,236,0.1)" : "rgba(10,12,18,0.1)",
+                    color: expIsFlame ? "var(--brand-on-flame)" : isLight ? "#F5F2EC" : "rgba(10,12,18,0.68)",
+                    borderBottomColor: expIsFlame ? "rgba(7,10,18,0.14)" : isLight ? "rgba(245,242,236,0.1)" : "rgba(10,12,18,0.1)",
                   } as const;
                   const dotStyle = {
-                    background: isLight ? "#F5F2EC" : "#DB5227",
+                    background: expIsFlame ? "var(--brand-on-flame)" : isLight ? "#F5F2EC" : "var(--brand-flame)",
                   } as const;
                   const pdfHref = itemPdf(item);
                   const text = itemText(item);
@@ -436,8 +443,8 @@ export default function HubCylinder() {
                 type="button"
                 className={styles.expandNavBtn}
                 style={{
-                  color: isLight ? "rgba(245,242,236,0.6)" : "rgba(10,12,18,0.5)",
-                  borderColor: isLight ? "rgba(245,242,236,0.2)" : "rgba(10,12,18,0.15)",
+                  color: expIsFlame ? "rgba(7,10,18,0.72)" : isLight ? "rgba(245,242,236,0.6)" : "rgba(10,12,18,0.5)",
+                  borderColor: expIsFlame ? "rgba(7,10,18,0.28)" : isLight ? "rgba(245,242,236,0.2)" : "rgba(10,12,18,0.15)",
                 }}
                 onClick={() => {
                   setExpandedIdx(expandedIdx - 1);

@@ -19,7 +19,7 @@
   font-size: 11px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: #db5227;
+  color: var(--brand-flame);
   margin: 0 0 1rem;
 }
 
@@ -28,7 +28,7 @@
   font-size: 11px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: #db5227;
+  color: var(--brand-flame-text);
   margin: 0 0 1rem;
 }
 
@@ -90,7 +90,7 @@
   font-weight: 800;
   font-size: clamp(1.1rem, 2vw, 1.35rem);
   letter-spacing: -0.03em;
-  color: #db5227;
+  color: var(--brand-flame);
   margin: 0 0 8px;
 }
 
@@ -156,13 +156,13 @@
 }
 
 .arrow {
-  color: #db5227;
+  color: var(--brand-flame-text);
   flex-shrink: 0;
   margin-top: 2px;
 }
 
 .arrowD {
-  color: #db5227;
+  color: var(--brand-flame-text);
   flex-shrink: 0;
   margin-top: 2px;
 }
@@ -195,9 +195,9 @@
   font-family: var(--font-sans-family), sans-serif;
   font-size: 11px;
   padding: 4px 10px;
-  background: rgba(219, 82, 39, 0.15);
-  color: #db5227;
-  border: 1px solid rgba(219, 82, 39, 0.3);
+  background: rgba(255, 75, 11, 0.15);
+  color: var(--brand-flame-text);
+  border: 1px solid rgba(255, 75, 11, 0.3);
 }
 
 .tagDigital {
@@ -382,9 +382,9 @@
 
 .dropAmi {
   min-height: 220px;
-  border: 2px dashed rgba(219, 82, 39, 0.4);
+  border: 2px dashed rgba(255, 75, 11, 0.4);
   padding: 20px;
-  background: rgba(219, 82, 39, 0.05);
+  background: rgba(255, 75, 11, 0.05);
 }
 
 .dropDigital {
@@ -398,7 +398,7 @@
   font-family: var(--font-display, system-ui, sans-serif);
   font-weight: 800;
   font-size: clamp(1.15rem, 2vw, 1.5rem);
-  color: #db5227;
+  color: var(--brand-flame-text);
   margin: 0 0 12px;
   letter-spacing: -0.03em;
 }
@@ -438,9 +438,9 @@
 }
 
 .btnComprobar {
-  background: #db5227;
+  background: var(--brand-flame);
   border: none;
-  color: #f5f2ec;
+  color: var(--brand-on-flame);
   font-family: var(--font-sans-family), sans-serif;
   font-size: 11px;
   letter-spacing: 0.15em;
@@ -472,7 +472,7 @@
   font-family: var(--font-display, system-ui, sans-serif);
   font-weight: 800;
   font-size: clamp(1.5rem, 3vw, 2rem);
-  color: #db5227;
+  color: var(--brand-flame);
   margin: 0;
 }
 
@@ -502,7 +502,7 @@
 .razonCard {
   background: #f5f2ec;
   padding: 2rem;
-  border-left: 3px solid #db5227;
+  border-left: 3px solid var(--brand-flame);
 }
 
 .razonTitulo {

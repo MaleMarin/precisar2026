@@ -39,7 +39,8 @@ export function HubPosibilidades() {
 
   const total = slides.length;
   const numLabel = `${String(slideIndex + 1).padStart(2, "0")} / ${String(total).padStart(2, "0")}`;
-  const carouselBg = slideIndex % 2 === 0 ? "#DB5227" : "#023661";
+  const onFlame = slideIndex % 2 === 0;
+  const carouselBg = onFlame ? "var(--brand-flame)" : "#023661";
 
   return (
     <section className={styles.hubSection} aria-label={t("aria")}>
@@ -57,8 +58,18 @@ export function HubPosibilidades() {
               transition={{ type: "tween", duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
             >
               <h2 className={styles.hubSlideTitle}>{slide.title}</h2>
-              <p className={styles.hubSlideDesc}>{slide.desc}</p>
-              <p className={styles.hubSlideNum}>{numLabel}</p>
+              <p
+                className={styles.hubSlideDesc}
+                style={onFlame ? { color: "var(--brand-on-flame)" } : undefined}
+              >
+                {slide.desc}
+              </p>
+              <p
+                className={styles.hubSlideNum}
+                style={onFlame ? { color: "rgba(7, 10, 18, 0.62)" } : undefined}
+              >
+                {numLabel}
+              </p>
             </motion.div>
           </AnimatePresence>
         </div>

@@ -25,7 +25,7 @@ export function AprenderHero() {
       <blockquote
         className="mt-8 max-w-3xl pl-5"
         style={{
-          borderLeft: "3px solid #DB5227",
+          borderLeft: "3px solid var(--brand-flame)",
           color: "#A0A0A0",
           fontSize: "1.05rem",
           lineHeight: 1.6,

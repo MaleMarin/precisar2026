@@ -20,7 +20,7 @@ export function HomeFlowLink({
         <span className="bg-[length:0%_1px] bg-gradient-to-r from-[var(--accent)] to-[var(--accent)] bg-left-bottom bg-no-repeat font-[family-name:var(--font-display)] text-base font-medium normal-case tracking-tight text-[var(--fg)] transition-[background-size] duration-500 ease-out group-hover:bg-[length:100%_1px] md:text-lg">
           {label}
         </span>
-        <span className="text-[var(--accent)] transition-transform duration-300 group-hover:translate-x-0.5" aria-hidden>
+        <span className="text-[var(--brand-flame-text)] transition-transform duration-300 group-hover:translate-x-0.5" aria-hidden>
           →
         </span>
       </Link>

@@ -56,7 +56,7 @@ export default async function Page() {
 
       <p className="mt-12 border-t border-[var(--border)] pt-8 text-sm text-[var(--muted)]">
         {t("directContact")}{" "}
-        <a href={`mailto:${SITE.contactEmail}`} className="font-medium text-[var(--fg)] hover:text-[var(--accent)]">
+        <a href={`mailto:${SITE.contactEmail}`} className="font-medium text-[var(--fg)] hover:text-[var(--brand-flame-text)]">
           {SITE.contactEmail}
         </a>
       </p>

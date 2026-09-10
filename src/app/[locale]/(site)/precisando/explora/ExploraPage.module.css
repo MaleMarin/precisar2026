@@ -13,7 +13,7 @@
   font-size: 0.625rem;
   letter-spacing: 0.28em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--brand-flame-text);
   margin: 0 0 0.75rem;
 }
 
@@ -87,7 +87,7 @@
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--brand-flame-text);
 }
 
 .cardDate {
@@ -127,7 +127,7 @@
   font-weight: 600;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--brand-flame-text);
 }
 
 .footerNote {
@@ -146,5 +146,5 @@
 }
 
 .footerNote a:hover {
-  color: var(--accent);
+  color: var(--brand-flame-text);
 }

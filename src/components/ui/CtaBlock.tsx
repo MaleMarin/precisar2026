@@ -14,8 +14,8 @@ const ctaBtnStyle = {
   display: "inline-flex" as const,
   alignItems: "center" as const,
   gap: "0.35rem",
-  backgroundColor: "#DB5227",
-  color: "#ffffff",
+  backgroundColor: "var(--brand-flame)",
+  color: "var(--brand-on-flame)",
   fontSize: 14,
   fontWeight: 600,
   letterSpacing: "0.04em",
@@ -37,7 +37,7 @@ export function CtaBlock({
     >
       <div
         style={{
-          border: "0.5px solid #DB5227",
+          border: "0.5px solid var(--brand-flame)",
           borderRadius: 8,
           padding: "clamp(1.5rem, 4vw, 2.5rem)",
         }}

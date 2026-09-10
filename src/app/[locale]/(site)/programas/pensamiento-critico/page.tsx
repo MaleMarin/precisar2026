@@ -138,7 +138,7 @@ export default async function Page() {
 
       <section className={`${shell.sectionDark} ${shell.padSection}`} aria-labelledby="pc-taller2-title">
         <div className={shell.inner}>
-          <p className={styles.workshopEyebrow}>{t("taller2Eyebrow")}</p>
+          <p className={`${styles.workshopEyebrow} ${styles.workshopEyebrowOnDark}`}>{t("taller2Eyebrow")}</p>
           <h2 id="pc-taller2-title" className={`${styles.workshopTitle} ${styles.workshopTitleLight}`}>
             {t("taller2Title")}
           </h2>

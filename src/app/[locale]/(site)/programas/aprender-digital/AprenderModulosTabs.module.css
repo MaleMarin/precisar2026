@@ -1,4 +1,4 @@
-/* Tabs módulos Aprender Digital — activo #DB5227; scroll horizontal en mobile */
+/* Tabs módulos Aprender Digital — activo var(--brand-flame); scroll horizontal en mobile */
 
 .tabsShell {
   border-radius: 12px;
@@ -65,17 +65,17 @@
 }
 
 .tabInactive {
-  background: color-mix(in srgb, #db5227 14%, #fff);
-  color: #db5227;
+  background: color-mix(in srgb, var(--brand-flame) 14%, #fff);
+  color: var(--brand-flame-text);
 }
 
 .tabInactive:hover {
-  background: color-mix(in srgb, #db5227 22%, #fff);
+  background: color-mix(in srgb, var(--brand-flame) 22%, #fff);
 }
 
 .tabActive {
-  background: #db5227;
-  color: #fff;
+  background: var(--brand-flame);
+  color: var(--brand-on-flame);
 }
 
 .tabPanel {

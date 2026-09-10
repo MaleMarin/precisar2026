@@ -194,7 +194,7 @@
 }
 
 .hubTabActive {
-  border-bottom-color: #db5227;
+  border-bottom-color: var(--brand-flame);
   color: #0a0c12;
   font-weight: 600;
 }

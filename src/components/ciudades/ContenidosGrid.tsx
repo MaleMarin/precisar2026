@@ -39,7 +39,7 @@ export function ContenidosGrid() {
           <article
             key={c.title}
             style={{
-              border: "0.5px solid rgba(219, 82, 39, 0.3)",
+              border: "0.5px solid rgba(255, 75, 11, 0.3)",
               borderRadius: 8,
               padding: "1rem",
             }}

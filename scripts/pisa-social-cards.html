@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --void: #07090f;
+        --navy: #0b1424;
+        --flame: #ff4b0b;
+        --white: #f4f6f8;
+        --slate: #8b95a1;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html,
+      body {
+        background: #000;
+      }
+      .card {
+        position: relative;
+        width: 1080px;
+        height: 1350px;
+        overflow: hidden;
+        background: radial-gradient(120% 90% at 50% 100%, #05070c 0%, #0a1220 48%, #08101c 100%);
+        color: var(--white);
+        font-family: "Archivo", "Helvetica Neue", sans-serif;
+      }
+      .orb {
+        position: absolute;
+        right: -80px;
+        top: 90px;
+        width: 620px;
+        height: 620px;
+        border-radius: 50%;
+        background: radial-gradient(circle at 42% 42%, rgba(255, 75, 11, 0.55) 0%, rgba(255, 75, 11, 0.18) 38%, rgba(255, 75, 11, 0) 70%);
+        filter: blur(8px);
+        pointer-events: none;
+      }
+      .orb-soft {
+        position: absolute;
+        right: 40px;
+        top: 280px;
+        width: 420px;
+        height: 420px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(255, 75, 11, 0.16) 0%, rgba(255, 75, 11, 0) 70%);
+        pointer-events: none;
+      }
+      .inner {
+        position: relative;
+        z-index: 1;
+        height: 100%;
+        padding: 88px 92px 78px;
+        display: flex;
+        flex-direction: column;
+      }
+      .kicker {
+        font-size: 28px;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+      }
+      .kicker span {
+        color: var(--flame);
+      }
+      .rule {
+        width: 56px;
+        height: 3px;
+        background: var(--flame);
+        margin: 14px 0 0;
+      }
+      .stat {
+        margin-top: 78px;
+        font-size: 210px;
+        font-weight: 800;
+        line-height: 0.82;
+        letter-spacing: -0.05em;
+      }
+      .stat span {
+        color: var(--flame);
+      }
+      .lead {
+        margin-top: 28px;
+        max-width: 15ch;
+        font-size: 54px;
+        font-weight: 800;
+        line-height: 1.08;
+        letter-spacing: -0.035em;
+      }
+      .lead em {
+        color: var(--flame);
+        font-style: normal;
+      }
+      .note {
+        margin-top: 48px;
+        max-width: 16ch;
+        font-family: "DM Sans", sans-serif;
+        font-size: 28px;
+        font-weight: 500;
+        line-height: 1.35;
+        color: #e8edf2;
+      }
+      .floor {
+        margin-top: auto;
+        padding-top: 36px;
+      }
+      .floor-rule {
+        width: 40px;
+        height: 3px;
+        background: var(--flame);
+        margin-bottom: 16px;
+      }
+      .floor p {
+        font-family: "DM Sans", sans-serif;
+        font-size: 26px;
+        font-weight: 500;
+        line-height: 1.35;
+        color: #d5dbe3;
+      }
+      .floor strong {
+        color: var(--white);
+        font-weight: 600;
+      }
+      .foot {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        margin-top: 54px;
+        gap: 24px;
+      }
+      .source {
+        font-family: "DM Sans", sans-serif;
+        font-size: 20px;
+        color: var(--slate);
+      }
+      .brand {
+        text-align: right;
+      }
+      .brand-name {
+        font-size: 28px;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+      }
+      .brand-tag {
+        margin-top: 6px;
+        font-family: "DM Sans", sans-serif;
+        font-size: 20px;
+        color: #d7dde4;
+      }
+
+      /* Quote */
+      .quote .lead {
+        margin-top: 160px;
+        max-width: 11ch;
+        font-size: 92px;
+        line-height: 0.98;
+      }
+      .quote .lead em {
+        color: var(--flame);
+      }
+      .quote .note {
+        margin-top: 40px;
+        font-size: 32px;
+        max-width: 18ch;
+      }
+      .quote .orb {
+        top: 220px;
+        right: -140px;
+        width: 720px;
+        height: 720px;
+      }
+
+      /* IA */
+      .ia .stat {
+        margin-top: 96px;
+        font-size: 200px;
+      }
+      .ia .lead {
+        max-width: 16ch;
+        font-size: 40px;
+        line-height: 1.16;
+        font-weight: 700;
+      }
+      .ia .note {
+        max-width: 20ch;
+        font-size: 26px;
+      }
+    </style>
+  </head>
+  <body>
+    <article class="card" id="principal">
+      <div class="orb"></div>
+      <div class="orb-soft"></div>
+      <div class="inner">
+        <p class="kicker">PISA <span>2025</span></p>
+        <div class="rule"></div>
+        <p class="stat">38<span>%</span></p>
+        <p class="lead">de los estudiantes en Chile <em>no alcanza</em> el nivel mínimo de competencia lectora</p>
+        <p class="note">No es sólo un dato educativo.<br />Es una señal de alerta para<br />la democracia.</p>
+        <div class="floor">
+          <div class="floor-rule"></div>
+          <p><strong>Nivel 2 no es excelencia.</strong><br />Es el piso mínimo.</p>
+        </div>
+        <div class="foot">
+          <p class="source">Fuente: OCDE, PISA 2025</p>
+          <div class="brand">
+            <p class="brand-name">PRECISAR</p>
+            <p class="brand-tag">Menos ruido. Más criterio.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="card quote" id="quote">
+      <div class="orb"></div>
+      <div class="orb-soft"></div>
+      <div class="inner">
+        <p class="kicker">PISA <span>2025</span></p>
+        <div class="rule"></div>
+        <p class="lead">La democracia<br />necesita<br /><em>comprensión.</em></p>
+        <p class="note">Acceder a información ya no basta.</p>
+        <div class="floor"></div>
+        <div class="foot">
+          <p class="source">precisar.net</p>
+          <div class="brand">
+            <p class="brand-name">PRECISAR</p>
+            <p class="brand-tag">Menos ruido. Más criterio.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="card ia" id="ia">
+      <div class="orb"></div>
+      <div class="orb-soft"></div>
+      <div class="inner">
+        <p class="kicker">PISA <span>2025</span></p>
+        <div class="rule"></div>
+        <p class="stat">51<span>%</span></p>
+        <p class="lead">declara usar chatbots de IA semanalmente como apoyo para estudiar o realizar tareas escolares.</p>
+        <p class="note">Eso no significa necesariamente que aprendan más o mejor.<br />Significa que la IA ya forma parte de sus prácticas de estudio.</p>
+        <div class="floor"></div>
+        <div class="foot">
+          <p class="source">Fuente: OCDE, PISA 2025</p>
+          <div class="brand">
+            <p class="brand-name">PRECISAR</p>
+            <p class="brand-tag">Menos ruido. Más criterio.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+  </body>
+</html>

@@ -9,7 +9,7 @@
   --ink: #0a0c12;
   --cream: #f5f2ec;
   --mist: #eef1f4;
-  --flame: #db5227;
+  --flame: var(--brand-flame);
   --navy: #023661;
   /* Breakout al padding real del wrapper (px-4 / sm:px-6 / lg:px-8), no a --gutter. */
   margin-inline: -1rem;
@@ -124,7 +124,7 @@
   font-weight: 500;
   letter-spacing: 0.28em;
   text-transform: uppercase;
-  color: var(--flame);
+  color: var(--brand-flame-text);
 }
 
 .heroTitle {
@@ -234,7 +234,7 @@
   font-size: 1.25rem;
   font-style: normal;
   line-height: 1;
-  color: var(--flame);
+  color: var(--brand-flame-text);
   letter-spacing: 0;
 }
 
@@ -357,7 +357,7 @@
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.2em;
-  color: var(--flame);
+  color: var(--brand-flame-text);
   padding-top: 0.35rem;
 }
 
@@ -505,7 +505,7 @@
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.18em;
-  color: var(--flame);
+  color: var(--brand-flame-text);
   padding-top: 0.2rem;
 }
 

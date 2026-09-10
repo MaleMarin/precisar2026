@@ -5,6 +5,11 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import styles from "./CulturaDigitalTiras.module.css";
 import { CULTURA_DIGITAL_HOME_COLORS, CULTURA_DIGITAL_STRIPS, type CulturaDigitalStrip } from "./data";
 
+function isFlamePalette(bg: string) {
+  const v = bg.trim().toLowerCase();
+  return v === "#ff4b0b" || v.includes("--brand-flame");
+}
+
 function playIfReady(synth: { triggerAttackRelease: (n: string, d: string) => void } | null, note: string) {
   try {
     synth?.triggerAttackRelease(note, "8n");
@@ -192,7 +197,10 @@ export function CulturaDigitalTirasClient() {
             }}
             onClick={() => goToSlug(d.slug)}
           >
-            <div className={styles.stripContent} style={{ backgroundColor: CULTURA_DIGITAL_HOME_COLORS[i] }}>
+            <div
+              className={`${styles.stripContent} ${isFlamePalette(CULTURA_DIGITAL_HOME_COLORS[i] ?? "") ? styles.stripOnFlame : ""}`}
+              style={{ backgroundColor: CULTURA_DIGITAL_HOME_COLORS[i] }}
+            >
               <span className={styles.stripIndex} aria-hidden="true">
                 {String(i + 1).padStart(2, "0")}
               </span>

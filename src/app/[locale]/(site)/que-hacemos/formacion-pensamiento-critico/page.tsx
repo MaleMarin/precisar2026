@@ -88,7 +88,7 @@ export default function QueHacemosFormacionPage() {
       <FormacionHero />
       <ModalidadesRow />
       <TallerCard {...taller01} />
-      <div style={{ borderTop: "0.5px solid rgba(219, 82, 39, 0.2)" }} aria-hidden />
+      <div style={{ borderTop: "0.5px solid rgba(255, 75, 11, 0.2)" }} aria-hidden />
       <TallerCard {...taller02} />
       <BeneficiosOrg />
       <CtaBlock

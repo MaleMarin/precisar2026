@@ -2,7 +2,7 @@
   width: 100%;
   max-width: none;
   /* Marca 2026: flame — calor, ritmo, atención */
-  --accent: #db5227;
+  --accent: var(--brand-flame);
   --accent-dark: #a63d1e;
   --accent-lite: #e87352;
   --ink: #0a0c12;
@@ -336,7 +336,7 @@
   border-radius: 14px;
   padding: 14px;
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
-  color: #fff;
+  color: var(--brand-on-flame, #070a12);
 }
 
 .stepper {

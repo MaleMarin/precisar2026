@@ -77,7 +77,7 @@ export function ProgramasTab() {
               onClick={() => setActive(t.id)}
               className="rounded-md px-3 py-2 text-left text-sm transition-opacity"
               style={{
-                border: isOn ? "1px solid #DB5227" : "0.5px solid rgba(219, 82, 39, 0.35)",
+                border: isOn ? "1px solid var(--brand-flame)" : "0.5px solid rgba(255, 75, 11, 0.35)",
                 backgroundColor: isOn ? "#023661" : "transparent",
                 color: "#ffffff",
                 opacity: isOn ? 1 : 0.85,
@@ -91,15 +91,15 @@ export function ProgramasTab() {
       <div
         role="tabpanel"
         className="mt-8 rounded-lg p-5 sm:p-6"
-        style={{ border: "0.5px solid rgba(219, 82, 39, 0.25)", backgroundColor: "rgba(2, 54, 97, 0.2)" }}
+        style={{ border: "0.5px solid rgba(255, 75, 11, 0.25)", backgroundColor: "rgba(2, 54, 97, 0.2)" }}
       >
-        <p className="text-sm font-medium" style={{ color: "#DB5227" }}>
+        <p className="text-sm font-medium" style={{ color: "var(--brand-flame-text)" }}>
           Sesiones
         </p>
         <ul className="mt-4 space-y-3">
           {panel.sessions.map((s) => (
             <li key={s} className="flex gap-3 text-sm leading-relaxed" style={{ color: "#A0A0A0" }}>
-              <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full" style={{ backgroundColor: "#DB5227" }} />
+              <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full" style={{ backgroundColor: "var(--brand-flame)" }} />
               <span>{s}</span>
             </li>
           ))}

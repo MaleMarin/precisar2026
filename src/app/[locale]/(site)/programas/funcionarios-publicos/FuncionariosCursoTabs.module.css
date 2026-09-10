@@ -1,4 +1,4 @@
-/* Tabs estructura del curso — sección oscura; activo #DB5227; scroll horizontal en mobile */
+/* Tabs estructura del curso — sección oscura; activo var(--brand-flame); scroll horizontal en mobile */
 
 .tabsBar {
   display: flex;
@@ -69,8 +69,8 @@
 }
 
 .tabActive {
-  background: #db5227;
-  color: #fff;
+  background: var(--brand-flame);
+  color: var(--brand-on-flame);
 }
 
 .tabPanel {

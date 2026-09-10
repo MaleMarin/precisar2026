@@ -15,7 +15,7 @@ const PALETTE_CYCLE = [
   "#023661",
   "#0e4870",
   "#2d5a80",
-  "#db5227",
+  "var(--brand-flame)",
   "#c94a28",
   "#e87352",
   "#3f3a42",

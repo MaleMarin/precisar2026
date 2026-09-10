@@ -13,7 +13,7 @@
   font-size: 11px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: #DB5227;
+  color: var(--brand-flame);
   margin: 0 0 1rem;
 }
 .titulo {
@@ -103,8 +103,8 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  background: #DB5227;
-  color: #F5F2EC;
+  background: var(--brand-flame);
+  color: var(--brand-on-flame);
   font-family: var(--font-sans-family), sans-serif;
   font-size: 10px;
   letter-spacing: 0.15em;

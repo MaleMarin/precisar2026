@@ -29,7 +29,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 24px 40px;
-    border-bottom: 2px solid #db5227;
+    border-bottom: 2px solid var(--brand-flame);
     margin-bottom: 32px;
   }
 
@@ -43,7 +43,7 @@
   h2 {
     font-size: 20px;
     margin: 24px 0 8px;
-    color: #db5227;
+    color: var(--brand-flame-text);
   }
 
   p,

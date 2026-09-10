@@ -42,8 +42,8 @@ export function StepsSection() {
             <div
               className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-sm font-bold"
               style={{
-                backgroundColor: s.accent ? "#DB5227" : "#023661",
-                color: "#ffffff",
+                backgroundColor: s.accent ? "var(--brand-flame)" : "#023661",
+                color: s.accent ? "var(--brand-on-flame)" : "#ffffff",
               }}
               aria-hidden
             >

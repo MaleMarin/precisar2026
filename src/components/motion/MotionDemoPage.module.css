@@ -154,9 +154,9 @@
 }
 
 .heroCtaPrimary {
-  background: var(--color-accent, #e63c2f);
-  border-color: var(--color-accent, #e63c2f);
-  color: #fff;
+  background: var(--color-accent, #ff4b0b);
+  border-color: var(--color-accent, #ff4b0b);
+  color: var(--brand-on-flame, #070a12);
 }
 
 .heroCtaPrimary:hover {

@@ -111,7 +111,7 @@ export function SaberesRecorridoClient() {
         <div className="prec-container">
           <div className="mb-12 flex flex-wrap items-end justify-between gap-6 border-b border-[var(--border)] pb-8">
             <div>
-              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-[var(--accent)]">Descarga</p>
+              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-[var(--brand-flame-text)]">Descarga</p>
               <h2 className="mt-3 font-[family-name:var(--font-display)] text-2xl font-medium md:text-3xl">
                 Tres recursos para empezar
               </h2>
@@ -142,7 +142,7 @@ export function SaberesRecorridoClient() {
                   href={item.href}
                   target="_blank"
                   rel="noreferrer"
-                  className="mt-6 inline-flex w-fit font-mono text-[10px] font-medium uppercase tracking-[0.18em] text-[var(--accent)] underline decoration-[color-mix(in_oklab,var(--accent)_45%,transparent)] underline-offset-4 transition-colors group-hover:text-[var(--fg)] group-hover:decoration-[var(--fg)]"
+                  className="mt-6 inline-flex w-fit font-mono text-[10px] font-medium uppercase tracking-[0.18em] text-[var(--brand-flame-text)] underline decoration-[color-mix(in_oklab,var(--brand-flame-text)_45%,transparent)] underline-offset-4 transition-colors group-hover:text-[var(--fg)] group-hover:decoration-[var(--fg)]"
                 >
                   {item.label}
                 </a>

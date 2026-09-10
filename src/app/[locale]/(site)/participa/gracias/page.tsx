@@ -17,11 +17,11 @@ export default function Page() {
     <ThanksTemplate title="Gracias" kicker="Participa">
       <p>Muchas gracias por escribirnos. Te respondemos a la brevedad.</p>
       <p>
-        <Link href="/" className="text-[var(--accent)]">
+        <Link href="/" className="text-[var(--brand-flame-text)]">
           Volver al inicio
         </Link>
         {" · "}
-        <Link href="/participa" className="text-[var(--accent)]">
+        <Link href="/participa" className="text-[var(--brand-flame-text)]">
           Participa
         </Link>
       </p>

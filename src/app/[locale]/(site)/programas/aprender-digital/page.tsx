@@ -7,7 +7,7 @@ import { pageSeo } from "@/lib/seo";
 
 type CardItem = { titulo: string; desc: string };
 
-const MODULO_COLORS = ["#DB5227", "#023661", "#DB5227", "#023661"];
+const MODULO_COLORS = ["var(--brand-flame)", "#023661", "var(--brand-flame)", "#023661"];
 
 function IconModulo({ color }: { color: string }) {
   return (
@@ -21,7 +21,7 @@ function IconModulo({ color }: { color: string }) {
 }
 
 function IconImpacto({ index }: { index: number }) {
-  const colors = ["#DB5227", "#023661", "#DB5227", "#023661"];
+  const colors = ["var(--brand-flame)", "#023661", "var(--brand-flame)", "#023661"];
   const c = colors[index % colors.length]!;
   return (
     <svg width={48} height={48} viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
@@ -55,7 +55,7 @@ const gridFineLines: CSSProperties = {
 const gridCard: CSSProperties = {
   background: "#F5F2EC",
   padding: "2rem",
-  borderLeft: "3px solid #DB5227",
+  borderLeft: "3px solid var(--brand-flame)",
   borderRadius: 4,
   minInlineSize: 0,
   maxInlineSize: "100%",
@@ -106,7 +106,7 @@ export default async function AprenderDigitalPage() {
             fontSize: "11px",
             letterSpacing: "0.22em",
             textTransform: "uppercase",
-            color: "#DB5227",
+            color: "var(--brand-flame-text)",
             margin: "0 0 1rem",
           }}
         >
@@ -170,7 +170,7 @@ export default async function AprenderDigitalPage() {
             fontSize: "11px",
             letterSpacing: "0.22em",
             textTransform: "uppercase",
-            color: "#DB5227",
+            color: "var(--brand-flame-text)",
             margin: "0 0 1rem",
           }}
         >
@@ -208,14 +208,14 @@ export default async function AprenderDigitalPage() {
         </div>
       </section>
 
-      <section className={page.band} style={{ background: "#DB5227", ...sectionPad }}>
+      <section className={page.band} style={{ background: "var(--brand-flame)", ...sectionPad }}>
         <p
           style={{
             fontFamily: "var(--font-sans-family), sans-serif",
             fontSize: "11px",
             letterSpacing: "0.22em",
             textTransform: "uppercase",
-            color: "rgba(245,242,236,0.6)",
+            color: "rgba(7, 10, 18, 0.72)",
             margin: "0 0 1rem",
           }}
         >
@@ -267,8 +267,8 @@ export default async function AprenderDigitalPage() {
             display: "inline-flex",
             alignItems: "center",
             gap: "8px",
-            background: "#DB5227",
-            color: "#F5F2EC",
+            background: "var(--brand-flame)",
+            color: "var(--brand-on-flame)",
             fontFamily: "var(--font-sans-family), sans-serif",
             fontSize: "11px",
             letterSpacing: "0.15em",

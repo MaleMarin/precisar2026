@@ -105,7 +105,7 @@
   font-weight: 400;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: #db5227;
+  color: var(--brand-flame);
 }
 
 .heroTitle {
@@ -148,7 +148,7 @@
   font-size: clamp(80px, 12vw, 140px);
   font-weight: 800;
   line-height: 0.95;
-  color: rgba(219, 82, 39, 0.15);
+  color: rgba(255, 75, 11, 0.15);
   letter-spacing: -0.035em;
 }
 
@@ -217,13 +217,17 @@
   font-size: clamp(60px, 10vw, 100px);
   font-weight: 800;
   line-height: 1;
-  color: #db5227;
+  color: var(--brand-flame);
   letter-spacing: -0.035em;
   text-transform: none;
   max-width: 100%;
   overflow-wrap: normal;
   word-break: normal;
   hyphens: none;
+}
+
+.queEs .statWord {
+  color: var(--brand-flame-text);
 }
 
 .statSub {
@@ -312,7 +316,7 @@
 
 /* ─── CTA naranja ─── */
 .cta {
-  background: #db5227;
+  background: var(--brand-flame);
   padding: 80px 48px;
   color: #fff;
 }
@@ -372,7 +376,7 @@
   font-family: var(--font-sans), system-ui, sans-serif;
   font-size: var(--copy-size);
   line-height: 1.65;
-  color: rgba(255, 255, 255, 0.85);
+  color: var(--brand-on-flame);
 }
 
 .ctaSteps {
@@ -385,7 +389,7 @@
   font-family: var(--font-sans), system-ui, sans-serif;
   font-size: var(--copy-size);
   line-height: 1.65;
-  color: rgba(255, 255, 255, 0.85);
+  color: var(--brand-on-flame);
 }
 
 .ctaRight {
@@ -461,7 +465,7 @@
   font-weight: 400;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: #db5227;
+  color: var(--brand-flame-text);
 }
 
 .continuaLinks {
@@ -475,7 +479,7 @@
   font-size: var(--copy-size);
   line-height: 1.65;
   font-weight: 500;
-  color: #db5227;
+  color: var(--brand-flame-text);
   text-decoration: none;
   transition: opacity 0.15s ease;
 }

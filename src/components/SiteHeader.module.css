@@ -338,7 +338,7 @@
   font-weight: 600;
   letter-spacing: -0.03em;
   line-height: 1.2;
-  color: var(--accent);
+  color: var(--brand-flame-text);
   flex-shrink: 0;
   white-space: nowrap;
 }
@@ -385,7 +385,7 @@
 }
 
 .navOndaMobile:hover {
-  color: var(--accent);
+  color: var(--brand-flame-text);
 }
 
 .navOndaMobileIcon {
@@ -404,7 +404,7 @@
   font-weight: 600;
   letter-spacing: -0.03em;
   line-height: 1.25;
-  color: var(--accent);
+  color: var(--brand-flame-text);
 }
 
 .navLocaleLink {
