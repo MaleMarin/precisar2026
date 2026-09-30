@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { pageSeo } from "@/lib/seo";
-import { MediaticaEjesNav } from "@/components/educacion-mediatica/MediaticaEjesNav";
+import { MediaticaEjeHero } from "@/components/educacion-mediatica/MediaticaEjeHero";
 import { CulturaMediaticaTabs } from "./CulturaMediaticaTabs";
 import styles from "./CulturaInterior.module.css";
 
@@ -27,13 +27,12 @@ export default async function CulturaEducacionMediaticaPage() {
 
   return (
     <article className="prec-page">
-      <header className={styles.hero}>
-        <MediaticaEjesNav current="cultura" />
-        <div className={styles.heroGrid}>
-          <h1 className={styles.heroTitle}>{t("heroTitle")}</h1>
-          <p className={styles.heroIntro}>{t("heroIntro")}</p>
-        </div>
-      </header>
+      <MediaticaEjeHero
+        current="cultura"
+        tone="void"
+        title={t("heroTitle")}
+        intro={t("heroIntro")}
+      />
 
       <section className={styles.bodySection} aria-label={tBase("ariaContent")}>
         <div className={styles.bodyInner}>

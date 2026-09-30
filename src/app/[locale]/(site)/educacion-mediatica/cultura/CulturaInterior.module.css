@@ -5,62 +5,6 @@
   --mediatica-accent: var(--brand-void);
 }
 
-.hero {
-  --mediatica-title-size: var(--type-display-size);
-  --mediatica-title-maxw: min(100%, var(--type-display-measure, 56rem));
-  background: var(--brand-void);
-  color: #fff;
-  padding: clamp(3rem, 8vw, 5.5rem) var(--gutter, 1.25rem);
-}
-
-.heroGrid {
-  display: grid;
-  gap: clamp(1.75rem, 4vw, 3rem);
-  align-items: start;
-  max-width: 90rem;
-  margin: 0 auto;
-  text-align: left;
-}
-
-.heroGrid > * {
-  min-width: 0;
-}
-
-@media (min-width: 1024px) {
-  .heroGrid {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    gap: clamp(2rem, 5vw, 4rem);
-  }
-}
-
-.heroTitle {
-  margin: 0;
-  max-inline-size: min(var(--mediatica-title-maxw), 100%);
-  min-inline-size: 0;
-  font-family: var(--font-display, system-ui, sans-serif);
-  font-weight: 800;
-  line-height: var(--leading-display, 1.02);
-  letter-spacing: var(--type-display-tracking, -0.035em);
-  color: #fff;
-  hyphens: none;
-  overflow-wrap: normal;
-  word-break: normal;
-  font-size: var(--mediatica-title-size);
-  text-align: left;
-  text-wrap: balance;
-}
-
-.heroIntro {
-  margin: 0;
-  font-family: var(--font-sans-family), system-ui, sans-serif;
-  font-size: 1.1875rem;
-  font-weight: 400;
-  line-height: 1.65;
-  color: rgba(255, 255, 255, 0.85);
-  max-width: 36rem;
-  text-align: left;
-}
-
 .bodySection {
   background: #fff;
   padding: 80px 48px;
@@ -88,9 +32,4 @@
 
 .bodyText:last-child {
   margin-bottom: 0;
-}
-
-/* Cancela el padding-top de .prec-page para que el hero toque las migas de pan */
-.hero {
-  margin-top: calc(-1 * clamp(3rem, 6vw, 5rem));
 }

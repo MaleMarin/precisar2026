@@ -50,7 +50,7 @@ export const ARTICLES: ArticleMeta[] = [
     coverImage: "/covers/pisa-2025-oecd.jpg",
     coverAlt:
       "Portada del informe OCDE PISA 2025 Results, Volume I: Future-Ready Students.",
-    socialImage: "/social/pisa-2025/pisa-2025-og-1200x630-v5.jpg",
+    socialImage: "/social/pisa-2025/pisa-2025-whatsapp-og.jpg",
     socialImageAlt:
       "Gráfica Precisar sobre PISA 2025: 38% de estudiantes en Chile no alcanza el nivel mínimo de competencia lectora.",
     socialImageWidth: 1200,

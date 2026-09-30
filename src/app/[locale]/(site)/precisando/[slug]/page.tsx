@@ -34,6 +34,16 @@ export async function generateMetadata({ params }: Props) {
           height: post.socialImageHeight ?? 630,
           alt: post.socialImageAlt ?? post.coverAlt ?? post.title,
         },
+        ...(post.slug === "pisa-2025-chile-comprension-democracia"
+          ? [
+              {
+                url: new URL("/covers/pisa-2025-og.jpg", SITE.url).toString(),
+                width: 1200,
+                height: 630,
+                alt: post.socialImageAlt ?? post.title,
+              },
+            ]
+          : []),
       ]
     : undefined;
 

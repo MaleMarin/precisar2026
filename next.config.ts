@@ -29,6 +29,20 @@ const nextConfig: NextConfig = {
     ];
     return [
       {
+        source: "/covers/pisa-2025-og.jpg",
+        headers: [
+          ...securityHeaders,
+          { key: "Cache-Control", value: "public, max-age=0, must-revalidate" },
+        ],
+      },
+      {
+        source: "/social/pisa-2025/:file*",
+        headers: [
+          ...securityHeaders,
+          { key: "Cache-Control", value: "public, max-age=0, must-revalidate" },
+        ],
+      },
+      {
         source: "/:path*",
         headers: securityHeaders,
       },
