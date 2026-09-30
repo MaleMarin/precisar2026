@@ -149,6 +149,8 @@ export default async function SomosPrecisarPage() {
           </div>
         </SomosReveal>
       </section>
+
+      <p className={styles.affiliation}>{t("affiliation")}</p>
     </article>
   );
 }

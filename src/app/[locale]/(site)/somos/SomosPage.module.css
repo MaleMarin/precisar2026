@@ -693,6 +693,17 @@
   color: color-mix(in oklab, var(--ink) 78%, transparent);
 }
 
+.affiliation {
+  margin: clamp(1.75rem, 4.5vw, 2.75rem) auto 0;
+  padding: 0 var(--somos-band-x, clamp(1.25rem, 4vw, 2.5rem));
+  max-width: var(--somos-inner);
+  text-align: center;
+  font-family: var(--font-sans-family), system-ui, sans-serif;
+  font-size: var(--somos-body);
+  line-height: 1.7;
+  color: color-mix(in oklab, var(--ink) 72%, transparent);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .softCard:hover {
     transform: none;
