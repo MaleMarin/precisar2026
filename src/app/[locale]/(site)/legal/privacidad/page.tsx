@@ -63,6 +63,9 @@ export default async function Page() {
       <h2 className="mt-10 font-[family-name:var(--font-display)] text-xl font-medium">{t("s5Title")}</h2>
       <p>{t("s5Body")}</p>
 
+      <h2 className="mt-10 font-[family-name:var(--font-display)] text-xl font-medium">{t("sMessagingTitle")}</h2>
+      <p>{t("sMessagingBody")}</p>
+
       <h2 className="mt-10 font-[family-name:var(--font-display)] text-xl font-medium">{t("s6Title")}</h2>
       <p>{t("s6Intro", { siteName: SITE.name })}</p>
       <ul className="list-disc space-y-2 pl-5">

@@ -95,7 +95,9 @@
     "legalNavAria": "Legal",
     "privacyPolicy": "Privacy Policy",
     "privacyConsulta": "Privacy · 2026 Consultation",
-    "privacyBotOnda": "Privacy · Bot Onda"
+    "privacyBotOnda": "Privacy · Bot Onda",
+    "termsOfUse": "Terms of use",
+    "legalEntity": "Precisar is an initiative of {legalName} · RUT {rut}"
   },
   "language": {
     "switch": "Language",
@@ -1771,11 +1773,11 @@
     "metaTitle": "Privacy Policy | Precisar",
     "title": "Privacy policy",
     "kicker": "Website · {siteHost}",
-    "lastUpdated": "Last updated: April 12, 2026",
+    "lastUpdated": "Last updated: 30 September 2026",
     "s1Title": "1. Scope",
     "s1Body": "This policy describes how {siteName} handles personal and technical information associated with public use of our website ({siteUrl}), unless a specific notice or policy applies to a particular product or form.",
     "s2Title": "2. Data controller",
-    "s2BodyBefore": "The controller of this site and of the data processing described here is the organization behind {siteName}. For privacy inquiries you can write to",
+    "s2BodyBefore": "The controller of this site and of the data processing described here is Fundación Democracia Abierta, RUT 65.198.517-K, with registered address at Andrés Bello 2711, Of. 801, Las Condes, Santiago, Chile. Precisar is an initiative of the Foundation. For privacy inquiries you can write to",
     "s2BodyOrSensitive": "or, for sensitive personal data matters, to",
     "s3Title": "3. What information we may process",
     "s3Items": [
@@ -1796,6 +1798,8 @@
     "s4Body": "We retain information for as long as necessary for the stated purposes and in accordance with applicable legal obligations. We apply reasonable technical and organizational security measures appropriate to the type of service.",
     "s5Title": "5. Your rights",
     "s5Body": "You may request access, rectification, erasure or objection to the processing of your personal data when applicable law allows, by contacting us at the emails above. If you reside in Chile, you may also learn about the Personal Data Protection Act and its official channels.",
+    "sMessagingTitle": "Messaging channels",
+    "sMessagingBody": "Precisar offers Onda de Precisar, a media-education service available on the web and on WhatsApp. The processing of data in that service, including phone numbers and message content, is described in Privacy · Bot Onda. You can stop receiving WhatsApp messages at any time by writing STOP.",
     "s6Title": "6. Specific policies",
     "s6Intro": "Some {siteName} experiences have their own notices, which prevail within their scope:",
     "s6Links": [
@@ -2218,11 +2222,11 @@
     "metaTitle": "ONDA BOT Privacy Policy | Precisar",
     "title": "ONDA BOT Privacy Policy",
     "kicker": "Legal",
-    "lastUpdated": "Last updated: February 27, 2026",
+    "lastUpdated": "Last updated: 30 September 2026",
     "responsible": "Controller:",
-    "responsibleValue": "Fundación Democracia Abierta ({siteHost})",
+    "responsibleValue": "Fundación Democracia Abierta, RUT 65.198.517-K",
     "s1Title": "1. Who is responsible",
-    "s1Body": "Chat ONDA (ONDA, the chat, the bot) is a service of Fundación Democracia Abierta (hereinafter, Precisar, we). This policy describes how we handle information when you use the chat on the web and, where applicable, through WhatsApp.",
+    "s1Body": "Chat ONDA (ONDA, the chat, the bot) is a service of Fundación Democracia Abierta (hereinafter, Precisar, we). This policy describes how we handle information when you use the chat on the web and, where applicable, through WhatsApp. Onda de Precisar answers only questions about media education, critical reading of information, and responsible use of technology. It is not a general-purpose assistant and does not replace professional, legal, medical, or financial advice.",
     "s2Title": "2. What data we collect and why",
     "s2WebTitle": "2.1 On the web version (website / precisar.net)",
     "s2WebItems": [
@@ -2305,6 +2309,8 @@
       "Data portability, where applicable."
     ],
     "s7Closing": "To exercise these rights, write to us at the contact below. You may also file a complaint with your country's data protection authority.",
+    "sStopTitle": "How to stop receiving messages and delete your data",
+    "sStopBody": "On WhatsApp you can write STOP at any time to stop receiving messages from Onda de Precisar. If you want to use the service again, just write again. To request deletion of your number and conversation history, write to male@precisar.net stating the associated phone number. We will respond within a maximum of 15 business days.",
     "s8Title": "8. Contact",
     "s8Org": "Fundación Democracia Abierta",
     "s8WebLabel": "Web:",
@@ -2314,6 +2320,31 @@
       "We may update this policy. Relevant changes will be indicated on the web (for example, on precisar.net or on the page where the chat is offered) with a new Last updated date. Continued use of the chat after those changes implies acceptance of the updated policy.",
       "This policy applies to Chat ONDA offered by Fundación Democracia Abierta on the web and, where applicable, on WhatsApp."
     ]
+  },
+  "legalTerminos": {
+    "metaTitle": "Terms of use",
+    "title": "Terms of use",
+    "kicker": "Website · {siteHost}",
+    "lastUpdated": "Last updated: 30 September 2026",
+    "s1Title": "1. Who we are",
+    "s1Body": "Precisar is an initiative of Fundación Democracia Abierta, RUT 65.198.517-K, with registered address at Andrés Bello 2711, Of. 801, Las Condes, Santiago, Chile. These terms govern the use of precisar.net, onda.precisar.net and the Onda de Precisar service on WhatsApp.",
+    "s2Title": "2. Use of the site and its contents",
+    "s2Body": "Precisar content is distributed under a Creative Commons Attribution 4.0 International (CC BY 4.0) license, unless otherwise stated. You may share and adapt it with attribution.",
+    "s3Title": "3. Onda de Precisar",
+    "s3Body": "Onda de Precisar is a free media-education service that uses artificial intelligence to guide critical reading of messages, news, and digital content. Its answers are indicative, may contain errors, and do not replace professional advice. The service answers only on the topics indicated.",
+    "s4Title": "4. Responsible use",
+    "s4Body": "It is not permitted to use the services to spread illegal content, impersonate others, harass people, send unsolicited bulk messages, or attempt to breach the security of the systems. We may limit or suspend access in case of uses that infringe these terms.",
+    "s5Title": "5. WhatsApp",
+    "s5Body": "Use of Onda de Precisar on WhatsApp is also governed by WhatsApp's terms and policies. You can stop receiving messages by writing STOP at any time.",
+    "s6Title": "6. Privacy",
+    "s6BodyBefore": "The processing of personal data is described in the ",
+    "s6PrivacyLink": "Privacy policy",
+    "s6BodyMid": " and in ",
+    "s6BotLink": "Privacy · Bot Onda",
+    "s6BodyAfter": ".",
+    "s7Title": "7. Changes",
+    "s7Body": "We may update these terms. The date of the last update appears at the top of this page.",
+    "s8Title": "8. Contact"
   },
   "propuestaPoliticaAlfabetizacion": {
     "metaTitle": "AMI-Chile Agenda · Literacy policy proposal",

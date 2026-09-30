@@ -84,6 +84,9 @@ export default async function Page() {
       </ul>
       <p className="mt-4">{t("s7Closing")}</p>
 
+      <h2 className="mt-10 font-[family-name:var(--font-display)] text-xl font-medium">{t("sStopTitle")}</h2>
+      <p>{t("sStopBody")}</p>
+
       <h2 className="mt-10 font-[family-name:var(--font-display)] text-xl font-medium">{t("s8Title")}</h2>
       <p>{t("s8Org")}</p>
       <p>

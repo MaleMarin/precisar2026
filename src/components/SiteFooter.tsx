@@ -12,6 +12,7 @@ import {
   NAV_PRIMARY,
   NAV_PRIMARY_I18N_KEY,
   NEWSLETTER,
+  SITE,
 } from "@/lib/site";
 import styles from "./SiteFooter.module.css";
 
@@ -516,6 +517,18 @@ export function SiteFooter() {
             </div>
             <div className={styles.legalMeta}>
               <p className={styles.legalLicense}>
+                {tFooter("legalEntity", { legalName: SITE.legalName, rut: SITE.rut })}
+                <br />
+                {SITE.address} ·{" "}
+                <a href={`tel:${SITE.phone.replace(/\s/g, "")}`} className={`${styles.licenseLink} ${styles.hitTarget}`}>
+                  {SITE.phone}
+                </a>
+                {" · "}
+                <a href={`mailto:${SITE.contactEmail}`} className={`${styles.licenseLink} ${styles.hitTarget}`}>
+                  {SITE.contactEmail}
+                </a>
+              </p>
+              <p className={styles.legalLicense}>
                 {tFooter("ccLicenseBefore", { year })}
                 <a
                   href={ccByDeedUrl(locale)}
@@ -536,6 +549,9 @@ export function SiteFooter() {
                 </Link>
                 <Link href="/legal/privacidad-bot-onda" className={`${styles.privacyLink} ${styles.hitTarget}`}>
                   {tFooter("privacyBotOnda")}
+                </Link>
+                <Link href="/legal/terminos" className={`${styles.privacyLink} ${styles.hitTarget}`}>
+                  {tFooter("termsOfUse")}
                 </Link>
               </nav>
             </div>

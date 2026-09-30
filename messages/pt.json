@@ -95,7 +95,9 @@
     "legalNavAria": "Legal",
     "privacyPolicy": "Política de Privacidade",
     "privacyConsulta": "Privacidade · Consulta 2026",
-    "privacyBotOnda": "Privacidade · Bot Onda"
+    "privacyBotOnda": "Privacidade · Bot Onda",
+    "termsOfUse": "Termos de uso",
+    "legalEntity": "A Precisar é uma iniciativa da {legalName} · RUT {rut}"
   },
   "language": {
     "switch": "Idioma",
@@ -1771,11 +1773,11 @@
     "metaTitle": "Política de Privacidade | Precisar",
     "title": "Política de privacidade",
     "kicker": "Site · {siteHost}",
-    "lastUpdated": "Última atualização: 12 de abril de 2026",
+    "lastUpdated": "Última atualização: 30 de setembro de 2026",
     "s1Title": "1. Âmbito",
     "s1Body": "Esta política descreve como a {siteName} trata a informação pessoal e técnica associada ao uso público do nosso site ({siteUrl}), salvo quando existir um aviso ou política específica para um produto ou formulário concreto.",
     "s2Title": "2. Responsável",
-    "s2BodyBefore": "O responsável pelo site e pelo tratamento dos dados aqui descritos é a organização por trás da {siteName}. Para consultas sobre privacidade pode escrever para",
+    "s2BodyBefore": "O responsável pelo site e pelo tratamento dos dados aqui descritos é a Fundación Democracia Abierta, RUT 65.198.517-K, com domicílio em Andrés Bello 2711, Of. 801, Las Condes, Santiago, Chile. A Precisar é uma iniciativa da Fundação. Para consultas sobre privacidade pode escrever para",
     "s2BodyOrSensitive": "ou, para assuntos sensíveis de dados pessoais, para",
     "s3Title": "3. Que informação podemos tratar",
     "s3Items": [
@@ -1796,6 +1798,8 @@
     "s4Body": "Conservamos a informação pelo tempo necessário para as finalidades indicadas e de acordo com as obrigações legais aplicáveis. Aplicamos medidas razoáveis de segurança técnica e organizativa adequadas ao tipo de serviço.",
     "s5Title": "5. Os seus direitos",
     "s5Body": "Pode solicitar acesso, retificação, supressão ou oposição ao tratamento dos seus dados pessoais quando a normativa aplicável o permitir, contactando-nos pelos e-mails indicados acima. Se reside no Chile, também pode informar-se sobre a Lei de Proteção de Dados Pessoais e os seus canais oficiais.",
+    "sMessagingTitle": "Canais de mensagens",
+    "sMessagingBody": "A Precisar oferece Onda de Precisar, um serviço de educação mediática disponível na web e no WhatsApp. O tratamento de dados nesse serviço, incluindo o número de telefone e o conteúdo das mensagens, está descrito em Privacidade · Bot Onda. Pode deixar de receber mensagens de WhatsApp a qualquer momento escrevendo STOP.",
     "s6Title": "6. Políticas específicas",
     "s6Intro": "Algumas experiências da {siteName} têm avisos próprios, que prevalecem no seu âmbito:",
     "s6Links": [
@@ -2218,11 +2222,11 @@
     "metaTitle": "Política de Privacidade BOT ONDA | Precisar",
     "title": "Política de Privacidade BOT ONDA",
     "kicker": "Legal",
-    "lastUpdated": "Última atualização: 27 de fevereiro de 2026",
+    "lastUpdated": "Última atualização: 30 de setembro de 2026",
     "responsible": "Responsável:",
-    "responsibleValue": "Fundación Democracia Abierta ({siteHost})",
+    "responsibleValue": "Fundación Democracia Abierta, RUT 65.198.517-K",
     "s1Title": "1. Quem é o responsável",
-    "s1Body": "O Chat ONDA (ONDA, o chat, o bot) é um serviço da Fundación Democracia Abierta (doravante, Precisar, nós). Esta política descreve como tratamos a informação no uso do chat na web e, quando aplicável, através do WhatsApp.",
+    "s1Body": "O Chat ONDA (ONDA, o chat, o bot) é um serviço da Fundación Democracia Abierta (doravante, Precisar, nós). Esta política descreve como tratamos a informação no uso do chat na web e, quando aplicável, através do WhatsApp. Onda de Precisar responde apenas a consultas sobre educação mediática, leitura crítica de informação e uso responsável de tecnologia. Não é um assistente de uso geral nem substitui aconselhamento profissional, jurídico, médico ou financeiro.",
     "s2Title": "2. Que dados recolhemos e para quê",
     "s2WebTitle": "2.1 Na versão web (site / precisar.net)",
     "s2WebItems": [
@@ -2305,6 +2309,8 @@
       "Portabilidade dos dados, quando aplicável."
     ],
     "s7Closing": "Para exercer estes direitos, escreva-nos para o contacto indicado abaixo. Também pode apresentar uma reclamação perante a autoridade de proteção de dados do seu país.",
+    "sStopTitle": "Como deixar de receber mensagens e eliminar os seus dados",
+    "sStopBody": "No WhatsApp pode escrever STOP a qualquer momento para deixar de receber mensagens de Onda de Precisar. Se quiser voltar a usar o serviço, basta escrever de novo. Para solicitar a eliminação do seu número e do histórico das suas conversas, escreva para male@precisar.net indicando o número de telefone associado. Responderemos no prazo máximo de 15 dias úteis.",
     "s8Title": "8. Contacto",
     "s8Org": "Fundación Democracia Abierta",
     "s8WebLabel": "Web:",
@@ -2314,6 +2320,31 @@
       "Podemos atualizar esta política. As alterações relevantes serão indicadas na web (por exemplo, em precisar.net ou na página onde o chat é oferecido) com uma nova data de Última atualização. O uso continuado do chat após essas alterações implica a aceitação da política atualizada.",
       "Esta política aplica-se ao Chat ONDA oferecido pela Fundación Democracia Abierta na web e, quando aplicável, no WhatsApp."
     ]
+  },
+  "legalTerminos": {
+    "metaTitle": "Termos de uso",
+    "title": "Termos de uso",
+    "kicker": "Site · {siteHost}",
+    "lastUpdated": "Última atualização: 30 de setembro de 2026",
+    "s1Title": "1. Quem somos",
+    "s1Body": "A Precisar é uma iniciativa da Fundación Democracia Abierta, RUT 65.198.517-K, com domicílio em Andrés Bello 2711, Of. 801, Las Condes, Santiago, Chile. Estes termos regulam o uso de precisar.net, onda.precisar.net e do serviço Onda de Precisar no WhatsApp.",
+    "s2Title": "2. Uso do site e dos conteúdos",
+    "s2Body": "Os conteúdos da Precisar são distribuídos sob a licença Creative Commons Atribuição 4.0 Internacional (CC BY 4.0), salvo indicação em contrário. Pode partilhá-los e adaptá-los citando a fonte.",
+    "s3Title": "3. Onda de Precisar",
+    "s3Body": "Onda de Precisar é um serviço gratuito de educação mediática que utiliza inteligência artificial para orientar a leitura crítica de mensagens, notícias e conteúdos digitais. As suas respostas são orientativas, podem conter erros e não substituem aconselhamento profissional. O serviço responde apenas sobre os temas indicados.",
+    "s4Title": "4. Uso responsável",
+    "s4Body": "Não é permitido usar os serviços para difundir conteúdo ilegal, suplantar identidades, assediar outras pessoas, enviar mensagens em massa não solicitadas nem tentar violar a segurança dos sistemas. Podemos limitar ou suspender o acesso perante usos que infrinjam estes termos.",
+    "s5Title": "5. WhatsApp",
+    "s5Body": "O uso de Onda de Precisar no WhatsApp também se rege pelos termos e políticas do WhatsApp. Pode deixar de receber mensagens escrevendo STOP a qualquer momento.",
+    "s6Title": "6. Privacidade",
+    "s6BodyBefore": "O tratamento de dados pessoais está descrito na ",
+    "s6PrivacyLink": "Política de privacidade",
+    "s6BodyMid": " e na ",
+    "s6BotLink": "Privacidade · Bot Onda",
+    "s6BodyAfter": ".",
+    "s7Title": "7. Alterações",
+    "s7Body": "Podemos atualizar estes termos. A data da última atualização aparece no início desta página.",
+    "s8Title": "8. Contacto"
   },
   "propuestaPoliticaAlfabetizacion": {
     "metaTitle": "Agenda AMI-Chile · Proposta de política de alfabetização",

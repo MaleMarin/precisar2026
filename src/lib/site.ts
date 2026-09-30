@@ -21,6 +21,10 @@ export const SITE = {
   url: "https://precisar.net",
   contactEmail: "contacto@precisar.net",
   privacyEmail: "male@precisar.net",
+  legalName: "Fundación Democracia Abierta",
+  rut: "65.198.517-K",
+  address: "Andrés Bello 2711, Of. 801, Las Condes, Santiago, Chile",
+  phone: "+56 9 7725 1396",
 } as const;
 
 const SITE_ORIGIN = SITE.url.replace(/\/$/, "");
