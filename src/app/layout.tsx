@@ -66,6 +66,9 @@ export const metadata: Metadata = {
     description: SITE.socialDefault.description,
     images: [DEFAULT_OG_IMAGE],
   },
+  other: {
+    "facebook-domain-verification": "5oswi41wegeyxizvgex9e814jxb7ma",
+  },
 };
 
 export default function RootLayout({
