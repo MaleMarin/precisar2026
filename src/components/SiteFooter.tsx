@@ -547,9 +547,12 @@ export function SiteFooter() {
                 <Link href="/legal/privacidad-consulta-2026" className={`${styles.privacyLink} ${styles.hitTarget}`}>
                   {tFooter("privacyConsulta")}
                 </Link>
-                <Link href="/legal/privacidad-bot-onda" className={`${styles.privacyLink} ${styles.hitTarget}`}>
+                <a
+                  href={EXTERNAL.botOndaPrivacy}
+                  className={`${styles.privacyLink} ${styles.hitTarget}`}
+                >
                   {tFooter("privacyBotOnda")}
-                </Link>
+                </a>
                 <Link href="/legal/terminos" className={`${styles.privacyLink} ${styles.hitTarget}`}>
                   {tFooter("termsOfUse")}
                 </Link>

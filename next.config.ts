@@ -60,6 +60,16 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       ...legacyRedirects(),
+      {
+        source: "/legal/privacidad-bot-onda",
+        destination: "https://onda.precisar.net/privacidad",
+        permanent: true,
+      },
+      {
+        source: "/:locale(es|en|pt)/legal/privacidad-bot-onda",
+        destination: "https://onda.precisar.net/privacidad",
+        permanent: true,
+      },
       /** Clientes que piden solo `/favicon.ico` → mismo activo en `public/favicon.png`. */
       { source: "/favicon.ico", destination: "/favicon.png", permanent: false },
     ];

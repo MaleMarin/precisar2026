@@ -101,6 +101,7 @@ export function homeHeroHasVideo(): boolean {
 
 export const EXTERNAL = {
   botOnda: "https://onda.precisar.net/chat",
+  botOndaPrivacy: "https://onda.precisar.net/privacidad",
   consultaCiudadana: "https://encuesta-informacion.web.app/consulta-2026/",
   /** Redes en pie y enlaces compartidos. */
   xTwitter: "https://x.com/precisar_",
@@ -355,7 +356,7 @@ export const FOOTER_COLUMNS: { title: string; links: NavItem[] }[] = [
     title: "Legal y otros",
     links: [
       { label: "Política de privacidad (consulta 2026)", href: "/legal/privacidad-consulta-2026" },
-      { label: "Privacidad Bot ONDA", href: "/legal/privacidad-bot-onda" },
+      { label: "Privacidad Bot ONDA", href: EXTERNAL.botOndaPrivacy },
       { label: "Bot ONDA (conversar)", href: EXTERNAL.botOnda },
       { label: "Consulta ciudadana (formulario)", href: EXTERNAL.consultaCiudadana },
     ],
